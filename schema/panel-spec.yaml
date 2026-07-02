@@ -289,6 +289,11 @@ columns:
     definition: >
       Heavy-tail statistics of the system's characteristic events, with CSN-grade
       fit status. Instance- or class-level per system (level-required rule).
+      Every value MUST carry measurand_type: temporal-event (event-size/frequency
+      distributions over time — storms, flares, blackouts, returns) or
+      static-cross-sectional (rank-size distributions with no event structure —
+      Zipf word frequencies, city sizes). The two are different kinds of heavy
+      tail and must not be silently conflated (cross-entry audit, 2026-07-02).
     note: "CSN 2009: word frequency alpha=1.95 was the study's only clean power law; CA earthquake sizes formally rejected (raw form) while G-R b~1.0 stands in magnitude — record the tension, don't resolve it silently."
 
   - id: temporal_correlation

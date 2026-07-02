@@ -1,0 +1,825 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: cities
+# Phase 4 draft. The socio-physical bridge in the pilot 10:
+# shares Chaisson's energy-rate-density lens with stars and
+# tropical-cyclones, and the adaptive/CAS lens with financial-markets,
+# while being the pilot's first class with genuinely uncertain
+# atomicity (residents vs. buildings vs. neighborhoods).
+# ============================================================
+id: cities
+name: Cities
+category: socio-economic
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: new-york-city
+    name: New York City
+    note: primary worked exemplar; best-instrumented US city in this sweep (US Census, NYC MOCEJ/NPCC4 energy data)
+  - id: tokyo
+    name: Tokyo (Greater Tokyo Area)
+    note: >
+      secondary exemplar; population figure is definition-sensitive (23
+      Special Wards ~9.73M vs. Tokyo Metropolis ~14M [unverified — model
+      knowledge, not sourced this session] vs. Greater Tokyo Area 33.4-37M
+      depending on UN WUP edition and source) — no single uncontested
+      figure, recorded as a range per source
+
+scoping_note: >
+  The system is the functioning metropolis as an ongoing socio-physical
+  institution: the built environment (buildings, streets, utility networks),
+  the resident/worker population using and maintaining it, and the
+  governing/economic institutions that plan, regulate, and finance it,
+  exemplified by New York City. Inside the boundary: residents and workers
+  acting as urban agents (out-of-scope(human) per D2), buildings and
+  infrastructure, the local economy and land market, and municipal
+  government as an internal adaptive institution (so zoning changes and
+  post-crisis infrastructure hardening count as internal adaptation, mirroring
+  the financial-markets treatment of exchange rule-making). Outside: the
+  national/global economy generating demand and capital flows (forcing,
+  recorded under relations.part_of), the natural hinterland and climate
+  (forcing), and other cities in the urban system (recorded via
+  instance_population and the Zipf-law class-statistical claim). Atomicity
+  per filling_rules.atomicity-convention: individual residents/households and
+  buildings/parcels are treated as the atomic parts at which the city's
+  CHARACTERISTIC dynamics (scaling laws, land use, commuting) operate — not
+  individual cells or neurons of residents, and not individual bricks of
+  buildings. This is a dual-ontology choice, parallel to the english entry's
+  speakers-plus-lexical-units split: residents are agents (out-of-scope(human)),
+  buildings/parcels are the durable physical substrate. Scoring is
+  class-general with exemplar evidence primarily from New York City; Tokyo
+  evidence is comparative and much thinner (population figures only).
+
+summary: >
+  A city is a self-reinforcing concentration of people, structures, and
+  exchange that grows faster than it should. Bring people together and
+  wages, patents, and crime all rise faster than population — while roads
+  and pipes get cheaper per resident — a regularity, Bettencourt's urban
+  scaling laws (Bettencourt & West 2010), as reproducible as it is still
+  unexplained. No planning
+  office designs a city's neighborhoods, commuting patterns, or economic
+  niches; municipal government lays down a grid and a rulebook, and a far
+  richer order assembles itself on top, resembling the market it contains
+  more than the infrastructure that hosts it. A city is also where several
+  of this catalog's other classes physically live: the power grid, the
+  financial exchange, the road network, and the social network are all, in
+  a real sense, organs of the metropolis housing them.
+
+relations:
+  part_of: [global-economy]                 # unresolved -> roster expansion queue
+  contains: [power-grids, financial-markets, road-traffic-systems, social-networks]
+  # power-grids: resolved, reciprocal (power-grids.yaml part_of updated in same cleanup pass)
+  # financial-markets: resolved, reciprocal (financial-markets.yaml part_of updated in same cleanup pass)
+  # road-traffic-systems: unresolved -> roster expansion queue
+  # social-networks: unresolved -> roster expansion queue
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(new-york-city)
+    value: 2e5
+    unit: m
+    method: >
+      Order of magnitude of characteristic linear extent. NYC (city proper)
+      land area 783.8 km^2 implies a characteristic linear scale of order
+      3e4 m (sqrt of area); the NYC Combined Statistical Area (spanning
+      NY/NJ/CT/PA) spans roughly 1.5-2e5 m across, a derived
+      order-of-magnitude judgment from population/area figures, not a
+      directly published "characteristic extent" figure. Recorded value uses
+      the metro/CSA order of magnitude (1e5-1e6 m) as the more
+      complexity-relevant scale (commuting/economic integration), following
+      the same "institutionally larger than physically concentrated" logic
+      financial-markets used for its own spatial_extent entry. Point value
+      set at ~2e5 m to match this entry's own computed CSA-span figure
+      directly, rather than sitting unjustified at the top of the OOM band.
+    detail:
+      nyc_city_proper_land_area: "783.8 km^2 (302.6 sq mi, five boroughs, water excluded) — US Census-sourced, read via Wikipedia aggregation"
+      nyc_csa_linear_span: "~150-200 km across (NY/NJ/CT/PA) — derived order-of-magnitude judgment, not a published figure"
+      tokyo_23_wards_area: "627 km^2"
+      tokyo_metropolis_area: "~2,188 km^2 (single-source, lower confidence)"
+    sources: [cities-sources-phase4]
+    evidence_status: derived
+    confidence: low
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: daily commute/activity cycle, value: "~1e5 s (diurnal)", evidence_status: qualitative}
+      - {name: building/infrastructure replacement, value: "decades (~1e9 s)", evidence_status: qualitative}
+      - {name: neighborhood-scale land-use turnover, value: "years to decades", evidence_status: qualitative}
+      - {name: city lifetime (as a going institution), value: "centuries and counting (NYC founded 1624, ~1.3e10 s and rising)", evidence_status: qualitative}
+    note: >
+      No single published multi-timescale study for NYC or Tokyo specifically
+      was recovered this sweep; timescales are qualitative order-of-magnitude
+      judgments, not measured figures, and are flagged as such rather than
+      given false quantitative precision.
+  numerosity:
+    type: quantitative
+    level: exemplar(new-york-city)
+    value: "~1e7 residents (NYC proper); buildings/parcels and households order of magnitude not independently verified this sweep"
+    note: >
+      No published "atomic part count" framework analogous to Bettencourt's
+      scaling dataset exists for cities as a class. Resident counts are solid
+      (see instance_population/component_ontology); building, parcel, and
+      household counts were NOT recovered with a citable source this sweep
+      (NYC DCP/DOF parcel counts likely exist but were not searched) —
+      recorded as unknown rather than estimated, per no-guessing.
+    sources: [cities-sources-phase4]
+    evidence_status: measured
+    confidence: medium
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: >
+      33 megacities (>10M inhabitants) worldwide as of 2018; 43 projected by
+      2030 (UN DESA WUP 2018). Precise count of cities >1M population was
+      NOT recovered (source PDF unparseable this sweep) — recorded as
+      unknown at that finer grain. One in eight people worldwide live in the
+      33 megacities; close to half of urban dwellers live in settlements
+      <500,000 (same source).
+    sources: [un-wup2018-press]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Recovered via a secondary UN DESA press-release HTML page
+      (primary-fetched this session), not the underlying WUP2018 Highlights
+      PDF table itself (binary/compressed stream, failed to parse this
+      session) — the >1M-cities count the brief specifically wanted remains
+      genuinely unknown, not merely unconfirmed. This is a real, standing
+      data gap, not a placeholder.
+  component_ontology:
+    type: structured
+    level: exemplar(new-york-city)
+    parts:
+      - name: residents/households
+        count_oom: "~8.5e6 (NYC city proper, US Census Vintage 2024); ~2.0e7 (NYC metro/MSA, 2024 estimate); ~3.3-3.7e7 (Tokyo Greater Area, definition-dependent)"
+        interchangeable: no    # heterogeneous roles (residence, employment, ownership) are load-bearing
+        itself_complex: out-of-scope(human)
+        sources: [cities-sources-phase4]
+        evidence_status: measured
+      - name: buildings/parcels
+        count_oom: unknown
+        interchangeable: no
+        itself_complex: no
+        note: "no citable NYC/Tokyo parcel count recovered this sweep; candidate source for follow-up: NYC Dept. of City Planning / Dept. of Finance property counts"
+        evidence_status: unknown
+      - name: infrastructure networks (power grid, road network, water/sewer, transit)
+        count_oom: "not enumerated; each is itself a complex system (see relations.contains)"
+        interchangeable: no
+        itself_complex: power-grids   # road-traffic-systems and others also apply; power-grids is the entry resolved in this batch
+        evidence_status: qualitative
+      - name: firms/economic establishments
+        count_oom: unknown
+        interchangeable: no
+        itself_complex: out-of-scope(human) / firms   # firms-and-corporations unresolved -> expansion queue
+        note: "not searched for this sweep; candidate source: NYC Dept. of Finance / Census County Business Patterns"
+        evidence_status: unknown
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(new-york-city)
+    value: "~9.3e5 (this project's body-mass-normalized derivation); Chaisson's own generic 'technologists' proxy: 2e6"
+    unit: erg s^-1 g^-1
+    method: >
+      DERIVED by this project this session (evidence_status: derived, ours,
+      per panel-spec method note). NYC total annual energy consumption
+      (~1.47e15 BTU/yr, MOCEJ figure via NPCC4/Yoon et al. 2024, snippet-verified)
+      converted to power (~4.9e10 W = ~4.9e17 erg/s), divided by NYC
+      city-proper population (8.478e6) times an assumed ~62 kg/person global
+      adult body mass [unverified — model knowledge, not sourced this
+      session] gives mass ~5.26e11 g. Result: Phi_m ~ 9.3e5 erg/s/g — same
+      order of magnitude as, roughly half of, Chaisson's own "technologists"
+      (present-day technological human society) proxy figure of 2e6 erg/s/g
+      (12.5 kW/person; Chaisson 2010/2011, Complexity 16:27, Table 4), which
+      is NOT city-specific and itself implies a ~62.5 kg/person body-mass
+      convention when backed out. IMPORTANT interpretive caveat carried
+      forward from the sweep: this is a BODY-MASS-normalized Phi_m, not an
+      infrastructure-mass-normalized one; no citable "mass of NYC's built
+      infrastructure" figure was located, so an infrastructure-normalized
+      Phi_m (which would be far smaller, by the same logic financial-markets'
+      entry used to flag NYSE's energy_rate_density as unknown) remains
+      unknown pending that mass figure. Tokyo: no power or mass inputs were
+      pulled this sweep; Tokyo Phi_m is unknown.
+    sources: [cities-sources-phase4, chaisson2011]
+    evidence_status: derived
+    confidence: low
+    verifier_flags: [body-mass-vs-infrastructure-mass-convention-unresolved, nyc-electricity-only-subset-lower-confidence-than-total-energy-figure]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: hierarchical-mixed
+    note: >
+      A city is not a single network in the catalog's pure sense: it is a
+      spatial/field substrate (land, buildings) overlaid with multiple
+      distinct networks (road, transit, utility, social, economic) at
+      different scales — the same "mixed" character noted for the class in
+      the sweep report (Section 11).
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: spatial proximity / land use
+        mechanism: physical co-location and the built environment (zoning, real estate)
+        participants: residents, firms, buildings
+        range: local
+      - name: commuting / mobility flow
+        mechanism: movement of people and goods across road, transit, and pedestrian networks
+        participants: residents, firms (via transportation networks; road-traffic-systems unresolved link)
+        range: network-mediated
+      - name: economic exchange
+        mechanism: labor, goods, and real-estate markets (overlaps financial-markets where formalized)
+        participants: residents, firms, financial-markets institutions
+        range: network-mediated
+      - name: infrastructure service delivery
+        mechanism: power, water, sewer, and communications provision through physical networks
+        participants: residents, firms <-> utility/infrastructure operators (power-grids, other unresolved)
+        range: network-mediated
+      - name: governance / regulation
+        mechanism: zoning, permitting, taxation, and municipal rule-making
+        participants: municipal government <-> residents/firms
+        range: global (city-wide), slow timescale
+      - name: social interaction
+        mechanism: face-to-face and mediated social ties (overlaps social-networks where formalized)
+        participants: residents
+        range: network-mediated
+    type_count: 6
+    alphabet_closure: open
+    justification: >
+      New interaction types can and do arise (new mobility modes such as
+      ride-hailing and e-scooters, new digital-service delivery channels, new
+      forms of social-media-mediated interaction) without any change to the
+      city's basic physical or legal substrate — closer to the-internet's
+      substrate-plus-emergent-traffic story but with a genuinely growing
+      alphabet rather than a fixed protocol set, and closer still to
+      languages' open alphabet than to financial-markets' constrained,
+      rulebook-fixed one. Per this class's own scoping note, governance is
+      inside the boundary, so new interaction types being formally recognized
+      (e.g., zoning categories for short-term rentals) is itself an internal,
+      adaptive event, not an external shock.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Cities as a whole are not usually modeled as a single network (see
+      interaction_topology). Intra-urban networks (street networks, transit
+      networks, mobility-flow networks) ARE network objects with candidate
+      degree-distribution literature (Louf, Roth & Barthelemy 2014, PLOS ONE
+      9(7):e102007, is a strong candidate primary source — title/journal
+      snippet-verified only, not read), but no specific exponent for NYC or
+      Tokyo was recovered this sweep. Left unknown rather than borrowing a
+      generic urban-network figure without a pinned citation, per
+      filling_rules.no-guessing.
+  modularity:
+    type: hybrid
+    level: exemplar(new-york-city)
+    score: 2
+    justification: >
+      Per this class's own anchor (modularity.yaml): New York City is
+      organized into boroughs and further into named neighborhoods with
+      recognizable identity, locally denser social/economic interaction, and
+      somewhat porous but real boundaries (bridges/tunnels as bottleneck
+      connectors between boroughs, commonly cited as a proxy for module
+      boundaries in urban network studies). Commuting- and mobile-phone-derived
+      community-detection studies on cities generally recover Q in the
+      0.3-0.5 range at the neighborhood/borough scale [unverified — model
+      knowledge, no specific NYC study confirmed in the source corpus, carried
+      forward unchanged from the anchor file's own caveat]. Matches the
+      anchor's moderate-modularity verdict: real subdivision, but daily
+      commuting and shared infrastructure integrate the boroughs into one
+      functional labor/housing market, so not strongly insulated.
+    sources: [cities-sources-phase4]
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 4
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): residents/households and
+      buildings/parcels (atoms) -> blocks/blockfaces (1) -> neighborhoods (2)
+      -> boroughs/districts (3) -> the city-wide municipal system (4).
+      Composition BETWEEN catalog entries (the city containing a power grid,
+      a financial exchange) lives in relations.contains, not counted here per
+      the hierarchy_depth column's own convention note.
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: "1.1-1.4 (boundary D); 1.5-2.0 (form/area-filling D) — general urban range, NOT exemplar-specific"
+    unit: dimensionless (D)
+    measurand: "box-counting fractal dimension of urban boundary (D_b) and built-up area-filling form (D_f)"
+    method: >
+      Batty & Longley's (1994) box-counting framework establishes the
+      general finding that urban boundary dimension typically falls 1.0-1.5
+      and form/area-filling dimension 1.5-2.0 [unverified — secondary
+      characterization of the book's findings; the book itself was not
+      fetched/read this session]. Specific empirical values recovered
+      (snippet-verified, none NYC- or Tokyo-specific): 33 Chinese mining
+      cities, boundary D=1.126-1.299 (mean ~1.227), form D=1.626-1.799 (mean
+      ~1.691) (Song et al. 2012, in Chinese, citation via secondary
+      aggregator); German central-place cities D=1.48-1.84 (form dimension,
+      source not independently pinned to a specific paper/DOI this session,
+      low confidence). No NYC- or Tokyo-specific fractal dimension value was
+      recovered — a real, named gap, distinct from tropical-cyclones' analogous
+      gap (that entry also lacks a storm-specific D and uses a general
+      tropical-cloud-field figure as its closest available proxy).
+    sources: [cities-sources-phase4]
+    evidence_status: measured
+    confidence: low
+    verifier_flags: [not-exemplar-specific, secondary-source-characterization-of-batty-longley-1994]
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Comparator: this class is not directly anchored in decentralization.yaml,
+      but financial-markets' NYSE anchor (score 2) is the closest structural
+      comparator and the reasoning transfers cleanly. A municipal government
+      has real authority over zoning, permitting, policing, and
+      infrastructure — a central institution that can and does steer parts of
+      city-wide behavior in real time (e.g., emergency response, transit
+      operation). But the behavior of greatest complexity-science interest —
+      where people choose to live and work, how neighborhoods form and
+      change, how the local economy allocates activity — is produced by the
+      distributed decisions of millions of residents and firms whom no
+      mayor's office commands. Mixed, as with an exchange operator: real
+      authority over part of the mechanics, equally weighty distributed
+      dynamics no one controls. Retagged class-general (not
+      exemplar(new-york-city)) per the financial-markets precedent: the
+      reasoning is generic to any municipally-governed city, not grounded in
+      an NYC-specific statute or agency; NYC is retained below as the
+      illustrative case.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: closest to the-internet anchor (nonlinearity.yaml, score 2)
+      and financial-markets (score 4), landing between them. Urban scaling
+      itself is the definitional nonlinearity: Bettencourt et al. (2007) show
+      city-level quantities scale as Y = Y0*N^beta with beta systematically
+      != 1 (superlinear for innovation/patents, beta=1.27; sublinear for
+      infrastructure, beta=0.77 for gasoline stations) — a genuinely
+      multiplicative, non-additive relationship between population and
+      output that is central to how urban scientists describe cities, not
+      peripheral. NYC-specific: Bettencourt et al. (2007, main text) report a
+      super-exponential scaling exponent beta=1.09 for the exemplar,
+      reinforcing that the nonlinearity is not merely a cross-city
+      abstraction but measured for NYC itself. Congestion dynamics (traffic
+      flow-density relationships)
+      and agglomeration/network effects in local economies are additional
+      nonlinear mechanisms. Scored 3, not 4: unlike a hurricane or a market,
+      routine day-to-day urban function (commuting, service delivery) is
+      reasonably well approximated by quasi-linear capacity models much of
+      the time; nonlinearity is most load-bearing at the scaling-law level
+      and during acute stress (congestion collapse, crisis response), not
+      pervasively at every subsystem simultaneously.
+    sources: [bettencourt2007]
+    evidence_status: measured
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - name: agglomeration / urban scaling
+        sign: reinforcing
+        mechanism: "more people -> denser interaction opportunities -> higher productivity/innovation per capita (superlinear scaling, beta=1.27 for patents) -> more economic opportunity attracts more people (Bettencourt et al. 2007)"
+      - name: congestion
+        sign: balancing
+        mechanism: "growing population/activity -> rising commute times and infrastructure strain -> reduced attractiveness of further densification -> growth pressure redirected or capped, at least locally"
+      - name: land-value / zoning
+        sign: reinforcing (episodic)
+        mechanism: "investment and amenity concentration raise local land values -> attract further investment and higher-income residents -> further value increases (gentrification-style dynamics), until displaced by cost or policy intervention"
+    justification: >
+      Comparator: closest to financial-markets' own anchor (feedback.yaml,
+      score 3) — multiple documented loops shape city dynamics without being
+      the sole organizing description of everything that happens in a city.
+      Urban-scaling and agglomeration feedback is well-established in the
+      urban-science literature as a primary explanatory device (parallel to
+      how loop structure is the market's primary explanatory device), but a
+      large fraction of routine city function (public-service delivery,
+      day-to-day commuting) is not obviously loop-dominated. Scored 3, not 4.
+    sources: [bettencourt2007]
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: exemplar(new-york-city)
+    score: 3
+    justification: >
+      Per this class's own anchor (openness_dissipation.yaml): New York City
+      draws large, continuous, literal power and material throughput to
+      maintain its physical and functional structure — total energy
+      consumption ~1.47e15 BTU/yr (~4.9e10 W), of which electricity alone is
+      ~55.7 TWh/yr, plus continuous fuel, food, and water throughput, all
+      dissipated as waste heat, sewage, and solid waste (figures
+      snippet-verified this sweep, refining the anchor's own
+      [unverified]-flagged 11-13 GW peak-demand estimate with a citable
+      annual-total figure). A genuine Prigogine-style dissipative structure:
+      city function would not persist without continuous energy import (a
+      multi-day blackout materially degrades function within the city's own
+      operating timescale, as the 2003 Northeast Blackout demonstrated for
+      NYC specifically). Held at 3, not 4, per the anchor's own reasoning:
+      large in absolute terms but small relative to planetary/stellar fluxes,
+      and the city's physical fabric (streets, buildings) persists on a much
+      longer timescale than a short energy interruption would damage.
+    sources: [cities-sources-phase4]
+    evidence_status: measured
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      No published Lyapunov exponent, predictability-horizon figure, or
+      low-dimensional deterministic-chaos claim specific to city dynamics
+      (population, economic, or traffic time series) was sought or recovered
+      this sweep. Traffic-flow bifurcation/car-following-model literature is
+      a plausible source for a genuine chaos claim but was not investigated.
+      This is the same "nothing sought, nothing found" evidentiary state as
+      the anchor scale's level-0 text (no evidence of sensitive dependence;
+      predictability limited only by measurement/data availability), not
+      level-1's, which requires a positive claim that some sub-process may
+      amplify small perturbations. The financial-markets comparator
+      (nonlinear dependence: yes; deterministic chaos: no accepted evidence)
+      is suggestive by analogy but was not independently verified for cities
+      specifically, so it cannot itself support a score above the floor.
+      Scored 0 accordingly; genuine nonlinear urban dynamics (congestion,
+      scaling — see nonlinearity) exist without any demonstrated sensitive
+      dependence being sought or found.
+    evidence_status: qualitative
+    verifier_flags: [comparator-reasoning-not-a-direct-anchor-or-measurement]
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      (a) Event statistics: the city-size distribution itself (Zipf's law)
+      is recorded under extreme_event_statistics below and is the class's
+      primary heavy-tail claim — but per filling_rules.soc-two-claims that is
+      a class-level size-distribution claim about the POPULATION OF CITIES,
+      not an internal-event-statistics claim about any single city's
+      dynamics (fires, protests, infrastructure failures), which is what
+      this column should properly probe, and is kept separate from this
+      column for that reason. No internal-event power-law study for NYC or
+      Tokyo specifically was sought or found this sweep (candidate
+      follow-up: urban fire size distributions, protest/riot size
+      distributions have published power-law claims in the sociophysics
+      literature, but were not pursued). (b) Mechanism: no SOC mechanism has
+      been proposed for city-internal dynamics in the material recovered.
+      This is the river-networks floor case exactly: no internal-event
+      statistics sought or claimed, no mechanism proposed. Scored 0 to match
+      that anchor's level-0 text directly, rather than one notch above it —
+      a system can be highly self-organized and even fractal while scoring 0
+      here, because criticality is specifically about event dynamics.
+    evidence_status: qualitative
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: "Zipf exponent alpha-hat = 2.37(8) (pdf-exponent convention); CSN fit verdict: 'moderate,' not 'good'"
+    measurand: "US city population sizes (n=19,447 cities), discrete power-law fit, x_min=52,460+/-11,880"
+    method: >
+      Clauset, Shalizi & Newman (2009), SIAM Review 51(4), 661, Table 6.1
+      (full text primary-read in Phase 1, reused here per that provenance).
+      CSN's own verdict is "moderate" — power law not ruled out but a
+      log-normal fits comparably well; this is explicitly NOT one of CSN's
+      clean confirmed cases (contrast English word frequency, alpha=1.95,
+      rated "good," the study's one clean fit). Per filling_rules.power-law-rigor
+      this is filed as measured (CSN explicitly tested and rated it) with a
+      mandatory "moderate, contested vs. log-normal" caveat carried in the
+      value field itself — NOT rounded up to "confirmed power law," per the
+      sweep's own explicit warning. Historical framing: Zipf's (1949)
+      popularized rank-size exponent ~1 is a DIFFERENT convention (rank-size,
+      not pdf-exponent) from CSN's alpha~2.37 — the two are related by the
+      standard rank-size<->pdf transform (rank exponent 1 <-> pdf exponent 2),
+      so alpha~2.37 is roughly consistent with, but not a direct
+      re-confirmation of, the classic Zipf value
+      [unverified — historical Zipf/Auerbach claim not independently
+      re-checked against primary texts]. Gabaix (1999), QJE 114:739, is the
+      standard theoretical reference [snippet-verified citation, full text
+      not read].
+    sources: [csn2009, cities-sources-phase4]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      This IS the class's primary extreme-event/heavy-tail statistic (the
+      largest cities are the "extreme events" of the size distribution), by
+      direct analogy with how tropical-cyclones records per-storm PDI tails
+      here. Do not conflate with criticality above (see that column's note).
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Traffic congestion / Macroscopic Fundamental Diagram (MFD) hysteresis is
+      a well-documented QUALITATIVE phenomenon (flow-density relationships in
+      urban road networks show path-dependent loading-vs-unloading curves;
+      Geroliminis & Sun 2011, Transportation Research Part B, and Mahmassani
+      and collaborators on Chicago/Portland/Irvine loop-detector data — titles
+      and findings snippet-verified, no paper opened directly this sweep) —
+      but no single citable numeric hysteresis-loop magnitude (analogous to
+      the AMOC ~0.4 Sv anchor figure) was recovered, and no Hurst exponent or
+      long-range-correlation figure for any NYC/Tokyo signal (population,
+      energy demand, traffic volume) was found. Left unknown rather than
+      reporting the qualitative phenomenon as if it were a measurand-named
+      quantitative figure — the phenomenon itself is recorded qualitatively
+      under memory_hysteresis instead, where it belongs per that column's
+      broader remit.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      No formal, quantified inventory of "N tipping elements" analogous to
+      Armstrong McKay et al. (2022)'s 16 climate tipping elements exists for
+      cities as a class. Literature found is qualitative/conceptual: an
+      "Urban Tipping Points" research network and papers using "tipping
+      point" as a metaphorical leverage-point framing for sustainability
+      transitions (infrastructure regime shifts under climate stress,
+      water-distribution-system resilience studies) — snippet-verified,
+      general characterization only, no specific city-system tipping element
+      with a named threshold/mechanism was pinned down. Matches the tipping_transitions
+      anchor scale's level 1 (informal/metaphorical language, no formally
+      identified bifurcation), by direct comparison with the anchor's own
+      floor case (the-internet, score 0) and near-floor case
+      (earthquake-fault-systems, score 1) — cities sit slightly above
+      the-internet's floor because at least a dedicated (if informal) research
+      literature exists, unlike the Internet's complete absence of
+      regime-shift framing.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: closest to financial-markets' own anchor (memory_hysteresis.yaml,
+      score 3) — documented path-dependent "scarring" without a single
+      canonical loop-width number. Two lines of evidence: (1) structural
+      path-dependence, the strongest and best-attested — a city's street grid,
+      neighborhood identity, and land-use pattern are the accumulated,
+      largely irreversible residue of historical decisions (NYC's 1811
+      Commissioners' Plan grid, borough boundaries, industrial-era zoning
+      relics), a city built from scratch today with the same population/economy
+      would not reproduce the same layout; (2) documented traffic hysteresis:
+      Macroscopic Fundamental Diagram loading-vs-unloading loops are a
+      real, qualitatively confirmed (though not numerically pinned for
+      NYC/Tokyo) state-level hysteresis phenomenon, structurally identical
+      in kind to the traffic-flow hysteresis this column's own spec text
+      cites as an exemplar case. Held at 3, not 4: no single quantitative
+      loop-width or threshold figure (comparable to AMOC's ~0.4 Sv) was
+      recovered for either exemplar this sweep, so the evidence is qualitative
+      and structural rather than a pinned quantitative loop.
+    sources: [cities-sources-phase4]
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: between power-grids' ERCOT anchor (information_processing.yaml,
+      score 3) and financial-markets' top-of-scale anchor (score 4). Cities
+      run multiple genuine information layers distinct from mere physical
+      transport: municipal 311/emergency-response systems detect and route
+      state-dependent responses, traffic-signal and transit-control systems
+      condition behavior on sensed congestion state, real-estate and labor
+      markets aggregate dispersed information into prices (a city-scale
+      instance of the same price-discovery mechanism financial-markets scores
+      at 4 for), and land-use/zoning decisions integrate multiple inputs
+      (demand, infrastructure capacity, political input) into a
+      state-dependent regulatory response. Held at 3 rather than 4: unlike
+      NYSE price discovery, no single city-wide aggregation mechanism is as
+      cleanly load-bearing or as thoroughly documented across the whole
+      system — the various channels (traffic control, real-estate markets,
+      municipal governance) are more loosely integrated with each other than
+      a single limit order book.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: below financial-markets' top score (adaptive_capacity.yaml,
+      score 4), above power-grids' operator-mediated score (2). Residents and
+      firms (components, per the scoping note's boundary) hold internal
+      models and adjust behavior anticipatorily — choosing where to live,
+      work, and invest based on expectations, not just reacting to current
+      conditions; municipal government revises zoning, building codes, and
+      infrastructure investment after crises (post-2003-blackout grid
+      hardening, post-Sandy flood-resilience zoning). Selection-like dynamics
+      operate on firms and neighborhoods (businesses that fail close;
+      neighborhoods that lose economic relevance decline; successful patterns
+      are imitated elsewhere). Held at 3, not 4: adaptation is real and
+      multi-level but slower and more constrained than a market's — zoning
+      and infrastructure decisions move on year-to-decade timescales, and much
+      of the physical substrate (street grid, building stock) is not
+      revised at all once built, unlike a market's near-continuous strategy
+      churn.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Variation is continuous across firms, neighborhoods, and land uses;
+      selection operates through market mechanisms (failing businesses close,
+      declining neighborhoods lose investment) and through municipal policy
+      (zoning that permits or forbids certain uses); retention occurs through
+      imitation (successful commercial/residential patterns replicate across
+      neighborhoods and cities) and through institutionalization (zoning
+      codes, historic-district designations). Mechanism taxonomy recorded
+      here per the panel spec, referenced by adaptive_capacity.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: matches languages' anchor level (emergence.yaml, score 3) —
+      formalized macro-level machinery doing real explanatory work, short of
+      financial-markets' top-of-scale (4). Bettencourt et al.'s urban scaling
+      laws (Y = Y0*N^beta) are exactly the kind of formalized order parameter
+      the level-3 definition asks for: a compact macro-law, used predictively
+      by urban scientists, that characterizes city behavior in a way not
+      transparent from any individual resident's or firm's behavior by
+      inspection. Neighborhood identity, commuting patterns, and land-value
+      gradients are additional macro-level regularities with dedicated
+      descriptive vocabulary. Held at 3, not 4: unlike financial markets,
+      where price IS the field's entire organizing object, urban science uses
+      scaling laws alongside (not instead of) substantial micro-level
+      urban-planning and geography practice — macro-description is
+      load-bearing but not the sole mode by which the field studies cities;
+      Bettencourt & West (2010) and Batty (2012) make this "science of
+      cities" framing explicit at the review level.
+    sources: [bettencourt2007, bettencourt-west2010, batty2012]
+    evidence_status: measured
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: above the-internet's designed-skeleton-plus-spontaneous-order
+      anchor (self_organization.yaml, score 2), below the fully authorless
+      anchors (tropical-cyclones, languages, both 4). A city's basic legal and
+      infrastructural skeleton is designed (street grids, zoning maps,
+      utility networks laid down by municipal authority) — but the
+      system's characteristic structure — where economic activity clusters,
+      how neighborhoods acquire identity, how commuting patterns and
+      agglomeration economies form — grows overwhelmingly from uncoordinated
+      individual and firm-level location decisions, not from any planning
+      document. Scored 3 rather than 2 (unlike the-internet, where the
+      protocol skeleton is unusually determinative of the resulting topology):
+      even the "skeleton" itself (a street grid) constrains but does not
+      determine the emergent economic and social geography built on top of
+      it, and long-run city growth patterns routinely depart from and
+      override the original planned layout (informal settlement, zoning
+      variance, adaptive reuse). External templating is present but marginal
+      to the system's characteristic structure, matching the level-3 text;
+      Batty (2012) documents this uncoordinated-growth-over-planned-layout
+      pattern at the review level.
+    sources: [batty2012]
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: exemplar(new-york-city)
+    score: 3
+    justification: >
+      Comparator: matches financial-markets' own anchor level (robustness_resilience.yaml,
+      score 3) and its reasoning almost exactly. NYC has absorbed its
+      characteristic perturbation spectrum — the 2003 Northeast Blackout
+      (50M affected across 8 states + Ontario, ~$10B in losses), September 11,
+      Hurricane Sandy, the 1975 fiscal crisis — recovering function with
+      scars (post-blackout grid-hardening investment, post-Sandy flood-
+      resilience zoning) rather than identity loss, over a multi-century
+      operating history (founded 1624). Not a 4: known destructive event
+      classes exist that would plausibly overwhelm this tolerance (a
+      catastrophic sea-level-rise scenario, a multi-decade fiscal or
+      political collapse), which is what separates 3 from 4 under the
+      anchor's own normalization rule, exactly as for NYSE.
+    sources: [cities-sources-phase4]
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: exemplar(new-york-city)
+    score: 2
+    justification: >
+      Comparator: matches financial-markets' own anchor level
+      (cascade_susceptibility.yaml, score 2). A dedicated real-world case
+      study exists and is NYC-specific: the 2003 Northeast Blackout, a
+      cross-state infrastructure cascade (Ohio transmission-line/tree
+      contact plus a software alarm-system bug at FirstEnergy, cascading over
+      ~3 hours to affect 50M people including all of NYC) is exactly the
+      kind of dedicated cascade case study the level-2 definition requires —
+      but this is a POWER-GRID cascade affecting the city, inherited from the
+      cross-cutting power-grid literature (already flagged class-general
+      measured-disputed under that column's own entry, Dobson et al. 2007),
+      not a fitted cascade-size distribution for city-internal failure modes
+      specifically (transit, water, or economic-contagion cascades intra-city).
+      No city-specific fitted cascade-size exponent (analogous to Dobson et
+      al.'s blackout dataset) was recovered this sweep. Scored 2: cascades
+      occur and one major case is well-characterized for this exemplar, but
+      no cross-event statistical distribution exists at the city-system
+      level, so this does not reach level 3.
+    sources: [ne-blackout-2003]
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Urban scaling laws
+    order_parameter: "city-level output Y as a power-law function of population N (Y=Y0*N^beta); beta=1.27 (patents), beta=0.77 (gasoline stations), per Bettencourt et al. 2007"
+  - name: Neighborhood identity / segregation patterns
+    order_parameter: "spatial clustering of land use, income, and social composition (morphological; no single pinned index for NYC/Tokyo this sweep)"
+  - name: City-size distribution (Zipf's law)
+    order_parameter: "rank-size / pdf-exponent alpha-hat=2.37(8) across the US urban system (class-level, not NYC-specific)"
+  - name: Commuting / agglomeration structure
+    order_parameter: "commute-flow network structure and land-value gradient (labor-market integration)"
+
+sources:
+  bettencourt2007:
+    citation: "Bettencourt, L., Lobo, J., Helbing, D., Kuhnert, C. & West, G.B. (2007). Growth, innovation, scaling, and the pace of life in cities. PNAS 104(17), 7301-7306. [primary-read, full text and Table 1 retrieved, Phase 1 — reused unchanged per that provenance]"
+  bettencourt-west2010:
+    citation: "Bettencourt, L. & West, G. (2010). A unified theory of urban living. Nature 467, 912-913. DOI 10.1038/467912a. [added per Phase 4 sweep report section 16 recommendation; cross-confirmed citation metadata, not independently primary-read this session]"
+  batty2012:
+    citation: "Batty, M. (2012). Building a science of cities. Cities 29, S9-S16. [added per Phase 4 sweep report section 16 recommendation; cross-confirmed citation metadata, not independently primary-read this session]"
+  csn2009:
+    citation: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661 (Table 6.1: US city populations, alpha-hat=2.37(8), 'moderate' fit verdict). [primary-read, full text, Phase 1 — reused unchanged per that provenance]"
+  chaisson2011:
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27 (Table 4: 'technologists' Phi_m=2e6 erg/s/g). [primary-read, Phase 1 — reused unchanged per that provenance]"
+  cities-sources-phase4:
+    citation: "This project's Phase 4 sweep report, research/phase4/cities-sources.md (compiled 2026-07-02). Aggregates: US Census Bureau (NYC/metro population, land area — snippet-verified via Wikipedia aggregation and search-engine QuickFacts summaries, not directly fetched from census.gov this session); NYC Mayor's Office of Climate & Environmental Justice energy figures via Yoon et al. (2024), Annals of the NY Academy of Sciences, NPCC4 report (snippet-verified); UN DESA World Urbanization Prospects 2018/2025 (megacity counts snippet-verified via secondary press page; underlying PDFs unparseable this session); Batty & Longley (1994, Fractal Cities, Academic Press) fractal-dimension framework [unverified, secondary characterization only]; Song et al. (2012, in Chinese) and unattributed German central-place city fractal-dimension figures (snippet-verified, low confidence); Geroliminis & Sun (2011, Transportation Research Part B) and Mahmassani et al. traffic-hysteresis literature (snippet-verified, titles/findings only)."
+  un-wup2018-press:
+    citation: "UN DESA (2018). '68% of the world population projected to live in urban areas by 2050, says UN' (2018 Revision of World Urbanization Prospects press release). un.org/development/desa. [primary-fetched HTML page this session, text read directly — counts as primary-read of the secondary press release, NOT of the underlying WUP2018 Highlights/full report PDF, which failed to parse]"
+  ne-blackout-2003:
+    citation: "U.S.-Canada Power System Outage Task Force (2004) findings on the Northeast Blackout of 2003, as aggregated via Wikipedia 'Northeast blackout of 2003' (50M affected, ~8 states + Ontario, ~$10B estimated losses per Electricity Consumers Resource Council). [snippet-verified — underlying primary investigative report not fetched/read directly this session]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent draft, Phase 4, adapted from the tropical-cyclones and financial-markets gold examples and the 15 anchor files (2 of which — modularity, openness_dissipation — carry a directly worked "cities"/"New York City" anchor; all other rubric/hybrid columns are scored by explicit comparator reasoning against the closest worked anchor, per the assignment's instruction, and flagged as such in each justification)
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:
+    - date: 2026-07-02
+      source: research/phase4/flag-digest.md (## cities; CROSS-AUDIT)
+      changes:
+        - "spatial_extent: value 8e5 -> 2e5 m to match the entry's own computed CSA-span figure; method note updated"
+        - "criticality: score 1 -> 0; justification rewritten to own the level-0 floor-anchor match (river-networks) rather than claiming one point above it"
+        - "chaos_sensitivity: score 1 -> 0; justification rewritten to own the level-0 match (nothing sought, nothing found) rather than claiming one point above it"
+        - "decentralization: level exemplar(new-york-city) -> class-general, matching the financial-markets retagging precedent; NYC retained as illustration"
+        - "exemplars.tokyo: '~14M' Tokyo Metropolis figure tagged [unverified — model knowledge, not sourced this session]"
+        - "relations: power-grids and financial-markets contains comments updated to 'resolved, reciprocal' (reciprocated from the other side in the same cleanup pass)"
+        - "nonlinearity: added NYC-specific beta=1.09 figure (Bettencourt et al. 2007 main text, already cited)"
+        - "sources: added bettencourt-west2010 and batty2012 per sweep report section 16; cited in emergence, self_organization, and summary"
+  flags:   # standing data limitations, this drafter's own top uncertainties
+    - column: fractal_dimension_spatial
+      note: >
+        No NYC- or Tokyo-specific fractal dimension of any kind (boundary or
+        form) was recovered in the Phase 4 sweep; the recorded value is a
+        general, non-exemplar-specific urban-boundary range from a
+        secondary-characterized source (Batty & Longley 1994, not
+        primary-read). This is the sweep's most explicitly named gap and
+        should be the first target of a follow-up search pass.
+    - column: instance_population
+      note: >
+        UN WUP 2018/2025 Highlights and full-report PDFs both failed to parse
+        this session; the precise count of cities >1,000,000 population (as
+        opposed to the >10M megacity counts, which were recovered) remains
+        genuinely unknown, not merely unconfirmed. Re-attempt with a working
+        PDF-text extraction tool.
+    - column: extreme_event_statistics
+      note: >
+        Zipf alpha-hat=2.37(8) is CSN-rated "moderate," not "good" — it must
+        not be read or cited elsewhere in this catalog as a confirmed clean
+        power law for city sizes. The tension between CSN's pdf-exponent
+        convention (~2.37) and the classic Zipf/Auerbach rank-size convention
+        (~1, a different but related quantity) is recorded but the historical
+        claim itself was not independently re-verified against primary Zipf
+        (1949)/Auerbach (1913) texts.
+    - column: degree_distribution
+      note: "No intra-urban network (street, transit, mobility-flow) degree-distribution exponent for NYC or Tokyo specifically was recovered; candidate source Louf, Roth & Barthelemy (2014) flagged but not read."
+    - column: modularity
+      note: "No specific citable NYC or Tokyo mobility-network modularity Q value was recovered despite active search; the anchor's own Q~0.3-0.5 range is itself flagged [unverified — model knowledge] in modularity.yaml and that caveat is carried forward unchanged."
+    - column: temporal_correlation
+      note: "Traffic hysteresis (MFD loading/unloading loops) is qualitatively confirmed in the literature but no numeric loop-magnitude or Hurst-exponent figure for any NYC/Tokyo signal was recovered; left unknown rather than stretched into a false quantitative figure."
+    - column: energy_rate_density
+      note: >
+        The body-mass-vs-infrastructure-mass normalization convention is
+        genuinely ambiguous for a city (unlike a hurricane or a human body);
+        the recorded derived Phi_m uses body mass only, by necessity (no
+        infrastructure-mass figure exists), and this should not be read as
+        directly comparable to Chaisson's own per-person "technologists"
+        figure without the caveat carried in the method field.
+    - column: numerosity / component_ontology
+      note: "Building/parcel and firm counts for NYC and Tokyo are unknown, not merely unconfirmed — no search for NYC DCP/DOF property counts or Census County Business Patterns was performed this sweep; flagged as a concrete, actionable follow-up."

@@ -1,0 +1,837 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: the-internet
+# Phase 4 draft entry. Singleton class (n=1): the Internet as a
+# whole is its own sole instance, not a population of internets.
+# ============================================================
+id: the-internet
+name: The Internet
+category: infrastructure
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: the-internet
+    name: The Internet (the singular global system)
+    note: >
+      Singleton class — there is exactly one Internet. Per
+      instance_population below, this is an epistemic constraint on
+      what can be claimed at "class level," not a missing datum: every
+      quantitative row in this entry is a single-instance time-series
+      measurement (one system observed at different dates: n=10,697 ASes
+      in 2001, ~75,000-83,739 in 2025), never a sample drawn from a
+      population of comparable systems.
+
+scoping_note: >
+  The system is the global interconnection of Autonomous Systems (ASes)
+  running the TCP/IP protocol suite: the routing/topology layer (BGP
+  peering among ASes), the physical transport layer (routers, links,
+  submarine and terrestrial cables) it rides on, and the traffic it
+  carries. Inside the boundary: ASes, routers, links, and the packets/
+  flows/BGP updates that constitute inter-AS and intra-AS dynamics.
+  Outside: end-user application content and behavior (treated as load/
+  forcing on the network), the human institutions that govern naming and
+  standards (IANA/ICANN/IETF — recorded only as coordination points under
+  decentralization, not modeled as internal dynamical components), and
+  end-user hardware (phones, PCs, IoT devices — counted under numerosity
+  as an adjacent population, not the network's dynamical atoms).
+  Atomicity per filling_rules.atomicity-convention: this entry declares a
+  DUAL atomicity, stated explicitly per column because the network-
+  structure columns and the traffic/physical-structure columns
+  characteristically operate at different levels — (1) Autonomous
+  Systems (AS-level nodes) are the atoms for network-structure columns
+  (degree_distribution, modularity, hierarchy_depth, decentralization)
+  because BGP routing policy and peering — the system's characteristic
+  topological dynamics — operate at the AS level, not at the level of
+  individual routers, hosts, or packets; (2) packets/flows are the
+  relevant unit for traffic-dynamics columns (temporal_correlation) where
+  self-similarity is a property of the traffic signal, not the AS graph.
+  This dual-atomicity choice is itself a datum about the system (a
+  network is genuinely bi-layered — topology substrate vs. traffic
+  process — in a way a hurricane's single-fluid continuum is not) and is
+  flagged per column below rather than collapsed into one figure.
+  Scoring is class-general throughout (no named sub-instance sits below
+  "the Internet" itself — see instance_population).
+
+summary: >
+  The Internet is a network no one designed built from parts everyone
+  designed: tens of thousands of independently operated networks,
+  bound by nothing but a shared protocol handshake, that collectively
+  behave as a single global system. No central authority routes a
+  single packet — coordination is confined to bookkeeping (naming,
+  addressing, standards) while the traffic and topology that actually
+  define the system emerge from millions of uncoordinated local peering
+  and engineering decisions. Its most-cited structural signature, a
+  heavy-tailed degree distribution, turns out to be less settled than
+  its own folklore; what is not in dispute is that the system keeps
+  routing around damage, carries traffic that looks the same whether
+  you zoom in by a second or an hour, and has done both continuously
+  since before most of its current operators existed.
+
+relations:
+  part_of: []
+  contains: [world-wide-web]   # unresolved -> roster expansion queue; content/application layer riding atop the network layer scoped by this entry
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 4e7
+    unit: m
+    method: >
+      Order-of-magnitude estimate: Earth's circumference (~40,075 km) as
+      the outer bound of the physical network (submarine cables and
+      terrestrial backbone spanning all inhabited continents plus
+      research/polar stations). No dedicated "spatial extent of the
+      Internet" measurement paper was located; this is a geometric
+      inference from known global coverage, not a directly measured
+      quantity.
+    sources: []
+    evidence_status: qualitative
+    confidence: low
+    note: >
+      [unverified — model-knowledge order-of-magnitude estimate, not
+      independently sourced]. Flagged for a dedicated search against
+      submarine-cable-atlas literature (e.g., TeleGeography) in a
+      follow-up pass if a citable figure is required.
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: packet forwarding / propagation, value: "~1e-3-1e-1 s (sub-ms router forwarding; cross-continental RTT commonly 10s-100s of ms)", evidence_status: qualitative, confidence: low}
+      - {name: BGP route-convergence after a topology change, value: "~1e0-1e2 s (default eBGP MRAI 30 s, iBGP 5 s; full convergence seconds to several minutes)", sources: [labovitz-bgp-convergence], evidence_status: measured, confidence: low, note: "snippet-only this session; original academic source is Labovitz et al.'s BGP convergence measurements, not independently opened"}
+      - {name: AS-level topology growth, value: "~1e9 s (decade-scale; AS count grew from 10,697 (2001, Newman 2003 snapshot) to ~75,000-78,000 (2022: 72,800; 2026: 77,900, per APNIC 'BGP in 2025' direct primary-read) -- roughly 7x over 24 years; recent 2022-2026 growth is ~2%/yr and has been DECLINING since late 2020, not accelerating)", sources: [apnic-huston], evidence_status: measured, confidence: medium}
+      - {name: system lifetime, value: "~1e9 s (~43-57 years, ARPANET 1969 or TCP/IP flag-day 1983 to present)", evidence_status: qualitative, confidence: medium, note: "standard historical dating; 1969/1983 dates are uncontroversial public record but no primary history paper was fetched this session"}
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "multi-typed — see component_ontology; no single scalar exists for a bi-layered network+content+human system"
+    detail:
+      as_nodes: "~1e4-1e5 (10,697 in 2001; ~75,000-83,739 in 2025/26)"
+      registered_domains: "~3.9e8 (386.9 million, end 2025)"
+      human_users: "~6e9 (2025)"
+      connected_devices: "~1e10 (IoT ~18.5-21.1e9 2024-25; all-connected-device estimates ~2.5-3e10 by 2026, methodology-dependent)"
+    sources: [itu2025, dnib2025, apnic-huston]
+    evidence_status: measured-disputed
+    confidence: low
+    note: >
+      Recorded as a typed list per component_ontology rather than a
+      single figure, per the sweep report's finding that AS nodes,
+      domains, human users, and devices are different "atomic part"
+      candidates at different layers. Device counts specifically carry
+      measured-disputed status: multiple sources disagree on methodology
+      (IoT-only vs. all-connected-device scope) with no single canonical
+      figure.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "n = 1 (standing population); formation rate not applicable"
+    evidence_status: measured
+    confidence: high
+    note: >
+      The Internet is a singleton: exactly one instance exists, not a
+      population of instances of a type. This is a definitional/epistemic
+      fact, not a measurement gap — per filling_rules, it governs which
+      class-level statistical claims are legal for this entry:
+      cross-sectional statistics below (AS count, degree exponent,
+      clustering) are single-instance time-series measurements (one
+      system observed at different dates), never samples from a
+      population of internets. Recorded as measured/high-confidence
+      because n=1 is definitionally certain, not because a survey was
+      conducted.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: Autonomous Systems (AS-level nodes)
+        count_oom: "~1e4-1e5 (10,697 in 2001, Newman/RouteViews; ~75,000-83,739 in 2025/26, APNIC/Huston)"
+        interchangeable: no   # heterogeneous role: Tier-1 transit vs. stub AS
+        itself_complex: no
+      - name: routers / physical infrastructure nodes
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+        note: not recovered in the Phase 4 sweep; distinct level from AS nodes (many routers per AS).
+      - name: human users (endpoints, out of network-structure scope)
+        count_oom: "~1e9 (~6.0 billion, 2025, ITU)"
+        interchangeable: out-of-scope(human)
+        itself_complex: out-of-scope(human)
+      - name: connected devices (hosts/endpoints)
+        count_oom: "~1e10 (methodology-dependent; IoT ~1.85-2.1e10, all-connected estimates higher)"
+        interchangeable: yes
+        itself_complex: no
+      - name: registered domain names (content/naming layer)
+        count_oom: "~3.9e8 (386.9 million, end 2025, DNIB)"
+        interchangeable: yes
+        itself_complex: no
+    confidence: low
+    note: >
+      Genuinely multi-layered: network-structure columns (Group B) use
+      AS nodes as the atomicity choice per the scoping note; the other
+      rows describe adjacent but distinct component populations (content/
+      application layer, human layer) not modeled as dynamical atoms of
+      the routing/topology system this entry scopes.
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      NOT computable with citable rigor. Power has a defensible,
+      snippet-only, IEA-sourced order-of-magnitude figure: data-center
+      electricity consumption 415 TWh/yr globally (2024) ~ 4.74e10 W
+      average continuous draw; network-infrastructure-only figures
+      (~260-360 TWh/yr, 2022) are separately snippet-sourced with an
+      unclear citation chain and were not combined into a single system
+      figure. Mass has NO citable primary source: a widely circulated
+      "~100 million tons" figure traces only to unsourced blogs with no
+      visible citation trail to a peer-reviewed or industry-primary
+      study and is REJECTED per the no-fabrication rule (not entered even
+      as [unverified — model knowledge], since it did not originate from
+      this project's own model knowledge but from an unsourced web claim
+      of unknown provenance). Per filling_rules.no-guessing, Phi_m is
+      recorded unknown despite a partial, scope-ambiguous power figure.
+    sources: []
+    evidence_status: unknown
+    confidence: n/a
+    verifier_flags: [mass-figure-rejected-unsourced, power-figure-scope-ambiguous]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: BGP peering / route advertisement
+        mechanism: formalized inter-AS routing-protocol messages (path-vector advertisements, withdrawals)
+        participants: Autonomous Systems
+        range: network-mediated
+      - name: packet forwarding / data transfer
+        mechanism: IP packet switching along the path selected by routing state
+        participants: routers within and across ASes
+        range: network-mediated
+      - name: DNS resolution
+        mechanism: hierarchical name-to-address lookup queries/responses
+        participants: resolvers, authoritative nameservers, end hosts
+        range: network-mediated
+      - name: standards / naming coordination
+        mechanism: institutional protocol standardization and address/name allocation (IETF, IANA/ICANN)
+        participants: coordinating bodies <-> network operators
+        range: global, slow timescale
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      The interaction alphabet is a fixed formal set defined by protocol
+      specifications (BGP, IP, DNS) — ASes cannot unilaterally invent new
+      interaction types on the wire — but the alphabet does evolve through
+      standards-body governance (new BGP extensions, new record types).
+      Same "constrained" reasoning as financial-markets' exchange
+      rulebook: a fixed formal set that changes only through institutional
+      process, sitting between a physics-closed alphabet (hurricanes) and
+      an open one (language).
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: "AS-level: power-law tail claimed, alpha=2.5 (Newman 2003, 2001 snapshot); rigor of this claim for the Internet specifically NOT confirmed against CSN-2009-grade testing"
+    measurand: AS-level topology degree distribution (RouteViews/BGP-derived AS graph)
+    method: >
+      Newman 2003 Table II: n=10,697, mean degree z=5.98, mean geodesic
+      length l=3.31, clustering C=0.39, assortativity r=-0.189
+      (disassortative). n, z, r, and the 2001 vintage are solidly
+      cross-confirmed via primary-read of two independent Newman companion
+      papers (arXiv:cond-mat/0303327 and cond-mat/0209450); Table II
+      itself could not be cleanly primary-read this session (every mirror
+      tried — Cornell, UVM/pdodds, BU physics, arXiv PDF/TeX — produced a
+      reproducible row-shift text-extraction bug bleeding numeric columns
+      into adjacent row labels). l=3.31 and C=0.39 specifically are
+      therefore NOT independently primary-confirmed this session; one
+      search snippet surfaced a conflicting, untraceable claim of
+      clustering coefficient 0.24 for Internet ASes attributed loosely to
+      "Newman and colleagues." Re-check l and C against a cleanly-rendered
+      copy of Table II (e.g. a library PDF viewer) or a textbook reprint
+      (Newman's "Networks: An Introduction" repeats similar tables) before
+      treating them as fully verified.
+    sources: [newman2003, broido-clauset2019]
+    evidence_status: measured-disputed
+    confidence: low
+    note: >
+      Two separate, non-resolved claims per filling_rules.soc-two-claims-
+      style discipline: (1) Newman 2003's alpha=2.5 fit is a real, oft-
+      cited measurement, but was fit by pre-CSN methods (no goodness-of-fit
+      or alternative-distribution testing) and is evidence_status
+      measured-untested on its own terms. (2) Broido & Clauset (2019),
+      applying CSN-2009-grade testing to ~1,000 real networks, found only
+      ~4% "strongly scale-free" and most networks fit log-normal as well
+      or better — the necessary methodological counterweight. This
+      session could NOT confirm the Internet AS graph's specific
+      classification within Broido & Clauset's Strongest/Strong/Weak/
+      Super-Weak/Not-scale-free taxonomy (Nature.com blocked full-text
+      fetch; only the arXiv abstract was primary-read). The composite is
+      therefore recorded measured-disputed rather than either "confirmed
+      scale-free" or "confirmed not scale-free" — per filling_rules.no-
+      guessing, the unresolved classification is stated, not guessed
+      around. Current AS count (~75,000-83,739, 2025/26) is snippet-only
+      and does not change the exponent claim itself.
+
+  modularity:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (modularity.yaml): AS-level topology is
+      organized around Tier-1/Tier-2/Tier-3 provider hierarchy and
+      geographic/national clustering — real community structure, ISPs and
+      national networks clustering together via a smaller set of transit/
+      peering hubs. Community-detection studies on the AS graph typically
+      report moderate modularity, Q roughly 0.3-0.5 [unverified — model
+      knowledge; no specific Q value confirmed via this project's source
+      corpus, which has Newman 2003's clustering coefficient (C=0.39) but
+      not a modularity Q]. A verified published Q would supersede this
+      qualitative placement.
+    sources: [newman2003]
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared): AS nodes (atoms) -> provider tiers (Tier-1/
+      Tier-2/Tier-3 transit hierarchy) (1) -> regional/national peering
+      fabrics and Internet Exchange Points (2) -> the single global routed
+      graph (3). Routers and individual links are sub-AS infrastructure,
+      not a separate counted level (consistency choice parallel to
+      financial-markets treating orders as interaction substrate, not an
+      aggregation level).
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: 1.5
+    unit: dimensionless (D)
+    method: >
+      Box-counting fractal dimension of router/AS geographic placement,
+      weighted against global population density (Yook, Jeong & Barabasi
+      2002, PNAS 99(21):13382, primary-read). D_f = 1.5 +/- 0.1; a uniform
+      random placement would give D_f ~ 2, visibly inconsistent with the
+      measured data, supporting a population-density-driven placement
+      model. Measurand: spatial distribution of router/AS physical
+      locations — distinct from the AS-graph CONNECTIVITY topology scored
+      under degree_distribution, per filling_rules.measurand-required.
+      Data vintage pre-2002 (paper published 2002; exact snapshot date not
+      stated in the excerpt retrieved).
+    sources: [yook2002]
+    evidence_status: measured
+    confidence: medium
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (decentralization.yaml): narrow
+      coordination points exist (IANA/ICANN for names and numbers, IETF
+      for standards) but none steers traffic or topology moment to
+      moment — routing decisions are made autonomously by tens of
+      thousands of independent networks via BGP. Coordination is real but
+      scoped to bookkeeping, hence 3 rather than 4 (contrast languages,
+      which score 4 with no coordination layer at all). Per the anchor's
+      cross-column note: score the layer where the system's
+      characteristic behavior (traffic/topology) lives, not the
+      bookkeeping layer.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (nonlinearity.yaml): TCP congestion
+      control (additive-increase/multiplicative-decrease) is explicitly
+      nonlinear and can produce synchronized oscillation and congestive
+      collapse under load; BGP route flapping and convergence dynamics are
+      also nonlinear. However, core packet forwarding and routine traffic
+      engineering are designed specifically to behave close to linearly,
+      and nonlinear regimes (congestion collapse, BGP instability) are
+      edge cases the engineering actively suppresses rather than the
+      modal operating behavior. Real and consequential, but not dominant
+      the way it is for a storm or a market.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 2
+    loops:
+      - {name: "TCP AIMD congestion control", sign: balancing, mechanism: "packet loss/delay signals congestion -> sender halves window (multiplicative decrease) -> load falls -> window grows again (additive increase); can synchronize into oscillation under shared bottleneck load"}
+      - {name: "BGP route-flap propagation", sign: reinforcing (episodic), mechanism: "an unstable route triggers repeated withdraw/re-advertise cycles that propagate to neighboring ASes, amplifying instability transiently before route-flap damping and convergence suppress it"}
+    justification: >
+      Loops materially shape behavior in specific regimes (congestion
+      episodes, route instability events) but the system's modal,
+      typical-load behavior is governed mainly by open-loop forwarding
+      and provisioning rather than continuous loop-dominated dynamics —
+      matching the feedback anchor scale's level 2 (loops matter at the
+      margins or during identifiable episodes, not continuously), one
+      step below financial-markets' 3 and well below tropical-cyclones'
+      4 where loop structure IS the defining mechanism.
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor family (openness_dissipation.yaml,
+      financial-markets NYSE comparator at score 2): the physical
+      substrate (data centers, routers, transmission equipment) draws
+      continuous, non-trivial electrical power — data centers alone
+      ~4.74e10 W average (IEA, 415 TWh/yr, snippet-only), with network-
+      infrastructure-specific draw separately and less reliably
+      estimated. This is real literal throughput, but — as with the
+      NYSE — the electrical flux keeps the COMPUTING/TRANSMISSION
+      SUBSTRATE running; it does not generate the network's
+      characteristic routing/traffic dynamics the way ocean heat flux
+      literally generates a hurricane's wind field. Scored 2: genuinely
+      open and dissipative as physical infrastructure, throughput is
+      substrate-support rather than the generative mechanism of the
+      defining dynamics.
+    sources: []
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: unknown
+    justification: >
+      No dedicated Lyapunov-exponent or formal predictability-horizon
+      study for Internet-scale traffic or topology dynamics (analogous to
+      the atmosphere's ~2-week horizon, chaos_sensitivity anchor score 4)
+      was located. BGP convergence time is a related but distinct
+      concept — a settling time after a discrete perturbation, not a
+      chaos/sensitivity measure — and must not be conflated with it per
+      the chaos_sensitivity anchor's does_not_count discipline (the same
+      discipline that keeps financial-markets' documented nonlinear
+      dependence from being scored as chaos). The self-similar/long-range-
+      dependent traffic structure (temporal_correlation, below) is a
+      distinct phenomenon from low-dimensional deterministic chaos and is
+      not itself evidence of sensitive dependence. Per filling_rules.no-
+      guessing (and by the same spirit as no-market-chaos), no
+      deterministic-chaos claim is entered without a located study — score
+      left unknown rather than assigned a placeholder low value.
+    evidence_status: unknown
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: none
+    justification: >
+      Per this class's own anchor (criticality.yaml): the Internet's
+      static AS-level degree distribution is frequently cited as
+      scale-free (Faloutsos et al. 1999), but that is a TOPOLOGY claim
+      recorded under degree_distribution, not an EVENT-statistics claim
+      for this column. For actual dynamical events (outage sizes, BGP
+      cascade magnitudes), no primary source establishing a rigorously
+      fit power-law size distribution analogous to Dobson et al.'s
+      blackout work was located — flagged as a probable literature gap,
+      not a confirmed negative result. No SOC or critical-point mechanism
+      for Internet outage dynamics has been formally proposed. Scored 1:
+      informal/claimed-untested heavy-tailedness of outage impact is
+      discussed in engineering literature, but nothing meets CSN-grade
+      support and no mechanism claim exists.
+      This sweep (Phase 4) re-searched BGP/outage/cascading-failure
+      terminology and confirms the gap stands.
+      Per filling_rules.soc-two-claims: recorded as a separate,
+      non-resolved claim from degree_distribution's topology claim.
+      Related lead (not opened, not usable as citation): arXiv:0910.2140,
+      "A critical look at power law modelling of the Internet."
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: Internet-specific cascade/outage-size distribution (BGP withdrawal cascades, regional outage magnitude)
+    method: >
+      No Internet-specific (as opposed to power-grid-specific) cascade-
+      size power-law study with CSN-grade rigor was located in either the
+      Phase 1 or Phase 4 sweeps. General cascading-failure literature
+      (Dobson et al.'s power-grid blackout work) is a DIFFERENT system;
+      conflating it with the Internet would violate the no-fabrication
+      rule. BGP-specific literature located concerns routing-table
+      growth, convergence time, and topology robustness-to-attack
+      (itself now undercut by the Broido & Clauset counterweight under
+      degree_distribution) — not a cascade-SIZE distribution study
+      analogous to Dobson et al.
+    sources: []
+    evidence_status: unknown
+    note: >
+      Legal, explicit "unknown" per filling_rules.no-guessing, confirmed
+      as a standing gap across two independent sweeps (Phase 1, Phase 4).
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: "packet-count series: H ~ 0.85-0.95 (MLE estimates, point estimate H=0.90, 95% CI [0.85, 0.95], AUG89.MP trace); byte-count series: H ~ 0.75-0.85 (graphical estimates). Self-similarity of traffic itself is the canonical, uncontested finding."
+    measurand: "octet/packet arrival process on network links, TWO distinct measurands per the primary source: (1) packet-COUNT series (MLE estimator) and (2) byte-COUNT series (graphical/R-S and variance-time estimators) — Ethernet LAN in the original Bellcore traces; later literature extends to WAN/backbone traffic."
+    method: >
+      Leland, Taqqu, Willinger & Wilson (1993/1994): Ethernet LAN traffic
+      is statistically self-similar (fractal) across timescales from
+      milliseconds to hours; traffic aggregation intensifies rather than
+      smooths burstiness, contrary to classical (Poisson-based)
+      queueing-theory expectation. This is the canonical origin of
+      long-range dependence in network traffic. Primary-read this session
+      of the closely related 1993 SIGCOMM CCR mirror (same authors/title/
+      dataset; cs.auckland.ac.nz/courses/compsci742s2c/resources/LTWW93.pdf,
+      rendered via local pdftotext) gives the paper's own headline
+      packet-level MLE estimates as "quite stable and fluctuate only
+      slightly in the 0.85 to 0.95 range," with an explicit point estimate
+      "H = 0.90, 95% CI [0.85, 0.95]" for the AUG89.MP trace. Byte-level
+      graphical estimates are lower, H=0.75-0.85, consistent across
+      traces.
+    sources: [leland1994]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      The self-similarity/long-range-dependence PHENOMENON was already
+      solid and uncontested. The specific H-value was previously flagged
+      measured-disputed because the primary 1994 PDF could not be fetched
+      (SSL error). This session located and primary-read a mirror of the
+      closely related 1993 SIGCOMM CCR paper (same authors/title/dataset),
+      confirming the "H~0.9" figure previously treated as unconfirmed
+      folklore is in fact the paper's own explicit packet-level point
+      estimate (H=0.90, AUG89.MP trace), with a stable 0.85-0.95 range
+      across traces at the packet level, and a separate, somewhat lower
+      0.75-0.85 range for byte-level graphical estimates. Evidence_status
+      upgraded from measured-disputed to measured for the numeric range
+      now that both measurands are recorded with their own figures; the
+      1993 CCR mirror is cited as now primary-readable (see leland1994
+      source entry). Level: class-general (structural property evidenced
+      by many independent trace studies across decades); measurand is the
+      traffic/packet layer, explicitly distinct from the AS-graph
+      measurand used in degree_distribution and fractal_dimension_spatial,
+      per the scoping note's dual-atomicity declaration.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      Per this class's own anchor (tipping_transitions.yaml): no regime-
+      shift or alternative-stable-state literature exists for the
+      Internet as a whole system; routing/traffic dynamics are studied via
+      congestion and cascading-failure frameworks (see
+      cascade_susceptibility), not bistability or tipping-point models.
+      Individual protocol-level events (BGP route-flap storms) are
+      transient instabilities, not documented qualitative-state
+      transitions with an alternative stable regime. Retained as a
+      deliberate floor anchor: highly engineered, redundant infrastructure
+      systems are not automatically tipping-prone. No formal, quantified
+      "tipping element" inventory (analogous to climate's 16-element
+      Armstrong McKay et al. 2022 list) was located; qualitative
+      resilience/systemic-risk discussion of single points of failure
+      (submarine-cable chokepoints, major IXPs, DNS root infrastructure)
+      exists in policy literature but was not primary-read this session.
+    sources: []
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (memory_hysteresis.yaml): AS-level
+      topology is a textbook case of structural path-dependence — today's
+      hub structure (Tier-1 carrier dominance, legacy peering hierarchies)
+      reflects the historical order in which networks joined and
+      interconnected, not just current traffic demand; a network built
+      from scratch today with the same traffic matrix would likely not
+      reproduce the same topology. Scores only 2 because there is no
+      measured hysteresis loop or bistability at the OPERATIONAL level —
+      routing state (BGP tables) reconverges to essentially the same
+      configuration after a perturbation heals, so state-level memory is
+      weak even though structural path-dependence is real.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per the information_processing anchor's cross-reference note:
+      engineered systems like the Internet (not separately anchored with
+      a full worked example, but explicitly flagged as expected to land
+      in the 3-4 range "for the same SCADA/protocol reasons as ERCOT")
+      have deliberately engineered, legible information layers — BGP
+      route selection is a genuine detect-and-conditionally-respond
+      process (routers detect topology-change signals and change
+      forwarding STATE in response, not merely propagate a fixed signal),
+      as is TCP's congestion-state-dependent transmission behavior.
+      Scored 3 rather than 4: this is real, state-dependent,
+      protocol-level information processing throughout the network
+      layer, but — unlike price formation in financial-markets (scored 4,
+      aggregating dispersed PRIVATE information into a novel public
+      statistic no participant holds) — the Internet's routing/congestion
+      responses operate on locally visible protocol state rather than
+      aggregating genuinely dispersed information into an emergent public
+      signal.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Contrast with the adaptive_capacity anchor's financial-markets
+      exemplar (score 4: traders and algorithms learn from outcomes,
+      selection removes failing strategies, institutions rewrite rules
+      after crises — adaptation at component, population, AND
+      institutional levels). The Internet's PROTOCOL layer is not itself
+      adaptive component-by-component (a router does not "learn" from
+      experience the way a trader does; TCP congestion control is a fixed
+      reactive algorithm, not a learned one) — but genuine adaptation
+      exists at the institutional/engineering level: operators
+      renegotiate peering, provision new capacity, and standards bodies
+      revise protocols in response to observed failure modes (e.g.,
+      post-congestion-collapse TCP redesign in the late 1980s,
+      route-flap damping added after observed instability episodes).
+      Scored 2: real institutional-level adaptation exists and is
+      documented, but it is slow, deliberate re-engineering rather than
+      the continuous, multi-level learning dynamics that earn financial-
+      markets its 4 — the network's individual "components" (routers,
+      protocols-in-operation) do not themselves adapt moment to moment.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Variation exists among competing protocols, routing policies, and
+      peering strategies; selection operates via adoption (protocols and
+      practices that fail to interoperate or scale are abandoned —
+      e.g., early routing protocols superseded by BGP, IPv4 exhaustion
+      driving IPv6 adoption pressure); retention through standardization
+      and institutional codification (IETF RFCs). Weaker and slower than
+      financial-markets' continuous strategy churn, but a real present
+      mechanism, not absent.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (emergence.yaml): aggregate Internet
+      behavior shows recognizable macro patterns (congestion collapse and
+      recovery, traffic self-similarity at multiple timescales per Leland
+      et al.'s classic finding, AS-level degree distribution) that are not
+      obvious from a single router's forwarding rules by inspection, and
+      practitioners do use pattern-specific vocabulary (congestion,
+      self-similar traffic). However, unlike price formation (financial-
+      markets, score 4) or convection pattern selection, there is no
+      single widely load-bearing order parameter the field organizes
+      around to explain and predict aggregate behavior — network
+      engineering largely reasons at the protocol/mechanism level (TCP
+      congestion-control algorithms) rather than via a formalized macro
+      effective theory. Real macro-pattern, not yet a formalized
+      order-parameter-level theory in the way convection or markets have.
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (self_organization.yaml): the substrate
+      is designed (protocols, routers, standards), but the system's
+      characteristic structure — AS-level topology, traffic patterns,
+      routing-table evolution — grew from thousands of uncoordinated
+      local decisions and was never planned. Designed skeleton,
+      spontaneous order on top: the definition of a 2. Per the anchor's
+      cross-column note, this DISAGREES with decentralization's score of
+      3 (designed substrate with spontaneous macro-structure here, but
+      nearly no central control there) — that disagreement is treated as
+      real signal (genesis of order vs. locus of control are distinct
+      axes), not an inconsistency to resolve.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (robustness_resilience.yaml): designed
+      for partial failure — routing reconverges around damaged links and
+      the system has absorbed cable cuts, datacenter losses, and regional
+      outages while maintaining global function. Known systemic
+      vulnerabilities (BGP route leaks, DNS dependencies) produce large
+      but so-far-recoverable incidents — scars, not identity loss. Scored
+      3, not 4, by the same normalization the anchor applies to financial-
+      markets: known destructive event classes exist (coordinated
+      large-scale attack on core naming/routing infrastructure,
+      catastrophic multi-region physical destruction) that would test the
+      system beyond its demonstrated recovery envelope.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Per this class's own anchor (cascade_susceptibility.yaml):
+      cascading-failure vulnerability for BGP/interdomain routing is a
+      real and active research area (routing-table oscillation,
+      peering-session drops propagating under load, simulation studies of
+      cascades on scale-free network topologies), but this is dominated
+      by graph-theoretic modeling rather than a fitted empirical
+      outage-size distribution across many real events comparable to
+      Dobson et al.'s blackout work. No primary source establishing
+      "Internet outage sizes follow distribution X with exponent Y, fit
+      to N years of data" was located (Phase 1 finding, re-confirmed
+      Phase 4). Scored 1: propagation is plausible and discussed, but no
+      dedicated cascade-size study (simulation or empirical) rises to
+      level 2.
+    sources: []
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Congestion collapse and recovery
+    order_parameter: aggregate throughput / goodput vs. offered load
+  - name: Traffic self-similarity
+    order_parameter: Hurst exponent of packet/octet arrival process across timescales
+  - name: AS-level hub hierarchy (Tier-1/2/3 structure)
+    order_parameter: degree distribution and disassortative mixing (r) of the AS graph
+  - name: Global reachability despite local failure
+    order_parameter: post-perturbation routing reconvergence time and residual connectivity
+
+sources:
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The Structure and Function of Complex Networks. SIAM Review 45(2), 167-256. Table II, Internet AS-level row (2001 RouteViews-derived snapshot). [primary-read, Phase 1; reused with date-stamp per Phase 4 sweep]"
+  broido-clauset2019:
+    citation: "Broido, A.D. & Clauset, A. (2019). Scale-free networks are rare. Nature Communications 10, 1017. DOI: 10.1038/s41467-019-08746-5. arXiv:1801.03400. [primary-read: arXiv abstract page only; Nature.com full text blocked by authentication/cookie wall; full Table 1 classification of the Internet AS graph NOT accessed — methodological detail beyond the abstract is snippet-only via secondary summaries (Quanta Magazine, ScienceDaily, CU Boulder BioFrontiers)]"
+  yook2002:
+    citation: "Yook, S.-H., Jeong, H. & Barabasi, A.-L. (2002). Modeling the Internet's large-scale topology. PNAS 99(21), 13382-13386. DOI: 10.1073/pnas.172501399. [primary-read: PMC full-text, PMC129681]"
+  leland1994:
+    citation: "Leland, W.E., Taqqu, M.S., Willinger, W. & Wilson, D.V. (1994). On the Self-Similar Nature of Ethernet Traffic (Extended Version). IEEE/ACM Transactions on Networking 2(1), 1-15. [1994 ToN PDF fetch failed (SSL/protocol error at ccr.sigcomm.org) this session; HOWEVER the closely related 1993 SIGCOMM CCR paper (same authors/title/dataset) WAS primary-read this session via a mirror: cs.auckland.ac.nz/courses/compsci742s2c/resources/LTWW93.pdf, rendered via local pdftotext. That primary text supplies the packet-level MLE Hurst estimates (H=0.85-0.95 range, point estimate H=0.90 +/- for AUG89.MP trace) and byte-level graphical estimates (H=0.75-0.85) now used in temporal_correlation]"
+  itu2025:
+    citation: "International Telecommunication Union (2025). Facts and Figures 2025 / Global Connectivity Report 2025 — ~6.0 billion Internet users (2025). [snippet-only: press release (2025-11-17) and secondary summaries; full PDF report not opened]"
+  dnib2025:
+    citation: "Domain Name Industry Brief (DNIB), Q4/annual 2025 — 386.9 million registered domains globally, +22.7 million / +6.2% y/y. [snippet-only: secondary aggregator (aeserver.com) summary of the DNIB report; DNIB/Verisign is the primary publisher but was not opened directly]"
+  iea-energy-ai:
+    citation: "International Energy Agency, Energy and AI report — global data-center electricity consumption 415 TWh in 2024 (~1.5% of world electricity consumption). [snippet-only: report summary via search; IEA report itself not opened directly, though IEA is a high-confidence primary publisher and the figure is consistent across independent secondary sources]"
+  labovitz-bgp-convergence:
+    citation: "Labovitz, C. et al. — BGP route-convergence measurement studies (e.g. 'Delayed Internet Routing Convergence,' IEEE/ACM ToN, and related work); default eBGP MRAI 30s / iBGP 5s figures and seconds-to-minutes convergence times. [snippet-only this session: figures drawn from secondary ipspace.net/Cisco-style protocol summaries; the original Labovitz et al. academic paper(s) not independently opened]"
+  apnic-huston:
+    citation: "Geoff Huston, ISP Column (APNIC), potaroo.net — ~83,739 unique AS numbers in the BGP table as of June 2025; APNIC Blog 'BGP in 2025' (blog.apnic.net/2026/01/08/bgp-in-2025/) — direct primary-read this session: year-by-year table runs Jan 2022 (72,800 ASes) to Jan 2026 (77,900 ASes), ~2%/year growth, explicitly stating growth 'started to decline in late 2020 and has continued to decline.' [the '~47,000 in 2015' figure previously attributed to this source does NOT appear anywhere in the fetched primary text and has been removed as a phantom/hallucinated figure that entered the research chain via an AI-search summary rather than the actual source; potaroo.net page itself still not directly fetched this session, but the APNIC blog post was]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:
+    - date: 2026-07-02
+      by: workflow-agent (flag-fixer)
+      changes:
+        - "[BLOCKER/citation] characteristic_timescales: removed phantom 'AS count roughly doubled ~2015-2025' claim and its unsupported '~47,000 in 2015' baseline (not present in the cited APNIC 'BGP in 2025' primary text); replaced with primary-confirmed framing (10,697 ASes 2001 -> ~75,000-78,000 2022/2026, ~7x/24yr, ~2%/yr recent growth, declining since late 2020); added apnic-huston to the row's sources and corrected the apnic-huston source annotation to remove the phantom 2015 figure."
+        - "[FIX/citation] temporal_correlation: upgraded H value using primary-read of the 1993 SIGCOMM CCR mirror of Leland/Taqqu/Willinger/Wilson — now records packet-count series H~0.85-0.95 (point estimate 0.90, AUG89.MP trace) and byte-count series H~0.75-0.85 as two distinct named measurands; evidence_status raised measured-disputed -> measured; updated leland1994 source citation and provenance flag accordingly."
+        - "[FIX/citation] degree_distribution: added a method-level caveat distinguishing solidly cross-confirmed figures (n, z, r, 2001 vintage) from not-yet-independently-confirmed figures (l=3.31, C=0.39, blocked by a reproducible Table II text-extraction bug across all mirrors tried); added a provenance flag for re-verification."
+        - "[FIX/plausibility] characteristic_timescales: corrected the AS-level topology growth row's order-of-magnitude label from ~1e8 s (internally inconsistent with the 'months' qualifier) to ~1e9 s decade-scale, consistent with the now-accurate multi-year growth framing; dropped the mismatched 'months' qualifier."
+        - "[FIX/coverage] numerosity: added sources: [itu2025, dnib2025, apnic-huston]."
+        - "[FIX/coverage] characteristic_timescales: added a labovitz-bgp-convergence snippet-only source-block entry and referenced it from the BGP route-convergence row (previously sources: [] with no citable source key)."
+      unresolved:
+        - "degree_distribution l=3.31/C=0.39: still not independently primary-confirmed (Table II extraction bug); flagged for re-check against a clean PDF render or textbook reprint, not resolved this pass."
+        - "degree_distribution: Broido & Clauset (2019) exact taxonomy classification for the Internet AS graph remains unconfirmed (Nature.com full text still blocked) -- pre-existing gap, out of scope for this fix pass."
+  flags:
+    - column: degree_distribution
+      note: >
+        Broido & Clauset (2019)'s exact classification of the Internet AS
+        graph within their Strongest/Strong/Weak/Super-Weak/Not-scale-free
+        taxonomy was never confirmed this session — Nature.com blocked the
+        full-text fetch and only the arXiv abstract was primary-read.
+        Recorded measured-disputed on the strength of the counterweight
+        existing, without asserting which category the Internet lands in.
+        Highest-priority re-verification target for this entry.
+        SEPARATELY: n=10,697, z=5.98, r=-0.189, and the 2001 vintage are
+        now solidly cross-confirmed (2026-07-02) via primary-read of two
+        Newman companion papers; l=3.31 and C=0.39 remain NOT
+        independently primary-confirmed (Table II text-extraction failed
+        across all mirrors tried) and should be re-checked against a
+        cleanly-rendered copy before being treated as fully verified.
+    - column: characteristic_timescales
+      note: >
+        RESOLVED 2026-07-02: the AS-level topology growth row previously
+        claimed "AS count roughly doubled ~2015-2025" (evidence_status:
+        measured, confidence: medium), sourced to a "~47,000 ASes in 2015"
+        figure attributed to apnic-huston. A direct primary-read of the
+        cited APNIC Blog "BGP in 2025" this session found no 2015 data
+        point anywhere in the source and no support for "doubled"; the
+        source's own table runs Jan 2022 (72,800) to Jan 2026 (77,900).
+        The 2015 figure was a phantom/hallucinated figure that entered the
+        research chain via an AI-search summary, not the actual source.
+        Replaced with the primary-confirmed framing: 10,697 ASes (2001,
+        Newman 2003) -> ~75,000-78,000 (2022: 72,800; 2026: 77,900, APNIC
+        direct fetch), ~7x growth over 24 years, recent growth ~2%/yr and
+        DECLINING since late 2020. The phantom 2015 figure was also
+        removed from the apnic-huston source annotation.
+    - column: energy_rate_density
+      note: >
+        Blocked entirely on the mass input. The only mass figure found
+        (~100 million tons) traces to unsourced blogs with no primary
+        citation chain and was rejected outright. Phi_m recorded unknown
+        despite having a workable, if scope-ambiguous (data-center-only vs.
+        network-wide vs. whole-system), power figure. Re-attempt if a
+        primary-sourced infrastructure-mass estimate surfaces.
+    - column: temporal_correlation
+      note: >
+        RESOLVED 2026-07-02: the 1994 ToN PDF still could not be fetched
+        (SSL error), but a mirror of the closely related 1993 SIGCOMM CCR
+        paper (same authors/title/dataset) was located and primary-read
+        this session (cs.auckland.ac.nz/courses/compsci742s2c/resources/
+        LTWW93.pdf). The previously-flagged-as-unconfirmed "H~0.9" figure
+        is confirmed as the paper's own explicit packet-level MLE point
+        estimate (0.85-0.95 range, H=0.90 for AUG89.MP). Byte-level
+        graphical estimates (0.75-0.85) are recorded separately. Both
+        measurands now sourced and evidence_status upgraded measured-
+        disputed -> measured. No further action needed unless the
+        original 1994 ToN extended version is later located and found to
+        diverge from the 1993 CCR figures.
+    - column: spatial_extent
+      note: >
+        No dedicated measurement paper located; the 4e7 m figure is a
+        geometric inference from Earth's circumference, not a citable
+        measured quantity. Re-verify against submarine-cable-atlas
+        literature (e.g., TeleGeography) if a precise figure is needed.
+    - column: numerosity / component_ontology
+      note: >
+        Connected-device counts (~1e10) carry measured-disputed status:
+        multiple sources (IoT Analytics, Cisco, Statista) disagree on
+        methodology (IoT-only vs. all-connected-device scope) with no
+        single canonical figure; router/physical-node counts (distinct
+        from AS-node counts) were not recovered at all and remain unknown.
+    - column: extreme_event_statistics / criticality / chaos_sensitivity
+      note: >
+        Three confirmed literature gaps (Internet-specific cascade-size
+        tail exponent; SOC mechanism for outage dynamics; Lyapunov/
+        predictability-horizon study for traffic or topology dynamics),
+        each independently re-confirmed across Phase 1 and Phase 4 sweeps.
+        Recorded as legal "unknown"/floor scores rather than guessed
+        around, per filling_rules.no-guessing.

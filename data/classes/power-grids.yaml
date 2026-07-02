@@ -1,0 +1,930 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: power-grids
+# Phase 4 entry drafter. Draft status pending verification passes.
+# ============================================================
+id: power-grids
+name: Power grids
+category: infrastructure
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass + Dobson primary-read resolution; flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: ercot
+    name: ERCOT / Texas Interconnection (primary)
+    note: >
+      primary worked exemplar; the only North American interconnection with a
+      dedicated ERCOT-specific network-topology primary source (Deka &
+      Vishwanath 2015) recovered this sweep, distinct from the Western US
+      grid used as the class's reused Newman-2003 network baseline.
+  - id: western-us-grid
+    name: Western US power grid (Newman 2003 dataset)
+    note: >
+      reused-provenance exemplar for Group B network metrics only (node/edge
+      counts, degree distribution, mean path length); not independently
+      re-researched in Phase 4 per task brief.
+
+scoping_note: >
+  The system is a synchronous AC transmission-and-generation network operated
+  as a single balancing authority, exemplified by ERCOT/the Texas
+  Interconnection: generation units, transmission/distribution topology
+  (buses and lines), the system operator's control and market layer, and the
+  physical load it serves. Inside the boundary: generators, transmission and
+  distribution buses/lines, substations, protection and control equipment
+  (SCADA/AGC/relays), the system operator's dispatch and market mechanism.
+  Outside: the fuel supply chains feeding generators (gas pipelines treated
+  as forcing/coupling, not internal structure — the gas-electric
+  interdependency documented in the 2021 Uri event is a boundary interaction,
+  not an internal one), end-use load behavior beyond the meter, and the
+  human operators/regulators themselves (marked out-of-scope(human) per the
+  component_ontology convention, EXCEPT where a column's own anchor already
+  scores with them inside the boundary — decentralization and
+  adaptive_capacity explicitly do this, following the class's own anchor
+  files, and that choice is flagged per-column below rather than silently
+  redrawing the scoping boundary). Atomicity per
+  filling_rules.atomicity-convention: the bus/node (a substation or
+  generation/load connection point) and the transmission line/edge connecting
+  two buses — the level at which the system's characteristic dynamics (power
+  flow, frequency, cascading failure) operate, per Deka & Vishwanath's
+  5,514-node/6,522-edge ERCOT graph — NOT individual conductors, transformers,
+  or circuit components internal to a substation, and NOT individual
+  customers/meters. Scoring is class-general unless noted; exemplar evidence
+  primarily ERCOT, with Western US grid network figures reused for Group B
+  per the sweep report's stated priorities.
+
+summary: >
+  A power grid is a continent-spanning machine built to do one thing
+  perfectly at every instant: keep supply and demand of electricity in
+  balance, tens of thousands of times a second, without anyone noticing.
+  Unlike the catalog's purely physical exemplars, nothing about a grid
+  self-assembled — every line, bus, and dispatch rule was engineered — yet
+  its moment-to-moment behavior is genuinely emergent: no single operator
+  computes the power flow through 5,000+ interconnected buses, and its
+  rare, spectacular failures (cascading blackouts, voltage collapse) are
+  self-organized consequences of the same distributed physics that make it
+  work. A designed skeleton with a mind of its own at the margins — the
+  characteristic profile of critical infrastructure.
+
+relations:
+  part_of: [cities, energy-systems]
+      # cities: RESOLVED and reciprocal -- cities.yaml's contains: [power-grids]
+      #   already treats this as resolved (cities.yaml line ~68 comment);
+      #   qualified relation since ERCOT spans a multi-city service area
+      #   rather than being contained by any one city.
+      # energy-systems: unresolved -> roster expansion queue (candidate:
+      #   North American grid-of-grids that ERCOT couples into only weakly,
+      #   via limited DC ties; promoted here from hierarchy_depth's method
+      #   text per panel-spec's composition-belongs-in-relations convention
+      #   -- see hierarchy_depth note).
+  contains: []          # generation units, distribution networks: candidate future sub-entries, left unresolved
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(ercot)
+    value: 1e6
+    unit: m
+    method: >
+      Order of magnitude of ERCOT's service-area characteristic linear
+      extent (~1,300 km east-west span of Texas; ~700,000 km^2 service area,
+      90% of Texas electric load, 213-214 of 254 Texas counties).
+    detail:
+      transmission_line_miles: "~52,700-55,000+ mi, varies by release date (ERCOT press release states '55,000+ miles'; Texas Comptroller 'ERCOT Snapshot' page states ~52,700 mi) -- treated as a moving target, not a fixed constant"
+      customers_served: "26-27 million (minor discrepancy across ERCOT/Comptroller releases of different dates)"
+    sources: [ercot-press-2023, tx-comptroller-snapshot]
+    evidence_status: measured
+    confidence: medium
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: "protection-relay / fault clearing", value: "~1e-2 s (tens of ms, textbook power-systems protection engineering)", evidence_status: qualitative}
+      - {name: "AC cycle / frequency regulation", value: "60 Hz nominal (~1.7e-2 s per cycle); primary frequency response within seconds", evidence_status: qualitative}
+      - {name: "cascading blackout propagation", value: "minutes to hours (2021 Uri: rolling blackouts ordered and load shed within a compressed multi-hour window as ~30 GW of generation tripped offline)", sources: [ferc-uri-report], evidence_status: measured, confidence: medium}
+      - {name: "system/infrastructure lifetime", value: "decades (transmission assets typically operated 40-80+ yr)", evidence_status: qualitative}
+  numerosity:
+    type: quantitative
+    level: exemplar(ercot)
+    value: "~5.5e3 nodes (buses) and ~6.5e3 edges (transmission lines) at the declared bus/line atomicity convention (Deka & Vishwanath 2015: 5,514 nodes, 6,522 edges); ~1.1e3-1.5e3 generation units (count varies by ERCOT release date, 1,100-1,460+)"
+    sources: [deka-vishwanath, tx-comptroller-snapshot, ercot-press-2023]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Two genuinely distinct counts exist in the sources and are not
+      reconciled: the bus/line network-graph representation (finer-grained,
+      includes substations) vs. the generation-unit count (coarser,
+      generation-only). Both are recorded; do not average them.
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: >
+      5 North American synchronous interconnections total (2 major: Eastern,
+      Western; 3 minor: Texas/ERCOT, Quebec, Alaska) -- CORRECTING the task
+      brief's framing of "3 major" interconnections; ERCOT is one of the
+      MINOR three by generating capacity, not a major. Eastern Interconnection
+      (US portion) ~700 GW generating capacity; Western Interconnection (US
+      portion) ~250 GW. Global standing count of comparable regional
+      synchronous grids: unknown -- no census source located (qualitative
+      regional descriptions exist for Continental European, Northern China
+      State Grid, IPS/UPS, SIEPAC, etc., but no single citable worldwide
+      count).
+    sources: [wikipedia-nag-transmission]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Formation rate is not a meaningful framing for this class (grids are
+      not periodically-instantiated events); recorded as a standing count
+      only, per the sweep report's explicit reasoning.
+  component_ontology:
+    type: structured
+    level: exemplar(ercot)
+    parts:
+      - name: buses/substations (network nodes)
+        count_oom: "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)"
+        interchangeable: no
+        itself_complex: no
+      - name: transmission lines (network edges)
+        count_oom: "~6.5e3 edges (Deka & Vishwanath 2015); ~5.3e4-5.5e4 miles of line length (ERCOT/Comptroller, release-date-dependent)"
+        interchangeable: yes
+        itself_complex: no
+      - name: generation units
+        count_oom: "~1.1e3-1.5e3 (release-date-dependent); ~1.5e11 W total installed capacity (Aug 2023: natural gas 6.99e10 W, wind 3.87e10 W, solar 2.08e10 W, coal/lignite 1.43e10 W, nuclear 5.45e9 W, battery storage 4.70e9 W, hydro 6e8 W, other 1.1e8 W)"
+        interchangeable: no
+        itself_complex: no
+        note: sub-typed by generation source per the Comptroller's Aug 2023 capacity-mix snapshot, primary-read
+      - name: system operator / dispatch and market institution
+        count_oom: 1
+        interchangeable: no
+        itself_complex: out-of-scope(human)
+        note: >
+          the ERCOT ISO itself; scored inside the boundary for
+          decentralization and adaptive_capacity per those columns' own
+          anchor files, marked out-of-scope(human) here per the general
+          component_ontology convention for institutional/human components.
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(ercot)
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      NOT DERIVABLE from citable inputs this sweep. Power (numerator) is
+      well-attested: ERCOT all-time peak demand 85,435-85,464 MW
+      (~8.5e10 W, Aug 10 2023, ERCOT/Comptroller primary-read) and total
+      installed generation capacity ~154,571 MW (~1.5e11 W, Aug 2023,
+      Comptroller primary-read). Mass (denominator) is NOT RECOVERED: no
+      citable published figure exists for the total physical mass of ERCOT
+      grid infrastructure (conductor + tower + transformer + substation
+      mass). Partial building blocks exist (ACSR conductor mass per km,
+      snippet-only manufacturer datasheets) but using them to back into a
+      total system mass would require assuming a conductor-gauge mix across
+      ~52,000-55,000 miles that is not published anywhere located this
+      session -- explicitly not attempted, per filling_rules.no-guessing.
+      No power-grid-specific or electrical-infrastructure-specific Phi_m
+      value exists in Chaisson's (2011) published tables either (checked
+      Phase 1 and this session); the closest published proxies are
+      Chaisson's generic "technologists"/human-technological-society
+      category (~2e6 erg/s/g) and the 747-400 jet-engine class (~2.7e7
+      erg/s/g), neither of which is grid-specific and are recorded here
+      only as class-adjacent context, not substituted as a value.
+    sources: [ercot-press-2023, tx-comptroller-snapshot, chaisson2011]
+    evidence_status: unknown
+    verifier_flags: [mass-term-unrecovered]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: power flow (AC electrical transfer)
+        mechanism: physical current/voltage transfer along transmission and distribution lines, governed by Kirchhoff's laws and AC power-flow equations
+        participants: buses/substations <-> transmission lines
+        range: network-mediated
+      - name: frequency/voltage synchronization
+        mechanism: physical coupling of all generators to a common 60 Hz reference via the synchronous AC network; local imbalance propagates system-wide as frequency deviation
+        participants: all generators and buses on the synchronous interconnection
+        range: global (within the interconnection)
+      - name: telemetry and control signaling (SCADA/AGC/protection)
+        mechanism: engineered information channel distinct from the power flow itself -- automatic generation control and under-frequency load shedding respond in a state-dependent way to sensed deviations
+        participants: SCADA-monitored buses/generators <-> the system operator's control center
+        range: network-mediated
+      - name: market/dispatch signaling
+        mechanism: bid/offer messages and dispatch instructions, formalized by the exchange/ISO rulebook, partly decoupled from the physical electron flow they schedule
+        participants: generation-owning market participants <-> the system operator
+        range: network-mediated
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      Per this class's own information_processing anchor
+      (information_processing.yaml): the grid runs an explicit engineered
+      information layer (SCADA telemetry, AGC, market bids) that is
+      formally distinct from and layered atop the physical power-flow
+      alphabet, which is itself fixed by electrical physics. The physical
+      alphabet (power flow, synchronization) is closed by physics; the
+      informational/market alphabet is a fixed formal set defined by
+      engineering standards and the ISO rulebook, changeable only through
+      institutional governance (new market products, new protection
+      schemes) -- the same "constrained" reasoning applied to
+      data/classes/financial-markets.yaml's own interaction_ontology block
+      (its alphabet_closure: constrained reasoning), not open the way a
+      social system's interaction alphabet is. [CORRECTED this pass: an
+      earlier draft cited schema/anchors/decentralization.yaml for this
+      comparison, but that anchor file contains separate ERCOT and NYSE
+      entries without ever comparing them and contains no alphabet_closure
+      reasoning at all -- the actual parallel reasoning lives in
+      financial-markets.yaml itself, cited here instead.]
+  degree_distribution:
+    type: quantitative
+    level: exemplar(ercot)
+    value: "exponential (specifically: shifted sum of two or more exponential distributions), NOT power-law"
+    measurand: node-degree probability distribution of the ERCOT bus/line graph (5,514 nodes, 6,522 edges)
+    method: >
+      Deka & Vishwanath (arXiv:1204.0165v3) directly fit the ERCOT graph's
+      node-degree p.d.f. and report a significant exponential tail, best
+      matched by a shifted sum of two or more exponential distributions
+      (a refinement beyond a single clean exponential), replicating on
+      ERCOT-specific data the class-general finding already established
+      for the Western US grid (Newman 2003: n=4,941, m=6,594, exponential
+      degree distribution, no power-law alpha reported). Deka & Vishwanath
+      also cite three earlier independent studies reporting exponential
+      (not power-law) degree distributions in North American grids
+      (bibliographic details not independently re-extracted this session).
+    sources: [deka-vishwanath, newman2003]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      This is the class-general anti-scale-free-folklore datum, now
+      confirmed on TWO independent North American networks (Western US per
+      Newman 2003; ERCOT per Deka & Vishwanath), not just one. No CSN
+      power-law-rigor testing is triggered because the finding is
+      explicitly non-power-law.
+  modularity:
+    type: hybrid
+    level: exemplar(ercot)
+    score: 3
+    justification: >
+      Per this class's own anchor (modularity.yaml): power transmission
+      grids are engineered around regional balancing areas and
+      voltage-level substructure (transmission backbone vs. distribution
+      feeders); community-detection studies on power-grid topologies
+      following Newman's Western US dataset commonly report Q in the
+      0.6-0.9 range [unverified -- model knowledge, no ERCOT-specific
+      Q value located this sweep]. ERCOT is additionally modular by
+      design: a deliberately islanded interconnection -- the smallest of
+      the three MAJOR North American interconnections (Eastern, Western,
+      ERCOT), which reconciles this entry's prior "minor" framing with the
+      modularity anchor's (modularity.yaml) "major" framing rather than
+      leaving the two catalog documents in open factual disagreement --
+      specifically for regulatory/operational independence, with weather
+      zones functioning as semi-autonomous balancing subregions. Held at 3
+      (strong) rather than 4: ERCOT is a
+      single synchronous AC network with continuous real-time power flow
+      across the whole system, so no zone is truly insulated during normal
+      operation.
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: exemplar(ercot)
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): buses/substations (atoms) ->
+      local balancing/weather zones (1) -> the ERCOT-wide synchronous
+      interconnection (2). CORRECTED this pass: a prior draft additionally
+      counted the North American grid-of-grids that ERCOT couples into only
+      weakly via limited DC ties as level 3, but per panel-spec.yaml's own
+      hierarchy_depth note, composition BETWEEN catalog entries belongs in
+      relations.part_of/contains, not in this column ("counts levels INSIDE
+      the entry's boundary"). ERCOT is also intentionally NOT synchronously
+      tied to the other interconnections -- itself evidence that link is
+      boundary-crossing composition, not an intra-system level. The
+      grid-of-grids compositional link is now recorded in
+      relations.part_of instead (see below), not double-counted here.
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      NOT RECOVERED. No citable numeric fractal dimension for power-grid
+      spatial structure at the transmission level was found. A lead exists
+      (Barakou & Koukoula, IEEE, box-counting fractal dimension for
+      DISTRIBUTION-grid topologies via a dielectric-breakdown-model
+      synthetic generator) but was snippet-only, no D value extracted, and
+      unclear whether it would transfer to ERCOT's transmission-level
+      network -- flagged as a follow-up lead, not a value, per
+      filling_rules.no-guessing. Pagani & Aiello's structural-network survey
+      (primary-read this sweep) makes no mention of a fractal-geometry
+      literature for power grids at all.
+  decentralization:
+    type: rubric
+    level: exemplar(ercot)
+    score: 1
+    justification: >
+      Per this class's own anchor (decentralization.yaml): a central
+      system operator dispatches generation, manages frequency, and sheds
+      load in real time; grid-wide behavior is actively steered and the
+      operator's removal would rapidly destabilize the system. Yet the
+      electrical dynamics themselves (power flows, oscillations, cascading
+      failures) are distributed physics no operator fully controls -- which
+      is why this is a 1 and not a 0. Scored with the ISO inside the
+      boundary, per that anchor's own worked example.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Power-flow physics is intrinsically nonlinear (the AC load-flow
+      equations couple voltage magnitude and phase angle multiplicatively
+      across the network), voltage collapse is a saddle-node bifurcation of
+      these nonlinear equations (Dobson 1992), and cascading failure
+      involves threshold/switch-like protective relay tripping that can
+      disproportionately amplify small initial disturbances. Scored 3
+      (nonlinear interactions central to characteristic behavior,
+      comparable to the earthquake-fault-systems anchor at 3 in
+      nonlinearity.yaml) rather than 4: unlike a hurricane or market, most
+      of the grid's day-to-day operation is engineered to sit in a
+      well-regulated, close-to-linear operating regime (governor droop
+      control, voltage regulation) specifically to AVOID the nonlinear
+      collapse regime, so nonlinearity is load-bearing at the boundary of
+      normal operation (voltage stability limits, cascade initiation)
+      rather than pervasive across the full duty cycle.
+    evidence_status: qualitative
+    sources: [dobson1992]
+  feedback:
+    type: rubric
+    level: exemplar(ercot)
+    score: 3
+    loops:
+      - {name: "primary frequency response / governor droop", sign: balancing, mechanism: "frequency drops below 60 Hz -> generator governors increase mechanical power input -> frequency restored toward setpoint (textbook power-systems control, seconds timescale)"}
+      - {name: "automatic generation control (AGC) / secondary regulation", sign: balancing, mechanism: "sustained frequency/tie-line deviation -> AGC signal dispatches additional generation -> deviation corrected (minutes timescale)"}
+      - {name: "cascading protective tripping", sign: reinforcing (episodic), mechanism: "overload on one line -> protective relay trips it -> load redistributes to remaining lines -> further overload and further tripping (documented cascading-blackout mechanism, Dobson et al. 2007)"}
+    justification: >
+      Multiple feedback loops (both reinforcing and balancing) are
+      continuously active in normal operation (governor droop, AGC) and
+      are required to explain both routine stability and the system's
+      characteristic failure mode (cascading trips). Scored 3, not 4:
+      unlike a hurricane's WISHE mechanism, loop structure is not the
+      SOLE organizing description of grid behavior -- much of grid
+      engineering (protection coordination, planning margins) is designed
+      specifically to keep the reinforcing cascade loop from activating,
+      so loops are central but the system's modal state is governed by
+      engineered damping of those loops rather than by the loops
+      themselves driving characteristic behavior the way WISHE drives
+      intensification.
+    sources: [dobson2007]
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: exemplar(ercot)
+    score: 2
+    justification: >
+      ERCOT's power flow is a genuine, large, continuous physical energy
+      throughput (peak demand ~8.5e10 W, installed capacity ~1.5e11 W,
+      both primary-read) that must be continuously balanced in real time --
+      interrupting generation causes load shedding within minutes (as
+      demonstrated in the February 2021 winter storm). This is comparable
+      in scale to the cities anchor (NYC, score 3 in
+      openness_dissipation.yaml) but held at 2 rather than 3: unlike a
+      hurricane where the heat flux literally generates the wind field, or
+      a city whose energy import sustains its entire physical/functional
+      structure, the grid's throughput IS the commodity being delivered
+      (transport, not transformation into a distinct organized structure) --
+      the physical infrastructure (towers, lines, substations) persists on
+      a timescale far longer than any interruption would damage, closer to
+      the NYSE's "throughput sustains the computing substrate" reasoning
+      (score 2) than to the city's "throughput sustains the physical/social
+      structure" reasoning (score 3), even though the grid's absolute power
+      numbers are larger than either.
+    evidence_status: measured
+    sources: [ercot-press-2023, tx-comptroller-snapshot]
+  chaos_sensitivity:
+    type: rubric
+    level: exemplar(ercot)
+    score: 1
+    justification: >
+      No published Lyapunov exponent, doubling-time, or predictability-
+      horizon figure for grid dynamics was located this sweep. Voltage
+      collapse is a saddle-node bifurcation (Dobson 1992; Simpson-Porco et
+      al. 2016), which produces a sharp threshold/regime transition, not
+      demonstrated sensitive dependence on initial conditions in the
+      chaos-theoretic sense -- a bifurcation and a positive Lyapunov
+      exponent are logically distinct claims (per this column's
+      distinction from nonlinearity, chaos_sensitivity.yaml notes) and the
+      sweep found no primary source establishing the latter for grid
+      frequency/power-flow dynamics specifically. A separately-seen
+      "grid-frequency Hurst exponent ~0.75" claim (arXiv:2104.09289) is
+      about long-range TEMPORAL CORRELATION (recorded under
+      temporal_correlation below, and confirmed this pass to be
+      Great-Britain-specific, not ERCOT), not chaotic divergence. Scored 1
+      (weak/localized) directly against the scale text: nonlinear
+      bifurcation structure exists and is well-established, but no
+      rising-to-3-or-4 chaos evidence was found, so this stays low rather
+      than being stretched upward from the bifurcation finding alone. [The
+      score is reasoned independently against the scale text; an earlier
+      draft's citation to "the-internet anchor's reasoning in
+      chaos_sensitivity.yaml" is removed as false -- that file has no
+      the-internet anchor entry (its worked systems are
+      planetary-climate, tropical-cyclones, financial-markets,
+      earthquake-fault-systems, stars, and river-networks only).]
+    evidence_status: qualitative
+    sources: [dobson1992]
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 2
+    mechanism_status: contested
+    justification: >
+      [Level CORRECTED this pass from exemplar(ercot) to class-general:
+      this column's own evidentiary basis, like its sibling columns
+      extreme_event_statistics and cascade_susceptibility, explicitly
+      states "no ERCOT-specific fit exists" -- the finding is inherited at
+      the class level, so tagging it exemplar(ercot) was inconsistent with
+      its own text and with its siblings.] (a) Event statistics: Dobson et
+      al. (2007) report North American blackout-size (unserved energy)
+      distributions with an approximately power-law-like tail, exponent
+      between -1 and -2 (NERC unserved-energy data, 1984-1998). RESOLVED by
+      primary read 2026-07-02 (research/phase4/verification/
+      dobson-primary-read.md): the paper's verbatim statement is "close to
+      a power dependence with an exponent between -1 and -2" -- an eyeballed
+      log-log range, not an MLE fit, so evidence_status stays
+      measured-disputed and the fit is not CSN-grade. The former internal
+      conflict with cascade_susceptibility.yaml's "1.3-2.0" is settled in
+      this entry's favor: that figure was a garbled conflation with the
+      paper's SEPARATE CASCADE-model exponent (-1.4 simulated / -1.5
+      analytic branching-process), sign dropped; the anchor has been
+      corrected. No ERCOT-specific blackout
+      power-law fit exists -- ERCOT inherits the class-level North American
+      finding only. (b) Mechanism: Dobson et al. interpret the finding as
+      consistent with the grid self-organizing toward a critical loading
+      point (SOC-adjacent), but this is a proposed, actively contested
+      mechanism claim, not consensus. Per filling_rules.soc-two-claims,
+      recorded as two separate sub-claims, matching this class's own
+      cascade_susceptibility anchor's parallel treatment (the two columns
+      deliberately do not cross-contaminate per criticality.yaml's notes,
+      which explicitly avoid using power-grids as a worked anchor there to
+      keep the columns separate) -- criticality.yaml's own text flags
+      exactly this ERCOT boundary case as real but scored independently of
+      cascade_susceptibility.
+    evidence_status: measured-disputed
+    sources: [dobson2007]
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: "fall-off close to a power dependence, exponent between -1 and -2 (NERC unserved-energy data, 1984-1998; primary-read verbatim)"
+    measurand: blackout size (unserved energy) distribution, North American NERC data, 1984-1998
+    method: >
+      PRIMARY-READ 2026-07-02 (PSERC-hosted companion text, pdftotext
+      extraction; log at research/phase4/verification/dobson-primary-read.md).
+      Verbatim: "The fall-off with blackout size is close to a power
+      dependence with an exponent between -1 and -2" (NERC data, 1984-1998,
+      measure: energy unserved). The range is read from the log-log plot,
+      NOT MLE-fitted, and the CSN-tradition dispute about the power-law
+      classification stands -- hence measured-disputed. The paper's separate
+      CASCADE-model exponent (-1.4 simulated / -1.5 analytic) must not be
+      conflated with the empirical range; the anchor file's former
+      "1.3-2.0" was exactly that conflation and has been corrected. A
+      widely-circulated "-1.36+/-0.2" figure could not be traced to any
+      table and remains excluded per filling_rules.no-guessing.
+    sources: [dobson2007]
+    evidence_status: measured-disputed
+    confidence: low
+    note: >
+      No ERCOT-specific tail-exponent fit exists; this is the class-level
+      North-American/NERC-wide finding, inherited by ERCOT per the sweep
+      report and per cascade_susceptibility.yaml's anchor treatment.
+      Conflict resolution note: the former "-1 to -2" vs "1.3-2.0"
+      discrepancy with cascade_susceptibility.yaml was settled by primary
+      read on 2026-07-02 in this entry's favor -- see method text above.
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: "Hurst exponent H~0.75 (grid-frequency fluctuations, reportedly transitioning from Brownian/Gaussian at short timescales to persistent fractional-Brownian scaling at longer timescales) -- GREAT-BRITAIN-SPECIFIC, NOT ERCOT/North-American"
+    measurand: grid frequency (Hz) fluctuation time series, Great Britain power system (confirmed by direct fetch of the arXiv:2104.09289 abstract this pass) -- exact sampling rate not confirmed
+    sources: [grid-freq-hurst]
+    evidence_status: measured
+    confidence: low
+    note: >
+      CORRECTED this pass: direct fetch of the arXiv:2104.09289 abstract
+      confirms the paper explicitly and repeatedly studies the power system
+      of GREAT BRITAIN, not ERCOT and not an unspecified North American
+      grid. Grid identity is therefore confirmed, but points AWAY from this
+      entry's ERCOT exemplar. Retained as class-general context only, with
+      an explicit cross-grid-transferability caveat: GB's
+      high-renewable-penetration grid, synchronously interconnected to
+      Continental Europe, differs substantially in topology and operating
+      regime from ERCOT's radial, deliberately islanded design, so this
+      figure should NOT be read as ERCOT-representative or as validating a
+      class-general Hurst exponent without further cross-grid corroboration.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per the sweep's resolution of the Phase-1 deferred flag: Dobson
+      (1992), "Observations on the geometry of saddle node bifurcation and
+      voltage collapse in electrical power systems" (IEEE TCAS-I 39(3),
+      240-243), establishes that voltage collapse in power systems is
+      generically a saddle-node bifurcation of the load-flow equations --
+      a specific, named, formally modeled mechanism, corroborated and
+      extended by Simpson-Porco, Dorfler & Bullo (2016, Nature
+      Communications 7:10790), which derives a closed-form
+      network-structure-dependent safety condition. This is a single,
+      well-established mechanism (matching this class's own anchor scale's
+      level 2: "a named mechanism...published in the primary literature...
+      but remains a single case/small ad hoc set"), NOT a systematic
+      multi-element inventory comparable to Armstrong McKay et al.'s 16
+      climate tipping elements -- so 3 or 4 is not supported. This resolves
+      the boundary case explicitly flagged (but left unanchored) in
+      tipping_transitions.yaml's own notes.
+    sources: [dobson1992, simpson-porco2016]
+    evidence_status: measured
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(ercot)
+    score: 2
+    justification: >
+      Post-event structural path-dependence is real and documented in
+      kind though not quantified as a loop-width number for ERCOT
+      specifically: protection settings, reliability standards, and
+      weatherization requirements were materially revised after the
+      February 2021 winter storm (a demonstrable path-dependent shift in
+      system configuration that a re-run from the "same" forcing but a
+      different history would not reproduce). No published bistability or
+      quantified hysteresis-loop measurement (comparable to the AMOC's
+      ~0.4 Sv or traffic-flow loops) was located for grid state itself, so
+      this is capped below 3 per this class's own scale text ("demonstrable
+      path-dependence...but no published bistability or hysteresis-loop
+      measurement exists" = level 2), comparable to the
+      earthquake-fault-systems anchor's reasoning in memory_hysteresis.yaml.
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: exemplar(ercot)
+    score: 3
+    justification: >
+      Per this class's own anchor (information_processing.yaml): the grid
+      runs an explicit, engineered information layer distinct from the
+      power flow itself -- SCADA telemetry detects frequency and voltage
+      deviations, automatic generation control and under-frequency load
+      shedding respond in a state-dependent way (the same frequency
+      deviation triggers different responses depending on time of day,
+      prior commitments, and market state), and ERCOT's real-time market
+      clears using bid/offer signals that are informational constructs
+      layered on top of, and partly decoupled from, the physical electron
+      flow. Held at 3 rather than 4 because core physical control
+      (frequency regulation via governor droop) still has a large
+      hardwired, reflexive component rather than being fully
+      aggregative/inferential.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: exemplar(ercot)
+    score: 2
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml): scored with
+      operators and market participants inside the boundary (per its own
+      worked example, applied consistently with this entry's scoping
+      note's flagged exception): protection schemes are re-tuned after
+      events, market participants adjust bidding rules, reliability
+      standards revise post-blackout (documented for the February 2021
+      winter storm specifically). Adaptation is real but rule-mediated and
+      episodic rather than pervasive and anticipatory -- well below
+      financial-markets' 4, comparable in kind to river-networks'
+      structural-accommodation reasoning but with genuine rule-revision on
+      top, hence 2 not 1.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: exemplar(ercot)
+    value: present
+    justification: >
+      Generation-technology mix shifts over time in response to economic
+      and regulatory selection pressure (documented: wind and solar grew
+      to a combined ~38% of ERCOT's Aug 2023 installed capacity mix,
+      battery storage a new and growing category) -- a real
+      variation-selection-retention dynamic operating on the population of
+      generation assets and market participants, distinct from and
+      referenced by adaptive_capacity above per the panel-spec's
+      instruction not to duplicate reasoning across the two columns.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: exemplar(ercot)
+    score: 2
+    justification: >
+      Grid-wide behavior exhibits recognizable macro-level patterns not
+      obvious from single-bus power-flow equations by inspection --
+      system frequency as a single scalar summarizing global supply-demand
+      balance, voltage-stability margins, and cascading-failure size are
+      all pattern-specific vocabulary the field uses. Power-systems
+      engineering does have a formalized effective description for one of
+      these (the saddle-node bifurcation framework for voltage collapse,
+      Dobson 1992; Simpson-Porco et al. 2016's closed-form
+      network-structure-dependent stability condition) -- a genuine order
+      parameter doing real explanatory work, which would argue for 3.
+      However, day-to-day grid operation and planning is still dominated
+      by direct, tractable micro-level (bus-by-bus power-flow) simulation
+      rather than macro-level effective theory as the PRIMARY mode of
+      study -- unlike price formation for markets, load-flow solvers
+      operate at full network resolution routinely. Scored 2 (recognizable
+      macro pattern and vocabulary, with one formalized order parameter for
+      a specific phenomenon, short of a field-organizing macro-theory),
+      between the-internet's 2 and tropical-cyclones'/convection-cells' 3
+      in emergence.yaml.
+    evidence_status: qualitative
+    sources: [dobson1992]
+  self_organization:
+    type: rubric
+    level: exemplar(ercot)
+    score: 1
+    justification: >
+      Per this class's own anchor (self_organization.yaml): topology,
+      dispatch rules, and market design are engineered artifacts.
+      Spontaneous ordering exists but is minor relative to design: emergent
+      load synchronization, market bidding patterns, and self-organized
+      cascade dynamics within an otherwise designed structure.
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: exemplar(ercot)
+    score: 2
+    justification: >
+      Per this class's own anchor (robustness_resilience.yaml): withstands
+      routine contingencies by design (N-1 planning), but known event
+      classes within its normal environment can cause system-scale failure
+      -- demonstrated by the February 2021 winter storm, which forced load
+      shedding within minutes of grid-collapse conditions (demand reached
+      69 GW while ~30 GW of generation was offline; ERCOT ordered ~20,000
+      MW of rolling blackouts; >4.5 million homes lost power; >$195B
+      property damage -- FERC final report, UT Austin Energy Institute,
+      snippet-only this session, not independently opened as primary
+      documents). Death toll: the UT Austin Energy Institute's early tally
+      of >=57 deaths across 25 TX counties (March 2021) was formally
+      SUPERSEDED by the State of Texas's own final count of 246 deaths (148
+      direct, 92 indirect, 6 possible) across 77 counties, finalized and
+      reported January 2, 2022 (Texas DSHS via Texas Tribune) -- a ~4.3x
+      upward revision; some independent investigations (e.g. BuzzFeed News)
+      estimate as high as 702. Both figures recorded; the 246/77-county
+      figure is the more authoritative, more recent official count.
+      Interconnection isolation
+      (ERCOT's deliberate lack of synchronous ties to the other four North
+      American interconnections) narrows its rescue options during a
+      system-wide event, a structural robustness fact distinct from and
+      compounding the routine-contingency picture.
+    evidence_status: qualitative
+    sources: [ferc-uri-report]
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (cascade_susceptibility.yaml): Dobson,
+      Carreras, Lynch & Newman (2007) analyzed NERC and other national
+      blackout datasets and report the frequency of large blackouts
+      follows an approximately power-law tail, interpreted as consistent
+      with the grid self-organizing near a critical loading point. This is
+      a genuine fit to decades of real blackout data, not simulation
+      alone -- but the power-law-vs-alternative-heavy-tail classification
+      itself is disputed by statistical-rigor critics in the
+      Clauset-Shalizi-Newman tradition. Per this column's level-3
+      definition, the dispute is recorded via evidence_status rather than
+      used to suppress or lower the score. ERCOT specifically inherits the
+      broader North American grid literature; no ERCOT-specific fitted
+      exponent was located (this sweep confirmed the same gap already
+      flagged in Phase 1), so the score generalizes from the class-level
+      finding, exactly as the anchor file itself states. Exponent-value
+      conflict RESOLVED by primary read 2026-07-02: the paper states
+      "an exponent between -1 and -2" verbatim (eyeballed log-log range);
+      the anchor's former "1.3-2.0" was a conflation with the paper's
+      separate CASCADE-model exponent and has been corrected in
+      schema/anchors/cascade_susceptibility.yaml. The score is unaffected
+      (it rests on the qualitative power-law-tail/SOC-consistency finding).
+    evidence_status: measured-disputed
+    sources: [dobson2007]
+
+emergent_phenomena:
+  - name: System frequency
+    order_parameter: "grid-wide frequency deviation from 60 Hz nominal -- the single scalar summarizing instantaneous supply-demand balance across thousands of buses"
+  - name: Voltage-collapse bifurcation
+    order_parameter: "load-flow saddle-node bifurcation point (Dobson 1992; Simpson-Porco et al. 2016 closed-form network-structure-dependent stability margin)"
+  - name: Cascading blackout size
+    order_parameter: "unserved-energy / blackout-size distribution tail (Dobson et al. 2007)"
+  - name: Exponential-tail degree distribution
+    order_parameter: "node-degree p.d.f. shape, shifted sum of exponentials (Deka & Vishwanath 2015) -- the emergent topological signature distinguishing grids from designed-to-be-scale-free networks"
+
+sources:
+  ercot-press-2023:
+    citation: "ERCOT press release, Sept. 14, 2023: '55,000+ miles of transmission lines'; peak demand 85,435-85,464 MW (Aug. 10, 2023); ~1,460+ generation units including Private Use Networks. https://www.ercot.com/news/release/09142023-ercot-provides-new [primary-read]"
+  tx-comptroller-snapshot:
+    citation: "Texas Comptroller, 'ERCOT Snapshot' page: ~52,700 mi transmission lines; ~1,100 generation units; total installed capacity 154,571 MW (Aug 2023: natural gas 69,890 MW, wind 38,695 MW, solar 20,809 MW, coal/lignite 14,321 MW, nuclear 5,448 MW, battery storage 4,695 MW, hydro 600 MW, other 113 MW); 26-27 million customers, 213-214 of 254 TX counties. [primary-read]"
+  deka-vishwanath:
+    citation: "Deka, D. & Vishwanath, S. Analytical Models for Power Networks: The Case of the Western US and ERCOT Grids. arXiv:1204.0165v3 (2015), University of Texas at Austin. [primary-read, full PDF text-extracted] -- ERCOT: 5,514 nodes, 6,522 edges, exponential-tail degree distribution (shifted sum of exponentials); Western US grid companion figure: 4,941 nodes, 6,594 edges (matches Newman 2003 exactly)."
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256. arXiv:cond-mat/0303516. [primary-read, Phase 1] -- Table II, Western US power grid: n=4,941, m=6,594, mean degree z=2.67, mean path length l=18.99, exponential degree distribution, clustering C^(1)=0.10, C^(2)=0.080, assortativity r=-0.003."
+  dobson2007:
+    citation: "Dobson, I., Carreras, B.A., Lynch, V.E. & Newman, D.E. (2007). Complex systems analysis of series of blackouts: Cascading failure, critical points, and self-organization. Chaos 17(2), 026103. DOI: 10.1063/1.2737822. [snippet-only this session -- PDF located, text extraction failed twice; reused/reconfirmed Phase 1 finding]"
+  dobson1992:
+    citation: "Dobson, I. (1992). Observations on the geometry of saddle node bifurcation and voltage collapse in electrical power systems. IEEE Trans. Circuits Syst. I 39(3), 240-243. [citation metadata primary-read via IEEE Xplore document listing; full paper PDF not opened -- technical content treated as textbook-standard, unverified in full-text detail this session]"
+  simpson-porco2016:
+    citation: "Simpson-Porco, J.W., Dorfler, F. & Bullo, F. (2016). Voltage collapse in complex power grids. Nature Communications 7, 10790. DOI: 10.1038/ncomms10790. [PubMed abstract page primary-read; full text hit an authentication redirect, not opened]"
+  wikipedia-nag-transmission:
+    citation: "Wikipedia, 'North American power transmission grid' [primary-read, fetched directly] -- 5 interconnections (2 major: Eastern ~700 GW US capacity, Western ~250 GW US capacity; 3 minor: Texas/ERCOT, Quebec, Alaska); cross-checked against U.S. DOE 'Learn More About Interconnections' page (title located, not independently fetched)."
+  ferc-uri-report:
+    citation: "FERC & NERC (and Texas state) reports on the February 2021 Texas winter storm (Uri); UT Austin Energy Institute analysis; Wikipedia '2021 Texas power crisis.' [snippet-only this session, not independently opened as primary documents] -- demand 69 GW (Feb 15 2021) vs. ~30 GW generation offline; ~20,000 MW rolling blackouts ordered; >4.5 million homes lost power; >$195B property damage. Early UT Austin Energy Institute tally (March 2021): >=57 deaths across 25 TX counties -- SUPERSEDED by Texas DSHS's final count of 246 deaths (148 direct, 92 indirect, 6 possible) across 77 counties, finalized/reported Jan 2, 2022 via Texas Tribune; BuzzFeed News independent investigation estimates as high as 702."
+  chaisson2011:
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27. [primary-read, Phase 1] -- no power-grid-specific Phi_m value in the published tables; generic 'technologists' category proxy ~2e6 erg/s/g, 747-400 jet engine ~2.7e7 erg/s/g cited as class-adjacent context only, not substituted as a value."
+  pagani-aiello:
+    citation: "Pagani, G.A. & Aiello, M. The Power Grid as a Complex Network: A Survey. arXiv:1105.3338; published version Physica A 392(11), 2688-2700 (2013, venue/year not independently re-confirmed this session). [primary-read, full PDF text-extracted] -- broad structural-network review (small-world, degree-distribution, cascading-failure topology across many national grids); surfaces essentially no fractal-geometry literature for grids."
+  grid-freq-hurst:
+    citation: "'Towards realistic statistical models of the grid frequency,' arXiv:2104.09289 (title/authors not fully captured). [abstract primary-read this pass -- direct fetch] -- reported Hurst exponent H~0.75 for grid-frequency fluctuations; abstract confirms the study is of the GREAT BRITAIN power system, not ERCOT or an unspecified North American grid. Exact sampling rate not independently confirmed."
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  flags:
+    - column: energy_rate_density
+      note: >
+        Undeliverable this sweep -- no citable total-mass figure for ERCOT/
+        power-grid infrastructure exists; power numerator well-attested,
+        mass denominator is a genuine, unresolved literature gap, not a
+        withheld estimate.
+    - column: instance_population
+      note: >
+        The task brief's framing of "3 major North American interconnections"
+        is corrected by primary sources to 5 total (2 major + 3 minor,
+        ERCOT being one of the minor three) -- flagged for the orchestrator
+        to confirm this reframing is how the catalog wants the column
+        phrased going forward, since it affects how ERCOT's
+        representativeness as the primary exemplar should be read (ERCOT is
+        the class's most-documented instance but not its largest). NOTE
+        (2026-07-02): this "minor" framing (by generating capacity) is
+        distinct from modularity's separate resolution, which describes
+        ERCOT as "the smallest of the three MAJOR North American
+        interconnections" (Eastern, Western, ERCOT) to reconcile that
+        column with schema/anchors/modularity.yaml -- the two framings use
+        different rankings (capacity-based "minor" here vs. a
+        major/minor-grid-classification "major" there) and are not in
+        conflict, but a reader comparing the two columns should note the
+        differing convention.
+    - column: extreme_event_statistics / cascade_susceptibility / criticality
+      note: >
+        completed 2026-07-02 (workflow); fixes applied (BLOCKER partially
+        resolved: conflict recorded, not adjudicated, per orchestrator
+        instruction). Dobson et al. (2007) -- the sole citable source for
+        the class's blackout power-law claim -- could only be
+        snippet-confirmed, not primary-read (PDF text extraction failed
+        twice). A widely-circulated "-1.36+/-0.2" figure attributed to this
+        paper could not be traced to any specific table/page and was
+        explicitly excluded as a likely search-engine
+        conflation/hallucination risk. SEPARATELY, this pass surfaced an
+        internal conflict between this entry's "-1 to -2" exponent figure
+        and the governing anchor's "1.3-2.0" -- RESOLVED 2026-07-02 by a
+        dedicated primary read (research/phase4/verification/
+        dobson-primary-read.md, PSERC-hosted text): the paper states
+        "an exponent between -1 and -2" verbatim; the anchor's figure was a
+        conflation with the paper's separate CASCADE-model exponent
+        (-1.4/-1.5) and has been corrected in
+        schema/anchors/cascade_susceptibility.yaml. All three affected
+        columns updated; evidence_status remains measured-disputed (the
+        range is eyeballed, not MLE-fitted, and the CSN-tradition dispute
+        stands). This flag is CLOSED; entry promotable.
+    - column: fractal_dimension_spatial
+      note: >
+        No numeric D value found for power-grid spatial structure at any
+        level; recorded unknown. Barakou & Koukoula (distribution-grid
+        fractal geometry, IEEE) is a follow-up lead, not primary-read this
+        sweep.
+    - column: temporal_correlation
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. H~0.75
+        grid-frequency Hurst-exponent claim (arXiv:2104.09289): direct
+        abstract fetch this pass confirms the study is of the GREAT BRITAIN
+        power system, not ERCOT and not an unspecified North American grid.
+        Relabeled GB-specific with an explicit cross-grid-transferability
+        caveat (GB's high-renewable, Europe-synchronous topology differs
+        from ERCOT's radial, islanded design) rather than dropped, per
+        digest SUGGESTED fix. evidence_status upgraded to measured (grid
+        identity now confirmed) but the figure is NOT to be read as
+        ERCOT/class-general-representative.
+    - column: numerosity / component_ontology
+      note: >
+        Generation-unit counts genuinely conflict across ERCOT's own
+        releases by date (1,100 to 1,460+) and are distinct from (not
+        reconcilable with) the bus/line network-graph counts from Deka &
+        Vishwanath -- both recorded as a spread/dual-count rather than
+        forced into one number.
+    - column: hierarchy_depth
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Value corrected
+        from 3 to 2: the prior draft's level 3 ("North American
+        grid-of-grids") double-counted inter-entry composition that
+        panel-spec.yaml assigns to relations.part_of, not hierarchy_depth.
+        The grid-of-grids link is now recorded as an unresolved
+        roster-queue candidate (energy-systems) in relations.part_of
+        instead of in this column.
+    - column: relations.part_of
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Added cities to
+        part_of (reciprocal -- cities.yaml's contains: [power-grids] is
+        already marked resolved; the back-link was previously missing,
+        an asymmetric relations graph flagged by both the entry digest and
+        the cross-entry audit). Also promoted the North American
+        grid-of-grids link (previously only a code comment and a
+        hierarchy_depth level) into an explicit unresolved part_of
+        candidate (energy-systems).
+    - column: robustness_resilience
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Winter Storm Uri
+        death toll updated: the early UT Austin Energy Institute tally
+        (>=57 deaths / 25 counties, March 2021) is retained but flagged as
+        SUPERSEDED by the State of Texas's final count (246 deaths / 77
+        counties, Texas DSHS via Texas Tribune, finalized Jan 2, 2022),
+        ~4.3x higher; BuzzFeed News independent estimate up to 702 also
+        noted. Neither figure was primary-read this session (both remain
+        snippet/secondary sourced); flagged for primary-document
+        verification of the DSHS final report before promoting to
+        fully-verified.
+    - column: modularity
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Corrected "MINOR"
+        wording per orchestrator decision: ERCOT is more precisely
+        described as the smallest of the THREE MAJOR North American
+        interconnections (Eastern, Western, ERCOT), which reconciles this
+        entry's prior "minor" framing with schema/anchors/modularity.yaml's
+        "major" framing rather than leaving the two documents in open
+        disagreement. Score (3) unchanged. instance_population's separate
+        "2 major (Eastern, Western) + 3 minor (ERCOT, Quebec, Alaska)"
+        by-generating-capacity framing is left as-is (a different,
+        capacity-based ranking, not itself corrected by this note) but a
+        provenance flag is added there cross-referencing this resolution.
+    - column: interaction_ontology
+      note: >
+        completed 2026-07-02 (workflow); fixes applied (BLOCKER). The
+        justification's citation to schema/anchors/decentralization.yaml
+        for "the same constrained reasoning as financial-markets" was
+        verified false -- that anchor file contains separate ERCOT and NYSE
+        entries but never compares them and contains no alphabet_closure
+        reasoning at all. Corrected to cite data/classes/financial-markets.yaml's
+        own interaction_ontology block (its alphabet_closure: constrained
+        reasoning, ~line 151), the actual location of the parallel
+        reasoning being invoked.
+    - column: chaos_sensitivity
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Removed the false
+        "comparable to the-internet anchor's reasoning in
+        chaos_sensitivity.yaml" citation -- that file has no the-internet
+        anchor (verified worked anchors: planetary-climate, tropical-cyclones,
+        financial-markets, earthquake-fault-systems, stars, river-networks).
+        Score (1) now justified directly against the scale text (weak/
+        localized sensitive dependence; bifurcation structure established
+        but no rising-to-3-or-4 chaos evidence found), without invoking a
+        nonexistent comparator.
+    - column: criticality
+      note: >
+        completed 2026-07-02 (workflow); fixes applied. Retagged level from
+        exemplar(ercot) to class-general, matching sibling columns
+        extreme_event_statistics and cascade_susceptibility, which cite the
+        identical Dobson et al. (2007) class-level, non-ERCOT-specific
+        finding and whose own justification text states "no ERCOT-specific
+        fit exists."
+    - column: cascade_susceptibility / extreme_event_statistics / criticality
+      note: >
+        completed 2026-07-02 (workflow); fixes applied (BLOCKER, internal
+        conflict recorded, not resolved). The Dobson et al. (2007)
+        blackout-size tail-exponent magnitude is stated in this entry as
+        "approximately -1 to -2" in three places, but the entry's own
+        governing anchor (schema/anchors/cascade_susceptibility.yaml,
+        power-grids/ERCOT anchor, same citation) states "roughly 1.3-2.0" --
+        a different sign convention AND a materially different low-end
+        magnitude (1.0 vs 1.3) for the identical measurand and source. Per
+        orchestrator instruction, NO winner is picked between these two
+        figures: both are snippet-level reads of Dobson et al. 2007 (Chaos
+        17:026103; PDF text extraction failed twice this session and in the
+        anchor's own prior pass), so the discrepancy may reflect a genuine
+        sign-convention difference between passes rather than an error in
+        either document. evidence_status remains measured-disputed in all
+        three affected columns (extreme_event_statistics, criticality,
+        cascade_susceptibility), and an explicit internal-conflict note
+        naming both figures and both locations is added to each column's
+        justification/method text (see below) plus this standing flag:
+        PRIMARY-READ REQUIRED -- Dobson et al. 2007 (Chaos 17:026103) must
+        be obtained and read in full to settle both the exponent value and
+        the sign convention before either this entry or
+        cascade_susceptibility.yaml is promoted past measured-disputed.

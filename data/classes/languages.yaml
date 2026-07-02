@@ -1,0 +1,894 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: languages
+# Phase 4 workflow-agent draft. Third full entry; first
+# cultural-informational-category entry with a full metric pass.
+# ============================================================
+id: languages
+name: Languages
+category: cultural-informational
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: english
+    name: English
+    note: >
+      primary worked exemplar per the panel-spec component_ontology note and
+      the Phase 4 sweep; best-documented language for both corpus statistics
+      (Zipf, entropy, network structure) and demographic/speaker figures.
+
+scoping_note: >
+  The system is "a language" as a population-level communicative code: the
+  shared grammar, phonology, and lexicon that a speech community jointly
+  maintains and continuously reproduces, plus the utterances/texts that
+  instantiate it. Inside the boundary: the linguistic structure itself
+  (phonemes, morphemes, words, constructions, and the statistical
+  regularities over them) and speakers' shared, distributed knowledge of
+  that structure, insofar as it shapes production and comprehension. Outside:
+  the individual speaker's full cognitive/neural apparatus (a biological
+  system, out of catalog scope per D2), the cultures and institutions that
+  use language as a medium (recorded only via part_of), and the physical
+  transmission substrate (air, ink, screens, cables — recorded only under
+  openness_dissipation). Atomicity per filling_rules.atomicity-convention:
+  DUAL ontology, declared explicitly because a single atomic type would
+  misrepresent this class (per the panel-spec's own worked note for
+  "english"). (a) Speakers, as the interacting AGENTS whose usage decisions
+  drive change — out-of-scope(human), not itself modeled; (b) linguistic
+  units (phonemes/morphemes/words/constructions), as the REPLICATORS whose
+  frequency distributions, co-occurrence structure, and diachronic change are
+  what most of this entry's quantitative evidence actually measures. The two
+  atomic types have distinct interaction sets (see interaction_ontology) and
+  are not reducible to one another for this entry's purposes — a hurricane
+  or a market can be scored on one atomic type; language genuinely cannot.
+  Scoring is class-general with primary quantitative exemplar evidence from
+  English; class-general numerosity/instance_population figures are recorded
+  separately from English-specific ones and the level is stated on every
+  value.
+
+summary: >
+  A language is a code with no author: a shared system of sounds, words, and
+  grammatical patterns that a community of speakers collectively maintains,
+  reproduces across generations, and continuously reshapes, without any
+  designer specifying its rules in advance or any authority enforcing them in
+  real time (English has no academy; French's does, and only weakly). Its
+  regularities are simultaneously some of the best-attested statistical laws
+  in any complex system — word frequencies obey Zipf's law about as cleanly
+  as any power law yet tested — and some of the hardest to pin to a single
+  physical substrate, since a language's "matter" is distributed across
+  billions of brains, throats, and pages rather than concentrated in any one
+  place. Grammar and lexicon are also a living historical record: irregular
+  verbs, etymological doublets, and orthographic fossils are structural
+  memory of the language's own past, not inferable from present communicative
+  need alone.
+
+relations:
+  part_of: [cultures]      # unresolved -> roster expansion queue; "cultures" not yet a catalog entry
+  contains: []              # no established sub-complex-system entries at this pass
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      Languages are not spatially localized objects in the sense a hurricane
+      or fault system is; "spatial extent" would have to mean either the
+      geographic range over which a language is spoken or the "shape" of its
+      dialect-geography in linguistic space, and neither has a standard
+      citable order-of-magnitude figure at class-general level. At exemplar
+      level, English's speaker range is effectively global (order ~1e7 m,
+      Earth's circumference ~4e7 m, if one wants a crude diaspora-range
+      figure), but this is an interpretive framing rather than a measured
+      quantity and is not recorded as a value. The more informative
+      class-appropriate scale variables for this class are numerosity
+      (speakers, lexical units) and network size (below), not a linear
+      extent — recorded here per filling_rules.no-guessing rather than
+      stretched to fit.
+    evidence_status: unknown
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - name: fastest constituent process — spoken information transmission rate
+        value: "~39.15 bits/s (SD 5.10), per-language range roughly 34-44 bits/s"
+        measurand: >
+          spoken information rate = information density per syllable
+          (syllable conditional entropy from written-corpus statistics) x
+          syllable rate (measured from 170 speakers reading standardized
+          texts aloud), 17 languages / 9 language families incl. English;
+          no English-specific figure separately reported.
+        sources: [coupe2019]
+        evidence_status: measured
+        confidence: medium
+        unit_shape_note: >
+          ADDED 2026-07-02: this sub-entry reports a RATE (bits/s), a
+          deviation from the panel-spec's declared column unit ('s',
+          duration) and from sibling entries' practice — recorded here
+          because the rate is the citable measured quantity. The
+          corresponding duration is the mean syllable duration, order 1e-1
+          s (the reciprocal of the several-syllables-per-second speech
+          rates Coupe et al. 2019 measured from 170 speakers reading
+          aloud). The specific per-language syllable-rate figures from
+          Coupe et al. were not recovered/primary-read this pass, so only
+          the order-of-magnitude duration is recorded, marked derived, per
+          no-guessing.
+      - name: fastest constituent process (duration form) — mean syllable duration
+        value: "order 1e-1 s per syllable (derived; reciprocal of measured syllable rates of several per second)"
+        sources: [coupe2019]
+        evidence_status: derived
+        confidence: medium
+      - name: dominant dynamics — intergenerational transmission
+        value: "~25 years (~1e9 s) per generation; qualitative framing only"
+        note: >
+          Standard linguistic-typology consensus that transmission operates
+          generationally; no citable universal half-life figure for lexical/
+          grammatical replacement was pinned to a specific primary source
+          this pass (Krauss 1992 and the lexical-replacement literature
+          discuss rates qualitatively/per-lineage). [unverified — model
+          knowledge for the generic 25-year figure]
+        evidence_status: unknown
+      - name: system lifetime — language lineage persistence
+        value: "order 1e3-1e4 years per lineage; English lineage traceable to ~5th c. CE, ~1500 years and counting"
+        note: >
+          A specific Indo-European root-age figure (~8,120 years BP) surfaced
+          via search-snippet only, with unresolved paper attribution — NOT
+          recorded as a value pending primary confirmation, per
+          no-guessing.
+        evidence_status: measured-untested
+        confidence: low
+  numerosity:
+    type: quantitative
+    level: exemplar(english)   # retagged 2026-07-02 from class-general: all figures below are English-exemplar-level per the attribute's own note (matches the financial-markets exemplar(nyse) precedent)
+    value: >
+      dual-ontology count, per component_ontology below: speakers (English
+      exemplar) ~1.53e9 (order 1e9); lexical units (English exemplar,
+      OED online) 520,779 entries (order 1e5-1e6, method-dependent); word
+      co-occurrence network (English exemplar, BNC-derived) 460,902 word-type
+      nodes, order 1e5.
+    note: >
+      No class-general (all-languages-summed) lexical or speaker count was
+      recovered; all numerosity figures here are English-exemplar-level, per
+      the dual-ontology scoping note. Total cross-language lexicon/speaker
+      sums are not a meaningful single figure and were not sought.
+    sources: [ethnologue27, oed-wikipedia, ferrer-i-cancho2001]
+    evidence_status: measured
+    confidence: medium
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: >
+      ~7,170 living languages (Ethnologue 29th ed., 2026); formation is not
+      meaningfully separable from divergence of existing languages (no
+      "birth rate" analogous to storm formation); extinction rate ~3.5
+      languages/year (supersedes the widely repeated but unsupported "one
+      language every two weeks" (~26/yr) folk figure).
+    note: >
+      UPDATED 2026-07-02: a direct fetch of en.wikipedia.org/wiki/Ethnologue
+      this session (not just a search snippet) resolves the full edition
+      sequence cleanly and confirms it is internally consistent, resolving
+      the previous "does not reconcile cleanly" concern: 25th ed.
+      (2022)=7,151; 26th ed. (2023)=7,168; 27th ed. (2024)=7,164; 28th ed.
+      (2025)=7,159; 29th ed. (2026)=7,170. The edition-to-edition
+      fluctuation (a non-monotonic sequence of small rises and falls, not a
+      steady count-down) is itself recorded as evidence of measurement
+      noise in the underlying count — languages are reclassified,
+      merged/split, or newly documented between editions, so the "living
+      language count" is not a simple monotonic decrease even though
+      extinction is net-positive over the long run. Given the current date,
+      the 29th ed. (2026) figure of 7,170 is the current value and
+      supersedes the previously recorded 27th-ed./2024/7,164 figure. Cross-
+      check: Glottolog's differently-drawn language/dialect boundary gives
+      ~7,900. Ethnologue itself still could not be primary-read this
+      session (ethnologue.com returned HTTP 403 on every fetch attempt); the
+      edition sequence above rests on a direct fetch of Wikipedia's
+      Ethnologue article, not a primary read of ethnologue.com.
+      Endangerment re-estimate (cross-referenced by tipping_transitions): a
+      modern, database-driven re-assessment puts ~44-46% of living
+      languages as endangered, materially lower than Krauss 1992's 90%
+      at-risk ceiling ("a consensus seems to have developed around the
+      likelihood of 50% loss" this century). That figure is
+      snippet-verified only and its exact primary source was not
+      independently pinned (candidates: Ethnologue's own EGIDS-based
+      endangerment tallies, or Simons & Lewis-type Ethnologue analyses);
+      evidence_status for it is measured-disputed — Krauss 1992 vs. the
+      lower modern re-estimate is a live disagreement in the literature,
+      not a settled number.
+    sources: [ethnologue27, glottolog, elcat]
+    evidence_status: measured
+    confidence: low
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: speakers (agents)
+        count_oom: "English exemplar: ~1.53e9 (L1+L2, order 1e9)"
+        interchangeable: no
+        itself_complex: out-of-scope(human)
+      - name: lexical/grammatical units (replicators — phonemes, morphemes, words, constructions)
+        count_oom: "English exemplar: ~1e5-1e6 (OED online 520,779 entries); phoneme inventory ~44 (English), cross-linguistic mean ~31-35 per language (PHOIBLE/UPSID)"
+        interchangeable: no
+        itself_complex: no
+    note: >
+      Per the panel-spec's own worked example for this class ("english —
+      dual ontology: speakers (agents, out-of-scope(human)) AND
+      lexical/grammatical units (replicators), each with its own interaction
+      set"). This is the schema's stated reason this class needs two atomic
+      types rather than one; see scoping_note.
+    evidence_status: qualitative   # added 2026-07-02; the dual-ontology structural claim is qualitative — the illustrative counts within it are measured figures sourced under numerosity
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      NOT recovered and no clean derivation path identified. Confirmed
+      absent from Chaisson (2011) itself (Phase 1 finding: no
+      language-specific Phi_m in the source paper); Chaisson's generic
+      "society"/"technologists" per-capita band (~2e4-2e6 erg/s/g) is a
+      whole-society energy-throughput proxy, not anything specific to the
+      linguistic system per se, and is NOT substituted in as a derived
+      value. A derivation would require choosing (a) a power figure — e.g.
+      the metabolic/neural cost of speech production and comprehension —
+      and (b) a mass figure — e.g. total speaker biomass — but (b)
+      specifically smuggles a biological system across the catalog's
+      non-biological boundary (D2), making the atomicity/boundary choice
+      for this class's Phi_m conceptually contested, not merely
+      undermeasured. Recorded as unknown per filling_rules.no-guessing
+      rather than stretched to fit; see provenance.flags.
+    sources: [chaisson2011]
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: exemplar(english)
+    value: network
+    note: >
+      The lexical/word-co-occurrence system is a genuine network (see
+      degree_distribution); the speaker population is better described as a
+      diffuse, non-spatial network of pairwise/broadcast communicative
+      contact rather than a field/continuum or fixed lattice.
+    evidence_status: qualitative   # added 2026-07-02 per panel-spec's evidence_status-required rule
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: communicative exchange (utterance/comprehension)
+        mechanism: production and reception of speech/text between speakers, conditioned on shared code
+        participants: speakers <-> speakers
+        range: local (dyadic/small-group) to network-mediated (broadcast, written media)
+      - name: word co-occurrence / syntagmatic combination
+        mechanism: statistical and grammatical co-occurrence of lexical units within utterances (the substrate of Zipf/network structure)
+        participants: lexical units <-> lexical units
+        range: network-mediated
+      - name: innovation adoption / diffusion
+        mechanism: differential uptake of a new form (word, construction, sound change) across a speech community, typically S-shaped/logistic
+        participants: speakers <-> speakers (mediated by lexical/grammatical units as the thing adopted)
+        range: network-mediated
+      - name: intergenerational transmission
+        mechanism: acquisition of the code by new speakers from existing speakers, with imperfect/creative reproduction
+        participants: speakers (older cohort) -> speakers (younger cohort)
+        range: local
+    type_count: 4
+    alphabet_closure: open
+    justification: >
+      New interaction types can and do arise: new media of transmission
+      (writing, print, telephony, text messaging, social media) have each
+      introduced genuinely new communicative-exchange mechanisms over
+      historical time, and this is not a fixed formal set the way an
+      exchange rulebook or fluid-dynamics interaction set is. Matches the
+      panel-spec's own characterization of "social and cultural systems" as
+      the open end of the closed -> constrained -> open gradient.
+    evidence_status: qualitative   # added 2026-07-02 per panel-spec's evidence_status-required rule; the word co-occurrence subtype's substrate is measured (see degree_distribution) but the four-type ontology itself is a qualitative structural claim
+  degree_distribution:
+    type: quantitative
+    level: exemplar(english)
+    value: >
+      two-regime power law in the British National Corpus word
+      co-occurrence network: high-degree regime alpha~2.7, low-degree
+      regime gamma~1.5, crossover near degree k~1e3; mean degree z=70.13,
+      clustering C=0.437 (all figures Ferrer i Cancho & Sole 2001 alone).
+      Separately, Newman (2003) Table II reports its own, non-corroborating
+      word co-occurrence network datum: n=269,504 nodes, m=2.13e9 edges,
+      C(2)=0.39, with NO fitted power-law exponent reported.
+    measurand: node degree in the word co-occurrence network (n=460,902 word-type nodes, m=17e6 edges; Ferrer i Cancho & Sole 2001 network)
+    method: log-log regression fits (Ferrer i Cancho & Sole 2001), pre-dating CSN (2009)
+    sources: [ferrer-i-cancho2001, newman2003]
+    evidence_status: measured-untested
+    confidence: medium
+    note: >
+      CORRECTED 2026-07-02: the n=460,902/z=70.13/C=0.437/two-regime-gamma
+      figures belong to Ferrer i Cancho & Sole (2001) ALONE — Newman (2003)
+      is not a corroborating source for these specific numbers. Primary-read
+      of Newman (2003) Table II (arxiv.org/pdf/cond-mat/0303516) shows its
+      actual word co-occurrence row is n=269,504, m=2,130,000,000, C(2)=0.39,
+      with no fitted exponent; a full-text search of Newman's paper for a
+      word-network alpha=2.7 found nothing. Newman 2003 is now cited only for
+      its own, separately-recorded datum above, not as support for Ferrer i
+      Cancho & Sole's numbers. Per filling_rules.power-law-rigor: neither
+      source paper applied a CSN-2009-grade MLE+KS+alternative-distribution
+      test; both use older log-log-regression exponent fitting, which CSN's
+      own paper criticizes as biased/optimistic. Defaults to
+      measured-untested exactly as prescribed, parallel to the
+      extreme_event_statistics treatment below (do not conflate: this is
+      topology, not event statistics).
+  modularity:
+    type: rubric
+    level: exemplar(english)
+    score: 1
+    justification: >
+      Per this class's own anchor (modularity.yaml): registers and dialects
+      (legal English, technical jargon, regional dialects) form loosely
+      distinguishable clusters of denser co-occurrence/shared vocabulary,
+      but these are heavily interpenetrating rather than insulated —
+      matches the anchor scale's 1 (fuzzy, gradational, no clearly preferred
+      partition; comparable to the tropical-cyclones rainband case).
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): phonemes/morphemes (atoms) ->
+      words/lexical items (1) -> phrases/constructions (2) -> full utterances/
+      discourse (3). Speakers as the parallel agent-atom type are not counted
+      in this replicator-side hierarchy (see component_ontology's dual
+      ontology; the two atomic types are not stacked into one hierarchy).
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No citable spatial (geometric) fractal dimension was found for
+      language as a class or for English specifically — no numeric D value
+      analogous to the San Andreas Fault's D~1.1-1.4 exists in the
+      literature searched. A temporal/sequence fractal-type measure
+      (multifractal analysis of sentence-length sequences) was identified
+      as a candidate lead but not read or verified this session, so it is
+      not recorded as a value; see temporal_correlation for the related,
+      partially-sourced Hurst-exponent claim. Recorded unknown per
+      no-guessing rather than substituting the unrelated temporal measure.
+    evidence_status: unknown
+  decentralization:
+    type: rubric
+    level: exemplar(english)
+    score: 4
+    justification: >
+      Per this class's own anchor (decentralization.yaml): no authority
+      controls English usage; change propagates entirely through
+      distributed adoption by speakers. The anchor itself flags the
+      cross-entry consistency check this implies — a language with an
+      official regulating academy (French) should score measurably lower,
+      since a central institution exists there with at least weak real
+      authority; English has no equivalent and sits at the scale's ceiling.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: exemplar(english)
+    score: 1
+    justification: >
+      Per this class's own anchor (nonlinearity.yaml): language change
+      (sound shifts, grammaticalization, lexical diffusion) is often modeled
+      with nonlinear logistic-curve adoption dynamics (S-shaped uptake of an
+      innovation through a speech community) — a genuine but comparatively
+      mild, localized nonlinearity resembling threshold/social-contagion
+      dynamics rather than the strongly coupled, multiplicative interactions
+      of fluid or market systems. Everyday production/comprehension
+      (compositional semantics, routine phonological/morphological
+      processing) is well approximated by combinatorial, largely
+      rule-based, not strongly nonlinear, mechanisms. Scored low
+      deliberately: this class's complexity credentials live elsewhere
+      (Zipf's law, cultural evolution, memory/robustness), not here.
+      Comparator: tropical-cyclones anchors the opposite pole at 4
+      (multiplicative WISHE coupling).
+    evidence_status: qualitative
+  feedback:
+    type: rubric
+    level: exemplar(english)
+    score: 2
+    loops:
+      - name: innovation diffusion / prestige adoption
+        sign: reinforcing
+        mechanism: "a new form's adoption by prestige/network-central speakers -> increased visibility and social value -> further adoption by other speakers, classic S-curve diffusion"
+      - name: normative correction / prescriptive pushback
+        sign: balancing
+        mechanism: "a spreading innovation attracts stigmatization or institutional correction (style guides, schooling) -> slows or reverses uptake in formal registers, though rarely eliminates it"
+    justification: >
+      No worked anchor exists for this column at this class in
+      schema/anchors/feedback.yaml; scored against the scale text directly,
+      with financial-markets (score 3) and tropical-cyclones (score 4) as
+      comparators. Diffusion/adoption loops materially shape which
+      innovations succeed (episode-level, not universal — most everyday
+      utterances are not loop-governed at all), placing this below
+      financial-markets' continuous multi-loop dynamics: language's loop
+      structure operates at the population/change level, not as the primary
+      explanatory device for the system's modal (moment-to-moment
+      communicative) behavior. Matches scale level 2 (loops matter at the
+      margins/during episodes of change, not continuously for the system's
+      typical state).
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: exemplar(english)
+    score: 1
+    justification: >
+      Per this class's own anchor (openness_dissipation.yaml): "English" as
+      an abstract linguistic system has no independent literal
+      energy/matter throughput of its own distinct from the metabolic
+      energy of its speakers and the electrical energy of transmission
+      media — no citable physical flux whose interruption would collapse
+      "English" as a structure on any meaningful timescale (the language
+      would persist through a period without any physical medium
+      transmitting it, unlike a hurricane losing its heat source). Scored 1
+      rather than 0 because transmission does require a continuously
+      renewed population of living, energy-consuming speakers and (in the
+      modern era) real electrical throughput for digital transmission — but
+      this throughput belongs to the speaker/infrastructure substrate, not
+      to English as the object of study, exactly the floor-adjacent
+      treatment the anchor prescribes for cultural-informational entries.
+    evidence_status: qualitative
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      No worked anchor exists for this column at this class; scored against
+      the scale text with financial-markets (score 1, per the binding
+      no-market-chaos rule) as the nearest comparator. No citable
+      Lyapunov-exponent, doubling-time, or predictability-horizon figure
+      was found for language as a dynamical system, and no evidence
+      surfaced even of the weaker "nonlinear dependence without established
+      chaos" case that anchors financial-markets at 1. Abrams-Strogatz-type
+      language-competition models are nonlinear population dynamics but no
+      published sensitive-dependence/chaos measurement for them was
+      located. Matches scale level 0: no evidence of sensitive dependence
+      in the dominant dynamics, and unpredictability where it exists (e.g.,
+      which innovations succeed) is not shown to be intrinsic trajectory
+      divergence rather than measurement/data limitation.
+    evidence_status: unknown
+  criticality:
+    type: hybrid
+    level: exemplar(english)
+    score: 0
+    mechanism_status: none
+    justification: >
+      RESCORED 2026-07-02 (from 1 to 0, consistency fix): no worked anchor
+      exists for this column at this class; scored against the scale text.
+      (a) Event statistics: the class's flagship measured quantity — Zipf's
+      law for word frequency — is a static rank-frequency distribution, not
+      an event-size statistic in the criticality sense (per this column's
+      does_not_count: static scale-free structure belongs elsewhere,
+      specifically extreme_event_statistics here); no scale-invariant EVENT
+      statistics (e.g., a fitted distribution of innovation-cascade sizes
+      or language-shift event magnitudes) were located at all — a level-0
+      condition on the scale's event-statistics leg. (b) Mechanism: no SOC
+      or critical-point mechanism has been proposed for language change
+      dynamics in the literature surveyed. The prior score of 1 rested on
+      informal "tipping point"-adjacent framing of language shift/death,
+      but criticality.yaml's own does_not_count clause explicitly excludes
+      colloquial tipping-point framing as evidence for this column (that
+      evidence is correctly scored under tipping_transitions=2 in this
+      entry, and counting it here as well was double-counting into the
+      wrong column). Rescored to 0 with no in-scope evidence clearing even
+      the level-1 bar, consistent with how chaos_sensitivity and
+      cascade_susceptibility handle the same "nothing found" situation
+      elsewhere in this entry.
+    evidence_status: unknown
+  extreme_event_statistics:
+    type: quantitative
+    level: exemplar(english)
+    value: "alpha=1.95(2), p=0.49 (Kolmogorov-Smirnov goodness-of-fit), rated 'good' — no alternative distribution fits comparably well"
+    measurand: >
+      written word-frequency rank-frequency distribution (Zipf's law),
+      Melville's Moby Dick, n=18,855 unique word types, x_min-hat=7+/-2.
+    method: >
+      CSN (2009) full MLE + KS + alternative-distribution-comparison
+      protocol — the gold-standard test this column's filling_rule is
+      named after.
+    sources: [csn2009]
+    evidence_status: measured
+    confidence: high
+    note: >
+      The ONLY dataset, of 24 tested across all domains in CSN's entire
+      study, rated unambiguously "good" (17 others "not ruled out," several
+      weaker/rejected — earthquakes, blackouts, web links all fared worse).
+      This is the single strongest power-law claim in the catalog's
+      evidentiary base to date, biological or not, and the rare column
+      where the panel's default-skeptical measured-untested status is
+      explicitly NOT needed. Primary-read in full (Phase 1). Measurand
+      caveat: written word-frequency rank, one English text — not spoken
+      frequency, not a class-general figure across languages.
+  temporal_correlation:
+    type: quantitative
+    level: exemplar(chinese-classical-novel)
+    value: "Hurst exponent H~0.575 (+/-0.002, up to scale ~1e4 sentences)"
+    measurand: >
+      long-range correlation of the sentence-length series of "A Story of
+      the Stone" (Hongloumeng), a Chinese classical novel, 34,759 sentences
+      — NOT an English-language or general/universal-language claim; a
+      single-text, single-language exemplar result.
+    sources: [yang-gu-yang2016, altmann-lineage-2012]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      RE-ATTRIBUTED 2026-07-02: this figure was previously attributed to a
+      "candidate" source, Altmann, Cristadoro & Esposti (2012), PNAS
+      109(29):11582, and framed as a general-language claim. Primary-read of
+      the Altmann et al. arXiv preprint (1207.0658) this session shows that
+      paper does not use Hurst-exponent formalism at all (no occurrence of
+      "Hurst" in the text; it uses a distinct autocorrelation/burstiness
+      framework) — it remains valid to cite for the EXISTENCE of long-range
+      correlation in text (a different, non-Hurst framework), but not for any
+      H value. A targeted search traced the exact figure "H=0.575+/-0.002 up
+      to a scale of 10^4" to Yang, T., Gu, C. & Yang, H. (2016), "Long-Range
+      Correlations in Sentence Series from A Story of the Stone," PLOS ONE
+      (independently fetched and confirmed from journals.plos.org this
+      session) — a study of sentence-length series in a single Chinese
+      classical novel, not a general-language or English claim. Level
+      changed from class-general to exemplar(chinese-classical-novel) and
+      evidence_status upgraded to measured accordingly. Altmann, Cristadoro &
+      Esposti (2012) is retained in sources as corroboration that long-range
+      correlation exists in narrative text generally, via its own
+      autocorrelation/burstiness framework, not for any Hurst value.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      No worked anchor exists for this column at this class; scored against
+      the scale text with financial-markets (score 2) as comparator.
+      Language death/endangerment is a named, formally modeled process
+      (loss of intergenerational transmission as the critical threshold;
+      Abrams-Strogatz-type language-competition/death models, Nature
+      424:900, 2003, surfaced but not read this session) with real,
+      if contested, quantitative framing (Krauss 1992's 90% at-risk ceiling
+      vs. a modern ~44-46% re-estimate — see instance_population). This is
+      a single well-developed mechanism-class, not a systematic multi-
+      element inventory comparable to Armstrong McKay's climate tipping
+      elements, and empirical confirmation of the threshold dynamics
+      (rather than just observed extinction counts) is thin. Matches scale
+      level 2.
+    evidence_status: measured-disputed
+    sources: [krauss1992, elcat]
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(english)
+    score: 4
+    justification: >
+      Per this class's own anchor (memory_hysteresis.yaml): a language's
+      current grammar, lexicon, and phonology are the accumulated, largely
+      irreversible residue of its entire history — irregular verbs (went,
+      was), etymological doublets, and phonological relics (the "silent"
+      letters from Great Vowel Shift-era spellings fossilized after
+      pronunciation changed) are structural memory that cannot be inferred
+      from current communicative function alone; two languages with
+      identical present-day communicative needs can differ enormously
+      because of divergent history. The strongest, least-ambiguous case of
+      historical contingency of structure among this class's anchors: the
+      record itself (etymology, spelling fossils, irregular paradigms) is
+      direct, cataloged evidence of specific past states.
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: exemplar(english)
+    score: 4
+    justification: >
+      Per this class's own anchor (information_processing.yaml): language
+      is a full symbolic system — discrete units (phonemes, morphemes)
+      combine compositionally to express meanings never previously
+      encountered (unbounded generativity), listeners resolve ambiguity
+      using context (a state-dependent response — the same acoustic signal
+      "bank" is interpreted differently depending on discourse context),
+      and the system supports genuine inference (pragmatic implicature goes
+      beyond the literal signal). The clearest non-market case of
+      aggregation/inference beyond raw signal transmission in the anchor
+      set, anchoring the top of the scale alongside financial markets'
+      price-discovery case. Quantitative corroboration (added 2026-07-02
+      from already-primary-read Phase 1 material): Shannon's own 1951
+      guessing-game experiment estimated the entropy rate of printed
+      English at ~1.3 bits/character (range roughly 0.6-1.3 bits/char
+      depending on method), using passages from "Jefferson the Virginian"
+      with human subjects (Shannon, BSTJ 30(1):50-64, 1951); replicated at
+      scale by Bentz et al.'s crowdsourced Mechanical Turk version of the
+      Shannon game (Entropy 21(12):1201, 2019) — a canonical, quantitative
+      measurement of the symbolic system's per-character information
+      content, complementing the qualitative anchor evidence above.
+    sources: [shannon1951, bentz2019]
+    evidence_status: qualitative
+    note: >
+      The rubric score itself remains grounded in the qualitative anchor
+      (hence evidence_status: qualitative), but the Shannon/Bentz
+      entropy-rate figures are recorded as measured supporting data points
+      per the coverage-check finding that they were primary-read in Phase 1
+      yet never made it into the entry body.
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: exemplar(english)
+    score: 3
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml): speakers (the
+      components) hold internal models of usage and adjust production to
+      audience and context; innovations spread by differential adoption.
+      Adaptation is genuine and continuous but weakly strategic and slow at
+      the system scale, distinguishing it from a 4. Per the anchor's own
+      framing note: languages sit in the "robust + adaptive" quadrant
+      alongside the-internet, distinct from tropical-cyclones (fragile +
+      non-adaptive) and individual speculative markets (fragile +
+      adaptive) — a real structural contrast the catalog is tracking
+      across entries.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: exemplar(english)
+    value: present
+    justification: >
+      Lexical and grammatical variants arise continuously (coinages,
+      borrowings, competing constructions); selection operates through
+      differential adoption (prestige, communicative efficiency, network
+      position) and retention through conventionalization/codification
+      (dictionaries, schooling, writing systems). Directly underlies the
+      adaptive_capacity score above.
+    evidence_status: qualitative   # added 2026-07-02 per panel-spec's evidence_status-required rule
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: exemplar(english)
+    score: 3
+    justification: >
+      Per this class's own anchor (emergence.yaml): the macro-order here
+      lives at the population level — a shared grammar (a stable convention
+      no individual speaker legislates), lawlike diachronic regularities
+      (Neogrammarian sound laws, grammaticalization clines), and robust
+      statistical laws (Zipf's law) that are formalized, predictive
+      machinery used as the field's working vocabulary, not a trivial
+      relabeling of individual utterances. Weak/epistemic sense throughout,
+      matching the panel-spec's fixed operational definition.
+    evidence_status: qualitative
+  self_organization:
+    type: rubric
+    level: exemplar(english)
+    score: 4
+    justification: >
+      Per this class's own anchor (self_organization.yaml): grammar,
+      phonology, and the lexicon emerged and continually reorganize through
+      distributed usage with no designer. The anchor's own explicit
+      contrast case is instructive: a constructed language (Esperanto),
+      whose order at genesis was templated, would anchor 0-1 at creation,
+      drifting upward as usage communities evolve it — English, with no
+      comparable designed origin, sits at the scale's ceiling alongside
+      tropical-cyclones.
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: exemplar(english)
+    score: 4
+    justification: >
+      Per this class's own anchor (robustness_resilience.yaml): function
+      and identity maintained through conquests, mass migrations,
+      technological upheavals, and centuries of contact-driven vocabulary
+      absorption; perturbations tend to be metabolized as change rather
+      than loss. Robustness here is partly delivered BY adaptation — the
+      anchor's explicit tension case between this column and
+      adaptive_capacity (resist vs. embrace change), resolved here in favor
+      of embrace-and-persist.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      No worked anchor exists for this column at this class; scored against
+      the scale text with the-internet (score 1) and river-networks (score
+      1) as comparators. Local failure propagation is plausible and
+      informally discussed (an individual speaker's idiolect shift does not
+      typically cascade through a speech community; localized language
+      obsolescence in one domain, e.g. loss of specialized register, is
+      occasionally discussed anecdotally) but no dedicated empirical or
+      model-based study of a cascade/propagation SIZE distribution was
+      located for language change or language death as a networked
+      phenomenon — language extinction events are better characterized as
+      largely independent (community-by-community sociopolitical pressure)
+      than as a propagating cascade through a coupled system of languages.
+      Matches scale level 1.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Grammar (shared syntactic convention)
+    order_parameter: >
+      degree of grammatical convergence/acceptability judgments across a
+      speech community; no individual speaker specifies it
+  - name: Zipf's law (word-frequency distribution)
+    order_parameter: rank-frequency tail exponent alpha (alpha~1.95 for English, Moby Dick)
+  - name: Sound change / grammaticalization clines
+    order_parameter: >
+      S-curve adoption fraction of an innovating form through a speech
+      community over historical time
+  - name: Lexical/semantic network structure
+    order_parameter: >
+      word co-occurrence network degree distribution and clustering
+      (alpha~2.7 high-degree, gamma~1.5 low-degree, C~0.44, English BNC)
+
+sources:
+  csn2009:
+    citation: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661-703. arXiv:0706.1062. [primary-read in full, Phase 1]"
+  coupe2019:
+    citation: "Coupe, C., Oh, Y.M., Dediu, D. & Pellegrino, F. (2019). Different languages, similar encoding efficiency: Comparable information rates across the human communicative niche. Science Advances 5(9), eaaw2594. [snippet-verified via PMC mirror summary, not read verbatim in raw form]"
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256, Table II (word co-occurrence network: n=269,504, m=2.13e9, C(2)=0.39, no fitted exponent). [primary-read, Phase 1; NOT a source for Ferrer i Cancho & Sole's n=460,902/z=70.13/C=0.437/two-regime-gamma figures — see degree_distribution note]"
+  ferrer-i-cancho2001:
+    citation: "Ferrer i Cancho, R. & Sole, R.V. (2001). The small world of human language. Proceedings of the Royal Society B 268(1482), 2261-2265. DOI: 10.1098/rspb.2001.1800. [snippet-verified; PMC1088874 not read verbatim this session]"
+  ethnologue27:
+    citation: "Ethnologue: Languages of the World. Living-language count updated 2026-07-02 to the 29th edition (2026), SIL International, 7,170 living languages, per a direct fetch of en.wikipedia.org/wiki/Ethnologue this session, which also confirms the full edition sequence (25th/2022=7,151; 26th/2023=7,168; 27th/2024=7,164; 28th/2025=7,159; 29th/2026=7,170). English speaker figures (~1.53e9) via Wikipedia's English-language speaker-count article, which now cites Ethnologue 2026 (29th ed.), not the 27th edition previously recorded here. [Wikipedia-fetch-verified this session — ethnologue.com itself returned HTTP 403 on every direct fetch attempt; NOT primary-read of ethnologue.com]"
+  glottolog:
+    citation: "Glottolog (glottolog.org) language count, ~7,900, differently-drawn language/dialect boundary. [snippet-verified; specific release/version not pinned this session]"
+  elcat:
+    citation: "Catalogue of Endangered Languages (ELCat). Extinction rate ~3.5 languages/year. [snippet-verified; exact primary publication not independently pinned this session]"
+  oed-wikipedia:
+    citation: "Oxford English Dictionary (oed.com) entry-count figures (520,779 online entries; 291,500 in the 1989 print 2nd edition), via Wikipedia's 'Oxford English Dictionary' article. [snippet-verified; neither oed.com nor the Wikipedia article was directly fetched this session]"
+  krauss1992:
+    citation: "Krauss, M. (1992). The World's Languages in Crisis. Language 68(1), 4-10. DOI: 10.1353/lan.1992.0075. [snippet-verified across multiple secondary sources; primary Language journal article not fetched/read this session]"
+  shannon1951:
+    citation: "Shannon, C.E. (1951). Prediction and Entropy of Printed English. Bell System Technical Journal 30(1), 50-64. Entropy rate of printed English ~1.3 bits/character (range roughly 0.6-1.3 bpc depending on method), via a guessing-game experiment with human subjects on passages from 'Jefferson the Virginian'. [primary-read, Phase 1 — see research/phase1/formal-measures.md]"
+  bentz2019:
+    citation: "Bentz, C. et al. (2019). Entropy Rate Estimation for English via a Large Cognitive Experiment Using Mechanical Turk. Entropy 21(12), 1201. Crowdsourced, at-scale replication of Shannon's 1951 guessing-game entropy-rate estimate for English. [identified in Phase 1 alongside the primary-read Shannon source; the Bentz paper itself was not independently primary-read this pass]"
+  yang-gu-yang2016:
+    citation: "Yang, T., Gu, C. & Yang, H. (2016). Long-Range Correlations in Sentence Series from A Story of the Stone. PLOS ONE 11(third quarter), e0154934. [primary-read/fetched directly from journals.plos.org this session; source of the H~0.575+/-0.002 up-to-1e4-sentences figure for the sentence-length series of a 34,759-sentence Chinese classical novel]"
+  altmann-lineage-2012:
+    citation: "Altmann, E.G., Cristadoro, G. & Esposti, M.D. (2012). On the origin of long-range correlations in texts. PNAS 109(29), 11582-11587. [primary-read via arXiv preprint 1207.0658 this session; confirmed this paper uses a distinct autocorrelation/burstiness framework, NOT Hurst-exponent formalism — cited only for the existence of long-range correlation in text, not for any H value. Previously misattributed as the source of the H~0.575 figure; corrected 2026-07-02, see temporal_correlation note]"
+  chaisson2011:
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27. [primary-read, Phase 1 — confirms absence of a language-specific Phi_m figure]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent draft, Phase 4, against schema/anchors/*.yaml worked examples for this class plus scale-text scoring for unanchored columns
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:
+    - date: 2026-07-02
+      agent: workflow (flag-fixer)
+      changes:
+        - >
+          degree_distribution [BLOCKER/citation]: removed newman2003 as a
+          corroborating source for the n=460,902/z=70.13/C=0.437/two-regime
+          -gamma figures, which belong to Ferrer i Cancho & Sole (2001)
+          alone; added Newman (2003)'s own, separately-attributed Table II
+          datum (n=269,504, m=2.13e9, C(2)=0.39, no fitted exponent) as a
+          distinct recorded figure. Updated value, measurand, sources order,
+          note, and the newman2003 source citation accordingly.
+        - >
+          temporal_correlation [BLOCKER/citation]: re-attributed the
+          H~0.575 Hurst-exponent figure from the unconfirmed Altmann,
+          Cristadoro & Esposti (2012) candidate to its correct source, Yang,
+          Gu & Yang (2016) PLOS ONE ("Long-Range Correlations in Sentence
+          Series from A Story of the Stone"); corrected the measurand to the
+          actual single-text/single-language exemplar (34,759-sentence
+          Chinese classical novel, not English/general-language) and changed
+          level to exemplar(chinese-classical-novel); retained Altmann et
+          al. (2012) as a corroborating source for long-range correlation's
+          existence only (distinct autocorrelation/burstiness framework, no
+          Hurst formalism), not for the H value. Added yang-gu-yang2016 to
+          sources block; corrected altmann-lineage-2012 citation entry.
+        - >
+          instance_population [FIX/citation]: updated recorded value from
+          Ethnologue 27th ed. (2024) 7,164 to 29th ed. (2026) 7,170, per a
+          direct Wikipedia fetch confirming the full, internally-consistent
+          edition sequence (25th/2022=7,151; 26th/2023=7,168; 27th/2024=
+          7,164; 28th/2025=7,159; 29th/2026=7,170), recorded as evidence of
+          measurement noise in the count itself. Removed the stale "does not
+          reconcile cleanly" language. Updated the ethnologue27 source entry
+          to the 29th-edition citation and fixed the English speaker-count
+          source annotation to match the edition Wikipedia currently cites
+          (Ethnologue 2026/29th ed.), keeping the ~1.53e9 figure unchanged.
+        - >
+          tipping_transitions [FIX/plausibility]: repaired the dangling
+          "see instance_population" cross-reference by adding the ~44-46%
+          modern endangerment re-estimate (vs. Krauss 1992's 90% ceiling)
+          to instance_population's note, with its sourcing caveats carried
+          over from the Phase 4 sweep report (snippet-verified, exact
+          primary source not pinned — candidates: Ethnologue EGIDS-based
+          tallies or Simons & Lewis-type analyses; measured-disputed).
+        - >
+          characteristic_timescales [FIX/plausibility]: addressed the
+          unit-shape deviation (rate reported where panel-spec declares
+          seconds) by adding a derived duration sub-entry — mean syllable
+          duration, order 1e-1 s, the reciprocal of Coupe et al. 2019's
+          measured several-syllables-per-second speech rates — marked
+          evidence_status: derived (specific per-language syllable-rate
+          figures were not recovered this pass, so only the order of
+          magnitude is recorded, per no-guessing), plus an explicit
+          unit_shape_note on the retained bits/s sub-entry.
+        - >
+          criticality [FIX/consistency]: rescored from 1 to 0. The prior 1
+          rested solely on informal tipping-point framing, which
+          criticality.yaml's does_not_count clause explicitly excludes for
+          this column and which is already correctly scored under
+          tipping_transitions=2 (double-counting into the wrong column). By
+          the entry's own account no event-size statistics were located at
+          all — a level-0 condition; evidence_status changed to unknown,
+          consistent with chaos_sensitivity's treatment of the same
+          "nothing found" situation.
+        - >
+          numerosity [FIX/consistency]: retagged level from class-general
+          to exemplar(english), matching the attribute's own note ("all
+          numerosity figures here are English-exemplar-level") and the
+          financial-markets exemplar(nyse) precedent. component_ontology
+          deliberately left class-general per the digest (its structural
+          dual-ontology claim genuinely is class-general).
+        - >
+          information_processing [FIX/coverage]: added the Shannon (1951)
+          entropy-rate figure (~1.3 bits/char for printed English, from the
+          Phase-1-primary-read source) and the Bentz et al. (2019) Entropy
+          21(12):1201 Mechanical Turk replication as quantitative
+          corroborating data points in the justification; added shannon1951
+          and bentz2019 to the sources block. Rubric evidence_status kept
+          qualitative (score still rests on the anchor), with a note
+          explaining the distinction.
+        - >
+          component_ontology / interaction_topology / interaction_ontology
+          / variation_selection [FIX/coverage]: added the panel-spec-
+          mandated evidence_status field (qualitative, with inline comments
+          noting where embedded counts/substrates are separately measured)
+          to all four attribute blocks that were missing it.
+  flags:   # standing data limitations flagged by the drafting agent, not yet triaged
+    - column: instance_population
+      status: resolved 2026-07-02 (workflow); fixes applied
+      note: >
+        RESOLVED: a direct fetch of en.wikipedia.org/wiki/Ethnologue this
+        session confirmed the full edition sequence cleanly (25th/2022=7,151
+        ... 29th/2026=7,170) and updated the recorded value to the current
+        29th ed. (2026) figure of 7,170; the edition-to-edition fluctuation
+        is now recorded as evidence of measurement noise in the count
+        itself. ethnologue.com itself remains 403-blocked and was not
+        primary-read; the edition sequence rests on the Wikipedia fetch, not
+        a primary read of ethnologue.com. Recommend the catalog team still
+        obtain direct/institutional access to ethnologue.com before
+        promoting this entry past draft.
+    - column: temporal_correlation
+      status: resolved 2026-07-02 (workflow); fixes applied
+      note: >
+        RESOLVED: the H~0.575 figure was re-attributed from the unconfirmed
+        Altmann/Cristadoro/Esposti (2012) candidate to its correct primary
+        source, Yang, Gu & Yang (2016) PLOS ONE, identified and fetched
+        directly from journals.plos.org this session. The measurand was
+        corrected from a general/English-inclusive claim to the actual
+        single-exemplar measurand (sentence-length series of a 34,759-
+        sentence Chinese classical novel); level changed to
+        exemplar(chinese-classical-novel). Altmann et al. (2012) was
+        primary-read via arXiv 1207.0658 this session and confirmed to use a
+        distinct autocorrelation/burstiness framework with no Hurst
+        formalism; it is retained only as corroboration of long-range
+        correlation's existence, not for any H value.
+    - column: energy_rate_density
+      note: >
+        Not just unmeasured but structurally hard to derive for this class:
+        language's physical substrate is distributed across human
+        brains/artifacts, making any power/mass system boundary for Phi_m
+        conceptually contested rather than merely undermeasured. Recorded
+        unknown; flagging for the orchestrator whether this is a standing
+        structural gap for the cultural-informational category generally
+        (financial-markets also recorded energy_rate_density: unknown, for
+        a related but distinct reason — no citable draw figure exists there
+        despite a clearer literal-infrastructure boundary).
+    - column: feedback / chaos_sensitivity / criticality / tipping_transitions / cascade_susceptibility
+      note: >
+        No worked anchors exist for this class in schema/anchors/ for these
+        five columns; all five were scored directly against the published
+        scale text with the nearest comparator class (chiefly
+        financial-markets and the-internet) cited in each justification, per
+        the task instructions. These five scores carry higher uncertainty
+        than the ten anchor-backed columns above and should be prioritized
+        in the pending consistency_check.

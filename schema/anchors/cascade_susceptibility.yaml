@@ -57,13 +57,18 @@ anchors:
     score: 3
     justification: >
       Dobson, Carreras, Lynch & Newman (2007, Chaos 17:026103) analyzed NERC
-      and other national blackout datasets and report the frequency of large
-      blackouts follows an approximately power-law tail (decay exponent
-      roughly 1.3-2.0 for North American unserved-energy data, 1984-1998;
-      similar ranges for New Zealand, China, Norway), interpreted as
-      consistent with the grid self-organizing near a critical loading
-      point. This is a genuine fit to decades of real blackout data, not
-      simulation alone — but the power-law-vs-alternative-heavy-tail
+      blackout data and report the fall-off of blackout size is "close to a
+      power dependence with an exponent between -1 and -2" (verbatim;
+      unserved-energy data, 1984-1998; range read from the log-log plot,
+      not MLE-fitted). CORRECTED 2026-07-02 by primary read
+      (research/phase4/verification/dobson-primary-read.md): this anchor
+      formerly stated "roughly 1.3-2.0" — a snippet-era conflation with the
+      paper's SEPARATE CASCADE-model exponent (-1.4 simulated / -1.5
+      analytic branching-process), sign dropped; do not repeat it.
+      International datasets (New Zealand, China, Norway) appear in this
+      group's related papers [unverified — not confirmed in the primary
+      read]. This is a genuine characterization of decades of real blackout
+      data, not simulation alone — but the power-law-vs-alternative-heavy-tail
       classification itself is disputed by statistical-rigor critics in the
       Clauset-Shalizi-Newman tradition, who note log-log-by-eye fits are not
       the same as MLE + goodness-of-fit testing against alternatives

@@ -1,0 +1,89 @@
+# Consistency Check — earthquake-fault-systems
+
+**Checker role:** Consistency Checker (commensurability enforcer)
+**Target:** `data/classes/earthquake-fault-systems.yaml`
+**Reference set:** `schema/panel-spec.yaml`; `schema/anchors/*.yaml` (15 files); `docs/schema.md`; `docs/roster.md`; `research/phase4/earthquake-fault-systems-sources.md`; cross-entry comparators `data/classes/tropical-cyclones.yaml` and `data/classes/financial-markets.yaml` (both `status: verified`).
+**Method:** (1) enumerate the 15 rubric/hybrid columns and identify which have an earthquake-fault-systems worked anchor vs. which are comparator-scored; (2) for worked-anchor columns, diff score + justification against the anchor file for drift; (3) for comparator-scored columns, test the score against the scale text and the cited comparator's own anchor entry; (4) audit all six filling_rules; (5) audit every `level` tag; (6) audit structured columns (`component_ontology`, `interaction_ontology`) for atomicity-convention and interaction-typing compliance; (7) spot-check arithmetic in the one derived quantitative column; (8) cross-check schema conformance (field shapes) against the two verified entries; (9) check `provenance` self-description for accuracy.
+
+No edits were made to the entry or any reference file, per instructions.
+
+---
+
+## 1. Worked-anchor columns (this class IS a named anchor) — 8 of 15
+
+Grep-confirmed: `schema/anchors/{nonlinearity,feedback,openness_dissipation,chaos_sensitivity,criticality,tipping_transitions,memory_hysteresis,information_processing}.yaml` each contain a `system: earthquake-fault-systems` block. The other 7 rubric/hybrid columns (`decentralization`, `modularity`, `adaptive_capacity`, `emergence`, `self_organization`, `robustness_resilience`, `cascade_susceptibility`) do **not** have an earthquake-fault-systems worked anchor.
+
+| Column | Entry score | Anchor score | Verdict |
+|---|---|---|---|
+| nonlinearity | 3 | 3 | MATCH — justification near-verbatim to anchor ("interseismic loading… close to linear… nonlinearity concentrates at rupture initiation/propagation") |
+| feedback | 1 | 1 | MATCH — single Coulomb-stress-transfer loop, sign/mechanism identical to anchor; loop-list requirement (mandatory at score ≥2 per feedback.yaml notes) correctly not triggered at score 1, but a loop is given anyway |
+| openness_dissipation | 1 | 1 | MATCH — "slowly-charged battery than an active heat engine" language and the plate-rate `[unverified]` flag reproduced faithfully |
+| chaos_sensitivity | 2 | 2 | MATCH — Geller et al. 1997 framing, "not rising to model-validated-chaos (3)" reproduced; entry adds an honest verifier_flag that Geller 1997 was snippet-only, consistent with (not contradicting) the anchor |
+| criticality | 2 | 2 | MATCH — two-claims structure (event stats measured / mechanism contested, Watkins et al. 2016) reproduced exactly; `mechanism_status: contested` is enum-conformant |
+| tipping_transitions | 1 | 1 | MATCH — "informal 'due for a big one' language… no formal regime-shift inventory" reproduced; correctly invokes the anchor's does_not_count clause barring Geller et al. as *positive* tipping evidence |
+| memory_hysteresis | 2 | 2 | MATCH — stress-shadow/segment-unzipping path-dependence, capped below 3 for lack of a published hysteresis-loop measurement, reproduced near-verbatim |
+| information_processing | 1 | 1 | MATCH — rate-and-state threshold as level-1 trigger (not detection), reproduced near-verbatim; correctly distinguishes from memory_hysteresis's stress-state storage |
+
+**Verdict: all 8 worked-anchor columns score and justify identically to their anchors. No drift found in either direction.**
+
+## 2. Comparator-scored columns (no worked anchor for this class) — 7 of 15
+
+| Column | Score | Comparator used | Assessment |
+|---|---|---|---|
+| decentralization | 4 | stars (score 4) | Defensible. "No component steers... nothing whose removal constitutes loss of control" tracks the scale-4 definition and the stars anchor's own reasoning cleanly. No flag. |
+| modularity | 2 | river-networks / Mississippi (score 2) | Score and reasoning are defensible against the scale-2 text (recognizable, non-arbitrary partitions; not strongly insulated — 50% of M≥6 ruptures cross ≥2 named faults per Wesnousky 2008). **However: structural YAML bug — see Finding 1.** |
+| adaptive_capacity | 0 | stars / planetary-climate (both 0) | Well-argued, explicitly invokes the does_not_count clause (feedback/memory ≠ adaptation) and matches the panel-spec's own stated expectation that fault systems floor here. No flag. |
+| emergence | 2 | stars (score 2) | **Plausible drift — see Finding 2.** The chosen comparator (stars, held at 2 because the dynamo effective theory is contested/poorly predictive) does not obviously fit the G-R law's evidentiary profile, which the entry's own criticality and extreme_event_statistics columns describe as uncontested and operationally load-bearing (UCERF3 hazard forecasting) — closer to the tropical-cyclones/level-3 profile than the stars/level-2 profile. |
+| self_organization | 3 | tropical-cyclones / river-networks (both 4), held one below | Well-reasoned: fault geometry is partially externally constrained by pre-existing crustal heterogeneity (a genuine does_not_count-consistent distinction from a hurricane's unconstrained medium). No flag. |
+| robustness_resilience | 3 | the-internet (score 3) | Defensible; reasoning is exemplar-level (the SAF *itself* persists across geological time), not the disallowed class-level-persistence pattern the anchor's does_not_count clause targets (contrast "hurricanes keep forming" ≠ Katrina's robustness — here the SAME physical object persists). No flag. |
+| cascade_susceptibility | 2 | financial-markets (score 2) | Clean match — same scale-2 profile (dedicated systematic compilation with characterized rough extent, no fitted cross-event size distribution) as its own comparator. No flag. |
+
+## 3. Filling rules audit
+
+- **no-guessing**: Compliant. `instance_population` and part of `numerosity`/`temporal_correlation` correctly record `unknown` rather than interpolating (fault-system global inventory count; Hurst exponent).
+- **power-law-rigor**: Compliant. G-R b-value recorded `measured` (MLE method, Aki 1965/Shi & Bolt 1982, domain-standard rigorous fit) and kept distinct from the CSN-tested amplitude-power-law rejection (`measured`, rejected) — the two are not conflated.
+- **soc-two-claims**: Compliant, textbook application — `criticality` column explicitly separates event-statistics (solid) from SOC-mechanism (contested, Watkins et al. 2016), matching the rule's own worked example almost word for word.
+- **no-market-chaos**: Not applicable to this class; correctly not invoked.
+- **measurand-required**: Compliant across all three signal-relative quantitative columns — `extreme_event_statistics` (two measurands named and distinguished), `temporal_correlation` (SSAF seismicity rate, ETAS-simulated), `fractal_dimension_spatial` (surface trace vs. seismogenic-depth geometry, two distinct measurands named).
+- **atomicity-convention**: Compliant and well-reasoned. Fault segment/patch declared as the atom, explicitly excluding earthquakes (events, not structure) and mineral grains (sub-characteristic-scale); used consistently across `component_ontology`, `numerosity`, and `hierarchy_depth`. Parallels the convention's own worked test ("not neurons... not molecules").
+- **interaction-typing**: **Plausible issue — see Finding 3.**
+- **level-required**: Compliant. All 30 attributes carry an explicit `level` field.
+
+## 4. Structured-column and format audit
+
+- `component_ontology` and `numerosity` agree on the fault-segment count figures (11 SSAF / >350 statewide) — internally consistent.
+- `hierarchy_depth` = 3, using the identical atoms→(1)→(2)→(3) counting convention as both tropical-cyclones (3) and financial-markets (3) — the strongest cross-entry commensurability result in the entry, on the column the panel-spec itself flags as highest-risk.
+- `degree_distribution` = `not-applicable` (not `unknown`), with the same "continuum system, no node-degree representation" reasoning and the same explicit cross-reference to tropical-cyclones' identical disposition. Correct application of the not-applicable/unknown distinction.
+- `energy_rate_density` arithmetic independently re-derived (plausibility-adjacent spot check, since an internal contradiction here would be a consistency defect): M0_rate = μAv ≈ 1.7e19 N·m/yr ✓; power via apparent stress ≈ 1.8–5.4e7 W (entry states ~3e7–6e7 W, consistent within rounding) ✓; mass ≈ 1.0e16 kg ✓; Phi_m ≈ 3e-5 to 5e-5 erg/s/g using the same 1 W/kg = 1e4 erg/s/g conversion factor tropical-cyclones' entry states explicitly ✓. No internal arithmetic contradiction found.
+
+## 5. Findings
+
+### Finding 1 — modularity's `evidence_status` field is swallowed into the justification block (schema defect)
+`data/classes/earthquake-fault-systems.yaml:307`. The line `evidence_status: qualitative` is indented at 6 spaces, matching the continuation lines of the preceding `justification: >` folded scalar (which starts at line 293, itself indented 4 spaces under `modularity:`). Because of the indentation, YAML parses `evidence_status: qualitative` as **part of the justification string**, not as a sibling key of `modularity`. The `modularity` attribute therefore has no `type`-conformant `evidence_status` field at all — a required field per panel-spec.yaml ("evidence_status: # required on every value"). This is the only occurrence of this specific nesting bug in the file (confirmed via grep — no other `evidence_status:` line sits at 6-space indent).
+
+### Finding 2 — emergence score (2) may undersell the Gutenberg-Richter law relative to its own anchor comparator
+`data/classes/earthquake-fault-systems.yaml:631-654`. The entry places itself at emergence=2 via a stars comparator, but the stars anchor is held at 2 specifically because the dynamo/activity-cycle effective theory has "debated independent quantitative content" and "predictive skill for cycle amplitude is poor." The G-R law, by the entry's own account elsewhere (criticality, extreme_event_statistics — both `evidence_status: measured`, uncontested, operationally load-bearing in UCERF3 hazard forecasting), does not share that weakness. The emergence anchor's level-3 definition ("a formalized order parameter or macro-level effective law exists, used predictively/explanatorily by the relevant field... genuinely new macro-descriptive machinery is doing real explanatory work") reads as at least as well satisfied by G-R as by tropical-cyclones' potential-intensity theory (scored 3 there). The entry's stated reason for staying at 2 — that G-R "describes the STATISTICAL POPULATION of events, not a single coherent macro-state of 'the fault system' as an individual object" — is a real and defensible distinction, but it is not obviously the discriminator the scale itself uses (the scale's own level-3 example list includes "a critical exponent," which is inherently a population/ensemble-level statistic, not a single-object state variable). This is not a clear-cut anchor contradiction (no worked earthquake-fault-systems anchor exists for this column), but the chosen comparator undersells the evidentiary strength this entry has independently established elsewhere for G-R. Flagged as a plausible mis-scoring, not a confirmed error.
+
+### Finding 3 — interaction_ontology's three-type count may not cleanly pass the interaction-typing rule's mechanism/carrier test
+`data/classes/earthquake-fault-systems.yaml:247-274`. Types 1 ("elastic stress transfer / Coulomb stress change") and 3 ("aftershock triggering, ETAS-type") both reduce, by the entry's own justification text, to "mechanical stress redistribution... fixed by rock mechanics and continuum elasticity" — the same physical carrier (Coulomb/elastic stress redistribution in the crust). Type 3 is distinguished mainly by its statistical/temporal framing (a decaying-rate sequence of triggered failures) rather than by a distinct mechanism or carrier. filling_rules.interaction-typing requires individuation "by mechanism and carrier, not by outcome or sign" (using the buy/sell-order-flow non-example as the calibration case). If types 1 and 3 are read as the same carrier applied at different temporal/statistical scope, `type_count: 3` may overstate the alphabet by one; the entry's own closing justification ("every interaction type above reduces to mechanical stress redistribution and threshold-triggered frictional failure") arguably names only two underlying mechanisms. Not a clean violation — aftershock triggering is a real, separately-named phenomenon in the literature — but worth a second look before lock-in, since it sits close to the line the rule is built to police.
+
+### Finding 4 — repeated compound `evidence_status` values deviate from schema and from both verified entries' practice
+Occurs at lines 143, 161, 359, 505, 531 (5 instances). Example: `evidence_status: measured (11-section SSAF count); measured-untested (statewide UCERF3 counts — ...)`. panel-spec.yaml defines `evidence_status` as a single required field drawn from a six-value controlled vocabulary. Both `tropical-cyclones.yaml` and `financial-markets.yaml` — the two verified entries — never compound multiple enum values into one `evidence_status` string; where a column carries two distinct sub-claims with different provenance, they instead keep `evidence_status` a single token and move the nuance into a `note:` field (see financial-markets' `criticality`, `extreme_event_statistics` for the established pattern). This entry's approach is transparent and does not fabricate anything — if anything it is more granular/honest per-sub-claim — but it is a structural drift from the established schema convention that would break any downstream tooling parsing `evidence_status` as a single enum, and is inconsistent with the two verified entries' own precedent. Should be normalized (e.g., single dominant `evidence_status` + sub-claim detail moved to `note`) before verified status, matching the pattern financial-markets already uses for its own multi-claim columns (`extreme_event_statistics`, `criticality`).
+
+### Finding 5 — provenance self-description miscounts the anchor/comparator split
+`data/classes/earthquake-fault-systems.yaml:846-856`. The provenance block states: "reusing Phase 1b anchor scores... wherever this class is a worked anchor (12 of 15 rubric/hybrid columns; comparator-scored against the closest worked anchor for the remaining 3 — emergence, modularity, robustness_resilience, cascade_susceptibility...)". This is internally inconsistent (names 4 columns but says "remaining 3") and does not match the actual file content verified in Section 1-2 above: only **8** columns have a worked earthquake-fault-systems anchor (not 12), and **7** columns are comparator-scored (not 3/4) — the provenance text omits `decentralization`, `adaptive_capacity`, and `self_organization` entirely from its comparator-scored list, even though all three are, in fact, comparator-scored (against stars, stars/planetary-climate, and tropical-cyclones/river-networks respectively — none of which is "the-internet," also misnamed in the provenance text as one of "the other three" comparators). This is a bookkeeping error in the entry's own self-description, not a fabricated data value, but it materially understates how much of the entry rests on comparator judgment rather than a class-specific worked anchor, which is exactly the information a verifier or future auditor relies on this block to convey accurately.
+
+## 6. Cross-entry coherence summary (vs. tropical-cyclones, financial-markets)
+
+- `hierarchy_depth` counting convention: fully commensurable across all three entries (identical 4-level atoms→1→2→3 scheme, all landing on value 3).
+- `degree_distribution` not-applicable disposition: fully commensurable with tropical-cyclones' identical treatment, explicitly cross-referenced by the entry itself.
+- `energy_rate_density` derived-value methodology and unit-conversion factor (1 W/kg = 1e4 erg/s/g): consistent with tropical-cyclones' own derivation.
+- Citation-annotation discipline (primary-read vs. snippet-only/snippet-verified, stated per source): fully compliant, arguably more granular than either verified entry.
+- `evidence_status` field shape: **not** commensurable with either verified entry (Finding 4).
+- `status: draft` and all-`pending` verification block: correctly NOT prematurely claiming verified status, appropriately distinct from the two `status: verified` reference entries.
+
+## 7. Items NOT flagged (considered and cleared)
+
+- `criticality`'s top-level `evidence_status: measured` vs. financial-markets' `qualitative` for the structurally analogous soc-two-claims column: not an inconsistency — each entry correctly follows its own class's anchor file, and the underlying evidentiary difference (G-R b-value is itself measured for this class; the analogous financial-markets evidence lives in a separate column) justifies the differing top-level label.
+- `robustness_resilience`'s exemplar-level persistence argument: initially resembles the disallowed "class persists" reasoning pattern the anchor's does_not_count clause targets, but the SAF is a single continuously-existing physical object across the cited geological timescale, not a population/class-level claim — a different logical shape from the hurricane/Katrina counterexample. Cleared.
+- `interaction_topology` = field/continuum despite Page & Felzer's "complex network" language: entry explicitly and honestly resolves the tension in its own note, matching the panel-spec's own framing of elastic stress transfer as "the fault system's entire alphabet." Cleared.

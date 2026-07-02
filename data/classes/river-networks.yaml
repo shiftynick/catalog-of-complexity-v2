@@ -1,0 +1,786 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: river-networks
+# Phase 4 draft. Quantitative sweep: research/phase4/river-networks-sources.md.
+# ============================================================
+id: river-networks
+name: River networks
+category: geophysical
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: mississippi-basin
+    name: Mississippi River basin
+    note: >
+      primary worked exemplar; among the best-gauged large drainage basins in
+      the world (dense USGS gauge network), and the system whose engineered
+      near-avulsion (Old River Control Structure) makes tipping_transitions
+      concretely citable for this class.
+  - id: nile-basin
+    name: Nile River basin
+    note: >
+      secondary/founding exemplar for temporal_correlation only — Hurst's own
+      original long-range-dependence analysis (1951 et seq.) was performed on
+      multi-decade Nile annual levels; no Mississippi-specific Hurst figure
+      was located in this sweep.
+
+scoping_note: >
+  The system is the dendritic channel network of a river basin as a
+  self-organized transport structure: the tree of channel links from
+  headwater tributaries to the mouth, together with the erosion-deposition
+  processes that carve and maintain that geometry, over the basin's active
+  geomorphic lifetime. Inside the boundary: channel links/segments and their
+  confluence topology, the water and sediment flux moving through them, and
+  the erosion/deposition feedback between flow and bed/bank geometry that
+  sets channel form. Outside: precipitation and tectonic uplift (forcing),
+  the floodplain/delta as a receiving landform (touched only where the
+  literature gives a citable figure, e.g. delta lobe-switching period),
+  human engineering works (levees, the Old River Control Structure — recorded
+  as boundary interventions, not as internal adaptive components), and
+  biological/vegetative effects on bank stability (out of scope for this
+  non-biological catalog). Atomicity per filling_rules.atomicity-convention:
+  individual channel links/segments between confluences — the level at which
+  Horton's laws and Strahler ordering operate — not water parcels or
+  sediment grains, and not individual meander bends. Scoring is
+  class-general; exemplar evidence primarily from the Mississippi basin,
+  with the Nile used only for the one column (temporal_correlation) where
+  it is the field's own founding case and no Mississippi-specific figure
+  exists.
+
+summary: >
+  A river network is a landscape that organizes itself into a tree: countless
+  independent channels converging under gravity into an efficient hierarchy
+  that drains an entire continent through a single mouth. No one designs a
+  drainage basin — erosion and deposition, iterated over geological time,
+  carve the branching pattern themselves, and the result obeys strikingly
+  regular scaling laws (Horton's ratios, Hack's law) wherever geologists look
+  for them, from creek to continent. It is among the purest examples in
+  nature of self-organization producing a mathematically regular structure
+  with no blueprint, no genesis event, and no controller — only water finding
+  the fastest way downhill, over and over, for millions of years.
+
+relations:
+  part_of: [planetary-climate]        # hydrological cycle as forcing; planetary-climate IS a drafted entry in this batch (data/classes/planetary-climate.yaml) — reciprocated in its relations.contains list
+  contains: []                        # deltas/floodplains: candidate future entries, deliberately left unresolved per scoping_note boundary
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(mississippi-basin)
+    value: 3.2e6
+    unit: m  # linear extent per panel-spec column definition; see detail for the basin-AREA figure in km^2, which is the geomorphically meaningful quantity
+    method: >
+      Column unit is linear extent (m); the basin's defining scale is
+      naturally an AREA. Reporting both: characteristic linear extent
+      ~2.5-3.0e6 m (basin spans ~2,500-3,000 km) taken as order-of-magnitude
+      10^6 m, PLUS the basin drainage area (the geomorphically standard
+      figure) ~3.2e6 km^2 (with Atchafalaya sub-basin) / ~2.98e6 km^2
+      (mainstem basin alone).
+    detail:
+      drainage_area: "~3.2e6 km^2 (with Atchafalaya); ~2.98e6 km^2 (mainstem alone) — USGS-attributed, snippet-verified via Wikipedia secondary aggregation of USGS Water-Year Summary reports; [unverified] no USGS primary document/table directly read this sweep"
+      mainstem_channel_length: "3,782 km (Lake Itasca source); 5,971 km if measured from the Missouri's Brower's Spring headwater (the conventional '4th-longest river system' figure) — snippet-verified (Wikipedia, citing USGS/NPS)"
+    sources: [mississippi-usgs-wikipedia]
+    evidence_status: measured
+    confidence: medium
+
+  characteristic_timescales:
+    type: quantitative
+    level: exemplar(mississippi-basin)
+    timescales:
+      - {name: "individual flood-pulse rise/fall at a single gauge (fastest constituent process)", value: unknown, note: "no Mississippi-specific headwater storm-runoff concentration time was pinned to a citable number in this sweep; recorded unknown rather than guessed", evidence_status: unknown}
+      - {name: "peak-flow event duration (dominant routing dynamics)", value: "~2 days (upstream/small tributaries) to ~30 days (downstream/lower Mississippi) — 'acute spatial variability'", sources: [cerbelaud2024], evidence_status: measured, confidence: medium}
+      - {name: "delta lobe-switching / avulsion cycle (dominant morphodynamic timescale)", value: "~1,000-1,500 years per cycle, pre-engineering", sources: [mississippi-delta-wikipedia], evidence_status: measured, confidence: low, note: "[unverified] primary Kolb & Van Lopik 1958 citation not directly read this sweep"}
+      - {name: "system lifetime at current configuration (modern delta plain)", value: "~4,500 yr (modern delta surface deposition); ~7,500-8,000 yr (Holocene delta plain since post-glacial sea-level stabilization)", sources: [mississippi-delta-wikipedia], evidence_status: measured, confidence: low}
+
+  numerosity:
+    type: quantitative
+    level: exemplar(mississippi-basin)
+    value: "1e5-1e6 total stream segments (order of magnitude), of which ~2.6e5 are first-order/headwater links"
+    method: >
+      DERIVED by this project (not a published enumerated count): from
+      Horton's bifurcation law with R_B ~ 4 and observed Strahler order 10
+      (see component_ontology and degree_distribution/fractal_dimension_spatial
+      Horton-ratio notes), first-order stream count ~ R_B^9 ~ 2.6e5; total
+      segments across all orders via the geometric series
+      ~ R_B^9 x (R_B/(R_B-1)) ~ 3.5e5, i.e. order of magnitude 1e5-1e6.
+    sources: [moussa2009]
+    evidence_status: derived
+    confidence: low
+    note: "No USGS or academic source gives a directly enumerated Mississippi-specific total; this is a project extrapolation, flagged explicitly per the energy_rate_density-style derivation convention."
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "310 international (transboundary) river basins (2018 register), covering 47.1% of Earth's land surface excl. Antarctica — a LOWER BOUND on the true class population, since national/non-transboundary basins are not counted"
+    sources: [irbr2018]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Total global count of ALL river basins (national + international, any
+      size) is unknown — no citable global enumeration exists; basin counts
+      are threshold-dependent and vary by source. Recorded as unknown rather
+      than guessed, per no-guessing.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: channel links/segments (between confluences)
+        count_oom: "~1e5-1e6 for the Mississippi basin (derived, see numerosity); ordered Strahler 1-10"
+        interchangeable: "yes within order class, no across orders (Horton's laws describe systematic geometric/hydraulic scaling by order)"
+        itself_complex: no
+    confidence: low
+    note: >
+      One dominant part type identified in this sweep — channel links. No
+      itself-complex sub-parts (e.g. floodplains, deltas) were treated as a
+      distinct part type per the scoping_note's boundary; no human/biological
+      components fall inside this entry's declared boundary, so
+      out-of-scope(human) marking is not needed here (contrast financial-markets).
+
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(mississippi-basin)
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      No published Phi_m value exists for the Mississippi basin or river
+      networks generally (confirmed via primary-read of Chaisson 2011 per
+      Phase 1's quantitative-backbone report: "Mississippi (not found)").
+      Derivation is feasible in principle — power input from the stream-power
+      relation (mean discharge x density x g x mean elevation drop) and mass
+      from total channel+floodplain water storage or denudation mass flux —
+      but was NOT attempted in this sweep; neither the power nor the mass
+      input has a ready citable figure. Recorded as unknown per no-guessing
+      rather than derived from an unpinned method, and flagged for Phase 5.
+    sources: [chaisson2011]
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+    note: "Strictly a tree (hierarchical-mixed is not selected because the topology is a single unbranching-toward-mouth network with no cycles, not a mixture of continuum and lattice regimes); each node/confluence has exactly one downstream link."
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: water/sediment flux transfer
+        mechanism: gravity-driven advective flow of water and entrained sediment through the channel network, momentum/mass conservation at confluences
+        participants: channel links (upstream links -> downstream link at each confluence)
+        range: local
+      - name: erosion-deposition feedback
+        mechanism: flow shear stress removes or deposits bed/bank material, which alters channel geometry and gradient, which alters subsequent flow — the coupled process that carves and maintains the network's branching form over geological time
+        participants: channel links (self-referential, local)
+        range: local
+      - name: avulsion / channel abandonment
+        mechanism: threshold-triggered switch of the active flow path to a lower-gradient course once bed aggradation exceeds a critical superelevation ratio
+        participants: a channel link and its topographically available alternative course
+        range: local (but network-reorganizing in effect)
+    type_count: 3
+    alphabet_closure: closed
+    justification: >
+      Every interaction type is fixed by fluid dynamics, sediment transport
+      physics, and gravity; no new interaction type can arise, matching the
+      hurricane's closed-alphabet reasoning (per tropical-cyclones, the
+      closest anchored comparator in this catalog) rather than the
+      constrained/open end of the gradient occupied by institutional or
+      social systems.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      River networks are trees: every non-leaf, non-root node has a small,
+      narrow, non-heavy-tailed upstream in-degree (typically 2 confluent
+      tributaries per Strahler/Horton convention) plus exactly one downstream
+      link — structurally degenerate in the Newman-2003 node-degree sense, not
+      comparable to a scale-free hub-and-spoke graph (Internet AS-level).
+      No citable power-law or other degree-distribution fit for river-network
+      node degree was located. Not to be conflated with Horton's bifurcation-
+      ratio statistics (stream-COUNT scaling across ORDER), which are recorded
+      under fractal_dimension_spatial instead.
+    sources: [newman2003]
+    evidence_status: not-applicable
+
+  modularity:
+    type: rubric
+    level: exemplar(mississippi-basin)
+    score: 2
+    justification: >
+      Per this class's own anchor (modularity.yaml): the basin decomposes
+      into real, non-arbitrary sub-basins (Missouri, Ohio, Upper Mississippi,
+      Arkansas-White-Red) that are hydrologically semi-independent until
+      their confluence — a standard, citable Horton-Strahler partition.
+      Capped at 2 rather than higher because a dendritic network is modular
+      mainly by construction of the drainage hierarchy (modules nest at
+      every scale, better captured by hierarchy_depth), and cross-module
+      interaction is structurally forced to exactly zero except at
+      confluences — not a meaningful Q-style density-contrast test, since a
+      tree has no cross-links.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: exemplar(mississippi-basin)
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention corrected 2026-07-02 to match the aggregation-tier count
+      used by the other nine pilot entries (levels counted ABOVE the
+      declared atomic part, not a literal physical branching-order count):
+      (1) channel links/segments — the declared atom (per
+      component_ontology/scoping_note's atomicity convention) — aggregate
+      via confluence into (2) sub-basins (e.g. the Upper Mississippi as a
+      hydrologic unit), which aggregate into (3) major tributary basins
+      (Missouri, Ohio, Arkansas-White-Red — the standard,
+      citable Horton-Strahler-partition tier already used in modularity's
+      justification), which aggregate into the whole-network/mainstem basin
+      itself. That is 3 aggregation levels above the atom, landing in the
+      same 3-4 cluster as tropical-cyclones and financial-markets rather
+      than as an outlier. Strahler stream order (a literal physical
+      branching-order count, a DIFFERENT measurand from aggregation-tier
+      depth) is recorded separately in detail below and must not be
+      conflated with this column's value.
+    detail:
+      strahler_stream_order: "10 (order-10 mainstem at the Gulf of Mexico) — a physical branching-order measurand, not an aggregation-tier count; Mississippi is one of only ~3 tenth-order-or-higher independent rivers reaching the sea globally (alongside the Amazon at order 12 and the Niger). Recorded here as a separate fact, not as this column's value, per the cross-audit's measurand-commensurability finding."
+    sources: [strahler-wikipedia]
+    evidence_status: measured
+    confidence: medium
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: "~1.6-1.9 (Horton-ratio-derived planform D, range depends on the specific R_B/R_L pair used — see method); 1.7-1.8 (topological/Tokunaga D_T, a distinct measurand)"
+    unit: dimensionless (D)
+    method: >
+      Canonical relation D = log(R_B)/log(R_L) (bifurcation ratio over
+      length ratio). This project's own stated input ranges (R_B ~ 3.5-4.5,
+      R_L ~ 2-3) do not collapse to one D — the value is sensitive to which
+      point within each range is paired. Using this entry's own headline
+      R_B~4, R_L~2.3: D = log(4)/log(2.3) ~ 1.66 (corrected from an earlier
+      arithmetic error that misstated this as ~1.9). Using a commonly-cited
+      literature pairing instead (R_B=4.14, R_L=2.15, independently
+      web-verified): D ~ 1.93. Reported honestly as a range (~1.6-1.9)
+      spanning both conventions rather than a single point value, since no
+      single canonical R_B/R_L pair was pinned to a primary source this
+      sweep. The topological/Tokunaga-based D_T (1.7-1.8) is an
+      independently corroborating but NOT-identical estimator (different
+      measurand: tree self-similarity structure, not planform branching
+      geometry).
+    detail:
+      horton_bifurcation_ratio_R_B: "~3.5-4.5 (order-independent per Horton's law); British-rivers literature corroborates ~3-5"
+      horton_length_ratio_R_L: "~2-3"
+      horton_area_ratio_R_A: "~3.5-7 (co-reported, not used in the D formula)"
+      missouri_subbasin_channel_length_D: "1.036-1.291, avg 1.158 — a DIFFERENT measurand (individual channel sinuosity, not network-branching D); [unverified — corroborated but not primary-source-checked, per research/phase1/formal-measures.md]. Do not treat as citable without follow-up."
+      hack_law_scaling: >
+        A DIFFERENT measurand (Hack's law: channel/basin-length vs. drainage
+        area, L ~ A^h), recovered from primary-read of rigon1996: Hack
+        exponent h=0.6 (Hack 1957, original); basin-size-dependent
+        refinement h=0.6/0.5/0.47 (Muller 1973, larger basins trend toward
+        lower h). Companion area-exceedance exponent beta~0.43-0.46 (Rigon
+        et al. 1996), related to h via the identity beta+h=1 (both
+        characterize the same basin-shape self-affinity from different
+        directions). Two further results recovered from rigon1996 but not
+        independently corroborated elsewhere this sweep, recorded as
+        explicit unknowns rather than omitted: (1) basin-boundary
+        self-affinity — Rigon et al. report a Hurst exponent for basin
+        boundary geometry, but the specific numeric value was not extracted
+        into this entry [unknown — follow-up needed]; (2) fractal channel
+        sinuosity as a distinct planform measure beyond the
+        missouri_subbasin_channel_length_D figure above [unknown — see that
+        figure's own unverified/follow-up flag].
+    sources: [rodriguez-iturbe-rinaldo1997, moussa2009, mantilla2010, rigon1996, hack1957]
+    evidence_status: derived
+    confidence: low
+    verifier_flags: [rodriguez-iturbe-rinaldo-1997-never-primary-read, fractal-dimension-arithmetic-corrected-2026-07-02]
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; the branching topology and its
+      scaling regularities arise entirely from local flow-erosion physics
+      at every confluence and channel reach. Same reasoning as the stars
+      anchor in decentralization.yaml (score 4): there is nothing whose
+      removal would constitute "loss of control." Distinct from the genesis
+      question (see self_organization), though the two agree here as they
+      do for the Sun.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      No dedicated river-networks anchor exists in nonlinearity.yaml.
+      Scoring against the scale text with the earthquake-fault-systems
+      anchor (score 3) as closest comparator, but landing one level below
+      it rather than matching it: both systems share the surface pattern of
+      "nonlinearity concentrated at a threshold reorganization event,
+      quasi-linear the rest of the time" (avulsion vs. rupture), yet the
+      threshold event plays a less load-bearing explanatory role for river
+      networks than rupture does for fault systems. The field's own
+      characteristic phenomenology for this class — Horton's bifurcation,
+      length, and area ratios, and Hack's law — is derived and explained
+      almost entirely from steady-state flow-routing and erosion-deposition
+      relations without invoking avulsion as a mechanism; avulsion is
+      documented and mechanistically real (Old River Control Structure) but
+      is not required to reproduce the network's headline scaling laws. By
+      contrast, the fault-systems anchor's score of 3 rests on the rupture
+      threshold being necessary to explain that class's own headline
+      phenomenon (Gutenberg-Richter magnitude-frequency scaling itself
+      arises from the nonlinear rupture process, not from quasi-linear
+      inter-seismic loading alone). Scored 2 (not 3): nonlinear terms
+      materially shape an occasional/threshold event (avulsion) rather than
+      being required to explain the network's modal day-to-day routing
+      behavior or its most-cited emergent scaling laws.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: "erosion-deposition (channel-forming)", sign: "balancing (self-limiting)", mechanism: "flow shear stress erodes/deposits bed and bank material -> channel geometry adjusts -> gradient and cross-section change -> flow regime re-equilibrates toward a graded (quasi-stable) channel form"}
+      - {name: "aggradation-avulsion", sign: "reinforcing then discontinuous reset", mechanism: "sediment deposition raises the bed relative to the floodplain (superelevation) -> gradient advantage builds for an alternative lower-gradient course -> once threshold is exceeded, flow avulses to the new course, resetting local aggradation"}
+      - {name: "network extension/headward erosion", sign: "reinforcing (slow, geological-timescale)", mechanism: "concentrated flow at a channel head erodes and extends the channel upslope -> captures additional drainage area -> increased discharge further accelerates headward erosion"}
+    justification: >
+      No dedicated river-networks anchor exists in feedback.yaml. Scoring
+      against the scale text: multiple loops (erosion-deposition,
+      aggradation-avulsion, headward erosion/capture) are continuously
+      active across the basin and are required to explain why channel
+      networks self-organize into graded, Horton-law-obeying trees rather
+      than arbitrary geometries — removing them from a model would
+      qualitatively change predicted network structure, not just fine
+      details, matching level 3. Not scored 4: unlike the hurricane's WISHE
+      loop, no single loop is universally cited as THE explanatory device
+      for the network's characteristic behavior; the literature (Horton,
+      Hack, Rodriguez-Iturbe & Rinaldo) treats the scaling laws as much as
+      an optimality/self-organized-criticality-adjacent outcome as a
+      loop-centric narrative.
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: exemplar(mississippi-basin)
+    score: 3
+    justification: >
+      A river network is a genuine dissipative structure in the Prigogine
+      sense: continuous gravitational potential energy of precipitated
+      water is converted to kinetic energy and dissipated as heat via
+      turbulent friction against the bed and banks, and this literal,
+      substantial physical flux (mean discharge 5,680-21,300 m^3/s
+      depending on gauge location) is directly responsible for carving and
+      maintaining the channel geometry. Scored 3 per level 3's definition
+      (interrupting the flux collapses the structure on a timescale
+      comparable to or shorter than the structure's own dynamical
+      timescale), evaluated consistently at the level of channel-maintaining
+      COMPETENCE throughout, not the coarser large-scale branching pattern:
+      interrupting the flux (drought) degrades a channel's ability to
+      transport its sediment load and maintain its cross-section/gradient
+      within a timescale comparable to the system's own hydrologic response
+      time (channel infilling, vegetation encroachment, and loss of
+      channel-forming discharge capacity can measurably set in within
+      seasons to years of sustained low flow) — the same "function/
+      competence, not raw persistence of the largest-scale pattern" framing
+      the cities anchor uses. Scored 3 (not 4, the hurricane/Sun level):
+      this class is not claiming the entire branching topology reorganizes
+      on a drought timescale (that broader structural-persistence claim
+      would only support level 1 and is deliberately NOT the basis for this
+      score); it is the finer-grained channel-maintaining competence that is
+      tightly flux-coupled, closer to the cities anchor's profile than to
+      the hurricane/Sun's whole-structure immediate-collapse profile.
+    sources: [mississippi-usgs-wikipedia]
+    evidence_status: measured
+    confidence: medium
+
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Per this class's own anchor (chaos_sensitivity.yaml): the network's
+      large-scale branching geometry is a slowly-evolved, comparatively
+      stable structural attractor built up over geological time under
+      roughly consistent hydrological/geomorphological rules, rather than a
+      system whose topology re-diverges rapidly from small perturbations.
+      Avulsions and meander cutoffs are real discrete reorganization events
+      but occur on timescales of years to centuries and are localized
+      rather than reflecting whole-network exponential trajectory
+      divergence. Chaotic-adjacent nonlinear hydrological (rainfall-runoff)
+      modeling exists at the margins, but no widely accepted, replicated
+      Lyapunov/predictability-horizon figure for the Mississippi system was
+      located. Deterministic-chaos-in-streamflow claims exist in the
+      literature but are treated with the same caution the panel spec
+      applies to markets (filling_rules.no-market-chaos analog) — not
+      adopted here absent a specific verified citation.
+    evidence_status: qualitative
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      Per this class's own anchor (criticality.yaml), the deliberate floor
+      anchor for this column: river network structure follows well-
+      established scaling laws (Horton's laws, fractal branching
+      statistics), but those are STATIC topological/geometric regularities,
+      not scale-invariant EVENT statistics — no established power-law
+      distribution of channel-avulsion or flood-pulse EVENT sizes for the
+      Mississippi basin specifically was located, and no self-organized-
+      criticality mechanism has been proposed for the basin's event
+      dynamics. A system can be highly self-organized and fractal
+      (self_organization: 4; fractal_dimension_spatial: ~1.6-1.9) while scoring
+      0 here, because criticality is about event dynamics, not spatial
+      structure — the flood-discharge tail exponents recorded under
+      extreme_event_statistics are a separate claim per
+      filling_rules.soc-two-claims and do not raise this score.
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: "flood discharge upper-tail scaling Q ~ T^alpha, alpha 0.27-0.90 across six US gauge stations (drainage areas 41-95,300 km^2, 74-110 water-years), including one Mississippi mainstem gauge (St. Paul, MN); station-specific alpha for the Mississippi gauge not extracted this sweep, so a Mississippi-specific alpha remains not-yet-pinned"
+    measurand: "peak discharge Q vs. recurrence interval T, partial-duration flood series"
+    method: power-law-form tail fits to flood series at six USGS gauges (Arroyo Seco CA, Mora River NM, Wenatchee River WA, Elkhorn River NE, Humboldt River NV, and Mississippi River at St. Paul, MN)
+    sources: [flood-power-law-hydrology]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      Retagged class-general (not exemplar(mississippi-basin)): independent
+      verification of the cited study (Malamud & Turcotte 2006, J. Hydrology
+      322:168-180) identifies one of the six gauges as Mississippi River at
+      St. Paul, MN, contradicting an earlier draft's framing of the dataset
+      as "non-Mississippi-specific." The station-specific alpha for that
+      single gauge was not separately extracted in this sweep (paywalled
+      full text), so a Mississippi-specific alpha is not-yet-pinned rather
+      than unknown across an entirely non-Mississippi dataset; flagged as a
+      Phase 5 full-text-acquisition target. Per filling_rules.power-law-rigor:
+      the cited study predates and was not
+      benchmarked against CSN (2009)-grade statistical rigor (MLE + KS
+      goodness-of-fit + comparison to alternative distributions); CSN's own
+      24-dataset corpus does not include a river-discharge or flood dataset,
+      so no CSN-grade verdict exists either way — measured-untested is the
+      rule's explicit default, not a placeholder pending future work. More
+      recent methodology (Basso et al., HESS 27, 2023) applies CSN-style
+      rigor to streamflow heavy-tail testing generally and confirms
+      genuinely heavy-tailed cases exist at some (not all) US sites, but no
+      single Mississippi-specific alpha with a CSN-grade verdict was
+      extracted in this sweep. [unverified] author/year attribution of the
+      primary 0.27-0.90 study is inferred from a search-snippet journal/title
+      match (likely Malamud & Turcotte), not independently confirmed.
+
+  temporal_correlation:
+    type: quantitative
+    level: exemplar(nile-basin)
+    value: "Hurst exponent H ~ 0.79 (R/S method) to 1.02 (DFA method), Nile annual discharge; Danube discharge H in range 0.67-0.85 (corroborating, different river). Mississippi-specific H: unknown."
+    measurand: "annual (Nile) or daily/monthly (Danube) discharge time series, via rescaled-range (R/S) and/or detrended fluctuation analysis (DFA)"
+    method: "Hurst's original R/S analysis of multi-decade discharge records; DFA in later re-analyses"
+    sources: [hurst1951, danube-hurst]
+    evidence_status: measured
+    confidence: low
+    note: >
+      Recorded at exemplar(nile-basin), not exemplar(mississippi-basin) or
+      class-general, per level-required: the Nile is used here because it is
+      the field's own founding case (Hurst analyzed Nile levels specifically)
+      and no Mississippi-specific H was located in this sweep — this is a
+      deliberate substitution, not a stretch to a class-general claim.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (tipping_transitions.yaml), reused
+      verbatim: river/delta systems have documented avulsion dynamics — a
+      channel abruptly abandoning its course for a new path once a
+      threshold gradient advantage is reached — a genuine, mechanistically
+      understood regime-shift phenomenon in fluvial geomorphology. The
+      Mississippi's own engineered Old River Control Structure exists
+      specifically because the lower Mississippi was approaching a natural
+      avulsion toward the Atchafalaya. A real, named, thresholded mechanism
+      (score >=2), but no systematic multi-element inventory or quantified
+      early-warning-signal literature comparable to the climate case, so it
+      stops at 2. Quantitative supplement: delta lobe-switching interval
+      ~1,000-1,500 years (characterizes cycle PERIOD, not a hard geomorphic
+      threshold metric such as critical superelevation ratio — that
+      specific sub-claim remains unknown).
+    sources: [mississippi-delta-wikipedia]
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(mississippi-basin)
+    score: 2
+    justification: >
+      No dedicated river-networks anchor exists in memory_hysteresis.yaml.
+      Scoring against the scale text with the fault-systems anchor (score 2)
+      as closest comparator: channel position and network structure show
+      demonstrable path-dependence over intermediate (centuries-scale)
+      timescales — the same regional discharge/sediment-supply regime does
+      not guarantee the same channel course, because prior avulsions and
+      deposition history determine which paths remain topographically
+      available (the current lower Mississippi's course, and its
+      documented tendency toward the Atchafalaya, is itself a residue of
+      the delta's lobe-switching history). This is capped below 3: no
+      published quantitative hysteresis-LOOP measurement (a forcing-vs-state
+      curve with a documented loop width, analogous to AMOC's ~0.4 Sv) was
+      located for channel/network state — the evidence is qualitative
+      geomorphic-history reasoning plus the ~1,000-1,500 yr lobe-switching
+      period, not a quantified loop.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Per this class's own anchor (information_processing.yaml): channel
+      avulsion and network reorganization respond to local thresholds (bed
+      aggradation exceeding a critical superelevation ratio triggers
+      avulsion to a lower-gradient path), a threshold-triggered physical
+      response structurally identical to the fault system's friction
+      threshold. No channel carries a quasi-independent "signal" separate
+      from the sediment/water flux itself, and there is no state-dependent
+      differential response to the "same" hydraulic signal — the response
+      is a direct function of local slope/discharge physics. Scored 1 for
+      the same reason as the fault-systems anchor: a real discrete
+      threshold exists, but nothing resembling detection-transmission-
+      response beyond it.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: exemplar(mississippi-basin)
+    score: 1
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml), reused
+      verbatim: the network's structure accommodates changed flow regimes
+      (channel migration, avulsion) — a persistent structural memory of
+      forcing — but water and sediment follow fixed physics; there are no
+      behavior-revising components. Canonical structural-accommodation
+      anchor (score 1, per the does_not_count clause: "structural
+      accommodation counts at most 1"). Human engineering (levees, Old
+      River Control Structure) is excluded from this score per the
+      scoping_note's declared boundary, which places those interventions
+      outside the system rather than crediting them as internal adaptation.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: >
+      No variation-selection-retention dynamics among channel links:
+      individual segments do not vary in "strategy" and are not selected
+      among by any population-level process; avulsion is a physical
+      threshold switch of the whole flow path, not selection among varying
+      component behaviors. Same reasoning as tropical-cyclones (absent).
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      No dedicated river-networks anchor exists in emergence.yaml. Scoring
+      against the scale text with the convection-cells anchor (score 3) and
+      stars anchor (score 2) as comparators: Horton's laws (bifurcation,
+      length, and area ratios) and Hack's law (L = 1.4 A^0.6) are
+      recognizable, field-standard macro-level regularities with dedicated
+      vocabulary (stream order, bifurcation ratio) that are not obviously
+      predictable from local erosion rules by casual inspection, and
+      geomorphologists do use them descriptively and somewhat predictively.
+      Scored 2, not 3: unlike Rayleigh-Benard's Ra-indexed bifurcation or
+      the hurricane's potential-intensity theory, Horton/Hack scaling
+      exponents function more as empirical regularities than as a
+      formalized order-parameter theory with independent quantitative
+      content used for prediction — the fractal-dimension/Horton-ratio
+      apparatus is closer to "pattern-specific vocabulary" (level 2) than
+      to load-bearing macro-law machinery (level 3), per this sweep's own
+      finding that even the exponent values trace to secondary citation of
+      a single monograph never primary-read.
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (self_organization.yaml), reused
+      verbatim: the dendritic drainage network organizes itself through
+      erosion-flow feedback over geological time, producing the regular
+      scaling described by Horton's laws; no template specifies the
+      branching structure. Canonical dissipative-structure self-organization,
+      matching the tropical-cyclones anchor's top score for the same reason
+      (spontaneous order from local process, no designer at any level).
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(mississippi-basin)
+    score: 3
+    justification: >
+      No dedicated river-networks anchor exists in robustness_resilience.yaml.
+      Scoring against the scale text with the-internet anchor (score 3) as
+      closest comparator: the network absorbs its characteristic
+      perturbation spectrum — floods, droughts, even major channel
+      avulsions — by reconfiguring locally (new channel paths, sediment
+      redistribution) while the overall tree topology and basin identity
+      persist; the network has operated continuously through the entire
+      Holocene despite repeated delta lobe-switching. Scored 3 (broad
+      tolerance, absorbs large shocks with scars/hysteresis), not 4: known
+      event classes within its normal environment — major avulsion,
+      large-scale tectonic base-level change — do produce lasting,
+      qualitative reorganization of the channel network (a genuine "scar,"
+      per memory_hysteresis), so full multi-scale robustness across the
+      entire plausible perturbation spectrum is not established at exemplar
+      level.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: exemplar(mississippi-basin)
+    score: 1
+    justification: >
+      Per this class's own anchor (cascade_susceptibility.yaml), reused
+      verbatim: flood-pulse propagation down a river network is physically
+      real (a levee breach or upstream flood stage does propagate
+      downstream effects), and flood-control engineering (the Old River
+      Control Structure, the Bonnet Carre and Morganza spillways) exists
+      specifically to manage cascade-like flood propagation. But no
+      dedicated cascade-size-distribution study (empirical or simulation)
+      analogous to the power-grid blackout literature (Dobson et al. 2007)
+      or the market flash-crash literature was located; this is discussed
+      in flood-engineering risk terms rather than quantified as a
+      cascade-statistics phenomenon. Scored 1: propagation mechanism is
+      real and load-bearing for infrastructure decisions, but undocumented
+      as a characterized cascade phenomenon in the complexity-science sense.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Dendritic drainage network / stream order hierarchy
+    order_parameter: "Strahler stream order; Horton bifurcation/length/area ratios (R_B, R_L, R_A)"
+  - name: Hack's law scaling (channel length vs. basin area)
+    order_parameter: "Hack exponent h (0.6 original; basin-size-dependent 0.6/0.5/0.47 per Muller 1973)"
+  - name: Network fractal branching geometry
+    order_parameter: "planform fractal dimension D (Horton-ratio-derived, ~1.6-1.9, range depends on R_B/R_L convention); topological D_T (~1.7-1.8)"
+  - name: Delta lobe-switching cycle
+    order_parameter: "active delta lobe position / avulsion state (period ~1,000-1,500 yr)"
+
+sources:
+  rigon1996:
+    citation: "Rigon, R., Rodriguez-Iturbe, I., Maritan, A., Giacometti, A., Tarboton, D.G. & Rinaldo, A. (1996). On Hack's law. Water Resources Research 32(11), 3367-3374. [PRIMARY-READ IN FULL this sweep — complete text retrieved and read]"
+  rodriguez-iturbe-rinaldo1997:
+    citation: "Rodriguez-Iturbe, I. & Rinaldo, A. (1997). Fractal River Basins: Chance and Self-Organization. Cambridge University Press. [snippet-verified only — the canonical monograph for this class was NOT primary-read/full-text-accessed in this sweep; flagged for Phase 5 acquisition]"
+  hack1957:
+    citation: "Hack, J.T. (1957). Studies of Longitudinal Stream Profiles in Virginia and Maryland. U.S. Geological Survey Professional Paper 294-B, 45-97. [citation confirmed via primary-read of Rigon et al. 1996's reference list; original 1957 paper itself not independently opened]"
+  moussa2009:
+    citation: "Moussa, R. (2009). Definition of new equivalent indices of Horton-Strahler ratios for the derivation of the geomorphological instantaneous unit hydrograph. Water Resources Research. [snippet-verified; cites Rodriguez-Iturbe & Rinaldo 1997 for R_B/R_L/R_A ranges]"
+  mantilla2010:
+    citation: "Mantilla, R. et al. (2010). Testing statistical self-similarity in the topology of river networks. Journal of Geophysical Research: Earth Surface. [snippet-verified, not primary-read]"
+  csn2009:
+    citation: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661-703. [project-wide source; confirmed via companion data page that the 24-dataset corpus excludes hydrology — snippet-verified]"
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256. [project-wide source, reused as baseline for the tree-topology/degree_distribution scoping argument]"
+  mississippi-usgs-wikipedia:
+    citation: "USGS-attributed Mississippi River basin figures (drainage area, mean discharge by gauge) via Wikipedia 'Mississippi River' secondary aggregation of USGS Water-Year Summary reports. [snippet-verified; [unverified] no USGS primary document/table directly read this sweep]"
+  mississippi-delta-wikipedia:
+    citation: "Mississippi River Delta geomorphology (lobe-switching cycle, delta plain age) via Wikipedia 'Mississippi River Delta,' secondary aggregation of Kolb & Van Lopik (1958). Frazier (1967) was previously listed here but does not appear in the current Wikipedia article's reference list and has been removed; if reintroduced it must be independently sourced. [snippet-verified; [unverified] primary Kolb & Van Lopik citation not directly read this sweep]"
+  cerbelaud2024:
+    citation: "Cerbelaud, A. et al. (2024). Peak Flow Event Durations in the Mississippi River Basin and Implications for Temporal Sampling of Rivers. Geophysical Research Letters. [snippet-verified via AGU abstract page, not full-text read]"
+  irbr2018:
+    citation: "McCracken, M. & Wolf, A.T. (2019). Updating the Register of International River Basins of the World. World Water Week; International River Basin Register (2018 update), transboundarywaters.ceoas.oregonstate.edu. [snippet-verified via WebSearch summaries; not primary-read of the full register document]"
+  strahler-wikipedia:
+    citation: "Strahler number / Strahler stream order, citing Strahler, A.N. (1952, 1957). [snippet-verified via Wikipedia summary; Strahler's original papers not primary-read]"
+  flood-power-law-hydrology:
+    citation: "The applicability of power-law frequency statistics to floods. Journal of Hydrology. [snippet-verified via ScienceDirect/ADS listing; [unverified] author/year attribution inferred from journal/title match only, likely Malamud & Turcotte 2006, not independently confirmed]"
+  basso2023:
+    citation: "Basso, S. et al. (2023). Inferring heavy tails of flood distributions through hydrograph recession analysis. Hydrology and Earth System Sciences 27, 4369. [snippet-verified — confirms CSN-style MLE+KS methodology applied to streamflow generally; no Mississippi-specific alpha extracted this sweep]"
+  hurst1951:
+    citation: "Hurst, H.E. (1951, 1956a,b, 1957). Foundational long-range-dependence papers on Nile River annual discharge. [snippet-verified secondary attribution via a comparative Hurst-exponent table; primary Hurst papers not directly read]"
+  danube-hurst:
+    citation: "Changes in long-term properties of the Danube river level and flow induced by damming (arXiv preprint). [snippet-verified, not primary-read]"
+  chaisson2011:
+    citation: "Chaisson, E.J. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40. DOI 10.1002/cplx.20323. [primary-read via this project's own Phase 1 quantitative-backbone report, which confirms no Mississippi/river-network Phi_m value exists in Chaisson's corpus]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent draft, Phase 4, built from the Phase 4 quantitative sweep and reuse of the 15 project rubric anchors where river-networks/Mississippi is a worked anchor (self_organization, criticality, tipping_transitions, information_processing, cascade_susceptibility, modularity, chaos_sensitivity, adaptive_capacity); remaining 7 rubric/hybrid columns (nonlinearity, feedback, openness_dissipation, memory_hysteresis, emergence, robustness_resilience) scored fresh against scale text with nearest anchored comparator cited per filling_rules.
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:
+    - "2026-07-02 (workflow, flag-digest triage): relations.part_of comment corrected — planetary-climate IS a drafted entry in this batch (stale 'unresolved -> roster expansion queue' annotation removed); link now reciprocated from planetary-climate.yaml's relations.contains."
+    - "2026-07-02 (workflow): spatial_extent unit corrected m^2 -> m (linear extent, per panel-spec column definition); removed non-load-bearing rigon1996 citation from sources (paper contains no Mississippi/drainage-area content)."
+    - "2026-07-02 (workflow): characteristic_timescales Holocene delta-plain age corrected ~7,000 yr -> ~7,500-8,000 yr to match cited source (mississippi-delta-wikipedia); Frazier (1967) attribution removed from the delta lobe-switching citation and from the mississippi-delta-wikipedia source entry (does not appear in the current cited Wikipedia article)."
+    - "2026-07-02 (workflow): numerosity — removed non-load-bearing rigon1996 citation from sources (paper contains no Horton bifurcation-ratio or Mississippi-specific content)."
+    - "2026-07-02 (workflow): fractal_dimension_spatial arithmetic corrected — entry's own R_B~4/R_L~2.3 inputs give D~1.66 (log(4)/log(2.3)), not the previously-stated ~1.9; value now reported honestly as a range (~1.6-1.9) spanning both this entry's own inputs and a commonly-cited literature pairing (R_B=4.14/R_L=2.15 -> D~1.93), with the convention stated explicitly rather than a single unreproducible point value. Propagated the corrected range into emergent_phenomena and the criticality justification, which both echoed the old ~1.9 figure."
+    - "2026-07-02 (workflow): degree_distribution — added required evidence_status: not-applicable field (was previously absent, a completeness gap per panel-spec's required-on-every-value rule)."
+    - "2026-07-02 (workflow): extreme_event_statistics retagged level: exemplar(mississippi-basin) -> class-general; corrected framing that mischaracterized all six flood-gauge stations as non-Mississippi (one, St. Paul MN, is on the Mississippi mainstem per independent verification of Malamud & Turcotte 2006); Mississippi-specific alpha now recorded as not-yet-pinned (station alpha not separately extracted) rather than 'unknown across a non-Mississippi dataset.'"
+    - "2026-07-02 (workflow): nonlinearity justification rewritten to give an explicit distinguishing argument for scoring one level below the earthquake-fault-systems comparator (avulsion is not required to reproduce this class's own headline scaling laws, unlike rupture for Gutenberg-Richter scaling), rather than restating the comparator's own score-3 profile without disambiguation. Score unchanged at 2."
+    - "2026-07-02 (workflow): openness_dissipation justification rewritten to argue consistently in terms of channel-maintaining COMPETENCE (matching the cities comparator's function framing) throughout, removing the sentence that described large-scale branching STRUCTURE surviving drought in level-1 language while the column claimed a level-3 score. Score unchanged at 3."
+    - "2026-07-02 (workflow): fractal_dimension_spatial — added hack_law_scaling detail slot recording Hack exponent h=0.6 (Hack 1957) / basin-size-dependent 0.6/0.5/0.47 (Muller 1973), area-exceedance exponent beta~0.43-0.46, and the beta+h=1 relation, sourced to rigon1996 (primary-read) and hack1957; recorded basin-boundary self-affinity and fractal channel sinuosity as explicit unknowns rather than silent omissions."
+    - "2026-07-02 (workflow): hierarchy_depth — replaced Strahler stream order (10, a physical-branching-order measurand incommensurable with the other nine pilot entries' aggregation-tier convention) with an aggregation-tier value of 3 (channel links -> sub-basins -> major tributary basins -> whole network) as the column's primary value; Strahler order retained as a separately-labeled detail.strahler_stream_order fact."
+  flags:   # standing data limitations and uncertainties, drafter's own assessment
+    - column: fractal_dimension_spatial
+      note: >
+        Rodriguez-Iturbe & Rinaldo (1997), Fractal River Basins — the
+        canonical source for Horton ratios and D~1.6-1.9 — was never
+        primary-read in the Phase 4 sweep; all values here trace to
+        secondary/snippet citation only. Acquire full text before promoting
+        this column past draft status. A 2026-07-02 fix-pass also corrected
+        an arithmetic error in the worked derivation (the entry's own
+        R_B~4/R_L~2.3 inputs give D~1.66, not the previously-stated ~1.9;
+        both values are now shown as a range with the R_B/R_L convention
+        made explicit).
+    - column: extreme_event_statistics
+      note: >
+        No CSN-2009-grade statistical test exists for any river/flood
+        discharge dataset (CSN's own 24-dataset corpus excludes hydrology),
+        so measured-untested is likely to persist indefinitely absent new
+        primary literature; the recorded alpha range (0.27-0.90) includes
+        one Mississippi-mainstem gauge (St. Paul, MN) among the six stations
+        (corrected 2026-07-02 — an earlier draft mischaracterized all six as
+        non-Mississippi), but that gauge's station-specific alpha was not
+        separately extracted this sweep, so a Mississippi-specific alpha
+        remains not-yet-pinned.
+    - column: energy_rate_density
+      note: >
+        No published Phi_m value exists and no derivation was attempted this
+        sweep, despite the inputs (mean discharge, basin relief) being
+        plausibly available — flagged for Phase 5 computation rather than
+        left permanently unknown; same data gap affected 9 of 10 Phase 1
+        pilot systems, so this is not anomalous.
+    - column: numerosity
+      note: >
+        The 1e5-1e6 total stream-segment figure is a project-derived
+        extrapolation from Horton's law, not a published enumerated count;
+        confidence is low and the derivation chain (R_B, observed order)
+        should be independently checked at consistency review.
+    - column: hierarchy_depth
+      note: >
+        RESOLVED 2026-07-02 per cross-audit finding: the column previously
+        used Strahler stream order (10) as the level-counting convention,
+        a different measurand (literal physical branching order) than the
+        aggregation-tier convention (levels above the declared atomic part)
+        used by the other nine pilot entries, making it non-commensurable
+        for cross-entry comparison despite being a principled choice for
+        this class specifically. Fixed by recording the aggregation-tier
+        value (3: channel links -> sub-basins -> major tributary basins ->
+        whole network) as the column's primary value, matching
+        tropical-cyclones and financial-markets' convention, and moving
+        Strahler order (10) to a clearly-labeled detail.strahler_stream_order
+        field so the physical-branching-order fact is retained without
+        contaminating the cross-entry column.

@@ -1,0 +1,727 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: stars
+# Phase 4 quantitative-sweep draft. Third hand/agent-built entry,
+# following the tropical-cyclones and financial-markets template.
+# ============================================================
+id: stars
+name: Stars
+category: astrophysical
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: the-sun
+    name: The Sun
+    note: primary worked exemplar; the only star with directly measured, spatially resolved surface dynamics
+
+scoping_note: >
+  The system is the star as a self-gravitating fusion-powered plasma body across
+  its main-sequence lifetime, exemplified by the Sun: the interior (core,
+  radiative zone, convective zone), the photosphere and its surface-dynamics
+  layer (granulation, sunspots, magnetic activity cycle), and the extended
+  atmosphere (chromosphere, corona) so far as it is driven by the star's own
+  magnetic and convective dynamics. Inside the boundary: the plasma, radiation
+  field, and magnetic field participating in hydrostatic/thermal equilibrium
+  and in the convective-dynamo system. Outside: the interstellar medium and
+  companion bodies (treated as forcing/context, not components), and
+  Chaisson's cross-stage evolutionary comparisons (subgiant, red giant, AGB),
+  which are cited for context but not scored as this entry's characteristic
+  dynamics (this entry scores the mature main-sequence star). Atomicity per
+  filling_rules.atomicity-convention: the star is fundamentally a continuum
+  plasma/field system with no natural discrete atomic part; the entry follows
+  the panel-spec numerosity note and the sweep's own adjudication in treating
+  granulation cells (photospheric convective cells, the characteristic
+  surface-dynamics unit) as the nearest citable proxy "atom" for numerosity
+  and component_ontology purposes, while interaction_topology is correctly
+  scored field/continuum rather than particulate. Scoring is class-general
+  unless marked exemplar(the-sun); exemplar evidence is necessarily
+  Sun-specific since the Sun is the only star with resolved surface dynamics.
+
+summary: >
+  A star is a self-gravitating ball of plasma held in a decades-stable
+  standoff between crushing gravity and the nuclear fire at its core — one of
+  the most robust structures in nature, and one of the least adaptive. Nothing
+  designs a star's structure and nothing controls it moment to moment; its
+  hydrostatic and thermal equilibrium is an emergent balance point, held there
+  by nothing more clever than a thermostat's negative feedback running for
+  billions of years. Yet its surface seethes with self-organized pattern:
+  granulation cells assembling and dissolving on ten-minute timescales,
+  sunspots waxing and waning on an eleven-year cycle, flares releasing energy
+  across thirteen orders of magnitude. A star processes no information about
+  its environment and adapts to nothing — it is complexity purchased entirely
+  through physics, not cognition, the catalog's clearest complex-physical
+  counterpoint to a financial market's complex-adaptive profile.
+
+relations:
+  part_of: [galaxies]   # unresolved -> roster expansion queue
+  contains: [photospheric-convection-cells]   # decision below; revised 2026-07-02
+  contains_note: >
+    Solar granulation IS thermal convection under gravity with a free
+    (radiating) upper boundary, mechanistically continuous with the
+    Rayleigh-Benard paradigm that grounds the convection-cells class (see
+    convection-cells' own emergence anchor: Ra_c ~1708, amplitude-equation
+    order-parameter description). The photosphere is not a laboratory
+    Rayleigh-Benard cell — it is compressible, radiatively cooled at the top
+    rather than held at a fixed cold-plate temperature, and strongly
+    stratified. REVISED 2026-07-02 (consistency-check fix): the entry
+    previously linked contains: [convection-cells] directly, but
+    tropical-cyclones — facing the structurally analogous question for moist
+    convection — deliberately kept its convective-cell id (moist-convection-
+    cells) DISTINCT from convection-cells "to avoid conflation," and no
+    citable principle was found this session that would justify treating
+    granulation differently from hurricane convection on this point (both
+    are non-idealized, compressible convection departing from lab
+    Rayleigh-Benard boundary conditions). Rather than assert an unverified
+    distinguishing principle, this entry now follows the same precedent:
+    contains: [photospheric-convection-cells], a new distinct unresolved id
+    (not yet drafted; roster expansion queue), paralleling
+    moist-convection-cells. The merge/split question (whether granulation,
+    moist convection, and lab Rayleigh-Benard convection ultimately belong
+    under one convection-cells class or several) is deferred to whoever
+    eventually drafts convection-cells.yaml's own scoping note.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: 6.957e8
+    unit: m
+    method: nominal solar radius, R☉
+    sources: [iau2015]
+    evidence_status: measured
+    confidence: high
+    note: >
+      class-general note: main-sequence stellar radii span roughly
+      0.1-100 R☉ across spectral types [unverified — model knowledge, not
+      independently sourced this sweep; flag for follow-up if a class-wide
+      range is wanted with citations].
+
+  characteristic_timescales:
+    type: quantitative
+    level: exemplar(the-sun)
+    timescales:
+      - {name: granule lifetime, value: "~8-20 min (mean ~10 min)", measurand: "individual photospheric granule (convection cell) lifetime", sources: [roudier-muller1986], evidence_status: measured-untested, confidence: medium}
+      - {name: supergranule lifetime, value: "24-48 h dynamical evolution time", measurand: supergranulation cell turnover, sources: [rincon-rieutord2018], evidence_status: measured, confidence: medium}
+      - {name: sunspot/magnetic cycle, value: "~11 yr (Schwabe cycle)", measurand: sunspot-number periodicity, evidence_status: measured, confidence: high}
+      - {name: main-sequence lifetime, value: "~1e10 yr", measurand: "total time on main sequence, 1 M☉ star", evidence_status: measured, confidence: medium}
+      - {name: current age, value: "~4.6 Gyr", measurand: "age since formation (radiometric dating)", evidence_status: measured, confidence: high}
+    note: >
+      All rows Sun-specific per measurand-required rule; fastest-to-slowest
+      span (granule lifetime -> main-sequence lifetime) covers roughly 15
+      orders of magnitude, among the widest characteristic-timescale spreads
+      in the catalog.
+
+  numerosity:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: "~1e6-4e6 granulation cells covering the photosphere at any instant"
+    method: >
+      No natural discrete "atomic part" count exists for a continuum plasma
+      (see scoping_note); granule count is the nearest citable proxy for the
+      characteristic surface-dynamics unit. Typical granule diameter
+      ~1,000-1,500 km.
+    sources: [granulation-secondary]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      Secondary/snippet source chain only, no single primary paper pinned for
+      the exact count this sweep (top uncertainty #1). At the fusion/photon
+      scale, numerosity is a different and far larger question (particle
+      counts) not pursued here — the entry follows the granulation
+      convention consistently across numerosity, component_ontology, and
+      hierarchy_depth.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "Milky Way: ~1-4e11 stars standing population; ~1-2 M☉/yr formation rate (up to ~4-8 M☉/yr by some tracers). Observable universe: ~1e22-1e24 stars standing population."
+    sources: [mw-star-count, kennicutt-evans2012, van-dokkum-conroy2010]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      Milky Way star count and MW star-formation rate are snippet-verified
+      consensus ranges (not primary-read in full). The observable-universe
+      figure spans two orders of magnitude and its upper-range driver
+      (van Dokkum & Conroy 2010, IMF revision in elliptical galaxies) was
+      read at abstract level only — top uncertainty #3. n (instances of the
+      class "stars") is large enough that class-level statistical claims are
+      epistemically well-supported in principle, in sharp contrast to
+      n=1-type classes.
+
+  component_ontology:
+    type: structured
+    level: exemplar(the-sun)
+    parts:
+      - name: granulation cells (photospheric convective cells)
+        role: atomic — the declared atom for numerosity/component_ontology purposes (see scoping_note); the only part on the convective-aggregation axis's base rung
+        count_oom: "~1e6-4e6, ~1,000-1,500 km diameter each"
+        interchangeable: yes
+        itself_complex: photospheric-convection-cells   # unresolved link, revised 2026-07-02; see relations.contains_note
+      - name: supergranulation cells
+        role: non-atomic, composite — larger-scale convective-aggregation-axis aggregate one level above granulation cells, ~30 Mm diameter, 24-48 h dynamical evolution time (Rincon & Rieutord 2018); clearly distinguished from the declared atom above
+        count_oom: "not recovered this sweep; unknown"
+        interchangeable: yes
+        itself_complex: no
+      - name: sunspots / active regions
+        role: non-atomic — magnetic-flux-tube surface manifestations on a dynamo/magnetic-organization axis orthogonal to convective aggregation (tied to the dynamo cycle rather than the convective cascade; see hierarchy_depth method note); clearly distinguished from the declared atom above
+        count_oom: "cycle-dependent, 0 to several dozen visible groups at solar maximum [unverified — model knowledge, not sourced this sweep]"
+        interchangeable: no
+        itself_complex: no
+    confidence: low
+    note: >
+      No living/human components exist inside this entry's boundary — the
+      out-of-scope(human) marker is not applicable here, unlike
+      socio-technical entries. Only the first list item (granulation cells)
+      is atomic; supergranulation cells and sunspots/active regions are
+      non-atomic aggregate/co-located phenomena listed for completeness and
+      explicitly marked as such (revised 2026-07-02) — see hierarchy_depth
+      for the orthogonal-axis treatment of convective aggregation vs.
+      dynamo/magnetic organization.
+
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: 2
+    unit: erg s^-1 g^-1
+    method: >
+      Chaisson's published Phi_m for the Sun (Table 1). Cross-check performed
+      this sweep from IAU 2015 nominal L☉ and M☉: Phi_m = L/M = 3.828e26 W /
+      1.98892e30 kg = 1.925e-4 W/kg = 1.925 erg s^-1 g^-1 — matches Chaisson's
+      published 2 to within rounding, confirming the figure is
+      self-consistently reproducible from independent nominal constants.
+      Chaisson additionally reports Phi_m for other evolutionary stages of
+      the Sun specifically (newborn ~1, subgiant ~4, red giant ~120, AGB
+      ~2000 erg/s/g) and for a 10-M☉ star through its fusion-stage sequence
+      (H burning ~600, He burning ~1800, C burning ~2600, O burning ~4000
+      erg/s/g; corrected 2026-07-02, coverage-check fix — restated from the
+      full four-stage sequence in Chaisson 2010/2011 Table 2, per
+      research/phase1/quantitative-backbone.md line 36, rather than the
+      previously-collapsed two-endpoint "600->4000" shorthand), supporting
+      class-general statements about "stars" beyond the Sun exemplar, though
+      this entry's scored value is the mature main-sequence Sun.
+    sources: [chaisson2011, iau2015]
+    evidence_status: measured
+    confidence: high
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: gravitational self-binding
+        mechanism: mutual gravitational attraction of the star's own mass, balanced against pressure gradient
+        participants: all plasma
+        range: global
+      - name: radiative transfer
+        mechanism: "photon diffusion/absorption/re-emission coupling temperature and opacity (locally diffusive; the dominant characteristic effect is global — photon escape sets the star's characteristic luminosity output)"
+        participants: all plasma and the radiation field
+        range: global
+      - name: convective heat transport
+        mechanism: buoyancy-driven bulk overturning where the temperature gradient exceeds the adiabatic threshold
+        participants: plasma in the convective zone
+        range: local
+      - name: magnetohydrodynamic coupling
+        mechanism: "differential rotation and convective motion generating and interacting with magnetic field (dynamo action); locally generated but the characteristic effect is global — flux emergence and cycle-scale organization are the stated justification for scoring this row non-local"
+        participants: plasma and magnetic field, convective and tachocline layers
+        range: global
+      - name: nuclear fusion
+        mechanism: strongly temperature-dependent proton-proton/CNO reactions converting mass to energy
+        participants: core plasma
+        range: local (core only)
+    type_count: 5
+    alphabet_closure: closed
+    justification: >
+      Every interaction is fixed by gravity, fluid dynamics, radiative
+      transfer, magnetohydrodynamics, and nuclear physics; no new
+      interaction type can arise. Same closed-alphabet reasoning as the
+      tropical-cyclones anchor (its own worked case for this column), one
+      level richer here because fusion and MHD dynamo coupling add two
+      physical mechanisms a hurricane's tropospheric physics does not have.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: continuum/field system; no meaningful node-degree representation.
+
+  modularity:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 1
+    justification: >
+      Per this class's own anchor (modularity.yaml): the Sun's radial shell
+      structure (core, radiative zone, convective zone, photosphere, corona)
+      is a smoothly-graded onion structure, not laterally-coupled discrete
+      modules, and is hierarchy rather than modularity (not double-counted
+      here). Granulation cells give a weak, transient lateral quasi-modular
+      pattern — relatively coherent internal circulation but no persistent
+      identity or strong insulation from neighbors, forming and dissolving
+      on ~10-minute timescales. Matches the anchor's score of 1 exactly.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): count aggregation levels above
+      the declared atomic parts (granulation cells) up to and including the
+      whole, along the convective-aggregation axis only — granulation cells
+      (atoms) -> supergranulation cells (1) -> the star-scale
+      hydrostatic/thermal structure (2). Two axes are explicitly treated as
+      orthogonal and NOT collapsed into one linear count (revised 2026-07-02,
+      per the same principle already applied to radial shell structure):
+      (a) convective-scale aggregation (granulation -> supergranulation,
+      driven by the buoyancy-driven convective cascade) and (b) dynamo/
+      magnetic organization (active regions, sunspots, the ~11-yr cycle,
+      mechanistically distinct — tied to differential-rotation dynamo action
+      rather than the convective cascade; see component_ontology and
+      interaction_ontology's separate magnetohydrodynamic-coupling row).
+      Active-region/magnetic-cycle organization is therefore no longer
+      counted as a rung on this ladder. Radial shell structure (core through
+      corona) remains a third, separately orthogonal vertical stratification
+      not counted as additional lateral hierarchy, paralleling the
+      modularity column's treatment of the same shells as gradient, not
+      module.
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: "D=1.25 (small granules, perimeter ~500-4,500 km); D=2.15 (large granules, perimeter ~4,500-15,000 km); scale break at ~1.37 arcsec"
+    unit: dimensionless (D)
+    method: >
+      Perimeter-area fractal dimension (P ∝ A^(D/2)) of photospheric
+      granulation boundaries, measured on 315 granules. Theoretical
+      comparison value D=4/3~1.33 for isotropic homogeneous turbulence in an
+      isobaric atmosphere reasonably matches the small-granule regime.
+    measurand: photosphere granule boundary geometry (2D projected)
+    sources: [roudier-muller1986]
+    evidence_status: measured-untested
+    confidence: low
+    verifier_flags: [snippet-verified-only, single-1986-study-not-primary-read, convention-mismatch-unresolved]
+    note: >
+      Top uncertainty #1: rests on secondary/snippet sources, not primary
+      full text. Supergranulation also has published fractal-dimension
+      literature (cycle-phase-dependent D) located but not numerically
+      extracted this sweep — left as a follow-up, not guessed.
+      CAVEAT (added 2026-07-02): under the stated P ∝ A^(D/2) convention, a
+      2D projected planar boundary curve is mathematically bounded to
+      1<=D<=2 (D=1 smooth curve, D=2 maximally space-filling). The reported
+      D=2.15 for large granules exceeds this bound — an apparent convention
+      mismatch. It is not known this session whether Roudier & Muller (1986)
+      report D=2.15 under this same convention or under a different
+      normalization used elsewhere in the solar-granulation literature;
+      unresolved pending primary-read of the source. evidence_status is kept
+      at measured-untested rather than corrected/removed, since no
+      independently-sourced correct value is available this session.
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (decentralization.yaml): no component
+      steers the others; global structure (differential rotation, convective
+      organization, magnetic cycle) arises entirely from local plasma
+      physics under gravity. There is nothing to remove whose absence would
+      constitute "loss of control."
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (nonlinearity.yaml): stellar structure is
+      governed by strongly nonlinear physics — the steep temperature
+      dependence of fusion rates (proton-proton chain ~T^4, CNO cycle far
+      steeper) and radiative-transfer opacity coupling — plus genuinely
+      nonlinear subsystems (convective granulation, the differential-rotation
+      dynamo). Scored 3, not 4: bulk hydrostatic/thermal equilibrium is
+      extremely stable, so the nonlinear terms set the structure without
+      producing large-amplitude nonlinear behavior at the whole-star scale
+      on human timescales.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 2
+    loops:
+      - {name: gravitational-thermal regulation, sign: balancing, mechanism: "core contraction -> compressional heating -> increased fusion rate -> increased pressure -> halts contraction (and symmetrically damps runaway expansion)"}
+      - {name: convective heat transport, sign: balancing, mechanism: "local superheating -> buoyant convective overturning -> heat removed -> local temperature gradient relaxes toward the adiabatic threshold"}
+    justification: >
+      Per this class's own anchor (feedback.yaml): these loops explain
+      long-term stability but operate as slow negative feedback keeping the
+      Sun near a fixed operating point, not as a driver of rich, continuously
+      varying characteristic behavior — most solar phenomena of interest
+      (granulation, sunspot cycle) are better explained by other mechanisms
+      (turbulent convection, dynamo action) where loop structure is less
+      central or disputed (see chaos_sensitivity).
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 4
+    justification: >
+      Per this class's own anchor (openness_dissipation.yaml): the Sun
+      radiates ~3.828e26 W continuously, sourced from core fusion converting
+      ~4.3 million tonnes of mass to energy per second; this literal,
+      enormous flux is what maintains the star's hydrostatic structure
+      against gravitational collapse. Chaisson's Phi_m=2 erg/s/g is a modest
+      per-gram figure precisely because the Sun's mass is so large — the top
+      score rests on absolute throughput and the fact that fusion output IS
+      the structure-maintaining mechanism, not on the mass-normalized number.
+    sources: [chaisson2011, iau2015]
+    evidence_status: measured
+
+  chaos_sensitivity:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 2
+    justification: >
+      Per this class's own anchor (chaos_sensitivity.yaml): the 11-year
+      sunspot cycle's irregularity has motivated nonlinear-dynamics studies;
+      some analyses of sunspot-number/area time series report low-dimensional
+      chaotic signatures with short implied predictability horizons (a
+      single study surfaced ~16 months) [unverified — single-study figure,
+      cite with caution], while other studies find no convincing evidence of
+      low-dimensional deterministic chaos and instead model the cycle as a
+      stochastically forced nonlinear dynamo. Genuinely contested literature,
+      not a lazy default — reused from research/phase1/dynamics-criticality.md
+      (recommended arbiter: Petrovay 2020/2023).
+    sources: [petrovay2023]
+    evidence_status: measured-disputed
+    confidence: low
+
+  criticality:
+    type: hybrid
+    level: exemplar(the-sun)
+    score: 2
+    mechanism_status: contested
+    justification: >
+      Per this class's own anchor (criticality.yaml). (a) Event statistics:
+      solar-flare energy distributions are power-law over a documented span,
+      recently extended across ~13 orders of magnitude combining solar
+      nanoflares and stellar superflares (roughly consistent with
+      fractal-diffusive-SOC predictions, alpha~1.8) — evidence_status:
+      measured for the bulk distribution, per the anchor. A companion
+      energy-exponent figure, alpha_E~1.67, is reported alongside the
+      13-orders-of-magnitude finding (added 2026-07-02, coverage-check fix).
+      (b) Mechanism: fractal-diffusive SOC is proposed and actively
+      researched but not settled; a "dragon king" critique holds the largest
+      superflares may belong to a distinct population rather than the same
+      scale-free tail. Per filling_rules.soc-two-claims, the two claims are
+      recorded separately: event statistics reasonably solid, mechanism
+      proposed and contested, not averaged into a single number.
+    sources: [aschwanden2022, aschwanden-crosby2025, aschwanden-etal2019]
+    evidence_status: measured
+
+  extreme_event_statistics:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: "alpha ~1.8 (theoretical 9/5, observed 1.80+/-0.18) for the 3-D thermal energy model; alpha~1.44-1.47 for the 2-D SOC model; alpha~2.33-2.38 for the 2-D thermal model; broader field range 1.35 <= alpha <= 2.90 depending on flare-energy proxy and instrument"
+    measurand: solar-flare (and nanoflare/stellar-superflare) thermal-energy frequency distribution
+    method: >
+      Aschwanden (2022) reconciliation of competing theoretical power-law
+      slope predictions against observed exponents with stated uncertainties.
+    sources: [aschwanden2022]
+    evidence_status: measured-untested
+    confidence: medium
+    note: >
+      Per filling_rules.power-law-rigor: no CSN-2009-grade statistical
+      machinery (MLE x_min estimation + KS goodness-of-fit against
+      alternative heavy-tailed distributions) was found applied to solar or
+      stellar flare-energy distributions in the literature located this
+      sweep; solar flares are not among CSN's 24 tested datasets. This is a
+      genuinely different situation from Gutenberg-Richter earthquakes
+      (which CSN tested and rejected in raw form) — flares have simply not
+      been run through the CSN pipeline in the literature found. Top
+      uncertainty #2: this may be a real literature gap, not a search miss.
+
+  temporal_correlation:
+    type: quantitative
+    level: exemplar(the-sun)
+    value: "Hurst exponent H~0.7 (range 0.70-0.77 via detrended fluctuation analysis)"
+    measurand: "sunspot number and total solar irradiance (TSI) time series, activity-cycle-detrended"
+    method: detrended fluctuation analysis, correcting for the ~11-year quasi-periodic non-stationarity
+    sources: [rypdal-rypdal2012]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      Indicates long-range persistence. Authors themselves flag large errors
+      from short time records and multiple regime-dependent H values
+      (possibly reflecting multiple chaotic-attractor "centers" or
+      non-universal multiscaling) — single/small-cluster-of-studies caveat,
+      hence measured-untested rather than measured.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No literature located (this sweep, nor Phase 1) identifying formal
+      "tipping elements" for stars in the Lenton/Armstrong McKay sense
+      (bifurcation-type regime shifts on human-relevant timescales). The
+      Sun's major structural transitions (main-sequence -> subgiant -> red
+      giant -> AGB -> white dwarf) are deterministic stellar-evolution phase
+      changes on Gyr timescales, not tipping points in the
+      critical-transition/early-warning-signal sense this column targets.
+      Distinct from the earthquake-fault-systems anchor (which reaches 1 on
+      informal "due for a big one" discourse) — no comparable informal
+      tipping-point discourse exists for stellar structure either. Scored 0,
+      the deliberate floor, rather than unknown, since the absence of any
+      proposed mechanism (not merely absence of a search hit) is itself the
+      finding, per the scale's own level-0 text.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(the-sun)
+    score: 1
+    justification: >
+      Per this class's own anchor (memory_hysteresis.yaml): the Sun's
+      structure at any epoch is set by its current mass, composition, and
+      evolutionary-track position — stellar structure equations plus current
+      composition (itself a monotonic result of nuclear burning, not a
+      reversible history) determine state essentially uniquely. There is
+      relaxation lag (~1e5-yr Kelvin-Helmholtz photon-diffusion time means
+      core changes are not felt at the surface instantaneously) but no
+      bistability, no hysteresis loop, and no scenario where two different
+      pasts converge to the same mass/composition/age and yield different
+      present structures. Composition change (H->He) is irreversible drift
+      along a single track, not path-dependent branching.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Per this class's own anchor (information_processing.yaml) — the
+      column's explicit canonical 0: energy generated by fusion propagates
+      outward by radiative diffusion and convection purely as physical
+      transport; luminosity, temperature gradient, and convective onset are
+      direct functions of local physical state with no detection-and-response
+      structure anywhere in the chain. The solar dynamo is a physical
+      feedback process, not information processing — nothing in the Sun
+      evaluates a signal against a reference and emits a distinguishable
+      response.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml): plasma parcels
+      respond to local conditions per fixed physics; nothing in the Sun
+      modifies its response rules in light of history. The negative feedback
+      stabilizing fusion is regulation, not adaptation — the distinction this
+      column's does_not_count exists to enforce. Together with the high
+      self_organization and decentralization scores, this is the archetypal
+      complex-physical (non-CAS) profile, the polar opposite of
+      financial-markets' 4.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: >
+      No variation-selection-retention dynamics among components; plasma
+      parcels and granulation cells do not vary in behavioral rule nor are
+      any such variants selected among.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 2
+    justification: >
+      Per this class's own anchor (emergence.yaml): pervasive macro-level
+      patterns with dedicated descriptive vocabulary — granulation and
+      supergranulation, the sunspot butterfly diagram, the 11/22-year
+      activity cycle — not readable off the micro-physics by inspection, with
+      a semi-formalized effective theory (mean-field dynamo theory, whose
+      alpha-effect and turbulent diffusivity are genuinely new effective
+      variables). Held at 2 rather than 3: that theory's independent
+      quantitative content remains contested (parameters not independently
+      measured, poor predictive skill for cycle amplitude), so the
+      macro-description sits closer to pattern-specific vocabulary than to a
+      load-bearing order-parameter theory.
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 4
+    justification: >
+      Not directly anchored for stars in self_organization.yaml (the file's
+      worked anchors are tropical-cyclones, river-networks, the-internet,
+      power-grids, languages), so scored against the scale text with the
+      tropical-cyclones anchor (score 4, "eyewall, rainbands, and the
+      storm-scale circulation assemble spontaneously... nothing specifies the
+      form in advance") as the closest comparator: granulation, sunspots, and
+      the magnetic cycle all assemble spontaneously from buoyancy-driven
+      convection and dynamo action under gravity and rotation; no template
+      specifies granule geometry or cycle phase in advance. This is a
+      dissipative structure in the same sense as a hurricane's — the
+      openness_dissipation column already scores the Sun 4 on this same
+      physical-flux basis. Matches the top of the scale: essentially all
+      macroscopic order arises spontaneously from local interactions, no
+      designer or blueprint at any level.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(the-sun)
+    score: 4
+    justification: >
+      Per this class's own anchor (robustness_resilience.yaml): stable
+      output for ~4.6 Gyr, self-regulated by the negative feedback between
+      core temperature and fusion rate; perturbations within its plausible
+      spectrum (flares, convective fluctuations) do not threaten identity or
+      function. Robustness without any adaptation — the canonical robust +
+      non-adaptive anchor, contrasting directly with tropical-cyclones'
+      exemplar-level 1.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: exemplar(the-sun)
+    score: 0
+    justification: >
+      Per this class's own anchor (cascade_susceptibility.yaml), the
+      deliberate floor anchor for this column: no cascading-failure
+      literature applies to the Sun as a system. Solar flares and coronal
+      mass ejections are individually triggered magnetic-reconnection events
+      (their power-law energy statistics are recorded under criticality and
+      extreme_event_statistics), but there is no documented mechanism by
+      which one region's flare event propagates a failure cascade to
+      otherwise unrelated regions the way a blackout or BGP cascade
+      propagates through a coupled network of discrete components. The Sun
+      can score 2 on criticality (event-scale scale-invariance) while
+      scoring 0 here, because cascade_susceptibility specifically requires
+      component-to-component failure propagation through a coupled system,
+      which flare dynamics do not exhibit.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Granulation
+    order_parameter: granule size/lifetime distribution; perimeter-area fractal dimension D
+  - name: Supergranulation
+    order_parameter: supergranule cell size (~30 Mm) and turnover time (24-48 h dynamical evolution time)
+  - name: Sunspot / magnetic activity cycle
+    order_parameter: sunspot number; butterfly-diagram latitude drift; ~11-yr periodicity
+  - name: Solar dynamo (differential rotation + convection generating magnetic field)
+    order_parameter: mean toroidal/poloidal field strength (alpha-effect, turbulent diffusivity in mean-field dynamo theory)
+  - name: Solar flares / nanoflares
+    order_parameter: flare thermal-energy frequency distribution (power-law tail exponent alpha)
+
+sources:
+  chaisson2011:
+    citation: "Chaisson, E.J. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40. DOI: 10.1002/cplx.20323. [primary-read, Phase 1 — reused per research/phase1/quantitative-backbone.md]"
+  iau2015:
+    citation: "Mamajek, E.E. et al. (2015). IAU 2015 Resolution B3 on Recommended Nominal Conversion Constants for Selected Solar and Planetary Properties. arXiv:1510.07674 (also published as Prsa, A. et al. 2016, AJ 152, 41, arXiv:1605.09788). [snippet-verified; original resolution PDF not primary-read this session; arXiv ID corrected 2026-07-02 — 1510.06262 is Resolution B2 (bolometric magnitude zero points), a different companion resolution]"
+  roudier-muller1986:
+    citation: "Roudier, T. & Muller, R. (1986). Structure of the solar granulation. Solar Physics 107, 11-26. [snippet-verified via abstract/results summary; full-text PDF not fetched this session]"
+  rincon-rieutord2018:
+    citation: "Rincon, F. & Rieutord, M. (2018 update of 2010). The Sun's Supergranulation. Living Reviews in Solar Physics 15, 6. DOI: 10.1007/s41116-018-0013-5. [snippet-verified]"
+  granulation-secondary:
+    citation: "Secondary solar-granulation literature (e.g. summaries of Bahng & Schwarzschild 1961-type counting methodology), cross-confirmed across multiple secondary astronomy sources. [snippet-verified, no single primary paper pinned for the exact granule count]"
+  mw-star-count:
+    citation: "Milky Way stellar population, ~1-4e11 stars: Gaia-era consensus, secondary sources (NASA Blueshift; ESA/Gaia; Wikipedia 'Milky Way' citing peer-reviewed structure papers). Candidate primary not fetched in full: Gaia Collaboration, 'Gaia Universe Model Snapshot,' A&A, arXiv:1202.0132. [snippet-verified]"
+  kennicutt-evans2012:
+    citation: "Kennicutt, R.C. & Evans, N.J. (2012). Star Formation in the Milky Way and Nearby Galaxies. Annual Review of Astronomy and Astrophysics 50, 531-608. [snippet-verified via NED summary page; review itself not primary-read in full]"
+  van-dokkum-conroy2010:
+    citation: "van Dokkum, P. & Conroy, C. (2010). A substantial population of low-mass stars in luminous elliptical galaxies. Nature 468, 940-942. DOI: 10.1038/nature09578. [snippet/abstract-verified; full text not fetched this session — drives the upper end of the observable-universe star-count range]"
+  aschwanden2022:
+    citation: "Aschwanden, M.J. (2022). Reconciling Power Law Slopes in Solar Flare and Nanoflare Size Distributions. arXiv:2203.12484 (ApJL companion, DOI: 10.3847/2041-8213/ac7b8d). [abstract fetched and read via WebFetch this session — near-primary at the abstract/key-results level; full paper body/tables not fetched]"
+  rypdal-rypdal2012:
+    citation: "Rypdal, K. & Rypdal, M. (2012). Is there long-range memory in solar activity on time scales shorter than the sunspot period? Journal of Geophysical Research: Space Physics 117, A04103. DOI: 10.1029/2011JA017283 (also arXiv:1111.4787). [snippet-verified; full text not fetched this session]"
+  petrovay2023:
+    citation: "Petrovay, K. Solar Cycle Prediction. Living Reviews in Solar Physics (2020, updated 2023), arXiv:2303.12648. [recommended arbiter for the contested chaos/predictability status of the solar cycle; reused context from research/phase1/dynamics-criticality.md, not independently fetched this session]"
+  aschwanden-crosby2025:
+    citation: "Aschwanden, M.J. & Crosby, N. Self-Organized Criticality Across Thirteen Orders of Magnitude in the Solar-Stellar Connection. arXiv:2503.18136. [added 2026-07-02, coverage-check fix; source of the '13 orders of magnitude' criticality claim and companion alpha_E~1.67 figure; not independently fetched this session — reused per research/phase1/dynamics-criticality.md line 34 and research/phase4/stars-sources.md line 63]"
+  aschwanden-etal2019:
+    citation: "Aschwanden, M.J. et al. (2019). Global Energetics of Solar Flares: IX. Refined Energetics of Coronal Mass Ejections. ApJ 880, 2. DOI: 10.3847/1538-4357/ab29f4. [added 2026-07-02, coverage-check fix; companion source for the 13-orders-of-magnitude SOC finding; not independently fetched this session — reused per research/phase1/dynamics-criticality.md line 34 and research/phase4/stars-sources.md line 63]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: >
+    workflow-agent, Phase 4 — anchors reused verbatim from schema/anchors/*.yaml
+    where stars is a worked anchor (all 15 rubric/hybrid columns); the two
+    self_organization and hierarchy_depth-adjacent judgment calls not directly
+    anchored (self_organization has no stars anchor; component_ontology
+    atomicity convention) are scored against scale text with the nearest
+    worked comparator cited inline.
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:   # flag-fixer pass, 2026-07-02, per research/phase4/flag-digest.md 'stars' section
+    - "citation (BLOCKER): corrected iau2015 arXiv ID from 1510.06262 (wrong — that is Resolution B2) to 1510.07674 (Resolution B3), added Prsa et al. 2016 AJ 152,41/arXiv:1605.09788 as companion citation."
+    - "citation (FIX): softened characteristic_timescales supergranule lifetime from the unconfirmed point figure '~1-2 days (~1.8 d cited)' to the confirmed range '24-48 h dynamical evolution time' per Rincon & Rieutord 2018; propagated the same change to component_ontology and emergent_phenomena."
+    - "plausibility (FIX): added explicit caveat to fractal_dimension_spatial noting D=2.15 exceeds the mathematically valid 1<=D<=2 range under the entry's own stated P∝A^(D/2) convention; flagged as convention-mismatch-unresolved pending primary-read of Roudier & Muller 1986; evidence_status kept at measured-untested (no fabricated correction)."
+    - "plausibility (FIX): restructured hierarchy_depth/component_ontology — dynamo/magnetic organization (active regions, sunspots) now treated as an axis orthogonal to convective aggregation (parallel to the existing radial-shell-structure exclusion), removing active-region/magnetic-cycle organization as a counted rung; hierarchy_depth value changed 3 -> 2; component_ontology parts list now explicitly marks supergranulation cells and sunspots/active regions as non-atomic, distinguished from the declared atom (granulation cells)."
+    - "consistency (FIX): changed relations.contains from [convection-cells] to [photospheric-convection-cells] (new distinct unresolved id), paralleling tropical-cyclones' moist-convection-cells precedent, since no citable principle distinguishing granulation from hurricane convection was found this session; updated component_ontology.itself_complex and the relations.contains provenance flag to match."
+    - "consistency (FIX): collapsed interaction_ontology's two composite-range rows (radiative transfer; magnetohydrodynamic coupling) to the single dominant enum value 'global' each, moving the local/diffusive nuance into the mechanism field as a parenthetical, matching the controlled vocabulary (local | network-mediated | global) and the tropical-cyclones precedent."
+    - "coverage (FIX): added aschwanden-crosby2025 (arXiv:2503.18136) and aschwanden-etal2019 (10.3847/1538-4357/ab29f4) to sources: and cited them on criticality alongside aschwanden2022; recorded the companion alpha_E~1.67 figure in the criticality justification."
+    - "coverage (FIX): restated energy_rate_density's 10-M☉ fusion-stage sequence as the full four-value set (H~600, He~1800, C~2600, O~4000 erg/s/g) copied from research/phase1/quantitative-backbone.md line 36, replacing the collapsed two-endpoint '600->4000' shorthand."
+  flags:   # top uncertainties, drafting agent's own assessment; standing flags kept for open items
+    - column: numerosity / component_ontology / fractal_dimension_spatial
+      note: >
+        Granule-count (~1e6-4e6) and the Roudier & Muller (1986)
+        fractal-dimension figures rest on secondary/snippet sources only, not
+        primary-read full text. Internally consistent (D~1.33 turbulence-
+        theory match for small granules) but recommend a primary-read pass
+        before these are locked in as evidence_status: measured. STANDING
+        FLAG (added 2026-07-02): the D=2.15 large-granule figure exceeds the
+        mathematically valid 1<=D<=2 range under the entry's own stated
+        P∝A^(D/2) convention — an apparent convention mismatch (caveat added
+        inline on fractal_dimension_spatial) that remains unresolved pending
+        this primary-read pass.
+    - column: extreme_event_statistics / criticality
+      note: >
+        The Aschwanden solar-flare power-law claim genuinely lacks
+        CSN-2009-grade statistical treatment in the literature located this
+        sweep (no MLE x_min + KS-test analysis found for solar/stellar flare
+        energy distributions, unlike earthquakes or word frequencies which
+        CSN tested directly). Recorded as measured-untested per
+        filling_rules.power-law-rigor, but may reflect a genuine literature
+        gap rather than a search miss — flagged for a targeted follow-up
+        search before treating "untested" as final.
+    - column: instance_population
+      note: >
+        Observable-universe star count (~1e22-1e24) is inherently soft: not a
+        single measurement but a derived estimate (galaxy luminosity function
+        x assumed stars-per-galaxy), and van Dokkum & Conroy (2010), which
+        drives the upper end, was read only at abstract/summary level. The
+        three-order-of-magnitude spread across secondary sources is recorded
+        explicitly rather than collapsed to one number.
+    - column: relations.contains
+      note: >
+        RESOLVED 2026-07-02 (consistency-check fix applied): contains was
+        changed from [convection-cells] to [photospheric-convection-cells]
+        (new distinct unresolved id, not yet drafted), paralleling
+        tropical-cyclones' moist-convection-cells precedent, since no
+        citable principle was found this session distinguishing granulation
+        from hurricane convection for convection-cells membership. Standing
+        flag carried forward: the merge/split question (whether granulation,
+        moist convection, and lab Rayleigh-Benard convection belong under
+        one convection-cells class or several) remains open, deferred to
+        whoever eventually drafts convection-cells.yaml's own scoping note.

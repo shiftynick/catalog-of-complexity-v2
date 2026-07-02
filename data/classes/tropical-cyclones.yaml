@@ -439,6 +439,8 @@ provenance:
     consistency_check: "completed 2026-07-01 — all 15 rubric/hybrid scores match anchors exactly"
     coverage_check: "completed 2026-07-01 — all 30 panel columns present; mass corroboration found; Emanuel 1999 orphan integrated"
   flags:   # standing data limitations, not errors
+    - column: criticality
+      note: cross-entry audit (2026-07-02) — the score-1 justification cites no informally-claimed storm-internal heavy-tail statistic; at next revision either cite one or drop to 0 (cities was rescored to 0 on the same pattern).
     - column: fractal_dimension_spatial
       note: Lovejoy 1982 remains snippet-verified (paywalled; author site unreachable); no hurricane-specific D exists in the literature.
     - column: energy_rate_density

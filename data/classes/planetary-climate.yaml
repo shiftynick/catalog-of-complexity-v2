@@ -1,0 +1,881 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: planetary-climate
+# Drafted by workflow-agent (Phase 4). Third hand-built entry family;
+# the field/continuum, non-adaptive counterpart already anchored across
+# five rubric columns (feedback, chaos_sensitivity, tipping_transitions,
+# memory_hysteresis, adaptive_capacity) — this entry is where those
+# anchors' home system finally gets its own full panel.
+# ============================================================
+id: planetary-climate
+name: Planetary climate
+category: geophysical
+status: verified         # promoted 2026-07-02: 4-verifier workflow pass completed, flags fixed or recorded as standing data limitations
+
+exemplars:
+  - id: earth
+    name: Earth
+    note: primary worked exemplar; only climate system with dense, continuous, multi-instrument observation
+  - id: venus
+    name: Venus (comparative)
+    note: >
+      comparative exemplar — thick CO2 atmosphere (~92-95 bar, ~737 K surface),
+      no liquid-water hydrological cycle, runaway-greenhouse end state
+  - id: mars
+    name: Mars (comparative)
+    note: >
+      comparative exemplar — thin CO2 atmosphere (~6 mbar, ~210 K mean surface
+      temperature), no standing liquid water, dust-storm-dominated variability
+  - id: titan
+    name: Titan (comparative)
+    note: >
+      comparative exemplar — thick N2 atmosphere, ~94 K surface (near the
+      methane triple point), active methane hydrological cycle analogous in
+      structure (not substance) to Earth's water cycle
+
+scoping_note: >
+  The system is the coupled ocean-atmosphere-cryosphere-land energy and
+  material system that sets a planet's surface and atmospheric state: radiative
+  transfer, atmospheric and oceanic circulation, the water/methane cycle, ice
+  and snow cover, and their mutual feedbacks, on timescales from synoptic
+  weather up through multi-decadal and paleoclimatic modes. Inside the
+  boundary: the atmosphere, oceans (or their absence, as on Mars), cryosphere,
+  and land surface as they participate in energy/moisture exchange, plus their
+  internal circulation and feedback structure. Outside: the solar forcing
+  (treated as external input), the solid-Earth interior beneath the
+  climate-relevant surface layer (mantle convection is a separate catalog
+  entry), and human institutions/economic activity that alter forcing (treated
+  as external perturbation, not a system component — this entry scores the
+  physical climate system, not the climate-society coupled system). Atomicity
+  per filling_rules.atomicity-convention: fluid parcels (air and, where
+  present, ocean water) at synoptic/mesoscale-resolving scale — the level at
+  which weather systems, ocean eddies, and circulation cells are the
+  characteristic dynamical objects — not molecules. This is a field/continuum
+  system in the same sense as tropical-cyclones (which nests inside it, see
+  relations): the same atomicity convention is used for consistency across
+  the two entries. Scoring is class-general (the physics is not
+  Earth-specific), with Earth as the primary exemplar for quantitative values
+  and Venus/Mars/Titan carried as comparative instances satisfying
+  instance_population; where a value is genuinely Earth-specific (e.g., AMOC
+  hysteresis, the 16-tipping-element inventory) this is stated explicitly
+  rather than implied to generalize.
+
+summary: >
+  A planetary climate is the largest continuously self-organizing pattern any
+  rocky world or moon can produce: a fluid engine driven by starlight that
+  redistributes heat from a planet's hot side to its cold side and equator to
+  pole, assembling itself into circulation cells, jet streams, ocean gyres,
+  and storm tracks that no one designs and nothing centrally controls. It is
+  saturated with feedback — ice reflects sunlight it no longer receives once
+  it melts, water vapor traps the heat that made it evaporate — and it
+  remembers: ocean heat content and ice-sheet mass carry forcing history
+  forward for centuries, and at least one of its subsystems, the Atlantic
+  overturning circulation, can flip between two genuinely different steady
+  states. Yet for all its memory and feedback it does not learn: every
+  parcel of air and water obeys the same fixed physics today it obeyed a
+  million years ago. Its fast weather is chaotic and provably unpredictable
+  beyond about two weeks; its slow climate is a boundary-value problem, an
+  entirely different kind of question asked of the same fluid.
+
+relations:
+  part_of: []
+  contains: [weather-systems, tropical-cyclones, ocean-circulation, river-networks]
+  # weather-systems: unresolved -> roster expansion queue
+  # tropical-cyclones: RESOLVED — entry exists (data/classes/tropical-cyclones.yaml);
+  #   its own relations.part_of already lists [weather-systems, planetary-climate],
+  #   so this entry's contains claim is reciprocated on the child side.
+  # ocean-circulation: unresolved -> roster expansion queue (AMOC and the broader
+  #   thermohaline/wind-driven circulation would be its natural scope)
+  # river-networks: RESOLVED — entry exists (data/classes/river-networks.yaml);
+  #   its own relations.part_of lists [planetary-climate] (land-surface hydrology
+  #   as forcing), so this entry's contains claim is reciprocated on the child
+  #   side. Added 2026-07-02 per cross-audit reciprocity finding: river networks
+  #   are as legitimately contained by the coupled climate system as
+  #   tropical-cyclones and ocean-circulation already are.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(earth)
+    value: 1e7
+    unit: m
+    method: order of magnitude of planetary diameter (the characteristic linear scale of the coupled circulation)
+    detail:
+      planetary_diameter: "1.274e7 m (R_earth = 6.371e6 m, standard geodesy)"
+      dynamically_active_atmospheric_depth: "~1e4-5e4 m (troposphere + stratosphere) [unverified this sweep — standard atmospheric-science figure, not independently re-sourced; treat as order-of-magnitude placeholder pending a dedicated citation]"
+      comparative_radii: "Venus R~6052 km, Mars R~3390 km, Titan R~2575 km [unverified — model knowledge, not independently re-fetched this sweep; same order of magnitude as Earth, sufficient for the class-general O(10^7 m) figure but not for precision comparison]"
+    sources: [geodesy-standard]
+    evidence_status: measured
+    confidence: medium
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: fastest constituent process (synoptic weather-system evolution), value: "~1 day (~1e5 s)", measurand: "synoptic-scale weather system lifetime", evidence_status: qualitative, note: "general-meteorology folklore figure; not independently primary-sourced this sweep — needs a dedicated citation before promotion past qualitative"}
+      - {name: dominant dynamics / deterministic predictability horizon, value: "~2 weeks (~1.2-1.7e6 s)", measurand: "atmospheric forecast-skill limit, error-doubling", sources: [charney1966, mdpi2024-predictability], evidence_status: measured, confidence: medium}
+      - {name: system lifetime (current ocean-atmosphere-cryosphere regime), value: unknown, note: "no single citable 'system lifetime' figure found this sweep; requires an explicit editorial scoping decision (e.g., since Holocene onset ~1.17e4 yr = 3.7e11 s) before it can be filled with confidence — left unknown rather than guessed, per filling_rules.no-guessing"}
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: unknown
+    evidence_status: unknown
+    note: >
+      No published canonical "atomic part count" exists for planetary climate
+      (unlike, say, a fault system's segment count) — this is fundamentally a
+      field/continuum system (see interaction_topology), which is precisely
+      why no discrete count has been published. A parcel-volume-derived
+      order-of-magnitude figure could be computed by this project (atmosphere
+      volume / synoptic parcel volume) but no one has published a canonical
+      convention for the denominator; recorded as unknown rather than
+      stretched into an unsupported derived figure, per filling_rules.no-guessing.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "n >= 4 (Earth, Venus, Mars, Titan) confirmed, well-characterized planetary/moon climate systems with active atmospheric circulation in the Solar System; formation rate not applicable (planetary climates do not form repeatedly the way storms do)"
+    sources: [britannica-planetary-atmospheres, nasa-spacemath-mars, comparative-planetology-titan]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      A broader count would add the gas/ice giants (Jupiter, Saturn, Uranus,
+      Neptune — arguably a distinct circulation sub-class) and thousands of
+      cataloged exoplanets, of which only a handful have climate dynamics
+      characterized via transit spectroscopy (not "instances" in the same
+      rigorous sense). Read et al. (2016), QJRMS 142(700):703-720, is
+      identified as the likely best canonical comparative-planetology
+      energy-budget synthesis spanning Earth/Venus/Mars/Titan/gas giants in
+      one framework, but was NOT primary-read this sweep — title/existence
+      only confirmed via search; flagged for full-text retrieval before the
+      next revision.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: atmospheric fluid parcels (air, water vapor, condensate)
+        count_oom: "unknown; no published canonical count (see numerosity)"
+        interchangeable: yes
+        itself_complex: no
+      - name: ocean water masses (where present — Earth; absent/exotic on Venus/Mars/Titan)
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+      - name: ice sheets / sea ice / cryosphere bodies
+        role: "composite structural component distinct from the fluid continuum — discrete, individually named"
+        count_oom: "~10 major named bodies (Earth: Antarctic and Greenland ice sheets, major sea-ice regions, major glaciers/ice caps) [unverified — order-of-magnitude estimate, not independently sourced this sweep]"
+        interchangeable: no
+        itself_complex: no
+      - name: weather systems / storm systems (cyclones, anticyclones, convective complexes)
+        role: "composite — first aggregation level of atmospheric organization; parcels are the atoms (listed for the compositional link, consistent with the hierarchy_depth convention and with tropical-cyclones' own component_ontology)"
+        count_oom: "~85 named tropical storm-strength systems/yr globally (tropical-cyclones class only; extratropical/synoptic system counts not recovered this sweep)"
+        interchangeable: yes
+        itself_complex: tropical-cyclones   # RESOLVED — entry exists; weather-systems (broader) unresolved -> expansion queue
+      - name: human institutions altering forcing (emissions, land-use change)
+        role: "forcing modifier, explicitly OUTSIDE the scoped system boundary per the scoping note — listed for completeness, not scored as an interacting component"
+        count_oom: out-of-scope(human)
+        interchangeable: no
+        itself_complex: out-of-scope(human)
+    confidence: low
+    note: >
+      Numerosity is the single weakest column in this entry: the field/
+      continuum nature of the system (see interaction_topology) means no
+      literature-canonical atomic-part count exists, in contrast to
+      component classes like tropical-cyclones which at least have a
+      declared parcel-volume convention.
+
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(earth)
+    value: "~75 (Chaisson geosphere heat-flow proxy, NOT climate-specific) / ~233 (this project, atmosphere-mass-normalized solar throughput) / ~2.0e-4 (this project, whole-planet-mass-normalized solar throughput)"
+    unit: erg s^-1 g^-1
+    method: >
+      THREE DISTINCT figures, deliberately not merged, per the sweep's
+      explicit recommendation: (1) Chaisson (2010/2011, Complexity 16(3):27,
+      Table 1) gives Earth's GEOSPHERE Phi_m ~75 erg/s/g as a whole-Earth
+      internal/surface heat-flow proxy — primary-read in Phase 1, but
+      Chaisson's own tables contain no separate climate-system-specific
+      figure, and this sweep did not find one elsewhere either; carried here
+      labeled as a geosphere proxy, NOT a climate-throughput figure, per
+      Phase 1's explicit caveat. (2) THIS PROJECT derived two further
+      figures from solar throughput, not from Chaisson: total absorbed solar
+      power ~1.2e17 W (Trenberth, Fasullo & Kiehl 2009, BAMS 90(3):311 —
+      primary journal text paywalled/403-blocked this sweep; confirmed via
+      NASA Earth Observatory's derivative figure, explicitly crediting
+      Trenberth et al. 2009 and CERES flux estimates) = 1.2e24 erg/s,
+      divided by atmosphere mass alone (5.15e18 kg = 5.15e21 g,
+      Wikipedia/Physics Factbook, convergent across independent secondary
+      sources) gives ~233 erg/s/g; the same numerator divided by whole-planet
+      mass (5.97e24 kg = 5.97e27 g, standard value) gives ~2.0e-4 erg/s/g
+      (1.2e24 / 5.97e27 ≈ 2.01e-4; corrected 2026-07-02 — an earlier draft
+      mistakenly divided by 5.97e24 g, a missing kg-to-g conversion, giving a
+      spurious ~0.20). Because both figures share the same numerator, the two
+      derived Phi_m values differ by exactly the mass ratio between the
+      normalization conventions: whole-planet mass / atmosphere mass =
+      5.97e24 kg / 5.15e18 kg ≈ 1.16e6, i.e. the atmosphere-normalized and
+      whole-planet-normalized figures differ by ~1.16 million times, NOT
+      ~1000x as an earlier draft incorrectly stated. This mass-convention
+      ambiguity — which the panel schema does not yet disambiguate for
+      field/continuum systems lacking a natural component boundary (unlike a
+      hurricane, where the scoping note declares a circulation-volume
+      convention) — is recorded as an open editorial question, not resolved
+      by picking one arbitrarily. SUPPLEMENTARY, not merged into Phi_m: the
+      sweep also recovered Earth's net radiative energy IMBALANCE (~0.3-0.4
+      PW, i.e. ~0.58-0.87 W/m^2; Hansen et al. 2011, arXiv:1105.1140;
+      von Schuckmann) — the current climate-change forcing signal. This is a
+      distinct, much smaller quantity from the ~1.2e17 W total absorbed
+      throughput used above and must not be conflated with it: throughput is
+      the total solar energy flowing through and driving the system;
+      imbalance is the small residual net gain after outgoing longwave
+      radiation nearly balances it. Not converted to a Phi_m figure here
+      since no published or project convention was found for normalizing an
+      imbalance (rather than a throughput) to a mass-specific power density.
+    sources: [chaisson2011, trenberth2009, nasa-eo-energy-budget, wikipedia-atmosphere-mass]
+    evidence_status: derived
+    confidence: low
+    verifier_flags: [mass-normalization-convention-undecided, trenberth-primary-text-paywalled]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+    evidence_status: qualitative
+    note: same topology class as tropical-cyclones (a nested subsystem); no meaningful discrete-node representation for the fluid dynamics.
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: momentum / pressure-gradient exchange
+        mechanism: fluid stress and pressure forces between adjacent atmospheric/oceanic parcels, under rotation (Coriolis) and gravity
+        participants: air and ocean-water parcels
+        range: local
+      - name: latent-heat / moisture exchange
+        mechanism: phase change (evaporation, condensation, sublimation, freezing) coupling thermodynamics to dynamics, the engine of the hydrological cycle
+        participants: air, ocean/surface water, ice
+        range: local
+      - name: radiative exchange
+        mechanism: absorption, emission, and scattering of shortwave (solar) and longwave (terrestrial) radiation, including greenhouse-gas trapping
+        participants: all parcels, surface, and space (as the boundary that both supplies and removes energy)
+        range: global
+      - name: surface enthalpy / momentum flux (air-sea, air-ice, air-land)
+        mechanism: wind-speed- and stability-dependent heat, moisture, and momentum transfer across the surface interface
+        participants: boundary-layer air <-> ocean/ice/land surface
+        range: local
+    type_count: 4
+    alphabet_closure: closed
+    justification: >
+      One closed physical family: every interaction is fixed by fluid
+      dynamics, thermodynamics, and radiative transfer under gravity and
+      rotation — the same closed-alphabet reasoning as tropical-cyclones
+      (its own nested subsystem); these four types are shared verbatim with
+      tropical-cyclones' own interaction_ontology. Ice-albedo coupling is a
+      genuine climate-scale phenomenon but is individuated by outcome/sign
+      (a reinforcing loop), not by a distinct physical carrier — its carrier
+      is radiative exchange, already type 3 here — so per
+      filling_rules.interaction-typing it is scored under feedback.loops
+      (score 4, ice-albedo feedback) rather than listed as a separate
+      interaction type. No new interaction type can arise; this is the
+      canonical closed alphabet.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    evidence_status: qualitative
+    note: continuum system; no meaningful node-degree representation, matching tropical-cyclones' treatment of the same topology class.
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Recognizable regional/regime structure exists — the Hadley, Ferrel, and
+      polar circulation cells; distinct ocean basins; the tropics/midlatitude/
+      polar climate-zone division — but these are gradational, strongly
+      coupled subdivisions of one continuous fluid system, not insulated
+      modules: heat and moisture transport actively couples every cell and
+      basin to its neighbors (that transport IS the system's defining
+      function). Matches the anchor scale's 1 (fuzzy, gradational structure,
+      no stable preferred partition), by the same reasoning as the
+      tropical-cyclones anchor (modularity.yaml) for its rainband/eyewall
+      structure, one level down in the same nested system.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 4
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, consistent with tropical-cyclones'
+      own convention one level down): fluid parcels (atoms) -> convective
+      cells / eddies (1) -> weather systems (cyclones, anticyclones,
+      mesoscale convective complexes) (2) -> circulation cells / ocean
+      gyres / storm tracks (3) -> the global coupled ocean-atmosphere-
+      cryosphere system (4). One level deeper than tropical-cyclones (3)
+      because the climate system contains organized weather systems as an
+      intermediate aggregation level, consistent with the contains relation.
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: exemplar(earth)
+    value: 1.35
+    unit: dimensionless (D)
+    method: >
+      Area-perimeter fractal dimension of the cloud field (satellite/radar
+      imagery, 1-1000 km scale range) — the dominant visible spatial
+      structure of the climate system, by the same logic tropical-cyclones
+      uses its cloud/rain-field boundary. Original source Lovejoy (1982,
+      Science 216:185); reconfirmed across 40+ years of follow-on literature
+      (Luo et al. 2007, GRL, D~1.30-1.40; Christensen et al. 2021, GRL 48,
+      confirming the same range in modern storm-resolving global climate
+      models). No equivalent published fractal dimension for Venus/Mars/
+      Titan cloud or haze fields was found this sweep — comparative
+      exemplars left unknown pending further search rather than assumed
+      equal to Earth's.
+    sources: [lovejoy1982, luo2007, christensen2021]
+    evidence_status: measured
+    confidence: medium
+    verifier_flags: [snippet-verified-only]
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; global circulation, storm tracks, and
+      ocean currents arise entirely from local fluid-thermodynamic
+      interactions under solar forcing and rotation. Same reasoning as the
+      stars anchor (decentralization.yaml) and as tropical-cyclones' own
+      score on this column: there is nothing whose removal constitutes
+      "loss of control." Solar forcing itself is an external boundary
+      condition, not a controller, per the column's own does_not_count
+      clause ("external boundary conditions... are forcing, not control").
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Governing dynamics are the nonlinear moist Navier-Stokes/thermodynamic
+      equations under rotation, with multiplicative couplings throughout:
+      the Clausius-Clapeyron relation makes water-vapor holding capacity
+      exponential in temperature (driving the water-vapor feedback),
+      ice-albedo coupling is a multiplicative surface-state/radiation
+      interaction, and regional regime transitions (monsoon onset, El Nino
+      phase change) are threshold/switch-like. Formation, intensification,
+      and reorganization of the system's characteristic structures
+      (weather systems, circulation cells) all depend on nonlinear terms —
+      matching the top of the scale by the same reasoning as
+      tropical-cyclones' own anchor, one level down in the same fluid system.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 4
+    loops:
+      - {name: water-vapor feedback, sign: reinforcing, mechanism: "warming increases atmospheric water-vapor holding capacity (Clausius-Clapeyron) -> more greenhouse trapping -> further warming; the strongest known reinforcing climate feedback, roughly doubling the bare radiative-forcing response"}
+      - {name: ice-albedo feedback, sign: reinforcing, mechanism: "warming reduces sea-ice/snow cover -> lower surface albedo -> more absorbed shortwave radiation -> further warming; concentrated at high latitudes, documented driver of Arctic amplification"}
+      - {name: Planck/blackbody response, sign: balancing, mechanism: "warming increases outgoing longwave radiation (T^4) -> radiative cooling opposes further warming; the dominant stabilizing loop keeping net climate feedback negative (finite equilibrium climate sensitivity)"}
+      - {name: cloud feedback, sign: mixed/contested, mechanism: "cloud cover and cloud-type changes alter both albedo (cooling) and greenhouse trapping (warming) with net sign and magnitude remaining the largest source of uncertainty in equilibrium climate sensitivity (IPCC AR6 WG1 Ch.7)"}
+    justification: >
+      Per this class's own anchor (feedback.yaml — planetary-climate is the
+      column's worked score-4 exemplar): climate dynamics are canonically
+      organized around competing, continuously active feedback loops with
+      IPCC AR6-quantified gain for several; multiple loops of differing
+      sign operating simultaneously and continuously is the textbook case
+      for the top of the scale.
+    sources: [ipcc-ar6-wg1-ch7]
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: hybrid
+    level: exemplar(earth)
+    score: 3
+    justification: >
+      A genuine planetary-scale dissipative structure: ~1.74e17 W of solar
+      power is intercepted (solar constant 1361 W/m^2 x cross-section
+      1.274e14 m^2), of which ~1.2e17 W is absorbed after albedo reflection
+      (Trenberth, Fasullo & Kiehl 2009, ~241 W/m^2 net, confirmed via NASA's
+      derivative figure; primary journal text paywalled this sweep). This
+      throughput is directly responsible for generating and maintaining
+      atmospheric and oceanic circulation (the literal-flux mechanism, not
+      metaphorical disequilibrium, per this column's does_not_count).
+      Scored 3 rather than the Sun's/hurricane's 4: interrupting the flux
+      (a physically impossible but useful thought experiment) would collapse
+      atmospheric circulation and the temperature structure over a period of
+      days to weeks — comparable to, not dramatically shorter than, the
+      system's own fast (weather) characteristic timescale — rather than the
+      much-faster-than-structural-timescale collapse the anchor scale's 4
+      requires; the slow climate modes (ocean heat content, ice sheets)
+      would persist far longer than the fast weather component. This
+      matches the openness_dissipation.yaml notes' observation that a
+      system's absolute flux and its Phi_m ranking need not track exactly —
+      the throughput is unambiguous, but the collapse-timescale test lands
+      at 3, not the ceiling reserved for stars and tropical-cyclones.
+    sources: [trenberth2009, nasa-eo-energy-budget]
+    evidence_status: measured
+    confidence: medium
+
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (chaos_sensitivity.yaml — planetary-climate
+      is directly anchored here): the atmospheric weather component nested
+      within the climate system is the best-established chaotic system in
+      this catalog (inherited fully by tropical-cyclones, scored 4 for its
+      own predictability horizon), but "climate" proper — the long-term
+      statistical/boundary-value behavior of the coupled system — is a
+      different kind of problem (Lorenz's own weather-vs-climate
+      distinction: initial-value/chaotic vs. boundary-value/attractor-
+      statistics). Coupled climate models show sensitive dependence in fast
+      internal variability and some evidence of chaotic behavior in slow
+      modes (multi-decadal internal variability, ENSO irregularity), but no
+      single validated, operationally-used "climate Lyapunov exponent" or
+      predictability horizon exists for the coupled system as a whole,
+      analogous to the ~2-week weather figure. The ~2-week deterministic
+      horizon itself (Charney et al. 1966; Lorenz; MDPI 2024 review) is
+      well-established and quantitative but belongs to the WEATHER
+      subsystem, not the climate system scored here — hence 3 (broadly
+      accepted chaotic character without an established real-world
+      class-level quantitative horizon), not 4.
+    sources: [charney1966, mdpi2024-predictability]
+    evidence_status: qualitative
+    confidence: medium
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: proposed
+    justification: >
+      No CSN-2009-grade scale-invariant event statistic has been established
+      for the climate system's characteristic events at the whole-system
+      level (as distinct from sibling entries like tropical-cyclones, which
+      carry their own basin-level PDI tail-exponent fits — not borrowed
+      here, per filling_rules.no-guessing). A specific critical-point-
+      adjacent mechanism IS formally proposed in the tipping-elements
+      literature (Scheffer et al. 2009's generic early-warning-signal
+      framework, and Armstrong McKay et al. 2022's tipping-element
+      synthesis, both invoke bifurcation/critical-slowing-down language),
+      but per filling_rules.soc-two-claims this is a TIPPING/bifurcation
+      claim (scored under tipping_transitions), not an event-statistics
+      claim — the two must not be merged. Scored 1: a mechanism is
+      proposed and taken seriously in the primary literature, but no
+      rigorous power-law event-statistics fit for the climate system itself
+      was located, and mechanism status for a genuine SOC/criticality
+      (as opposed to a discrete bifurcation) reading remains speculative.
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: "tail statistics of climate-system-level characteristic events (as distinct from sub-phenomena)"
+    note: >
+      No power-law tail statistic specific to "planetary climate" as a whole
+      was located this sweep, as distinct from sub-phenomena that are
+      separate catalog entries with their own tail statistics (tropical-
+      cyclones' basin-level PDI alpha~0.98-1.19, Corral et al. 2010).
+      Recorded as unknown at the class level rather than borrowing a
+      sibling entry's exponent, per filling_rules.no-guessing and the
+      sweep's explicit recommendation.
+    evidence_status: unknown
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    evidence_status: unknown
+    measurand: "global mean surface temperature record (Hurst exponent / DFA analysis candidate measurand)"
+    note: >
+      Long-range persistence in temperature records has literature
+      precedent (Koscielny-Bunde et al. 1998, Phys. Rev. Lett., DFA analysis
+      of continental station records) [unverified this sweep — the specific
+      paper and H~0.65-0.7 value were not re-fetched or snippet-confirmed
+      this session; explicitly NOT entered without re-verification, per
+      filling_rules.no-guessing]. Left unknown pending a targeted follow-up
+      search rather than entering an unverified number.
+
+  tipping_transitions:
+    type: hybrid
+    level: exemplar(earth)
+    score: 4
+    count: 16
+    justification: >
+      Per this class's own anchor (tipping_transitions.yaml — planetary-
+      climate is the column's calibration ceiling, the only system in the
+      catalog expected to reach 4): Armstrong McKay et al. (2022, Science
+      377:eabn7950 — Phase 1 primary-read) synthesized 200+ studies to
+      identify 16 climate tipping elements (9 global "core" + 7 regional
+      "impact"), updated from Lenton et al.'s original 9 (2008, PNAS
+      105:1786). Several elements are assessed as already within their
+      uncertainty range for triggering at ~1.1C observed warming. AMOC
+      hysteresis has been quantified in a state-of-the-art GCM (van Westen
+      & Dijkstra 2023, GRL, arXiv:2308.14098; ~0.4 Sv hysteresis width,
+      CESM model-derived, asymmetric collapse/recovery — collapse and
+      recovery are asymmetric because of sea-ice feedback effects).
+      AMOC-specific threshold: 1.4-8C sustained global warming (wide
+      uncertainty range spanning "already possible" to well above 4C).
+    detail:
+      per_element_thresholds: >
+        [unverified this session at the individual-element level beyond
+        AMOC] — the full per-element threshold/timescale table (e.g.
+        Greenland Ice Sheet ~0.8-3C / ~1000-15000 yr) could not be
+        reliably extracted from the manuscript PDF this sweep; the
+        16-element headline count and the AMOC threshold specifically are
+        Phase-1/sweep-verified and safe to use, but the other 15 elements'
+        individual thresholds are NOT entered here pending either a Phase 1
+        primary-read recovery or a PDF-native re-fetch. Recorded as a
+        standing flag, not filled with placeholder numbers.
+    sources: [mckay2022, lenton2008, vanwesten2023]
+    evidence_status: measured
+    confidence: medium
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(earth)
+    score: 4
+    justification: >
+      Per this class's own anchor (memory_hysteresis.yaml — planetary-climate
+      is directly anchored at the top of the scale): the Atlantic Meridional
+      Overturning Circulation shows model-derived hysteresis — for a band of
+      freshwater-forcing values, both the "on" (strong overturning) and
+      "off" (collapsed) circulation states are stable, and which one obtains
+      depends on forcing history, not current forcing level alone. van
+      Westen & Dijkstra (2023, GRL, arXiv:2308.14098) estimate a hysteresis
+      width of order 0.4 Sv in freshwater forcing between collapse and
+      recovery thresholds in the CESM GCM. Ice-sheet mass balance
+      (Greenland/WAIS) shows analogous documented bistability in the
+      tipping-elements literature. This is model-derived rather than an
+      observed real-world completed loop (the real ocean has not been
+      driven through a full cycle) — flagged explicitly per the anchor's
+      own instruction — but the quantitative loop and its structural
+      consequence (a qualitatively different circulation regime) both
+      clearly warrant the top score.
+    sources: [vanwesten2023, lenton2008]
+    evidence_status: measured-disputed
+    confidence: medium
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport throughout: radiative transfer, advection,
+      phase change, and pressure-gradient forces, with no detection-
+      transmission-response structure anywhere in the chain — the same
+      canonical-0 reasoning as the stars anchor in information_processing.yaml,
+      and consistent with tropical-cyclones' own 0 on this column one level
+      down in the same fluid system. Ice-albedo and water-vapor feedback are
+      feedback (scored there), not information processing, per this
+      column's explicit does_not_count clause: nothing in the system "reads"
+      albedo or humidity as a symbol and conditions a response on it in a
+      representational sense; each is a direct physical function of local
+      state.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml — planetary-climate
+      is directly anchored here): rich in feedbacks (ice-albedo, water
+      vapor) and memory (ocean heat, AMOC hysteresis), but no component
+      alters its response function through experience — feedbacks operate,
+      they do not learn. Scores 0 despite the system's enormous complexity
+      elsewhere in the panel (feedback: 4, memory_hysteresis: 4,
+      tipping_transitions: 4), which is exactly the signal that separates
+      complex physical systems from CAS, per the anchor's own note — the
+      sharpest possible contrast case against financial-markets' 4 on this
+      same column.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    evidence_status: qualitative
+    justification: >
+      No variation-selection-retention dynamics among components; air and
+      water parcels obey fixed physics with no differential replication or
+      selection among behavioral variants, matching tropical-cyclones'
+      treatment of the same underlying fluid-dynamical substrate.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Formalized macro-level order parameters and effective theories
+      genuinely used for explanation and prediction are not transparent
+      from micro-scale fluid-dynamics rules by inspection: equilibrium
+      climate sensitivity, the Hadley/Ferrel/polar circulation-cell
+      framework, ENSO indices, and the tipping-element threshold framework
+      (Armstrong McKay et al. 2022) are the field's actual working
+      vocabulary. This parallels tropical-cyclones' own score-3 justification
+      (potential-intensity theory as working vocabulary) one level down in
+      the same nested system, and is held at 3 rather than 4 by the same
+      logic used there: high-resolution storm-resolving climate models
+      increasingly resolve much of the relevant physics directly, somewhat
+      narrowing (without eliminating) the practical necessity of the
+      macro-theory relative to a case like price formation in
+      financial-markets (scored 4) where no tractable micro-level
+      alternative exists even in principle.
+    sources: [mckay2022]
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Essentially all macroscopic climate order — circulation cells, jet
+      streams, ocean gyres, storm tracks, the ice-albedo pattern itself —
+      arises spontaneously from local fluid-thermodynamic interactions
+      under solar forcing and rotation; nothing specifies the form of the
+      circulation in advance (solar heating is forcing, not a template, per
+      this column's own does_not_count clause). Same reasoning and the same
+      score as tropical-cyclones (its own nested subsystem) and
+      river-networks in self_organization.yaml: a canonical dissipative
+      structure at planetary scale, the largest such structure in the
+      catalog.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(earth)
+    score: 3
+    justification: >
+      The current climate system absorbs its characteristic perturbation
+      spectrum — orbital (Milankovitch) forcing cycles, volcanic aerosol
+      injections, solar-cycle variation — recovering its qualitative
+      circulation pattern afterward, with scars (isotopic records,
+      sediment layers) rather than identity loss, over its ~Quaternary-
+      scale operating history. Held at 3, not 4, per the anchor scale's
+      normalization rule and per this entry's own tipping_transitions
+      finding: known perturbation classes exist (sufficiently large
+      forcing crossing one of the 16 documented tipping thresholds, e.g.
+      AMOC collapse) that would push the system into a qualitatively
+      different, not merely scarred, regime — the same "known destructive
+      event classes" reasoning that caps financial-markets at 3 rather
+      than 4. Scored at exemplar(earth) per the column's own default,
+      since Venus and Mars represent different (not necessarily "less
+      robust") climate regimes rather than failure modes of the same
+      exemplar's history.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Interactions and potential cascades BETWEEN the 16 documented tipping
+      elements are an active, named research area — "Climate tipping point
+      interactions and cascades: a review," Earth System Dynamics 15:41
+      (2024), identified this sweep via search but not primary-read —
+      describing how triggering one element (e.g. Greenland ice-sheet loss)
+      could shift the threshold for others (e.g. AMOC), a dedicated
+      mechanism analysis rather than mere qualitative interconnectedness
+      talk. This matches the anchor scale's level 2 (at least one dedicated
+      study models/documents cascading dynamics, rough extent
+      characterized) but not level 3: no fitted cross-event cascade-SIZE
+      distribution across many real events exists, analogous to the
+      power-grid blackout literature (Dobson et al. 2007) anchoring this
+      column's level-3 case. Distinct from tipping_transitions (which
+      scores the existence/count of the individual bifurcations
+      themselves) per this column's own notes on the two columns'
+      relationship.
+    sources: [tipping-cascades-review-2024]
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Global atmospheric circulation (Hadley/Ferrel/polar cells, jet streams)
+    order_parameter: meridional overturning streamfunction; jet-stream latitude and strength
+  - name: Ocean circulation (gyres, thermohaline/meridional overturning)
+    order_parameter: overturning transport (Sverdrups); gyre strength
+  - name: ENSO (El Nino-Southern Oscillation)
+    order_parameter: sea-surface-temperature anomaly indices (e.g. Nino 3.4)
+  - name: Ice-albedo pattern (sea ice, snow cover, ice sheets)
+    order_parameter: planetary albedo; ice extent/mass
+  - name: Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry)
+    order_parameter: minimum central pressure, maximum sustained wind (see tropical-cyclones entry)
+  - name: Climate tipping elements
+    order_parameter: element-specific threshold state variables (e.g. AMOC strength in Sv; ice-sheet mass balance)
+
+sources:
+  trenberth2009:
+    citation: "Trenberth, K.E., Fasullo, J.T. & Kiehl, J. (2009). Earth's Global Energy Budget. Bulletin of the American Meteorological Society 90(3), 311-324. [primary journal text HTTP 403/paywalled this sweep; confirmed via NASA Earth Observatory's derivative figure explicitly crediting this paper and CERES flux estimates — snippet-verified via derivative source, NOT primary-read of the BAMS text]"
+  nasa-eo-energy-budget:
+    citation: "NASA Earth Observatory. Climate and Earth's Energy Budget (illustration by Robert Simmon, adapted from Trenberth et al. 2009, CERES flux estimates by Norman Loeb). [primary-read this sweep]"
+  chaisson2011:
+    citation: "Chaisson, E.J. (2010/2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40. [primary-read in Phase 1 — Table 1, geosphere Phi_m~75 erg/s/g. Phase 4 re-verification (2026-07-02) could not reproduce this read: the Wiley/ResearchGate pages for this paper (DOI cplx.20323, 'Paper I') returned HTTP 403; a full-text PDF fetched instead turned out to be the follow-up 'Energy Rate Density II' (DOI cplx.20373), which defers to Paper I for Table 1 and contains no standalone geosphere entry. No source contradicts ~75 erg/s/g — the figure is UNVERIFIABLE this session rather than FAILED, and the evidence stands on the Phase 1 primary read, recorded transparently.]"
+  mckay2022:
+    citation: "Armstrong McKay, D.I., Staal, A., Abrams, J.F., et al. (2022). Exceeding 1.5C global warming could trigger multiple climate tipping points. Science 377(6611), eabn7950. DOI: 10.1126/science.abn7950. [primary-read in Phase 1; headline 16-element count and AMOC threshold (1.4-8C) reused per task instructions — full per-element threshold table NOT recovered this sweep, standing flag]"
+  lenton2008:
+    citation: "Lenton, T.M. et al. (2008). Tipping elements in the Earth's climate system. PNAS 105(6), 1786. [cited via Phase 1 / mckay2022's own citation chain, not independently primary-read this sweep]"
+  vanwesten2023:
+    citation: "van Westen, R.M. & Dijkstra, H.A. (2023). Asymmetry of AMOC Hysteresis in a State-of-the-Art Global Climate Model. Geophysical Research Letters 50(19), e2023GL106088. arXiv:2308.14098. [snippet-verified via Phase 1 + this sweep's WebSearch; full arXiv PDF exceeded fetch-tool size limit, methods/results not primary-read]"
+  charney1966:
+    citation: "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220. [snippet-verified, matches tropical-cyclones entry's own citation of the same source]"
+  mdpi2024-predictability:
+    citation: "Exploring the Origin of the Two-Week Predictability Limit: A Revisit of Lorenz's Predictability Studies in the 1960s. Atmosphere (MDPI) 15(7), 837 (2024). [snippet-verified via WebSearch]"
+  lovejoy1982:
+    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216(4542), 185-187. [snippet-verified; matches tropical-cyclones entry's own citation of the same source]"
+  luo2007:
+    citation: "Luo, Z.J. et al. (2007). Validation of the fractal dimension of cloud boundaries. Geophysical Research Letters. [snippet-verified via WebSearch this sweep, not primary-read]"
+  christensen2021:
+    citation: "Christensen, M.W. et al. (2021). The Fractal Nature of Clouds in Global Storm-Resolving Models. Geophysical Research Letters 48. [snippet-verified via WebSearch this sweep, not primary-read]"
+  ipcc-ar6-wg1-ch7:
+    citation: "IPCC AR6 Working Group I, Chapter 7: The Earth's Energy Budget, Climate Feedbacks, and Climate Sensitivity. [referenced for cloud-feedback uncertainty status; not independently primary-read this sweep — standard, widely-cited reference work]"
+  geodesy-standard:
+    citation: "Standard geodesy value, R_earth = 6371 km (multiple independent sources, e.g. UCAR solar-constant calculators). [snippet-verified, convergent across independent sources]"
+  britannica-planetary-atmospheres:
+    citation: "Encyclopaedia Britannica, 'Atmospheres of other planets' (Venus/Mars surface pressure and temperature figures). [snippet-verified via WebSearch]"
+  nasa-spacemath-mars:
+    citation: "NASA SpaceMath (spacemath.gsfc.nasa.gov), Mars atmospheric factsheet. [snippet-verified via WebSearch]"
+  comparative-planetology-titan:
+    citation: "Comparative planetology reviews on Titan atmospheric structure and methane cycle (surface temp ~94 K). [snippet-verified via WebSearch this sweep, not primary-read; specific paper not identified — flagged for follow-up before catalog lock]"
+  wikipedia-atmosphere-mass:
+    citation: "Wikipedia, 'Atmosphere of Earth' (total atmosphere mass 5.15e18 kg), cross-confirmed by Physics Factbook and textbook sources. [snippet-verified, convergent across independent sources — not a single-source claim, but not primary/peer-reviewed either]"
+  tipping-cascades-review-2024:
+    citation: "Climate tipping point interactions and cascades: a review. Earth System Dynamics 15, 41 (2024). [identified via WebSearch this sweep, title/existence confirmed, NOT primary-read]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent hand-build, Phase 4, reusing Phase 1b anchor scores per task instructions (adaptive_capacity, chaos_sensitivity, feedback, memory_hysteresis, tipping_transitions all carry a direct planetary-climate anchor)
+  verification:
+    citation_check: completed 2026-07-02 (workflow); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow); fixes applied
+    consistency_check: completed 2026-07-02 (workflow); fixes applied
+    coverage_check: completed 2026-07-02 (workflow); fixes applied
+  fix_log:
+    - date: 2026-07-02
+      by: workflow-agent (flag fixer)
+      changes:
+        - "energy_rate_density: corrected whole-planet-mass-normalized Phi_m from an
+           arithmetically wrong ~0.20 erg s^-1 g^-1 (missing kg->g conversion) to the
+           correct ~2.0e-4 erg s^-1 g^-1, in the value field, method prose, and
+           provenance.flags. Rewrote the comparative-ratio framing: the
+           atmosphere-normalized (~233) and whole-planet-normalized (~2.0e-4) figures
+           differ by ~1.16e6 (the whole-planet/atmosphere mass ratio,
+           5.97e24/5.15e18), not ~1000x as previously stated. Identical error also
+           corrected in research/phase4/planetary-climate-sources.md (section E and
+           summary table), per orchestrator exception."
+        - "energy_rate_density: added an annotation to the Chaisson geosphere ~75
+           erg/s/g citation (chaisson2011 source entry and a new provenance.flags
+           entry) noting Phase 4 re-verification could not reproduce the Phase 1
+           primary read this session (publisher 403; only the 'Paper II' follow-up
+           was fetchable). Value and measured evidence_status retained on the
+           strength of the Phase 1 primary read, recorded transparently."
+        - "interaction_ontology: reworded the closure justification so the
+           extension relative to tropical-cyclones' 4-type alphabet is attributed to
+           the albedo-feedback channel only (radiative exchange already among the
+           shared four). Also removed 'albedo feedback coupling' as a separate
+           listed interaction type (it is individuated by outcome/sign, not a
+           distinct physical carrier, and its content is already scored under
+           feedback.loops), correcting type_count from 5 to 4."
+        - "chaos_sensitivity: changed evidence_status from measured to qualitative
+           to match the chaos_sensitivity.yaml anchor's own level-3 definition and
+           this entry's own justification (the one measured figure, the ~2-week
+           horizon, belongs to the weather subsystem, not the climate-level score)."
+        - "Added missing evidence_status field to five attribute blocks per
+           panel-spec.yaml ('required on every value'): numerosity (unknown),
+           temporal_correlation (unknown), degree_distribution (qualitative),
+           variation_selection (qualitative), interaction_topology (qualitative)."
+        - "energy_rate_density: added a supplementary note distinguishing the
+           ~1.2e17 W absorbed-throughput figure from the much smaller net radiative
+           imbalance (~0.3-0.4 PW, Hansen et al. 2011), recording that the imbalance
+           was found and deliberately not converted to a Phi_m figure."
+        - "relations.contains: added river-networks (cross-audit reciprocity —
+           river-networks.part_of already lists planetary-climate; land-surface
+           hydrology is as legitimately contained as tropical-cyclones and
+           ocean-circulation already are)."
+      not_applied:
+        - "tropical-cyclones.yaml's identical missing-evidence_status pattern
+           (noted in the coverage FIX item as a shared drafting-template omission)
+           was left untouched — out of scope, this pass edits only
+           planetary-climate.yaml per the flag-fixer mandate."
+  flags:   # this agent's own top uncertainties, per task instructions
+    - column: energy_rate_density
+      note: >
+        The Trenberth et al. (2009) BAMS paper itself returned HTTP 403 on
+        every fetch attempt this sweep; the ~1.2e17 W absorbed-power figure
+        is confirmed only via NASA's derivative graphic and secondary
+        summaries, not the primary journal text — should be re-fetched via
+        an institutional/library route before this entry is promoted past
+        draft status.
+    - column: energy_rate_density
+      note: >
+        No published Phi_m exists for the climate system as such anywhere
+        found in this or the Phase 1 sweep. The ~75 erg/s/g Chaisson figure
+        is a whole-geosphere heat-flow proxy (a physically DIFFERENT
+        quantity from solar throughput — internal/surface heat budget, not
+        incoming solar radiation) and must not be read as a climate-specific
+        measurement. This project's own two solar-throughput-derived Phi_m
+        values (~233 atmosphere-normalized vs. ~2.0e-4 whole-planet-normalized,
+        corrected 2026-07-02 from an earlier arithmetic error that gave a
+        spurious ~0.20) differ by ~1.16e6 (the whole-planet/atmosphere mass
+        ratio), NOT ~1000x as an earlier draft incorrectly stated, purely on
+        mass-denominator convention, which the panel schema does not yet
+        disambiguate for field/continuum systems lacking a natural
+        component-volume boundary (contrast tropical-cyclones, whose scoping
+        note declares a circulation-volume convention). This needs an
+        editorial ruling, not just a citation, before the value column can be
+        considered settled.
+    - column: energy_rate_density
+      note: >
+        Chaisson (2010/2011) geosphere Phi_m~75 erg/s/g: Phase 4 citation
+        re-verification (2026-07-02) could not reproduce the Phase 1 primary
+        read this session — the Wiley/ResearchGate pages for the cited paper
+        (DOI cplx.20323, 'Paper I') returned HTTP 403, and the only
+        full-text PDF fetchable was the distinct follow-up 'Energy Rate
+        Density II' (DOI cplx.20373), which defers to Paper I for the
+        foundational Table 1 and contains no standalone geosphere entry
+        itself. This is UNVERIFIABLE rather than FAIL: nothing contradicts
+        the ~75 erg/s/g figure, but nothing independently confirmed it
+        either this session. The value and its evidence_status: measured
+        annotation are retained on the strength of the Phase 1 primary read
+        (research/phase1/quantitative-backbone.md); before promotion past
+        draft, obtain institutional/library access to Chaisson 2010/2011
+        Complexity 16(3):27 directly (not the 'II' follow-up) to confirm
+        the Table 1 value and its geosphere-not-climate-specific framing.
+    - column: tipping_transitions
+      note: >
+        The per-element threshold/timescale table for the other 15 tipping
+        elements beyond AMOC (e.g. Greenland Ice Sheet, WAIS, Amazon
+        dieback) could not be reliably extracted from the Armstrong McKay
+        et al. 2022 manuscript PDF this session — only the headline count
+        (16) and the AMOC threshold (1.4-8C) are confirmed. The full table
+        should be pulled from Phase 1's original primary-read notes if
+        captured there, or the manuscript re-fetched with a PDF-native tool,
+        before this entry is promoted past draft status.
+    - column: numerosity / component_ontology
+      note: >
+        No canonical atomic-part count exists in the literature for this
+        field/continuum system; numerosity is recorded as unknown rather
+        than derived, which is a genuine coverage gap relative to
+        tropical-cyclones' at-least-declared parcel-volume convention.
+    - column: instance_population
+      note: >
+        Read et al. (2016), QJRMS 142(700):703-720 — the likely best
+        canonical comparative-planetology energy-budget synthesis spanning
+        all four exemplars — was identified but NOT primary-read this
+        sweep; full-text retrieval should be prioritized before catalog
+        lock, as should independent verification of the Venus/Mars/Titan
+        comparative figures currently carried as [unverified] model
+        knowledge or single-search-engine summaries.

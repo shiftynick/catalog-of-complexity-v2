@@ -83,3 +83,9 @@ notes: |
   Boundary case: systems with layered governance (Internet) — score the layer
   where the system's characteristic behavior lives (traffic/topology), not the
   bookkeeping layer.
+  Infrastructure-category guidance (cross-entry audit, 2026-07-02): "engineered
+  systems land mid-range" is too coarse a heuristic. The discriminator is
+  whether the coordination layer does REAL-TIME STEERING (power grids: dispatch,
+  frequency control -> 1) or BOOKKEEPING ONLY (Internet registries, exchange
+  rule-setting -> 2-3). Pilot data: power-grids=1, financial-markets=2,
+  the-internet=3 — all engineered, spanning three scale levels.

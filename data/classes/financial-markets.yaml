@@ -40,7 +40,7 @@ summary: >
   living cell in its definition.
 
 relations:
-  part_of: [global-economy]          # unresolved -> roster expansion queue
+  part_of: [global-economy, cities]  # global-economy unresolved -> expansion queue; cities reciprocal (cities.contains lists financial-markets — cross-audit fix 2026-07-02)
   contains: []                       # clearing/payment systems: candidate future entries, left unresolved
 
 attributes:

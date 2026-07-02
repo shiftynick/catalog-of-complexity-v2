@@ -27,8 +27,8 @@ Entries are **classes** — the "elements" of the table (*tropical cyclones*, *f
 | 0. Charter | This repo; objectives and decisions locked *(done)* |
 | 1. Metric panel | Literature-grounded column spec + rubric anchors ([schema/panel-spec.yaml](schema/panel-spec.yaml), [schema/anchors/](schema/anchors/)) *(done)* |
 | 2. Schema + roster lock | Entry schema v1; pilot-10 locked; full roster drafted — **time-boxed** |
-| 3. Hand-built pilot | 2–3 entries researched interactively → battle-tested playbook |
-| 4. Automated pilot | Playbook encoded as agent workflow; remaining pilot entries + verification |
+| 3. Hand-built pilot | 2–3 entries researched interactively → battle-tested playbook *(done)* |
+| 4. Automated pilot | Playbook encoded as agent workflow; remaining pilot entries + verification *(done — all 10 pilot classes verified)* |
 | 5. v0.1 | Schema **freeze**; web app prototype; first cross-system analysis on pilot-10 |
 | 6. Public launch | Repo + site go public; scale to the full roster |
 
