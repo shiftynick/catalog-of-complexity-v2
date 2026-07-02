@@ -1,6 +1,6 @@
 # Web App Concept
 
-> **Status (2026-07-02):** BUILT (v0.1 prototype) — all four views below exist in [app/](../app/) (Astro + vanilla D3, stack confirmed in D15) and were verified against the live catalog. Dev: `npm --prefix app run dev` (port 4321). Deploy: `netlify.toml` chains the analysis pipeline into the build. This document remains the product-concept reference; the code is the implementation.
+> **Status (2026-07-02, v0.2):** BUILT and redesigned — the "scholarly reference" identity (light paper theme, Source Serif 4 / Source Sans 3, design spec in [app/DESIGN.md](../app/DESIGN.md)). The Table's aspirational form below now EXISTS: the landing page renders a true periodic-table grid (category rows × PC1-bin columns from the analysis output, expansion-queue ghost tiles). Also added: content pages /myths (folklore register), /concepts (mention-only measures), /methods (pipeline + validation program), a real landing narrative, OG/meta, mobile + a11y pass. Dev: `npm --prefix app run dev` (port 4321). Deploy: `netlify.toml` chains validator → analysis → build. This document remains the product-concept reference; the code is the implementation.
 
 The public face of the definitive reference. Layered by design (decision D5): a science-museum surface with a researcher's evidence layer one click down.
 

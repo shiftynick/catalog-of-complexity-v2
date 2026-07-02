@@ -1,42 +1,35 @@
-# Improvement Sweep Brief (v0.1 → v0.2)
+# Next-Session Brief (v0.2 → v0.3)
 
-Written 2026-07-02 at the close of the founding session. **Read first:** [CLAUDE.md](../CLAUDE.md) (conventions — binding), [docs/decisions.md](decisions.md) (D1–D15 + dragons), [docs/findings.md](findings.md) (current results + standing hypotheses). Orchestrate per the efficient-fable skill; the entry-production workflow lives at `.claude/workflows/entry-pipeline.js`.
+Written 2026-07-02 at the close of the v0.2 improvement sweep. **The previous brief (v0.1 → v0.2) was executed in full that same day** — all five workstreams; see the commit run `daa5574…1c3a8af` and the summary in [README.md](../README.md)'s status paragraph. **Read first:** [CLAUDE.md](../CLAUDE.md) (binding conventions), [docs/decisions.md](decisions.md) (now D1–D19), [docs/findings.md](findings.md) (robustness verdicts + n=15 update). Orchestrate per the efficient-fable skill.
 
-## Constraints (non-negotiable)
+## Constraints (non-negotiable, unchanged plus two new)
 
-- Schema stays FROZEN (v1.0) unless entry production fails without a change — then a decisions.md D-entry, not drift.
-- Nothing goes public: no deploys to public URLs, no external publication. Phase 6 is deliberately deferred.
-- Provenance history in entries (fix_log, flag_cleanup_notes, verification blocks) is append-only — never rewritten.
-- All filling rules apply to every new value. Verifier findings can overrule drafts AND anchors (both directions — precedent: the Dobson primary read corrected the anchor).
+- Schema stays FROZEN (v1.0); anchor `boundary_clarifications` blocks are the legal evolution channel (three added at v0.2 after the IRR study).
+- Nothing goes public — **D17: the Phase 6 gate is manual**; no public deploys, no launch prep unasked.
+- Provenance history in entries is append-only.
+- All filling rules apply; verifier findings overrule drafts AND anchors (both directions — two v0.2 precedents: the Dobson read, and the Rinaldo OCN-SOC read that rescored river-networks against its own anchor).
+- **Run `cd analysis && node validate.mjs` before committing any entry change** (it also gates the Netlify build).
+- **D19**: no effort budget — this brief bounds the scope; spend what it needs.
 
-## Workstream 1 — Professional website (Nick's ask)
+## Workstream A — Expansion batch 2 (D18, pre-decided; sign-off on the final list at run time)
 
-The v0.1 app is functional but prototype-grade. Target: a site that looks like a serious reference work.
-- Visual identity: deliberate typography, spacing system, real landing-page narrative (what this is, why it's trustworthy), light polish pass on all four views. Mobile + accessibility basics. OG/meta tags.
-- **The Table should become the signature view it was designed to be** — closer to an actual periodic-table grid (positioning informed by the PCA axes or category × PC1), not a card list.
-- New content pages from existing assets (cheap, high-value): the **folklore register** (research/phase1/SYNTHESIS.md's debunked-claims table → "Complexity myths this catalog does not repeat"), the **conceptual layer** (panel-spec's mention-only measures → "Why Kolmogorov complexity isn't a column"), and a **methods page** (the playbook + verification pipeline as public-facing credibility).
-- Keep the stack (Astro + vanilla D3); no framework migrations.
+**convection-cells (Rayleigh–Bénard), chemical-oscillators (BZ), turbulent-flows, firms** (+ optionally one queue giant, e.g. plate-tectonics). This batch is the designed test of both standing hypotheses:
+1. Does info_processing ↔ adaptive_capacity (r=0.957 at n=15) finally dissociate? Chemical oscillators are the predicted breaker.
+2. Does modularity ↔ self_organization stay negative once physical-chemical entries exist? That category row is currently EMPTY — this batch fills it.
 
-## Workstream 2 — Validation of the approach (Nick's ask)
+Process: author the batch hints file (`.claude/workflows/batches/batch-2-v0.3.json`, follow batch-1's format and provenance-carrying density), get Nick's sign-off on the list, run `entry-pipeline.js` with `args: {batchFile, date, researchDir: 'research\\v0.3\\expansion'}`, triage, promote, re-run analysis at n≈19-20, update findings.md hypothesis verdicts. Watch for: Φm mass-normalization on turbulent-flows (the parked question's next test — disclose, don't force); the criticality anchor's new boundary rules apply hard to BZ/convection (genuine event statistics vs. oscillation ≠ criticality).
 
-The catalog's claims are only as good as its instrument. Three concrete studies:
-1. **Inter-rater reliability**: have 2–3 independent agents blind-score a sample of entries (given only the anchor files + entry scoping notes, NOT the existing scores), then measure agreement (e.g., Krippendorff's alpha per column) against catalog scores. Low-agreement columns get anchor tightening. This is the single strongest test of the whole rubric approach.
-2. **Analysis robustness**: leave-one-out PCA stability; sensitivity of the headline findings (PC1 composition, the r=0.95 info/adaptivity coupling, the negative modularity/self-organization correlation) to single entries and to plausible ±1 score perturbations. Update findings.md with survival verdicts.
-3. **External validation**: literature check for prior art on cross-system scoring (complexity profiles, LLW-style comparisons) — position the catalog against it honestly; adversarial review of the panel itself by a fresh-eyes agent panel (what would a hostile referee attack first?).
+## Workstream B — Dream-headline analysis (feeds the open question)
 
-## Workstream 3 — Agentic expansion pipeline (Nick's ask)
+With n≈20 after batch 2, run a dedicated analysis pass on the four candidates in decisions.md's open questions: closure-law exceptions (hunt for a physical system with a non-closed alphabet in the roster candidates), PC1 stability at n=20 (extend robustness.mjs), the info≡adaptivity identity (per-entry residuals — who's closest to breaking it?), composition non-monotonicity (systematize: all parent/child column pairs, count inversions). Output: a findings.md section that lets Nick pick the headline — or shows the data picked it.
 
-- Upgrade `.claude/workflows/entry-pipeline.js`: parameterize CLASSES via workflow `args` (currently hardcoded); fold the fixer stage INTO the workflow (Phase 4 ran fixers manually afterward); carry per-class hint blocks from a data file rather than inline.
-- Then run the **first expansion batch** from the fame-gated queue — suggested: global-economy, weather-systems, ocean-circulation, plate-tectonics, world-wide-web (5 canonical giants, all already referenced by verified entries). Full verification + cross-entry audit + re-run analysis afterward (n=15 tests the standing hypotheses in findings.md).
+## Workstream C — Small standing items
 
-## Workstream 4 — Machine validation of the catalog itself (added)
+- IRR follow-ups: re-run the blind study's 3 low-agreement columns (criticality, tipping_transitions, emergence) against the NEW boundary-clarified anchors to measure whether tightening actually raised agreement (same design, same 5 entries, fresh raters).
+- The emergence stars-2-vs-3 open calibration question (anchor file) — revisit only if a batch-2 verifier or the re-run IRR gives new signal.
+- Broido & Clauset per-snapshot classification (the-internet flag): their replication repo (github.com/adbroido/SFAnalysis) might settle Weakest-vs-Strong per snapshot; evaluate whether a code repo is citable evidence first.
+- global-economy: upgrade the World Bank/IMF secondary-aggregation figures to primary reads (direct API/CSV pull — the flags block lists them).
 
-Real gap: nothing programmatically enforces entry conformance. Build a validator script (`analysis/validate.mjs` or similar): every entry has all 30 columns, legal evidence_status/level/measurand_type values, scores in 0–4, sources resolve, relations reciprocity holds, exemplar ids consistent. Wire it into the app build and document it as the pre-commit check.
+## Deliberately out of scope
 
-## Workstream 5 — Verification debt paydown (added)
-
-Standing flags across verified entries, batchable to research agents: Lovejoy 1982 primary (paywalled — try author site again), Chaisson 2011 Table 1 (institutional access), rs2023 circulating-mass figures, the-internet Newman Table II l/C confirmation, Broido & Clauset AS-graph classification, San Andreas b-value primary, tropical-cyclones criticality 1-vs-0 note. Clear what's clearable; convert the rest to permanent documented limitations.
-
-## Deliberately out of scope this sweep
-
-Public launch (Phase 6), the data license decision (needs Nick), biological systems (D2), schema redesign (frozen), instance-level entries (D14).
+Public launch (D17: manual gate), schema changes (frozen), biological systems (D2), the license (decided: CC BY 4.0 at launch, D16).
