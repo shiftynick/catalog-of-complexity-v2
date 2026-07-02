@@ -11,8 +11,8 @@ const hasAny = Object.keys(provenance).length > 0;
 {hasAny && (
   <section class="block">
     <details>
-      <summary><h2 style="display:inline; border:none; margin:0; padding:0;"><span class="chevron">&#9656;</span>Provenance</h2></summary>
-      <div style="margin-top:18px;">
+      <summary><h2 class="provenance-summary-heading"><span class="chevron">&#9656;</span>Provenance</h2></summary>
+      <div class="provenance-body">
         <div class="provenance-grid">
           {provenance.drafted_by && (
             <div class="provenance-item"><dt>Drafted by</dt><dd>{provenance.drafted_by}</dd></div>

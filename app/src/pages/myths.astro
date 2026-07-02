@@ -1,0 +1,131 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Myths — Catalog of Complexity" description="Complexity myths this catalog does not repeat.">
+  <h1 class="page-title">Complexity myths this catalog does not repeat</h1>
+  <p class="page-lede">
+    Complexity science has a folklore layer — claims repeated so often in survey talks and
+    introductory chapters that they read as settled fact. Several do not survive contact with
+    the primary literature. The catalog's schema was built to name each one explicitly and bind
+    entries to what the evidence actually supports, not to the folklore.
+  </p>
+
+  <div class="prose">
+    <h2>&ldquo;Everything is a power law / scale-free&rdquo;</h2>
+    <p>
+      Power-law claims are the single most over-generalized empirical pattern in complexity
+      science. Clauset, Shalizi &amp; Newman's statistical audit ("Power-law distributions in
+      empirical data," <em>SIAM Review</em> 51(4), 2009) re-fit dozens of famous power-law claims
+      with a rigorous maximum-likelihood-plus-goodness-of-fit procedure, rather than the
+      eyeballed log&ndash;log regression that produced many of the original claims, and found that
+      most of them do not survive: some distributions once called power laws are better
+      described as log-normal or truncated alternatives, and even cases with a genuine power-law
+      tail often cover a narrower range than advertised. The failures are not exotic edge cases —
+      they include some of the field's most frequently cited examples. Closer to home for this
+      catalog, Newman's own network survey ("The structure and function of complex networks,"
+      <em>SIAM Review</em> 45(2), 2003) shows that not every network is scale-free either: the
+      Western US power grid's degree distribution is exponential, not a power law.
+    </p>
+    <p>
+      <strong>How the catalog handles it:</strong> the <code>power-law-rigor</code> filling rule.
+      A power-law claim enters the catalog only with CSN-2009-grade statistical support (a fitted
+      exponent plus a goodness-of-fit test against alternatives), or it is explicitly labeled
+      <code>evidence_status: measured-untested</code>. Degree distributions are recorded per
+      entry rather than assumed; the power grid entry records an exponential distribution, not a
+      forced power-law fit.
+    </p>
+
+    <h2>&ldquo;Earthquakes are the textbook self-organized-criticality example&rdquo;</h2>
+    <p>
+      The Gutenberg&ndash;Richter law — earthquake frequency falling off as a power of magnitude —
+      is genuinely solid statistics, replicated across seismic networks for decades. What is
+      contested is the further step of calling this <em>self-organized criticality</em> as a
+      mechanism: that the crust tunes itself to a critical state through its own dynamics, the
+      way a sandpile does in the original SOC models. Watkins, Pruessner, Chapman, Crosby &amp;
+      Jensen's review ("25 Years of Self-organized Criticality: Concepts and Controversies,"
+      <em>Space Science Reviews</em> 198, 2016) is an explicitly adjudicating, not promotional,
+      survey of the field a quarter-century on, and it treats the SOC-as-mechanism claim for
+      earthquakes — and for most systems outside the original sandpile/rice-pile physics
+      experiments — as unresolved rather than established.
+    </p>
+    <p>
+      <strong>How the catalog handles it:</strong> the <code>soc-two-claims</code> filling rule.
+      "Power-law event statistics" and "self-organized criticality as mechanism" are recorded as
+      separate claims, never conflated. An entry can score solidly on the event-statistics side
+      while its SOC-mechanism status stays marked contested — no catalog entry currently reaches
+      the top of the criticality scale, by design, because none has an uncontested SOC mechanism
+      behind it.
+    </p>
+
+    <h2>&ldquo;Markets exhibit low-dimensional chaos&rdquo;</h2>
+    <p>
+      Early nonlinear-dynamics work on stock returns (Scheinkman &amp; LeBaron, 1989) reported
+      fractal-dimension estimates in weekly returns that were popularly read as evidence of
+      deterministic chaos with only a handful of driving variables. That reading has been
+      substantially walked back. The subsequent BDS-test and denoising literature — statistical
+      tests designed specifically to distinguish nonlinear stochastic dependence from genuine
+      low-dimensional chaos — finds nonlinear <em>dependence</em> (volatility clustering,
+      GARCH-type structure) in large return series but not low-dimensional chaos; noise cannot be
+      reliably separated from chaos with the tests available, and the field's settled position is
+      "nonlinearity yes, low-dimensional chaos no."
+    </p>
+    <p>
+      <strong>How the catalog handles it:</strong> the <code>no-market-chaos</code> filling rule.
+      Financial-markets entries record "nonlinear dependence: yes, deterministic chaos: no
+      evidence" rather than a chaos verdict, and cite the historical claim alongside its
+      correction rather than repeating the claim alone.
+    </p>
+
+    <h2>&ldquo;Climate maximizes entropy production&rdquo;</h2>
+    <p>
+      The Maximum Entropy Production (MEP) hypothesis — that the climate system organizes itself
+      toward a state that maximizes the rate of thermodynamic entropy production — is a real,
+      live research program, not a fabrication. Paltridge's original proposal (1975, 1978) showed
+      that simplified radiative-convective models tuned this way reproduce plausible
+      latitudinal temperature and cloud patterns. But per the standard review (Ozawa, Ohmura,
+      Lorenz &amp; Pujol, "The second law of thermodynamics and the global climate system: A
+      review of the maximum entropy production principle," <em>Reviews of Geophysics</em> 41(4),
+      2003), MEP has no accepted first-principles derivation from the equations of motion, and the
+      climate-science community remains skeptical that it is a useful organizing principle beyond
+      a curve-fitting device. It is a contested hypothesis, not settled physics — and not a
+      quantity the catalog can tabulate as a measured "entropy production rate of Earth's
+      climate."
+    </p>
+    <p>
+      <strong>How the catalog handles it:</strong> recorded per entry with
+      <code>evidence_status: measured-disputed</code>, distinct from ordinary "unknown." The
+      climate entry's entropy-production discussion is treated as rubric-scored narrative around
+      a contested theory, not as a filled quantitative column.
+    </p>
+
+    <h2>The CSN-vs-Gutenberg-Richter tension</h2>
+    <p>
+      This one is not folklore to debunk but a genuine tension the catalog records rather than
+      silently resolving. The classic seismological Gutenberg&ndash;Richter b-value for California
+      earthquakes (b&nbsp;&asymp;&nbsp;1) and Clauset, Shalizi &amp; Newman's own rigorous power-law
+      fit to California earthquake data (&alpha;&nbsp;&asymp;&nbsp;1.64) look like they should be the
+      same statistical object measured two ways — but CSN's stricter test actually
+      <em>rejects</em> the power-law hypothesis for that data (p&nbsp;=&nbsp;0.00), while the
+      traditional Gutenberg&ndash;Richter fit is widely treated as solid. The two analyses differ
+      in variable (log-amplitude magnitude vs. raw amplitude) and in fitting rigor, so the results
+      do not simply convert into one another. Presenting either number alone, without the other,
+      would misrepresent how settled earthquake statistics actually are.
+    </p>
+    <p>
+      <strong>How the catalog handles it:</strong> both figures are recorded, attributed to their
+      respective methodologies, with the tension stated explicitly in the entry rather than
+      collapsed into a single "the b-value is 1" claim.
+    </p>
+  </div>
+
+  <section class="block prose">
+    <h2>Why this list stays honest</h2>
+    <p>
+      This register is enforced by machine-checkable rules and adversarial verifiers, not
+      editorial goodwill. Every entry passes through a citation checker, a plausibility checker,
+      a consistency checker, and a coverage checker before promotion, and the filling rules named
+      above are binding on both the research agents that draft entries and the verifiers that
+      check them. See the <a href="/methods/">methods</a> page for how that pipeline works.
+    </p>
+  </section>
+</Base>

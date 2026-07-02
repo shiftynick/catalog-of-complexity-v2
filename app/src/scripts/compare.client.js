@@ -9,6 +9,8 @@ const data = JSON.parse(dataEl.textContent);
 
 const MAX_SELECTED = 4;
 const MIN_SELECTED = 2;
+const MIN_SIZE = 320;
+const MAX_SIZE = 560;
 
 const selectHost = document.getElementById('system-select');
 const radarHost = document.getElementById('radar-host');
@@ -48,12 +50,8 @@ function renderCheckboxes() {
     });
 
     const swatch = document.createElement('span');
-    swatch.style.display = 'inline-block';
-    swatch.style.width = '10px';
-    swatch.style.height = '10px';
-    swatch.style.borderRadius = '3px';
+    swatch.className = 'select-swatch';
     swatch.style.background = sys.color;
-    swatch.style.flex = 'none';
 
     const text = document.createElement('span');
     text.textContent = sys.name;
@@ -65,6 +63,11 @@ function renderCheckboxes() {
   });
 }
 
+function measureSize() {
+  const available = radarHost.clientWidth || MIN_SIZE;
+  return Math.max(MIN_SIZE, Math.min(MAX_SIZE, available));
+}
+
 function renderRadar() {
   radarHost.innerHTML = '';
   legendHost.innerHTML = '';
@@ -74,17 +77,20 @@ function renderRadar() {
   const labels = data.labels;
   const n = columns.length;
 
-  const size = 520;
-  const margin = 90;
+  const size = measureSize();
+  const margin = Math.round(size * 0.173);
   const radius = size / 2 - margin;
   const center = size / 2;
 
+  const systemNames = systems.map((s) => s.name).join(', ');
   const svg = d3
     .create('svg')
     .attr('viewBox', `0 0 ${size} ${size}`)
     .attr('width', '100%')
     .attr('height', size)
-    .style('max-width', '620px')
+    .attr('role', 'img')
+    .attr('aria-label', `Radar chart comparing ${systemNames || 'selected systems'} across ${n} rubric and hybrid metric scores, each scored 0 to 4.`)
+    .style('max-width', `${size}px`)
     .style('overflow', 'visible');
 
   const angleFor = (i) => (Math.PI * 2 * i) / n - Math.PI / 2;
@@ -104,6 +110,7 @@ function renderRadar() {
   });
 
   // Spokes + axis labels
+  const labelFontSize = Math.max(9.5, Math.round(size * 0.0202 * 10) / 10);
   columns.forEach((col, i) => {
     const angle = angleFor(i);
     const x2 = Math.cos(angle) * radius;
@@ -126,7 +133,7 @@ function renderRadar() {
       .attr('y', ly)
       .attr('text-anchor', anchor)
       .attr('dominant-baseline', 'middle')
-      .attr('font-size', '10.5px')
+      .attr('font-size', `${labelFontSize}px`)
       .attr('fill', 'var(--ink-dim)')
       .text(labels[i]);
   });
@@ -136,7 +143,7 @@ function renderRadar() {
     g.append('text')
       .attr('x', 4)
       .attr('y', -rScale(ring) - 3)
-      .attr('font-size', '9px')
+      .attr('font-size', `${Math.max(9, labelFontSize - 1.5)}px`)
       .attr('fill', 'var(--ink-faint)')
       .text(ring);
   });
@@ -187,6 +194,21 @@ function renderRadar() {
     item.appendChild(label);
     legendHost.appendChild(item);
   });
+}
+
+function debounce(fn, wait) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), wait);
+  };
+}
+
+const debouncedRerender = debounce(renderRadar, 150);
+window.addEventListener('resize', debouncedRerender);
+if (typeof ResizeObserver !== 'undefined') {
+  const ro = new ResizeObserver(debouncedRerender);
+  ro.observe(radarHost);
 }
 
 renderCheckboxes();

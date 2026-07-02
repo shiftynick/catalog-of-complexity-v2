@@ -14,12 +14,12 @@ export const CATEGORY_COLOR_VAR = {
 // Hex fallbacks (same values as the CSS) for contexts where a literal
 // color string is required (e.g. D3 computing derived colors).
 export const CATEGORY_COLOR_HEX = {
-  astrophysical: '#f2b845',
-  geophysical: '#4fa877',
-  'physical-chemical': '#6ea8fe',
-  'socio-economic': '#e0645f',
-  infrastructure: '#9b7fe0',
-  'cultural-informational': '#4fc3d9',
+  astrophysical: '#a06b0a',
+  geophysical: '#2e7d4f',
+  'physical-chemical': '#2f6bbf',
+  'socio-economic': '#b8433d',
+  infrastructure: '#6d4fc4',
+  'cultural-informational': '#0f7285',
 };
 
 export function categoryColorVar(category) {

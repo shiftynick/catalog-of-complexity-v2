@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import SystemCard from '../components/SystemCard.astro';
+import { getEntriesByCategory } from '../lib/catalog.mjs';
+import { categoryColorVar } from '../lib/colors.mjs';
+
+const groups = getEntriesByCategory();
+const total = groups.reduce((n, g) => n + g.entries.length, 0);
+---
+<Base title="Catalog index — Catalog of Complexity">
+  <h1 class="page-title">Catalog index</h1>
+  <p class="page-lede">
+    {total} verified systems, arranged by category. Each card links to a full evidence-backed
+    profile — public summary first, full rubric panel one click down.
+  </p>
+
+  {groups.map((group) => (
+    <section class="category-section">
+      <h2 class="category-heading">
+        <span class="cat-dot" style={`background:${categoryColorVar(group.category)}`}></span>
+        {group.label}
+        <span style="color: var(--ink-faint); font-weight: 400; font-size: 0.8rem;">
+          &nbsp;— {group.entries.length}
+        </span>
+      </h2>
+      <div class="card-grid">
+        {group.entries.map((entry) => <SystemCard entry={entry} />)}
+      </div>
+    </section>
+  ))}
+</Base>

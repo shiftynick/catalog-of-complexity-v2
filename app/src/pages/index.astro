@@ -1,31 +1,75 @@
 ---
 import Base from '../layouts/Base.astro';
-import SystemCard from '../components/SystemCard.astro';
-import { getEntriesByCategory } from '../lib/catalog.mjs';
-import { categoryColorVar } from '../lib/colors.mjs';
+import PeriodicTable from '../components/PeriodicTable.astro';
+import { getEntries } from '../lib/catalog.mjs';
 
-const groups = getEntriesByCategory();
-const total = groups.reduce((n, g) => n + g.entries.length, 0);
+const total = getEntries().length;
 ---
-<Base title="The Table — Catalog of Complexity">
-  <h1 class="page-title">The Table</h1>
-  <p class="page-lede">
-    {total} verified systems, arranged by category. Each card links to a full evidence-backed
-    profile — public summary first, full rubric panel one click down.
-  </p>
+<Base
+  title="The Catalog of Complexity"
+  description="A reference catalog of canonical complex systems — stars, storms, markets, languages — measured on one fixed panel of thirty attributes, with the evidence for every value in view."
+>
+  <section class="hero">
+    <h1 class="page-title">The Catalog of Complexity</h1>
+    <p class="page-lede">
+      A reference catalog of canonical complex systems — stars, storms, markets, languages —
+      measured on one fixed panel of thirty attributes, with the evidence for every value in view.
+    </p>
+  </section>
 
-  {groups.map((group) => (
-    <section class="category-section">
-      <h2 class="category-heading">
-        <span class="cat-dot" style={`background:${categoryColorVar(group.category)}`}></span>
-        {group.label}
-        <span style="color: var(--ink-faint); font-weight: 400; font-size: 0.8rem;">
-          &nbsp;— {group.entries.length}
-        </span>
-      </h2>
-      <div class="card-grid">
-        {group.entries.map((entry) => <SystemCard entry={entry} />)}
-      </div>
-    </section>
-  ))}
+  <section class="block prose">
+    <h2>What this is</h2>
+    <p>
+      Complexity science has spent fifty years describing what stars, cities, earthquakes and
+      economies have in common. The catalog puts the canonical systems side by side on a single
+      instrument: every class entry carries the same 30-column panel — quantitative values
+      harvested from the literature, and 0–4 rubric scores made commensurable by worked anchor
+      examples. Entries are classes, not instances: "tropical cyclones," with Hurricane Katrina
+      as a designated evidence-carrying exemplar.
+    </p>
+  </section>
+
+  <section id="periodic-table" class="block">
+    <h2>The systems, arranged by kind and by kinship</h2>
+    <PeriodicTable />
+    <p class="tiny" style="color: var(--ink-faint); margin-top: 18px;">
+      {total} verified systems. Full listing at <a href="/catalog/">the catalog index</a>.
+    </p>
+  </section>
+
+  <section class="block prose">
+    <h2>Why you can trust it</h2>
+    <p>
+      Every value carries an evidence status — measured, derived, disputed, or honestly unknown;
+      "unknown" is always legal, guessing never is. Every citation is annotated with what was
+      actually read. Power-law claims meet Clauset–Shalizi–Newman-grade statistics or are
+      labeled untested. Every entry passes four adversarial verification agents — citation,
+      plausibility, cross-entry consistency, coverage — before promotion, and the whole panel
+      has been stress-tested by blind re-scoring and robustness studies. Read more on the
+      <a href="/methods/">methods</a> page, and see the claims we deliberately avoid on the
+      <a href="/myths/">myths</a> page.
+    </p>
+  </section>
+
+  <section class="block">
+    <h2>The views</h2>
+    <div class="card-grid">
+      <a class="card" href="#periodic-table">
+        <h3>Table</h3>
+        <p class="card-summary">The systems arranged by category, on this page.</p>
+      </a>
+      <a class="card" href="/catalog/">
+        <h3>Catalog index</h3>
+        <p class="card-summary">Every verified entry as a card, grouped by category.</p>
+      </a>
+      <a class="card" href="/compare/">
+        <h3>Compare</h3>
+        <p class="card-summary">Overlay 2–4 systems on a radar chart across the 15 rubric scores.</p>
+      </a>
+      <a class="card" href="/map/">
+        <h3>Map</h3>
+        <p class="card-summary">All systems embedded in metric space via PCA over the full panel.</p>
+      </a>
+    </div>
+  </section>
 </Base>

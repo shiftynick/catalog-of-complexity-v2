@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Concepts — Catalog of Complexity" description="Why Kolmogorov complexity isn't a column, and other conceptual notes.">
+  <h1 class="page-title">The conceptual layer: why Kolmogorov complexity isn't a column</h1>
+  <p class="page-lede">
+    Complexity science's most celebrated formal measures — Kolmogorov complexity, logical
+    depth, thermodynamic depth, effective complexity — are theoretically central to the field
+    and almost entirely absent from this catalog's 30 columns. That is a deliberate editorial
+    call, not an oversight.
+  </p>
+
+  <div class="prose">
+    <p>
+      The panel only records what can honestly be filled for real macroscopic non-biological
+      systems: a published or defensibly derived value, or an anchored 0&ndash;4 judgment, with
+      its evidence stated. The famous deep measures of complexity fail that test for a structural
+      reason, not a laziness one — a dedicated research pass (<code>research/phase1/formal-measures.md</code>)
+      checked each one against the pilot roster (the Sun, Hurricane Katrina, Earth's climate, the
+      San Andreas Fault, the Mississippi basin, New York City, the NYSE, the Internet, ERCOT,
+      English) and found no verified numeric value for any of them, for any real non-biological
+      system, anywhere in the literature that pass could reach. So instead of a column, each
+      measure gets an honest explanation of why it stayed out — the "conceptual layer" below.
+    </p>
+
+    <h2>Kolmogorov complexity</h2>
+    <p>
+      Kolmogorov (algorithmic) complexity is the length of the shortest program that outputs a
+      given string on a fixed universal machine. It is formally uncomputable — a direct
+      consequence of the halting problem, not a data-availability gap — so no citation will ever
+      supply a "true" value for any system, no matter how well instrumented. Real-world work
+      instead uses compression-based proxies such as normalized compression distance, but the
+      best-attested large-scale applications of that proxy are genomic (whole-genome phylogeny,
+      protein classification) — biological, and outside this catalog's scope. No comparably
+      well-cited application to a macroscopic non-biological system's native data (a compressed
+      grid topology, a hydrograph) was found. It remains the conceptual root that several other
+      measures on this list approximate, worth a mention, not a column.
+    </p>
+
+    <h2>Logical depth</h2>
+    <p>
+      Bennett's logical depth measures how long a near-optimally compact description takes to
+      unfold into the object it describes — deep objects have short descriptions but long causal
+      histories. It inherits Kolmogorov complexity's uncomputability and adds a second layer
+      (finding a program within a tolerance of the shortest one, itself an undecidable problem).
+      No confirmed instance of logical depth being numerically computed for any real macroscopic
+      system — physical, geophysical, or socio-economic — turned up in the research pass; the
+      literature uses it qualitatively, as an illustrative thought experiment, not as a measured
+      quantity. It is philosophically resonant with this project's interest in path-dependence
+      and historical process, but there is no number to put in a cell.
+    </p>
+
+    <h2>Thermodynamic depth</h2>
+    <p>
+      Lloyd &amp; Pagels proposed thermodynamic depth as the entropy of the ensemble of possible
+      histories that could have led to a system's current state. It requires a specified
+      partition of the system into macroscopic states plus the transition dynamics between them —
+      and that partition has never been given a principled, non-subjective definition. Shalizi's
+      documented critique treats the measure as fundamentally unworkable for exactly this reason:
+      Lloyd and Pagels never specify how the macrostates are supposed to be chosen. No real-system
+      numeric value has been found. Statistical complexity, below, was developed in part to fix
+      this exact problem by replacing ad hoc macrostates with causal states.
+    </p>
+
+    <h2>Effective complexity</h2>
+    <p>
+      Gell-Mann &amp; Lloyd's effective complexity tries to isolate the algorithmic information
+      content of a system's <em>regularities</em>, separating structure from residual randomness —
+      a purely ordered string and a purely random string both score low; a string with structure
+      at many scales scores high. It inherits Kolmogorov complexity's uncomputability and adds a
+      further, openly acknowledged problem: the split between "regularity" and "noise" is a
+      subjective judgment call with no unique, reproducible answer. No numeric effective-complexity
+      value for a real system was found in the literature searched. It is conceptually close to
+      what this whole catalog is trying to formalize — non-random structure — which is exactly
+      why it is worth naming here even though it cannot be filled.
+    </p>
+
+    <h2>Statistical complexity</h2>
+    <p>
+      This one is different in kind from the measures above: it is usable in principle, with no
+      pilot-system values yet — a data gap, not an uncomputability problem. Crutchfield &amp;
+      Young's computational mechanics reconstructs the minimal predictive hidden-Markov model (the
+      &epsilon;-machine) of a process, and statistical complexity is the entropy of its causal-state
+      distribution. It has been computed on real geophysical time series — geomagnetic
+      measurements from Halley, Antarctica, and atmospheric turbulence data — so the method is
+      real and has been applied to non-biological macroscopic data. But no one has published a
+      value for any of this catalog's own systems specifically, and reconstruction is technically
+      demanding (alphabet and discretization choices, heavy data requirements, no standardized
+      off-the-shelf tool). It is the strongest candidate on this list for eventually becoming a
+      derived column, if the catalog ever commissions a fresh reconstruction on, for instance,
+      grid load data or a climate index.
+    </p>
+
+    <h2>Excess entropy</h2>
+    <p>
+      Excess entropy (Grassberger's effective measure complexity, later reintroduced as
+      "predictive information") is the mutual information between a process's entire past and its
+      entire future — a rigorous formalization of "how much does history tell you about what
+      comes next." It is well-defined and computable in principle from any sufficiently long time
+      series. But Grassberger's own worked numbers are for toy systems — cellular automata,
+      iterated maps — and no specific numeric excess-entropy value computed for a named real
+      macroscopic system turned up in the search. Partition-dependence (the value changes with
+      how a continuous signal is discretized) is an acknowledged, unresolved practical obstacle on
+      top of the data gap.
+    </p>
+
+    <h2>Multiscale entropy</h2>
+    <p>
+      Multiscale entropy computes an entropy-rate proxy across a family of coarse-grained versions
+      of a time series, producing a curve of entropy against scale rather than a single number.
+      It is computationally simple and could technically be applied to any of this catalog's long
+      time series. But the deep, heavily-cited literature behind it is almost entirely
+      physiological (heart-rate variability, blood pressure, glucose dynamics) — biological, and
+      out of scope here — and it outputs a curve rather than a scalar, which does not fit a
+      single-value panel column without an extra, non-standardized reduction step (an area-under-
+      the-curve summary, for instance). One non-biological climate application was found, but
+      without a citable numeric value attached.
+    </p>
+
+    <h2>Complexity profile</h2>
+    <p>
+      Bar-Yam's complexity profile plots the number of independent behaviors visible at a given
+      scale as a function of that scale — a genuinely different idea from every other measure
+      here, because it is explicitly scale-resolved rather than a single number. It is
+      illustrated with schematic curves for idealized regimes and applied in extended prose to
+      one case study at a time (most famously the historical trajectory of human civilization),
+      but never as a numeric table scored across multiple real systems side by side. The catalog
+      treats it as a methodological lens rather than a column: hierarchy_depth, one of the panel's
+      30 columns, counts organizational levels, which is a coarse structural cousin of what the
+      complexity profile would show as a curve, but it is not the same measurement.
+    </p>
+
+    <h2>What did survive into columns</h2>
+    <p>
+      Two formal measures made it past this filter: <strong>Shannon-type entropy rate</strong> and
+      <strong>fractal dimension</strong>. Both are, by a wide margin, the most-computed measures
+      on real macroscopic data of everything surveyed. Entropy rate has been estimated for English
+      text since Shannon's own 1951 experiment, and more recently for climate records and
+      financial tick data, using nothing more exotic than a time series and a symbolization
+      scheme — the panel's filling rules require the measurand and discretization convention to
+      be named alongside the value, since entropy rate is not invariant to binning choices.
+      Fractal dimension has the deepest literature of all: real, decades-old, independently
+      published numeric values exist for at least four of the ten pilot systems — the San Andreas
+      Fault's trace (D&nbsp;&asymp;&nbsp;1.1&ndash;1.4 depending on segment), river-network geometry,
+      urban street networks, and stock-index return series — which is why the panel splits it into
+      a spatial and a temporal-correlation column rather than forcing one measurand to do both
+      jobs. Both survived for the same reason the others didn't: a real, citable, non-biological
+      numeric value exists, not just a compelling theory.
+    </p>
+  </div>
+</Base>

@@ -1,0 +1,123 @@
+---
+// The signature periodic-table grid: rows = the 6 fixed categories,
+// columns = 10 equal-width PC1 bins from analysis/output/analysis.json.
+// Pure server-rendered — no D3, no client JS. See app/DESIGN.md,
+// "The periodic-table grid (signature view)".
+import {
+  CATEGORY_ORDER,
+  CATEGORY_LABELS,
+  getEntries,
+  getAnalysis,
+  getUnresolvedQueue,
+  symbolFor,
+} from '../lib/catalog.mjs';
+import { categoryColorVar } from '../lib/colors.mjs';
+
+const BIN_COUNT = 10;
+
+const entries = getEntries();
+const analysis = getAnalysis();
+const queue = getUnresolvedQueue();
+
+const hasAnalysis = Boolean(analysis && analysis.pca && analysis.pca.coords);
+
+// Build one row per category: { category, label, cells: Array(BIN_COUNT) of entry[] , ghosts: entry[] }
+let rows;
+let axisCaption = null;
+
+if (hasAnalysis) {
+  const coords = analysis.pca.coords;
+  const pc1Values = Object.values(coords).map((c) => c[0]);
+  const min = Math.min(...pc1Values);
+  const max = Math.max(...pc1Values);
+  const span = max - min || 1;
+  const binWidth = span / BIN_COUNT;
+
+  const binFor = (pc1) => {
+    if (pc1 === max) return BIN_COUNT - 1;
+    return Math.min(BIN_COUNT - 1, Math.floor((pc1 - min) / binWidth));
+  };
+
+  rows = CATEGORY_ORDER.filter((cat) => entries.some((e) => e.category === cat)).map((cat) => {
+    const cells = Array.from({ length: BIN_COUNT }, () => []);
+    const inCat = entries.filter((e) => e.category === cat);
+    for (const entry of inCat) {
+      const pc1 = coords[entry.id] ? coords[entry.id][0] : null;
+      if (pc1 == null) continue; // entry not in the analysis matrix (e.g. missing scores) — never fabricate a bin
+      cells[binFor(pc1)].push({ entry, pc1 });
+    }
+    // Sort each cell's stack for stable rendering.
+    for (const cell of cells) cell.sort((a, b) => a.entry.name.localeCompare(b.entry.name));
+    const ghosts = queue.filter((q) => q.category === cat);
+    return { category: cat, label: CATEGORY_LABELS[cat] || cat, cells, ghosts };
+  });
+
+  const variancePct = (analysis.pca.explainedVariance[0] * 100).toFixed(1);
+  axisCaption = `← energetic-chaotic · · · informational-adaptive → (principal axis, PC1, ${variancePct}% of variance)`;
+} else {
+  // Fallback: alphabetical order within category, sequential columns.
+  rows = CATEGORY_ORDER.filter((cat) => entries.some((e) => e.category === cat)).map((cat) => {
+    const inCat = entries
+      .filter((e) => e.category === cat)
+      .slice()
+      .sort((a, b) => a.name.localeCompare(b.name));
+    const cells = inCat.map((entry) => [{ entry, pc1: null }]);
+    const ghosts = queue.filter((q) => q.category === cat);
+    return { category: cat, label: CATEGORY_LABELS[cat] || cat, cells, ghosts };
+  });
+}
+
+const maxCols = Math.max(...rows.map((r) => r.cells.length + r.ghosts.length), 1);
+---
+<div class="periodic-wrap">
+  <div class="periodic-scroll">
+    <div class="periodic-grid" style={`--periodic-cols: ${maxCols};`}>
+      {rows.map((row) => (
+        <div class="periodic-row">
+          <div class="periodic-row-label" style={`color: ${categoryColorVar(row.category)}`}>
+            {row.label}
+          </div>
+          <div class="periodic-row-cells">
+            {row.cells.map((stack) => (
+              stack.length > 0 ? (
+                <div class="periodic-cell">
+                  {stack.map(({ entry, pc1 }) => (
+                    <a
+                      class="periodic-tile"
+                      href={`/system/${entry.id}/`}
+                      style={`--tile-accent: ${categoryColorVar(row.category)}`}
+                    >
+                      <span class="periodic-symbol">{symbolFor(entry.id)}</span>
+                      <span class="periodic-name">{entry.name}</span>
+                      {pc1 != null && <span class="periodic-pc1">{pc1.toFixed(2)}</span>}
+                    </a>
+                  ))}
+                </div>
+              ) : (
+                <div class="periodic-cell periodic-cell-empty" aria-hidden="true"></div>
+              )
+            ))}
+            {row.ghosts.map((g) => (
+              <div class="periodic-cell">
+                <div class="periodic-tile periodic-ghost" role="img" aria-label={`${g.id}, in the queue, not yet catalogued`}>
+                  <span class="periodic-symbol" aria-hidden="true">?</span>
+                  <span class="periodic-name">{g.id}</span>
+                  <span class="periodic-ghost-label">in the queue</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {axisCaption ? (
+    <p class="periodic-caption tiny">{axisCaption}</p>
+  ) : (
+    <p class="periodic-caption tiny">
+      Columns show alphabetical order within category — run the analysis pipeline
+      (<code>cd analysis &amp;&amp; node run.mjs</code>) to align columns by principal axis (PC1).
+    </p>
+  )}
+</div>

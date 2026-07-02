@@ -1,5 +1,8 @@
 ---
+import '@fontsource-variable/source-serif-4';
+import '@fontsource-variable/source-sans-3';
 import '../styles/global.css';
+import { getEntries } from '../lib/catalog.mjs';
 
 const { title = 'Catalog of Complexity', description = 'A comparative reference of complex systems.' } = Astro.props;
 const currentPath = Astro.url.pathname;
@@ -8,6 +11,27 @@ function isCurrent(href) {
   if (href === '/') return currentPath === '/';
   return currentPath.startsWith(href);
 }
+
+// Escape for safe attribute embedding, then truncate to a clean ~160 chars.
+function escapeHtml(s) {
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function truncate(s, max = 160) {
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${cut.slice(0, lastSpace > 0 ? lastSpace : max - 1)}…`;
+}
+
+const metaDescription = escapeHtml(truncate(description));
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const verifiedCount = getEntries().filter((e) => e.status === 'verified').length;
 ---
 <!doctype html>
 <html lang="en">
@@ -15,25 +39,38 @@ function isCurrent(href) {
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="icon" href="data:," />
+  <meta name="description" content={metaDescription} />
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:site_name" content="Catalog of Complexity" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta name="twitter:card" content="summary" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="/">
         Catalog of Complexity
         <small>a comparative reference of complex systems</small>
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Primary">
         <a href="/" aria-current={isCurrent('/') ? 'page' : undefined}>Table</a>
-        <a href="/map/" aria-current={isCurrent('/map') ? 'page' : undefined}>Map</a>
+        <a href="/catalog/" aria-current={isCurrent('/catalog') ? 'page' : undefined}>Catalog</a>
         <a href="/compare/" aria-current={isCurrent('/compare') ? 'page' : undefined}>Compare</a>
+        <a href="/map/" aria-current={isCurrent('/map') ? 'page' : undefined}>Map</a>
+        <a href="/myths/" aria-current={isCurrent('/myths') ? 'page' : undefined}>Myths</a>
+        <a href="/concepts/" aria-current={isCurrent('/concepts') ? 'page' : undefined}>Concepts</a>
+        <a href="/methods/" aria-current={isCurrent('/methods') ? 'page' : undefined}>Methods</a>
       </nav>
-      <span class="version-tag">v0.1 — 10 verified systems</span>
+      <span class="version-tag">v0.2 — {verifiedCount} verified systems</span>
     </div>
   </header>
-  <main>
+  <main id="main-content">
     <div class="wrap">
       <slot />
     </div>

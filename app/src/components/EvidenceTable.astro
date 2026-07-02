@@ -25,6 +25,7 @@ const rows = ALL_COLUMNS.filter((id) => attributes[id] !== undefined).map((id) =
   return { id, attr, group, showGroup, valueText, isEmpty, sources, hasDetail };
 });
 ---
+<div class="evidence-table-wrap">
 <table class="evidence-table">
   <thead>
     <tr>
@@ -56,7 +57,7 @@ const rows = ALL_COLUMNS.filter((id) => attributes[id] !== undefined).map((id) =
           <td>
             {row.attr.evidence_status && (
               <span class="evidence-status-pill">
-                <span class="dot" style={`background:${evidenceColor(row.attr.evidence_status)}`}></span>
+                <span class="dot" style={{ '--dot-color': evidenceColor(row.attr.evidence_status) }}></span>
                 {row.attr.evidence_status}
               </span>
             )}
@@ -104,6 +105,7 @@ const rows = ALL_COLUMNS.filter((id) => attributes[id] !== undefined).map((id) =
     ))}
   </tbody>
 </table>
+</div>
 <script>
   // Collapse the detail row until its sibling <details> is opened, and
   // keep the detail row's visibility in sync with the summary toggle.

@@ -18,169 +18,215 @@ if (!data || !host) {
   // Nothing to draw — the server-rendered notice already explains why.
 } else {
 
-const width = 900;
-const height = 620;
-const margin = { top: 40, right: 40, bottom: 60, left: 60 };
+const ASPECT = 900 / 620;
+const MIN_WIDTH = 320;
+const MAX_WIDTH = 900;
 
-const innerW = width - margin.left - margin.right;
-const innerH = height - margin.top - margin.bottom;
-
-const x = d3
-  .scaleLinear()
-  .domain(d3.extent(data.points, (d) => d.pc1))
-  .nice()
-  .range([0, innerW]);
-
-const y = d3
-  .scaleLinear()
-  .domain(d3.extent(data.points, (d) => d.pc2))
-  .nice()
-  .range([innerH, 0]);
-
-function pct(v) {
-  return typeof v === 'number' ? `${(v * 100).toFixed(1)}%` : '';
+function measureWidth() {
+  const available = host.clientWidth || MAX_WIDTH;
+  return Math.max(MIN_WIDTH, Math.min(MAX_WIDTH, available));
 }
 
-function axisTitle(topLoadings, evPct, axisName) {
-  const parts = topLoadings
-    .map((r) => `${r.value > 0 ? '+' : '-'}${r.col}`)
-    .join(', ');
-  return `${axisName} (${evPct})${parts ? ' — ' + parts : ''}`;
-}
+function draw() {
+  host.innerHTML = '';
 
-const svg = d3
-  .create('svg')
-  .attr('viewBox', `0 0 ${width} ${height}`)
-  .attr('width', '100%')
-  .attr('height', height);
+  const width = measureWidth();
+  const height = Math.round(width / ASPECT);
+  const scale = width / MAX_WIDTH;
+  const fs = (base, min) => `${Math.max(min, Math.round(base * scale * 10) / 10)}px`;
 
-const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+  const margin = {
+    top: Math.round(40 * scale),
+    right: Math.round(40 * scale),
+    bottom: Math.round(60 * scale),
+    left: Math.round(60 * scale),
+  };
 
-// Gridlines
-g.append('g')
-  .attr('transform', `translate(0,${innerH})`)
-  .call(d3.axisBottom(x).ticks(6).tickSize(-innerH))
-  .call((axis) => {
-    axis.selectAll('.domain').attr('stroke', 'var(--border)');
-    axis.selectAll('line').attr('stroke', 'var(--border-soft)');
-    axis.selectAll('text').attr('fill', 'var(--ink-faint)').attr('font-size', '10px');
-  });
+  const innerW = width - margin.left - margin.right;
+  const innerH = height - margin.top - margin.bottom;
 
-g.append('g')
-  .call(d3.axisLeft(y).ticks(6).tickSize(-innerW))
-  .call((axis) => {
-    axis.selectAll('.domain').attr('stroke', 'var(--border)');
-    axis.selectAll('line').attr('stroke', 'var(--border-soft)');
-    axis.selectAll('text').attr('fill', 'var(--ink-faint)').attr('font-size', '10px');
-  });
+  const x = d3
+    .scaleLinear()
+    .domain(d3.extent(data.points, (d) => d.pc1))
+    .nice()
+    .range([0, innerW]);
 
-// Origin crosshair
-g.append('line')
-  .attr('x1', x(0)).attr('x2', x(0))
-  .attr('y1', 0).attr('y2', innerH)
-  .attr('stroke', 'var(--border)')
-  .attr('stroke-dasharray', '3,3');
-g.append('line')
-  .attr('x1', 0).attr('x2', innerW)
-  .attr('y1', y(0)).attr('y2', y(0))
-  .attr('stroke', 'var(--border)')
-  .attr('stroke-dasharray', '3,3');
+  const y = d3
+    .scaleLinear()
+    .domain(d3.extent(data.points, (d) => d.pc2))
+    .nice()
+    .range([innerH, 0]);
 
-// Axis titles
-svg
-  .append('text')
-  .attr('x', margin.left + innerW / 2)
-  .attr('y', height - 14)
-  .attr('text-anchor', 'middle')
-  .attr('font-size', '11.5px')
-  .attr('fill', 'var(--ink-dim)')
-  .text(axisTitle(data.pc1Top, pct(data.explainedVariance[0]), 'PC1'));
+  function pct(v) {
+    return typeof v === 'number' ? `${(v * 100).toFixed(1)}%` : '';
+  }
 
-svg
-  .append('text')
-  .attr('transform', `translate(16,${margin.top + innerH / 2}) rotate(-90)`)
-  .attr('text-anchor', 'middle')
-  .attr('font-size', '11.5px')
-  .attr('fill', 'var(--ink-dim)')
-  .text(axisTitle(data.pc2Top, pct(data.explainedVariance[1]), 'PC2'));
+  function axisTitle(topLoadings, evPct, axisName) {
+    const parts = topLoadings
+      .map((r) => `${r.value > 0 ? '+' : '-'}${r.col}`)
+      .join(', ');
+    return `${axisName} (${evPct})${parts ? ' — ' + parts : ''}`;
+  }
 
-// Loading vector overlay (hidden by default)
-const loadingScale = Math.min(innerW, innerH) * 0.4;
-const loadingGroup = g.append('g').attr('id', 'loading-vectors').style('display', 'none');
+  const svg = d3
+    .create('svg')
+    .attr('viewBox', `0 0 ${width} ${height}`)
+    .attr('width', '100%')
+    .attr('height', height)
+    .attr('role', 'img')
+    .attr('aria-label', 'Scatter plot of all catalog systems positioned by principal component analysis: PC1 on the horizontal axis, PC2 on the vertical axis, points colored by category.')
+    .style('max-width', `${width}px`);
 
-data.columns.forEach((col) => {
-  const vec = data.loadings[col];
-  if (!vec || vec.length < 2) return;
-  const lx = vec[0] * loadingScale;
-  const ly = -vec[1] * loadingScale; // flip: SVG y grows downward
-  loadingGroup
-    .append('line')
-    .attr('x1', x(0)).attr('y1', y(0))
-    .attr('x2', x(0) + lx).attr('y2', y(0) + ly)
-    .attr('stroke', 'var(--accent)')
-    .attr('stroke-width', 1)
-    .attr('marker-end', 'url(#arrow)')
-    .attr('opacity', 0.55);
-  loadingGroup
+  const g = svg.append('g').attr('transform', `translate(${margin.left},${margin.top})`);
+
+  // Gridlines
+  g.append('g')
+    .attr('transform', `translate(0,${innerH})`)
+    .call(d3.axisBottom(x).ticks(6).tickSize(-innerH))
+    .call((axis) => {
+      axis.selectAll('.domain').attr('stroke', 'var(--border)');
+      axis.selectAll('line').attr('stroke', 'var(--border-soft)');
+      axis.selectAll('text').attr('fill', 'var(--ink-faint)').attr('font-size', fs(10, 9));
+    });
+
+  g.append('g')
+    .call(d3.axisLeft(y).ticks(6).tickSize(-innerW))
+    .call((axis) => {
+      axis.selectAll('.domain').attr('stroke', 'var(--border)');
+      axis.selectAll('line').attr('stroke', 'var(--border-soft)');
+      axis.selectAll('text').attr('fill', 'var(--ink-faint)').attr('font-size', fs(10, 9));
+    });
+
+  // Origin crosshair
+  g.append('line')
+    .attr('x1', x(0)).attr('x2', x(0))
+    .attr('y1', 0).attr('y2', innerH)
+    .attr('stroke', 'var(--border)')
+    .attr('stroke-dasharray', '3,3');
+  g.append('line')
+    .attr('x1', 0).attr('x2', innerW)
+    .attr('y1', y(0)).attr('y2', y(0))
+    .attr('stroke', 'var(--border)')
+    .attr('stroke-dasharray', '3,3');
+
+  // Axis titles
+  svg
     .append('text')
-    .attr('x', x(0) + lx * 1.08)
-    .attr('y', y(0) + ly * 1.08)
-    .attr('font-size', '9px')
-    .attr('fill', 'var(--accent)')
-    .attr('opacity', 0.8)
-    .text(col);
-});
+    .attr('x', margin.left + innerW / 2)
+    .attr('y', height - Math.max(10, 14 * scale))
+    .attr('text-anchor', 'middle')
+    .attr('font-size', fs(11.5, 10))
+    .attr('fill', 'var(--ink-dim)')
+    .text(axisTitle(data.pc1Top, pct(data.explainedVariance[0]), 'PC1'));
 
-// Arrow marker def
-svg
-  .append('defs')
-  .append('marker')
-  .attr('id', 'arrow')
-  .attr('viewBox', '0 0 10 10')
-  .attr('refX', 8)
-  .attr('refY', 5)
-  .attr('markerWidth', 6)
-  .attr('markerHeight', 6)
-  .attr('orient', 'auto-start-reverse')
-  .append('path')
-  .attr('d', 'M 0 0 L 10 5 L 0 10 z')
-  .attr('fill', 'var(--accent)');
+  svg
+    .append('text')
+    .attr('transform', `translate(${Math.max(12, 16 * scale)},${margin.top + innerH / 2}) rotate(-90)`)
+    .attr('text-anchor', 'middle')
+    .attr('font-size', fs(11.5, 10))
+    .attr('fill', 'var(--ink-dim)')
+    .text(axisTitle(data.pc2Top, pct(data.explainedVariance[1]), 'PC2'));
+
+  // Loading vector overlay (hidden by default)
+  const loadingScale = Math.min(innerW, innerH) * 0.4;
+  const loadingGroup = g.append('g').attr('id', 'loading-vectors').style('display', toggle && toggle.checked ? null : 'none');
+
+  data.columns.forEach((col) => {
+    const vec = data.loadings[col];
+    if (!vec || vec.length < 2) return;
+    const lx = vec[0] * loadingScale;
+    const ly = -vec[1] * loadingScale; // flip: SVG y grows downward
+    loadingGroup
+      .append('line')
+      .attr('x1', x(0)).attr('y1', y(0))
+      .attr('x2', x(0) + lx).attr('y2', y(0) + ly)
+      .attr('stroke', 'var(--accent)')
+      .attr('stroke-width', 1)
+      .attr('marker-end', 'url(#arrow)')
+      .attr('opacity', 0.55);
+    loadingGroup
+      .append('text')
+      .attr('x', x(0) + lx * 1.08)
+      .attr('y', y(0) + ly * 1.08)
+      .attr('font-size', fs(9, 8.5))
+      .attr('fill', 'var(--accent)')
+      .attr('opacity', 0.8)
+      .text(col);
+  });
+
+  // Arrow marker def
+  svg
+    .append('defs')
+    .append('marker')
+    .attr('id', 'arrow')
+    .attr('viewBox', '0 0 10 10')
+    .attr('refX', 8)
+    .attr('refY', 5)
+    .attr('markerWidth', 6)
+    .attr('markerHeight', 6)
+    .attr('orient', 'auto-start-reverse')
+    .append('path')
+    .attr('d', 'M 0 0 L 10 5 L 0 10 z')
+    .attr('fill', 'var(--accent)');
+
+  // Points — each is a keyboard-focusable link wrapping the dot + label.
+  const pointGroup = g.append('g');
+  data.points.forEach((d) => {
+    const px = x(d.pc1);
+    const py = y(d.pc2);
+
+    const link = pointGroup
+      .append('a')
+      .attr('href', `/system/${d.id}/`)
+      .attr('class', 'map-point-link')
+      .attr('aria-label', `${d.name} (${d.category}). PC1: ${d.pc1.toFixed(2)}, PC2: ${d.pc2.toFixed(2)}. Open system profile.`);
+
+    link
+      .append('circle')
+      .attr('cx', px)
+      .attr('cy', py)
+      .attr('r', Math.max(4.5, 6 * scale))
+      .attr('fill', d.color)
+      .attr('stroke', 'var(--bg)')
+      .attr('stroke-width', 1.5)
+      .append('title')
+      .text(`${d.name} (${d.category})\nPC1: ${d.pc1.toFixed(2)}  PC2: ${d.pc2.toFixed(2)}`);
+
+    link
+      .append('text')
+      .attr('x', px + 9)
+      .attr('y', py + 4)
+      .attr('font-size', fs(11, 9.5))
+      .attr('fill', 'var(--ink)')
+      .text(d.name);
+  });
+
+  host.appendChild(svg.node());
+}
 
 if (toggle) {
   toggle.addEventListener('change', () => {
-    loadingGroup.style('display', toggle.checked ? null : 'none');
+    const loadingGroup = host.querySelector('#loading-vectors');
+    if (loadingGroup) {
+      loadingGroup.style.display = toggle.checked ? null : 'none';
+    }
   });
 }
 
-// Points
-const pointGroup = g.append('g');
-data.points.forEach((d) => {
-  const px = x(d.pc1);
-  const py = y(d.pc2);
+function debounce(fn, wait) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), wait);
+  };
+}
 
-  pointGroup
-    .append('circle')
-    .attr('cx', px)
-    .attr('cy', py)
-    .attr('r', 6)
-    .attr('fill', d.color)
-    .attr('stroke', 'var(--bg)')
-    .attr('stroke-width', 1.5)
-    .append('title')
-    .text(`${d.name} (${d.category})\nPC1: ${d.pc1.toFixed(2)}  PC2: ${d.pc2.toFixed(2)}`);
+const debouncedRedraw = debounce(draw, 150);
+window.addEventListener('resize', debouncedRedraw);
+if (typeof ResizeObserver !== 'undefined') {
+  const ro = new ResizeObserver(debouncedRedraw);
+  ro.observe(host);
+}
 
-  pointGroup
-    .append('text')
-    .attr('x', px + 9)
-    .attr('y', py + 4)
-    .attr('font-size', '11px')
-    .attr('fill', 'var(--ink)')
-    .text(d.name)
-    .style('cursor', 'pointer')
-    .on('click', () => {
-      window.location.href = `/system/${d.id}/`;
-    });
-});
-
-host.appendChild(svg.node());
+draw();
 }

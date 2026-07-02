@@ -1,0 +1,221 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Methods — Catalog of Complexity" description="The production pipeline as public-facing credibility: playbook, verifiers, provenance conventions.">
+  <h1 class="page-title">Methods: how an entry is made and checked</h1>
+  <p class="page-lede">
+    The git repo is the database, and the pipeline that fills it is as much a part of the
+    catalog's credibility as any individual number. This page describes the playbook, the
+    automated verification pipeline, the machine conformance check that gates every build, and
+    the validation program run against the finished v0.1 panel — including the parts of that
+    program that came back unflattering.
+  </p>
+
+  <div class="prose">
+    <h2>How an entry is produced</h2>
+    <p>
+      Every entry follows the same six-step playbook, proven by hand on the first two pilot
+      entries (tropical cyclones, financial markets) before being encoded as an automated
+      workflow for the remaining eight:
+    </p>
+    <ol>
+      <li>
+        <strong>Scoping note.</strong> Define the system boundary, granularity, and chosen
+        exemplar(s) before any research begins — what is inside the system and what is outside
+        it. Most catalog quality failures turn out to be scoping failures.
+      </li>
+      <li>
+        <strong>Source sweep.</strong> Build the entry's source list before filling any values:
+        the canonical review paper(s), the standard textbook treatment, and the seminal
+        complexity-literature papers for that system. Reviews are preferred for values; primary
+        papers are preferred for the provenance of famous numbers.
+      </li>
+      <li>
+        <strong>Panel fill.</strong> Column by column against the frozen panel spec. Quantitative
+        columns need a published value with unit, method, citation, and confidence. Rubric
+        columns are scored against the worked anchors with a justification citing system-specific
+        evidence. Anything not found is recorded as <code>unknown</code> with a note — never
+        interpolated, never guessed.
+      </li>
+      <li>
+        <strong>Adversarial verification.</strong> Four independent agents, each instructed to
+        try to refute the draft rather than approve it.
+      </li>
+      <li>
+        <strong>Flag triage.</strong> Every flag is routed for review with the verifier's note and
+        a proposed resolution; unflagged entries proceed without further human review.
+      </li>
+      <li>
+        <strong>Status bump.</strong> Draft becomes verified once all checks pass or flags are
+        resolved, then published at or after public launch.
+      </li>
+    </ol>
+
+    <h2>The four adversarial verifiers</h2>
+    <p>
+      This is the automated shape encoded in the entry-production workflow: research sweep, then
+      draft, then the four verifiers in parallel, then a fixer pass, then — once a whole batch of
+      entries exists — a cross-entry audit.
+    </p>
+    <ul>
+      <li>
+        <strong>Citation checker.</strong> Assumes every citation is wrong until the source is
+        shown to support the claim. A search snippet alone is never a pass; verdicts are pass
+        (source read, states the claim), partial (approximately right, with the exact
+        discrepancy noted), unverifiable (source unreachable), or fail (source contradicts or
+        doesn't contain the claim). Every fail blocks promotion.
+      </li>
+      <li>
+        <strong>Plausibility checker.</strong> Hunts arithmetic errors, unit errors,
+        order-of-magnitude contradictions, and internal inconsistencies — re-deriving every
+        derivable number, checking timescale nesting, and checking that evidence-status and
+        confidence combinations obey the panel spec (a "measured" value needs a source; a
+        "derived" value needs a stated method; an unsupported power-law tail must be marked
+        measured-untested).
+      </li>
+      <li>
+        <strong>Consistency checker.</strong> The commensurability enforcer: audits every
+        rubric or hybrid score against the anchor library, and — where the class is itself a
+        worked anchor — requires the score and justification to match the anchor exactly. Also
+        audits every filling rule and every level tag, and checks the new entry against the
+        already-verified entries for cross-entry coherence.
+      </li>
+      <li>
+        <strong>Coverage checker.</strong> Assumes the entry is incomplete. Checks all 30
+        panel-spec columns are present (missing-entirely is a defect; present-but-unknown is
+        not), checks every required structural block, and checks the source sweep for
+        recovered-but-never-integrated values.
+      </li>
+    </ul>
+    <p>
+      Verifier findings overrule both the draft and the anchors — during the pilot batch, a
+      primary read once corrected a worked anchor, not the entry it was checking. Once a whole
+      batch of entries lands, a cross-entry commensurability audit reads every entry against the
+      anchor scales together, hunts ordering violations (does an entry's rank on a column survive
+      a side-by-side reading of its justification against the scale text?), checks that expected
+      structural relationships hold, and verifies the relations graph is reciprocal.
+    </p>
+
+    <h2>Filling rules</h2>
+    <p>These eight rules are binding on both the research agents that draft entries and the verifiers that check them:</p>
+    <ul>
+      <li><strong>no-guessing</strong> — <code>unknown</code> is always a legal value; interpolation and vibes are not.</li>
+      <li><strong>power-law-rigor</strong> — a power-law claim enters the catalog only with CSN-2009-grade statistical support, or is explicitly labeled <code>measured-untested</code>.</li>
+      <li><strong>soc-two-claims</strong> — power-law event statistics and self-organized criticality as mechanism are separate claims, recorded separately.</li>
+      <li><strong>no-market-chaos</strong> — low-dimensional deterministic chaos in financial markets is debunked; markets get "nonlinear dependence: yes, deterministic chaos: no evidence."</li>
+      <li><strong>measurand-required</strong> — signal-relative quantities (entropy rate, temporal fractal dimension, tail exponents) must name their measurand.</li>
+      <li><strong>level-required</strong> — every value states whether it attaches at instance or class level.</li>
+      <li><strong>atomicity-convention</strong> — "atomic parts" are the lowest-level components at which the system's characteristic dynamics operate (a market's atoms are traders and orders, not neurons), declared per entry and audited for cross-entry consistency.</li>
+      <li><strong>interaction-typing</strong> — an interaction type is individuated by mechanism and carrier, not by outcome or sign (buy and sell orders are one type, order flow, not two), and is audited across entries the same way rubric scores are.</li>
+    </ul>
+
+    <h2>The conformance validator</h2>
+    <p>
+      Every entry must pass <code>analysis/validate.mjs</code>, a machine conformance checker
+      that reads the frozen panel spec and confirms structurally that every required column is
+      present with the right kind, that rubric scores are in range, that quantitative values
+      carry a level and evidence status, that component ontologies and interaction ontologies are
+      well-formed, and more — independent of whether any given value is actually correct. This
+      validator gates the production build: the Netlify build chain runs it before the analysis
+      pipeline and the site build, so a structurally malformed entry cannot ship.
+    </p>
+
+    <h2>The v0.2 validation program</h2>
+    <p>
+      Once the ten-entry pilot panel and its first cross-system analysis existed, a validation
+      pass stress-tested the instrument itself, not just individual entries. The results were not
+      uniformly flattering, and are reported here as run.
+    </p>
+    <p>
+      <strong>Blind inter-rater reliability study.</strong> Three blind raters (independent Claude
+      models at three tiers, with each sampled entry's own worked anchor redacted) rescored five
+      entries across all fifteen rubric and hybrid columns, and per-column agreement was computed
+      as ordinal Krippendorff's alpha. About a third of the columns — <code>adaptive_capacity</code>,
+      <code>chaos_sensitivity</code>, <code>information_processing</code>, and
+      <code>self_organization</code> — showed solid to excellent agreement, both with each other
+      and with the catalog's own scores. But three anchors came back at or below chance blind
+      agreement: <code>criticality</code> (alpha &asymp; &minus;0.27), <code>tipping_transitions</code>
+      (alpha &asymp; &minus;0.03), and <code>emergence</code> (alpha = 0.00). In each case the raters
+      agreed on the underlying facts but disagreed on how strictly to apply the column's own
+      scale boundary — how much informal or single-case evidence is enough to clear a higher
+      band. Those anchors have been flagged for tightening rather than treated as
+      already-adequate.
+    </p>
+    <p>
+      <strong>Leave-one-out robustness study.</strong> The PCA and correlation pipeline was
+      re-run ten times, once with each entry removed, plus perturbation and Monte Carlo checks on
+      individual score cells. The strongest correlation in the panel
+      (information_processing&harr;adaptive_capacity, r&nbsp;=&nbsp;0.952) held up as robust
+      across every leave-one-out run and every perturbation test. But the reported kinship between
+      the-internet and earthquake-fault-systems — flagged in the first analysis pass as an
+      interesting cross-category pattern — survived only 6 of 10 leave-one-out runs, and has been
+      demoted from a finding to an anecdote pending a larger roster.
+    </p>
+    <p>
+      <strong>Three-lens hostile-referee review.</strong> Independent adversarial reviews from a
+      statistics/psychometrics lens, a complexity-science lens, and a general hostile-referee
+      posture read the frozen instrument, its anchors, and the analysis built on top of it, and
+      filed structured findings. The most consequential single result: the reported correlations
+      are the largest of roughly 120 pairwise tests run across the score matrix, and at n&nbsp;=&nbsp;10
+      only the 0.952 information_processing&harr;adaptive_capacity coupling survives a
+      Bonferroni-style correction (critical |r| &asymp; 0.90). The other headline pairs reported in
+      the first analysis pass — decentralization&harr;self_organization (0.872),
+      information_processing&harr;alphabet_closure (0.868), modularity&harr;self_organization
+      (&minus;0.853), and adaptive_capacity&harr;alphabet_closure (0.850) — clear an uncorrected
+      significance threshold but fail the corrected one, and are now reported as
+      hypothesis-generating rather than statistically established. (The
+      adaptive_capacity&harr;alphabet_closure pair is treated somewhat differently because it was
+      a pre-registered hypothesis in the frozen panel spec rather than mined after the fact, which
+      earns it a partial pass on multiple-comparisons grounds even though it still misses strict
+      correction.) The reviews also raised structural questions the catalog has not fully
+      resolved — whether four of the dynamics columns (nonlinearity, feedback, chaos_sensitivity,
+      criticality) are measuring meaningfully separate things or are highly collinear by
+      construction, and whether the frozen panel omits a computational-capability axis outright
+      rather than merely deferring it. Both are recorded as open questions rather than settled
+      either way.
+    </p>
+    <p>
+      <strong>Prior-art scan.</strong> A dedicated sweep searched for existing attempts to score
+      multiple heterogeneous real systems on a common cross-domain complexity instrument. See
+      Related work below.
+    </p>
+
+    <h2>Related work</h2>
+    <p>
+      Every individual ingredient in this catalog pre-exists it; the combination is what is new.
+      Ladyman, Lambert &amp; Wiesner's feature checklist (<em>What is a complex system?</em>,
+      2013, and the 2020 book with Wiesner) is the closest relative by vocabulary — nonlinearity,
+      feedback, self-organization, robustness, decentralization, emergence, and hierarchy all
+      appear near-verbatim in both instruments, and this catalog's own filling rules cite LLW's
+      verdict directly. But LLW built the questionnaire and never administered it: named systems
+      appear only as one-off prose illustrations, never as rows scored against the feature list as
+      columns. Chaisson's energy-rate-density program (<em>Cosmic Evolution</em>, 2001, and
+      subsequent papers) is the closest relative by method discipline applied to non-biological
+      systems specifically — a real, citable, cross-system quantitative comparison spanning
+      astrophysical through cultural categories — but it is one metric, not a multi-dimensional
+      panel; it is one of this catalog's thirty columns rather than a rival instrument. The
+      network-science comparative-table genre (Newman's 2003 survey and its descendants) is the
+      closest relative by format — systems as rows, quantitative attributes as columns, with
+      citations — but it is topology-only, covering a proper subset of one of this catalog's six
+      column groups. Seshat, the Global History Databank, is the closest methodological cousin
+      for provenance discipline at scale — expert-coded, source-annotated, uncertainty-tagged
+      variables across roughly 400 historical polities — though its domain barely overlaps this
+      catalog's. No prior attempt at a fixed, frozen, multi-column panel applied uniformly across
+      heterogeneous non-biological real systems, with every value's provenance and evidential
+      status declared, feeding an actual statistical analysis, turned up in a focused search pass.
+      That is a statement about what a bounded search found, not a claim of exhaustive literature
+      clearance.
+    </p>
+
+    <h2>Provenance conventions</h2>
+    <p>
+      Every citation carries a read-status annotation — primary-read, snippet-verified, or
+      explicitly flagged as unverified model knowledge — so a reader can tell what was actually
+      checked from what was recalled. Fix logs and verification records inside each entry are
+      append-only: corrections are recorded as new dated entries, not silent overwrites, so the
+      evidence trail for every value survives. And <code>unknown</code> is always a legal value.
+      Guessing is not. A blank cell with a note is more honest than an interpolated number, and
+      the schema is built to make that the easy choice, not the effortful one.
+    </p>
+  </div>
+</Base>

@@ -156,6 +156,76 @@ export function columnLabel(id) {
     .join(' ');
 }
 
+// Element-symbol map for the periodic-table view (1-2 letter symbols,
+// per app/DESIGN.md "The periodic-table grid"). New entries get a symbol
+// on promotion; entries without one fall back to their first letter.
+export const SYMBOLS = {
+  stars: 'St',
+  'tropical-cyclones': 'Tc',
+  'planetary-climate': 'Pc',
+  'earthquake-fault-systems': 'Eq',
+  'river-networks': 'Rv',
+  cities: 'Ci',
+  'financial-markets': 'Fm',
+  'the-internet': 'In',
+  'power-grids': 'Pg',
+  languages: 'La',
+  // reserved for entries not yet drafted, per DESIGN.md:
+  'global-economy': 'Ge',
+  'weather-systems': 'We',
+  'ocean-circulation': 'Oc',
+  galaxies: 'Ga',
+  'world-wide-web': 'Ww',
+};
+
+export function symbolFor(id) {
+  return SYMBOLS[id] || id.slice(0, 2).replace(/^(.)/, (c) => c.toUpperCase());
+}
+
+// Best-guess category for unresolved relations-queue ids (ids referenced
+// by an entry's relations.part_of/contains but with no data/classes/*.yaml
+// file yet). Hardcoded per app/DESIGN.md — small, known queue.
+const QUEUE_CATEGORY_MAP = {
+  galaxies: 'astrophysical',
+  'weather-systems': 'geophysical',
+  'ocean-circulation': 'geophysical',
+  'plate-tectonics': 'geophysical',
+  'moist-convection-cells': 'geophysical',
+  'photospheric-convection-cells': 'astrophysical', // arguably astrophysical (stellar interior), per DESIGN.md
+  'global-economy': 'socio-economic',
+  firms: 'socio-economic',
+  cultures: 'cultural-informational',
+  'energy-systems': 'infrastructure',
+  'world-wide-web': 'infrastructure',
+  'road-traffic-systems': 'infrastructure',
+  'social-networks': 'cultural-informational',
+};
+
+/**
+ * The unresolved relations expansion queue: ids referenced by some
+ * entry's relations.part_of/contains that have no data/classes/*.yaml
+ * file of their own yet. Returns [{ id, category }], category inferred
+ * from QUEUE_CATEGORY_MAP (falls back to 'cultural-informational' for
+ * an id not yet in that map, so nothing is silently dropped).
+ */
+export function getUnresolvedQueue() {
+  const known = new Set(getEntries().map((e) => e.id));
+  const queueIds = new Set();
+  for (const entry of getEntries()) {
+    const refs = [
+      ...(entry.relations?.part_of || []),
+      ...(entry.relations?.contains || []),
+    ];
+    for (const id of refs) {
+      if (!known.has(id)) queueIds.add(id);
+    }
+  }
+  return [...queueIds].sort().map((id) => ({
+    id,
+    category: QUEUE_CATEGORY_MAP[id] || 'cultural-informational',
+  }));
+}
+
 let _entries = null;
 
 /** Load and cache all class entries from data/classes/*.yaml. */
