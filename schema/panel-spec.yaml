@@ -25,6 +25,7 @@ meta:
     exemplar: measured on a named exemplar, recorded as evidence inside the class entry (G-R b-value of the San Andreas; Zipf alpha=1.95 for English) — the exemplar is named in the value
   evidence_status: # required on every value
     - measured            # published measurement, uncontested
+    - measured-untested   # published measurement whose statistical rigor (e.g., CSN-grade tail testing) has not been assessed — power-law tail claims default here until assessed (added Phase 3, plausibility-check finding)
     - measured-disputed   # published but statistically or mechanistically contested
     - derived             # computed by this project from published inputs (flagged as ours)
     - qualitative         # rubric judgment; no measurement framework exists
@@ -36,8 +37,9 @@ filling_rules: # binding on research agents AND verifiers
   - id: power-law-rigor
     rule: >
       A power-law claim enters the catalog only with CSN-2009-grade statistical
-      support, or explicitly labeled 'claimed-untested'. Most famous power laws
-      failed CSN's test; the catalog does not repeat scale-free folklore.
+      support, or explicitly labeled via evidence_status: measured-untested.
+      Most famous power laws failed CSN's test; the catalog does not repeat
+      scale-free folklore.
     source: Clauset, Shalizi & Newman, SIAM Review 51:661 (2009)
   - id: soc-two-claims
     rule: >
@@ -103,6 +105,21 @@ columns:
       Total count of atomic parts (order of magnitude), overall and per part
       type, derived from component_ontology below.
     note: No framework gives a threshold; the value, not a cutoff, is the datum.
+
+  - id: instance_population
+    group: A
+    kind: quantitative
+    unit: count (standing population and/or formation rate)
+    status: extended
+    definition: >
+      How many instances of the class exist (standing count) and/or form per
+      unit time, class-level only. Governs which class-statistical claims are
+      epistemically possible — an n=1 class cannot support class-level
+      distributions.
+    note: >
+      Pulled from the schema parking lot during Phase 3 — the first earned
+      adoption: the tropical-cyclones sweep returned global climatology
+      (~85 storms/yr) with no column to hold it.
 
   - id: component_ontology
     group: A

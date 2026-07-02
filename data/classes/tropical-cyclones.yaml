@@ -1,0 +1,454 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: tropical-cyclones
+# First hand-built entry (Phase 3). Battle-tests schema v0.3.
+# ============================================================
+id: tropical-cyclones
+name: Tropical cyclones
+category: geophysical
+status: verified         # promoted 2026-07-02: all four checks completed, flags resolved or recorded as standing data limitations
+
+exemplars:
+  - id: hurricane-katrina
+    name: Hurricane Katrina (2005)
+    note: primary worked exemplar; among the best-instrumented storms in history
+    ace: "20.0e4 kt^2 — project-computed from the NHC TCR Table 1 best track (24 synoptic TS/HU entries >=34 kt; full working in research/phase3/flag-cleanup-tropical-cyclones.md); no published Katrina-specific figure found to cross-check; plausible against the 2005 season total of 245.3e4 kt^2"
+    ace_evidence_status: derived
+  - id: hurricane-andrew
+    name: Hurricane Andrew (1992)
+
+scoping_note: >
+  The system is the mature tropical cyclone as a coherent vortex: the organized
+  circulation from boundary-layer inflow through eyewall convection to
+  upper-tropospheric outflow, over a lifecycle from genesis to decay. Inside
+  the boundary: the air, water vapor, and condensate participating in the
+  circulation, and the ocean-surface enthalpy-flux interface. Outside: the
+  steering environment and ocean heat content (treated as forcing), the ocean
+  below the mixed layer, and human forecasting institutions. Atomicity per
+  filling_rules.atomicity-convention: moist air parcels at convection-resolving
+  scale (order 1 km^3), aggregating first into convective cells. Scoring is
+  class-general; exemplar evidence primarily from Katrina (2005).
+
+summary: >
+  A tropical cyclone is a self-organizing atmospheric heat engine: a rotating
+  storm system that assembles itself from disorganized convection over warm
+  ocean water, drawing heat from the sea surface and dissipating it as wind.
+  Nothing designs a hurricane and nothing controls one; its signature
+  structures — the calm eye, the violent eyewall, the spiral rainbands —
+  emerge spontaneously and can reorganize themselves mid-storm. Among the
+  purest natural examples of order maintained entirely by a flow of energy.
+
+relations:
+  part_of: [weather-systems, planetary-climate]   # weather-systems unresolved -> roster expansion queue
+  contains: [moist-convection-cells]              # unresolved; distinct from Rayleigh-Benard convection-cells — see component_ontology
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 1e6
+    unit: m
+    method: order of magnitude of the overall circulation diameter
+    detail:
+      eye_diameter: "4.6-8.3e4 m over Katrina's lifecycle (25-45 NM: 45 NM at Advisory 18, 25 NM at Advisories 22/24 near peak intensity, 30 NM at Advisory 26 pre-landfall — NHC Forecast/Advisory bulletins, primary)"
+      radius_max_wind: "4.7e4 m climatological mean; 1.0-2.5e4 m for contracted mature eyewalls"
+      circulation_diameter: "~1e6 m typical"
+    sources: [nhc-tcr-katrina, noaa-aoml-faq, nhc-advisories]
+    evidence_status: measured
+    confidence: medium
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: convective overturning, value: "~1e3-1e4 s", evidence_status: qualitative}
+      - {name: eyewall replacement cycle, value: "12-48 h typical (range 6-54 h)", sources: [noaa-erc], evidence_status: measured, confidence: medium}
+      - {name: storm lifetime, value: "~1-2 weeks (~1e6 s)", sources: [noaa-climatology], evidence_status: measured, confidence: medium}
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~1e7 dynamical parcels at the declared 1 km^3 convention"
+    note: "Convective-cell/hot-tower counts not recovered in the Phase 3 sweep — that sub-count stays unknown."
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "~85 named storms formed per year globally; ~45 reach hurricane strength; standing active population fluctuates ~0-10"
+    sources: [noaa-climatology]
+    evidence_status: measured
+    confidence: medium
+    note: first column pulled from the schema parking lot (earned adoption — see decisions.md).
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: moist air parcels (incl. condensate)
+        count_oom: "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)"
+        interchangeable: yes
+        itself_complex: no
+      - name: convective cells / hot towers
+        role: composite — first aggregation level; parcels are the atoms (listed for the compositional link, consistent with the hierarchy_depth convention)
+        count_oom: "not recovered in Phase 3 sweep; unknown"
+        interchangeable: yes
+        itself_complex: moist-convection-cells   # unresolved -> expansion queue; deliberately DISTINCT from the Rayleigh-Benard convection-cells class (coverage check caught the conflation)
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: "~1.5 (kinetic-dissipation basis) to ~6e2 (latent-heat-throughput basis)"
+    unit: erg s^-1 g^-1
+    method: >
+      DERIVED by this project: published power figures (NOAA/AOML FAQ,
+      primary-read this session — latent condensation release 6.0e14 W,
+      kinetic dissipation 1.5e12 W, ratio 400:1) divided by an
+      order-of-magnitude circulating-mass estimate of ~1e16 kg (mean
+      tropospheric density ~0.7 kg/m^3 x the scoping note's declared
+      circulation volume ~1.2e16 m^3). NO published mass figure was recovered;
+      the denominator is a project estimate. Conversion: 1 W/kg = 1e4 erg/s/g.
+      Physical reading worth keeping: on the kinetic basis a hurricane's
+      Phi_m (~1.5) is the same order as the Sun's (2); on the throughput
+      basis (~600) it sits in Chaisson's climasphere-to-plants band.
+      Verification updates: arithmetic independently re-derived exactly
+      (plausibility check); the 0.7 kg/m^3 column-mean density runs ~25-30%
+      above a barometric estimate (~0.55) — same order either way; and a
+      published ~1e16 kg total circulating-mass estimate (Remote Sensing
+      15(20):4919, 2023 — full citation obtained at flag cleanup; figures
+      still snippet-level, publisher 403-blocked) corroborates the project
+      denominator.
+    sources: [noaa-aoml-faq, chaisson2011, rs2023]
+    evidence_status: derived
+    confidence: medium
+    verifier_flags: [mass-corroboration-snippet-level-only]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: momentum / pressure-gradient exchange
+        mechanism: fluid stress and pressure forces between adjacent parcels
+        participants: air parcels
+        range: local
+      - name: latent-heat / moisture exchange
+        mechanism: phase change (evaporation, condensation) coupling thermodynamics to dynamics
+        participants: air parcels
+        range: local
+      - name: surface enthalpy flux
+        mechanism: wind-speed-dependent heat/moisture transfer at the air-sea interface
+        participants: boundary-layer parcels <-> ocean surface (boundary)
+        range: local
+      - name: radiative exchange
+        mechanism: longwave/shortwave transfer
+        participants: all parcels
+        range: global (weak relative to the above)
+    type_count: 4
+    alphabet_closure: closed   # fixed by physics; no new interaction types can arise
+    justification: >
+      One closed physical family: every interaction is fixed by fluid dynamics,
+      thermodynamics, and radiation. The canonical closed-alphabet system.
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: continuum system; no meaningful node-degree representation.
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Convective cells and rainbands give weak, transient lateral structure
+      (forming and dissolving on hour timescales, strongly coupled through the
+      shared vortex-scale circulation); eyewall vs. rainband distinction is
+      morphology, not insulated modules. Matches the anchor scale's 1
+      (fuzzy, gradational, no stable preferred partition).
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): count aggregation levels above the
+      atomic parts up to and including the whole — parcels (atoms) ->
+      convective cells (1) -> rainband/eyewall complexes (2) -> storm-scale
+      vortex (3).
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: 1.35
+    unit: dimensionless (D)
+    method: >
+      Area-perimeter fractal dimension of tropical cloud/rain-field
+      boundaries (satellite/radar). A hurricane-specific published D was not
+      located; this is the general tropical convective cloud-field figure.
+    sources: [lovejoy1982]
+    evidence_status: measured
+    confidence: medium
+    verifier_flags: [snippet-verified-only]
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; the vortex-scale organization arises
+      entirely from local fluid-thermodynamic interactions under rotation.
+      Same reasoning as the stars anchor: there is nothing whose removal would
+      constitute "loss of control."
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (nonlinearity.yaml): moist Navier-Stokes
+      dynamics with multiplicative WISHE coupling; rapid intensification is
+      threshold/switch-like; eyewall replacement is nonlinear pattern
+      reorganization. Nonlinearity is definitional to formation,
+      intensification, and decay.
+    evidence_status: qualitative
+  feedback:
+    type: rubric
+    level: class-general
+    score: 4
+    loops:
+      - {name: WISHE, sign: reinforcing, mechanism: "stronger surface wind -> greater ocean enthalpy flux -> more convective energy -> stronger wind (Emanuel 1986)"}
+      - {name: SST drawdown / cold wake, sign: balancing, mechanism: "intense wind mixes cool subsurface water up -> reduced heat flux -> intensification brake (documented pre-landfall for Katrina)"}
+      - {name: eyewall replacement cycle, sign: balancing/oscillatory, mechanism: "outer eyewall starves inner eyewall of inflow -> temporary weakening -> reorganization"}
+    justification: >
+      Per this class's own anchor (feedback.yaml): intensification IS a feedback
+      phenomenon; loop structure is the literature's primary explanatory device.
+    sources: [emanuel1986]
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (openness_dissipation.yaml): a canonical
+      Carnot-type heat engine (~300 K intake, ~200 K exhaust; ceiling
+      efficiency ~1/3), dissipating order 10^12-10^13 W; cutting the ocean
+      heat flux (landfall, cold water) collapses the structure within ~a day —
+      faster than its own lifetime. The textbook 4. Dissipative heating even
+      recycles frictional loss into a ~20% boost to maximum intensity
+      (Emanuel 1999) — the dissipation is itself dynamically load-bearing.
+    sources: [emanuel1986, emanuel1999]
+    evidence_status: measured
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (chaos_sensitivity.yaml): inherits the
+      established atmospheric predictability limit (error-doubling ~2-5 days,
+      ~2-week deterministic ceiling; operationally load-bearing in ensemble
+      forecasting); track skill degrades on exactly this horizon, intensity
+      forecasting worse.
+    sources: [charney1966, krishnamurthy2019]
+    evidence_status: measured
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: none
+    justification: >
+      No established scale-invariant event statistics for a storm's INTERNAL
+      dynamics and no proposed SOC mechanism for the vortex itself.
+      Note: the power-law claim for dissipation across storms (Corral et al.
+      2010) is a CLASS-level event-statistics claim recorded under
+      extreme_event_statistics, not evidence the individual storm sits at a
+      critical point — per filling_rules.soc-two-claims discipline.
+    evidence_status: qualitative
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: "power-law exponents alpha per basin: 1.19, 1.17, 0.98, 1.11 (range ~0.98-1.19)"
+    measurand: per-storm power dissipation index (PDI) across storms, per ocean basin
+    method: power-law fits to PDI distributions across four ocean basins
+    sources: [corral2010]
+    evidence_status: measured-untested
+    confidence: medium
+    note: >
+      CORRECTED at citation check: the draft's "example tau=1.16" appeared
+      nowhere in the paper (wrong value AND wrong symbol — a snippet-era
+      artifact); replaced with the actual per-basin alpha values after the
+      primary was read via ar5iv. Rigor ASSESSED at flag cleanup
+      (2026-07-02): verdict NEAR-CSN — genuine Kolmogorov-Smirnov
+      goodness-of-fit tests (one-sample p>60% in all basins), but no
+      comparison against alternative heavy-tailed distributions (the
+      CSN-defining test) and the exponent-fitting method is unstated.
+      measured-untested is therefore the settled label, not a placeholder.
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: no established measurand chosen for the class; candidate — interannual ACE autocorrelation. Left unknown rather than stretched.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Two named, formally modeled regime-shift mechanisms exist: rapid
+      intensification (threshold/switch-like transition actively studied as a
+      forecasting problem) and the eyewall replacement cycle (documented
+      reorganization between quasi-stable vortex configurations). Matches
+      anchor level 2 — specific mechanisms published, no systematic
+      tipping-element inventory comparable to the climate case.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Storm state is essentially a function of current environment (SST, shear,
+      moisture) plus short relaxation lags; no bistability or hysteresis loop
+      is documented for the vortex itself. The ocean cold wake is a memory the
+      storm writes into its ENVIRONMENT (affecting successor storms), which
+      falls outside this entry's boundary per the scoping note — noted, not
+      scored. Matches anchor level 1 (relaxation memory only).
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport: pressure waves, advection, phase change, and
+      radiative transfer, with no detection-transmission-response structure
+      anywhere in the chain — the same canonical-0 reasoning as the stars
+      anchor in information_processing.yaml. A fixed threshold (convective
+      triggering) is a bifurcation, not detection.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Air parcels obey fixed physics; no component modifies its response
+      function in light of history. WISHE and other feedbacks operate, they do
+      not learn — the regulation-vs-adaptation distinction the anchor's
+      does_not_count enforces. Together with high self-organization scores,
+      this is the archetypal complex-physical (non-CAS) profile.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among components.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (emergence.yaml): minimum central pressure,
+      maximum sustained wind, Saffir-Simpson category, and Emanuel's
+      potential-intensity theory are formalized, predictive macro-machinery —
+      the working vocabulary of the field — not relabelings of grid-cell
+      fields. Weak/epistemic sense throughout.
+    sources: [emanuel1986]
+    evidence_status: qualitative
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (self_organization.yaml): eyewall, rainbands,
+      and storm-scale circulation assemble spontaneously from moist convection
+      under rotation; nothing specifies the form in advance. Canonical
+      dissipative structure.
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: exemplar(hurricane-katrina)
+    score: 1
+    justification: >
+      Per this class's own anchor (robustness_resilience.yaml): organization
+      is maintained only within a narrow environmental envelope; shear, cool
+      water, or landfall — routine features of its environment — rapidly
+      destroy it, as landfall did for Katrina. Class-level persistence
+      ("hurricanes keep forming") deliberately not credited, per the anchor's
+      does_not_count.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No component-to-component failure propagation exists: an eyewall
+      replacement is reorganization of a continuum flow, not a failure cascade
+      through coupled discrete components. Same floor-anchor reasoning as
+      stars in cascade_susceptibility.yaml.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Eyewall (and eye)
+    order_parameter: radius of maximum wind; minimum central pressure
+  - name: Spiral rainbands
+    order_parameter: band spacing/geometry (morphological)
+  - name: Warm core
+    order_parameter: core temperature anomaly
+  - name: Storm-scale vortex
+    order_parameter: maximum sustained wind (Saffir-Simpson categorization)
+
+sources:
+  emanuel1986:
+    citation: "Emanuel, K. (1986). An air-sea interaction theory for tropical cyclones. Part I. J. Atmos. Sci. 43(6), 585-605."
+  emanuel2003:
+    citation: "Emanuel, K. (2003). Tropical cyclones. Annu. Rev. Earth Planet. Sci. 31, 75-104."
+  charney1966:
+    citation: "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220."
+  krishnamurthy2019:
+    citation: "Krishnamurthy, V. (2019). Predictability of Weather and Climate. Earth and Space Science 6."
+  chaisson2011:
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27."
+  corral2010:
+    citation: "Corral, A., Osso, A. & Llebot, J.E. (2010). Scaling of tropical-cyclone dissipation. Nature Physics 6, 693-696. arXiv:0910.0054. [primary-read via ar5iv at citation check]"
+  lovejoy1982:
+    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216, 185-187. [snippet-verified, cross-confirmed]"
+  noaa-aoml-faq:
+    citation: "NOAA/AOML Hurricane Research Division, Tropical Cyclone FAQ, energetics section. [primary-read this session]"
+  emanuel1999:
+    citation: "Emanuel, K. (1999). Thermodynamic control of hurricane intensity. Nature 401, 665-669. [snippet-verified]"
+  nhc-tcr-katrina:
+    citation: "Knabb, R.D., Rhome, J.R. & Brown, D.P. NHC Tropical Cyclone Report: Hurricane Katrina, 23-30 August 2005 (AL122005). [primary-read in full at citation check — confirms 902 mb minimum pressure; contains NO eye-diameter figure]"
+  noaa-climatology:
+    citation: "WMO/NOAA-derived global tropical-cyclone climatology: ~85 named storms/yr, ~45 reaching hurricane strength. [snippet-verified; primary attribution traces to WMO]"
+  noaa-erc:
+    citation: "NOAA-sourced explainers on eyewall replacement cycles (12-48 h typical). [snippet-verified]"
+  rs2023:
+    citation: "A Tropical Cyclone or Typhoon as an Element of the Earth-Atmosphere-Ionosphere-Magnetosphere System. Remote Sensing 15(20), 4919 (2023). [citation verified; mass figures snippet-level — publisher 403-blocked]"
+  nhc-advisories:
+    citation: "NHC Forecast/Advisory bulletins, Hurricane Katrina (AL122005), Advisories 18-26: EYE DIAMETER 45/25/25/30 NM. [primary-read at flag cleanup]"
+
+provenance:
+  drafted_by: human (orchestrator) + agent (quantitative sweep pending integration)
+  scoping_and_rubrics: orchestrator hand-build, Phase 3
+  verification:
+    citation_check: "completed 2026-07-01 — 3 PASS / 3 unverifiable / 2 FAIL; both FAILs corrected in place (fabricated tau=1.16 example; miscited eye diameter)"
+    plausibility_check: "completed 2026-07-01 — all arithmetic re-derived exactly; density-estimate spread noted in method"
+    consistency_check: "completed 2026-07-01 — all 15 rubric/hybrid scores match anchors exactly"
+    coverage_check: "completed 2026-07-01 — all 30 panel columns present; mass corroboration found; Emanuel 1999 orphan integrated"
+  flags:   # standing data limitations, not errors
+    - column: fractal_dimension_spatial
+      note: Lovejoy 1982 remains snippet-verified (paywalled; author site unreachable); no hurricane-specific D exists in the literature.
+    - column: energy_rate_density
+      note: rs2023 mass figures cited but content snippet-level (publisher 403-blocked); re-verify when reachable.
+  flag_cleanup_notes:   # 2026-07-02
+    - column: extreme_event_statistics
+      outcome: RESOLVED — Corral 2010 methodology assessed NEAR-CSN (real KS goodness-of-fit tests; no alternative-distribution comparison); measured-untested settled.
+    - column: exemplar-statistics
+      outcome: RESOLVED — Katrina ACE = 20.0e4 kt^2 project-computed from the primary-read NHC TCR best track.
+    - column: spatial_extent
+      outcome: RESOLVED — eye diameter now primary-sourced to NHC Forecast/Advisory bulletins (25-45 NM over lifecycle).
+    - column: energy_rate_density
+      outcome: PARTIAL — full citation obtained for the 2023 circulating-mass paper; figures still snippet-level.

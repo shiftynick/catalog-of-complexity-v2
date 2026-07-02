@@ -1,0 +1,460 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: financial-markets
+# Second hand-built entry (Phase 3). The CAS counterpart to
+# tropical-cyclones: together they span the panel's extremes.
+# ============================================================
+id: financial-markets
+name: Financial markets
+category: socio-economic
+status: verified         # promoted 2026-07-02: all four checks completed, flags resolved or recorded as standing data limitations
+
+exemplars:
+  - id: nyse
+    name: New York Stock Exchange
+    note: primary worked exemplar; longest-instrumented major exchange
+  - id: flash-crash-2010
+    name: The Flash Crash (May 6, 2010)
+    note: event exemplar for cascade and nonlinearity evidence
+
+scoping_note: >
+  The system is the public securities market as an ongoing price-formation
+  institution, exemplified by the NYSE: trading agents (humans and
+  algorithms), the order flow they generate, the listed instruments, and the
+  matching/clearing mechanism plus its rule set. Inside the boundary: market
+  participants acting in the market, orders, prices, exchange rules, and the
+  exchange operator (so institutional rule changes count as internal
+  adaptation). Outside: the real economy generating fundamentals (forcing),
+  macro policy, and the physical datacenter substrate (recorded only under
+  openness_dissipation). Atomicity per filling_rules.atomicity-convention:
+  trading agents and orders — not neurons, not firms' internal org charts.
+  Scoring is class-general; exemplar evidence primarily NYSE.
+
+summary: >
+  A financial market is a machine no one built for a purpose no one assigned:
+  a continuously running auction that aggregates the dispersed knowledge and
+  guesses of millions of participants into a single public number — the
+  price. It adapts at every level (traders learn, strategies die, rules get
+  rewritten after every crisis), and its characteristic failures are
+  self-inflicted: crashes propagated by the same feedback machinery that
+  makes it work. The archetypal complex adaptive system without a single
+  living cell in its definition.
+
+relations:
+  part_of: [global-economy]          # unresolved -> roster expansion queue
+  contains: []                       # clearing/payment systems: candidate future entries, left unresolved
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: not-applicable-spatial
+    note: >
+      Institutionally global, physically concentrated (matching engines in
+      single datacenters). Recorded as a boundary fact rather than stretched
+      into a misleading meters figure — candidate schema question for the
+      pilot review: does spatial_extent need an 'institutional' escape value?
+  characteristic_timescales:
+    type: quantitative
+    level: exemplar(nyse)
+    timescales:
+      - {name: order-message processing, value: "microsecond-scale and below (~0.1-0.9 us mean spacing implied by 1e11-1e12 messages/day)", evidence_status: qualitative}
+      - {name: settlement cycle, value: "T+1 (effective 2024-05-28)", sources: [sec-t1-2024], evidence_status: measured, confidence: high}
+      - {name: volatility regimes, value: "months (persistence of high/low-vol states)", sources: [cont2001], evidence_status: qualitative}
+      - {name: secular market cycles, value: "years to decades", evidence_status: qualitative}
+  numerosity:
+    type: quantitative
+    level: exemplar(nyse)
+    value: "~1.6e3-2.4e3 listed companies (methodology-dependent spread — see component_ontology); ~1.5e9 shares (~$8e10) traded daily; order-message flow ~1e11-1e12 per day"
+    sources: [nyse-data-insights, market-scale-figures]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Message-volume record of 356 billion/day (2021-03-04) is primary-read
+      from NYSE's own Data Insights; ~1.2 trillion/day 2025 figures are
+      snippet-level AND possibly differently scoped (messages vs quotes vs
+      consolidated-feed events — plausibility check), so treat the 2021-vs-
+      2025 comparison as indicative only. Share/dollar volumes are a Nov 2025
+      snapshot from secondary aggregators. Participant/agent counts not
+      recovered (candidate source per coverage check: FINRA Industry Snapshot).
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "69 WFE formal members (exchanges/CCPs, as of Oct 2023); >250 market-infrastructure providers on WFE's broader definition"
+    sources: [wfe-stats]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Pinned at flag cleanup (secondary sources quoting WFE; world-exchanges.org
+      itself 403-blocked, so the 69-members vs >250-infrastructures
+      definitional split is recorded rather than reconciled).
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: trading agents (human traders, algorithmic strategies)
+        count_oom: "US industry-wide: ~6.4e5 registered representatives, ~3.2e3 member firms (FINRA 2025 Industry Snapshot); NYSE-specific participant counts not found; algorithmic-agent counts genuinely unmeasured"
+        interchangeable: no          # heterogeneous strategies are load-bearing
+        itself_complex: out-of-scope(human) / firms   # firms unresolved -> expansion queue (roster candidate: firms & corporations)
+      - name: orders (limit/market/cancel messages)
+        count_oom: "~1e11-1e12 per day (NYSE message volume; record 3.56e11 on 2021-03-04, primary-read)"
+        interchangeable: yes
+        itself_complex: no
+      - name: listed instruments
+        count_oom: "~1.6e3-2.4e3 listed companies depending on date and domestic/international methodology — primary sources conflict; recorded as a spread"
+        interchangeable: no
+        itself_complex: no
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(nyse)
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Sweep verdict (Phase 3): no citable NYSE-specific energy-draw figure
+      exists — only colocation-facility power CAPACITY listings that conflict
+      with each other (28 MW vs 2.2 MW), conflate capacity with draw, and
+      conflate NYSE-owned compute with tenant compute. Recorded as unknown
+      rather than derived: the honesty test concluded that Phi_m is not
+      currently derivable for this institutional system, a genuine coverage
+      finding about the metric itself.
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+    note: star-shaped at the matching engine per venue; networked across venues and participants.
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: order flow (submit / amend / cancel)
+        mechanism: formalized messages against the limit order book
+        participants: trading agents -> matching engine
+        range: network-mediated
+      - name: trade execution
+        mechanism: matching engine crosses orders; ownership transfer via clearing
+        participants: trading agents (paired by the mechanism)
+        range: network-mediated
+      - name: public information broadcast
+        mechanism: quotes, prints, index values via consolidated feeds
+        participants: exchange -> all agents
+        range: global
+      - name: rule-setting / listing agreements
+        mechanism: institutional contracts and rulebook changes
+        participants: exchange <-> firms/regulator interface
+        range: global, slow timescale
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      The interaction alphabet is a fixed formal set defined by the exchange
+      rulebook — agents cannot unilaterally invent interaction types, but the
+      alphabet DOES change through governance (new order types are added
+      institutionally). "Constrained" thus sits genuinely between the
+      hurricane's physics-closed alphabet and a society's open one — exactly
+      the gradient the D13 column was built to capture.
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Contested in the literature (coverage check): interbank/trading-network
+      studies split between scale-free claims and statistical rejections
+      (core-periphery / non-power-law fits). Fill with specific citations at
+      the next research pass rather than a bare exponent.
+  modularity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Real, moderate subdivision — venues, asset classes, and sector clusters
+      in the return-correlation structure — but heavily coupled: arbitrage
+      actively enforces cross-module price coherence, and stress episodes
+      correlate everything. Matches the anchor scale's 2 (recognizable
+      subunits, substantial cross-module flow).
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared): agents (atoms) -> desks/firms (1) -> venues/
+      exchanges (2) -> the integrated market system (3). Orders and listed
+      instruments are interaction substrate/tokens, not aggregation levels
+      (consistency fix per plausibility check).
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: no primary spatial structure; temporal roughness lives in temporal_correlation.
+  decentralization:
+    type: rubric
+    level: class-general   # retagged per consistency check: reasoning holds for any operator-run exchange
+    score: 2
+    justification: >
+      Per this class's own anchor (decentralization.yaml): a central
+      institution operates the matching engine and can halt trading, but the
+      behavior of interest — price formation — is produced by distributed
+      decisions of many traders whom no one commands.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (nonlinearity.yaml): multiplicative,
+      threshold-driven interactions — GARCH-type variance dynamics, margin
+      calls and stop-loss cascades, liquidity feedback; flash-crash dynamics
+      as textbook nonlinear cascade from small triggers.
+    evidence_status: qualitative
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: momentum/herding, sign: reinforcing, mechanism: "price rise attracts trend-following buying -> further rise; symmetric downside amplified by margin calls"}
+      - {name: value/mean-reversion, sign: balancing, mechanism: "deviation from fundamental estimates draws arbitrage against the move; slow but persistent"}
+      - {name: volatility-liquidity spiral, sign: reinforcing (episodic), mechanism: "volatility widens spreads and withdraws liquidity -> larger price impact -> more volatility (flash-crash mechanics)"}
+    justification: >
+      Per this class's own anchor (feedback.yaml): loops are central but not
+      the sole organizing description outside crisis episodes (idiosyncratic
+      information arrival, scheduled rebalancing) — hence 3, not 4.
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: exemplar(nyse)
+    score: 2
+    justification: >
+      Per this class's own anchor (openness_dissipation.yaml): genuinely open
+      as physical infrastructure (datacenter power draw), but the throughput
+      sustains the computing substrate rather than generating the price
+      dynamics — literal-flux reading only, per the column's does_not_count
+      ban on "economic disequilibrium" framings.
+    evidence_status: qualitative
+  chaos_sensitivity:
+    type: rubric
+    level: class-general   # retagged per consistency check: the no-market-chaos finding is class-scoped
+    score: 1
+    justification: >
+      Per this class's own anchor (chaos_sensitivity.yaml) and the binding
+      no-market-chaos rule: nonlinear statistical dependence yes (volatility
+      clustering), low-dimensional deterministic chaos no accepted evidence —
+      the post-Scheinkman-LeBaron BDS-test literature moved this to a fairly
+      clear negative consensus.
+    evidence_status: measured-disputed
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: contested   # enum-conformant (was 'proposed-contested'; substance: proposed and contested)
+    justification: >
+      Per this class's own anchor (criticality.yaml): heavy-tailed returns are
+      well documented (recorded under extreme_event_statistics), but SOC-style
+      "markets sit at a critical point" claims compete unresolved with GARCH,
+      multifractal, and herding frameworks — event statistics solid elsewhere,
+      criticality mechanism weak.
+    evidence_status: qualitative
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: "return tail exponent alpha ~ 3 (the 'inverse cubic law'); volume tails zeta_Q = 1.53 +/- 0.07; trade-count tails zeta_N = 3.4 +/- 0.05 (US), 3.17 +/- 0.1 (Paris Bourse)"
+    measurand: normalized return distribution tails (per-stock and index, minutes-to-days timescales); share-volume and trade-count tails
+    method: tail fits to TAQ data, 1994-1995, ~4e7 data points (returns); Plerou/Gopikrishnan et al. fits for volume and trade counts
+    sources: [gopikrishnan1998, gopikrishnan2000, gabaix2003, gabaix-review]
+    evidence_status: measured-untested   # per filling_rules.power-law-rigor
+    confidence: medium
+    note: >
+      Flag-cleanup findings (2026-07-02): CSN 2009's 24-dataset study did NOT
+      include equity returns — confirmed against the primary-read table
+      transcription in research/phase1/quantitative-backbone.md — so the
+      cubic law's untested-by-CSN-standards status is definitive, not merely
+      unresolved; measured-untested stands. Volume/trade-count error bars
+      verified via Gabaix's own signed review citing the primary Phys. Rev. E
+      papers (primary-author-review tier; PRE full texts unfetchable).
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: "linear autocorrelation of returns ~0 beyond minutes; autocorrelation of |returns| decays as a power law, exponent beta in [0.2, 0.4] (long memory)"
+    measurand: autocorrelation functions of returns vs of absolute returns — the distinction is the datum
+    sources: [cont2001]
+    evidence_status: measured
+    confidence: medium
+    note: read once-removed (via a citing paper); confirm against Cont 2001 directly at citation check.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (tipping_transitions.yaml): early-warning-
+      signal frameworks are explicitly proposed for markets and bubble-crash
+      regime models exist for individual episodes, but empirical
+      critical-slowing-down confirmation is thin and there is no systematic
+      tipping-element inventory.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own anchor (memory_hysteresis.yaml): documented
+      path-dependent regime scarring (post-1987 and post-2008 volatility risk
+      premia elevated for years at comparable fundamentals) and
+      state-dependent order-flow impact — real hysteresis-like effects without
+      a single canonical loop-width number.
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (information_processing.yaml): price
+      discovery aggregates dispersed private information into a public
+      statistic no participant holds (Hayek's information-aggregation
+      function, operationalized in the limit order book); responses are
+      conditioned on the constructed state, not raw inputs. Top of scale.
+    sources: [hayek1945]
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (adaptive_capacity.yaml): learning traders
+      and algorithms, selection among strategies and firms, institutional rule
+      revision after crises (circuit breakers post-1987) — adaptation at
+      component, population, and institutional levels simultaneously. The full
+      CAS profile, at the opposite pole from tropical-cyclones' 0.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Strategy variation is continuous; selection removes losing strategies
+      and undercapitalized firms; retention through imitation and
+      institutionalization. Mechanism taxonomy recorded here per the panel
+      spec, referenced by adaptive_capacity.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per this class's own anchor (emergence.yaml): price is THE order
+      parameter; multiple layered macro-theories (asset pricing,
+      microstructure, behavioral deviations) are simultaneously load-bearing,
+      and micro-level enumeration is not how the science is or could be done.
+    evidence_status: qualitative
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Designed skeleton with substantial spontaneous order on top — the
+      textbook level-2 shape, parallel to the-internet anchor: price
+      formation, liquidity provision patterns, and the ecology of strategies
+      grow from uncoordinated trading decisions inside an exchange-rulebook
+      skeleton, exactly as Internet traffic/topology grows inside a protocol
+      skeleton. The system's historical genesis was genuinely spontaneous
+      (the 1792 Buttonwood Agreement was traders organizing themselves), but
+      the column scores the CURRENT order, and the modern market operates
+      inside a heavily and continuously re-templated designed structure
+      (securities regulation, Reg NMS, circuit breakers, settlement rules).
+      Adjudicated 3 -> 2 by the consistency checker against the orchestrator's
+      initial draft; adjudication accepted (see provenance).
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Absorbs its characteristic perturbation spectrum — crashes (1987, 2008,
+      2020), wars, panics — recovering function, with scars (regulation,
+      volatility regimes) rather than identity loss; the NYSE has operated for
+      two centuries including a four-month closure in 1914. Known destructive
+      event classes exist (hyperinflation, capital controls, political
+      dissolution), which is what separates 3 from 4 under the anchor's
+      normalization rule.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Per this class's own anchor (cascade_susceptibility.yaml): dedicated
+      case studies and mechanism analyses exist (1987; the 2010 Flash Crash
+      reconstruction across futures/equities/ETFs; circuit breakers exist
+      precisely because propagation is real), but no fitted cross-event
+      cascade-size distribution comparable to the blackout literature.
+    sources: [sec-cftc-flashcrash]
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Price
+    order_parameter: the price itself — aggregated dispersed information
+  - name: Volatility regimes
+    order_parameter: realized/implied volatility level and persistence
+  - name: Liquidity
+    order_parameter: bid-ask spread, order-book depth
+  - name: Strategy ecology
+    order_parameter: population shares of strategy types (momentum, value, market-making)
+
+sources:
+  hayek1945:
+    citation: "Hayek, F.A. (1945). The Use of Knowledge in Society. American Economic Review 35(4), 519-530."
+  cont2001:
+    citation: "Cont, R. (2001). Empirical properties of asset returns: stylized facts and statistical issues. Quantitative Finance 1, 223-236. [read once-removed via citing paper]"
+  gopikrishnan1998:
+    citation: "Gopikrishnan, P., Meyer, M., Amaral, L.A.N. & Stanley, H.E. (1998). Inverse cubic law for the distribution of stock price variations. Eur. Phys. J. B 3, 139-140. [primary-read via arXiv abstract]"
+  gabaix2003:
+    citation: "Gabaix, X., Gopikrishnan, P., Plerou, V. & Stanley, H.E. (2003). A theory of power-law distributions in financial market fluctuations. Nature 423, 267-270; related Physica A 324, 1-5. [snippet-verified — full PDFs unreachable this session]"
+  sec-t1-2024:
+    citation: "U.S. SEC press release 2024-62: T+1 settlement effective May 28, 2024. [primary-read]"
+  nyse-data-insights:
+    citation: "NYSE Data Insights: record 356 billion order messages processed on 2021-03-04. [primary-read at nyse.com]"
+  market-scale-figures:
+    citation: "NYSE scale figures (listed companies ~2,400; ADV ~1.54B shares / ~$80.6B, Nov 2025 snapshot; ~1.2T messages/day 2025 peaks) — secondary aggregators and press. [snippet-verified]"
+  sec-cftc-flashcrash:
+    citation: "CFTC & SEC (2010). Findings Regarding the Market Events of May 6, 2010: Report of the Staffs of the CFTC and SEC. [located and primary-confirmed at coverage check]"
+  wfe-stats:
+    citation: "World Federation of Exchanges membership: 69 formal members (exchanges/CCPs) as of Oct 2023; '>250 market infrastructures' broader claim. [secondary quoting WFE; WFE site 403-blocked]"
+  gopikrishnan2000:
+    citation: "Gopikrishnan, P., Plerou, V., Gabaix, X. & Stanley, H.E. (2000). Statistical properties of share volume traded in financial markets. Phys. Rev. E 62, R4493. arXiv:cond-mat/0008113."
+  gabaix-review:
+    citation: "Gabaix, X. Power Laws in Economics and Finance (author-hosted review; source for zeta_N = 3.4 +/- 0.05 (US) and 3.17 +/- 0.1 (Paris), quoting Plerou et al. primaries)."
+  finra2025:
+    citation: "FINRA 2025 Industry Snapshot: 639,723 registered representatives; 3,184 member firms (year-end 2025). [search-summary level; PDF unreadable in-session]"
+
+provenance:
+  drafted_by: human (orchestrator) + agent (quantitative sweep pending integration)
+  scoping_and_rubrics: orchestrator hand-build, Phase 3
+  verification:
+    citation_check: "completed 2026-07-01 — 4 PASS / 1 unverifiable (sec.gov 403-blocked) / 0 FAIL"
+    plausibility_check: "completed 2026-07-01 — no arithmetic errors; timescale label and measurand caveats fixed"
+    consistency_check: "completed 2026-07-01 — self_organization adjudicated 3->2 (accepted); enum + level tags fixed"
+    coverage_check: "completed 2026-07-01 — all 30 columns present; instance_population filled; Flash Crash report integrated"
+  verification_notes:
+    - column: self_organization
+      outcome: RESOLVED — consistency checker adjudicated 3 -> 2 (orchestrator's boundary-case draft overruled; the scale's 2-vs-3 line turns on current templating, not historical genesis). Anchor file unamended — the scale was principled as written.
+  flags:
+    - column: energy_rate_density
+      note: standing data limitation, not an error — no citable draw figure exists; revisit if one surfaces.
+  flag_cleanup_notes:   # 2026-07-02
+    - column: extreme_event_statistics
+      outcome: RESOLVED — CSN 2009 confirmed to have never tested equity returns; error bars pinned via primary-author review.
+    - column: numerosity / component_ontology
+      outcome: RESOLVED-WITH-SPREAD — FINRA participant counts filled; listed-company count recorded as a methodology-dependent range because primary sources genuinely conflict.
+    - column: instance_population
+      outcome: RESOLVED — WFE 69 formal members (Oct 2023) pinned; definitional split recorded.
