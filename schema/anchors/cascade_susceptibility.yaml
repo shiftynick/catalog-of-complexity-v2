@@ -1,0 +1,172 @@
+column: cascade_susceptibility
+version: 0.1-draft
+scale:
+  0: >
+    The system has no documented mechanism by which a local failure
+    propagates beyond its immediate origin; components are sufficiently
+    decoupled, buffered, or redundant that failures are empirically or
+    theoretically contained (no cascade literature exists, or dedicated
+    analysis finds propagation does not occur beyond first neighbors).
+  1: >
+    Local failure propagation is plausible or informally discussed
+    (engineering risk assessments, anecdotal "domino effect" language) but no
+    dedicated empirical or model-based study of cascade size/extent has been
+    published for this system.
+  2: >
+    At least one dedicated study models or documents cascading failure for
+    this system (simulation-based and/or a small number of real case
+    studies), establishing that cascades occur and characterizing their
+    rough extent, but there is no fitted size-distribution across many
+    events and no contested/uncontested statistical claim to record.
+  3: >
+    A quantitative cascade/failure-size distribution has been fit to a
+    substantial empirical dataset (many real events, not simulation alone)
+    with a stated functional form (e.g. power-law tail) and parameter
+    estimate, published in the primary literature — regardless of whether
+    that functional-form claim is itself statistically disputed by
+    downstream critics (a disputed power-law fit still earns 3, not less;
+    the dispute is recorded via evidence_status: measured-disputed, per
+    filling_rules.power-law-rigor, not by lowering the score).
+  4: >
+    As level 3, AND the mechanism driving the cascade dynamics is
+    additionally supported by an accepted quantitative model connecting
+    component-level physics to the observed size distribution (e.g. a
+    self-organized-criticality-consistent loading/relaxation model matched
+    to real network topology and operating data), with the statistical
+    fit and mechanism both surviving at least one round of published
+    methodological challenge without being overturned. No system in this
+    catalog is expected to reach a clean, uncontested 4.
+does_not_count: |
+  General "fragility" or qualitative interconnectedness talk does not earn more than a
+  1 — this column specifically requires evidence that a LOCAL failure propagates through
+  coupling to affect distant/unrelated parts of the system, not merely that the system
+  is complex or important. A disputed statistical fit is not downgraded for being
+  disputed (see level 3): per filling_rules.power-law-rigor, the catalog records the
+  dispute via evidence_status rather than silently discounting the finding, mirroring
+  how Dobson et al.'s blackout power-law is reported as real-but-contested rather than
+  suppressed. Do not conflate with criticality (scale-invariant EVENT statistics /
+  SOC mechanism status, a related but logically separate claim — see criticality.yaml,
+  which explicitly does not use power-grids as a worked anchor to avoid this conflation)
+  or with tipping_transitions (alternative stable states / bifurcations in a single
+  system's aggregate state, not failure propagation through a networked system's
+  components).
+anchors:
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 3
+    justification: >
+      Dobson, Carreras, Lynch & Newman (2007, Chaos 17:026103) analyzed NERC
+      and other national blackout datasets and report the frequency of large
+      blackouts follows an approximately power-law tail (decay exponent
+      roughly 1.3-2.0 for North American unserved-energy data, 1984-1998;
+      similar ranges for New Zealand, China, Norway), interpreted as
+      consistent with the grid self-organizing near a critical loading
+      point. This is a genuine fit to decades of real blackout data, not
+      simulation alone — but the power-law-vs-alternative-heavy-tail
+      classification itself is disputed by statistical-rigor critics in the
+      Clauset-Shalizi-Newman tradition, who note log-log-by-eye fits are not
+      the same as MLE + goodness-of-fit testing against alternatives
+      (log-normal, truncated power law). Per this column's level-3
+      definition, the dispute is recorded via evidence_status rather than
+      used to suppress or lower the score. ERCOT specifically inherits the
+      broader North American grid literature; no ERCOT-specific fitted
+      exponent was located in Phase 1 research, so the score generalizes
+      from the class-level (power grid) finding.
+    evidence_status: measured-disputed
+    sources: [dobson2007]
+  - system: the-internet
+    category: infrastructure
+    score: 1
+    justification: >
+      Cascading-failure vulnerability for BGP/interdomain routing is a real
+      and active research area (routing-table oscillation, peering-session
+      drops propagating under load, simulation studies of cascades on
+      scale-free network topologies), but this is dominated by
+      graph-theoretic modeling rather than a fitted empirical outage-size
+      distribution across many real events comparable to Dobson et al.'s
+      blackout work. No primary source establishing "Internet outage sizes
+      follow distribution X with exponent Y, fit to N years of data" was
+      located during Phase 1 research (flagged as a probable literature gap,
+      not a confirmed negative result — see research/phase1/SYNTHESIS.md
+      open item). Scored 1: propagation is plausible and discussed, but no
+      dedicated cascade-size study (simulation or empirical) rises to level 2.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 2
+    justification: >
+      Cascading dynamics are documented for specific mechanisms — most
+      concretely, exchange circuit breakers exist precisely because
+      regulators and researchers identified that automated selling can
+      propagate across correlated instruments and venues (studied
+      extensively after the 1987 crash and the 2010 Flash Crash, including
+      event reconstructions of how the Flash Crash cascaded across
+      futures/equities/ETFs within minutes). These are dedicated case
+      studies and mechanism analyses (level 2: cascades occur, rough extent
+      characterized), but there is no fitted cross-event cascade-size
+      distribution analogous to the multi-decade blackout dataset, so this
+      does not reach level 3.
+    evidence_status: qualitative
+    sources: []
+  - system: river-networks
+    exemplar: "Mississippi River basin"
+    category: geophysical
+    score: 1
+    justification: >
+      Flood-pulse propagation down a river network is physically real
+      (a levee breach or upstream flood stage does propagate downstream
+      effects), and flood-control engineering (the Old River Control
+      Structure, the Bonnet Carre and Morganza spillways) exists
+      specifically to manage cascade-like flood propagation. But no
+      dedicated cascade-size-distribution study (empirical or simulation)
+      analogous to the grid or market cases was located in Phase 1
+      research; this is discussed in flood-engineering risk terms rather
+      than quantified as a cascade-statistics phenomenon. Scored 1:
+      propagation mechanism is real and load-bearing for infrastructure
+      decisions, but undocumented as a characterized cascade phenomenon in
+      the complexity-science sense.
+    evidence_status: qualitative
+    sources: []
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 0
+    justification: >
+      No cascading-failure literature applies to the Sun as a system: solar
+      flares and coronal mass ejections are individually triggered
+      magnetic-reconnection events (see criticality.yaml for their power-law
+      energy statistics), but there is no documented mechanism by which one
+      region's flare event propagates a failure cascade to otherwise
+      unrelated regions of the Sun the way a blackout or BGP cascade
+      propagates through a coupled network of discrete components. Retained
+      as the deliberate floor anchor: a system can have strong event-scale
+      criticality behavior (Sun scores 2 there) while scoring 0 here,
+      because cascade_susceptibility specifically requires component-to-
+      component failure propagation through a coupled system, which the
+      Sun's flare dynamics do not exhibit.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Distinct from criticality: a cascade is a failure-PROPAGATION process through a
+  networked/coupled system's components, while criticality is about whether the
+  system's characteristic EVENTS follow scale-invariant statistics and whether that is
+  explained by a critical-point/SOC mechanism. The two frequently co-occur in the
+  literature for power grids (Dobson et al. interpret blackout cascades as evidence the
+  grid self-organizes near criticality) but are scored as separate claims per
+  filling_rules.soc-two-claims' spirit — power-grids is the anchor here (cascade
+  statistics measured-disputed) while criticality.yaml deliberately does NOT use
+  power-grids as a worked anchor, to keep the two columns' worked examples from bleeding
+  into each other. Distinct from tipping_transitions: a cascade need not involve any
+  alternative stable state or bifurcation in the aggregate system (a blackout cascade
+  ends with restoration to the same qualitative regime, not a new stable state).
+  Distinct from robustness_resilience: this column measures susceptibility TO a cascade
+  mechanism existing/being characterized, not the system's overall capacity to maintain
+  function under arbitrary perturbation — a system could be highly resilient overall
+  (redundant, fast-recovering) while still having a well-characterized cascade
+  mechanism on its weak axis (this is arguably the ERCOT case: February 2021 showed
+  real cascade-adjacent load-shedding dynamics despite general grid redundancy).
+sources:
+  dobson2007: "Dobson, I., Carreras, B.A., Lynch, V.E. & Newman, D.E. (2007). Complex systems analysis of series of blackouts: Cascading failure, critical points, and self-organization. Chaos 17, 026103."

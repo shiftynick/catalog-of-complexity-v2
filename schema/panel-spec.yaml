@@ -1,0 +1,398 @@
+# ============================================================
+# Catalog of Complexity — Metric Panel Specification
+# ============================================================
+# The single authority that entry-research agents fill against.
+# Derived from the Phase 1 evidence reports in research/phase1/
+# (see research/phase1/SYNTHESIS.md for the reasoning and
+# editorial calls behind every inclusion, merge, and drop).
+# ============================================================
+
+meta:
+  version: 0.3-draft
+  status: >
+    columns defined; rubric anchors drafted for all 15 rubric/hybrid columns
+    (schema/anchors/*.yaml, Phase 1b) and vetted by the orchestrator;
+    pending calibration against real entries in the Phase 3 pilot.
+  column_kinds:
+    quantitative: published value + unit + method + citation
+    rubric: 0-4 ordinal score + written justification + citations
+    hybrid: rubric score, PLUS quantitative evidence where published
+    categorical: value from the controlled vocabulary given per column
+    structured: typed sub-fields (lists/objects) per the column definition; audited for cross-entry consistency like rubric scores
+    narrative: curated prose
+  level: # where a value attaches (D14: entries are classes; exemplars carry evidence)
+    class-general: holds for the kind as such (potential-intensity theory for tropical cyclones; Zipf's law across city sizes)
+    exemplar: measured on a named exemplar, recorded as evidence inside the class entry (G-R b-value of the San Andreas; Zipf alpha=1.95 for English) — the exemplar is named in the value
+  evidence_status: # required on every value
+    - measured            # published measurement, uncontested
+    - measured-disputed   # published but statistically or mechanistically contested
+    - derived             # computed by this project from published inputs (flagged as ours)
+    - qualitative         # rubric judgment; no measurement framework exists
+    - unknown             # nothing found; never guessed
+
+filling_rules: # binding on research agents AND verifiers
+  - id: no-guessing
+    rule: "'unknown' is always legal. Interpolation and vibes are not."
+  - id: power-law-rigor
+    rule: >
+      A power-law claim enters the catalog only with CSN-2009-grade statistical
+      support, or explicitly labeled 'claimed-untested'. Most famous power laws
+      failed CSN's test; the catalog does not repeat scale-free folklore.
+    source: Clauset, Shalizi & Newman, SIAM Review 51:661 (2009)
+  - id: soc-two-claims
+    rule: >
+      'Power-law event statistics' and 'self-organized criticality as mechanism'
+      are separate claims recorded separately. G-R statistics: solid. SOC as the
+      mechanism behind earthquakes: contested (Watkins et al. 2016).
+  - id: no-market-chaos
+    rule: >
+      Low-dimensional deterministic chaos in financial markets is debunked;
+      markets get 'nonlinear dependence: yes, deterministic chaos: no evidence'.
+  - id: measurand-required
+    rule: >
+      Signal-relative quantities (entropy rate, temporal fractal dimension,
+      tail exponents) MUST name their measurand (which signal/variable/units).
+  - id: level-required
+    rule: "Every value states whether it attaches at instance or class level."
+  - id: atomicity-convention
+    rule: >
+      "Atomic parts" are the lowest-level components at which the system's
+      CHARACTERISTIC dynamics operate — a market's atoms are traders and
+      orders, not neurons; a hurricane's are air parcels, not molecules.
+      Each entry declares its atomicity choice in the scoping note; the
+      consistency checker audits comparable systems for comparable choices.
+  - id: interaction-typing
+    rule: >
+      An interaction type is individuated by mechanism and carrier, not by
+      outcome or sign: buy and sell orders are one type (order flow), not
+      two. Type lists and closure verdicts are audited for cross-entry
+      consistency exactly like rubric scores.
+
+# ============================================================
+# GROUP A — IDENTITY & SCALE
+# ============================================================
+columns:
+  - id: category
+    group: A
+    kind: categorical
+    status: core
+    vocabulary: [astrophysical, geophysical, physical-chemical, socio-economic, infrastructure, cultural-informational]
+
+  - id: spatial_extent
+    group: A
+    kind: quantitative
+    unit: m
+    status: core
+    definition: Characteristic linear extent, order of magnitude.
+
+  - id: characteristic_timescales
+    group: A
+    kind: quantitative
+    unit: s
+    status: core
+    definition: >
+      Named timescales as a list (fastest constituent process, dominant
+      dynamics, system lifetime), each order-of-magnitude with measurand named.
+
+  - id: numerosity
+    group: A
+    kind: quantitative
+    unit: count (order of magnitude)
+    status: core
+    definition: >
+      Total count of atomic parts (order of magnitude), overall and per part
+      type, derived from component_ontology below.
+    note: No framework gives a threshold; the value, not a cutoff, is the datum.
+
+  - id: component_ontology
+    group: A
+    kind: structured
+    status: core
+    definition: >
+      The system's atomic parts, per filling_rules.atomicity-convention. A
+      list of part types, each: {name, count_oom, interchangeable: yes|no,
+      itself_complex: <catalog-entry-id> | out-of-scope(<what>) | no}.
+      Supersedes the earlier component_diversity column (type count = list
+      length) and grounds numerosity (total count across types).
+    note: >
+      Part types that are themselves complex systems link the compositional
+      graph downward (a city contains power grids and markets); living
+      components (humans in socio-technical systems) are marked
+      out-of-scope(human) rather than linked, per the scope line (D2).
+      Worked examples: hurricane — one part type (air parcels,
+      interchangeable); nyse — traders/firms (out-of-scope(human) /
+      itself_complex where institutional), orders, listed instruments;
+      english — dual ontology: speakers (agents, out-of-scope(human)) AND
+      lexical/grammatical units (replicators), each with its own
+      interaction set.
+
+  - id: energy_rate_density
+    group: A
+    kind: quantitative
+    unit: erg s^-1 g^-1
+    status: core
+    definition: Chaisson's free energy rate density (Phi_m).
+    method: >
+      Published value where it exists (Sun: ~2). For most systems this must be
+      DERIVED by us from published energy-throughput and mass figures —
+      evidence_status: derived. One of the project's original contributions.
+    sources: [chaisson2011]
+
+# ============================================================
+# GROUP B — STRUCTURE
+# ============================================================
+  - id: interaction_topology
+    group: B
+    kind: categorical
+    status: core
+    vocabulary: [field/continuum, lattice, network, hierarchical-mixed]
+
+  - id: interaction_ontology
+    group: B
+    kind: structured
+    status: core
+    definition: >
+      The interaction types available between atomic parts, per
+      filling_rules.interaction-typing. A list, each: {name,
+      mechanism/carrier, participants (which part types), range:
+      local | network-mediated | global}. Summary fields: type_count
+      (integer) and alphabet_closure: closed (fixed by physics — elastic
+      stress transfer is the fault system's entire alphabet) | constrained
+      (fixed formal set — exchange order types, routing-protocol messages)
+      | open (new interaction types can arise — social and cultural
+      systems).
+    note: >
+      Candidate flagship axis. The closed -> constrained -> open gradient is
+      this catalog's nearest analogue to chemical valence — the attribute
+      that made the original periodic table periodic. Analysis hypothesis
+      (Phase 5): alphabet_closure correlates with adaptive_capacity;
+      systems that break the correlation would be the interesting ones.
+
+  - id: degree_distribution
+    group: B
+    kind: quantitative
+    status: extended
+    definition: >
+      Distribution class (power-law / exponential / other) + exponent where a
+      rigorous fit exists. Subject to filling_rules.power-law-rigor.
+    note: >
+      Newman 2003 baseline — Internet AS-level alpha~2.5; Western US power grid
+      is EXPONENTIAL, not scale-free.
+    sources: [newman2003]
+
+  - id: modularity
+    group: B
+    kind: hybrid
+    status: extended
+    definition: Degree of modular organization; quantitative Q where network data exists.
+
+  - id: hierarchy_depth
+    group: B
+    kind: quantitative
+    unit: count of organizational levels
+    status: core
+    definition: >
+      Number of nested organizational levels, with the level-counting convention
+      written out per entry. HIGH commensurability risk — the counting convention
+      is what the consistency checker audits hardest.
+    note: >
+      Counts levels INSIDE the entry's boundary. Composition BETWEEN catalog
+      entries (a hurricane is part of the climate system; a city contains a
+      power grid) lives in the entry-level relations block (part_of /
+      contains — see docs/schema.md), not in this column.
+
+  - id: fractal_dimension_spatial
+    group: B
+    kind: quantitative
+    unit: dimensionless (D)
+    status: extended
+    definition: Fractal dimension of the primary SPATIAL structure (measurand named).
+    note: "San Andreas trace: D~1.1-1.4 by segment (Aviles et al. 1987); river networks and city boundaries have published values."
+
+  - id: decentralization
+    group: B
+    kind: rubric
+    status: core
+    definition: >
+      Locus of control: 4 = fully distributed, no privileged controller;
+      0 = single central controller. Distinct from self_organization
+      (origin of order vs. locus of control) — anchors must enforce this.
+
+# ============================================================
+# GROUP C — DYNAMICS
+# ============================================================
+  - id: nonlinearity
+    group: C
+    kind: rubric
+    status: core
+    definition: Prevalence and centrality of nonlinear interactions in the dominant dynamics.
+    note: In all 5 surveyed frameworks, but LLW call it neither necessary nor sufficient.
+
+  - id: feedback
+    group: C
+    kind: rubric
+    status: core
+    definition: >
+      Strength/centrality of feedback, 0-4, PLUS a structured list of the
+      dominant loops (sign, mechanism) as narrative.
+
+  - id: openness_dissipation
+    group: C
+    kind: hybrid
+    status: core
+    definition: >
+      Distance from thermodynamic equilibrium, anchored in PHYSICAL energy and
+      matter throughput (literal for all systems — cities consume watts too;
+      links energy_rate_density). Avoids the literal/metaphorical drift the
+      framework survey flagged.
+
+  - id: chaos_sensitivity
+    group: C
+    kind: hybrid
+    status: core
+    definition: >
+      Sensitive dependence on initial conditions. Quantitative where honestly
+      measured (atmosphere: ~2-week predictability horizon); rubric elsewhere.
+      Subject to filling_rules.no-market-chaos.
+
+  - id: criticality
+    group: C
+    kind: hybrid
+    status: core
+    definition: >
+      Proximity to critical points / scale-invariant event dynamics. Two
+      sub-claims recorded per filling_rules.soc-two-claims: (a) event-statistics
+      evidence, (b) mechanism status [none/proposed/contested/established].
+
+  - id: extreme_event_statistics
+    group: C
+    kind: quantitative
+    unit: tail exponent alpha (+ fit verdict)
+    status: core
+    definition: >
+      Heavy-tail statistics of the system's characteristic events, with CSN-grade
+      fit status. Instance- or class-level per system (level-required rule).
+    note: "CSN 2009: word frequency alpha=1.95 was the study's only clean power law; CA earthquake sizes formally rejected (raw form) while G-R b~1.0 stands in magnitude — record the tension, don't resolve it silently."
+
+  - id: temporal_correlation
+    group: C
+    kind: quantitative
+    unit: Hurst exponent / correlation structure
+    status: extended
+    definition: Long-range temporal correlation of the primary signal (measurand named).
+
+  - id: tipping_transitions
+    group: C
+    kind: hybrid
+    status: extended
+    definition: >
+      Identified regime shifts / tipping elements (count + list where literature
+      exists — climate: 16 elements, Armstrong McKay 2022) + rubric for
+      susceptibility where not formally studied.
+
+# ============================================================
+# GROUP D — INFORMATION & MEMORY
+# ============================================================
+  - id: memory_hysteresis
+    group: D
+    kind: hybrid
+    status: core
+    definition: >
+      Persistence of history in system state/structure, incl. measured hysteresis
+      (AMOC ~0.4 Sv model-derived; traffic hysteresis loops). Absorbs
+      path-dependence — one column, anchors span both senses.
+
+  - id: information_processing
+    group: D
+    kind: rubric
+    status: core
+    definition: >
+      Degree to which the system detects, transmits, and responds to information
+      in a state-dependent way. Strict anchors required: mere signal propagation
+      does not count. 0-1 scores for the Sun and fault systems are expected and
+      informative, not category errors.
+
+# ============================================================
+# GROUP E — ADAPTATION
+# ============================================================
+  - id: adaptive_capacity
+    group: E
+    kind: rubric
+    status: core
+    definition: >
+      Do components change behavior in response to environment/experience?
+      EDITORIAL CALL: adaptation is a dimension, not an entry criterion
+      (resolves LLW vs. Holland/Mitchell). Sun: 0. NYSE: 4. Both legitimate.
+      Likely the catalog's sharpest CAS/non-CAS discriminator axis.
+
+  - id: variation_selection
+    group: E
+    kind: categorical
+    status: extended
+    vocabulary: [present, absent, contested]
+    definition: Variation-selection-retention dynamics operating on system components (with justification).
+
+# ============================================================
+# GROUP F — EMERGENCE & ROBUSTNESS
+# ============================================================
+  - id: emergence
+    group: F
+    kind: rubric
+    status: core
+    definition: >
+      Fixed operational sense — WEAK/epistemic emergence: macro-level order
+      requiring description in new terms (order parameters), not trivially
+      reducible. Strong/ontological emergence claims are out of scope.
+      Paired with the entry-level emergent_phenomena narrative list.
+
+  - id: self_organization
+    group: F
+    kind: rubric
+    status: core
+    definition: >
+      Spontaneous order without external templating. The most load-bearing
+      cross-framework feature (5/5 frameworks; LLW's strongest condition).
+      Distinct from decentralization — see that column.
+
+  - id: robustness_resilience
+    group: F
+    kind: rubric
+    status: core
+    definition: >
+      Maintenance of structure/function under perturbation. Anchors must
+      handle the tension with adaptive_capacity (resist vs. embrace change).
+
+  - id: cascade_susceptibility
+    group: F
+    kind: hybrid
+    status: extended
+    definition: >
+      Susceptibility to cascading failure; quantitative where studied (blackout
+      size distributions, Dobson et al. 2007 — power-law claim itself disputed,
+      evidence_status: measured-disputed).
+
+# ============================================================
+# CONCEPTUAL LAYER — mention-only measures (not columns)
+# ============================================================
+# Theoretically central, practically uncomputable for real macroscopic
+# systems (no verified numeric value found for any real non-biological
+# system — research/phase1/formal-measures.md). Surfaced in the app as
+# educational content, never as data.
+conceptual_layer:
+  - kolmogorov_complexity      # provably uncomputable
+  - logical_depth              # Bennett; doubly uncomputable
+  - thermodynamic_depth        # Lloyd & Pagels; subjective macrostate partition (Shalizi's critique)
+  - effective_complexity       # Gell-Mann & Lloyd; inherits K(x) + subjective regularity split
+  - statistical_complexity     # Crutchfield & Young; usable in principle, no pilot-system values yet
+  - excess_entropy             # Grassberger; toy-system literature only
+  - multiscale_entropy         # physiological literature; output is a curve, not a scalar
+  - complexity_profile         # Bar-Yam; treated as methodological lens, not column
+
+sources:
+  chaisson2011: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27."
+  csn2009: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661."
+  newman2003: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167."
+  bettencourt2007: "Bettencourt, L. et al. (2007). Growth, innovation, scaling, and the pace of life in cities. PNAS 104(17), 7301."
+  llw2013: "Ladyman, J., Lambert, J. & Wiesner, K. (2013). What is a complex system? Eur. J. Phil. Sci. 3, 33."
+  watkins2016: "Watkins, N. et al. (2016). 25 Years of Self-organized Criticality. Space Science Reviews 198, 3."
+  # Full citation lists live in the four research/phase1/ reports.

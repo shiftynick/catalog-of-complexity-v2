@@ -1,0 +1,198 @@
+# ============================================================
+# Catalog of Complexity — Rubric Anchors: memory_hysteresis
+# ============================================================
+# Spec definition (panel-spec.yaml, group D): Persistence of history in
+# system state/structure, incl. measured hysteresis (AMOC ~0.4 Sv
+# model-derived; traffic hysteresis loops). Absorbs path-dependence —
+# one column, anchors span both senses (state memory AND historical
+# contingency of structure).
+# ============================================================
+
+column: memory_hysteresis
+version: 0.1-draft
+
+scale:
+  0: >
+    System state at time t is (within noise) a function of current boundary
+    conditions/forcing alone. Re-running from the same instantaneous
+    conditions but a different history produces the same state. No
+    structural trace of past perturbations persists once the perturbation
+    ends.
+  1: >
+    Weak, short-lived relaxation memory only: state lags forcing by a
+    timescale comparable to the system's own fastest internal relaxation
+    time, then fully re-converges to the forcing-determined state. No
+    multi-stability, no structural scarring, no path-dependent branching.
+  2: >
+    Demonstrable path-dependence over an intermediate timescale — two
+    different histories reaching the "same" macro-forcing produce
+    measurably different states/structures for a while — but the system
+    still has a single global attractor it eventually relaxes back to; no
+    published bistability or hysteresis-loop measurement exists.
+  3: >
+    Documented hysteresis or multistability: the same forcing level yields
+    different steady states depending on the direction/history of forcing
+    (a measured or modeled hysteresis loop, regime-switching, or scarring
+    that materially outlives the perturbation), but the effect is
+    localized, partial, or model-derived rather than directly observed at
+    full scale.
+  4: >
+    Strong, structural, long-lived history-dependence that is directly
+    documented with a quantitative loop/threshold AND materially shapes
+    present-day structure or function (irreversible or very-slow-to-erase):
+    e.g., a measured hysteresis width, a permanently altered network
+    topology from a past shock, or an accumulated structural record (strata,
+    scar tissue of institutions, lexical fossils) that is itself the
+    primary evidence used to reconstruct the system's history.
+
+does_not_count: |
+  Instantaneous state that merely correlates with current forcing does not
+  count, however complex the current state looks (that is dynamics, not
+  memory). A system "remembering" its initial condition only because it has
+  not yet reached equilibrium (pure transient decay with no bifurcation or
+  loop) is capped at 1 — routine relaxation lag is not hysteresis. Do not
+  reward memory_hysteresis for phenomena that are actually about prediction
+  or feedback (see information_processing, group C feedback) — this column
+  is about the past leaving a trace, not about the system processing
+  incoming signals. Do not conflate "the system has a long characteristic
+  timescale" (that's characteristic_timescales, group A) with "the system's
+  state depends on which path it took to get here."
+
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 1
+    justification: >
+      The Sun's structure at any epoch is set by its current mass, composition,
+      and evolutionary-track position; stellar structure equations plus current
+      composition (itself a monotonic result of nuclear burning, not a
+      reversible history) determine the state essentially uniquely. There is
+      relaxation lag (e.g., the ~10^5-yr Kelvin-Helmholtz photon diffusion time
+      means core changes are not felt at the surface instantaneously) but no
+      bistability, no hysteresis loop, and no scenario where two different
+      pasts converge to the same mass/composition/age and yield different
+      present structures. Composition changes (H fusing to He) are irreversible
+      but are evolutionary drift along a single track, not path-dependent
+      branching.
+    evidence_status: qualitative
+    sources: []
+
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 2
+    justification: >
+      Fault strength and rupture behavior at a given segment depend on
+      accumulated slip-deficit and the specific history of prior ruptures
+      (stress shadows, segment "unzipping" order) — the same tectonic loading
+      rate does not guarantee the same next-earthquake location or timing,
+      because prior events redistribute stress in ways that persist for
+      decades. This is genuine path-dependence. It is capped below 3 because
+      there is no published hysteresis-loop measurement (no loading-vs-slip
+      curve with a documented loop width) — the evidence is qualitative
+      stress-transfer modeling (e.g., Coulomb stress-change studies), not a
+      quantified hysteresis metric.
+    evidence_status: qualitative
+    sources: []
+
+  - system: planetary-climate
+    exemplar: "Earth"
+    category: geophysical
+    score: 4
+    justification: >
+      The Atlantic Meridional Overturning Circulation shows model-derived
+      hysteresis: for a band of freshwater-forcing values, the "on" (strong
+      overturning) and "off" (collapsed) circulation states are both stable,
+      and which one obtains depends on forcing history, not just current
+      forcing level. van Westen et al. (2023, GRL) estimate a hysteresis
+      width of order 0.4 Sv in freshwater forcing between collapse and
+      recovery thresholds in a GCM. Ice-sheet mass balance (Greenland/WAIS)
+      shows analogous bistability in the tipping-elements literature (Lenton
+      et al. 2008; Armstrong McKay et al. 2022). This is model-derived rather
+      than an observed real-world loop (the real ocean has not been driven
+      through a full cycle), which the catalog must flag explicitly, but the
+      quantitative loop and its structural consequence (a qualitatively
+      different circulation regime) both clearly warrant the top score.
+    evidence_status: measured-disputed
+    sources:
+      - "van Westen, R.M., Jansen, M.F., Dijkstra, H.A. (2024). Physics-based early warning signal shows that AMOC is on tipping course. Sci. Adv. 10, eadk1189 (see also 2023 GRL preprint arXiv:2308.14098) — ~0.4 Sv hysteresis width, model-derived, not a direct real-ocean observation."
+      - "Lenton, T.M. et al. (2008). Tipping elements in the Earth's climate system. PNAS 105(6), 1786."
+
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 3
+    justification: >
+      Traffic-style hysteresis loops are documented for markets in a
+      different guise: volatility and liquidity regimes show path-dependent
+      "scarring" after large shocks (e.g., post-1987 crash and post-2008
+      volatility risk premia stayed elevated for years relative to
+      pre-shock baselines at the same measured fundamentals), and market
+      microstructure literature documents flow-price hysteresis loops
+      (impact of a given order-flow imbalance differs depending on whether
+      the market is in a stressed or calm regime). This is weaker and less
+      standardized than the AMOC/traffic quantitative loops — no single
+      canonical "hysteresis width" number for markets — so it sits at 3
+      (documented path-dependent regime effects) rather than 4.
+    evidence_status: qualitative
+    sources: []
+
+  - system: the-internet
+    category: infrastructure
+    score: 2
+    justification: >
+      Internet AS-level topology is a textbook case of structural
+      path-dependence: today's hub structure (Tier-1 carrier dominance,
+      legacy peering hierarchies) reflects the historical order in which
+      networks joined and interconnected, not just current traffic demand —
+      a network built from scratch today with the same traffic matrix would
+      likely not reproduce the same topology. This is real historical
+      contingency of structure. It scores only 2 because there is no
+      measured hysteresis loop or bistability at the operational level;
+      routing state itself (BGP tables) reconverges to essentially the same
+      configuration after a perturbation (routing does not "remember" a
+      past outage once it heals), so state-level memory is weak even though
+      structural path-dependence is real.
+    evidence_status: qualitative
+    sources: []
+
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 4
+    justification: >
+      A language's current grammar, lexicon, and phonology are the
+      accumulated, largely irreversible residue of its entire history —
+      irregular verbs (went, was), etymological doublets, and phonological
+      relics (the "silent" letters from Great Vowel Shift-era spellings
+      fossilized after pronunciation changed) are structural memory that
+      cannot be inferred from current communicative function alone; two
+      languages with identical present-day communicative needs can differ
+      enormously because of divergent history. This is the strongest,
+      least-ambiguous case of historical contingency of structure in the
+      pilot set: the record itself (etymology, spelling fossils, irregular
+      paradigms) is direct, cataloged evidence of specific past states.
+    evidence_status: qualitative
+    sources: []
+
+notes: |
+  This column deliberately fuses two senses the framework survey treated
+  separately (state memory vs. path-dependence of structure) per
+  research/phase1/SYNTHESIS.md item 6 — anchors above intentionally span
+  both: sun/climate lean on state-level bistability, English/Internet lean
+  on structural path-dependence. Distinguish from tipping_transitions
+  (group C): tipping_transitions is about the existence and proximity of a
+  regime-shift threshold; memory_hysteresis is about whether the SAME
+  forcing level yields DIFFERENT outcomes depending on history (the loop
+  itself), which is a stricter and rarer claim. Distinguish from
+  adaptive_capacity (group E): a system can have strong memory (fault
+  stress state, lexical fossils) with zero adaptive capacity in the
+  learning sense — memory_hysteresis does not require an adaptive agent,
+  only a history-dependent state or structure. AMOC and traffic-flow
+  hysteresis loops (Treiterer & Myers 1974) are the two literature-grounded
+  quantitative exemplars per research/phase1/dynamics-criticality.md
+  section 5; the two must not be conflated in confidence level — AMOC is
+  model-derived (evidence_status: measured-disputed), traffic loops are
+  directly observed (would be evidence_status: measured were traffic in
+  the pilot set).

@@ -1,0 +1,170 @@
+column: nonlinearity
+version: 0.1-draft
+scale:
+  0: >
+    Dominant dynamics are linear or additive: system-level response scales
+    proportionally with inputs/perturbations across the observed operating
+    range; superposition holds to good approximation; small causes produce
+    small, roughly proportional effects.
+  1: >
+    Dominant dynamics are linear to first order; nonlinear terms exist in the
+    underlying physics but are weak, localized, or peripheral to the
+    phenomena that define the system's characteristic behavior — they can be
+    dropped without changing the qualitative picture.
+  2: >
+    Nonlinear terms materially shape secondary or occasional behavior (e.g.,
+    triggered thresholds, saturation effects, occasional regime changes) but
+    the modal/typical dynamics of the system are still well approximated by
+    linear or quasi-linear models most of the time.
+  3: >
+    Nonlinear interactions are central to the system's characteristic
+    behavior: the equations of motion or generative rules governing the
+    dominant dynamics are intrinsically nonlinear (e.g., quadratic/cubic
+    coupling terms, multiplicative interactions, threshold/switching
+    behavior), and this nonlinearity is required to reproduce observed
+    phenomenology (cannot be linearized without losing the defining behavior).
+  4: >
+    Nonlinearity is pervasive AND load-bearing at multiple scales/subsystems
+    simultaneously: disproportionate response to small perturbations,
+    threshold/switch-like transitions, and multiplicative coupling between
+    many interacting components are all present and jointly responsible for
+    the system's most characteristic phenomena (formation, intensification,
+    collapse, or pattern selection all depend on nonlinear terms).
+does_not_count: |
+  A system is NOT scored higher merely because it is "complicated," has many
+  components, or is hard to predict — numerosity and unpredictability are
+  separate columns (numerosity; chaos_sensitivity). Chaotic sensitivity to
+  initial conditions is necessary-adjacent but not sufficient: a system can
+  have strongly nonlinear governing equations with LOW sensitivity to initial
+  conditions (e.g., a strongly nonlinear but stable/dissipative attractor), and
+  vice versa a linear stochastic system can be highly unpredictable without
+  being nonlinear. Do not double-count "nonlinear-sounding" vocabulary
+  (emergence, feedback, criticality) as evidence here — this column scores
+  the mathematical/mechanistic form of the governing interactions specifically,
+  not adjacent complexity markers. Metaphorical use of "nonlinear" in
+  colloquial social-science writing (e.g., "history is nonlinear") does not
+  count without a specific mechanistic referent.
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 3
+    justification: >
+      Stellar structure is governed by strongly nonlinear physics — the
+      temperature dependence of nuclear fusion rates (proton-proton chain
+      scales roughly as T^4, CNO cycle far steeper) and radiative-transfer
+      opacity coupling — but the Sun's bulk hydrostatic and thermal
+      equilibrium is extremely stable, so the nonlinear terms set the
+      structure without producing large-amplitude nonlinear behavior at the
+      whole-star scale on human timescales. Convective granulation and the
+      solar dynamo (differential rotation coupled nonlinearly to magnetic
+      field generation) are additional genuinely nonlinear subsystems.
+      Scored 3, not 4: the nonlinear core physics is essential to stellar
+      structure, but the star's macro-behavior over observable timescales is
+      close to steady-state rather than dominated by nonlinear regime shifts.
+    evidence_status: qualitative
+    sources: []
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 4
+    justification: >
+      Tropical cyclogenesis and intensification are governed by the
+      nonlinear Navier-Stokes/moist-thermodynamic equations with strong
+      multiplicative coupling between wind-induced surface heat/moisture
+      flux and storm intensity (the WISHE feedback mechanism itself is a
+      nonlinear amplification loop). Rapid intensification is a
+      threshold/switch-like nonlinear phenomenon (small changes in shear or
+      SST can flip a storm from steady to explosive growth), and eyewall
+      replacement cycles are nonlinear pattern-reorganization events.
+      Nonlinearity is not peripheral here — it is definitional to why
+      hurricanes intensify, weaken, and reorganize the way they do.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 4
+    justification: >
+      Price formation involves multiplicative, threshold-driven interactions:
+      volatility clustering (GARCH-type nonlinear variance dynamics),
+      herding/reflexivity where traders' actions nonlinearly amplify price
+      moves (margin calls, stop-loss cascades, circuit breakers), and
+      liquidity-feedback effects where a small initial price move can trigger
+      disproportionate follow-on selling. Scheinkman & LeBaron (1989) and
+      the subsequent BDS-test literature confirm statistically significant
+      nonlinear dependence in return series (distinct from the separate,
+      debunked claim of low-dimensional deterministic chaos — see
+      chaos_sensitivity). Flash-crash dynamics (e.g., May 6, 2010) are a
+      textbook case of nonlinear cascade behavior from small triggers.
+    evidence_status: qualitative
+    sources: []
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 3
+    justification: >
+      Fault rupture is governed by nonlinear frictional constitutive laws
+      (rate-and-state friction is intrinsically nonlinear in slip velocity
+      and state variable) and stress-transfer between fault segments is
+      multiplicative/threshold-triggered (a rupture on one segment can
+      nonlinearly trigger or suppress rupture on a neighboring segment via
+      Coulomb stress changes). Scored 3 rather than 4: between individual
+      rupture events the fault system spends most of its time in
+      slow, quasi-linear elastic stress accumulation (interseismic loading
+      is close to linear), so nonlinearity is concentrated at rupture
+      initiation/propagation rather than pervasive across the full duty
+      cycle.
+    evidence_status: qualitative
+    sources: []
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 1
+    justification: >
+      Language change (sound shifts, grammaticalization, lexical
+      diffusion) is often modeled with nonlinear logistic-curve adoption
+      dynamics (S-shaped uptake of an innovation through a speech
+      community), which is a genuine but comparatively mild and localized
+      nonlinearity — mechanistically it resembles simple threshold/social-
+      contagion dynamics rather than the strongly coupled, multiplicative
+      interactions seen in fluid or market systems. Most everyday language
+      production and comprehension (compositional semantics, everyday
+      phonological/morphological processing) is well approximated by
+      combinatorial/rule-based, not strongly nonlinear, mechanisms. Scored
+      low deliberately: English is included in the catalog for other
+      reasons (Zipf's law, cultural evolution) and nonlinearity is not
+      where its complexity credentials live.
+    evidence_status: qualitative
+    sources: []
+  - system: the-internet
+    category: infrastructure
+    score: 2
+    justification: >
+      TCP congestion control (additive-increase/multiplicative-decrease) is
+      explicitly nonlinear and can produce synchronized oscillation and
+      congestive collapse under load; BGP route flapping and convergence
+      dynamics are also nonlinear. However, the Internet's core packet
+      forwarding and most routine traffic engineering are designed
+      specifically to behave close to linearly (queueing/capacity
+      provisioning aims for predictable, near-proportional response), and
+      nonlinear regimes (congestion collapse, BGP instability) are edge
+      cases the engineering actively suppresses rather than the modal
+      operating behavior. Scored 2: real and consequential nonlinearity
+      exists, but it is not the dominant character of day-to-day dynamics
+      the way it is for a storm or a market.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Distinct from feedback: a system can have strong feedback loops built from
+  purely linear gain (a simple linear amplifier) or strong nonlinearity with
+  no feedback (a single threshold switch). They co-occur often (e.g.,
+  hurricanes, markets) but are scored independently — do not let a high
+  feedback score automatically pull nonlinearity up or vice versa.
+  Distinct from chaos_sensitivity: nonlinearity is a property of the
+  governing equations/interaction rules; chaos_sensitivity is a property of
+  trajectories (whether nearby initial conditions diverge exponentially).
+  Nonlinearity is necessary but not sufficient for chaos. Per LLW (2013),
+  nonlinearity is widely cited in the literature but explicitly NOT treated
+  as a necessary condition for complexity — a system can score low here and
+  still score high on other columns (e.g., English).

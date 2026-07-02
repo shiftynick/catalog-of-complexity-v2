@@ -1,0 +1,179 @@
+column: criticality
+version: 0.1-draft
+scale:
+  0: >
+    No scale-invariant event statistics reported or sought; the system's
+    characteristic events cluster around a typical scale (exponential/Gaussian/
+    log-normal-like), and no SOC or critical-point mechanism has been proposed
+    in the literature.
+  1: >
+    Heavy-tailed or bursty event statistics are informally observed or
+    claimed (log-log plot "looks straight"), but no CSN-2009-grade statistical
+    fit (MLE + goodness-of-fit + comparison to alternative distributions) has
+    been published; OR a rigorous fit exists but rejects the power-law
+    hypothesis in favor of an alternative heavy-tailed distribution. No
+    mechanism claim beyond speculation.
+  2: >
+    Power-law (or other scale-invariant) event statistics are established
+    with CSN-2009-grade statistical support for at least the bulk/tail of the
+    distribution (evidence_status: measured), AND/OR a specific
+    self-organized-criticality or critical-point mechanism has been formally
+    proposed in the primary literature — but the mechanism claim is either
+    untested or actively contested by domain specialists.
+  3: >
+    Power-law/scale-invariant event statistics are well established
+    (measured, CSN-grade or domain-standard equivalent, e.g. Gutenberg-Richter
+    magnitude-frequency fits), AND a specific critical-point or SOC-type
+    mechanism is well supported by models/data for most of the distribution,
+    with acknowledged open anomalies at the extreme tail (e.g. "dragon king"
+    events) or in universality-class details.
+  4: >
+    Both event-statistics AND mechanism are established to the point of
+    consensus: rigorous power-law (or genuine critical-exponent) fits exist,
+    the system can be driven to and held at a demonstrated critical point
+    (e.g. control-parameter tuning reproduces the transition in situ or in a
+    faithful model), and the SOC/criticality interpretation is not seriously
+    disputed in the current literature. No system in this catalog is expected
+    to reach this level; it is retained as a calibration ceiling.
+does_not_count: |
+  A visually "straight-ish" log-log plot is not evidence (filling_rules.power-law-rigor
+  — CSN 2009 showed most famous power-law claims fail rigorous testing). Colloquial use
+  of "tipping point," "avalanche," or "criticality" as metaphor does not count — this
+  column is about demonstrated scale-invariant event STATISTICS and/or a stated critical
+  mechanism, not general nonlinearity or fragility (see cascade_susceptibility for
+  cascade-specific failure dynamics, and tipping_transitions for state-space regime
+  shifts). Critically: "power-law event statistics are solid" and "SOC is the mechanism"
+  are two separate claims (filling_rules.soc-two-claims) and must be scored and
+  justified as such — a system can sit at evidence_status: measured for (a) while
+  mechanism status for (b) is merely "proposed" or "contested." Do not average the two
+  into one number; report both and let score reflect the joint, explicitly reasoned
+  position of the anchor scale above.
+anchors:
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 2
+    justification: >
+      (a) Event statistics: Gutenberg-Richter magnitude-frequency scaling
+      (b ~ 1.0) is one of the best-established power-law-like relationships in
+      the earth sciences, empirically robust since the 1940s and holding
+      specifically for California seismicity (evidence_status: measured). (b)
+      Mechanism: Bak & Tang (1989) proposed earthquake faults as a
+      self-organized-critical system, but Watkins et al. (2016, Space Science
+      Reviews 198:3) document that the SOC interpretation is contested —
+      sandpile-type models (e.g. Olami-Feder-Christensen) fail to correctly
+      represent elastic stress transfer, and some analyses find real
+      seismicity sits off the exact critical point (n_c not equal to 1). Per
+      filling_rules.soc-two-claims this scores a 2: solid event statistics,
+      contested mechanism, not averaged upward.
+    evidence_status: measured
+    sources: [watkins2016]
+  - system: granular-media
+    exemplar: "Oslo rice-pile experiments (Frette et al.)"
+    category: physical-chemical
+    score: 3
+    justification: >
+      Frette et al.'s rice-pile experiments are among the few controlled,
+      physical (non-simulated) demonstrations that a driven granular system
+      can be tuned into avalanche-size power-law statistics: elongated rice
+      grains give power-law avalanche sizes (1D exponent alpha ~ 1.53;
+      3D tau ~ 1.21(2)) consistent with SOC, while round grains in the same
+      apparatus give exponential/characteristic-scale statistics — showing the
+      mechanism is real but geometry-dependent, not automatic even in the
+      system SOC was named after. Scores 3, not 4, because universality and
+      generality (does the SOC mechanism hold across all granular
+      configurations) remain open; this is the strongest positive control in
+      the catalog, not a closed case.
+    evidence_status: measured
+    sources: []
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 2
+    justification: >
+      Solar-flare energy distributions are power-law over a documented span
+      (recently extended across ~13 orders of magnitude combining solar
+      nanoflares and stellar superflares, roughly consistent with
+      fractal-diffusive-SOC predictions, alpha_F ~ 1.8) — event statistics
+      are reasonably well supported (evidence_status: measured for the bulk
+      distribution). Mechanism status is "proposed, actively researched" but
+      not settled: a "dragon king" critique holds that the largest superflares
+      may belong to a distinct population rather than the same scale-free
+      tail, an open universality question. Scores 2 because the mechanism
+      claim, while more actively supported than the fault case, is still not
+      an established consensus and the extreme tail is disputed.
+    evidence_status: measured
+    sources: []
+  - system: the-internet
+    category: infrastructure
+    score: 1
+    justification: >
+      The Internet's static structure (AS-level degree distribution) is
+      frequently cited as scale-free (Faloutsos et al. 1999), but this is a
+      TOPOLOGY claim, not an EVENT-statistics claim, and belongs under
+      degree_distribution, not here. For actual dynamical events (outage
+      sizes, BGP cascade magnitudes), no primary source establishing a
+      rigorously fit power-law size distribution analogous to Dobson et al.'s
+      blackout work was located during Phase 1 research — this is flagged as
+      a probable literature gap rather than a negative result. No SOC or
+      critical-point mechanism for Internet outage dynamics has been formally
+      proposed. Scored 1: informal/claimed-untested heavy-tailedness of
+      outage impact is discussed in engineering literature, but nothing here
+      meets CSN-grade support and no mechanism claim exists.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 1
+    justification: >
+      Fat-tailed distributions of price returns are genuinely well documented
+      (evidence_status: measured for the return-distribution tail exponent
+      itself, which properly belongs under extreme_event_statistics). As a
+      CRITICALITY claim specifically, SOC-style explanations for volatility
+      clustering and crashes have been proposed but compete with several
+      other frameworks (GARCH-type stochastic volatility, multifractal
+      cascades, agent-based herding) with no consensus that markets sit near
+      a genuine critical point rather than being merely heavy-tailed and
+      nonlinear. Scores 1: event statistics for the underlying returns are
+      solid elsewhere in the panel, but the criticality/SOC mechanism claim
+      specifically is weak and contested, per Watkins et al. 2016's explicit
+      skepticism toward SOC claims exported outside physics.
+    evidence_status: qualitative
+    sources: [watkins2016]
+  - system: river-networks
+    exemplar: "Mississippi River basin"
+    category: geophysical
+    score: 0
+    justification: >
+      River network structure follows well-established scaling laws (Horton's
+      laws, fractal branching statistics), but those are STATIC topological/
+      geometric regularities, not scale-invariant EVENT statistics (there is
+      no established power-law distribution of, e.g., channel-avulsion or
+      flood-pulse event sizes for the Mississippi basin specifically located
+      in Phase 1 research), and no self-organized-criticality mechanism has
+      been proposed for the basin's event dynamics. This is the deliberate
+      floor anchor: a system can be highly self-organized and fractal
+      (see self_organization, fractal_dimension_spatial) while scoring 0 here,
+      because criticality is about event dynamics, not spatial structure.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Distinct from extreme_event_statistics (which records the tail exponent and CSN fit
+  verdict for the system's characteristic events regardless of mechanism) and from
+  tipping_transitions (state-space regime shifts / bifurcations, which need not be
+  scale-invariant or power-law at all — a system can have a single sharp tipping point
+  with no power-law event statistics, e.g. AMOC collapse, and score high on
+  tipping_transitions while scoring low here). Also distinct from cascade_susceptibility
+  (susceptibility of a NETWORKED system to failure propagation, which may or may not be
+  power-law distributed and may or may not reflect a genuine critical point in the SOC
+  sense). Boundary case: power grids exhibit both cascading failure (scored under
+  cascade_susceptibility, per Dobson et al. 2007) and a criticality claim (the grid is
+  argued to self-organize toward a critical loading point) — these are related but
+  scored on separate columns because cascade size statistics and "is the system AT a
+  critical point" are logically distinct claims; power-grids is intentionally not used as
+  a worked anchor here to avoid conflating the two columns, see cascade_susceptibility.yaml
+  for its treatment. Static scale-free network TOPOLOGY (e.g. Internet AS-level degree
+  distribution) is out of scope for this column and belongs under degree_distribution —
+  do not let a scale-free topology claim inflate a criticality score in the absence of
+  scale-invariant EVENT dynamics.

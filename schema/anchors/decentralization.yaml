@@ -1,0 +1,85 @@
+column: decentralization
+version: 0.1-draft
+# Drafted by the orchestrator (Fable) — one of the two delicate distinctions.
+# This column asks WHO CONTROLS THE SYSTEM NOW (locus of control).
+# Its sibling self_organization asks WHERE THE ORDER CAME FROM (genesis).
+# A system can be centrally operated yet self-organized in its failures (ERCOT),
+# or authorless in both senses (English).
+scale:
+  0: "A single controller or authority determines system-wide behavior in real time; removing it halts or fundamentally changes the dynamics."
+  1: "Strong central coordination (dispatcher, operator, governing institution) actively steers system-wide behavior, though substantial dynamics remain autonomous physics or autonomous agents."
+  2: "Mixed: identifiable central coordination points with real authority over part of the dynamics, alongside equally weighty distributed dynamics no one controls."
+  3: "Predominantly distributed; coordination points exist but are narrow in scope (standards bodies, protocol registries) and do not steer moment-to-moment behavior."
+  4: "No privileged controller at any scale; system-wide behavior arises entirely from local interactions among components."
+does_not_count: |
+  - Absence of DESIGN is not decentralization — that is self_organization's business (genesis of order, not locus of control).
+  - Hierarchical STRUCTURE is not centralization: a turbulent cascade has hierarchy with no controller.
+  - External boundary conditions (solar heating drives the climate) are forcing, not control — a controller must be a component that steers other components.
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 4
+    justification: >
+      No component steers the others; global structure (differential rotation,
+      convective organization, magnetic cycle) arises entirely from local plasma
+      physics under gravity. There is nothing to remove whose absence would
+      constitute "loss of control."
+    evidence_status: qualitative
+    sources: []
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 1
+    justification: >
+      A central system operator dispatches generation, manages frequency, and
+      sheds load in real time; grid-wide behavior is actively steered and the
+      operator's removal would rapidly destabilize the system. Yet the
+      electrical dynamics themselves (power flows, oscillations, cascading
+      failures) are distributed physics no operator fully controls — which is
+      why this is a 1 and not a 0.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 2
+    justification: >
+      A central institution operates the matching engine, sets listing and
+      trading rules, and can halt trading (circuit breakers) — real authority
+      over the mechanics. But the behavior of interest, price formation, is
+      produced by distributed decisions of many traders whom no one commands.
+    evidence_status: qualitative
+    sources: []
+  - system: the-internet
+    category: infrastructure
+    score: 3
+    justification: >
+      Narrow coordination points exist (IANA/ICANN for names and numbers, IETF
+      for standards) but none steers traffic or topology moment to moment;
+      routing decisions are made autonomously by tens of thousands of
+      independent networks via BGP. Coordination is real but scoped to
+      bookkeeping, hence 3 rather than 4.
+    evidence_status: qualitative
+    sources: []
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 4
+    justification: >
+      No authority controls English usage; change propagates through
+      distributed adoption by speakers. Contrast French, where an official
+      academy asserts (weak but real) central authority — a useful future
+      cross-entry consistency check: French should score slightly lower than
+      English on this column, all else equal.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Sibling distinction (the one this file exists to protect): decentralization
+  = locus of control NOW; self_organization = genesis of order. Worked
+  contrast: ERCOT is centrally operated (decentralization 1) yet its blackout
+  cascades and load synchronization are self-organized phenomena; English is
+  authorless in both senses (4 on both columns).
+  Boundary case: systems with layered governance (Internet) — score the layer
+  where the system's characteristic behavior lives (traffic/topology), not the
+  bookkeeping layer.

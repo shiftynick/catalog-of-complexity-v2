@@ -1,0 +1,228 @@
+# ============================================================
+# Catalog of Complexity — Rubric Anchors: modularity
+# ============================================================
+# Spec definition (panel-spec.yaml, group B): Degree of modular
+# organization; quantitative network modularity Q where network data
+# exists (hybrid column).
+# ============================================================
+
+column: modularity
+version: 0.1-draft
+
+scale:
+  0: >
+    No identifiable subdivision: the system is either a single
+    undifferentiated continuum/field with no internal boundaries, or a
+    network so uniformly interconnected that any partition into groups
+    captures no more within-group density than a random partition would
+    (Q ≈ 0 where a network representation exists).
+  1: >
+    Weak, mostly gradational structure: some regions/components are
+    somewhat more densely connected/interacting internally than with the
+    rest, but boundaries are fuzzy, overlapping, or only statistically
+    detectable — no community-detection algorithm or domain-expert
+    partition finds a clearly preferred grouping (Q roughly 0.0-0.2 where
+    computable).
+  2: >
+    Moderate, identifiable modularity: the system decomposes into
+    recognizable subunits with more internal than external
+    interaction/coupling, but the subunits are not strongly insulated —
+    substantial cross-module flow/interaction routinely occurs and module
+    boundaries shift over time (Q roughly 0.2-0.4 where computable).
+  3: >
+    Strong modularity: the system has clearly bounded, semi-autonomous
+    subunits that are individually functional/coherent and only sparsely
+    coupled to each other, with the partition stable over the system's
+    relevant operating timescale (Q roughly 0.4-0.6 where computable, or
+    unambiguous domain consensus on module identity — organs of a
+    corporation, cells of a power grid, neighborhoods of a city).
+  4: >
+    Extreme, near-decomposable modularity: subunits are so strongly
+    self-contained that they could function as (near-)independent systems
+    if severed, with cross-module interaction a small minority of total
+    interaction and module identity/boundary essentially permanent over
+    the observation window (Q typically >0.6 where computable — Newman's
+    "very good and highly significant" community structure threshold).
+
+does_not_count: |
+  Hierarchy (nested levels of organization, scored separately as
+  hierarchy_depth) is not the same claim as modularity (lateral
+  subdivision into parallel, loosely-coupled units at a given level) —
+  a deep hierarchy with no lateral subdivision at any level scores low
+  here even if hierarchy_depth is high, and vice versa. Spatial
+  clustering/patchiness alone does not count unless the patches also
+  correspond to reduced FUNCTIONAL/dynamical coupling across boundaries
+  (a temperature gradient with smoothly varying values is not modular
+  merely because you can draw contour lines on it). Do not award
+  modularity for "the system has many parts" (that is numerosity/
+  component_diversity, group A) — modularity is specifically about the
+  RATIO of within-group to between-group interaction density, and a
+  system with many parts but uniform all-to-all coupling is a 0. Where
+  a published Q value exists for the specific network representation
+  being scored, it should anchor the score directly via the scale's
+  Q ranges rather than independent qualitative judgment; where multiple
+  Q values exist for different edge definitions (e.g., AS-level peering
+  vs. IP-level), name which one is being used.
+
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 1
+    justification: >
+      The Sun's internal structure is organized into concentric shells
+      (core, radiative zone, convective zone, photosphere, corona) that
+      are functionally distinct, but these are RADIAL, continuously-graded
+      layers of a spherically symmetric continuum, not laterally-coupled
+      discrete modules in the network sense the column targets — there is
+      no partition into parallel semi-independent subunits at a given
+      radius, only a smooth onion-shell gradient in opacity and energy
+      transport mechanism. Granulation cells in the photosphere are a
+      weak lateral quasi-modular pattern (convective cells with
+      relatively coherent internal circulation, ~1000 km diameter,
+      constantly forming and dissolving on ~10-minute timescales) but
+      lack persistent identity or strong insulation from neighbors. Scored
+      1, not 0, for the granulation pattern; the shell structure itself is
+      hierarchy, not modularity, and is not double-counted here.
+    evidence_status: qualitative
+    sources: []
+
+  - system: river-networks
+    exemplar: "Mississippi River basin"
+    category: geophysical
+    score: 2
+    justification: >
+      A river network decomposes naturally into sub-basins (the Missouri,
+      Ohio, Upper Mississippi, Arkansas-White-Red drainages) that are
+      topologically tree-structured and hydrologically semi-independent —
+      water and sediment generated within a sub-basin mostly stays within
+      it until the confluence. This gives real, non-arbitrary modules
+      (Horton-Strahler sub-basin decomposition is a standard, citable
+      partition). Capped at 2 rather than higher because a dendritic
+      (tree) network is modular mainly by construction of the drainage
+      hierarchy — the "modules" are nested at every scale
+      (sub-sub-basins within sub-basins), which is more naturally
+      captured by hierarchy_depth, and cross-module interaction is
+      structurally forced to be exactly zero except at confluences (not a
+      meaningful Q-style density contrast test, since a tree has no
+      cross-links to speak of).
+    evidence_status: qualitative
+    sources: []
+
+  - system: cities
+    exemplar: "New York City"
+    category: socio-economic
+    score: 2
+    justification: >
+      New York City is organized into boroughs and further into named
+      neighborhoods with recognizable identity, locally denser social/
+      economic interaction (residents disproportionately work, shop, and
+      socialize near home), and somewhat porous but real boundaries
+      (bridges/tunnels as bottleneck connectors between boroughs is a
+      commonly cited proxy for module boundaries in urban network
+      studies). This is moderate, textbook urban modularity — commuting
+      networks and mobile-phone-derived community detection studies on
+      cities generally recover Q in the 0.3-0.5 range at the
+      neighborhood/borough scale [unverified — model knowledge, no
+      specific NYC study confirmed in this project's source corpus] —
+      not extreme, because daily commuting and infrastructure integrate
+      the boroughs into one functional labor/housing market.
+    evidence_status: qualitative
+    sources: []
+
+  - system: the-internet
+    category: infrastructure
+    score: 2
+    justification: >
+      The Internet's AS-level topology is organized around Tier-1/Tier-2/
+      Tier-3 provider hierarchy and geographic/national clustering, giving
+      real community structure (ISPs and national networks cluster
+      together, connected via a smaller set of transit/peering hubs).
+      Community-detection studies on the AS graph typically report
+      moderate modularity, Q roughly in the 0.3-0.5 range depending on
+      snapshot and method [unverified — model knowledge; no specific
+      figure confirmed via this project's source corpus, which only has
+      Newman (2003) degree-distribution and clustering statistics, not a
+      modularity Q, for the AS graph]. This is a hybrid column and a
+      verified published Q would supersede this qualitative placement; in
+      its absence, judgment is anchored to the Newman (2003) AS-level
+      clustering coefficient (C^(2)=0.39, moderately clustered but not
+      extreme) as corroborating (not equivalent) evidence.
+    evidence_status: qualitative
+    sources:
+      - "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167 — AS-level clustering C^(2)=0.39 (not a modularity Q; cited as corroborating context only)."
+
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 3
+    justification: >
+      Power transmission grids are engineered around regional balancing
+      areas and voltage-level substructure (transmission backbone vs.
+      distribution feeders), and empirical network-science studies of
+      power grids (following Newman's Western US grid dataset) generally
+      find substantially higher modularity than the Internet or social
+      networks because grids are built to minimize long-haul
+      transmission — community-detection studies on power-grid topologies
+      commonly report Q in the 0.6-0.9 range [unverified — model
+      knowledge; the project's source corpus (Newman 2003) gives the
+      Western US grid's clustering/path-length statistics — exponential
+      degree distribution, ℓ=18.99 — but not a modularity Q]. ERCOT
+      itself is additionally modular by design: it is a deliberately
+      islanded interconnection (one of three major North American grids)
+      specifically to retain regulatory/operational independence, and
+      within it, weather zones function as semi-autonomous balancing
+      subregions. Scored 3 (strong) rather than 4: ERCOT is a single
+      synchronous AC network with continuous real-time power flow across
+      the whole system, so no zone is truly insulated during normal
+      operation.
+    evidence_status: qualitative
+    sources: []
+
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 1
+    justification: >
+      English shows only weak modularity by this column's network
+      criterion. Registers and dialects (legal English, technical
+      jargon, regional dialects) form loosely distinguishable clusters of
+      denser co-occurrence/shared-vocabulary, but they are heavily
+      overlapping and porous — most vocabulary and all core grammar is
+      shared across registers, code-switching is fluid, and no sharp
+      boundary separates "modules." Newman's (2003) word co-occurrence
+      network statistics (clustering C^(2)=0.44) show real local
+      clustering but this reflects general small-world lexical-semantic
+      structure (synonym/topic neighborhoods), not strong insulated
+      modules — this project's source corpus does not contain a
+      published modularity Q for the word co-occurrence graph, only the
+      clustering coefficient, which is a related but distinct
+      statistic. Scored 1 (weak, gradational) rather than 0, since topic/
+      register clustering is real but far from the sharp-boundary sense
+      the top of the scale requires.
+    evidence_status: qualitative
+    sources:
+      - "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167 — word co-occurrence clustering C^(2)=0.44 (clustering coefficient, not modularity Q)."
+
+notes: |
+  This is a HYBRID column (panel-spec.yaml): where a published modularity
+  Q exists for the specific network representation in question, it should
+  be recorded as evidence_status: measured and used to place the score
+  directly via the scale's Q bands, superseding qualitative judgment. None
+  of the anchors above had a directly verified Q in this project's source
+  corpus (research/phase1/quantitative-backbone.md contains Newman 2003
+  clustering coefficients and degree-distribution exponents for
+  Internet/power-grid/English, but not modularity Q values) — entry
+  researchers should search independently for AS-level, power-grid, and
+  urban-mobility modularity papers before defaulting to qualitative
+  scoring, and any Q cited must carry a real source per the authoring
+  rules (no fabricated citations). Distinguish sharply from hierarchy_depth
+  (group B): hierarchy is about nested vertical levels; modularity is
+  about lateral subdivision into parallel, loosely-coupled peers at a
+  given level — the Mississippi anchor above illustrates a system that is
+  simultaneously very hierarchical and only moderately modular by this
+  column's stricter test. Distinguish from decentralization (group B):
+  decentralization is about locus of CONTROL; modularity is about locus of
+  INTERACTION DENSITY — a strongly modular system can still be centrally
+  controlled (a divisionalized corporation) and a non-modular system can
+  be fully decentralized (an unstructured peer-to-peer swarm).

@@ -1,0 +1,182 @@
+column: feedback
+version: 0.1-draft
+scale:
+  0: >
+    No identifiable feedback loop in the dominant dynamics: causal
+    influence is effectively one-directional (forcing -> response) over the
+    timescales of interest, or any loop present is too weak/slow to shape
+    observed system behavior.
+  1: >
+    At least one feedback loop is identifiable, but it is peripheral: weak
+    gain (perturbations are not meaningfully amplified or damped by it
+    relative to other processes), acts on a timescale much longer than the
+    phenomena of interest, or affects only a minor subsystem rather than the
+    system's characteristic behavior.
+  2: >
+    One or more feedback loops materially shape system behavior in specific
+    regimes or episodes, but the system's typical/modal state is governed
+    mainly by non-fed-back (open-loop) forcing; loops matter at the margins
+    or during identifiable episodes, not continuously.
+  3: >
+    Multiple feedback loops (typically both reinforcing and balancing) are
+    continuously active and are required to explain the system's
+    characteristic dynamics — removing them from a model would qualitatively
+    change predicted behavior, not just its fine details.
+  4: >
+    The system's defining behavior IS a feedback phenomenon: dominant
+    reinforcing loops drive characteristic growth/intensification/collapse
+    events, counteracted or bounded by balancing loops that set the
+    system's operating regime; loop structure is the primary explanatory
+    device the literature uses for this system, and multiple interacting
+    loops (not just one) are documented.
+does_not_count: |
+  A loop only counts if there is a documented or mechanistically clear causal
+  path back to the variable that started it (X affects Y affects X), stated
+  explicitly in the justification's loop list. Do not credit generic
+  "everything affects everything" hand-waving, correlation without a
+  mechanism, or a single-pass causal chain relabeled as a "loop." Do not
+  conflate feedback with mere interconnection/network density (see
+  interaction_topology) or with adaptive learning by individual components
+  (see adaptive_capacity) — a thermostat has feedback with zero adaptation;
+  a component can adapt its behavior without participating in any
+  system-level loop. Metaphorical "feedback" in casual usage (e.g., "investor
+  feedback") does not count without a specified sign and mechanism.
+anchors:
+  - system: planetary-climate
+    exemplar: "Earth"
+    category: geophysical
+    score: 4
+    justification: >
+      Climate dynamics are canonically organized around competing feedback
+      loops, several with IPCC AR6-quantified gain. Dominant loops
+      (illustrating the required loop-list format):
+      (1) Water-vapor feedback [REINFORCING]: warming -> higher atmospheric
+      water-vapor holding capacity (Clausius-Clapeyron) -> more greenhouse
+      trapping -> further warming. Strongest known reinforcing feedback,
+      roughly doubling the bare radiative-forcing response.
+      (2) Ice-albedo feedback [REINFORCING]: warming -> reduced sea-ice/snow
+      cover -> lower surface albedo -> more absorbed shortwave radiation ->
+      further warming. Concentrated at high latitudes; documented driver of
+      Arctic amplification.
+      (3) Planck/blackbody response [BALANCING]: warming -> increased
+      outgoing longwave radiation (T^4) -> radiative cooling that opposes
+      further warming. The dominant stabilizing loop that keeps climate
+      feedback net-negative (finite equilibrium climate sensitivity) despite
+      strong reinforcing loops.
+      (4) Cloud feedback [MIXED/CONTESTED SIGN]: net sign and magnitude
+      remain the largest source of uncertainty in equilibrium climate
+      sensitivity estimates (IPCC AR6 WG1 Ch.7). Multiple loops with
+      differing signs operating simultaneously and continuously is the
+      textbook case for a score of 4.
+    evidence_status: qualitative
+    sources: []
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 4
+    justification: >
+      Tropical cyclone intensification is mechanistically a feedback
+      phenomenon. Dominant loops:
+      (1) WISHE (Wind-Induced Surface Heat Exchange) [REINFORCING]: stronger
+      near-surface wind -> greater ocean-surface latent/sensible heat flux
+      into the boundary layer -> more convective available energy -> stronger
+      pressure gradient and wind -> loops back to (1). This is the
+      textbook driver of rapid intensification (Emanuel 1986 framework).
+      (2) SST-drawdown/ocean-coupling [BALANCING]: intense wind -> mixing of
+      cooler subsurface water to the surface -> reduced local SST -> reduced
+      heat flux -> intensification brake. Documented to have weakened
+      Katrina's peak intensity over cooler shelf water pre-landfall.
+      (3) Eyewall replacement cycle [BALANCING/oscillatory]: an intensifying
+      inner eyewall organizes an outer secondary eyewall that starves the
+      inner one of moisture/angular momentum, temporarily weakening the
+      storm before re-intensification — a self-limiting loop internal to
+      the vortex.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 3
+    justification: >
+      Multiple documented loops shape trading dynamics without being the
+      totalizing organizing principle of every price move the way WISHE is
+      for a hurricane. Dominant loops:
+      (1) Momentum/herding [REINFORCING]: price rises -> attracts
+      momentum/trend-following buying -> further price rises (and
+      symmetrically on the downside, amplified by margin calls and
+      stop-loss triggers) -> classic panic-selling cascades (documented in
+      1987 crash, 2010 Flash Crash).
+      (2) Mean-reversion / value trading [BALANCING]: price deviates from
+      fundamental-value estimates -> value investors and arbitrageurs trade
+      against the deviation -> price pulled back toward estimated
+      fundamentals. Empirically weaker and slower than the momentum loop at
+      short horizons, stronger at multi-year horizons.
+      (3) Volatility-liquidity loop [REINFORCING, episodic]: rising
+      volatility -> market makers widen spreads/withdraw liquidity ->
+      larger price impact per trade -> further volatility. Central to
+      flash-crash mechanics.
+      Scored 3, not 4: outside crisis episodes, a large fraction of trading
+      volume and price formation is not obviously loop-dominated (idiosyncratic
+      information arrival, scheduled index rebalancing), so loops are
+      central but not the sole organizing description of all NYSE dynamics.
+    evidence_status: qualitative
+    sources: []
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 1
+    justification: >
+      The dominant process — steady tectonic loading of elastic strain
+      followed by episodic rupture (elastic rebound) — is fundamentally a
+      forced relaxation-oscillator pattern, not a feedback loop: plate
+      motion drives strain accumulation largely independent of the fault's
+      own stress state, and rupture releases stress without that release
+      looping back to modulate the driving plate motion. The one genuine
+      loop present is narrow: (1) Coulomb stress transfer [REINFORCING,
+      LOCAL/episodic]: rupture on one segment changes the stress state on
+      neighboring segments, which can trigger or delay rupture there
+      (documented aftershock triggering and some segment-to-segment
+      interaction studies) — but this loop is local, episodic, and does not
+      feed back onto the primary driver (plate tectonic motion). Scored 1:
+      real but peripheral to the system's dominant loading-and-release
+      dynamic.
+    evidence_status: qualitative
+    sources: []
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 2
+    justification: >
+      The Sun's long-term hydrostatic and thermal structure is maintained by
+      a genuine balancing loop: (1) Gravitational-thermal regulation
+      [BALANCING]: core contraction -> compressional heating -> increased
+      fusion rate -> increased pressure -> halts contraction (and
+      symmetrically damps runaway expansion). This is the standard textbook
+      explanation for why main-sequence stars are stable over Gyr
+      timescales and is a real, load-bearing loop. A second loop operates in
+      the convection zone: (2) Convective heat transport [BALANCING]:
+      local superheating -> buoyant convective overturning -> heat removed
+      -> local temperature gradient relaxes toward the adiabatic threshold.
+      Scored 2, not higher: these loops explain long-term stability but
+      operate as slow negative feedback keeping the Sun near a fixed
+      operating point, not as a driver of rich, continuously varying
+      characteristic behavior — most solar phenomena of interest
+      (granulation, sunspot cycle) are better explained by other mechanisms
+      (turbulent convection, dynamo action) where the loop structure is
+      less central or is disputed (see chaos_sensitivity notes on the
+      sunspot cycle).
+    evidence_status: qualitative
+    sources: []
+notes: |
+  This column is HYBRID in spirit though typed rubric in the panel spec: the
+  0-4 score characterizes strength/centrality, but every anchor at score >=2
+  MUST include the structured loop list (name, sign REINFORCING/BALANCING,
+  one-sentence mechanism, and — where possible — which part of the dominant
+  dynamics it explains). A justification that asserts "score 3" without an
+  itemized loop list is incomplete and should be flagged by the consistency
+  checker. Distinct from nonlinearity (a loop can be linear-gain; see that
+  column's notes) and from memory_hysteresis (a loop is a synchronous causal
+  cycle; hysteresis is persistence of past state independent of any active
+  loop). Distinct from tipping_transitions (loops are the mechanism;
+  tipping points are a possible consequence of strongly reinforcing loops
+  crossing a bifurcation, scored separately).

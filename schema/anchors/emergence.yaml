@@ -1,0 +1,249 @@
+# ============================================================
+# Catalog of Complexity — Rubric Anchors: emergence
+# ============================================================
+# Spec definition (panel-spec.yaml, group F): Fixed operational sense —
+# WEAK/epistemic emergence ONLY: macro-level order requiring description
+# in new terms (order parameters), not trivially reducible. Strong/
+# ontological emergence claims are out of scope and must not appear in
+# justifications. Paired with the entry-level emergent_phenomena narrative
+# list.
+# ============================================================
+
+column: emergence
+version: 0.1-draft
+
+scale:
+  0: >
+    Macro-level description is a direct bookkeeping aggregate of
+    micro-level quantities with no new descriptive vocabulary required —
+    the macro state is transparently "more of the same" (total mass,
+    average of a directly summed quantity) and could be read off the
+    micro-description by inspection, with no new law, no new effective
+    variable, and no qualitative macro-scale regularity that micro-level
+    description does not already make obvious.
+  1: >
+    A macro-level statistical regularity exists (a distribution, an
+    average, a bulk property) but it is a straightforward statistical
+    consequence of micro-level rules — describable via elementary
+    statistical mechanics / law-of-large-numbers reasoning without
+    requiring a genuinely new effective theory, new state variable, or
+    new causal-level regularity irreducible in practice to routine
+    aggregation.
+  2: >
+    A recognizable macro-level pattern or structure exists that is not
+    obviously predictable from micro-rules by casual inspection, and
+    practitioners commonly describe it with pattern-specific vocabulary
+    (a "cell," a "front," a "cluster"), but no widely used order
+    parameter or macro-level law with independent quantitative content
+    has been formalized for it — the description is qualitative/
+    morphological rather than a genuine new effective theory.
+  3: >
+    A formalized order parameter or macro-level effective law exists,
+    used predictively/explanatorily by the relevant field, that
+    characterizes a qualitative transition or organized macro-state not
+    transparent from micro-rules alone (a critical exponent, a Reynolds-
+    number-indexed flow regime, a market-level price as aggregated
+    information) — genuinely new macro-descriptive machinery is doing
+    real explanatory work, even though the macro-behavior remains, in
+    principle, a consequence of the micro-dynamics (weak/epistemic
+    emergence, not claimed to be ontologically novel).
+  4: >
+    Multiple, well-established, field-defining order parameters/macro-laws
+    are necessary to describe the system's behavior, macro-level
+    regularities are the PRIMARY mode by which the field studies and
+    predicts the system (micro-level simulation from first principles is
+    largely intractable or not how the science is actually done), and the
+    macro-description supports genuine prediction/explanation that no
+    tractable micro-level enumeration provides in practice.
+
+does_not_count: |
+  This column is fixed to WEAK/epistemic emergence: "requires new
+  descriptive/explanatory machinery in practice," never "is metaphysically
+  irreducible to its parts" or "could not even in principle be derived
+  from micro-physics." Justifications must not invoke downward causation,
+  novel causal powers, or claims that the whole is "more than the sum of
+  its parts" in an ontological sense — score by descriptive/explanatory
+  necessity of macro-terms, not by rhetorical impressiveness. A system
+  merely being "hard to simulate" for computational-cost reasons alone
+  (without a genuine new effective variable) does not count — score by
+  whether a NEW STATE VARIABLE or LAW is used, not by CPU cost. Do not
+  reward emergence for self_organization's territory (spontaneous order
+  WITHOUT external templating is a separate column) — a system can score
+  high on emergence while self-organization is low if the macro-order
+  requiring new description was externally imposed (a built network
+  topology can still need graph-theoretic macro-description even though
+  it did not self-organize). Do not reward this column merely because the
+  system is "complicated" or has many parts (numerosity) — the question is
+  whether a compact macro-description exists that could not be read off
+  the micro-rules by casual inspection.
+
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 2
+    justification: >
+      The Sun presents pervasive macro-level patterns with dedicated
+      descriptive vocabulary — granulation and supergranulation, the
+      sunspot butterfly diagram, the 11/22-year activity cycle — that are
+      not readable off the micro-physics by inspection, and solar physics
+      maintains a semi-formalized effective theory for them (mean-field
+      dynamo theory, whose alpha-effect and turbulent diffusivity are
+      genuinely new effective variables). Scored 2 rather than 3 because
+      that effective theory's independent quantitative content remains
+      contested — its parameters are not independently measured and its
+      predictive skill for cycle amplitude is poor — so the
+      macro-description sits closer to pattern-specific vocabulary than
+      to a load-bearing order-parameter theory. Scored 2 rather than 1
+      because bulk-structure integration (the stellar-structure equations)
+      is not the whole story: the system's characteristic phenomena
+      include organized macro-patterns that plain statistical aggregation
+      does not describe.
+    evidence_status: qualitative
+    sources: []
+
+  - system: convection-cells
+    exemplar: "Rayleigh-Benard experiments"
+    category: physical-chemical
+    score: 3
+    justification: >
+      Rayleigh-Benard convection is a canonical, textbook case of weak
+      emergence with a well-defined order parameter: the dimensionless
+      Rayleigh number Ra sets a sharp bifurcation (critical Ra_c ~1708 for
+      idealized free-free boundary conditions) between a conductive
+      (no macro pattern) and convective (organized hexagonal/roll-cell
+      pattern) regime, and the resulting cell wavelength/pattern is
+      described using pattern-formation/order-parameter language
+      (amplitude equations, Ginzburg-Landau-type descriptions near
+      threshold) that is standard, predictive, and not a mere restating
+      of the underlying Navier-Stokes/heat-equation micro-dynamics. This
+      is a genuinely new, quantitatively formalized macro-description
+      doing real explanatory work — scored 3 rather than 4 because it is
+      a single, well-characterized order parameter for a comparatively
+      simple, idealized system rather than a field requiring multiple
+      layered macro-theories.
+    evidence_status: qualitative
+    sources: []
+
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 3
+    justification: >
+      A tropical cyclone is characterized by macro-level order parameters
+      with real predictive content that are not transparent from raw
+      fluid-dynamics micro-rules by inspection: minimum central pressure,
+      maximum sustained wind, the Saffir-Simpson category, and Emanuel's
+      (1986) potential-intensity theory (a Carnot-cycle-style upper bound
+      on storm intensity from sea-surface temperature and outflow
+      temperature) are the actual working vocabulary meteorologists use to
+      describe and forecast storms, not an arbitrary relabeling of
+      grid-cell wind/pressure/moisture fields. This is solid weak
+      emergence — a compact macro-theory (potential intensity, eyewall
+      dynamics) genuinely used for explanation and forecasting. Held at 3
+      rather than 4 because storm-scale numerical weather prediction
+      increasingly does resolve much of the relevant physics from
+      finer-grained (though still not first-principles molecular)
+      simulation, somewhat narrowing the practical necessity of the
+      macro-theory relative to, e.g., market price formation.
+    evidence_status: qualitative
+    sources: []
+
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 4
+    justification: >
+      Asset prices are THE order parameter of a financial market: price
+      is not derivable by inspection from any individual trader's private
+      information or strategy, is the primary object the entire field
+      (asset pricing theory, market microstructure) is built to explain,
+      and macro-level regularities (volatility clustering, the term
+      structure of interest rates, implied-volatility surfaces) are
+      studied and used predictively with no tractable micro-level
+      alternative (simulating every trader's cognition from neurons up is
+      not how finance is done, nor could it be). Multiple layered
+      macro-theories are load-bearing simultaneously (efficient-market
+      baseline, behavioral deviations, micro-structure liquidity
+      dynamics), matching the top of the scale.
+    evidence_status: qualitative
+    sources: []
+
+  - system: the-internet
+    category: infrastructure
+    score: 2
+    justification: >
+      Aggregate Internet behavior shows recognizable macro patterns
+      (congestion collapse and recovery, traffic self-similarity at
+      multiple timescales per Leland et al.'s classic finding, AS-level
+      degree distribution) that are not obvious from a single router's
+      forwarding rules by inspection, and practitioners do use
+      pattern-specific vocabulary (congestion, self-similar traffic).
+      However, unlike price formation or convection pattern selection,
+      there is no single widely load-bearing order parameter that the
+      field organizes around to explain and predict aggregate behavior —
+      network engineering largely reasons at the protocol/mechanism level
+      (TCP congestion-control algorithms) rather than via a formalized
+      macro effective theory. Scored 2: real macro-pattern, not yet a
+      formalized order-parameter-level theory in the way convection or
+      markets have.
+    evidence_status: qualitative
+    sources: []
+
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 3
+    justification: >
+      The macro-order here lives at the population level: a shared
+      grammar (a stable convention no individual speaker legislates),
+      lawlike diachronic regularities (Neogrammarian sound laws,
+      grammaticalization clines), and robust statistical laws (Zipf
+      word-frequency exponent alpha=1.95 — the cleanest power law in CSN
+      2009's 24-dataset study). Linguistics' primary explanatory mode IS
+      macro-description: grammars are effective theories of the shared
+      convention, not readable off individual utterances or articulatory
+      micro-behavior — which meets level 3's requirement of formalized
+      macro-level machinery doing real explanatory work. Held below 4
+      because the discipline's macro-laws are weakly predictive
+      prospectively (sound change is lawlike only retrospectively),
+      unlike the operationally load-bearing macro-theories anchoring 4.
+    evidence_status: measured
+    sources:
+      - "Clauset, A., Shalizi, C.R., Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661 — English word-frequency alpha=1.95(2), best-fit dataset in the study."
+
+notes: |
+  STRICT SCOPE REMINDER for verifiers: any justification that uses
+  language like "the whole is more than the sum of its parts" in a
+  metaphysical sense, "irreducible in principle," "downward causation," or
+  "a new kind of stuff/causal power" is out of scope per the spec and
+  should be flagged/rewritten, even if the underlying score seems
+  reasonable — the column measures DESCRIPTIVE NECESSITY (does the field
+  actually use and need macro-level terms/laws), not ontological status.
+  Distinguish from self_organization (group F): self-organization asks
+  whether macro-order arose WITHOUT external templating; emergence (this
+  column) asks whether describing that macro-order (however it arose)
+  requires genuinely new terms. A designed/imposed structure (e.g., a
+  built network topology, engineered by humans, so low self-organization)
+  can still score high on emergence if graph-theoretic macro-description
+  is doing real, necessary explanatory work — self_organization and
+  emergence are logically independent axes and must not be conflated or
+  forced to co-vary. Distinguish from criticality (group C): criticality
+  is about proximity to a specific scale-invariant critical point;
+  emergence is the broader claim that SOME macro-description is needed,
+  criticality-adjacent or not (Rayleigh-Benard is anchored here via its
+  order parameter, independent of any SOC claim). The pilot set
+  deliberately has no anchor above 3 outside of NYSE, to avoid the
+  ceiling effect the authoring rules warn against — most systems in the
+  catalog should land at 1-3, with 4 reserved for cases (like price
+  formation) where the field's entire explanatory apparatus IS the
+  macro-theory.
+  ORCHESTRATOR ADJUDICATION (Phase 1b harmonization): sun raised 1->2 and
+  english raised 2->3 relative to the initial draft. Rationale: the draft
+  scored both systems on their least emergent aspect (bulk stellar
+  structure; individual generative competence) rather than on their
+  characteristic macro-phenomena (dynamo/activity-cycle effective theory;
+  population-level convention and diachronic law), which the scale's own
+  level definitions credit. English at 3 also restores cross-column
+  sanity: a discipline whose primary mode is macro-description should not
+  anchor below convection-cells.

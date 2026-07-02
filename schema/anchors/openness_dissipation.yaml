@@ -1,0 +1,202 @@
+column: openness_dissipation
+version: 0.1-draft
+scale:
+  0: >
+    System is at or asymptotically approaching thermodynamic equilibrium
+    with its surroundings: negligible net energy/matter throughput relative
+    to its internal energy content; no sustained external flux is required
+    to maintain its structure/state.
+  1: >
+    System is measurably open (some continuous energy or matter exchange
+    with its environment) but the throughput is small relative to the
+    system's mass/energy content or is not what maintains its characteristic
+    structure — the structure would persist for a long time even if the flux
+    were interrupted.
+  2: >
+    System requires continuous, non-trivial energy/matter throughput to
+    maintain its characteristic structure over its operating lifetime, and
+    interrupting the flux would degrade that structure within a time
+    comparable to (or somewhat longer than) the system's own characteristic
+    timescale — but the throughput is modest relative to comparably-sized
+    systems in the catalog, or dissipation is a secondary rather than
+    defining feature.
+  3: >
+    System is a genuine dissipative structure in the Prigogine sense:
+    substantial, continuous physical energy and/or matter flux passes through
+    the system, is degraded/dissipated (converted toward higher entropy,
+    e.g., heat, friction, radiated waste heat), and this flux is directly
+    responsible for generating and maintaining the system's characteristic
+    organized structure. Interrupting the flux collapses the structure on a
+    timescale comparable to or shorter than the structure's own dynamical
+    timescale.
+  4: >
+    System sits very far from equilibrium with an extreme, continuous,
+    physically large energy and/or matter throughput (measured or
+    order-of-magnitude estimated in literal watts/joules or mass flux) that
+    is both continuously renewed from outside the system boundary and
+    immediately, continuously dissipated; removing the flux causes rapid
+    (much-faster-than-structural-timescale) collapse or dispersal of the
+    system's organization.
+does_not_count: |
+  This column is anchored in LITERAL physical energy and/or matter flux —
+  watts, joules per second, kilograms per second, or Chaisson's Phi_m
+  (erg s^-1 g^-1) — never in metaphorical "disequilibrium" language such as
+  "market disequilibrium," "social tension," "information imbalance," or
+  "economic non-equilibrium" used in the economics sense (where "equilibrium"
+  means supply=demand, an entirely different and NOT physical concept from
+  thermodynamic equilibrium). A socio-economic system scores here based on
+  its literal electricity/fuel/food/material throughput (a city's grid draw
+  in watts, a datacenter's power-usage-effectiveness-adjusted load), NOT
+  based on how "far from market equilibrium" its economic indicators are.
+  Where a system participates in economic disequilibrium AND has a citable
+  literal energy-throughput figure, only the latter counts as evidence here;
+  the former belongs in narrative/summary text if anywhere. Do not conflate
+  with numerosity (component count) or with energy_rate_density (the
+  companion quantitative column) — this rubric score should be consistent
+  with, but is not mechanically derived from, that column's Phi_m value.
+anchors:
+  - system: stars
+    exemplar: "the Sun"
+    category: astrophysical
+    score: 4
+    justification: >
+      The Sun radiates ~3.8x10^26 W (its entire luminosity) continuously,
+      sourced from core fusion converting ~4.3 million tonnes of mass to
+      energy per second; this literal, enormous energy flux is what
+      maintains the star's hydrostatic structure against gravitational
+      collapse. Chaisson (2010/2011) gives Phi_m = 2 erg s^-1 g^-1 for the
+      Sun as a whole — a modest per-gram figure precisely because the Sun's
+      mass is so large, illustrating that openness_dissipation (a rubric
+      judgment about the centrality/scale of the flux to the structure) and
+      the mass-normalized energy_rate_density column are related but not
+      identical: the Sun scores 4 here on the strength of its absolute
+      throughput and the fact that fusion output is THE thing maintaining
+      stellar structure, even though its mass-normalized Phi_m is low
+      compared to a human or a hurricane.
+    evidence_status: measured
+    sources: ["Chaisson, E.J. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40."]
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 4
+    justification: >
+      A mature hurricane is a canonical Carnot-type heat engine drawing
+      latent/sensible heat continuously from warm ocean surface water
+      (~300 K reservoir) and exhausting it at the tropopause (~200 K),
+      converting a fraction of that throughput to mechanical wind energy
+      that is continuously frictionally dissipated at the sea surface
+      (Emanuel 1986 framework; theoretical Carnot ceiling efficiency ~1/3).
+      Power dissipation for a major hurricane is order 10^12-10^13 W
+      (Emanuel's PDI framework tracks V_max^3 specifically because it scales
+      with dissipated power). Interrupting the ocean-heat-flux input (e.g.,
+      storm moving over cold water or land) causes the storm to decay within
+      roughly a day — a timescale comparable to or shorter than the storm's
+      own multi-day lifetime, the textbook signature of score 4.
+    evidence_status: measured
+    sources: ["Emanuel, K. (1986). An air-sea interaction theory for tropical cyclones. Part I. J. Atmos. Sci. 43(6), 585-605."]
+  - system: cities
+    exemplar: "New York City"
+    category: socio-economic
+    score: 3
+    justification: >
+      New York City draws large, continuous, literal power and material
+      throughput to maintain its physical and functional structure: NYC
+      metro electricity demand peaks around 11-13 GW [unverified — model
+      knowledge, order-of-magnitude only; not independently re-verified this
+      session], plus continuous fuel, food, and water throughput, all
+      dissipated as waste heat, sewage, and solid waste. This is a literal
+      Prigogine-style dissipative structure: the city's physical
+      infrastructure and population pattern would not persist without
+      continuous energy import (a multi-day blackout materially degrades
+      city function well within the city's own operating timescale). Scored
+      3 rather than 4: while large in absolute terms, NYC's power draw is
+      small relative to planetary- or stellar-scale fluxes anchoring this
+      column's top of scale, and city structure (streets, buildings) persists
+      physically on a much longer timescale than a short interruption would
+      damage — the "collapse timescale" is longer than for a hurricane.
+    evidence_status: qualitative
+    sources: []
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 2
+    justification: >
+      The NYSE's physical substrate (data centers, matching-engine servers,
+      trading floor) draws continuous, non-trivial electrical power — the
+      NYSE's own Mahwah, NJ data center is a large-scale facility on the
+      order of tens of megawatts of capacity [unverified — model knowledge,
+      order-of-magnitude only]. This is real literal throughput but it is
+      dwarfed by the physical scale of a city or a storm, and — critically —
+      the electrical throughput is what keeps the COMPUTING SUBSTRATE
+      running, not what generates the market's characteristic
+      price-formation dynamics (which are an information/decision process
+      layered on top of, not created by, the energy flux, unlike a
+      hurricane where the heat flux literally IS the mechanism generating
+      the wind field). Scored 2: genuinely open and dissipative as a piece
+      of physical infrastructure, but the throughput is secondary
+      infrastructure support rather than the literal generative mechanism of
+      the system's defining dynamics.
+    evidence_status: qualitative
+    sources: []
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 1
+    justification: >
+      The fault system is driven by the very slow, low-power flux of plate
+      tectonic motion — Pacific/North American relative plate motion of
+      roughly 30-50 mm/yr — ultimately sourced from mantle convective heat
+      flow (a real but extremely diffuse and slow energy throughput, order
+      mW/m^2 at Earth's surface, among the lowest-power-density fluxes
+      considered in this catalog) [unverified — model knowledge for exact
+      plate rate]. Strain energy accumulates and is released
+      episodically (earthquakes) rather than continuously dissipated; between
+      ruptures the fault stores elastic energy rather than dissipating flux
+      through an organized structure the way a hurricane or a star does.
+      Scored 1, not 0: the system is genuinely open to a tectonic energy
+      source over geological time, but the throughput is not what
+      continuously maintains an organized dissipative structure on
+      observable (human) timescales — it is closer to a slowly-charged
+      battery than an active heat engine.
+    evidence_status: qualitative
+    sources: []
+  - system: languages
+    exemplar: "English"
+    category: cultural-informational
+    score: 1
+    justification: >
+      "English" as an abstract linguistic system has no independent literal
+      energy/matter throughput of its own distinct from the metabolic energy
+      of its speakers and the electrical energy of the media that transmit
+      it — there is no citable physical flux whose interruption would
+      collapse "English" as a structure on any meaningful timescale (the
+      language would persist through a period without any physical medium
+      transmitting it, unlike a hurricane losing its heat source). Scored
+      1 rather than 0 because language transmission is not fully
+      equilibrium-independent either: it requires a continuously renewed
+      population of living, energy-consuming speakers and (in the modern
+      era) real electrical throughput for digital transmission/storage — but
+      this throughput belongs to the speakers/infrastructure substrate, not
+      to "English" as the object of study, making this one of the columns
+      where a cultural-informational entry is expected to score near the
+      floor rather than being stretched to fit.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Companion to the quantitative energy_rate_density column (Chaisson's
+  Phi_m): that column reports a mass-normalized number where derivable;
+  this column is the rubric judgment of how CENTRAL that physical flux is to
+  generating and maintaining the system's characteristic structure, which is
+  why the ranking here need not track Phi_m's ranking exactly (see the Sun
+  vs. hurricane vs. human-society tension: Chaisson's own numbers show human
+  society at Phi_m~500,000 erg/s/g, orders of magnitude above the Sun's 2 —
+  a city can score high on mass-normalized throughput while still scoring
+  moderately here if the flux is infrastructure-support rather than
+  structure-generating; conversely the Sun's low Phi_m does not stop it
+  scoring 4 here because its absolute flux IS the structure-maintaining
+  mechanism). Distinct from adaptive_capacity and information_processing:
+  a system can process huge information flux while dissipating comparatively
+  little physical energy (do not let information throughput leak into this
+  score). Every score of 3-4 should be traceable, even loosely, to a
+  literal number in watts, joules/s, or kg/s cited in energy_rate_density or
+  in this column's justification.
