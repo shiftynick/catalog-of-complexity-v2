@@ -800,14 +800,20 @@ details[open] > summary .chevron {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  min-width: max-content;
+  /* Fits the container at desktop; the 900px floor below enables scroll on small screens. */
+  min-width: 900px;
 }
 
 .periodic-row {
   display: grid;
-  grid-template-columns: 140px repeat(var(--periodic-cols, 10), minmax(120px, 1fr));
+  grid-template-columns: 108px repeat(var(--periodic-cols, 10), minmax(0, 1fr));
   align-items: stretch;
-  gap: 6px;
+  gap: 5px;
+}
+
+.periodic-grid.has-queue .periodic-row {
+  /* One compact trailing column shared by each row's expansion-queue ghosts. */
+  grid-template-columns: 108px repeat(var(--periodic-cols, 10), minmax(0, 1fr)) minmax(96px, 0.85fr);
 }
 
 .periodic-row-label {
@@ -831,8 +837,13 @@ details[open] > summary .chevron {
 .periodic-cell {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  min-width: 120px;
+  gap: 5px;
+  min-width: 0;
+}
+
+.periodic-queue-cell {
+  border-left: 1px dashed var(--border);
+  padding-left: 5px;
 }
 
 .periodic-cell-empty {
@@ -848,12 +859,12 @@ details[open] > summary .chevron {
   border: 1px solid var(--border);
   border-top: 3px solid var(--tile-accent, var(--border));
   border-radius: var(--radius);
-  padding: 10px 10px 8px;
+  padding: 7px 8px 6px;
   text-decoration: none;
   color: var(--ink);
   box-shadow: 0 1px 2px rgba(29, 31, 33, 0.04);
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-  min-height: 84px;
+  min-height: 64px;
 }
 
 .periodic-tile:hover {
@@ -865,23 +876,24 @@ details[open] > summary .chevron {
 .periodic-symbol {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.15rem;
   color: var(--tile-accent, var(--ink));
   line-height: 1;
 }
 
 .periodic-name {
-  font-size: 0.78rem;
+  font-size: 0.7rem;
   color: var(--ink-dim);
-  line-height: 1.25;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .periodic-pc1 {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.63rem;
   color: var(--ink-faint);
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 3px;
 }
 
 .periodic-ghost {
@@ -900,16 +912,22 @@ details[open] > summary .chevron {
   border-color: var(--border);
 }
 
-.periodic-ghost .periodic-symbol {
+.periodic-ghost {
+  min-height: 0;
+  padding: 5px 7px 4px;
+}
+
+.periodic-ghost .periodic-name {
+  font-size: 0.63rem;
   color: var(--ink-faint);
 }
 
 .periodic-ghost-label {
-  font-size: 0.7rem;
+  font-size: 0.58rem;
   font-style: italic;
   color: var(--ink-faint);
   margin-top: auto;
-  padding-top: 4px;
+  padding-top: 2px;
 }
 
 .periodic-caption {

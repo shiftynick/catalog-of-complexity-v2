@@ -67,11 +67,14 @@ if (hasAnalysis) {
   });
 }
 
-const maxCols = Math.max(...rows.map((r) => r.cells.length + r.ghosts.length), 1);
+// Ghosts share ONE compact trailing "queue" column per row (they carry no PC1,
+// so giving each its own column would distort the axis and blow up the grid width).
+const maxCols = Math.max(...rows.map((r) => r.cells.length), 1);
+const anyGhosts = rows.some((r) => r.ghosts.length > 0);
 ---
 <div class="periodic-wrap">
   <div class="periodic-scroll">
-    <div class="periodic-grid" style={`--periodic-cols: ${maxCols};`}>
+    <div class={`periodic-grid${anyGhosts ? ' has-queue' : ''}`} style={`--periodic-cols: ${maxCols};`}>
       {rows.map((row) => (
         <div class="periodic-row">
           <div class="periodic-row-label" style={`color: ${categoryColorVar(row.category)}`}>
@@ -97,15 +100,16 @@ const maxCols = Math.max(...rows.map((r) => r.cells.length + r.ghosts.length), 1
                 <div class="periodic-cell periodic-cell-empty" aria-hidden="true"></div>
               )
             ))}
-            {row.ghosts.map((g) => (
-              <div class="periodic-cell">
-                <div class="periodic-tile periodic-ghost" role="img" aria-label={`${g.id}, in the queue, not yet catalogued`}>
-                  <span class="periodic-symbol" aria-hidden="true">?</span>
-                  <span class="periodic-name">{g.id}</span>
-                  <span class="periodic-ghost-label">in the queue</span>
-                </div>
+            {anyGhosts && (
+              <div class="periodic-cell periodic-queue-cell" aria-label={row.ghosts.length ? 'expansion queue for this category' : undefined}>
+                {row.ghosts.map((g) => (
+                  <div class="periodic-tile periodic-ghost" role="img" aria-label={`${g.id}, in the queue, not yet catalogued`}>
+                    <span class="periodic-name">{g.id}</span>
+                    <span class="periodic-ghost-label">in the queue</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </div>
       ))}
