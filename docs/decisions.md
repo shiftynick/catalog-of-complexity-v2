@@ -71,7 +71,15 @@ Rejected outright: cross-system "analogous_to" links (analysis output, not catal
 ## D15 — Schema v1.0 freeze + stack confirmation (2026-07-02, Phase 5)
 Panel spec frozen at v1.0 after calibration against all 10 verified pilot entries (dragon #3 honored: schema work ends, production continues). Web stack CONFIRMED by Nick: Astro + D3, static build, deploy Netlify; analysis pipeline in Node (single toolchain, no Python dependency — dragon #1). Analysis outputs (`analysis/output/analysis.json`) are build inputs to the app, never computed client-side.
 
+## D16 — Data license: CC BY 4.0 (2026-07-02, v0.2 close)
+Nick's call at the v0.2 decision review: the catalog (data + prose) launches under **CC BY 4.0**. Attribution-only, one license for the whole work, maximizes reuse and citation — the right posture for a definitive reference. Applies at Phase 6; until then the repo stays private and unlicensed-by-default.
+
+## D17 — Phase 6 gate: manual, no automatic trigger (2026-07-02)
+Public launch remains a call Nick makes explicitly — no roster-size or milestone gate. Sessions must not deploy to public URLs or do launch prep beyond what's asked. (Reaffirms and sharpens D11's "deferred": deferred *indefinitely, until told*.)
+
+## D18 — Expansion batch 2 target: dissociators + the physical-chemical row (2026-07-02)
+When the pipeline next runs, the batch is **convection-cells, chemical-oscillators (BZ), turbulent-flows, firms** (+ optionally one more queue giant). Rationale: fills the catalog's one empty category row AND directly stress-tests the two standing hypotheses (the 0.957 info↔adaptivity degeneracy — chemical oscillators are the predicted dissociator; the negative modularity↔self-organization correlation — physical-chemical entries are its designed test). Batch list still gets Nick's sign-off at run time per the batch-1 precedent.
+
 ## Open questions (not yet decided)
 - Effort/timeline budget per phase.
-- The "dream headline" — which kind of cross-system pattern would be most exciting? (Shapes analysis priorities in Phase 5, doesn't block anything before it.)
-- License for the open data at launch (CC BY? ODbL?).
+- The "dream headline" — narrowed at the v0.2 review to four concrete candidates, none yet chosen: (a) the alphabet-closure law as "chemical valence" (zero exceptions at n=15 — the exciting version is finding the exception or predictive power beyond category), (b) PC1 as THE single empirical axis of complex systems, (c) info-processing≡adaptivity as an empirical identity (or its rare breakers), (d) composition non-monotonicity (parts out-scoring their wholes). Nick: "these all sound like potential candidates" — keep all four alive; batch 2 (D18) feeds (c) and (b) directly.
