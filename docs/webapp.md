@@ -1,5 +1,7 @@
 # Web App Concept
 
+> **Status (2026-07-02):** BUILT (v0.1 prototype) — all four views below exist in [app/](../app/) (Astro + vanilla D3, stack confirmed in D15) and were verified against the live catalog. Dev: `npm --prefix app run dev` (port 4321). Deploy: `netlify.toml` chains the analysis pipeline into the build. This document remains the product-concept reference; the code is the implementation.
+
 The public face of the definitive reference. Layered by design (decision D5): a science-museum surface with a researcher's evidence layer one click down.
 
 ## Views

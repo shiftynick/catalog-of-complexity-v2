@@ -1,4 +1,6 @@
-# Per-Entry Research Playbook (v0)
+# Per-Entry Research Playbook (v1 — PROVEN)
+
+> **Status (2026-07-02):** Battle-tested by hand on tropical-cyclones + financial-markets (Phase 3), then encoded and run at scale on the remaining 8 pilot classes (Phase 4) as the workflow now saved at [.claude/workflows/entry-pipeline.js](../.claude/workflows/entry-pipeline.js) (sweep → draft → 4 adversarial verifiers per entry → cross-entry audit; structured flags; fixer agents; orchestrator triage). To reuse: edit the workflow's hardcoded CLASSES list for the next batch (parameterizing via args is a known TODO). Two additions the pilot proved essential beyond the steps below: a **cross-entry commensurability audit** after all entries land, and **targeted primary-reads** to settle any entry-vs-anchor conflicts (a primary read once corrected the ANCHOR, not the entry — verify in both directions).
 
 To be battle-tested by hand on 2–3 pilot entries (Phase 3) before any automation (Phase 4, decision D8). Steps that survive contact with reality get encoded as a single agent workflow — research → draft → verify → flag report. No queues, no dashboards, no infrastructure beyond that (dragon #1).
 

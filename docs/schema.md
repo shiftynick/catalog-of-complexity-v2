@@ -1,6 +1,6 @@
-# Entry Schema (draft v1)
+# Entry Schema (v1 — FROZEN with panel-spec v1.0, 2026-07-02)
 
-Illustrates the shape; finalized in Phase 2, **frozen** at v0.1 of the catalog (Phase 5, dragon #3). The panel columns themselves are specified in [metrics.md](metrics.md) → `schema/panel-spec.yaml`. Per decision D14, entries are **classes**; famous instances appear as named **exemplars** carrying evidence inside the class entry.
+The shape below is now proven against all 10 verified entries in [data/classes/](../data/classes/) — consult those (especially tropical-cyclones.yaml and financial-markets.yaml, the hand-built gold pair) as the living reference; this document explains the shape. Panel columns are specified in `schema/panel-spec.yaml` (frozen v1.0, D15). Per decision D14, entries are **classes**; famous instances appear as named **exemplars** carrying evidence inside the class entry. Real entries additionally carry `provenance.fix_log` / `flag_cleanup_notes` blocks accumulated during verification — treat these as append-only history.
 
 ```yaml
 # data/classes/tropical-cyclones.yaml

@@ -1,5 +1,7 @@
 # Roster
 
+> **Status (2026-07-02):** All 10 pilot classes below are **verified entries** in [data/classes/](../data/classes/). Expansion beyond the pilot now runs through the **relations expansion queue** — unresolved `part_of`/`contains` ids accumulated by real entries (currently: global-economy, weather-systems, ocean-circulation, moist-convection-cells, photospheric-convection-cells, energy-systems, world-wide-web, road-traffic-systems, social-networks, plate-tectonics, galaxies, cultures, firms) — fame-gated against the candidate list below before promotion. Production uses the proven workflow at [.claude/workflows/entry-pipeline.js](../.claude/workflows/entry-pipeline.js).
+
 Selection rule (dragon #2): fame-ordered. A system enters the catalog only if it is (a) canonical in the complexity-science literature, or (b) instantly recognizable to an educated lay reader. Both is best. Nothing exotic before the giants are done.
 
 ## Pilot 10 (proposed — to be locked in Phase 2)

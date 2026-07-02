@@ -2,7 +2,7 @@
 
 The columns of the periodic table. This is the science core of the project: the panel must be **commensurable** — "hierarchy depth" or "feedback" must mean the same thing for a hurricane and for the power grid — or the whole comparison collapses into vibes.
 
-> **Status (2026-07-01):** Phase 1 **complete**. The authoritative spec is [schema/panel-spec.yaml](../schema/panel-spec.yaml) (v0.3 — 29 columns after decisions D13/D14), synthesized from four evidence reports in [research/phase1/](../research/phase1/) — reasoning and editorial calls in [SYNTHESIS.md](../research/phase1/SYNTHESIS.md). Rubric anchors for all 15 rubric/hybrid columns live in [schema/anchors/](../schema/anchors/).
+> **Status (2026-07-02):** The panel is **FROZEN at v1.0** (30 columns; decision D15) after calibration against all 10 verified pilot entries. The authoritative spec is [schema/panel-spec.yaml](../schema/panel-spec.yaml); rubric anchors live in [schema/anchors/](../schema/anchors/); the Phase 1 evidence trail is in [research/phase1/](../research/phase1/) with editorial calls in [SYNTHESIS.md](../research/phase1/SYNTHESIS.md). This document is the historical derivation record; the spec is the authority.
 
 ## Phase 1 task
 
