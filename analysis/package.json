@@ -6,7 +6,8 @@
   "private": true,
   "main": "run.mjs",
   "scripts": {
-    "start": "node run.mjs"
+    "start": "node run.mjs",
+    "validate": "node validate.mjs"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

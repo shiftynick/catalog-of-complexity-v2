@@ -78,29 +78,7 @@ does_not_count: |
   the micro-rules by casual inspection.
 
 anchors:
-  - system: stars
-    exemplar: "the Sun"
-    category: astrophysical
-    score: 2
-    justification: >
-      The Sun presents pervasive macro-level patterns with dedicated
-      descriptive vocabulary — granulation and supergranulation, the
-      sunspot butterfly diagram, the 11/22-year activity cycle — that are
-      not readable off the micro-physics by inspection, and solar physics
-      maintains a semi-formalized effective theory for them (mean-field
-      dynamo theory, whose alpha-effect and turbulent diffusivity are
-      genuinely new effective variables). Scored 2 rather than 3 because
-      that effective theory's independent quantitative content remains
-      contested — its parameters are not independently measured and its
-      predictive skill for cycle amplitude is poor — so the
-      macro-description sits closer to pattern-specific vocabulary than
-      to a load-bearing order-parameter theory. Scored 2 rather than 1
-      because bulk-structure integration (the stellar-structure equations)
-      is not the whole story: the system's characteristic phenomena
-      include organized macro-patterns that plain statistical aggregation
-      does not describe.
-    evidence_status: qualitative
-    sources: []
+  # [redacted for blind IRR study — worked example removed]
 
   - system: convection-cells
     exemplar: "Rayleigh-Benard experiments"
@@ -169,48 +147,9 @@ anchors:
     evidence_status: qualitative
     sources: []
 
-  - system: the-internet
-    category: infrastructure
-    score: 2
-    justification: >
-      Aggregate Internet behavior shows recognizable macro patterns
-      (congestion collapse and recovery, traffic self-similarity at
-      multiple timescales per Leland et al.'s classic finding, AS-level
-      degree distribution) that are not obvious from a single router's
-      forwarding rules by inspection, and practitioners do use
-      pattern-specific vocabulary (congestion, self-similar traffic).
-      However, unlike price formation or convection pattern selection,
-      there is no single widely load-bearing order parameter that the
-      field organizes around to explain and predict aggregate behavior —
-      network engineering largely reasons at the protocol/mechanism level
-      (TCP congestion-control algorithms) rather than via a formalized
-      macro effective theory. Scored 2: real macro-pattern, not yet a
-      formalized order-parameter-level theory in the way convection or
-      markets have.
-    evidence_status: qualitative
-    sources: []
+  # [redacted for blind IRR study — worked example removed]
 
-  - system: languages
-    exemplar: "English"
-    category: cultural-informational
-    score: 3
-    justification: >
-      The macro-order here lives at the population level: a shared
-      grammar (a stable convention no individual speaker legislates),
-      lawlike diachronic regularities (Neogrammarian sound laws,
-      grammaticalization clines), and robust statistical laws (Zipf
-      word-frequency exponent alpha=1.95 — the cleanest power law in CSN
-      2009's 24-dataset study). Linguistics' primary explanatory mode IS
-      macro-description: grammars are effective theories of the shared
-      convention, not readable off individual utterances or articulatory
-      micro-behavior — which meets level 3's requirement of formalized
-      macro-level machinery doing real explanatory work. Held below 4
-      because the discipline's macro-laws are weakly predictive
-      prospectively (sound change is lawlike only retrospectively),
-      unlike the operationally load-bearing macro-theories anchoring 4.
-    evidence_status: measured
-    sources:
-      - "Clauset, A., Shalizi, C.R., Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661 — English word-frequency alpha=1.95(2), best-fit dataset in the study."
+  # [redacted for blind IRR study — worked example removed]
 
 notes: |
   STRICT SCOPE REMINDER for verifiers: any justification that uses
@@ -238,38 +177,9 @@ notes: |
   catalog should land at 1-3, with 4 reserved for cases (like price
   formation) where the field's entire explanatory apparatus IS the
   macro-theory.
-  ORCHESTRATOR ADJUDICATION (Phase 1b harmonization): sun raised 1->2 and
-  english raised 2->3 relative to the initial draft. Rationale: the draft
-  scored both systems on their least emergent aspect (bulk stellar
-  structure; individual generative competence) rather than on their
-  characteristic macro-phenomena (dynamo/activity-cycle effective theory;
-  population-level convention and diachronic law), which the scale's own
-  level definitions credit. English at 3 also restores cross-column
-  sanity: a discipline whose primary mode is macro-description should not
-  anchor below convection-cells.
-
-# Added 2026-07-02 (v0.2 sweep), from the blind inter-rater reliability study
-# (research/v0.2-sweep/validation/irr/results.md, emergence section).
-boundary_clarifications:
-  - id: effective-theory-quality-gates-3
-    rule: >
-      The 2/3 boundary is the QUALITY of the effective macro-theory, not its
-      existence: 3 requires a load-bearing order-parameter theory whose
-      parameters are independently measured or whose predictions have real
-      skill. A semi-formalized effective theory with contested quantitative
-      content (parameters tuned rather than measured, poor predictive skill)
-      holds a system at 2 even when rich macro-vocabulary and a named theory
-      exist. Worked case: stars/the Sun — mean-field dynamo theory has
-      genuinely new effective variables (alpha-effect, turbulent
-      diffusivity) but contested independent content and poor cycle-
-      amplitude prediction; the catalog holds it at 2.
-open_calibration_questions:
-  - id: stars-2-vs-3
-    note: >
-      In the v0.2 blind IRR study all three independent raters scored
-      stars/the Sun a 3 against this scale while converging with each other
-      (the catalog holds 2 per the clarification above). Recorded as a real
-      rater-vs-catalog divergence, not noise. The 2 stands for now because
-      the catalog's dynamo-skepticism rationale is articulated and
-      consistent; revisit if solar-dynamo predictive skill improves or at
-      the next full anchor recalibration.
+  ORCHESTRATOR ADJUDICATION (Phase 1b harmonization): two entries' scores
+  were each raised by one point relative to the initial draft, per
+  redaction of the specific systems and figures for this blind study.
+  Rationale: the draft scored both systems on their least emergent aspect
+  rather than on their characteristic macro-phenomena, which the scale's
+  own level definitions credit.

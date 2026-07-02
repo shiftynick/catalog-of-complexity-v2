@@ -1,0 +1,856 @@
+{
+  "meta": {
+    "generated_by": "compute-alpha.mjs",
+    "generated_at": "2026-07-02T12:59:26.039Z",
+    "entries": [
+      "stars",
+      "river-networks",
+      "cities",
+      "the-internet",
+      "languages"
+    ],
+    "columns": [
+      "decentralization",
+      "modularity",
+      "nonlinearity",
+      "feedback",
+      "openness_dissipation",
+      "chaos_sensitivity",
+      "criticality",
+      "tipping_transitions",
+      "memory_hysteresis",
+      "information_processing",
+      "adaptive_capacity",
+      "emergence",
+      "self_organization",
+      "robustness_resilience",
+      "cascade_susceptibility"
+    ],
+    "scale": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rater_models": [
+      {
+        "rater": 1,
+        "model": "haiku"
+      },
+      {
+        "rater": 2,
+        "model": "sonnet"
+      },
+      {
+        "rater": 3,
+        "model": "opus"
+      }
+    ]
+  },
+  "missing_cells": [],
+  "per_column": {
+    "decentralization": {
+      "alpha_4rater": {
+        "alpha": 0.7010294117647059,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.5931623931623932,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 2,
+        "comparable_units": 5,
+        "rate": 0.4
+      },
+      "worst_cell": {
+        "entry": "cities",
+        "spread": 1,
+        "catalog": 2,
+        "blind": [
+          2,
+          2,
+          3
+        ],
+        "notes": {
+          "rater_1": "NYC municipal government has strong authority over zoning, infrastructure, and regulation (steering authority exists). Yet agent behavior (migration, business location, consumption) is decentralized. Mixed: identifiable coordination points with real authority + equally weighty distributed dynamics. Calibrated against financial-markets anchor (central institution sets rules; traders make distributed decisions; score 2).",
+          "rater_2": "Calibrated directly against the financial-markets anchor (2): municipal government has real authority over zoning, infrastructure, and some economic regulation (a genuine coordination point), but the characteristic dynamics of interest — land use, commuting patterns, economic agglomeration, neighborhood formation — emerge from millions of distributed resident/firm decisions no single authority commands, an exact structural parallel to the NYSE case (exchange operates the mechanics; price formation is distributed).",
+          "rater_3": "Municipal government sets zoning/rules and operates some services (real but narrow-scope coordination, closer to rule-setting than moment-to-moment steering), while the characteristic dynamics — land market, commuting, agglomeration — are distributed decisions no one commands. Predominantly distributed with narrow coordination (scale-3), one above NYSE's 2 as no single matching-engine-like operator runs city dynamics."
+        }
+      }
+    },
+    "modularity": {
+      "alpha_4rater": {
+        "alpha": 0.5778707782672542,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.6590476190476191,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 0,
+        "comparable_units": 5,
+        "rate": 0
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 1,
+        "blind": [
+          0,
+          1,
+          1
+        ],
+        "notes": {
+          "rater_1": "Continuum system with no internal boundaries or subdivision. Radiative/convective zones are gradient-layers, not modular compartments; no within-group vs. between-group density difference.",
+          "rater_2": "Granulation/supergranulation cells tile the photosphere with fuzzy, constantly-reforming boundaries (granule lifetime ~0.2hr, supergranule ~1.8 day) rather than stable partitions; per does_not_count, spatial patchiness alone (contour-lines on a gradient) doesn't count unless it reflects reduced functional coupling, and the convective network is closer to a continuum with locally denser flow cells than a network with a preferred Q-maximizing partition. Scored just above 0 because there is at least a real physical scale-separation (granules vs supergranules vs giant cells) that supports some grouping, unlike a fully uniform field.",
+          "rater_3": "A continuum plasma/field system; radial shells (core/radiative/convective zones) are gradational stratification, not laterally loosely-coupled peer modules. Granulation cells tile the surface but are not functionally insulated subsystems. Weak/gradational structure (scale-1), well below the power-grid balancing-area 3."
+        }
+      }
+    },
+    "nonlinearity": {
+      "alpha_4rater": {
+        "alpha": 0.6676122931442081,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.7300358422939068,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.8
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 1,
+        "comparable_units": 5,
+        "rate": 0.2
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 3,
+        "blind": [
+          3,
+          4,
+          4
+        ],
+        "notes": {
+          "rater_1": "Nonlinear MHD equations, nonlinear radiative transfer, convective instability. Core dynamics depend on nonlinearity, but concentrated in specific zones (convective core, photosphere) rather than pervasive at all scales.",
+          "rater_2": "Calibrated directly against the tropical-cyclones anchor (score 4): stellar convection and the dynamo are governed by the nonlinear MHD/Navier-Stokes equations with multiplicative coupling (velocity-field advection, magnetic induction back-reacting on flow via Lorentz force); nonlinearity is pervasive and load-bearing for granulation, the 11-year cycle, and flare/CME triggering simultaneously.",
+          "rater_3": "Governing dynamics (magnetohydrodynamics, nonlinear convection, dynamo action) are pervasively and load-bearingly nonlinear across multiple subsystems — convective turbulence, magnetic reconnection, flares as threshold events. Matches the tropical-cyclones/NYSE score-4 pattern of nonlinearity definitional at multiple scales."
+        }
+      }
+    },
+    "feedback": {
+      "alpha_4rater": {
+        "alpha": 0.5128205128205128,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.6818181818181819,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 3,
+        "comparable_units": 5,
+        "rate": 0.6
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 2,
+        "blind": [
+          3,
+          3,
+          3
+        ],
+        "notes": {
+          "rater_1": "Multiple feedback loops: convective efficiency (temperature -> convection -> energy transport), radiation-pressure feedback on shell dynamics, magnetic-field-plasma coupling loops. Continuously active, structurally central (convection patterns depend on loops).",
+          "rater_2": "The dynamo is fundamentally a feedback phenomenon (differential rotation + convection generate field, field back-reacts on flow via Lorentz-force quenching, a documented reinforcing/balancing pair), and WISHE-like local reinforcing loops are absent, so this doesn't reach the tropical-cyclone/climate anchor level of a single all-explaining loop system; scored 3 (multiple loops continuously active, required to explain cyclic behavior) rather than 4 because, unlike Katrina's WISHE, no single loop is THE definitional mechanism of the star's day-to-day existence (hydrostatic equilibrium is not itself a dynamical feedback loop in the causal-cycle sense).",
+          "rater_3": "Multiple continuously-active loops are required to explain the star: the stabilizing pressure-temperature-fusion thermostat (balancing, gives stable main-sequence burning) plus convective and dynamo loops. Removing them qualitatively changes behavior — scale-3. Held below the climate/hurricane 4 as the loop structure is less the field's sole organizing narrative."
+        }
+      }
+    },
+    "openness_dissipation": {
+      "alpha_4rater": {
+        "alpha": 0.7674316939890711,
+        "n": 19.999999999999996,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.697076023391813,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 3,
+        "comparable_units": 5,
+        "rate": 0.6
+      },
+      "worst_cell": {
+        "entry": "the-internet",
+        "spread": 2,
+        "catalog": 2,
+        "blind": [
+          4,
+          2,
+          2
+        ],
+        "notes": {
+          "rater_1": "Internet data centers and backbone routers consume massive continuous electricity (estimated order 100 GW global, ~500 TWh/year). Extreme physical throughput; interruption causes immediate system collapse. Energy throughput is the structure-maintaining mechanism (computation, routing processing). Matches hurricane anchor's score-4 criteria: extreme continuous flux, direct structure generation.",
+          "rater_2": "The Internet's physical substrate (routers, datacenters, transmission equipment) draws continuous, substantial electrical power globally, but — directly parallel to the NYSE anchor's reasoning (scored 2) — this throughput is what keeps the computing/transport substrate running, not the literal generative mechanism of the system's characteristic informational dynamics (routing, congestion) the way a hurricane's heat flux literally generates its wind field. Scored 2 on the same logic as the NYSE anchor.",
+          "rater_3": "The physical substrate (routers, data centers, cables) draws continuous large electrical power, but that throughput sustains the COMPUTING SUBSTRATE rather than generating the network's characteristic topological/routing dynamics (an information process layered on top). Matches the NYSE score-2 reasoning exactly (real dissipation, infrastructure-support not structure-generating)."
+        }
+      }
+    },
+    "chaos_sensitivity": {
+      "alpha_4rater": {
+        "alpha": 0.8810313075506446,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.9903448275862069,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 3,
+        "comparable_units": 5,
+        "rate": 0.6
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 2,
+        "blind": [
+          2,
+          3,
+          2
+        ],
+        "notes": {
+          "rater_1": "Interior convection/dynamo exhibit sensitive dependence in model studies, but no quantified real-sun Lyapunov exponent or operational predictability horizon. Model-level evidence without real-system measurement; anchored to earthquake anchor (qualitative unpredictability, score 2).",
+          "rater_2": "Web-confirmed: solar convection displays chaotic, turbulent character, and dedicated 'pseudo-Lyapunov exponent' studies of solar convection exist (Kutsenko et al., Entropy 2021) alongside evidence that turbulent flux pumping limits dynamo predictability to about one cycle. This is genuine, broadly-accepted chaotic behavior in reduced/model descriptions without a single, universally validated real-system Lyapunov figure with the operational status of the atmospheric ~2-week horizon, so calibrated at the planetary-climate anchor level (3) rather than the tropical-cyclone anchor (4).",
+          "rater_3": "Surface convection/granulation and magnetic activity are turbulent and hard to forecast, and some solar-cycle prediction work implies sensitive dependence, but no validated real-star Lyapunov exponent/predictability horizon exists and the character is mixed. Scale-2 (genuine but mixed/contested), like the fault system, not the atmosphere's measured 4."
+        }
+      }
+    },
+    "criticality": {
+      "alpha_4rater": {
+        "alpha": -0.004285714285714448,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": -0.27008547008547,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.8
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 1
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 1,
+        "comparable_units": 5,
+        "rate": 0.2
+      },
+      "worst_cell": {
+        "entry": "river-networks",
+        "spread": 2,
+        "catalog": 0,
+        "blind": [
+          0,
+          1,
+          2
+        ],
+        "notes": {
+          "rater_1": "No systematic power-law statistics of flood-size distributions in established literature. Floods cluster around characteristic scales tied to precipitation regime; no CSN-grade statistical fit or SOC mechanism claim. Differs from earthquake scaling.",
+          "rater_2": "River network branching statistics (Horton ratios, drainage-area power laws) are described in the literature as power-law/self-similar (web-confirmed: 'power-law relationships between morphologic components'), but this is a static topological scaling claim rather than a scale-invariant EVENT-statistics/SOC claim as required by this column's does_not_count clause; I found no CSN-grade fit of a dynamical event distribution (e.g., avulsion sizes) for river networks. Scored 1: informal power-law-shaped claims exist in the literature, no rigorous event-statistics fit or established SOC mechanism located.",
+          "rater_3": "Fluvial landscapes and drainage networks are a classic scale-invariance domain (Hack's law, fractal channel networks, and SOC-style landscape-evolution models proposed by Rodriguez-Iturbe/Rinaldo), giving measured-grade scaling plus a proposed-but-contested SOC mechanism. Matches the earthquake score-2 (solid statistics, contested/untested mechanism)."
+        }
+      }
+    },
+    "tipping_transitions": {
+      "alpha_4rater": {
+        "alpha": 0.23712121212121218,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": -0.031794871794871726,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.8
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 0,
+        "comparable_units": 5,
+        "rate": 0
+      },
+      "worst_cell": {
+        "entry": "the-internet",
+        "spread": 2,
+        "catalog": 0,
+        "blind": [
+          0,
+          1,
+          2
+        ],
+        "notes": {
+          "rater_1": "No systematic inventory of Internet tipping elements analogous to climate literature. Routing instabilities, congestion collapses informally discussed but no formal bifurcation/regime-shift catalog with threshold estimates. No evidence of alternative stable states for the whole-Internet system.",
+          "rater_2": "No systematic inventory of Internet-specific tipping elements/regime shifts was located; BGP route-flapping and large-scale routing instability events are discussed informally as cascading/destabilizing but I found no formal bifurcation-threshold literature analogous to the climate anchor. Scored 1: informal language plausible, no dedicated formal regime-shift study confirmed.",
+          "rater_3": "Congestion collapse is a specific named, modeled regime shift (1980s NSFNET collapse, motivating congestion control) with an identified threshold, and routing-instability cascades are studied — more than metaphor but a small ad hoc set, not a systematic inventory. Scale-2 (named modeled mechanism, no inventory), matching NYSE."
+        }
+      }
+    },
+    "memory_hysteresis": {
+      "alpha_4rater": {
+        "alpha": 0.6005088008800881,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.505050505050505,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.8
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 0,
+        "comparable_units": 5,
+        "rate": 0
+      },
+      "worst_cell": {
+        "entry": "cities",
+        "spread": 2,
+        "catalog": 3,
+        "blind": [
+          2,
+          3,
+          4
+        ],
+        "notes": {
+          "rater_1": "Infrastructure lock-in (subway routes, building locations, grid patterns) constrains current development (e.g., NYC's frozen street grid from 1811). Post-disaster rebuilding shows path-dependence (e.g., New Orleans post-Katrina). No quantified hysteresis-loop measurement (e.g., population density rebound curve); documented path-dependence without loop capped at 2.",
+          "rater_2": "Cities show strong, well-documented path dependence in built structure (infrastructure, neighborhood composition, and land-use patterns strongly outlive the conditions that created them — e.g., historical redlining's persistent effects on neighborhood economic composition, or post-industrial cities retaining industrial-era infrastructure and land-use patterns decades after deindustrialization), calibrated at the financial-markets anchor level (3, documented path-dependent regime effects, not a single canonical quantitative loop) since no single quantified hysteresis-loop-width figure analogous to AMOC exists for urban structure.",
+          "rater_3": "Cities are dense structural fossils: street layout, lot lines, and building stock persist for centuries and demonstrably constrain present function (path-dependent 'lock-in' of infrastructure), plus documented hysteresis in land-value/decline regimes. The accumulated structural record that outlives perturbations and shapes present structure matches the scale-4 'lexical fossils / permanently altered structure' clause."
+        }
+      }
+    },
+    "information_processing": {
+      "alpha_4rater": {
+        "alpha": 0.8522222222222222,
+        "n": 19.999999999999996,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.8869565217391304,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 2,
+        "comparable_units": 5,
+        "rate": 0.4
+      },
+      "worst_cell": {
+        "entry": "river-networks",
+        "spread": 1,
+        "catalog": 1,
+        "blind": [
+          1,
+          0,
+          0
+        ],
+        "notes": {
+          "rater_1": "Floodwaves propagate energy/mass through the channel network; this is pure physical transport, not detection. Threshold response to discharge exceeding bank-full (bifurcation, not signal channel). Calibrated to San Andreas anchor (physical stress-transfer, score 1).",
+          "rater_2": "Water and sediment flux through the channel network is physical transport (mass/momentum flow) with no detection-comparison-response step; even threshold-crossing erosion (bank failure at a critical shear stress) is a bifurcation in the dynamics, not detection, per the scale's own guidance on fixed physical thresholds. Directly calibrated against the fault-system anchor (1) but scored a notch below it: I did not find even a discrete threshold-comparison analogous to rate-and-state friction that the literature treats as a 'detection' step — erosion thresholds are continuously graded shear-stress functions, not a documented discrete comparison mechanism, so 0 is the better fit than 1.",
+          "rater_3": "Water and sediment transport is pure physical flux with no detection step or state-dependent representational response — a channel does not 'read' a signal. The central-exclusion 0 (mass/momentum transport through a medium is not information processing), like the fault system's near-floor."
+        }
+      }
+    },
+    "adaptive_capacity": {
+      "alpha_4rater": {
+        "alpha": 0.9518987341772152,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.9374301675977653,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 3,
+        "comparable_units": 5,
+        "rate": 0.6
+      },
+      "worst_cell": {
+        "entry": "cities",
+        "spread": 1,
+        "catalog": 3,
+        "blind": [
+          3,
+          3,
+          4
+        ],
+        "notes": {
+          "rater_1": "Zoning changes post-crisis (Manhattan rezoning post-9/11), infrastructure investment, demographic adaptation to economic shifts. Adaptation is real but slow, institutional, and episodic rather than pervasive and anticipatory. Many adaptive decisions by planners/developers. Slower than markets but more than fault systems.",
+          "rater_2": "Per the brief's explicit scoping (municipal government is an internal adaptive institution, zoning changes and post-crisis infrastructure hardening count as internal adaptation, mirroring the financial-markets treatment), residents/firms and city government possess internal models and adjust behavior anticipatorily (zoning reform, infrastructure hardening after disasters, business relocation decisions) — calibrated just below the financial-markets anchor (4, pervasive multi-level adaptation with strategy-revising algorithms) since municipal institutional adaptation is real but slower and more bureaucratically mediated than market adaptation, matching level 3's 'many components possess internal models ... adaptation is real but slow, partial, or weakly strategic.'",
+          "rater_3": "Per the scoping note municipal institutions are internal (zoning revised, infrastructure hardened post-crisis) AND resident-agents and firms learn and revise strategies while selection reallocates activity — multi-level adaptation at component, population, and institutional levels, the full-CAS score-4 pattern mirroring NYSE (explicitly paralleled in the brief)."
+        }
+      }
+    },
+    "emergence": {
+      "alpha_4rater": {
+        "alpha": 0.01041666666666674,
+        "n": 20.000000000000004,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 2,
+        "comparable_units": 5,
+        "rate": 0.4
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 2,
+        "blind": [
+          3,
+          3,
+          3
+        ],
+        "notes": {
+          "rater_1": "Rayleigh number, Nusselt number, and solar-cycle order parameters are formalized macro-descriptions in stellar-physics literature. Sunspot cycles require macro-level dynamo theory, not just micro-dynamics.",
+          "rater_2": "Calibrated directly against the Rayleigh-Benard anchor (score 3, same underlying convective-pattern-formation physics): granulation/supergranulation are described via genuine order-parameter/pattern-formation language (convective cell size, Rayleigh-number-indexed regimes) that does real predictive/explanatory work and is not transparent from raw MHD equations by inspection. Held at 3 rather than 4 because (unlike price formation) a single family of convection order-parameters, not multiple field-defining macro-theories, does most of the explanatory work for the star's characteristic surface phenomena.",
+          "rater_3": "Convection is described with genuine order-parameter machinery (Rayleigh number, convective-regime bifurcation) exactly as in the Rayleigh-Benard anchor (score 3); granulation and dynamo patterns need macro-descriptive vocabulary not read off micro-rules. Solid weak emergence at 3, not the multi-theory NYSE 4."
+        }
+      }
+    },
+    "self_organization": {
+      "alpha_4rater": {
+        "alpha": 0.8412231559290383,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.8471794871794872,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.2
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 2,
+        "comparable_units": 5,
+        "rate": 0.4
+      },
+      "worst_cell": {
+        "entry": "cities",
+        "spread": 1,
+        "catalog": 3,
+        "blind": [
+          2,
+          2,
+          2
+        ],
+        "notes": {
+          "rater_1": "Zoning codes and infrastructure are designed by planners (strong external template). Emergent phenomena (traffic patterns, price fields, neighborhood character) spontaneously organize within this skeleton. Designed skeleton + substantial spontaneous order; matches anchor definition exactly.",
+          "rater_2": "Calibrated against the ERCOT anchor (1) but scored higher: cities have a substantial designed skeleton (streets, zoning, utility grids are planned/legislated) yet the brief's own scoping note treats land use, commuting patterns, and economic agglomeration as arising from resident/market interactions on top of that skeleton — matching the scale's level-2 description ('designed skeleton with substantial spontaneous order living on top of it') more closely than ERCOT's mostly-designed level-1 case, since urban superlinear scaling patterns (web-confirmed Bettencourt/West/Lobo scaling laws) were not designed into the street grid.",
+          "rater_3": "A designed skeleton (planned street grid, zoning, infrastructure) with substantial spontaneous order living on top — neighborhood formation, land-use segregation, scaling laws were not designed. Matches the scale-2 'designed substrate, undesigned characteristic phenomena,' like the Internet's self-organization treatment cited in the anchor notes."
+        }
+      }
+    },
+    "robustness_resilience": {
+      "alpha_4rater": {
+        "alpha": 0.2852380952380952,
+        "n": 19.999999999999996,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.25094017094017096,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.6
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 0,
+        "comparable_units": 5,
+        "rate": 0
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 4,
+        "blind": [
+          4,
+          3,
+          4
+        ],
+        "notes": {
+          "rater_1": "Maintains hydrogen-fusion structure and interior circulation across billions of years despite constant extreme internal flux and violent surface activity. Perturbations (sunspots, flares) are routine; structure persists. Normalized for its 10-Gyr timescale.",
+          "rater_2": "At exemplar(the-sun) level: the Sun has maintained stable main-sequence structure and output across billions of years despite convective turbulence, flares, and cycle variability — broad tolerance of its characteristic perturbation spectrum with recovery (e.g., post-flare relaxation), calibrated above the Katrina anchor (1, narrow envelope, routinely destroyed) since the star's own perturbation spectrum (turbulent convection, magnetic activity) does not threaten its structural identity the way routine environmental exposure threatens a hurricane's. Not 4, since major dynamo disruptions (grand minima) do represent a real, if partial, functional excursion.",
+          "rater_3": "Over its multi-billion-year main-sequence lifetime the star maintains identity/function across essentially the full perturbation spectrum it faces (the pressure-fusion thermostat self-corrects); perturbations within its normal environment do not destroy it. Exceptional multi-scale robustness (scale-4), far above the hurricane's fragile 1."
+        }
+      }
+    },
+    "cascade_susceptibility": {
+      "alpha_4rater": {
+        "alpha": 0.5777777777777777,
+        "n": 20,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "alpha_3blind": {
+        "alpha": 0.6266666666666667,
+        "n": 15,
+        "units": 5,
+        "unitsDropped": 0
+      },
+      "mean_abs_deviation_vs_catalog": [
+        {
+          "rater": 1,
+          "n": 5,
+          "mean_abs_deviation": 0.8
+        },
+        {
+          "rater": 2,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        },
+        {
+          "rater": 3,
+          "n": 5,
+          "mean_abs_deviation": 0.4
+        }
+      ],
+      "exact_match_rate_vs_catalog": {
+        "matches": 0,
+        "comparable_units": 5,
+        "rate": 0
+      },
+      "worst_cell": {
+        "entry": "stars",
+        "spread": 1,
+        "catalog": 0,
+        "blind": [
+          0,
+          0,
+          1
+        ],
+        "notes": {
+          "rater_1": "No network topology to cascade through; no failure-propagation literature. Flare cascades are local plasma phenomena, not network-cascade in the grid/system sense.",
+          "rater_2": "No documented mechanism by which a local convective or magnetic failure propagates to destabilize the star as a whole was found; flares/CMEs are localized reconnection events that release energy without a documented network-cascade-style propagation through a coupled system of discrete components, unlike the power-grid anchor's blackout-propagation literature. This column presumes a networked/coupled-component failure-propagation claim that doesn't map well onto a continuum plasma body, so scored at the floor.",
+          "rater_3": "Flares/coronal mass ejections involve magnetic-reconnection avalanche propagation informally discussed as cascades, but no fitted cross-event cascade-size distribution for a networked failure mode of the star exists. Scale-1 (propagation plausible/informally discussed, no dedicated size-distribution study), like the NYSE's pre-dataset situation but weaker."
+        }
+      }
+    }
+  },
+  "per_rater": [
+    {
+      "rater": 1,
+      "model": "haiku",
+      "n": 75,
+      "mean_signed_bias_vs_catalog": 0.05333333333333334,
+      "mean_abs_deviation": 0.4266666666666667
+    },
+    {
+      "rater": 2,
+      "model": "sonnet",
+      "n": 75,
+      "mean_signed_bias_vs_catalog": 0.13333333333333333,
+      "mean_abs_deviation": 0.4266666666666667
+    },
+    {
+      "rater": 3,
+      "model": "opus",
+      "n": 75,
+      "mean_signed_bias_vs_catalog": 0.3466666666666667,
+      "mean_abs_deviation": 0.4533333333333333
+    }
+  ],
+  "pooled": {
+    "alpha_4rater": {
+      "alpha": 0.8574110190245203,
+      "n": 300.00000000000006,
+      "units": 75,
+      "unitsDropped": 0
+    },
+    "alpha_3blind": {
+      "alpha": 0.8597239633176961,
+      "n": 225,
+      "units": 75,
+      "unitsDropped": 0
+    }
+  }
+}

@@ -430,6 +430,7 @@ attributes:
   extreme_event_statistics:
     type: quantitative
     level: exemplar(the-sun)
+    measurand_type: temporal-event   # validator-conformance pass, v0.2 sweep, 2026-07-02: solar-flare/nanoflare/superflare thermal-energy frequency distribution over time — discrete flare events, not a static rank-size cross-section
     value: "alpha ~1.8 (theoretical 9/5, observed 1.80+/-0.18) for the 3-D thermal energy model; alpha~1.44-1.47 for the 2-D SOC model; alpha~2.33-2.38 for the 2-D thermal model; broader field range 1.35 <= alpha <= 2.90 depending on flare-energy proxy and instrument"
     measurand: solar-flare (and nanoflare/stellar-superflare) thermal-energy frequency distribution
     method: >

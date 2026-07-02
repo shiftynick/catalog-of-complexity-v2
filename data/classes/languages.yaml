@@ -15,6 +15,18 @@ exemplars:
       primary worked exemplar per the panel-spec component_ontology note and
       the Phase 4 sweep; best-documented language for both corpus statistics
       (Zipf, entropy, network structure) and demographic/speaker figures.
+  - id: chinese-classical-novel
+    name: Chinese classical novel ("A Story of the Stone" / Hongloumeng)
+    note: >
+      evidence-carrying exemplar for temporal_correlation only (added at
+      validator-conformance pass, v0.2 sweep, 2026-07-02). The Hurst
+      exponent H~0.575 recorded under temporal_correlation is a single-text,
+      single-language measurement on this 34,759-sentence Chinese classical
+      novel (Yang, Gu & Yang 2016; sentence-length series), NOT an
+      English-language or general/universal-language claim — declared here
+      so the level: exemplar(chinese-classical-novel) tag on that column
+      resolves to a real exemplar rather than misattributing the measurand
+      to English.
 
 scoping_note: >
   The system is "a language" as a population-level communicative code: the
@@ -483,6 +495,7 @@ attributes:
   extreme_event_statistics:
     type: quantitative
     level: exemplar(english)
+    measurand_type: static-cross-sectional   # validator-conformance pass, v0.2 sweep, 2026-07-02: word rank-frequency (Zipf's law) is a static cross-sectional rank-size distribution over the corpus's word-type population, no event structure — the panel-spec's own canonical example
     value: "alpha=1.95(2), p=0.49 (Kolmogorov-Smirnov goodness-of-fit), rated 'good' — no alternative distribution fits comparably well"
     measurand: >
       written word-frequency rank-frequency distribution (Zipf's law),

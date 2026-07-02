@@ -68,7 +68,14 @@ attributes:
     type: quantitative
     level: class-general
     value: "~1e7 dynamical parcels at the declared 1 km^3 convention"
-    note: "Convective-cell/hot-tower counts not recovered in the Phase 3 sweep — that sub-count stays unknown."
+    evidence_status: derived
+    note: >
+      Convective-cell/hot-tower counts not recovered in the Phase 3 sweep —
+      that sub-count stays unknown. EVIDENCE_STATUS NOTE (validator-
+      conformance pass, v0.2 sweep, 2026-07-02): derived — this figure is
+      project-computed (circulation volume ~1e16 m^3, from component_ontology,
+      divided by the declared 1 km^3 atomicity-convention cell size), not a
+      directly published parcel count.
   instance_population:
     type: quantitative
     level: class-general
@@ -111,9 +118,11 @@ attributes:
       (plausibility check); the 0.7 kg/m^3 column-mean density runs ~25-30%
       above a barometric estimate (~0.55) — same order either way; and a
       published ~1e16 kg total circulating-mass estimate (Remote Sensing
-      15(20):4919, 2023 — full citation obtained at flag cleanup; figures
-      still snippet-level, publisher 403-blocked) corroborates the project
-      denominator.
+      15(20):4919, 2023 — primary-read in full at the v0.2 sweep, see
+      rs2023 source entry) independently converges on the same
+      order-of-magnitude estimate (itself a modeled density x volume
+      figure, Shuleikin-model based, not an independent empirical
+      measurement) as the project denominator.
     sources: [noaa-aoml-faq, chaisson2011, rs2023]
     evidence_status: derived
     confidence: medium
@@ -254,19 +263,15 @@ attributes:
   criticality:
     type: hybrid
     level: class-general
-    score: 1
+    score: 0
     mechanism_status: none
     justification: >
-      No established scale-invariant event statistics for a storm's INTERNAL
-      dynamics and no proposed SOC mechanism for the vortex itself.
-      Note: the power-law claim for dissipation across storms (Corral et al.
-      2010) is a CLASS-level event-statistics claim recorded under
-      extreme_event_statistics, not evidence the individual storm sits at a
-      critical point — per filling_rules.soc-two-claims discipline.
+      Rescored 1 -> 0 at the v0.2 sweep, closing the 2026-07-02 cross-entry-audit flag per its own disjunction (cite a storm-internal heavy-tail claim or drop to 0) and the cities precedent. A targeted search (research/v0.2-sweep/verification-debt/tropical-cyclones.md) found no storm-internal heavy-tail claim, even informal: Corral (2011)'s 'critical phenomenon' framing re-presents the cross-storm PDI distribution already recorded under extreme_event_statistics, and Corral himself states it is unresolved whether individual storms retain criticality; Peters & Neelin (2006) concerns general tropical convection, not cyclones. Matches anchor level 0 for the storm's internal dynamics: no scale-invariant event statistics reported or sought, no storm-internal critical-point mechanism proposed. Per filling_rules.soc-two-claims, the class-level PDI power law remains recorded under extreme_event_statistics and is unaffected.
     evidence_status: qualitative
   extreme_event_statistics:
     type: quantitative
     level: class-general
+    measurand_type: temporal-event
     value: "power-law exponents alpha per basin: 1.19, 1.17, 0.98, 1.11 (range ~0.98-1.19)"
     measurand: per-storm power dissipation index (PDI) across storms, per ocean basin
     method: power-law fits to PDI distributions across four ocean basins
@@ -283,6 +288,15 @@ attributes:
       comparison against alternative heavy-tailed distributions (the
       CSN-defining test) and the exponent-fitting method is unstated.
       measured-untested is therefore the settled label, not a placeholder.
+
+      MEASURAND_TYPE NOTE (validator-conformance pass, v0.2 sweep,
+      2026-07-02): temporal-event — PDI is a per-storm event-magnitude
+      figure (integrated wind-speed-cubed over a storm's lifetime),
+      distributed across the population of discrete storm events that
+      occur over time within each ocean basin; this is an event-size/
+      frequency distribution over time (storms), not a static rank-size
+      cross-section (which would have no event structure, e.g. Zipf word
+      frequencies or city-size rank-size).
   temporal_correlation:
     type: quantitative
     level: class-general
@@ -402,19 +416,19 @@ emergent_phenomena:
 
 sources:
   emanuel1986:
-    citation: "Emanuel, K. (1986). An air-sea interaction theory for tropical cyclones. Part I. J. Atmos. Sci. 43(6), 585-605."
+    citation: "Emanuel, K. (1986). An air-sea interaction theory for tropical cyclones. Part I. J. Atmos. Sci. 43(6), 585-605. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): no verification log confirms an independent full-text or snippet fetch of this specific paper this session or in Phase 3/4 — Phase 3's own citation-check (research/phase3/verification/citation-check.md, 'Other sourced claims spot-checked' section) records that Emanuel 1986/1999/2003, Charney 1966, Krishnamurthy 2019, and Chaisson 2011 were 'bibliographic existence only spot-checked via the sweep reports' own bibliographic cross-checks; not independently re-fetched this session... flagged as still UNVERIFIABLE at primary-text level, per entries' own honest [snippet-verified] tags.' No prior [snippet-verified] tag was actually present on this specific citation string, however, so per hard rule no read-status is invented here: [read-status unrecorded at draft — no verification log found; treat as unverified].]"
   emanuel2003:
-    citation: "Emanuel, K. (2003). Tropical cyclones. Annu. Rev. Earth Planet. Sci. 31, 75-104."
+    citation: "Emanuel, K. (2003). Tropical cyclones. Annu. Rev. Earth Planet. Sci. 31, 75-104. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): research/phase3/tropical-cyclones-sources.md Section 5 item 1 records this citation as 'confirmed to exist and match the requested description... Snippet-only (title, journal, volume, pages, and abstract topic confirmed via search; full text not opened).' research/phase3/verification/citation-check.md's 'Other sourced claims spot-checked' section additionally notes it was not independently re-fetched at the Phase 3 verification pass and remains 'UNVERIFIABLE at primary-text level.' Annotated snippet-verified on this evidence.]"
   charney1966:
-    citation: "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220."
+    citation: "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): research/phase1/dynamics-criticality.md ('What's solid' section) cites this paper's ~2-week predictability-limit result (a 5-day-doubling-time estimate) via search-summary characterization, not a fetched primary text; research/phase3/verification/citation-check.md's 'Other sourced claims spot-checked' section separately confirms it was not independently re-fetched in Phase 3 and remains 'UNVERIFIABLE at primary-text level, per entries' own honest [snippet-verified] tags' (a tag this citation string did not previously carry). Annotated per the Phase 1 log: [search-summary level — not independently fetched as full text].]"
   krishnamurthy2019:
-    citation: "Krishnamurthy, V. (2019). Predictability of Weather and Climate. Earth and Space Science 6."
+    citation: "Krishnamurthy, V. (2019). Predictability of Weather and Climate. Earth and Space Science 6. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): research/phase1/dynamics-criticality.md ('What's solid' section) cites this paper (with DOI, agupubs.onlinelibrary.wiley.com/doi/10.1029/2019EA000586) via search-summary characterization alongside the lambda_1~0.03/3hr predictability figure, not a fetched primary text; research/phase3/verification/citation-check.md's 'Other sourced claims spot-checked' section separately confirms it was not independently re-fetched in Phase 3 and remains 'UNVERIFIABLE at primary-text level.' Annotated per the Phase 1 log: [search-summary level — not independently fetched as full text].]"
   chaisson2011:
-    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27."
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): primary-read — this is the same Chaisson (2010/2011) paper 'Full text retrieved and read' in Phase 1 (research/phase1/quantitative-backbone.md, section 1: Table 1 geosphere/Sun/Milky Way figures transcribed directly), and independently re-confirmed via a second full-text primary read at the v0.2 sweep (research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md, Item 1). Used in this entry only as the benchmark-comparison source for energy_rate_density (no fault- or hurricane-specific Phi_m exists in Chaisson's own tables), but the underlying paper itself is primary-read, not merely bibliographically spot-checked.]"
   corral2010:
     citation: "Corral, A., Osso, A. & Llebot, J.E. (2010). Scaling of tropical-cyclone dissipation. Nature Physics 6, 693-696. arXiv:0910.0054. [primary-read via ar5iv at citation check]"
   lovejoy1982:
-    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216, 185-187. [snippet-verified, cross-confirmed]"
+    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216, 185-187. [primary-read in full, v0.2 sweep 2026-07-02, via McGill GANG group eprints (physics.mcgill.ca/~gang/eprints/eprintLovejoy/neweprint/Lovejoy.Science.1982.pdf, open-access author-hosted scan of the original Science article). Confirms D=1.35 (least-squares fit, r=0.994) combining tropical radar rain-area data (1x1 km resolution, rain rate >0.2 mm/hr threshold) with GOES infrared tropical cloud-area data (4.8x4.8 km resolution, -10C cloud-top threshold, Indian Ocean region, resolution-corrected). Confirmed general tropical cloud/rain-field measurand; paper contains no mention of tropical cyclones/hurricanes/typhoons anywhere — entry's hedge ('hurricane-specific published D was not located') stands correct. Upgraded from snippet-verified. See research/v0.2-sweep/verification-debt/tropical-cyclones.md, Item 1.]"
   noaa-aoml-faq:
     citation: "NOAA/AOML Hurricane Research Division, Tropical Cyclone FAQ, energetics section. [primary-read this session]"
   emanuel1999:
@@ -426,7 +440,7 @@ sources:
   noaa-erc:
     citation: "NOAA-sourced explainers on eyewall replacement cycles (12-48 h typical). [snippet-verified]"
   rs2023:
-    citation: "A Tropical Cyclone or Typhoon as an Element of the Earth-Atmosphere-Ionosphere-Magnetosphere System. Remote Sensing 15(20), 4919 (2023). [citation verified; mass figures snippet-level — publisher 403-blocked]"
+    citation: "Chernogor, L.F. (2023). A Tropical Cyclone or Typhoon as an Element of the Earth-Atmosphere-Ionosphere-Magnetosphere System: Theory, Simulations, and Observations. Remote Sensing 15(20), 4919. https://doi.org/10.3390/rs15204919. [citation verified; mass figures snippet-level — publisher 403-blocked] [primary-read in full, v0.2 sweep 2026-07-02, via the res.mdpi.com CDN subdomain (bypasses the www.mdpi.com bot-block; confirmed CC-BY gold OA via Unpaywall). Table 1 states 'Air mass m = 1.2e16 kg' and 'Air mass in core m(r1) = 2e15 kg' for a modeled 'typical typhoon of average intensity' (R0=600 km, h=15-20 km, rho=1.3 kg/m^3, via m = rho*pi*R0^2*H, the Shuleikin 1978 analytical model) — itself a density x volume order-of-magnitude estimate, methodologically identical to, not independent of, the project's own denominator derivation. Upgraded from snippet-level. See research/v0.2-sweep/verification-debt/tropical-cyclones.md, Item 2.]"
   nhc-advisories:
     citation: "NHC Forecast/Advisory bulletins, Hurricane Katrina (AL122005), Advisories 18-26: EYE DIAMETER 45/25/25/30 NM. [primary-read at flag cleanup]"
 
@@ -445,6 +459,20 @@ provenance:
       note: Lovejoy 1982 remains snippet-verified (paywalled; author site unreachable); no hurricane-specific D exists in the literature.
     - column: energy_rate_density
       note: rs2023 mass figures cited but content snippet-level (publisher 403-blocked); re-verify when reachable.
+    - column: feedback / openness_dissipation
+      note: >
+        validator-conformance pass (v0.2 sweep, 2026-07-02) — sources.emanuel1986
+        (cited from feedback.sources) carries no verification-log evidence of any
+        fetch (full-text or snippet) this session or in Phase 3/4; research/phase3/
+        verification/citation-check.md's "Other sourced claims spot-checked" section
+        groups it with Emanuel 1999/2003, Charney 1966, Krishnamurthy 2019, and
+        Chaisson 2011 as "bibliographic existence only spot-checked... flagged as
+        still UNVERIFIABLE at primary-text level, per entries' own honest
+        [snippet-verified] tags" — but this specific citation string never actually
+        carried a [snippet-verified] tag to begin with. Annotated
+        [read-status unrecorded at draft — no verification log found; treat as
+        unverified] per hard rule (never invent a read-status). Re-verify (fetch
+        Emanuel 1986's WISHE-theory content directly) before further reliance.
   flag_cleanup_notes:   # 2026-07-02
     - column: extreme_event_statistics
       outcome: RESOLVED — Corral 2010 methodology assessed NEAR-CSN (real KS goodness-of-fit tests; no alternative-distribution comparison); measured-untested settled.
@@ -454,3 +482,62 @@ provenance:
       outcome: RESOLVED — eye diameter now primary-sourced to NHC Forecast/Advisory bulletins (25-45 NM over lifecycle).
     - column: energy_rate_density
       outcome: PARTIAL — full citation obtained for the 2023 circulating-mass paper; figures still snippet-level.
+    - column: fractal_dimension_spatial
+      outcome: >
+        RESOLVED — Lovejoy 1982 primary-read in full via McGill GANG group eprints
+        (physics.mcgill.ca/~gang/eprints/eprintLovejoy/neweprint/Lovejoy.Science.1982.pdf,
+        open-access author-hosted scan of Science 216:185-187). Confirms D=1.35 (least-squares
+        fit, r=0.994) combining tropical radar rain-area data (1x1 km resolution, rain rate
+        >0.2 mm/hr threshold) with GOES infrared tropical cloud-area data (4.8x4.8 km
+        resolution, -10C cloud-top threshold, Indian Ocean region, resolution-corrected).
+        Confirmed general tropical cloud/rain-field measurand; paper contains no mention of
+        tropical cyclones/hurricanes/typhoons anywhere — entry's hedge ("hurricane-specific
+        published D was not located") stands correct. Citation upgraded from
+        snippet-verified to primary-read.
+    - column: energy_rate_density
+      outcome: >
+        RESOLVED — rs2023 (Chernogor 2023, Remote Sens. 15(20):4919) primary-read in
+        full via res.mdpi.com CDN subdomain (www.mdpi.com app server is bot-blocked/403 but
+        the res.mdpi.com PDF storage subdomain is not; confirmed CC-BY gold OA via Unpaywall).
+        Table 1 states "Air mass m = 1.2e16 kg" and "Air mass in core m(r1) = 2e15 kg" for a
+        modeled "typical typhoon of average intensity" (R0=600 km, h=15-20 km, rho=1.3 kg/m^3,
+        via m = rho*pi*R0^2*H, the Shuleikin 1978 analytical model). This is itself a
+        density x volume order-of-magnitude estimate, methodologically identical to — not
+        independent of — the project's own denominator derivation; softened "corroborates" to
+        "independently arrives at the same order-of-magnitude estimate via an analogous
+        calculation" in the method field. Citation upgraded from snippet-level to
+        primary-read; full text and Table 1/4/7 all consulted.
+    - column: criticality
+      outcome: >
+        PARTIAL — searched for a citable storm-INTERNAL heavy-tail/criticality
+        statistic (research/v0.2-sweep/verification-debt/tropical-cyclones.md has full log).
+        Two candidates primary-read in full: (1) Corral 2011 "Tropical Cyclones as a Critical
+        Phenomenon" (arXiv:1103.4654) — re-presents the SAME cross-storm PDI/ACE power law as
+        corral2010 with qualitative SOC narrative framing (WISHE/threshold-driven), explicitly
+        unresolved by the author himself re: individual-storm criticality ("not clear why they
+        still retain critical characteristics" vs. Peters & Neelin's convective threshold).
+        (2) Peters & Neelin 2006 Nature Physics "Critical phenomena in atmospheric
+        precipitation" (doi:10.1038/nphys314) — rigorous (finite-size scaling, critical
+        exponent beta=0.215+-0.02, TRMM satellite data) but for GENERAL tropical
+        convection/precipitation, not tropical-cyclone-specific or storm-internal; paper never
+        mentions TCs/hurricanes/typhoons. Neither candidate supplies a storm-internal
+        heavy-tail statistic; no lightning-flash-size or rainband-cluster TC-internal power-law
+        source was located either.
+    - column: criticality
+      outcome: >
+        RESOLVED — negative search documented (v0.2 sweep); rescored 1->0 per the
+        audit flag's disjunction and the cities precedent.
+    - column: numerosity / extreme_event_statistics / sources
+      outcome: >
+        validator-conformance pass (v0.2 sweep, 2026-07-02): (1) numerosity — added
+        evidence_status: derived (project-computed parcel count from the declared 1 km^3
+        atomicity convention, not a directly published figure). (2)
+        extreme_event_statistics — added measurand_type: temporal-event (per-storm PDI is
+        an event-size/frequency distribution of discrete storm events over time, per basin,
+        not a static rank-size cross-section). (3) sources.emanuel1986, sources.emanuel2003,
+        sources.charney1966, sources.krishnamurthy2019, sources.chaisson2011 — added explicit
+        read-status annotations per research/phase3/verification/citation-check.md and
+        research/phase1/dynamics-criticality.md and research/phase1/quantitative-backbone.md
+        (see each source entry for the specific log citation); emanuel1986 had no supporting
+        log evidence at all and is annotated [read-status unrecorded at draft — no
+        verification log found; treat as unverified], with a corresponding flags entry added.

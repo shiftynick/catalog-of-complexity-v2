@@ -1,0 +1,174 @@
+column: chaos_sensitivity
+version: 0.1-draft
+scale:
+  0: >
+    No evidence of sensitive dependence on initial conditions in the
+    dominant dynamics: nearby initial states do not diverge over time faster
+    than linearly/diffusively, or the system's evolution is dominated by
+    exogenous forcing/noise rather than by internal amplification of small
+    differences; predictability is limited only by measurement/data
+    availability, not by intrinsic trajectory divergence.
+  1: >
+    Weak or highly localized sensitive dependence: some sub-process may
+    amplify small perturbations, but it is not characteristic of the
+    system's dominant dynamics, or divergence is sub-exponential
+    (e.g., power-law or slow linear growth of trajectory separation) rather
+    than exponential.
+  2: >
+    Genuine nonlinear unpredictability is documented but the evidence is
+    mixed, contested, or drawn from a small/non-replicated literature — some
+    studies report exponential divergence or short predictability horizons,
+    others do not replicate the finding or attribute the same unpredictability
+    to a different (e.g., stochastic, non-chaotic) mechanism. Score reflects
+    genuine scientific uncertainty, not merely "we didn't check."
+  3: >
+    Exponential sensitive dependence on initial conditions is established
+    for a well-accepted model or reduced description of the system's core
+    dynamics (e.g., a low-order dynamical-systems model reproduces the
+    qualitative behavior and exhibits a positive Lyapunov exponent), and
+    domain experts broadly accept the system is chaotic in this sense, but a
+    robust, operationally validated real-world predictability horizon has
+    not been established or remains model-dependent.
+  4: >
+    Sensitive dependence is established with a quantitative, replicated,
+    operationally-used measurement: a positive leading Lyapunov exponent (or
+    equivalent doubling-time/predictability-horizon figure) has been
+    estimated from real system data or from validated high-fidelity models,
+    is corroborated across independent studies/methods, and is used
+    operationally (e.g., to bound forecast skill).
+does_not_count: |
+  Levels 3 and 4 are distinguished specifically by whether a quantitative,
+  replicated, real-world predictability horizon or Lyapunov exponent exists
+  (4) versus only qualitative or reduced-model-level chaos being established
+  without an operational real-world horizon (3) — do not assign 4 on the
+  strength of a model result alone if no real-system figure has been
+  validated.
+  BINDING RULE (per filling_rules.no-market-chaos): documented nonlinear
+  statistical DEPENDENCE (volatility clustering, GARCH structure,
+  heavy-tailed returns) is NOT sufficient evidence of deterministic chaos
+  and must not be scored as such. Financial markets specifically get
+  "nonlinear dependence: yes, low-dimensional deterministic chaos: no
+  accepted evidence" per the BDS-test/denoising literature that walked back
+  Scheinkman & LeBaron (1989); do not average or split the difference into a
+  misleadingly moderate score without stating this explicitly in the
+  justification. General unpredictability, stochastic/noise-driven
+  variability, high-dimensional turbulence without a demonstrated
+  low-dimensional attractor, or "hard to forecast in practice" (e.g., due to
+  incomplete data, human agency, or measurement cost) do NOT by themselves
+  establish chaos_sensitivity — they may reflect genuine randomness or
+  high-dimensionality rather than sensitive dependence, and should be scored
+  lower unless exponential divergence is specifically demonstrated.
+  Do not conflate with nonlinearity (necessary-adjacent, not sufficient —
+  a strongly nonlinear system can sit on a stable fixed point or limit cycle
+  with zero sensitive dependence).
+anchors:
+  - system: planetary-climate
+    exemplar: "Earth"
+    category: geophysical
+    score: 3
+    justification: >
+      The atmospheric weather component nested within the climate system is
+      the best-established chaotic system in this catalog (see the
+      hurricane/atmosphere anchor below); however "climate" proper —
+      the long-term statistical/boundary-condition behavior of the coupled
+      ocean-atmosphere-cryosphere system — is understood differently: Lorenz
+      himself distinguished weather (an initial-value, chaotic problem) from
+      climate (more of a boundary-value/attractor-statistics problem).
+      Coupled climate models do exhibit sensitive dependence in their fast
+      (weather-like) internal variability, and some evidence of chaotic
+      behavior appears in slow modes too (e.g., multi-decadal internal
+      variability, ENSO irregularity), but a single validated,
+      operationally-used "climate Lyapunov exponent"/predictability horizon
+      analogous to the 2-week weather figure does not exist for the coupled
+      climate system as a whole. Scored 3: broadly accepted chaotic
+      character in reduced/model descriptions, without an established
+      real-world quantitative horizon at the climate-system level.
+    evidence_status: qualitative
+    sources: []
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 4
+    justification: >
+      As an instance of the broader atmospheric/weather system, hurricane
+      track and intensity forecasting inherits the well-established
+      atmospheric predictability limit: the leading Lyapunov exponent for
+      atmospheric models gives an error-doubling time of roughly 2-5 days,
+      producing the famous ~2-week deterministic predictability ceiling
+      (Charney et al. 1966; re-derived and operationally used in modern
+      ensemble forecasting, e.g., lambda_1 ~ 0.03 per 3-hour step ->
+      doubling time ~2.9 days). This figure is replicated across many
+      studies and is operationally load-bearing (ECMWF/NOAA ensemble
+      spread-growth forecasting is built on it). Hurricane-specific track
+      forecasts in practice show meaningfully useful skill only out to
+      roughly 5-7 days, consistent with this horizon, with intensity
+      forecasting (especially rapid intensification) remaining
+      substantially harder and less skillful even within that window.
+    evidence_status: measured
+    sources:
+      - "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220."
+      - "Krishnamurthy, V. (2019). Predictability of Weather and Climate. Earth and Space Science 6. https://doi.org/10.1029/2019EA000586"
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 1
+    justification: >
+      Per the BINDING no-market-chaos rule: early claims of low-dimensional
+      deterministic chaos in financial return series (Scheinkman & LeBaron,
+      Journal of Business 62:311-337, 1989, using weekly CRSP data) have
+      been substantially walked back by later, larger-sample BDS-test and
+      noise/chaos-separation studies (e.g., analyses of >18,000 daily DJIA
+      observations finding no evidence of low-dimensional chaos). The
+      current consensus is "nonlinear dependence: yes (volatility
+      clustering, GARCH-type structure); deterministic chaos: no accepted
+      evidence." Because nonlinear dependence is a documented but distinct
+      phenomenon from sensitive-dependence/chaos (see does_not_count), and
+      because no replicated positive chaos finding survives methodological
+      scrutiny, this scores low (1) rather than the moderate/contested 2 —
+      the literature has moved from contested toward a fairly clear negative
+      consensus, it is not merely "mixed."
+    evidence_status: measured-disputed
+    sources:
+      - "Scheinkman, J.A. & LeBaron, B. (1989). Nonlinear Dynamics and Stock Returns. Journal of Business 62(3), 311-337."
+      - "No evidence of chaos but some evidence of dependence in the US stock market. Chaos, Solitons & Fractals (BDS-test/denoising analysis of >18,000 DJIA observations)."
+  - system: earthquake-fault-systems
+    exemplar: "San Andreas Fault"
+    category: geophysical
+    score: 2
+    justification: >
+      Earthquake nucleation involves nonlinear rate-and-state friction, and
+      some numerical fault-model studies report sensitive dependence on
+      initial stress conditions (small changes in initial stress state
+      alter rupture nucleation timing/extent in simulations), which
+      underpins the broad scientific rejection of deterministic earthquake
+      prediction (Geller et al., Science 275:1616, 1997, argue precisely
+      that earthquakes are unpredictable in a manner consistent with
+      sensitive dependence / high-dimensional complexity rather than
+      forecastable precursor signals). However, this is model-level and
+      qualitative evidence, not a measured real-fault Lyapunov exponent or
+      validated predictability horizon — the field's practical stance is
+      "individual rupture timing/magnitude is not deterministically
+      forecastable," which is consistent with but weaker than an established
+      quantitative chaos measurement. Scored 2: genuine, broadly-accepted
+      unpredictability with a plausible sensitive-dependence mechanism, but
+      not rising to the model-validated-chaos standard of score 3.
+    evidence_status: qualitative
+    sources:
+      - "Geller, R.J. et al. (1997). Earthquakes Cannot Be Predicted. Science 275(5306), 1616."
+  # [redacted for blind IRR study — worked example removed]
+  # [redacted for blind IRR study — worked example removed]
+notes: |
+  This is the column with the strongest quantitative anchor in the entire
+  catalog (atmospheric ~2-week horizon) and the strongest explicit
+  DEBUNKING requirement (NYSE). Every score of 3 or 4 should be traceable to
+  a specific Lyapunov exponent, doubling time, or predictability-horizon
+  figure with a citation; every score that could plausibly be read as
+  "markets are chaotic" must instead state the nonlinear-dependence-without-
+  chaos finding explicitly, per filling_rules.no-market-chaos. Distinct from
+  nonlinearity: chaos_sensitivity is about trajectory divergence, not the
+  algebraic form of the governing equations (see nonlinearity.notes).
+  Distinct from extreme_event_statistics and criticality: heavy-tailed event
+  size distributions (earthquake magnitudes, market returns) are a separate
+  claim from sensitive dependence on initial conditions — a system can have
+  fat-tailed events with no chaos (e.g., if driven by a fat-tailed but
+  low-dimensional-chaos-free stochastic process) or vice versa.

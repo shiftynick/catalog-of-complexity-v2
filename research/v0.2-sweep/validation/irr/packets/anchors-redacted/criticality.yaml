@@ -86,42 +86,8 @@ anchors:
       the catalog, not a closed case.
     evidence_status: measured
     sources: []
-  - system: stars
-    exemplar: "the Sun"
-    category: astrophysical
-    score: 2
-    justification: >
-      Solar-flare energy distributions are power-law over a documented span
-      (recently extended across ~13 orders of magnitude combining solar
-      nanoflares and stellar superflares, roughly consistent with
-      fractal-diffusive-SOC predictions, alpha_F ~ 1.8) — event statistics
-      are reasonably well supported (evidence_status: measured for the bulk
-      distribution). Mechanism status is "proposed, actively researched" but
-      not settled: a "dragon king" critique holds that the largest superflares
-      may belong to a distinct population rather than the same scale-free
-      tail, an open universality question. Scores 2 because the mechanism
-      claim, while more actively supported than the fault case, is still not
-      an established consensus and the extreme tail is disputed.
-    evidence_status: measured
-    sources: []
-  - system: the-internet
-    category: infrastructure
-    score: 1
-    justification: >
-      The Internet's static structure (AS-level degree distribution) is
-      frequently cited as scale-free (Faloutsos et al. 1999), but this is a
-      TOPOLOGY claim, not an EVENT-statistics claim, and belongs under
-      degree_distribution, not here. For actual dynamical events (outage
-      sizes, BGP cascade magnitudes), no primary source establishing a
-      rigorously fit power-law size distribution analogous to Dobson et al.'s
-      blackout work was located during Phase 1 research — this is flagged as
-      a probable literature gap rather than a negative result. No SOC or
-      critical-point mechanism for Internet outage dynamics has been formally
-      proposed. Scored 1: informal/claimed-untested heavy-tailedness of
-      outage impact is discussed in engineering literature, but nothing here
-      meets CSN-grade support and no mechanism claim exists.
-    evidence_status: qualitative
-    sources: []
+  # [redacted for blind IRR study — worked example removed]
+  # [redacted for blind IRR study — worked example removed]
   - system: financial-markets
     exemplar: "New York Stock Exchange"
     category: socio-economic
@@ -141,31 +107,7 @@ anchors:
       skepticism toward SOC claims exported outside physics.
     evidence_status: qualitative
     sources: [watkins2016]
-  - system: river-networks
-    exemplar: "Mississippi River basin"
-    category: geophysical
-    score: 1
-    justification: >
-      CORRECTED 0 -> 1 at the v0.2 sweep (2026-07-02) on primary-read
-      evidence, per the project rule that verified findings overrule anchors
-      (precedent: the Dobson correction). The original floor reading held
-      that "no self-organized-criticality mechanism has been proposed" —
-      this is factually incomplete: Rinaldo et al. (1993, PRL 70:822)
-      formally propose Optimal Channel Networks as "spatial models of
-      self-organized criticality," elaborated with a genuine
-      threshold-relaxation mechanism in Rodriguez-Iturbe et al. (1994, WRR
-      30:3531, primary-read). The claim scopes to landscape/network
-      FORMATION dynamics, was never accompanied by any avalanche-type
-      event-size statistics, and has gone unengaged since (absent from
-      Watkins et al. 2016's substantive debate; dropped in the authors' own
-      2018 retrospective) — see research/v0.2-sweep/validation/
-      river-networks-soc-check.md. Under boundary_clarifications.
-      mechanism-alone-caps-at-1 this earns exactly 1 (mechanism_status:
-      proposed, dormant), strictly below earthquake-fault-systems' 2 (which
-      has BOTH solid G-R event statistics AND a live mechanism debate).
-      Horton/fractal structure remains worth 0 here per events-not-structure.
-    evidence_status: qualitative
-    sources: []
+  # [redacted for blind IRR study — worked example removed]
 notes: |
   Distinct from extreme_event_statistics (which records the tail exponent and CSN fit
   verdict for the system's characteristic events regardless of mechanism) and from
@@ -185,63 +127,3 @@ notes: |
   distribution) is out of scope for this column and belongs under degree_distribution —
   do not let a scale-free topology claim inflate a criticality score in the absence of
   scale-invariant EVENT dynamics.
-
-# Added 2026-07-02 (v0.2 sweep) after the blind inter-rater reliability study
-# (research/v0.2-sweep/validation/irr/results.md) found this column had the
-# worst independent-rater agreement in the panel (ordinal alpha = -0.27),
-# with raters agreeing on facts but applying the scale boundaries differently.
-# These clarifications codify the catalog's existing scoring practice; the
-# scale text above is unchanged.
-boundary_clarifications:
-  - id: events-not-structure
-    rule: >
-      Static or structural scale-invariance NEVER counts toward this column:
-      fractal geometry (drainage-network Horton ratios, fault-trace fractal
-      dimension, coastline/city-boundary dimensions) and rank-size
-      distributions belong to fractal_dimension_spatial and
-      extreme_event_statistics (measurand_type: static-cross-sectional).
-      This column requires scale-invariant statistics of EVENTS generated by
-      the system's own dynamics. IRR precedent: river-networks, where blind
-      raters split 0/1/2 by counting Horton/drainage scaling to different
-      degrees — under this rule that evidence contributes nothing here.
-  - id: events-of-the-scoped-system
-    rule: >
-      The events must be generated within the entry's scoped system boundary.
-      A distribution ACROSS instances of the class (per-storm PDI across
-      tropical cyclones, rank-size across cities) is not evidence that the
-      scoped system sits near a critical point, unless the entry's scoping
-      note explicitly treats instance generation as the system's own
-      characteristic dynamics (an earthquake FAULT SYSTEM generating
-      earthquakes qualifies; the tropical-cyclone class "generating" storms
-      does not — the storm is the scoped system there). Precedents: cities
-      rescored 1->0 (cross-audit, 2026-07-02); tropical-cyclones rescored
-      1->0 (v0.2 sweep, 2026-07-02, after a targeted storm-internal search
-      came back negative — research/v0.2-sweep/verification-debt/
-      tropical-cyclones.md).
-  - id: published-claim-required
-    rule: >
-      Level 1's "informally observed or claimed" requires a PUBLISHED claim
-      about this system's event statistics or criticality. A rater's own
-      inference from adjacent literature (SOC models of a neighboring or
-      containing system; generic "bursty dynamics" impressions) does not
-      clear the bar. Level 2's mechanism clause requires the SOC/critical-
-      point mechanism to be formally proposed FOR THE SCOPED SYSTEM in the
-      primary literature, not for a related model system.
-  - id: mechanism-alone-caps-at-1
-    rule: >
-      Scale 2's "AND/OR" was calibrated for systems with at least informal
-      event statistics. A formally published SOC/critical-point mechanism
-      proposal for the scoped system with NO claimed scale-invariant event
-      statistics of any kind caps the score at 1 (the proposal is recorded
-      via mechanism_status: proposed), because the column's primary referent
-      — the system's event dynamics — is entirely absent. This preserves
-      ordering against systems like earthquake-fault-systems (score 2:
-      solid G-R event statistics AND an actively contested mechanism).
-      Worked case: river-networks — Rinaldo et al. (1993, PRL 70:822)
-      formally propose OCNs as "spatial models of self-organized
-      criticality" for the landscape/network formation dynamics, but no
-      avalanche-type event-size distribution was ever claimed, and the
-      proposal has gone unengaged since (absent from Watkins et al. 2016's
-      substantive debate; dropped by its own authors' 2018 retrospective) —
-      rescored 0 -> 1 at the v0.2 sweep on primary-read evidence
-      (research/v0.2-sweep/validation/river-networks-soc-check.md).

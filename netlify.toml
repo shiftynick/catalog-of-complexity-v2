@@ -1,4 +1,4 @@
 [build]
 base = "app"
-command = "npm --prefix ../analysis install && node ../analysis/run.mjs && npm run build"
+command = "npm --prefix ../analysis install && node ../analysis/validate.mjs && node ../analysis/run.mjs && npm run build"
 publish = "dist"

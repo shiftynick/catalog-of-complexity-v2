@@ -108,38 +108,8 @@ anchors:
       a systematic multi-element inventory with empirical confirmation.
     evidence_status: qualitative
     sources: []
-  - system: river-networks
-    exemplar: "Mississippi River basin"
-    category: geophysical
-    score: 2
-    justification: >
-      River/delta systems have documented avulsion dynamics — a channel
-      abruptly abandoning its course for a new path once a threshold
-      gradient advantage is reached — which is a genuine, mechanistically
-      understood regime-shift phenomenon in fluvial geomorphology (the
-      Mississippi's own engineered diversion at the Old River Control
-      Structure exists specifically because the lower Mississippi was
-      approaching a natural avulsion toward the Atchafalaya). This is a
-      real, named, thresholded mechanism (score >=2) but there is no
-      systematic multi-element inventory or quantified early-warning-signal
-      literature comparable to the climate case, so it stops at 2.
-    evidence_status: qualitative
-    sources: []
-  - system: the-internet
-    category: infrastructure
-    score: 0
-    justification: >
-      No regime-shift or alternative-stable-state literature exists for the
-      Internet as a whole system; routing/traffic dynamics are studied via
-      congestion and cascading-failure frameworks (see
-      cascade_susceptibility), not bistability or tipping-point models.
-      Individual protocol-level events (e.g. BGP route-flap storms) are
-      transient instabilities, not documented qualitative-state transitions
-      with an alternative stable regime. Retained as a deliberate floor
-      anchor for an infrastructure system: highly engineered, redundant
-      systems are not automatically tipping-prone.
-    evidence_status: qualitative
-    sources: []
+  # [redacted for blind IRR study — worked example removed]
+  # [redacted for blind IRR study — worked example removed]
 notes: |
   This column is about STATE-SPACE regime shifts (bifurcations, alternative stable
   states, hysteresis loops) — distinct from criticality (scale-invariant EVENT
@@ -161,37 +131,3 @@ notes: |
 sources:
   lenton2008: "Lenton, T.M. et al. (2008). Tipping elements in the Earth's climate system. PNAS 105(6), 1786."
   mckay2022: "Armstrong McKay, D.I. et al. (2022). Exceeding 1.5C global warming could trigger multiple climate tipping points. Science 377(6611), eabn7950."
-
-# Added 2026-07-02 (v0.2 sweep) after the blind inter-rater reliability study
-# (research/v0.2-sweep/validation/irr/results.md) found near-zero independent-
-# rater agreement (ordinal alpha = -0.03), driven by the 0/1/2 boundary.
-# These clarifications codify existing catalog practice; scale text unchanged.
-boundary_clarifications:
-  - id: alternative-stable-state-required
-    rule: >
-      Scores >=1 require the claimed shift to involve an alternative stable
-      state or bifurcation structure. A transient instability that ends when
-      the perturbation ends or when the system is patched (BGP route-flap
-      storms, flash crashes with same-day recovery, congestion episodes) is
-      not a regime shift, however dramatic. IRR precedent: the-internet,
-      where blind raters split 0/1/2 by weighting such episodes differently
-      — the catalog's 0 stands because none of them is a documented
-      alternative stable regime of the scoped system.
-  - id: current-system-as-scoped
-    rule: >
-      The mechanism must concern the system as scoped by the entry today.
-      Historical one-off episodes of predecessor or ancestor systems (the
-      1986 NSFNET congestion collapse, pre-TCP-congestion-control) do not
-      transfer to the current system without a published claim that the
-      bistability persists in the modern system. Such episodes may be
-      recorded in narrative/memory_hysteresis context, and can support at
-      most a 1 here when the primary literature itself discusses recurrence
-      risk informally.
-  - id: single-modeled-mechanism-is-2
-    rule: >
-      The 1/2 boundary is publication form, not fame: one named mechanism
-      with a proposed threshold or bifurcation analysis in the primary
-      literature = 2 (tropical-cyclones' rapid intensification + eyewall
-      replacement); informal or in-passing speculation without dedicated
-      study = 1; colloquial tipping-point rhetoric alone = never above 1
-      (see does_not_count).

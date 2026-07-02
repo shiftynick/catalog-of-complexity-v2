@@ -264,6 +264,7 @@ attributes:
   extreme_event_statistics:
     type: quantitative
     level: class-general
+    measurand_type: temporal-event   # validator-conformance pass, v0.2 sweep, 2026-07-02: return/volume/trade-count tail distributions over minutes-to-days timescales from a 1994-1995 tick-by-tick record — discrete trading events over time, not a static rank-size cross-section
     value: "return tail exponent alpha ~ 3 (the 'inverse cubic law'); volume tails zeta_Q = 1.53 +/- 0.07; trade-count tails zeta_N = 3.4 +/- 0.05 (US), 3.17 +/- 0.1 (Paris Bourse)"
     measurand: normalized return distribution tails (per-stock and index, minutes-to-days timescales); share-volume and trade-count tails
     method: tail fits to TAQ data, 1994-1995, ~4e7 data points (returns); Plerou/Gopikrishnan et al. fits for volume and trade counts
@@ -413,7 +414,7 @@ emergent_phenomena:
 
 sources:
   hayek1945:
-    citation: "Hayek, F.A. (1945). The Use of Knowledge in Society. American Economic Review 35(4), 519-530."
+    citation: "Hayek, F.A. (1945). The Use of Knowledge in Society. American Economic Review 35(4), 519-530. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): snippet-verified, bibliographic only — research/phase3/financial-markets-sources.md item 2 records '[SNIPPET, bibliographic only] — confirmed via multiple independent sources including hosted copies (uchicago.edu, statisticaleconomics.org, yale.edu), volume/issue/pages consistent across all.' Full text not opened.]"
   cont2001:
     citation: "Cont, R. (2001). Empirical properties of asset returns: stylized facts and statistical issues. Quantitative Finance 1, 223-236. [read once-removed via citing paper]"
   gopikrishnan1998:
@@ -431,9 +432,9 @@ sources:
   wfe-stats:
     citation: "World Federation of Exchanges membership: 69 formal members (exchanges/CCPs) as of Oct 2023; '>250 market infrastructures' broader claim. [secondary quoting WFE; WFE site 403-blocked]"
   gopikrishnan2000:
-    citation: "Gopikrishnan, P., Plerou, V., Gabaix, X. & Stanley, H.E. (2000). Statistical properties of share volume traded in financial markets. Phys. Rev. E 62, R4493. arXiv:cond-mat/0008113."
+    citation: "Gopikrishnan, P., Plerou, V., Gabaix, X. & Stanley, H.E. (2000). Statistical properties of share volume traded in financial markets. Phys. Rev. E 62, R4493. arXiv:cond-mat/0008113. [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): primary-read-adjacent via a quoting secondary — research/phase3/flag-cleanup-financial-markets.md, Flag 2, records that full-text extraction of the Phys. Rev. E paper itself was not obtained this session (arXiv PDF fetches returned undecoded binary content), but the exponent+error-bar values (zeta_Q = 1.53 +/- 0.07) were confirmed via Xavier Gabaix's own signed academic review, 'itself a primary author on the underlying papers and states the values as direct quotations with citations' — the log itself recommends this be labeled 'primary-author-review-verified' rather than 'primary-read.' arXiv abstract page separately confirmed the paper's existence/scope/dataset (largest 1000 US stocks, 1994-95 data).]"
   gabaix-review:
-    citation: "Gabaix, X. Power Laws in Economics and Finance (author-hosted review; source for zeta_N = 3.4 +/- 0.05 (US) and 3.17 +/- 0.1 (Paris), quoting Plerou et al. primaries)."
+    citation: "Gabaix, X. Power Laws in Economics and Finance (author-hosted review; source for zeta_N = 3.4 +/- 0.05 (US) and 3.17 +/- 0.1 (Paris), quoting Plerou et al. primaries). [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): primary-read — research/phase3/flag-cleanup-financial-markets.md, Flag 2, fetched this review directly (pages.stern.nyu.edu/~xgabaix/papers/pl-ar.pdf and the related powerLaws.pdf) and quotes its text verbatim ('Gopikrishnan et al. (2000a) looked at the distribution of volume in the U.S. and found an exponent around 1.5: zeta_Q = 1.53 +/- .07'). The log characterizes Gabaix's review as 'a citable secondary... which is itself a primary author on the underlying papers,' i.e. a primary-read of an author-authored review that itself quotes the primary papers.]"
   finra2025:
     citation: "FINRA 2025 Industry Snapshot: 639,723 registered representatives; 3,184 member firms (year-end 2025). [search-summary level; PDF unreadable in-session]"
 

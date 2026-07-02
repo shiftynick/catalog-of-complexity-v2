@@ -203,8 +203,21 @@ attributes:
       node degree was located. Not to be conflated with Horton's bifurcation-
       ratio statistics (stream-COUNT scaling across ORDER), which are recorded
       under fractal_dimension_spatial instead.
+
+      EVIDENCE_STATUS NOTE (validator-conformance pass, v0.2 sweep,
+      2026-07-02): 'not-applicable' is not a legal evidence_status enum
+      value (schema/panel-spec.yaml meta.evidence_status). Matched to the
+      sibling convention used by stars.yaml and tropical-cyclones.yaml's
+      own not-applicable degree_distribution blocks: the evidence_status
+      field is omitted entirely, and the epistemic status is carried by
+      the value ('not-applicable') and this note instead — the quantitative
+      column's legal escape-hatch convention (panel-spec: 'unknown' is
+      always legal; 'not-applicable' is the parallel out-of-scope-column
+      escape hatch), not planetary-climate's 'qualitative' convention
+      (which applies to a different situation — a hybrid/rubric column
+      with no measurement framework, not a not-applicable quantitative
+      column).
     sources: [newman2003]
-    evidence_status: not-applicable
 
   modularity:
     type: rubric
@@ -425,28 +438,33 @@ attributes:
   criticality:
     type: hybrid
     level: class-general
-    score: 0
-    mechanism_status: none
+    score: 1
+    mechanism_status: proposed
     justification: >
-      Per this class's own anchor (criticality.yaml), the deliberate floor
-      anchor for this column: river network structure follows well-
-      established scaling laws (Horton's laws, fractal branching
-      statistics), but those are STATIC topological/geometric regularities,
-      not scale-invariant EVENT statistics — no established power-law
-      distribution of channel-avulsion or flood-pulse EVENT sizes for the
-      Mississippi basin specifically was located, and no self-organized-
-      criticality mechanism has been proposed for the basin's event
-      dynamics. A system can be highly self-organized and fractal
-      (self_organization: 4; fractal_dimension_spatial: ~1.6-1.9) while scoring
-      0 here, because criticality is about event dynamics, not spatial
-      structure — the flood-discharge tail exponents recorded under
-      extreme_event_statistics are a separate claim per
-      filling_rules.soc-two-claims and do not raise this score.
+      Rescored 0 -> 1 at the v0.2 sweep (2026-07-02), correcting both this
+      entry and its own worked anchor (criticality.yaml) on primary-read
+      evidence: Rinaldo et al. (1993, PRL 70:822) formally propose Optimal
+      Channel Networks as "spatial models of self-organized criticality,"
+      with a genuine shear-stress-threshold relaxation mechanism elaborated
+      in Rodriguez-Iturbe et al. (1994, WRR 30:3531, primary-read) — so "no
+      SOC mechanism has been proposed" was factually incomplete. The
+      proposal scopes to landscape/network FORMATION dynamics, claims no
+      avalanche-type event-size statistics, and is dormant rather than
+      actively contested (unengaged in Watkins et al. 2016; dropped for
+      pure energy-optimality framing in the authors' own 2018
+      retrospective) — hence mechanism_status: proposed and a score capped
+      at 1 per the anchor's mechanism-alone-caps-at-1 boundary rule, not 2.
+      Horton's laws and fractal branching remain STATIC topological
+      regularities contributing nothing here (events-not-structure), and
+      the flood-discharge tail exponents under extreme_event_statistics
+      remain a separate claim per filling_rules.soc-two-claims. Full check:
+      research/v0.2-sweep/validation/river-networks-soc-check.md.
     evidence_status: qualitative
 
   extreme_event_statistics:
     type: quantitative
     level: class-general
+    measurand_type: temporal-event   # validator-conformance pass, v0.2 sweep, 2026-07-02: peak discharge Q vs. recurrence interval T is a flood-event-size/frequency distribution over time (partial-duration flood series at each gauge), not a static rank-size cross-section
     value: "flood discharge upper-tail scaling Q ~ T^alpha, alpha 0.27-0.90 across six US gauge stations (drainage areas 41-95,300 km^2, 74-110 water-years), including one Mississippi mainstem gauge (St. Paul, MN); station-specific alpha for the Mississippi gauge not extracted this sweep, so a Mississippi-specific alpha remains not-yet-pinned"
     measurand: "peak discharge Q vs. recurrence interval T, partial-duration flood series"
     method: power-law-form tail fits to flood series at six USGS gauges (Arroyo Seco CA, Mora River NM, Wenatchee River WA, Elkhorn River NE, Humboldt River NV, and Mississippi River at St. Paul, MN)
@@ -691,7 +709,7 @@ sources:
   csn2009:
     citation: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661-703. [project-wide source; confirmed via companion data page that the 24-dataset corpus excludes hydrology — snippet-verified]"
   newman2003:
-    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256. [project-wide source, reused as baseline for the tree-topology/degree_distribution scoping argument]"
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256. [project-wide source, reused as baseline for the tree-topology/degree_distribution scoping argument] [read-status (validator-conformance pass, v0.2 sweep, 2026-07-02): primary-read — 'Full text and Table II retrieved and read' in Phase 1 (research/phase1/quantitative-backbone.md, section 6), which explicitly confirms Table II contains no river/hydrological network row ('Sun, Katrina, San Andreas, Mississippi, NYC: not present — these are not represented as networks in this classic table'). research/phase4/river-networks-sources.md item 5 confirms this river-networks entry reuses that project-wide primary read as the baseline scoping citation for why river networks fall outside degree_distribution's applicable scope, and was 'not independently re-read in this sweep' beyond that reuse.]"
   mississippi-usgs-wikipedia:
     citation: "USGS-attributed Mississippi River basin figures (drainage area, mean discharge by gauge) via Wikipedia 'Mississippi River' secondary aggregation of USGS Water-Year Summary reports. [snippet-verified; [unverified] no USGS primary document/table directly read this sweep]"
   mississippi-delta-wikipedia:
@@ -725,6 +743,7 @@ provenance:
     - "2026-07-02 (workflow, flag-digest triage): relations.part_of comment corrected — planetary-climate IS a drafted entry in this batch (stale 'unresolved -> roster expansion queue' annotation removed); link now reciprocated from planetary-climate.yaml's relations.contains."
     - "2026-07-02 (workflow): spatial_extent unit corrected m^2 -> m (linear extent, per panel-spec column definition); removed non-load-bearing rigon1996 citation from sources (paper contains no Mississippi/drainage-area content)."
     - "2026-07-02 (workflow): characteristic_timescales Holocene delta-plain age corrected ~7,000 yr -> ~7,500-8,000 yr to match cited source (mississippi-delta-wikipedia); Frazier (1967) attribution removed from the delta lobe-switching citation and from the mississippi-delta-wikipedia source entry (does not appear in the current cited Wikipedia article)."
+    - "2026-07-02 (orchestrator, v0.2 sweep): criticality rescored 0 -> 1, mechanism_status none -> proposed — a targeted primary-read check (triggered by the blind IRR study's 0/1/2 rater split on this cell) found Rinaldo et al. 1993 PRL formally proposing OCN self-organized criticality for network formation dynamics, contradicting the entry's and the anchor's 'no mechanism proposed' clause; capped at 1 (not 2) per the new mechanism-alone-caps-at-1 anchor boundary rule (no event statistics, claim dormant). Anchor worked example corrected in the same pass. Evidence: research/v0.2-sweep/validation/river-networks-soc-check.md."
     - "2026-07-02 (workflow): numerosity — removed non-load-bearing rigon1996 citation from sources (paper contains no Horton bifurcation-ratio or Mississippi-specific content)."
     - "2026-07-02 (workflow): fractal_dimension_spatial arithmetic corrected — entry's own R_B~4/R_L~2.3 inputs give D~1.66 (log(4)/log(2.3)), not the previously-stated ~1.9; value now reported honestly as a range (~1.6-1.9) spanning both this entry's own inputs and a commonly-cited literature pairing (R_B=4.14/R_L=2.15 -> D~1.93), with the convention stated explicitly rather than a single unreproducible point value. Propagated the corrected range into emergent_phenomena and the criticality justification, which both echoed the old ~1.9 figure."
     - "2026-07-02 (workflow): degree_distribution — added required evidence_status: not-applicable field (was previously absent, a completeness gap per panel-spec's required-on-every-value rule)."

@@ -483,6 +483,7 @@ attributes:
   extreme_event_statistics:
     type: quantitative
     level: class-general
+    measurand_type: static-cross-sectional   # validator-conformance pass, v0.2 sweep, 2026-07-02: rank-size distribution of city population sizes at a snapshot in time, no event structure — directly parallels the panel-spec's own Zipf-word-frequency example
     value: "Zipf exponent alpha-hat = 2.37(8) (pdf-exponent convention); CSN fit verdict: 'moderate,' not 'good'"
     measurand: "US city population sizes (n=19,447 cities), discrete power-law fit, x_min=52,460+/-11,880"
     method: >

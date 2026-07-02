@@ -246,21 +246,49 @@ attributes:
     measurand: AS-level topology degree distribution (RouteViews/BGP-derived AS graph)
     method: >
       Newman 2003 Table II: n=10,697, mean degree z=5.98, mean geodesic
-      length l=3.31, clustering C=0.39, assortativity r=-0.189
-      (disassortative). n, z, r, and the 2001 vintage are solidly
-      cross-confirmed via primary-read of two independent Newman companion
-      papers (arXiv:cond-mat/0303327 and cond-mat/0209450); Table II
-      itself could not be cleanly primary-read this session (every mirror
-      tried — Cornell, UVM/pdodds, BU physics, arXiv PDF/TeX — produced a
-      reproducible row-shift text-extraction bug bleeding numeric columns
-      into adjacent row labels). l=3.31 and C=0.39 specifically are
-      therefore NOT independently primary-confirmed this session; one
-      search snippet surfaced a conflicting, untraceable claim of
-      clustering coefficient 0.24 for Internet ASes attributed loosely to
-      "Newman and colleagues." Re-check l and C against a cleanly-rendered
-      copy of Table II (e.g. a library PDF viewer) or a textbook reprint
-      (Newman's "Networks: An Introduction" repeats similar tables) before
-      treating them as fully verified.
+      length l=3.31, clustering C^(2)=0.39 (mean local clustering
+      coefficient, Eq. 6), assortativity r=-0.189 (disassortative). n, z,
+      r, and the 2001 vintage are solidly cross-confirmed via primary-read
+      of two independent Newman companion papers (arXiv:cond-mat/0303327
+      and cond-mat/0209450). Table II itself was subsequently primary-read
+      at the v0.2 sweep (2026-07-02) via the ar5iv HTML rendering of
+      cond-mat/0303516, two independent fetches, identical results — this
+      resolved the row-shift text-extraction bug that had blocked every
+      PDF/TeX mirror tried previously (Cornell, UVM/pdodds, BU physics,
+      arXiv PDF/TeX). l=3.31 is confirmed exactly. C=0.39 is confirmed
+      exactly AND is now specifically identified as C^(2) (Eq. 6, mean of
+      local clustering coefficients, Watts-Strogatz-style), distinct from
+      C^(1)=0.035 (Eq. 3, global transitivity: 3x triangles / connected
+      triples), also reported in the same table row and newly recovered by
+      this primary read — not previously in the entry. A prior search
+      snippet's conflicting, untraceable claim of clustering coefficient
+      0.24 for Internet ASes attributed loosely to "Newman and colleagues"
+      does NOT appear anywhere in Table II under either clustering column
+      for the Internet row and remains an uncorroborated, unreconciled
+      outlier, not adopted.
+
+      Broido & Clauset (2019) taxonomy: full text primary-read at the v0.2
+      sweep (direct pdftotext extraction of the raw PDF from
+      arxiv.org/pdf/1801.03400; ar5iv's HTML rendering gave internally
+      inconsistent summaries across repeat fetches and was NOT used).
+      Confirms the exact six-rung taxonomy — Not Scale Free < Super-Weak <
+      Weakest < Weak < Strong < Strongest — including "Weakest," a rung
+      the entry's prior text omitted between Super-Weak and Weak. The
+      Internet AS-level (CAIDA autonomous-systems) networks in their
+      corpus do NOT receive one single classification; the paper states
+      it explicitly, by exact quote: "This group [Weakest, 43% of
+      technological networks] includes about half of the CAIDA autonomous
+      systems networks... Networks in this category [Strong, 28% of
+      technological networks] include the other half of the CAIDA
+      graphs." No CAIDA/AS network is attributed to the Strongest
+      category (only 3 technological networks total, 1%, reach Strongest,
+      not identified as CAIDA in the main text). This confirmed ~50/50
+      Weakest/Strong split is an aggregate finding across many CAIDA graph
+      snapshots/simple-graph variants (Broido & Clauset's unit of
+      analysis), not a single verdict for "the Internet AS graph" as one
+      object the way Newman 2003 Table II treats it — that aggregate
+      nature is itself the confirmed, non-fabricated answer, not a gap in
+      this session's research.
     sources: [newman2003, broido-clauset2019]
     evidence_status: measured-disputed
     confidence: low
@@ -272,16 +300,23 @@ attributes:
       measured-untested on its own terms. (2) Broido & Clauset (2019),
       applying CSN-2009-grade testing to ~1,000 real networks, found only
       ~4% "strongly scale-free" and most networks fit log-normal as well
-      or better — the necessary methodological counterweight. This
-      session could NOT confirm the Internet AS graph's specific
-      classification within Broido & Clauset's Strongest/Strong/Weak/
-      Super-Weak/Not-scale-free taxonomy (Nature.com blocked full-text
-      fetch; only the arXiv abstract was primary-read). The composite is
-      therefore recorded measured-disputed rather than either "confirmed
-      scale-free" or "confirmed not scale-free" — per filling_rules.no-
-      guessing, the unresolved classification is stated, not guessed
-      around. Current AS count (~75,000-83,739, 2025/26) is snippet-only
-      and does not change the exponent claim itself.
+      or better — the necessary methodological counterweight. At the v0.2
+      sweep (2026-07-02), full-text primary-read (direct pdftotext
+      extraction of arxiv.org/pdf/1801.03400) confirmed the Internet
+      AS-level (CAIDA autonomous-systems) networks split ~50/50 within
+      Broido & Clauset's six-rung Not-Scale-Free/Super-Weak/Weakest/Weak/
+      Strong/Strongest taxonomy: "about half of the CAIDA autonomous
+      systems networks" classify Weakest and "the other half of the CAIDA
+      graphs" classify Strong, with none confirmed Strongest. This is a
+      confirmed aggregate split across many CAIDA graph snapshots, not a
+      single verdict for "the Internet AS graph" as one object — see
+      degree_distribution.method for the full quotes. The composite
+      remains recorded measured-disputed, now on the strength of a
+      confirmed internal split rather than an unresolved classification —
+      per filling_rules.no-guessing, the split is stated, not collapsed
+      into a single guessed category. Current AS count (~75,000-83,739,
+      2025/26) is snippet-only and does not change the exponent claim
+      itself.
 
   modularity:
     type: hybrid
@@ -727,9 +762,9 @@ emergent_phenomena:
 
 sources:
   newman2003:
-    citation: "Newman, M.E.J. (2003). The Structure and Function of Complex Networks. SIAM Review 45(2), 167-256. Table II, Internet AS-level row (2001 RouteViews-derived snapshot). [primary-read, Phase 1; reused with date-stamp per Phase 4 sweep]"
+    citation: "Newman, M.E.J. (2003). The Structure and Function of Complex Networks. SIAM Review 45(2), 167-256. Table II, Internet AS-level row (2001 RouteViews-derived snapshot). [primary-read, Phase 1; reused with date-stamp per Phase 4 sweep] [primary-read-via-ar5iv 2026-07-02, v0.2 sweep: Table II itself (n, m, z, l, alpha, C^(1), C^(2), r) confirmed via ar5iv HTML rendering of cond-mat/0303516, two independent fetches, identical results — resolves the prior session's row-shift PDF/TeX extraction bug across all mirrors]"
   broido-clauset2019:
-    citation: "Broido, A.D. & Clauset, A. (2019). Scale-free networks are rare. Nature Communications 10, 1017. DOI: 10.1038/s41467-019-08746-5. arXiv:1801.03400. [primary-read: arXiv abstract page only; Nature.com full text blocked by authentication/cookie wall; full Table 1 classification of the Internet AS graph NOT accessed — methodological detail beyond the abstract is snippet-only via secondary summaries (Quanta Magazine, ScienceDaily, CU Boulder BioFrontiers)]"
+    citation: "Broido, A.D. & Clauset, A. (2019). Scale-free networks are rare. Nature Communications 10, 1017. DOI: 10.1038/s41467-019-08746-5. arXiv:1801.03400. [primary-read: arXiv abstract page only; Nature.com full text blocked by authentication/cookie wall; full Table 1 classification of the Internet AS graph NOT accessed — methodological detail beyond the abstract is snippet-only via secondary summaries (Quanta Magazine, ScienceDaily, CU Boulder BioFrontiers)] [primary-read 2026-07-02, v0.2 sweep: full text obtained via direct pdftotext extraction of the raw PDF from arxiv.org/pdf/1801.03400 (ar5iv HTML rendering gave inconsistent summaries across repeat fetches and was discarded as unreliable for this paper); confirms the six-rung taxonomy and the CAIDA AS-networks ~50/50 Weakest/Strong split, see degree_distribution]"
   yook2002:
     citation: "Yook, S.-H., Jeong, H. & Barabasi, A.-L. (2002). Modeling the Internet's large-scale topology. PNAS 99(21), 13382-13386. DOI: 10.1073/pnas.172501399. [primary-read: PMC full-text, PMC129681]"
   leland1994:
@@ -765,6 +800,48 @@ provenance:
       unresolved:
         - "degree_distribution l=3.31/C=0.39: still not independently primary-confirmed (Table II extraction bug); flagged for re-check against a clean PDF render or textbook reprint, not resolved this pass."
         - "degree_distribution: Broido & Clauset (2019) exact taxonomy classification for the Internet AS graph remains unconfirmed (Nature.com full text still blocked) -- pre-existing gap, out of scope for this fix pass."
+    - date: 2026-07-02
+      by: verification-debt-researcher (v0.2 sweep)
+      changes:
+        - "[RESOLVED/citation] degree_distribution: Newman 2003 Table II Internet-AS row
+           primary-read via ar5iv HTML rendering of cond-mat/0303516 (arXiv), which renders
+           cleanly where every previously-tried PDF/TeX mirror had a row-shift extraction bug.
+           Confirms, exactly matching the entry's existing figures: n=10,697, m=31,992, z=5.98,
+           l=3.31, alpha=2.5, r=-0.189. CLUSTERING: the table has two distinct clustering
+           definitions, C^(1) (Eq. 3, global transitivity: 3x triangles / connected triples =
+           0.035 for the Internet row) and C^(2) (Eq. 6, mean of local clustering coefficients
+           = 0.39 for the Internet row). The entry's existing C=0.39 figure is CONFIRMED CORRECT
+           and is now labeled as specifically C^(2); C^(1)=0.035 is a new, distinct, also-primary-
+           confirmed figure not previously recorded in the entry. The stray C=0.24 snippet
+           previously noted as an unresolved conflicting claim does NOT appear anywhere in
+           Table II under either clustering column for the Internet row and remains an
+           uncorroborated, unreconciled outlier -- not adopted."
+        - "[PARTIAL/citation] degree_distribution: Broido & Clauset (2019) full text primary-read
+           this session via direct pdftotext extraction of the raw PDF fetched from
+           arxiv.org/pdf/1801.03400 (ar5iv HTML rendering gave internally inconsistent summaries
+           across two fetches and was NOT used as the basis for this finding). Confirms the exact
+           six-rung taxonomy: Not Scale Free < Super-Weak < Weakest < Weak < Strong < Strongest
+           (the entry's prior text omitted 'Weakest' as a distinct rung between Super-Weak and
+           Weak). Confirms, by exact quote, that CAIDA autonomous-systems (Internet AS-level)
+           networks in their corpus do NOT receive one single classification: 'This group
+           [Weakest, 43% of technological networks] includes about half of the CAIDA autonomous
+           systems networks... Networks in this category [Strong, 28% of technological networks]
+           include the other half of the CAIDA graphs.' No CAIDA/AS network is attributed to the
+           Strongest category (only 3 technological networks total, 1%, reach Strongest, not
+           identified as CAIDA in the main text). This is now a confirmed, quotable, primary-read
+           finding rather than an unconfirmed gap -- but it is inherently a split/aggregate
+           finding, not a single verdict, because Broido & Clauset's unit of analysis is many
+           simple graphs derived from CAIDA snapshots, not one Internet-AS-graph object the way
+           Newman 2003 treats it."
+      unresolved:
+        - "The C=0.24 stray snippet's origin remains untraced; it is neither confirmed nor
+           reconcilable with the primary-read Table II and should be treated as noise unless a
+           distinct primary source for it is later located."
+        - "Whether a specific CAIDA snapshot/vintage maps to Weakest vs. Strong individually is
+           not stated in the paper's main text; their public code/data repository
+           (github.com/adbroido/SFAnalysis, cited in the paper's data-availability statement) was
+           NOT fetched this session and might resolve this further if a per-snapshot table exists
+           there, but a code repository would need separate evaluation as a citable source type."
   flags:
     - column: degree_distribution
       note: >
@@ -840,3 +917,33 @@ provenance:
         each independently re-confirmed across Phase 1 and Phase 4 sweeps.
         Recorded as legal "unknown"/floor scores rather than guessed
         around, per filling_rules.no-guessing.
+    - column: degree_distribution
+      note: >
+        RESOLVED 2026-07-02 (l, C only -- see separate flag below for the Broido & Clauset
+        classification, which is PARTIAL not resolved): Newman 2003 Table II's Internet AS-level
+        row was primary-read cleanly via the ar5iv HTML rendering of cond-mat/0303516 (two
+        independent fetches, identical results), resolving the row-shift extraction bug that
+        blocked every mirror tried in the prior session. l=3.31 confirmed. C=0.39 confirmed,
+        and now specifically identified as C^(2) (mean local clustering coefficient, Eq. 6 in
+        Newman 2003) as distinct from C^(1) (global transitivity, Eq. 3), which is 0.035 for
+        this row and is a newly-recovered figure not previously in the entry. The entry's method
+        field has been updated to read "clustering C^(2)=0.39 (mean local clustering
+        coefficient); C^(1)=0.035 (global transitivity) also reported in the same table row" and
+        the stray C=0.24 snippet is now described as unreconciled/unconfirmed rather than a live
+        open question, since it does not appear anywhere in the primary-read table.
+    - column: degree_distribution
+      note: >
+        PARTIAL RESOLUTION 2026-07-02: Broido & Clauset (2019) full text now primary-read (direct
+        pdftotext extraction of arxiv.org/pdf/1801.03400 raw PDF bytes, after ar5iv's HTML
+        rendering gave inconsistent summaries across repeat fetches and was discarded as
+        unreliable for this specific paper). Exact quote: CAIDA autonomous-systems (Internet
+        AS-level) networks split roughly 50/50 between the "Weakest" category (43% of all
+        technological networks, "about half of the CAIDA autonomous systems networks") and the
+        "Strong" category ("the other half of the CAIDA graphs"); none confirmed in "Strongest."
+        Six-rung taxonomy confirmed exactly: Not Scale Free < Super-Weak < Weakest < Weak <
+        Strong < Strongest (the entry's summary previously omitted "Weakest" as its own rung).
+        This resolves the "full-text blocked" problem but the paper's own answer is an aggregate
+        split across many CAIDA graph snapshots, not a single verdict for "the Internet AS graph"
+        -- the entry's degree_distribution note has been updated to state the Weakest/Strong
+        split explicitly (with the exact quotes above) rather than continuing to describe the
+        classification as simply "unconfirmed."

@@ -132,7 +132,7 @@ attributes:
 
   numerosity:
     type: quantitative
-    level: exemplar(san-andreas-fault) / class-general (statewide figure)
+    level: exemplar(san-andreas-fault)
     value: >
       SSAF: 11 named fault sections (primary-read, exemplar level). California
       statewide (UCERF3 framework): >350 fault sections, further subdivided
@@ -150,6 +150,13 @@ attributes:
       was located via search but not independently fetched/opened this
       session, though cross-confirmed across multiple independent secondary
       summaries.
+
+      LEVEL NOTE (validator-conformance pass, v0.2 sweep, 2026-07-02): this
+      value's headline figure is the exemplar(san-andreas-fault) SSAF
+      section count (11, primary-read); level was set to that primary
+      attachment. The statewide UCERF3 figures (>350 sections; 2,606-2,665
+      subsections) are a class-general-level secondary figure carried in
+      the same value string above, not dropped.
 
   instance_population:
     type: quantitative
@@ -181,7 +188,14 @@ attributes:
 
   component_ontology:
     type: structured
-    level: exemplar(san-andreas-fault) / class-general (statewide)
+    level: exemplar(san-andreas-fault)
+    note: >
+      LEVEL NOTE (validator-conformance pass, v0.2 sweep, 2026-07-02): the
+      headline part-count figures below are anchored on the SSAF exemplar
+      (~10^2 segments, 11 named sections); level set to that primary
+      attachment. The statewide UCERF3 figure (~10^3, 2,606-2,665
+      subsections) is a class-general-level secondary figure, carried
+      inside parts[0].count_oom below, not dropped.
     parts:
       - name: fault segments/patches
         count_oom: "~10^2 for SSAF alone (11 named sections further subdivided in UCERF3 subsectioning); ~10^3 statewide (2,606-2,665 UCERF3 subsections)"
@@ -492,10 +506,18 @@ attributes:
 
   criticality:
     type: hybrid
-    level: exemplar(san-andreas-fault) / class-general (mechanism debate)
+    level: exemplar(san-andreas-fault)
     score: 2
     mechanism_status: contested
     justification: >
+      LEVEL NOTE (validator-conformance pass, v0.2 sweep, 2026-07-02): the
+      headline event-statistics figure (Page & Felzer 2015 b-value) is
+      exemplar(san-andreas-fault)-level; level set to that primary
+      attachment. The mechanism_status: contested verdict (Watkins et al.
+      2016 vs. Bak & Tang 1989) is a class-general-level claim about SOC as
+      a mechanism for fault systems generally, not SSAF-specific — carried
+      as a secondary attachment within this same block, not dropped.
+
       Per this class's own anchor (criticality.yaml) and per
       filling_rules.soc-two-claims: (a) Event statistics: Gutenberg-Richter
       magnitude-frequency scaling is SOLID — this sweep upgrades the
@@ -525,7 +547,8 @@ attributes:
 
   extreme_event_statistics:
     type: quantitative
-    level: exemplar(san-andreas-fault) / class-general (CSN comparator)
+    level: exemplar(san-andreas-fault)
+    measurand_type: temporal-event
     value: >
       G-R b-value (magnitude-frequency slope): 1.03 +/- 0.12 (SSAF, M>=2.5,
       within 20 km, UCERF3 catalog) — consistent with statewide b=1.0
@@ -565,6 +588,20 @@ attributes:
       the CSN amplitude-power-law rejection is for its own distinct
       dataset (also primary-read, reused from Phase 1).
 
+      LEVEL NOTE (validator-conformance pass, v0.2 sweep, 2026-07-02): the
+      headline value (G-R b-value) is exemplar(san-andreas-fault)-level;
+      level set to that primary attachment. The CSN 2009
+      California-earthquake-amplitude rejection is a class-general-level
+      comparator claim (California statewide, not SSAF-specific),
+      carried as the "SEPARATELY" clause in the value field above, not
+      dropped.
+
+      MEASURAND_TYPE NOTE (validator-conformance pass, v0.2 sweep,
+      2026-07-02): temporal-event — both component measurands (G-R
+      magnitude-frequency slope; CSN raw-amplitude power-law fit) are
+      event-size/frequency distributions of discrete earthquake events
+      over time, not a static rank-size cross-section.
+
   temporal_correlation:
     type: quantitative
     level: exemplar(san-andreas-fault)
@@ -578,9 +615,18 @@ attributes:
       Touati 2009).
     measurand: SSAF seismicity rate (event count per unit time), ETAS-simulated (Ogata 1988)
     sources: [page-felzer-2015]
-    evidence_status: measured (simulation-based rate-clustering evidence, primary-read); unknown (no formal Hurst exponent for fault seismicity found this session — not guessed)
+    evidence_status: measured
     confidence: medium
     note: >
+      EVIDENCE_STATUS NOTE (validator-conformance pass, v0.2 sweep,
+      2026-07-02): evidence_status set to the single enum fitting the
+      headline value — measured (simulation-based rate-clustering
+      evidence, primary-read within Page & Felzer 2015). The secondary
+      claim (no formal Hurst exponent or long-range-correlation statistic
+      for fault seismicity was located this session) is recorded in the
+      value field above as "unknown," not guessed, but does not override
+      the block-level evidence_status for the data that IS present.
+
       Global comparator clustering evidence (all primary-read within Page &
       Felzer 2015, all with their own citations): North Anatolian Fault
       clustering (Ambraseys 1970; Hartleb et al. 2006); Dead Sea graben,
@@ -753,9 +799,19 @@ attributes:
 
   cascade_susceptibility:
     type: hybrid
-    level: exemplar(san-andreas-fault) / class-general (Wesnousky 2008 statistics span CA and AK strike-slip systems)
+    level: exemplar(san-andreas-fault)
     score: 2
     justification: >
+      LEVEL NOTE (validator-conformance pass, v0.2 sweep, 2026-07-02): this
+      score is applied at the SAF/SSAF exemplar level; level set to that
+      primary attachment. The underlying case-count statistics (Wesnousky
+      2008's 28 California ruptures; the "Big Seven" of Haeussler et al.
+      2004) are class-general in scope — they span California AND Alaska
+      strike-slip fault systems generally, not the San Andreas alone — and
+      are used here as the best available comparator evidence for scoring
+      this exemplar, per the same class-general-with-named-exemplar
+      pattern used throughout this entry.
+
       Per this class's own anchor comparator — the cascade_susceptibility
       scale's financial-markets case (score 2) is the closest match: at
       least one dedicated systematic compilation documents cascading
@@ -881,7 +937,16 @@ sources:
       Evolutionary Driver. Complexity 16(3), 27. [Phase 1 survey confirmed
       Chaisson's own tables contain no geophysical-fault-system Phi_m
       entry; used here only as the benchmark-comparison source for the
-      derived energy_rate_density figure]
+      derived energy_rate_density figure] READ-STATUS (validator-conformance
+      pass, v0.2 sweep, 2026-07-02): primary-read — Chaisson (2010/2011) was
+      "Full text retrieved and read" in Phase 1 (Table 1, "Average Energy
+      Rate Densities": Milky Way 0.5, Sun 2, Earth's geosphere 75, per
+      research/phase1/quantitative-backbone.md, section 1), and independently
+      re-confirmed via a second full-text primary read at the v0.2 sweep
+      (research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md, Item 1),
+      which also cross-checked the geosphere=75 figure against in-text
+      callouts pinning Sun=2 and Plants=900, ruling out a naive
+      pdftotext-layout misreading of the table.
   page-felzer-2015-context:
     citation: >
       Moment-rate and apparent-stress context figures used in the
@@ -919,6 +984,41 @@ provenance:
     - "numerosity, instance_population, fractal_dimension_spatial, extreme_event_statistics: normalized each compound semicolon-separated evidence_status to a single dominant controlled-vocabulary token, moving the secondary claim's provenance detail into each attribute's note field, per financial-markets' pattern."
     - "energy_rate_density: added the SCEC-affiliated per-km seismic moment-accumulation-rate figure (1.5-1.8e13 N*m/yr/km Mojave/Carrizo, as low as 0.2e13 N*m/yr/km San Jacinto) to method/detail as an independent cross-check against the entry's own whole-system derivation, marked snippet-only/author-unconfirmed per the sweep's caveat."
     - "criticality: added a sentence citing Parsons (2007)'s fractal-fault-complexity power-law finding and Marone (1998)'s rate-and-state healing-mechanism context as additional SOC-adjacent, non-dispositive supporting evidence, consistent with the existing 'mechanism: contested' verdict."
+    - "b-value confirmation pass (verification-debt sweep, 2026-07-02): re-fetched
+       Page & Felzer (2015) full text independently via Morgan Page's own hosted PDF
+       (its.caltech.edu/~pagem/PageFelzer2015.pdf) and re-confirmed verbatim: b =
+       1.03 +/- 0.12, M >= 2.5, within 20 km of SSAF, UCERF3 catalog,
+       maximum-likelihood method (Aki 1965; Shi & Bolt 1982), consistent with
+       statewide b=1.0 (Hutton et al. 2010 / UCERF3 Field et al. 2014) and b=0.95
+       (Tormann et al. 2010). No discrepancy found; entry's criticality and
+       extreme_event_statistics columns require no change. See
+       research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md, Item 2."
+    - "validator-conformance pass (v0.2 sweep, 2026-07-02): (1) extreme_event_statistics
+       added measurand_type: temporal-event (G-R magnitude-frequency slope and CSN
+       raw-amplitude fit are both event-size/frequency distributions over time, not
+       a static rank-size cross-section). (2) Composite level strings resolved to
+       their primary attachment, with the secondary-level information moved into
+       each block's note (no information lost): numerosity ->
+       exemplar(san-andreas-fault) (SSAF section count is the headline figure;
+       statewide UCERF3 figures noted); component_ontology ->
+       exemplar(san-andreas-fault) (SSAF segment counts are the headline figures;
+       statewide UCERF3 subsection count noted); criticality ->
+       exemplar(san-andreas-fault) (Page & Felzer SSAF b-value is the headline
+       event-statistics figure; class-general mechanism-contested verdict noted);
+       extreme_event_statistics -> exemplar(san-andreas-fault) (SSAF b-value is the
+       headline figure; CSN statewide comparator noted); cascade_susceptibility ->
+       exemplar(san-andreas-fault) (score applied to the SAF/SSAF exemplar; the
+       underlying Wesnousky 2008 / Haeussler 2004 case counts span CA and AK
+       strike-slip systems generally, noted as comparator evidence). (3)
+       temporal_correlation's compound evidence_status ('measured (...); unknown
+       (...)') resolved to the single enum fitting the headline value (measured,
+       for the simulation-based rate-clustering evidence that IS present); the
+       'no formal Hurst exponent located' secondary claim moved into note (it was
+       already carried in the value field as 'unknown', not lost). (4) chaisson2011
+       source annotation upgraded with an explicit read-status tag: primary-read
+       in Phase 1 (research/phase1/quantitative-backbone.md, 'Full text retrieved
+       and read') and re-confirmed at the v0.2 sweep
+       (research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md, Item 1)."
   flags:   # this entry's own top uncertainties, honestly recorded per the sweep report
     - column: energy_rate_density
       note: >

@@ -723,7 +723,7 @@ sources:
   nasa-eo-energy-budget:
     citation: "NASA Earth Observatory. Climate and Earth's Energy Budget (illustration by Robert Simmon, adapted from Trenberth et al. 2009, CERES flux estimates by Norman Loeb). [primary-read this sweep]"
   chaisson2011:
-    citation: "Chaisson, E.J. (2010/2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40. [primary-read in Phase 1 — Table 1, geosphere Phi_m~75 erg/s/g. Phase 4 re-verification (2026-07-02) could not reproduce this read: the Wiley/ResearchGate pages for this paper (DOI cplx.20323, 'Paper I') returned HTTP 403; a full-text PDF fetched instead turned out to be the follow-up 'Energy Rate Density II' (DOI cplx.20373), which defers to Paper I for Table 1 and contains no standalone geosphere entry. No source contradicts ~75 erg/s/g — the figure is UNVERIFIABLE this session rather than FAILED, and the evidence stands on the Phase 1 primary read, recorded transparently.]"
+    citation: "Chaisson, E.J. (2010/2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27-40. [primary-read in Phase 1 — Table 1, geosphere Phi_m~75 erg/s/g. Phase 4 re-verification (2026-07-02) could not reproduce this read: the Wiley/ResearchGate pages for this paper (DOI cplx.20323, 'Paper I') returned HTTP 403; a full-text PDF fetched instead turned out to be the follow-up 'Energy Rate Density II' (DOI cplx.20373), which defers to Paper I for Table 1 and contains no standalone geosphere entry. No source contradicts ~75 erg/s/g — the figure is UNVERIFIABLE this session rather than FAILED, and the evidence stands on the Phase 1 primary read, recorded transparently.] ADDENDUM (2026-07-02, verification-debt sweep): Phase-4-and-later re-verification SUCCEEDED this session via the author's own hosted reprint — https://lweb.cfa.harvard.edu/~ejchaisson/reprints/EnergyRateDensity_I_FINAL_2011.pdf (Paper I itself, confirmed by title page; distinct from the 'II' galley on the same page). Primary-read via pdftotext content-stream-order extraction (the -layout mode visually misaligns this two-column PDF's Table 1 and must not be used for this table). Table 1 confirmed row-for-row: Human society 0 Gya/500,000 erg-s-1-g-1; Animals, generally 0.5 Gya/40,000; Plants, generally 3 Gya/900; Earth's geosphere 4 Gya/75; Sun 5 Gya/2; Milky Way 12 Gya/0.5. Cross-confirmed against two independent body-text callouts pinning Sun=2 erg/s/g and Plants=900 erg/s/g, which rules out the layout-tool's apparent (mis)alignment. Geosphere Phi_m ~75 erg/s/g is CONFIRMED, primary-read, full text (not the 'II' follow-up). See research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md, Item 1. [primary-read]"
   mckay2022:
     citation: "Armstrong McKay, D.I., Staal, A., Abrams, J.F., et al. (2022). Exceeding 1.5C global warming could trigger multiple climate tipping points. Science 377(6611), eabn7950. DOI: 10.1126/science.abn7950. [primary-read in Phase 1; headline 16-element count and AMOC threshold (1.4-8C) reused per task instructions — full per-element threshold table NOT recovered this sweep, standing flag]"
   lenton2008:
@@ -810,6 +810,14 @@ provenance:
            (noted in the coverage FIX item as a shared drafting-template omission)
            was left untouched — out of scope, this pass edits only
            planetary-climate.yaml per the flag-fixer mandate."
+    - date: 2026-07-02
+      by: verification-debt sweep agent
+      changes:
+        - "chaisson2011 / energy_rate_density: upgraded the geosphere Phi_m~75
+           erg/s/g citation from Phase-1-primary-read-unreproduced (Phase 4
+           UNVERIFIABLE annotation) to independently reproduced primary-read,
+           via Chaisson's own author-hosted PDF of Paper I. See
+           research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md."
   flags:   # this agent's own top uncertainties, per task instructions
     - column: energy_rate_density
       note: >
@@ -854,6 +862,19 @@ provenance:
         draft, obtain institutional/library access to Chaisson 2010/2011
         Complexity 16(3):27 directly (not the 'II' follow-up) to confirm
         the Table 1 value and its geosphere-not-climate-specific framing.
+    - column: energy_rate_density
+      note: >
+        RESOLVED 2026-07-02 (verification-debt sweep): the Chaisson geosphere
+        Phi_m~75 erg/s/g figure, previously UNVERIFIABLE in Phase 4 due to a
+        Wiley 403, has now been primary-read directly from Paper I's own PDF
+        (Chaisson's author-hosted reprint at lweb.cfa.harvard.edu/~ejchaisson).
+        Table 1 confirmed exactly: Earth's geosphere, Age 4 Gya, Fm = 75
+        erg/s/g, cross-checked against two independent in-text callouts of
+        the Sun's (=2) and Plants' (=900) Table 1 values, which also exposed
+        and corrected a naive pdftotext -layout misreading of this
+        two-column PDF's table. No further action needed on this citation;
+        the earlier 'obtain institutional/library access' follow-up flag is
+        superseded and can be closed.
     - column: tipping_transitions
       note: >
         The per-element threshold/timescale table for the other 15 tipping

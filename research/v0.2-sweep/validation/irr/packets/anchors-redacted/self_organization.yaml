@@ -1,0 +1,53 @@
+column: self_organization
+version: 0.1-draft
+# Drafted by the orchestrator (Fable) — one of the two delicate distinctions.
+# This column asks WHERE THE ORDER CAME FROM (genesis): spontaneously from
+# local interactions, or from an external template/design?
+# Its sibling decentralization asks WHO CONTROLS THE SYSTEM NOW.
+scale:
+  0: "All macroscopic order was externally imposed (designed, templated, legislated); none arises spontaneously from component interactions."
+  1: "Order is overwhelmingly designed/templated; minor spontaneous ordering occurs within the designed skeleton."
+  2: "Designed skeleton with substantial spontaneous order living on top of it — the system's characteristic phenomena were not designed even though its substrate was."
+  3: "Predominantly spontaneous order; external templating is present but marginal to the system's characteristic structure."
+  4: "Essentially all macroscopic order arises spontaneously from local interactions; there is no designer, template, or blueprint at any level."
+does_not_count: |
+  - Order maintained by a present-day controller is a decentralization fact, not
+    a self-organization fact; this column scores the ORIGIN of order.
+  - Mere existence of pattern without a dynamical origin story — the
+    justification must say what local process generates the order.
+  - External forcing (sunlight, tectonic stress) does not count as "templating";
+    a template specifies the FORM of the order, forcing merely powers it.
+anchors:
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 4
+    justification: >
+      Eyewall, rainbands, and the storm-scale circulation assemble spontaneously
+      from moist convection under rotation and surface fluxes; nothing specifies
+      the form in advance. A canonical dissipative structure.
+    evidence_status: qualitative
+    sources: []
+  # [redacted for blind IRR study — worked example removed]
+  # [redacted for blind IRR study — worked example removed]
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 1
+    justification: >
+      Topology, dispatch rules, and market design are engineered artifacts.
+      Spontaneous ordering exists but is minor relative to design: emergent
+      load synchronization, market bidding patterns, and self-organized cascade
+      dynamics within an otherwise designed structure.
+    evidence_status: qualitative
+    sources: []
+  # [redacted for blind IRR study — worked example removed]
+notes: |
+  Sibling distinction: genesis of order (this column) vs. locus of control now
+  (decentralization). ERCOT: designed order (1 here) AND centrally controlled
+  (1 there) — the two columns agree. Internet: designed substrate with
+  spontaneous macro-structure (2 here) but nearly no central control (3 there)
+  — the two columns disagree, and that disagreement is real signal, not noise.
+  Boundary case: equilibrium ordering (crystallization) vs. dissipative
+  structures — both count as spontaneous order here; the justification should
+  note which kind, since openness_dissipation captures the difference.

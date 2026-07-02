@@ -1,0 +1,72 @@
+column: adaptive_capacity
+version: 0.1-draft
+# Drafted by the orchestrator (Fable) — one of the two delicate distinctions.
+# This column asks whether COMPONENTS CHANGE THEIR BEHAVIOR (their response
+# functions) in light of environment or experience. Its sibling
+# robustness_resilience scores the OUTCOME (function maintained under
+# perturbation); this column scores a MECHANISM. A system can be robust with
+# zero adaptation (the Sun) and adaptive without being robust.
+# Editorial call (see panel spec): 0 is a legitimate, informative score —
+# adaptation is a dimension, not an entry criterion.
+scale:
+  0: "Component behavior is fixed by physics; responses to forcing never modify the response functions themselves."
+  1: "Structural accommodation only: the system's configuration adjusts to sustained forcing (channels widen, stress redistributes), but no component changes its rule of behavior."
+  2: "Some components systematically change behavior via feedback or selection among fixed rules (e.g., algorithms retired when they lose money), without anticipation or internal models."
+  3: "Many components possess internal models and adjust behavior anticipatorily; adaptation is real but slow, partial, or weakly strategic."
+  4: "Pervasive multi-level adaptation: components learn and revise strategies, selection operates among components, and the population of behaviors itself evolves."
+does_not_count: |
+  - Feedback response alone (ice-albedo, thermostat-like regulation): the
+    response function must CHANGE, not merely operate.
+  - Structural accommodation (erosion reshaping a channel) counts at most 1.
+  - Exogenous redesign by outside engineers counts only if the entry's scoping
+    note includes those humans as system components — the score is
+    boundary-sensitive, and the justification must say which boundary was used.
+anchors:
+  # [redacted for blind IRR study — worked example removed]
+  - system: planetary-climate
+    exemplar: "Earth"
+    category: geophysical
+    score: 0
+    justification: >
+      Rich in feedbacks (ice-albedo, water vapor) and memory (ocean heat),
+      but no component alters its response function through experience;
+      feedbacks operate, they do not learn. Scores 0 despite the system's
+      enormous complexity elsewhere in the panel — which is exactly the signal
+      that separates complex physical systems from CAS.
+    evidence_status: qualitative
+    sources: []
+  # [redacted for blind IRR study — worked example removed]
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 2
+    justification: >
+      Scored with operators and market participants inside the boundary (per
+      its scoping note): protection schemes are re-tuned after events, market
+      participants adjust bidding rules, reliability standards revise post-
+      blackout. Adaptation is real but rule-mediated and episodic rather than
+      pervasive and anticipatory.
+    evidence_status: qualitative
+    sources: []
+  # [redacted for blind IRR study — worked example removed]
+  - system: financial-markets
+    exemplar: "New York Stock Exchange"
+    category: socio-economic
+    score: 4
+    justification: >
+      Traders and algorithms learn from outcomes and revise strategies;
+      selection removes failing strategies and firms; the institution itself
+      rewrites rules in response to crises (circuit breakers post-1987).
+      Adaptation at component, population, and institutional levels
+      simultaneously — the full CAS profile.
+    evidence_status: qualitative
+    sources: []
+notes: |
+  Sibling distinction: adaptation is a mechanism components use; robustness is
+  an outcome the system displays. The 2x2 of the two columns is real data:
+  robust + non-adaptive, robust + adaptive, fragile + non-adaptive, fragile +
+  adaptive (individual speculative markets). If the eventual periodic table
+  has one load-bearing axis, current bet is this column (see panel-spec
+  editorial call).
+  The variation_selection column (E2) records the mechanism taxonomy separately;
+  justifications here should not duplicate it, just point to it.

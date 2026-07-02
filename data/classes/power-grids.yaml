@@ -478,6 +478,7 @@ attributes:
   extreme_event_statistics:
     type: quantitative
     level: class-general
+    measurand_type: temporal-event   # validator-conformance pass, v0.2 sweep, 2026-07-02: blackout-size distribution over a 1984-1998 event record — a discrete-event-size/frequency distribution over time, not a static rank-size cross-section
     value: "fall-off close to a power dependence, exponent between -1 and -2 (NERC unserved-energy data, 1984-1998; primary-read verbatim)"
     measurand: blackout size (unserved energy) distribution, North American NERC data, 1984-1998
     method: >

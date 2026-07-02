@@ -1,0 +1,63 @@
+column: robustness_resilience
+version: 0.1-draft
+# Drafted by the orchestrator (Fable) — one of the two delicate distinctions.
+# This column scores an OUTCOME: is structure/function maintained under
+# perturbation? Its sibling adaptive_capacity scores a MECHANISM. Keeping the
+# two apart is what the anchors below are for.
+#
+# NORMALIZATION RULE (critical for commensurability): robustness is judged
+# relative to the system's own characteristic perturbation spectrum and
+# lifetime — otherwise large, slow systems win automatically and the column
+# degenerates into "size."
+scale:
+  0: "Fragile: perturbations small relative to the system's characteristic spectrum destroy its identity or function."
+  1: "Narrow tolerance: survives only a limited class of common perturbations; routinely destroyed by events well within its normal environment."
+  2: "Moderate: withstands the common perturbation spectrum; known event classes within its normal environment can destroy or permanently degrade it."
+  3: "Broad tolerance: absorbs common perturbations and some large shocks, recovering function, possibly with hysteresis or scars."
+  4: "Exceptional multi-scale robustness: identity and function maintained across nearly the full perturbation spectrum it plausibly faces, over its characteristic lifetime."
+does_not_count: |
+  - Persistence due to an unperturbed environment is not robustness; the
+    justification must name actual or characteristic perturbations.
+  - CLASS-level persistence is not EXEMPLAR-level robustness: "hurricanes keep
+    forming" does not make Katrina robust. State the level explicitly
+    (level: exemplar(<name>) is the default for this column, per D14).
+  - Adaptation is not required for robustness and must not be double-counted:
+    a purely physical negative feedback earns robustness without any
+    adaptive_capacity.
+anchors:
+  # [redacted for blind IRR study — worked example removed]
+  - system: tropical-cyclones
+    exemplar: "Hurricane Katrina (2005)"
+    category: geophysical
+    score: 1
+    justification: >
+      Maintains organization only within a narrow environmental envelope; wind
+      shear, cool water, or landfall — all routine features of its environment
+      — rapidly destroy it, as landfall in fact did. Scored at exemplar level
+      per the does_not_count rule.
+    evidence_status: qualitative
+    sources: []
+  - system: power-grids
+    exemplar: "ERCOT (Texas Interconnection)"
+    category: infrastructure
+    score: 2
+    justification: >
+      Withstands routine contingencies by design (N-1 planning), but known
+      event classes within its normal environment can cause system-scale
+      failure — demonstrated by the February 2021 winter storm, which forced
+      load shedding within minutes of grid-collapse conditions. Interconnection
+      isolation narrows its rescue options, a structural robustness fact.
+    evidence_status: qualitative
+    sources:
+      - "[unverified — model knowledge] ERCOT/FERC-NERC reports on the February 2021 Texas winter storm event"
+  # [redacted for blind IRR study — worked example removed]
+  # [redacted for blind IRR study — worked example removed]
+notes: |
+  Sibling distinction: outcome (this column) vs. mechanism (adaptive_capacity).
+  The 2x2 across both columns is genuine signal — see notes in
+  adaptive_capacity.yaml.
+  The normalization rule is this column's biggest commensurability risk; the
+  consistency checker should specifically audit whether justifications name
+  perturbations relative to the system's own spectrum, not absolute magnitudes.
+  Hysteresis after recovery belongs in memory_hysteresis; mention it here only
+  as evidence that recovery occurred.

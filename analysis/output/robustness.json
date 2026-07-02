@@ -1,0 +1,842 @@
+{
+  "meta": {
+    "seed": 20260702,
+    "rngAlgorithm": "mulberry32",
+    "generatedAt": "2026-07-02T12:43:02.278Z",
+    "nEntries": 10,
+    "nColumns": 16,
+    "monteCarloTrials": 1000,
+    "monteCarloCellsPerTrial": 5
+  },
+  "fullSample": {
+    "explainedVariance": [
+      0.3786839734318155,
+      0.20483423556678843,
+      0.1983269631932973
+    ],
+    "pc1Top5": [
+      {
+        "col": "information_processing",
+        "loading": 0.38943887164766056
+      },
+      {
+        "col": "adaptive_capacity",
+        "loading": 0.3640392568014972
+      },
+      {
+        "col": "chaos_sensitivity",
+        "loading": -0.35983454245111113
+      },
+      {
+        "col": "alphabet_closure_encoded",
+        "loading": 0.3447193183696675
+      },
+      {
+        "col": "openness_dissipation",
+        "loading": -0.2809773711218305
+      }
+    ],
+    "headlinePairRs": {
+      "information_processing <-> adaptive_capacity": 0.9516162638198556,
+      "modularity <-> self_organization": -0.8526478049330243,
+      "adaptive_capacity <-> alphabet_closure": 0.8495359412489917,
+      "decentralization <-> self_organization": 0.871532992150154
+    }
+  },
+  "leaveOneOut": {
+    "runs": [
+      {
+        "droppedEntry": "cities",
+        "explainedVariance": [
+          0.37967400958928255,
+          0.21738331315348136,
+          0.20129860029044763
+        ],
+        "pc1Sign": -1,
+        "pc2Sign": 1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3881779322312211
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.357668294302298
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.35233684613330035
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.3439236379436052
+          },
+          {
+            "col": "openness_dissipation",
+            "loading": -0.33008488341187997
+          }
+        ],
+        "pc1MembershipChanged": false,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9550977646513099,
+          "modularity <-> self_organization": -0.8586296628693793,
+          "adaptive_capacity <-> alphabet_closure": 0.8411910241920598,
+          "decentralization <-> self_organization": 0.9263710192499125
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": false,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "earthquake-fault-systems",
+        "explainedVariance": [
+          0.4115071907837402,
+          0.22186060734847718,
+          0.18587951639489916
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": 1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.376511751596538
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.3597761145968275
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.35088485080005627
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.33871645630430647
+          },
+          {
+            "col": "openness_dissipation",
+            "loading": -0.33266987472631476
+          }
+        ],
+        "pc1MembershipChanged": false,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.962250448649376,
+          "modularity <-> self_organization": -0.8586296628693793,
+          "adaptive_capacity <-> alphabet_closure": 0.8333333333333334,
+          "decentralization <-> self_organization": 0.9081632653061225
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": null
+        }
+      },
+      {
+        "droppedEntry": "financial-markets",
+        "explainedVariance": [
+          0.38957827763898484,
+          0.227883273079877,
+          0.18594818501489396
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": -1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3848651797459894
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.3708413440851099
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.3632425763331983
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.3392952278293585
+          },
+          {
+            "col": "nonlinearity",
+            "loading": -0.2810766113016123
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.951487187960226,
+          "modularity <-> self_organization": -0.8626621856275073,
+          "adaptive_capacity <-> alphabet_closure": 0.9609876522409448,
+          "decentralization <-> self_organization": 0.8524929243380919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": false,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "languages",
+        "explainedVariance": [
+          0.41290881839474874,
+          0.2350686650407594,
+          0.12493256721285222
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": 1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.37209728392254
+          },
+          {
+            "col": "decentralization",
+            "loading": -0.3453106601636583
+          },
+          {
+            "col": "self_organization",
+            "loading": -0.3391332281533219
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.3368891187744491
+          },
+          {
+            "col": "modularity",
+            "loading": 0.33542893524190726
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": true,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9486832980505138,
+          "modularity <-> self_organization": -0.8385254915624211,
+          "adaptive_capacity <-> alphabet_closure": 0.8411910241920597,
+          "decentralization <-> self_organization": 0.862483362749919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": false
+        }
+      },
+      {
+        "droppedEntry": "planetary-climate",
+        "explainedVariance": [
+          0.40531442797627754,
+          0.2265775444168338,
+          0.18103340283483216
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": 1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3800832730501474
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.3606813060302876
+          },
+          {
+            "col": "memory_hysteresis",
+            "loading": 0.3447143111724537
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.33623182456035633
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.3347066826830682
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": true,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9454694757372274,
+          "modularity <-> self_organization": -0.8385254915624211,
+          "adaptive_capacity <-> alphabet_closure": 0.8333333333333334,
+          "decentralization <-> self_organization": 0.862483362749919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "power-grids",
+        "explainedVariance": [
+          0.403943280658418,
+          0.21568370878545273,
+          0.15193998320969268
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": 1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.376532860753516
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.36244726785426673
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.35053548238240917
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.33757818794297495
+          },
+          {
+            "col": "decentralization",
+            "loading": -0.2768760582897375
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9570931871336028,
+          "modularity <-> self_organization": -0.7302967433402214,
+          "adaptive_capacity <-> alphabet_closure": 0.8473185457363236,
+          "decentralization <-> self_organization": 0.7637626158259735
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "river-networks",
+        "explainedVariance": [
+          0.39062974100866654,
+          0.21309924379117465,
+          0.20676077477673885
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": -1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3848907500938881
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.37133751592370196
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.35919981532580536
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.34893385670080007
+          },
+          {
+            "col": "openness_dissipation",
+            "loading": -0.27284065380927347
+          }
+        ],
+        "pc1MembershipChanged": false,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9532333639533638,
+          "modularity <-> self_organization": -0.9486832980505138,
+          "adaptive_capacity <-> alphabet_closure": 0.8595935661119728,
+          "decentralization <-> self_organization": 0.862483362749919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "stars",
+        "explainedVariance": [
+          0.38008504174665153,
+          0.2346658927742117,
+          0.17411212074587026
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": -1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3781638390743209
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.3772603953431844
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.33575885421927987
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.3266437162410972
+          },
+          {
+            "col": "openness_dissipation",
+            "loading": -0.28109346385389555
+          }
+        ],
+        "pc1MembershipChanged": false,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9454694757372272,
+          "modularity <-> self_organization": -0.8385254915624211,
+          "adaptive_capacity <-> alphabet_closure": 0.8333333333333334,
+          "decentralization <-> self_organization": 0.862483362749919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": true
+        }
+      },
+      {
+        "droppedEntry": "the-internet",
+        "explainedVariance": [
+          0.3809665860459408,
+          0.2133164465990935,
+          0.18770453134056023
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": -1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3890515345560842
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.3665742996984212
+          },
+          {
+            "col": "chaos_sensitivity",
+            "loading": -0.3499403462462232
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.343085651410719
+          },
+          {
+            "col": "decentralization",
+            "loading": -0.2828876927339662
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": false,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9570931871336028,
+          "modularity <-> self_organization": -0.8626621856275072,
+          "adaptive_capacity <-> alphabet_closure": 0.8473185457363236,
+          "decentralization <-> self_organization": 0.9093531090412992
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": null
+        }
+      },
+      {
+        "droppedEntry": "tropical-cyclones",
+        "explainedVariance": [
+          0.348909909153379,
+          0.24759331112644645,
+          0.20506899337019138
+        ],
+        "pc1Sign": 1,
+        "pc2Sign": -1,
+        "pc1Top5": [
+          {
+            "col": "information_processing",
+            "loading": 0.3820458901684991
+          },
+          {
+            "col": "adaptive_capacity",
+            "loading": 0.37317472745868874
+          },
+          {
+            "col": "decentralization",
+            "loading": -0.34589166437185637
+          },
+          {
+            "col": "alphabet_closure_encoded",
+            "loading": 0.32791513565850955
+          },
+          {
+            "col": "self_organization",
+            "loading": -0.2940856192741155
+          }
+        ],
+        "pc1MembershipChanged": true,
+        "pc1CoreTop3Changed": true,
+        "pc1SignFlipsInHeadlineSet": [],
+        "headlinePairRs": {
+          "information_processing <-> adaptive_capacity": 0.9454694757372274,
+          "modularity <-> self_organization": -0.8385254915624211,
+          "adaptive_capacity <-> alphabet_closure": 0.8333333333333334,
+          "decentralization <-> self_organization": 0.862483362749919
+        },
+        "clusterKinship": {
+          "citiesFinancialMarketsClosestPair": true,
+          "internetFaultSystemsNearestNeighbor": false
+        }
+      }
+    ],
+    "headlineCorrSummary": {
+      "information_processing <-> adaptive_capacity": {
+        "fullR": 0.952,
+        "recomputedFullR": 0.9516162638198556,
+        "min": 0.9454694757372272,
+        "max": 0.962250448649376,
+        "range": 0.01678097291214886,
+        "minDropEntry": "stars",
+        "maxDropEntry": "earthquake-fault-systems",
+        "allR": [
+          {
+            "dropped": "cities",
+            "r": 0.9550977646513099
+          },
+          {
+            "dropped": "earthquake-fault-systems",
+            "r": 0.962250448649376
+          },
+          {
+            "dropped": "financial-markets",
+            "r": 0.951487187960226
+          },
+          {
+            "dropped": "languages",
+            "r": 0.9486832980505138
+          },
+          {
+            "dropped": "planetary-climate",
+            "r": 0.9454694757372274
+          },
+          {
+            "dropped": "power-grids",
+            "r": 0.9570931871336028
+          },
+          {
+            "dropped": "river-networks",
+            "r": 0.9532333639533638
+          },
+          {
+            "dropped": "stars",
+            "r": 0.9454694757372272
+          },
+          {
+            "dropped": "the-internet",
+            "r": 0.9570931871336028
+          },
+          {
+            "dropped": "tropical-cyclones",
+            "r": 0.9454694757372274
+          }
+        ]
+      },
+      "modularity <-> self_organization": {
+        "fullR": -0.853,
+        "recomputedFullR": -0.8526478049330243,
+        "min": -0.9486832980505138,
+        "max": -0.7302967433402214,
+        "range": 0.21838655471029234,
+        "minDropEntry": "river-networks",
+        "maxDropEntry": "power-grids",
+        "allR": [
+          {
+            "dropped": "cities",
+            "r": -0.8586296628693793
+          },
+          {
+            "dropped": "earthquake-fault-systems",
+            "r": -0.8586296628693793
+          },
+          {
+            "dropped": "financial-markets",
+            "r": -0.8626621856275073
+          },
+          {
+            "dropped": "languages",
+            "r": -0.8385254915624211
+          },
+          {
+            "dropped": "planetary-climate",
+            "r": -0.8385254915624211
+          },
+          {
+            "dropped": "power-grids",
+            "r": -0.7302967433402214
+          },
+          {
+            "dropped": "river-networks",
+            "r": -0.9486832980505138
+          },
+          {
+            "dropped": "stars",
+            "r": -0.8385254915624211
+          },
+          {
+            "dropped": "the-internet",
+            "r": -0.8626621856275072
+          },
+          {
+            "dropped": "tropical-cyclones",
+            "r": -0.8385254915624211
+          }
+        ]
+      },
+      "adaptive_capacity <-> alphabet_closure": {
+        "fullR": 0.85,
+        "recomputedFullR": 0.8495359412489917,
+        "min": 0.8333333333333334,
+        "max": 0.9609876522409448,
+        "range": 0.12765431890761147,
+        "minDropEntry": "earthquake-fault-systems",
+        "maxDropEntry": "financial-markets",
+        "allR": [
+          {
+            "dropped": "cities",
+            "r": 0.8411910241920598
+          },
+          {
+            "dropped": "earthquake-fault-systems",
+            "r": 0.8333333333333334
+          },
+          {
+            "dropped": "financial-markets",
+            "r": 0.9609876522409448
+          },
+          {
+            "dropped": "languages",
+            "r": 0.8411910241920597
+          },
+          {
+            "dropped": "planetary-climate",
+            "r": 0.8333333333333334
+          },
+          {
+            "dropped": "power-grids",
+            "r": 0.8473185457363236
+          },
+          {
+            "dropped": "river-networks",
+            "r": 0.8595935661119728
+          },
+          {
+            "dropped": "stars",
+            "r": 0.8333333333333334
+          },
+          {
+            "dropped": "the-internet",
+            "r": 0.8473185457363236
+          },
+          {
+            "dropped": "tropical-cyclones",
+            "r": 0.8333333333333334
+          }
+        ]
+      },
+      "decentralization <-> self_organization": {
+        "fullR": 0.872,
+        "recomputedFullR": 0.871532992150154,
+        "min": 0.7637626158259735,
+        "max": 0.9263710192499125,
+        "range": 0.162608403423939,
+        "minDropEntry": "power-grids",
+        "maxDropEntry": "cities",
+        "allR": [
+          {
+            "dropped": "cities",
+            "r": 0.9263710192499125
+          },
+          {
+            "dropped": "earthquake-fault-systems",
+            "r": 0.9081632653061225
+          },
+          {
+            "dropped": "financial-markets",
+            "r": 0.8524929243380919
+          },
+          {
+            "dropped": "languages",
+            "r": 0.862483362749919
+          },
+          {
+            "dropped": "planetary-climate",
+            "r": 0.862483362749919
+          },
+          {
+            "dropped": "power-grids",
+            "r": 0.7637626158259735
+          },
+          {
+            "dropped": "river-networks",
+            "r": 0.862483362749919
+          },
+          {
+            "dropped": "stars",
+            "r": 0.862483362749919
+          },
+          {
+            "dropped": "the-internet",
+            "r": 0.9093531090412992
+          },
+          {
+            "dropped": "tropical-cyclones",
+            "r": 0.862483362749919
+          }
+        ]
+      }
+    },
+    "pc1MembershipChangedRuns": [
+      "financial-markets",
+      "languages",
+      "planetary-climate",
+      "power-grids",
+      "the-internet",
+      "tropical-cyclones"
+    ],
+    "pc1CoreTop3ChangedRuns": [
+      "languages",
+      "planetary-climate",
+      "tropical-cyclones"
+    ],
+    "pc1SignFlipRuns": [],
+    "clusterKinship": {
+      "citiesFinancialMarketsHoldsCount": 8,
+      "internetFaultSystemsHoldsCount": 6,
+      "of": 10
+    }
+  },
+  "exhaustivePerturbation": {
+    "nPerturbations": 256,
+    "pc1ShareStats": {
+      "min": 0.3646310202690753,
+      "max": 0.39857757921340026,
+      "fullValue": 0.3786839734318155,
+      "worstCase": {
+        "system": "languages",
+        "column": "modularity",
+        "delta": 1,
+        "pc1Share": 0.39857757921340026
+      }
+    },
+    "headlineCorrSummary": {
+      "information_processing <-> adaptive_capacity": {
+        "fullR": 0.9516162638198556,
+        "min": 0.9016696346674322,
+        "max": 0.9669329602374178,
+        "range": 0.0652633255699856,
+        "worstCasePerturbation": {
+          "system": "earthquake-fault-systems",
+          "column": "information_processing",
+          "delta": 1,
+          "r": 0.9016696346674322
+        }
+      },
+      "modularity <-> self_organization": {
+        "fullR": -0.8526478049330243,
+        "min": -0.9530251207255478,
+        "max": -0.6143756220589652,
+        "range": 0.33864949866658256,
+        "worstCasePerturbation": {
+          "system": "river-networks",
+          "column": "modularity",
+          "delta": 1,
+          "r": -0.6143756220589652
+        }
+      },
+      "adaptive_capacity <-> alphabet_closure": {
+        "fullR": 0.8495359412489917,
+        "min": 0.7739983295283108,
+        "max": 0.9198160551816064,
+        "range": 0.14581772565329554,
+        "worstCasePerturbation": {
+          "system": "cities",
+          "column": "adaptive_capacity",
+          "delta": -1,
+          "r": 0.7739983295283108
+        }
+      },
+      "decentralization <-> self_organization": {
+        "fullR": 0.871532992150154,
+        "min": 0.7413793103448275,
+        "max": 0.9323373174786143,
+        "range": 0.19095800713378674,
+        "worstCasePerturbation": {
+          "system": "cities",
+          "column": "self_organization",
+          "delta": 1,
+          "r": 0.7413793103448275
+        }
+      }
+    }
+  },
+  "monteCarlo": {
+    "trials": 1000,
+    "cellsPerTrial": 5,
+    "pc1Share": {
+      "p5": 0.3595762256394904,
+      "p95": 0.3926266604496928,
+      "full": 0.3786839734318155
+    },
+    "headlineCorrSummary": {
+      "information_processing <-> adaptive_capacity": {
+        "p5": 0.9051392757105035,
+        "p95": 0.9600014517991345,
+        "full": 0.9516162638198556
+      },
+      "modularity <-> self_organization": {
+        "p5": -0.8703654645835343,
+        "p95": -0.6642296295965939,
+        "full": -0.8526478049330243
+      },
+      "adaptive_capacity <-> alphabet_closure": {
+        "p5": 0.7888649691609269,
+        "p95": 0.8725920363071723,
+        "full": 0.8495359412489917
+      },
+      "decentralization <-> self_organization": {
+        "p5": 0.7662610281769211,
+        "p95": 0.9137931034482759,
+        "full": 0.871532992150154
+      }
+    }
+  },
+  "verdicts": [
+    {
+      "finding": "PC1 informational-adaptive vs energetic-chaotic composition",
+      "verdict": "SENSITIVE",
+      "rationale": "Core top-3 loadings reshuffle in 3/10 LOO runs (dropping: languages, planetary-climate, tropical-cyclones) — decentralization/self_organization/modularity displace chaos_sensitivity in those runs — but no sign flips and the informational-adaptive pole (information_processing, adaptive_capacity) persists in the top-5 of every run. PC1 variance share swings 36.5-39.9%."
+    },
+    {
+      "finding": "information_processing <-> adaptive_capacity coupling (r=0.952)",
+      "verdict": "ROBUST",
+      "rationale": "LOO r ranges 0.945-0.962 (range 0.017); Monte Carlo 5th-95th pct 0.905-0.960. Sign and strength never move off strong-positive."
+    },
+    {
+      "finding": "modularity <-> self_organization negative correlation (r=-0.853)",
+      "verdict": "ROBUST",
+      "rationale": "Stays negative in all 10 LOO runs (range -0.949 to -0.730) and in the Monte Carlo 5th-95th pct band (-0.870 to -0.664)."
+    },
+    {
+      "finding": "the-internet <-> earthquake-fault-systems nearest-neighbor kinship",
+      "verdict": "FRAGILE",
+      "rationale": "Holds in only 6/10 LOO runs — the kinship is not robust to single-entry removal."
+    }
+  ]
+}
