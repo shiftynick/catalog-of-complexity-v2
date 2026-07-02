@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntries, RUBRIC_COLUMNS, RUBRIC_COLUMN_LABELS } from '../lib/catalog.mjs';
+import { categoryColorHex } from '../lib/colors.mjs';
+
+const entries = getEntries();
+
+// Build the compact payload consumed by the client-side D3 radar chart.
+const payload = {
+  columns: RUBRIC_COLUMNS,
+  labels: RUBRIC_COLUMNS.map((c) => RUBRIC_COLUMN_LABELS[c] || c),
+  systems: entries.map((e) => ({
+    id: e.id,
+    name: e.name,
+    category: e.category,
+    color: categoryColorHex(e.category),
+    scores: RUBRIC_COLUMNS.map((c) => {
+      const attr = e.attributes?.[c];
+      return typeof attr?.score === 'number' ? attr.score : null;
+    }),
+  })),
+};
+---
+<Base title="Compare — Catalog of Complexity">
+  <h1 class="page-title">Compare</h1>
+  <p class="page-lede">
+    Pick 2-4 systems to overlay across the 15 rubric/hybrid scores of the panel — the axes
+    where a hurricane and a stock exchange can, in principle, be plotted on the same chart.
+  </p>
+
+  <script type="application/json" id="compare-data" set:html={JSON.stringify(payload)}></script>
+
+  <div class="compare-layout">
+    <div>
+      <p class="select-hint">Select 2-4 systems.</p>
+      <div class="select-list" id="system-select"></div>
+    </div>
+    <div>
+      <div class="radar-host" id="radar-host"></div>
+      <div class="radar-legend" id="radar-legend"></div>
+    </div>
+  </div>
+
+  <script src="../scripts/compare.client.js"></script>
+</Base>

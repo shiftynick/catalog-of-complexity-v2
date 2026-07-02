@@ -1,0 +1,15 @@
+{
+  "name": "coc-analysis",
+  "version": "1.0.0",
+  "description": "Cross-system analysis pipeline for the Catalog of Complexity: PCA, distance, clustering, and correlation over the 10 verified class entries.",
+  "type": "module",
+  "private": true,
+  "main": "run.mjs",
+  "scripts": {
+    "start": "node run.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "ml-pca": "^4.1.1"
+  }
+}

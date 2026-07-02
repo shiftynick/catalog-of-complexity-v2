@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+
+const { title = 'Catalog of Complexity', description = 'A comparative reference of complex systems.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+function isCurrent(href) {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="icon" href="data:," />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="/">
+        Catalog of Complexity
+        <small>a comparative reference of complex systems</small>
+      </a>
+      <nav class="main-nav">
+        <a href="/" aria-current={isCurrent('/') ? 'page' : undefined}>Table</a>
+        <a href="/map/" aria-current={isCurrent('/map') ? 'page' : undefined}>Map</a>
+        <a href="/compare/" aria-current={isCurrent('/compare') ? 'page' : undefined}>Compare</a>
+      </nav>
+      <span class="version-tag">v0.1 — 10 verified systems</span>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <slot />
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      Catalog of Complexity — the git repo is the database. Every value is cited or marked unknown.
+    </div>
+  </footer>
+</body>
+</html>

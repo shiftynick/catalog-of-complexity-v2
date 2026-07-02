@@ -1,0 +1,68 @@
+---
+const { entry } = Astro.props;
+const provenance = entry.provenance || {};
+const verification = provenance.verification || {};
+const flags = provenance.flags || [];
+const fixLog = provenance.fix_log || [];
+const verificationNotes = provenance.verification_notes || [];
+const flagCleanupNotes = provenance.flag_cleanup_notes || [];
+const hasAny = Object.keys(provenance).length > 0;
+---
+{hasAny && (
+  <section class="block">
+    <details>
+      <summary><h2 style="display:inline; border:none; margin:0; padding:0;"><span class="chevron">&#9656;</span>Provenance</h2></summary>
+      <div style="margin-top:18px;">
+        <div class="provenance-grid">
+          {provenance.drafted_by && (
+            <div class="provenance-item"><dt>Drafted by</dt><dd>{provenance.drafted_by}</dd></div>
+          )}
+          {Object.entries(verification).map(([k, v]) => (
+            <div class="provenance-item"><dt>{k.replace(/_/g, ' ')}</dt><dd>{v}</dd></div>
+          ))}
+        </div>
+
+        {flags.length > 0 && (
+          <>
+            <div class="rel-group-label">Standing flags</div>
+            <ul class="flag-list">
+              {flags.map((f) => (
+                <li><span class="flag-col">{f.column}</span> — {f.note}</li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {(fixLog.length > 0) && (
+          <>
+            <div class="rel-group-label">Fix log</div>
+            <ul class="fixlog-list">
+              {fixLog.map((entry_) => (
+                <li>
+                  <span class="fixlog-col">{entry_.date}</span>
+                  {entry_.source && <> — {entry_.source}</>}
+                  {Array.isArray(entry_.changes) && (
+                    <ul>
+                      {entry_.changes.map((c) => <li>{c}</li>)}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </>
+        )}
+
+        {(verificationNotes.length > 0 || flagCleanupNotes.length > 0) && (
+          <>
+            <div class="rel-group-label">Notes</div>
+            <ul class="fixlog-list">
+              {[...verificationNotes, ...flagCleanupNotes].map((n) => (
+                <li><span class="fixlog-col">{n.column}</span> — {n.outcome}</li>
+              ))}
+            </ul>
+          </>
+        )}
+      </div>
+    </details>
+  </section>
+)}

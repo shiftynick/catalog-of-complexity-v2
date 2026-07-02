@@ -67,8 +67,10 @@ Candidates surfaced during D13 ideation. Rule: any of these gets adopted only if
 - **Interaction-ontology sub-fields** (coupling strength, symmetry, medium): let the structured block grow fields during the pilot if entries need them; do not pre-specify.
 Rejected outright: cross-system "analogous_to" links (analysis output, not catalog input — belongs in Phase 5); entry-level "instrumentation quality" (meta-knowledge, already carried per-value by evidence_status); "human-dependence" (derivable from component_ontology's out-of-scope(human) markers — a derived view, not a column).
 
+## D15 — Schema v1.0 freeze + stack confirmation (2026-07-02, Phase 5)
+Panel spec frozen at v1.0 after calibration against all 10 verified pilot entries (dragon #3 honored: schema work ends, production continues). Web stack CONFIRMED by Nick: Astro + D3, static build, deploy Netlify; analysis pipeline in Node (single toolchain, no Python dependency — dragon #1). Analysis outputs (`analysis/output/analysis.json`) are build inputs to the app, never computed client-side.
+
 ## Open questions (not yet decided)
 - Effort/timeline budget per phase.
-- Web stack — proposal in [webapp.md](webapp.md), confirm before Phase 5.
 - The "dream headline" — which kind of cross-system pattern would be most exciting? (Shapes analysis priorities in Phase 5, doesn't block anything before it.)
 - License for the open data at launch (CC BY? ODbL?).

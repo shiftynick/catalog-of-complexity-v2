@@ -414,24 +414,29 @@ attributes:
   chaos_sensitivity:
     type: hybrid
     level: class-general
-    score: unknown
+    score: 1
     justification: >
-      No dedicated Lyapunov-exponent or formal predictability-horizon
-      study for Internet-scale traffic or topology dynamics (analogous to
-      the atmosphere's ~2-week horizon, chaos_sensitivity anchor score 4)
-      was located. BGP convergence time is a related but distinct
-      concept — a settling time after a discrete perturbation, not a
-      chaos/sensitivity measure — and must not be conflated with it per
-      the chaos_sensitivity anchor's does_not_count discipline (the same
-      discipline that keeps financial-markets' documented nonlinear
-      dependence from being scored as chaos). The self-similar/long-range-
-      dependent traffic structure (temporal_correlation, below) is a
-      distinct phenomenon from low-dimensional deterministic chaos and is
-      not itself evidence of sensitive dependence. Per filling_rules.no-
-      guessing (and by the same spirit as no-market-chaos), no
-      deterministic-chaos claim is entered without a located study — score
-      left unknown rather than assigned a placeholder low value.
-    evidence_status: unknown
+      ORCHESTRATOR ADJUDICATION (2026-07-02, Phase 5 analysis gate): the
+      draft honestly left this score unknown pending a located study, but
+      rubric/hybrid SCORES are anchored judgments, not measurements —
+      'unknown' is reserved for quantitative values (the cities entry set
+      the precedent when its equivalent no-study state was scored against
+      the anchor's low-end text). Scored 1 per the anchor's level-1
+      definition (weak/localized amplification, not characteristic of the
+      dominant dynamics): documented transient instability phenomena —
+      BGP route-flap storms, congestion-control oscillation, both cited in
+      this entry's own nonlinearity justification — qualify as
+      sub-processes that can amplify small perturbations, while the
+      dominant routing/forwarding dynamics are engineered for convergence
+      and stability. The original epistemic caveats stand in full: no
+      Lyapunov-exponent or predictability-horizon study for Internet-scale
+      dynamics was located across two research phases (a confirmed
+      literature gap); BGP convergence time is a settling time, not a
+      chaos measure, per the anchor's does_not_count; self-similar traffic
+      (temporal_correlation) is a distinct phenomenon and not evidence of
+      sensitive dependence. The QUANTITATIVE half of this hybrid column
+      remains empty — no exponential-divergence figure exists to record.
+    evidence_status: qualitative
 
   criticality:
     type: hybrid

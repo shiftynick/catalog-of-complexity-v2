@@ -29,7 +29,7 @@ Entries are **classes** — the "elements" of the table (*tropical cyclones*, *f
 | 2. Schema + roster lock | Entry schema v1; pilot-10 locked; full roster drafted — **time-boxed** |
 | 3. Hand-built pilot | 2–3 entries researched interactively → battle-tested playbook *(done)* |
 | 4. Automated pilot | Playbook encoded as agent workflow; remaining pilot entries + verification *(done — all 10 pilot classes verified)* |
-| 5. v0.1 | Schema **freeze**; web app prototype; first cross-system analysis on pilot-10 |
+| 5. v0.1 | Schema **freeze**; web app prototype; first cross-system analysis on pilot-10 *(done — schema v1.0 frozen; Astro+D3 app in `app/`; PCA/clustering in `analysis/`)* |
 | 6. Public launch | Repo + site go public; scale to the full roster |
 
 ## The three dragons

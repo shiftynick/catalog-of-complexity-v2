@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import { getEntries, getAnalysis } from '../lib/catalog.mjs';
+import { categoryColorHex } from '../lib/colors.mjs';
+
+const entries = getEntries();
+const analysis = getAnalysis();
+
+let payload = null;
+if (analysis && analysis.pca && analysis.pca.coords) {
+  const entryMap = new Map(entries.map((e) => [e.id, e]));
+  const points = Object.entries(analysis.pca.coords)
+    .filter(([id]) => entryMap.has(id))
+    .map(([id, coords]) => {
+      const e = entryMap.get(id);
+      return {
+        id,
+        name: e.name,
+        category: e.category,
+        color: categoryColorHex(e.category),
+        pc1: coords[0],
+        pc2: coords[1],
+        pc3: coords[2] ?? null,
+      };
+    });
+
+  const ev = analysis.pca.explainedVariance || [];
+  const loadings = analysis.pca.loadings || {};
+
+  // Top-3 |loading| columns per PC, signed, from the column->[loadings] map.
+  function topLoadings(pcIndex) {
+    const rows = Object.entries(loadings)
+      .map(([col, arr]) => ({ col, value: arr[pcIndex] }))
+      .filter((r) => typeof r.value === 'number');
+    rows.sort((a, b) => Math.abs(b.value) - Math.abs(a.value));
+    return rows.slice(0, 3);
+  }
+
+  payload = {
+    points,
+    explainedVariance: ev,
+    pc1Top: topLoadings(0),
+    pc2Top: topLoadings(1),
+    loadings,
+    columns: Object.keys(loadings),
+  };
+}
+---
+<Base title="Map — Catalog of Complexity">
+  <h1 class="page-title">The Map</h1>
+  <p class="page-lede">
+    All systems embedded in metric space via PCA over the full attribute panel — the discovery
+    instrument. If a periodic-table structure exists in this data, it shows up here first.
+  </p>
+
+  {!payload && (
+    <div class="notice">
+      <strong>Analysis output not found.</strong>
+      <p>
+        This view renders <code>analysis/output/analysis.json</code>, which hasn't been generated
+        yet. Run <code>node analysis/run.mjs</code> from the repo root to compute PCA, clustering,
+        and correlations over the panel, then reload this page.
+      </p>
+    </div>
+  )}
+
+  {payload && (
+    <div class="map-toolbar">
+      <label>
+        <input type="checkbox" id="toggle-loadings" />
+        Show loading vectors
+      </label>
+    </div>
+  )}
+  {payload && <div class="map-host" id="map-host"></div>}
+
+  <script type="application/json" id="map-data" set:html={JSON.stringify(payload)}></script>
+  <script src="../scripts/map.client.js"></script>
+</Base>

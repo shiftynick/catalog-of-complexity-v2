@@ -8,11 +8,14 @@
 # ============================================================
 
 meta:
-  version: 0.3-draft
+  version: 1.0-frozen
   status: >
-    columns defined; rubric anchors drafted for all 15 rubric/hybrid columns
-    (schema/anchors/*.yaml, Phase 1b) and vetted by the orchestrator;
-    pending calibration against real entries in the Phase 3 pilot.
+    FROZEN at Phase 5 (2026-07-02) after calibration against all 10 verified
+    pilot entries, per dragon #3. Changes from here require a decisions.md
+    D-series entry justified by entry production failing — ideation does not
+    qualify. Earned changes incorporated before freeze: D13 component/
+    interaction ontology, instance_population, evidence_status
+    measured-untested, extreme_event_statistics measurand_type.
   column_kinds:
     quantitative: published value + unit + method + citation
     rubric: 0-4 ordinal score + written justification + citations

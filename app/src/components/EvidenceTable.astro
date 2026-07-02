@@ -1,0 +1,121 @@
+---
+import {
+  ALL_COLUMNS,
+  columnGroup,
+  columnLabel,
+  evidenceColor,
+  formatAttrValue,
+  resolveSources,
+} from '../lib/catalog.mjs';
+
+const { entry } = Astro.props;
+const attributes = entry.attributes || {};
+
+let lastGroup = null;
+const rows = ALL_COLUMNS.filter((id) => attributes[id] !== undefined).map((id) => {
+  const attr = attributes[id];
+  const group = columnGroup(id);
+  const showGroup = group !== lastGroup;
+  lastGroup = group;
+  const { text: valueText, isEmpty } = formatAttrValue(attr);
+  const sources = resolveSources(entry, attr.sources);
+  const hasDetail = Boolean(
+    attr.justification || attr.method || attr.note || attr.detail || sources.length
+  );
+  return { id, attr, group, showGroup, valueText, isEmpty, sources, hasDetail };
+});
+---
+<table class="evidence-table">
+  <thead>
+    <tr>
+      <th>Column</th>
+      <th>Type / level</th>
+      <th>Value</th>
+      <th>Evidence status</th>
+      <th>Confidence</th>
+    </tr>
+  </thead>
+  <tbody>
+    {rows.map((row) => (
+      <>
+        {row.showGroup && (
+          <tr class="evidence-group-row"><td colspan="5">{row.group}</td></tr>
+        )}
+        <tr class="attr-row">
+          <td class="col-id">
+            {row.hasDetail ? (
+              <details>
+                <summary><span class="chevron">&#9656;</span>{columnLabel(row.id)}</summary>
+              </details>
+            ) : (
+              columnLabel(row.id)
+            )}
+          </td>
+          <td>{row.attr.type}{row.attr.level ? ` · ${row.attr.level}` : ''}</td>
+          <td class={row.isEmpty ? 'col-empty' : ''}>{row.valueText}</td>
+          <td>
+            {row.attr.evidence_status && (
+              <span class="evidence-status-pill">
+                <span class="dot" style={`background:${evidenceColor(row.attr.evidence_status)}`}></span>
+                {row.attr.evidence_status}
+              </span>
+            )}
+          </td>
+          <td>{row.attr.confidence ?? '—'}</td>
+        </tr>
+        {row.hasDetail && (
+          <tr>
+            <td class="attr-detail" colspan="5">
+              <div class="attr-detail-inner" data-detail-for={row.id}>
+                {row.attr.justification && (
+                  <div><dt>Justification</dt><dd>{row.attr.justification}</dd></div>
+                )}
+                {row.attr.method && (
+                  <div><dt>Method</dt><dd>{row.attr.method}</dd></div>
+                )}
+                {row.attr.note && (
+                  <div><dt>Note</dt><dd>{row.attr.note}</dd></div>
+                )}
+                {row.attr.detail && (
+                  <div>
+                    <dt>Detail</dt>
+                    <dd>
+                      {Object.entries(row.attr.detail).map(([k, v]) => (
+                        <div>{k}: {String(v)}</div>
+                      ))}
+                    </dd>
+                  </div>
+                )}
+                {row.sources.length > 0 && (
+                  <div>
+                    <dt>Sources</dt>
+                    <dd>
+                      <ul class="source-list">
+                        {row.sources.map((s) => <li>{s.citation}</li>)}
+                      </ul>
+                    </dd>
+                  </div>
+                )}
+              </div>
+            </td>
+          </tr>
+        )}
+      </>
+    ))}
+  </tbody>
+</table>
+<script>
+  // Collapse the detail row until its sibling <details> is opened, and
+  // keep the detail row's visibility in sync with the summary toggle.
+  document.querySelectorAll('.evidence-table tr.attr-row').forEach((row) => {
+    const details = row.querySelector('details');
+    if (!details) return;
+    const detailRow = row.nextElementSibling;
+    if (!detailRow) return;
+    const sync = () => {
+      detailRow.style.display = details.open ? '' : 'none';
+    };
+    sync();
+    details.addEventListener('toggle', sync);
+  });
+</script>

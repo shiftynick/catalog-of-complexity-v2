@@ -1,0 +1,20 @@
+---
+import { firstSentence } from '../lib/catalog.mjs';
+import { categoryColorVar } from '../lib/colors.mjs';
+
+const { entry } = Astro.props;
+
+const alphabetClosure = entry.attributes?.interaction_ontology?.alphabet_closure ?? null;
+const adaptiveScore = entry.attributes?.adaptive_capacity?.score;
+const hasAdaptiveScore = typeof adaptiveScore === 'number';
+const accent = categoryColorVar(entry.category);
+---
+<a class="card" href={`/system/${entry.id}/`} style={`--card-accent: ${accent}`}>
+  <h3>{entry.name}</h3>
+  <p class="card-summary">{firstSentence(entry.summary)}</p>
+  <div class="badge-row">
+    {alphabetClosure && <span class="badge">alphabet: {alphabetClosure}</span>}
+    {hasAdaptiveScore && <span class="badge">adaptive capacity: {adaptiveScore}/4</span>}
+    {entry.status && <span class={`badge ${entry.status === 'verified' ? 'status-verified' : ''}`}>{entry.status}</span>}
+  </div>
+</a>

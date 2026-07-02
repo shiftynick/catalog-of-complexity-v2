@@ -1,0 +1,17 @@
+{
+  "name": "coc-app",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "d3": "^7.9.0",
+    "js-yaml": "^4.1.0"
+  }
+}

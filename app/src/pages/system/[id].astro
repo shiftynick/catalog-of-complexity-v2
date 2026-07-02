@@ -1,0 +1,75 @@
+---
+import Base from '../../layouts/Base.astro';
+import EvidenceTable from '../../components/EvidenceTable.astro';
+import RelationLinks from '../../components/RelationLinks.astro';
+import ProvenanceSection from '../../components/ProvenanceSection.astro';
+import { getEntries } from '../../lib/catalog.mjs';
+import { categoryColorVar } from '../../lib/colors.mjs';
+
+export function getStaticPaths() {
+  const entries = getEntries();
+  return entries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const accent = categoryColorVar(entry.category);
+const exemplars = entry.exemplars || [];
+const phenomena = entry.emergent_phenomena || [];
+---
+<Base title={`${entry.name} — Catalog of Complexity`} description={entry.summary}>
+  <div class="profile-header">
+    <div class="cat-chip">
+      <span class="cat-dot" style={`background:${accent}`}></span>
+      {entry.category}
+    </div>
+    <h1>{entry.name}</h1>
+    <div class="profile-meta">
+      {entry.status && <span class={`badge ${entry.status === 'verified' ? 'status-verified' : ''}`}>{entry.status}</span>}
+    </div>
+  </div>
+
+  <p class="profile-summary">{entry.summary}</p>
+
+  {exemplars.length > 0 && (
+    <section class="block">
+      <h2>Exemplars</h2>
+      <ul class="exemplar-list">
+        {exemplars.map((ex) => (
+          <li>
+            <div class="ex-name">{ex.name}</div>
+            {ex.note && <div class="ex-note">{ex.note}</div>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {phenomena.length > 0 && (
+    <section class="block">
+      <h2>Emergent phenomena</h2>
+      <ul class="phenomena-list">
+        {phenomena.map((p) => (
+          <li>
+            <div>{p.name}</div>
+            {p.order_parameter && <div class="op">order parameter: {p.order_parameter}</div>}
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <RelationLinks entry={entry} />
+
+  <section class="block">
+    <h2>Evidence panel</h2>
+    <p class="page-lede" style="margin-bottom:20px;">
+      Every scored or measured attribute, with justification, method, and source citations one click away.
+    </p>
+    <EvidenceTable entry={entry} />
+  </section>
+
+  <ProvenanceSection entry={entry} />
+</Base>

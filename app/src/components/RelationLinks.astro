@@ -1,0 +1,52 @@
+---
+import { getEntryMap } from '../lib/catalog.mjs';
+
+const { entry } = Astro.props;
+const entryMap = getEntryMap();
+const relations = entry.relations || {};
+
+function classify(ids) {
+  return (ids || []).map((id) => ({
+    id,
+    resolved: entryMap.has(id),
+    name: entryMap.get(id)?.name,
+  }));
+}
+
+const partOf = classify(relations.part_of);
+const contains = classify(relations.contains);
+const hasAny = partOf.length > 0 || contains.length > 0;
+---
+{hasAny && (
+  <section class="block">
+    <h2>Relations</h2>
+    {partOf.length > 0 && (
+      <>
+        <div class="rel-group-label">Part of</div>
+        <div class="relation-links">
+          {partOf.map((r) =>
+            r.resolved ? (
+              <a class="rel-chip" href={`/system/${r.id}/`}>{r.name}</a>
+            ) : (
+              <span class="rel-chip expansion" title="Not yet a catalog entry">{r.id} · expansion queue</span>
+            )
+          )}
+        </div>
+      </>
+    )}
+    {contains.length > 0 && (
+      <>
+        <div class="rel-group-label">Contains</div>
+        <div class="relation-links">
+          {contains.map((r) =>
+            r.resolved ? (
+              <a class="rel-chip" href={`/system/${r.id}/`}>{r.name}</a>
+            ) : (
+              <span class="rel-chip expansion" title="Not yet a catalog entry">{r.id} · expansion queue</span>
+            )
+          )}
+        </div>
+      </>
+    )}
+  </section>
+)}
