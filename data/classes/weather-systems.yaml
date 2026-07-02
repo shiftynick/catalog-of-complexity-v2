@@ -1,0 +1,1015 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: weather-systems
+# Drafted by workflow-agent (v0.2 expansion). The broader synoptic/
+# mesoscale class that tropical-cyclones nests inside, mirroring
+# planetary-climate's own boundary discipline one level up.
+# ============================================================
+id: weather-systems
+name: Weather systems
+category: geophysical
+status: verified   # promoted 2026-07-02, v0.2 expansion batch 1 — 4 verifiers + fixer + cross-entry audit clean (research/v0.2-sweep/expansion/verification/)
+
+exemplars:
+  - id: extratropical-cyclone
+    name: Extratropical (mid-latitude synoptic) cyclone
+    note: >
+      primary worked exemplar; scored via composite/reanalysis climatology
+      (Neu et al. 2013 IMILAST intercomparison) rather than a single named
+      storm, since the class-general quantitative record for this exemplar
+      is itself a multi-algorithm climatology, not a single-event dataset
+  - id: monsoon-system
+    name: Monsoon systems (comparative, e.g. Indian summer monsoon, West African monsoon)
+    note: comparative exemplar; large-scale seasonal circulation reversal, not a discrete storm
+  - id: atmospheric-river
+    name: Atmospheric rivers
+    note: comparative exemplar; narrow, transient corridors of concentrated water-vapor transport
+
+scoping_note: >
+  The system is the family of organized, synoptic-to-mesoscale-length
+  atmospheric circulation structures that self-assemble within the
+  planetary boundary layer and free troposphere on timescales of hours to
+  about two weeks: extratropical (mid-latitude) cyclones and their
+  attendant fronts, anticyclones, monsoon circulations, atmospheric rivers,
+  and mesoscale convective complexes (MCCs). Tropical cyclones are a named
+  SUBTYPE of this class with their own dedicated, verified catalog entry
+  (tropical-cyclones) and are explicitly OUT of this entry's own
+  primary-evidence scope — figures already recorded there (e.g. the ~85
+  named storms/yr climatology) are not re-derived or double-counted here.
+  Inside the boundary: the organized circulation itself (the moist air
+  parcels participating in a given weather system's rotation, frontal
+  structure, or moisture-transport corridor), from genesis/organization
+  through mature structure to decay/dissipation. Outside: the general
+  planetary circulation and climatological state that sets the background
+  environment for weather-system formation (treated as forcing, scored
+  under the parent planetary-climate entry), the ocean/land surface below
+  the boundary layer, and human forecasting institutions. Atomicity per
+  filling_rules.atomicity-convention: moist air parcels at synoptic/
+  mesoscale-resolving scale (the same order-1-km^3 convention
+  tropical-cyclones declares), aggregating first into convective cells and
+  fronts — chosen for direct comparability with tropical-cyclones and
+  planetary-climate, both of which use the identical atomicity convention
+  one level down and one level up respectively. Scoring is class-general;
+  exemplar evidence primarily from the Neu et al. (2013) IMILAST
+  multi-algorithm extratropical-cyclone climatology, with monsoon systems
+  and atmospheric rivers carried as comparative instances.
+
+summary: >
+  A weather system is the atmosphere's basic unit of organized weather: a
+  transient circulation structure — a mid-latitude cyclone spinning up
+  along a temperature front, a monsoon reversing a continent's winds for a
+  season, a narrow river of water vapor threading across an ocean basin —
+  that assembles itself from the everyday turbulence of the troposphere and
+  dissolves again within days to weeks. Individually forgettable and
+  collectively indispensable, weather systems are the mechanism by which
+  the planet actually moves heat and moisture from where the Sun deposits
+  it to where it is not: no single one is inevitable, but the statistical
+  population of them is exactly as much a fixture of the climate as the
+  jet stream that steers them. Tropical cyclones are the most famous
+  member of this family; most of its work is done by the quieter,
+  far more numerous mid-latitude storms most people simply call "weather."
+
+relations:
+  part_of: [planetary-climate]
+  # planetary-climate: RESOLVED — entry exists (data/classes/planetary-climate.yaml);
+  # its own relations.contains already lists [weather-systems, tropical-cyclones,
+  # ocean-circulation, river-networks], reciprocated on the parent side exactly as
+  # tropical-cyclones' and river-networks' own part_of entries already note for
+  # their reciprocal edges.
+  contains: [tropical-cyclones]
+  # tropical-cyclones: RESOLVED — entry exists (data/classes/tropical-cyclones.yaml);
+  # its own relations.part_of already lists [weather-systems, planetary-climate] —
+  # tropical cyclones are a NAMED SUBTYPE of weather-systems (a warm-core,
+  # ocean-fueled specialization of the same broad organized-circulation
+  # phenomenon), making this the most direct reciprocity edge in the batch: this
+  # entry's contains and tropical-cyclones' part_of name each other explicitly and
+  # by the same relationship (subtype-of / contains-as-subtype), not merely a
+  # loose compositional link.
+  #
+  # moist-convection-cells: deliberately NOT listed here. tropical-cyclones.yaml's
+  # own contains lists moist-convection-cells as ITS first aggregation level
+  # (parcels -> convective cells -> tropical-cyclone), one level below
+  # tropical-cyclones in planetary-climate's declared 4-level hierarchy_depth
+  # convention (parcels -> convective cells/eddies (1) -> weather systems (2) ->
+  # circulation cells/gyres (3) -> coupled system (4)). Weather-systems sits at
+  # planetary-climate's level 2, i.e. ABOVE tropical-cyclones' own atomic
+  # aggregation step, not directly above moist-convection-cells itself — so
+  # moist-convection-cells is reached transitively via tropical-cyclones (and via
+  # this entry's own component_ontology, which lists convective cells/fronts as
+  # ITS first aggregation level using the same atomicity convention) rather than
+  # listed a second time as a direct contains edge here. This keeps the
+  # compositional graph a strict level-by-level ladder (Morowitz's ladder, per
+  # D13) instead of skipping a rung. Roster expansion queue -> unresolved as its
+  # own catalog entry either way.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: "1e5 to >1e6"
+    unit: m
+    method: >
+      Range of characteristic circulation diameters, order of magnitude,
+      per Neu et al. (2013)'s own headline diameter statement for
+      extratropical cyclones. Deliberately recorded as a RANGE rather than
+      a single order of magnitude: extratropical cyclones' size diversity
+      (100 km to >1,000 km) is explicitly wider than tropical-cyclones'
+      comparatively uniform ~1e6 m point estimate, a genuine class-level
+      contrast worth preserving rather than collapsing.
+    detail:
+      diameter_range: "100 to >1,000 km (Neu et al. 2013, direct quote, primary-read)"
+      effective_radius_continental: "300-400 km mean (Rudeva & Gulev 2007, snippet-verified; 57-yr NCEP-NCAR SLP-based climatology)"
+      effective_radius_oceanic: ">900 km mean, North Atlantic (Rudeva & Gulev 2007, snippet-verified)"
+      modern_era5_radius: "~490-600 km (4.4-5.4 deg latitude), 2026 ERA5 update [snippet-tool-derived unit conversion, unverified this sweep]"
+      atmospheric_river_dimensions: "~2,000 km long x 300-500 km wide (Newell et al. 1992, snippet-verified)"
+      mcc_cloud_shield: ">100,000 km^2 (Maddox 1980 convention, snippet-verified)"
+    sources: [neu2013, rudeva-gulev2007, newell1992, maddox1980, hoskins-hodges2002]
+    evidence_status: measured
+    confidence: medium
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: fastest constituent process (convective/frontal organization), value: "~1e3-1e4 s", evidence_status: qualitative}
+      - {name: dominant dynamics (system lifetime), value: "mode 1-2 days, tail to 7-8 days (~1e5-1e6 s)", measurand: "extratropical-cyclone lifetime distribution, NH DJF / SH JJA composite", sources: [neu2013], evidence_status: measured, confidence: medium}
+      - {name: deterministic predictability horizon, value: "~2 weeks (~1.2-1.7e6 s)", measurand: "atmospheric forecast-skill limit, error-doubling", sources: [charney1966, mdpi2024-predictability], evidence_status: measured, confidence: medium, note: "reused per task instructions from tropical-cyclones/planetary-climate; arguably weather-systems' most direct home since Lorenz derived it studying synoptic weather prediction specifically, not climate — recorded here as PRIMARY home per the sweep's judgment call."}
+      - {name: monsoon seasonal cycle, value: "~100-120 days (Indian summer monsoon, June-September)", sources: [imd-noaa-monsoon], evidence_status: measured, confidence: low, note: "class-general seasonal-circulation timescale, distinct from a single storm's lifetime; onset itself is a progressive wave (~1 month, Andaman ~25 May to Delhi ~29 June)."}
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~5,000-28,000 NH extratropical-cyclone tracks per 20-yr seasonal aggregate (true combined DJF/JJA range; DJF ~6,000-21,000, JJA ~5,000-28,000 — see method for the two separate season ranges), method-dependent by ~3-5x"
+    measurand: "extratropical-cyclone track counts, ERA-Interim reanalysis, 15 independent detection/tracking algorithms (IMILAST intercomparison)"
+    method: >
+      Neu et al. (2013): 15 algorithms applied to the SAME 20-yr
+      ERA-Interim input (1989-2009) disagree by roughly a factor of 3-5 on
+      total NH cyclone counts — winter (DJF) range ~6,000-21,000, summer
+      (JJA) range ~5,000-28,000. This method-dependence is the paper's own
+      headline finding, not noise to be averaged away; recording it as a
+      point estimate would misrepresent the source. Track-to-track matching
+      rate between different methods: ~50-70%, a genuine quantified
+      measurement-method-uncertainty figure. SH totals reported as
+      "somewhat smaller ranges" than NH but per-method SH figures were not
+      digit-by-digit transcribed this sweep (Tables 2/3, primary-read but
+      not fully extracted) — left as a qualitative comparison rather than a
+      guessed number.
+    sources: [neu2013]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Explicitly excludes tropical-cyclone counts (~85 named storms/yr
+      globally), which belong to the tropical-cyclones child entry per the
+      scoping note's atomicity/boundary discipline — no double-counting
+      across the two entries.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "~34 NH / ~28 SH cyclones standing at any analysis time-step in winter; ~5-6 in the Arctic; 3-5 atmospheric rivers per hemisphere at any time"
+    sources: [era5-2026-update, zhu-newell1998]
+    evidence_status: measured
+    confidence: low
+    note: >
+      Standing-population figures for extratropical cyclones sourced from a
+      2026 ERA5-based update (Environmental Research: Climate,
+      DOI:10.1088/2752-5295/ae4cc4), retrieved via WebFetch extraction of
+      the publisher HTML page, NOT an independent full-text primary read.
+      Kept at evidence_status: measured with confidence: low and this
+      citation-level read-status caveat, consistent with this entry's own
+      treatment of rudeva-gulev2007/newell1992/maddox1980/zhu-newell1998
+      (snippet-only sources kept at measured, not measured-untested — that
+      evidence_status is reserved per panel-spec for CSN-grade tail/
+      power-law statistical-rigor caveats, a different concern from
+      citation read-status); flagged for a follow-up primary-read pass
+      before further reliance (fix applied 2026-07-02, consistency-check
+      flag). Atmospheric-river standing count ("three-to-five major
+      conduits in each Hemisphere," Zhu & Newell 1998) is snippet-verified
+      via a citing secondary source, not the original 1998 paper itself.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: moist air parcels (incl. condensate)
+        count_oom: "not independently derived this sweep; would follow tropical-cyclones' ~1e7-per-system convention (1 km^3 atomicity) scaled by a weather system's typically larger circulation volume — left unconverted pending a dedicated derivation"
+        interchangeable: yes
+        itself_complex: no
+      - name: convective cells / frontal zones
+        role: "composite — first aggregation level; parcels are the atoms (mirrors tropical-cyclones' own convective-cells listing at the equivalent rung of the same atomicity ladder)"
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: moist-convection-cells   # unresolved -> roster expansion queue; reached here directly at this entry's own first aggregation rung, consistent with (not duplicating) tropical-cyclones' identical listing one level down
+      - name: extratropical cyclones (incl. attendant fronts and anticyclones)
+        role: "composite — this class's own primary named structure type"
+        count_oom: "~6,000-28,000 tracks per 20-yr NH seasonal aggregate (method-dependent, see numerosity)"
+        interchangeable: yes
+        itself_complex: no
+      - name: tropical cyclones
+        role: "composite — named SUBTYPE with its own dedicated catalog entry, not re-scored here"
+        count_oom: "~85 named storms/yr globally (see tropical-cyclones.yaml; not double-counted in this entry's own numerosity)"
+        interchangeable: yes
+        itself_complex: tropical-cyclones   # RESOLVED — entry exists; the batch's most direct reciprocity edge
+      - name: mesoscale convective complexes (MCCs)
+        role: "composite — named sub-structure with its own literature-canonical size/duration convention (Maddox 1980), distinct from both extratropical and tropical cyclones"
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+      - name: atmospheric rivers
+        role: "composite — narrow, transient moisture-transport corridors, structurally distinct from the rotating-vortex weather-system types above"
+        count_oom: "3-5 major conduits per hemisphere at any time (Zhu & Newell 1998)"
+        interchangeable: yes
+        itself_complex: no
+      - name: monsoon circulations
+        role: "composite — large-scale seasonal circulation reversal, the class's slowest and largest-footprint member type"
+        count_oom: "handful of named regional systems (Indian, West African, East Asian, North American, Australian monsoons); no single canonical global count located this sweep"
+        interchangeable: no
+        itself_complex: no
+    confidence: low
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: "~2.0-2.6"
+    unit: erg s^-1 g^-1
+    method: >
+      DERIVED by this project (flag-fixer, 2026-07-02, coverage-check
+      flag), following the SAME atmosphere-mass-normalization convention
+      planetary-climate.yaml's own energy_rate_density already establishes
+      (Phi_m ~233 erg/s/g, solar throughput / atmosphere mass): the global
+      atmospheric Lorenz energy cycle's kinetic-energy-dissipation rate
+      (the direct numerator for THIS entry's baroclinic-instability
+      mechanism, as distinct from planetary-climate's solar-throughput
+      numerator) is convergently reported across multiple
+      reanalysis-based studies at ~2.0-2.6 W/m^2 global-mean (this fix
+      pass's WebSearch this session found: ERA-Interim trend 1.93->2.11
+      W/m^2 over 1979-2013; other reanalysis estimates converging on
+      ~2.0-2.61 W/m^2 — candidate primary source for a follow-up read:
+      Peixoto & Oort 1992, the general-circulation energy-budget textbook
+      already flagged in this entry's own provenance as an identified but
+      unchecked lead; NOT primary-read this fix pass, figures are
+      WebSearch-convergent secondary characterizations of reanalysis
+      studies, not the textbook itself). Converted to total watts via
+      Earth's surface area (~5.1e14 m^2, standard geodesy): ~1.0-1.3e15 W.
+      Divided by total atmospheric mass (5.15e18 kg = 5.15e21 g, the same
+      figure and convention planetary-climate.yaml's own
+      atmosphere-normalized Phi_m uses, wikipedia-atmosphere-mass source):
+      Phi_m ~2.0-2.6 erg/s/g. This is a GLOBAL, class-aggregate figure
+      (the sum of all weather systems' conversion, normalized by the
+      WHOLE atmosphere's mass), methodologically distinct from
+      tropical-cyclones' per-storm, per-storm-circulation-mass-normalized
+      ~1.5-6e2 erg/s/g figure — the two are not comparable
+      apples-to-apples and neither is borrowed from the other, per
+      filling_rules.no-guessing. If a per-system (rather than
+      whole-atmosphere-aggregate) mass convention is later derived to
+      match tropical-cyclones' convention more directly, this value should
+      be revisited; recorded here as the best currently derivable
+      class-general figure rather than left unknown, per panel-spec's own
+      method note that this column should be derived from published
+      throughput/mass figures where possible rather than defaulted to
+      unknown.
+    sources: [lorenz-cycle-reanalysis, wikipedia-atmosphere-mass]
+    evidence_status: derived
+    confidence: low
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+    evidence_status: qualitative
+    note: same topology class as tropical-cyclones and planetary-climate (parent and nested subtype); no meaningful discrete-node representation for the fluid dynamics.
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: momentum / pressure-gradient exchange
+        mechanism: fluid stress and pressure forces between adjacent parcels, under rotation (Coriolis) and gravity
+        participants: air parcels
+        range: local
+      - name: latent-heat / moisture exchange
+        mechanism: phase change (evaporation, condensation) coupling thermodynamics to dynamics — the engine of frontogenesis, monsoon convection, and atmospheric-river moisture transport
+        participants: air parcels
+        range: local
+      - name: surface enthalpy / momentum flux
+        mechanism: wind-speed- and stability-dependent heat, moisture, and momentum transfer at the air-sea/air-land interface
+        participants: boundary-layer parcels <-> ocean/land surface (boundary)
+        range: local
+      - name: radiative exchange
+        mechanism: longwave/shortwave transfer
+        participants: all parcels
+        range: global (weak relative to the above three)
+    type_count: 4
+    alphabet_closure: closed   # fixed by physics; no new interaction types can arise
+    justification: >
+      One closed physical family, identical in kind to tropical-cyclones'
+      and planetary-climate's own four-type alphabets (both cite the same
+      shared closed set of momentum, latent-heat, surface-flux, and
+      radiative exchange): every interaction is fixed by fluid dynamics,
+      thermodynamics, and radiation. Weather systems sit at the middle rung
+      of this three-entry nested ladder and share the identical physical
+      alphabet at every rung, which is itself a notable cross-entry finding
+      (the interaction alphabet does not change across this compositional
+      hierarchy, only the spatial/temporal scale and named structures do).
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    evidence_status: qualitative
+    note: continuum system; no meaningful node-degree representation, matching tropical-cyclones' and planetary-climate's treatment of the same topology class.
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Recognizable sub-structure exists — fronts, the warm/cold sectors of
+      a cyclone, rainbands within an MCC, the core vs. periphery of an
+      atmospheric river — but these are gradational, strongly coupled
+      subdivisions of one continuous fluid system rather than insulated
+      modules, exactly the reasoning tropical-cyclones' own anchor
+      (modularity.yaml) applies to rainband/eyewall structure one level
+      down and planetary-climate applies to its circulation cells one
+      level up. Matches the anchor scale's 1 (fuzzy, gradational structure,
+      no stable preferred partition).
+      Comparator: tropical-cyclones (score 1, same reasoning, one level down).
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, consistent with tropical-cyclones'
+      and planetary-climate's own conventions at the adjacent rungs):
+      counting INSIDE this entry's own boundary — parcels (atoms) ->
+      convective cells / frontal zones (1) -> the weather-system-scale
+      structure itself (cyclone, MCC, atmospheric river, monsoon
+      circulation) (2). This is intentionally shallower than
+      tropical-cyclones' own 3 (which counts an additional
+      rainband/eyewall-complex sub-level specific to a warm-core vortex)
+      and shallower than planetary-climate's 4 (which counts weather
+      systems themselves as an intermediate rung ABOVE this entry's own
+      internal levels, per planetary-climate's declared 4-level
+      convention). Composition BETWEEN entries — weather-systems as part_of
+      planetary-climate, tropical-cyclones as a contains-subtype — lives in
+      the relations block, not this column, per the column's own note.
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: 1.35
+    unit: dimensionless (D)
+    method: >
+      Area-perimeter fractal dimension of tropical cloud/rain-field
+      boundaries (radar 1x1 km rain-area data combined with GOES IR
+      cloud-area data, Indian Ocean region), least-squares fit, r=0.994.
+      Source: Lovejoy (1982), reused per task instructions from
+      tropical-cyclones.yaml, where it is likewise a reassignment (the
+      paper never mentions tropical cyclones/hurricanes and is explicitly
+      general tropical cloud/rain-field). Arguably this figure is MORE
+      directly weather-systems' own than tropical-cyclones', by the same
+      logic; recorded here as an equally legitimate primary home rather
+      than displacing the existing tropical-cyclones citation. Cross-confirmed
+      across 40+ years of follow-on literature via planetary-climate's own
+      entry (Luo et al. 2007, D~1.30-1.40; Christensen et al. 2021,
+      GRL 48) — both snippet-verified via WebSearch, not independently
+      re-verified this sweep.
+    sources: [lovejoy1982, luo2007, christensen2021]
+    evidence_status: measured
+    confidence: medium
+    verifier_flags: [snippet-verified-only-for-luo2007-and-christensen2021]
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; cyclogenesis, frontal organization,
+      monsoon onset, and atmospheric-river formation all arise entirely
+      from local fluid-thermodynamic interactions under rotation and
+      forcing. Same reasoning as tropical-cyclones' and planetary-climate's
+      own scores on this column at the adjacent rungs: nothing whose
+      removal would constitute "loss of control."
+      Comparator: tropical-cyclones and planetary-climate (both score 4, identical reasoning).
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Governing dynamics are the nonlinear moist Navier-Stokes/thermodynamic
+      equations under rotation: frontogenesis is a genuinely nonlinear
+      sharpening process, baroclinic instability is a threshold/switch-like
+      growth mechanism, and monsoon onset is a documented regime-transition
+      event. Formation, intensification, and decay of the class's
+      characteristic structures all depend on nonlinear terms — the same
+      top-of-scale reasoning tropical-cyclones' and planetary-climate's own
+      anchors apply one level down and one level up in this nested system.
+      Comparator: tropical-cyclones and planetary-climate (both score 4).
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: baroclinic energy conversion, sign: reinforcing, mechanism: "growing temperature gradient releases available potential energy into eddy kinetic energy, intensifying the cyclonic circulation that itself sharpens the gradient locally (frontogenesis) before decay sets in"}
+      - {name: latent-heat release / diabatic intensification, sign: reinforcing, mechanism: "condensation in the warm conveyor belt releases latent heat, strengthening the local circulation and moisture convergence that feeds further condensation — the mechanism behind explosive cyclogenesis ('bombogenesis') case studies such as storm Klaus (Jan 2009, ~35-37 hPa/24h: entry's cited source, the sweep's reading of Neu et al. 2013's Klaus case-study passage, gives 35 hPa/24h; independent WebSearch verification this fix pass (case-study literature on Klaus, e.g. Bay-of-Biscay/Catalonia impact studies) reports >37 hPa/24h, 44 hPa/24h geostrophically adjusted to 60N — case-study estimates vary slightly by 24h-window selection and adjustment convention; range acknowledged rather than resolved to a single figure)"}
+      - {name: surface-friction dissipation, sign: balancing, mechanism: "boundary-layer drag removes kinetic energy from the circulation, setting a ceiling on intensification and contributing to eventual decay as the system moves away from its baroclinic energy source"}
+    justification: >
+      Feedback loops are central to explaining cyclogenesis, explosive
+      deepening, and monsoon-onset dynamics, but — unlike tropical-cyclones'
+      WISHE loop, which the literature treats as THE defining mechanism of
+      intensification itself — baroclinic energy conversion for
+      extratropical systems is somewhat more often presented as an energy
+      SOURCE description than as an explicit closed feedback loop in the
+      primary literature; scored 3 (multiple loops continuously active and
+      required to explain characteristic dynamics) rather than
+      tropical-cyclones' 4 (where loop structure IS the field's primary
+      explanatory device).
+      Comparator: tropical-cyclones (score 4; here scored one point lower
+      because the class's foundational instability theory is framed more
+      often as instability/energy-conversion than as an explicit loop).
+    sources: [neu2013]
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      UPDATED (flag-fixer, 2026-07-02, consistency-check flag): a genuine
+      dissipative structure in the Prigogine sense: continuous baroclinic
+      energy conversion and latent-heat release power the circulation, and
+      interrupting the energy source (e.g. a cyclone moving over a
+      stabilizing surface, or a monsoon's seasonal forcing reversing)
+      collapses the structure within a period comparable to the system's
+      own days-to-weeks characteristic timescale. Now traceable to a
+      literal watts figure per the anchor's own requirement: the global
+      atmospheric Lorenz energy cycle's kinetic-energy dissipation rate
+      (the same physical process — baroclinic APE-to-KE conversion,
+      frictional dissipation — driving weather-system-scale circulation)
+      is convergently measured across multiple reanalysis-based studies at
+      ~2.0-2.6 W/m^2 global-mean (ERA-Interim trend 1.93-2.11 W/m^2 over
+      1979-2013; other reanalysis estimates ~2.0-2.61 W/m^2), i.e. order
+      1-1.3e15 W total (this project's own order-of-magnitude conversion,
+      flux x Earth surface area ~5.1e14 m^2; evidence_status: derived for
+      the total-watts conversion specifically, built on a measured flux
+      figure) — see energy_rate_density below, now filled via the same
+      derivation. Scored 3 rather than tropical-cyclones' 4: this is a
+      GLOBAL planetary-scale aggregate flux (the sum of all weather
+      systems' energy conversion, not a single system's own
+      ocean-heat-flux-dependent power budget), so the "much-faster-than-
+      structural-timescale collapse" criterion for a 4 (demonstrated for a
+      single hurricane's dependence on a single, interruptible ocean-heat
+      source) cannot be pinned to any one weather system the way it can
+      for a hurricane — the qualitative case for 3 is solid and now also
+      has a traceable literal-watts anchor, satisfying the anchor's own
+      traceability requirement for scores 3-4, but the class-level
+      aggregate nature of the figure (not a per-system power budget) is
+      why this stays at 3 rather than reaching 4.
+      Comparator: tropical-cyclones (score 4, quantitatively demonstrated
+      per-storm); this entry held one level below because the available
+      figure is a class-aggregate global flux, not a per-system budget.
+    sources: [lorenz-cycle-reanalysis]
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per the chaos_sensitivity anchor (chaos_sensitivity.yaml): this class
+      IS the system the anchor's own tropical-cyclones entry describes as
+      inheriting "the well-established atmospheric predictability limit" —
+      weather-systems is that predictability limit's most direct home. The
+      leading Lyapunov exponent for atmospheric models gives an
+      error-doubling time of roughly 2-5 days, producing the ~2-week
+      deterministic predictability ceiling (Charney et al. 1966; MDPI
+      2024 re-derivation), replicated across many studies and
+      operationally load-bearing (ECMWF/NOAA ensemble forecasting). This is
+      squarely a WEATHER-system-scale figure per Lorenz's own weather-vs-
+      climate distinction (planetary-climate's own anchor entry explicitly
+      notes the ~2-week figure "belongs to the WEATHER subsystem, not the
+      climate-level score" — scoring planetary-climate itself only 3 for
+      exactly this reason). Scored 4 here, one point above planetary-climate,
+      because this is the figure's true home system.
+      Comparator: planetary-climate (score 3, explicitly deferring this
+      figure to weather-systems); tropical-cyclones (score 4, inheriting
+      it as a nested subtype).
+    sources: [charney1966, mdpi2024-predictability]
+    evidence_status: measured
+    confidence: medium
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      RESCORED 1 -> 0 (flag-fixer, 2026-07-02, consistency-check flag):
+      Peters & Neelin (2006, Nature Physics, primary-read in full) document
+      a continuous phase transition in tropical atmospheric convection/
+      precipitation — critical exponent beta = 0.215 +/- 0.02, finite-size
+      scaling gamma/nu = 1.54(4), scale-free spatial correlations
+      (25-200 km), universal across four ocean-basin regions — and the
+      authors' own framing explicitly argues this IS an instance of
+      self-organized criticality. This is a genuine, rigorous,
+      primary-read finding, but it concerns GENERAL tropical atmospheric
+      convection over ocean basins (TRMM satellite retrievals) and never
+      names extratropical cyclones, monsoons, MCCs, or atmospheric rivers —
+      this entry's own actual exemplar structures. The identical citation
+      was already primary-read and explicitly REJECTED as out-of-scope for
+      the sibling tropical-cyclones entry on the same grounds, which
+      accordingly rescored ITS OWN criticality 1 -> 0
+      (tropical-cyclones.yaml). Per criticality.yaml's
+      boundary_clarifications.published-claim-required: the mechanism must
+      be proposed FOR THE SCOPED SYSTEM in the primary literature, "not for
+      a related model system," and explicitly disallows "a rater's own
+      inference from adjacent literature" — exactly the MCC-linkage
+      inference the prior draft justification made to justify inclusion at
+      score 1/mechanism_status: proposed. No storm-internal or
+      class-internal heavy-tail event statistic or SOC-mechanism proposal
+      specific to extratropical cyclones, monsoons, MCCs, or atmospheric
+      rivers was located this sweep (the one extreme-value paper found,
+      Sienz et al. 2010, uses a GPD framework — see
+      extreme_event_statistics below, a criticality-adjacent but logically
+      distinct claim). Matches anchor level 0: no scale-invariant event
+      statistics reported or sought for this entry's own scoped exemplars,
+      and no critical-point mechanism has been formally proposed for them
+      in the primary literature. mechanism_status: none, matching
+      tropical-cyclones' own resolution of the identical citation.
+      Comparator: tropical-cyclones (score 0, mechanism_status: none,
+      identical citation and identical rescoring logic).
+    sources: [peters-neelin2006]
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: unknown
+    measurand: "extratropical-cyclone intensity/size extremes over time (candidate measurand; no panel-compatible fit located)"
+    method: >
+      No CSN-2009-grade power-law fit for extratropical-cyclone size or
+      intensity distributions was located this sweep. The one power-law
+      "basin-size cutoff" result found in searches traces to Corral's
+      TROPICAL-cyclone PDI work (already the tropical-cyclones entry's own
+      citation), explicitly the TC case, and is not reused here per
+      filling_rules.no-guessing (it is a different, narrower system).
+      Sienz et al. (2010, Tellus A) is the closest extratropical-cyclone-
+      specific extreme-value-statistics paper identified, but it uses a
+      Generalized Pareto Distribution (GPD) framework for tail behavior —
+      a distinct statistical object from this column's "tail exponent
+      alpha" definition — and was not primary-read this sweep
+      (snippet-verified via WebSearch only). Entering a GPD shape parameter
+      as if it were a power-law alpha would misrepresent the source;
+      recorded unknown rather than force-fit, pending a dedicated
+      primary-read and translation pass.
+    sources: [sienz2010]
+    evidence_status: unknown
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: no established measurand chosen for the class this sweep; candidate — interannual NH cyclone-count autocorrelation (Neu et al. 2013 data would support this in principle). Left unknown rather than stretched, consistent with tropical-cyclones' own treatment of this column.
+    evidence_status: unknown
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      RESCORED 1 -> 2 (flag-fixer, 2026-07-02, consistency-check flag):
+      this entry's own feedback, emergence, and emergent_phenomena sections
+      already independently cite "bombogenesis" — explosive extratropical
+      cyclogenesis formally defined by a named, quantitatively thresholded
+      criterion (Sanders & Gyakum 1980, Monthly Weather Review: central
+      pressure fall of >=24 hPa/24h normalized to 60N latitude via a
+      sin(lat)/sin(60) weighting, "1 bergeron" unit; independently
+      confirmed via WebSearch this fix pass, not previously cited in this
+      entry's own sources block), a bifurcation/threshold-crossing
+      regime-transition phenomenon actively studied as an operational
+      forecasting problem (deepening rate as order parameter; see
+      emergent_phenomena). This is structurally identical to
+      tropical-cyclones' own citation of "rapid intensification" as one of
+      two named mechanisms earning tropical-cyclones a score of 2 on this
+      column (tipping_transitions.yaml
+      boundary_clarifications.single-modeled-mechanism-is-2: "one named
+      mechanism with a proposed threshold or bifurcation analysis in the
+      primary literature = 2"). No weather-systems-specific SYSTEMATIC
+      tipping-element inventory (as distinct from planetary-climate's own
+      16-element inventory, one level up, not re-derived here per this
+      entry's own scoping discipline) exists, so this stops at 2 rather
+      than 3 (which requires a citable multi-element inventory). Monsoon
+      "onset"/"breaks" and blocking-pattern persistence remain informally
+      discussed regime-shift-adjacent phenomena without a dedicated
+      threshold study, contributing no additional score weight beyond the
+      bombogenesis citation.
+      Comparator: tropical-cyclones (score 2, identical
+      single-mechanism-with-threshold reasoning); planetary-climate (score
+      4, the anchor's own calibration ceiling, at the coupled-system scale
+      this entry explicitly excludes per its own scoping note).
+    sources: [sanders-gyakum1980]
+    evidence_status: measured
+    confidence: medium
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Individual weather systems are essentially a function of current
+      environment (baroclinicity, moisture availability, SST) plus short
+      relaxation lags; no bistability or hysteresis loop is documented for
+      an individual cyclone, monsoon season, or atmospheric river. Matches
+      tropical-cyclones' own score-1 treatment (relaxation memory only) —
+      any longer-timescale memory (ocean heat content, ENSO-monsoon
+      teleconnections) belongs to the parent planetary-climate system,
+      outside this entry's own boundary per the scoping note.
+      Comparator: tropical-cyclones (score 1, identical reasoning).
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport: pressure waves, advection, phase change,
+      and radiative transfer, with no detection-transmission-response
+      structure anywhere in the chain — the same canonical-0 reasoning as
+      the stars anchor and tropical-cyclones' own identical score one
+      level down. A frontal boundary or convective trigger is a threshold/
+      bifurcation, not detection.
+      Comparator: tropical-cyclones and planetary-climate (both score 0, identical reasoning).
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Air parcels obey fixed physics; no component modifies its response
+      function in light of history. Baroclinic and diabatic feedbacks
+      operate, they do not learn — the same regulation-vs-adaptation
+      distinction tropical-cyclones' and planetary-climate's own anchors
+      enforce at the adjacent rungs of this nested system.
+      Comparator: tropical-cyclones and planetary-climate (both score 0).
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among components, matching tropical-cyclones' and planetary-climate's treatment of the same underlying fluid-dynamical substrate.
+    evidence_status: qualitative
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Formalized, predictive macro-level vocabulary is genuinely the
+      field's working language: minimum central pressure and deepening
+      rate (bombogenesis criteria), frontal classification, the
+      baroclinic-instability framework itself, and MCC/atmospheric-river
+      detection-algorithm definitions (Maddox 1980; Guan & Waliser 2015)
+      are all formal effective descriptions not transparent from raw
+      parcel-level fields by inspection — the same weak/epistemic-emergence
+      reasoning as tropical-cyclones' own score-3 justification (potential-
+      intensity theory as working vocabulary) one level down in the same
+      nested system, held at 3 rather than 4 for the same reason: increasingly
+      storm-resolving numerical weather prediction narrows, without
+      eliminating, the practical necessity of the macro-theory.
+      Comparator: tropical-cyclones (score 3, identical reasoning).
+    sources: [maddox1980, neu2013]
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Cyclones, fronts, MCCs, atmospheric rivers, and monsoon circulations
+      all assemble spontaneously from local fluid-thermodynamic
+      interactions under rotation and forcing; nothing specifies the form
+      of any individual system in advance. A striking supporting datum: per
+      Zhu & Newell (1998), atmospheric rivers carry >90% of total
+      midlatitude vertically integrated water-vapor flux while covering
+      only ~10% of the hemispheric circumference at 35N — a small fraction
+      of the domain spontaneously organizing to carry the overwhelming
+      majority of a globally conserved flux, exactly the kind of
+      concentration signature the self_organization anchor's tropical-
+      cyclones and river-networks entries cite for their own top scores.
+      Comparator: tropical-cyclones and planetary-climate (both score 4, identical reasoning).
+    sources: [zhu-newell1998]
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(extratropical-cyclone)
+    score: 1
+    justification: >
+      Per the robustness_resilience anchor's own tropical-cyclones
+      treatment (score 1): organization is maintained only within a narrow
+      environmental envelope — loss of the baroclinic energy source
+      (occlusion, movement over a weak-gradient region) or landfall
+      rapidly degrades an individual extratropical cyclone's structure,
+      typically within days. Class-level persistence ("mid-latitude storms
+      keep forming every winter") is deliberately not credited at the
+      exemplar level, per the anchor's own does_not_count clause and
+      exactly the reasoning tropical-cyclones applies to Katrina.
+      Comparator: tropical-cyclones (score 1, identical reasoning, scored at
+      the exemplar level per the column's own default).
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No component-to-component failure propagation exists: frontal
+      occlusion or an eyewall-analogous reorganization is continuum-flow
+      reorganization, not a failure cascade through coupled discrete
+      components. Same floor-anchor reasoning as stars and tropical-cyclones
+      in cascade_susceptibility.yaml.
+      Comparator: tropical-cyclones (score 0, identical reasoning).
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Extratropical cyclone (with fronts)
+    order_parameter: minimum central pressure; deepening rate (hPa/24h, bombogenesis threshold)
+  - name: Mesoscale convective complex (MCC)
+    order_parameter: cold-cloud-shield area (km^2); eccentricity; duration
+  - name: Atmospheric river
+    order_parameter: integrated water-vapor transport (IVT, kg/m/s); length-to-width ratio
+  - name: Monsoon circulation
+    order_parameter: seasonal wind reversal; onset-date progression front
+
+sources:
+  neu2013:
+    citation: "Neu, U., Akperov, M.G., Bellenbaum, N., Benestad, R., Blender, R., Caballero, R., et al. (2013). IMILAST: A Community Effort to Intercompare Extratropical Cyclone Detection and Tracking Algorithms. Bulletin of the American Meteorological Society 94(4), 529-547. DOI:10.1175/BAMS-D-11-00154.1. [primary-read in full this sweep, via University of Reading CentAUR open-access repository PDF (centaur.reading.ac.uk/32735/1/bams-d-11-00154.1.pdf)]"
+  lorenz-cycle-reanalysis:
+    citation: "Convergent reanalysis-based estimates of the global atmospheric Lorenz energy cycle's kinetic-energy dissipation rate (~1.93-2.61 W/m^2 global-mean, multiple independent studies including an ERA-Interim-based multi-decadal trend estimate ~1.93->2.11 W/m^2 over 1979-2013), identified via WebSearch this fix pass (flag-fixer, 2026-07-02). Candidate primary source flagged but NOT fetched this session: Peixoto, J.P. & Oort, A.H. (1992). Physics of Climate. American Institute of Physics — the general-circulation energy-budget textbook already named as a follow-up lead in this entry's own provenance.flags. [WebSearch-convergent secondary characterization of reanalysis literature only this fix pass; flagged for a dedicated primary-read pass (Peixoto & Oort 1992 directly, or one of the underlying reanalysis papers) before promotion past draft]"
+  rudeva-gulev2007:
+    citation: "Rudeva, I. & Gulev, S.K. (2007). Climatology of Cyclone Size Characteristics and Their Changes during the Cyclone Life Cycle. Monthly Weather Review 135(7), 2568-2587. [snippet-verified via WebSearch this sweep; AMS journal page returned HTTP 403 on WebFetch, NOT primary-read — flagged for re-fetch before promotion past measured-untested]"
+  hoskins-hodges2002:
+    citation: "Hoskins, B.J. & Hodges, K.I. (2002). New Perspectives on the Northern Hemisphere Winter Storm Tracks. Journal of the Atmospheric Sciences 59(6), 1041-1061. [ADDED (flag-fixer, 2026-07-02, coverage-check flag) — existence/title confirmed via WebSearch during the original research sweep (research/v0.2-sweep/expansion/weather-systems-sources.md, canonical review sources #2); the foundational NH storm-track climatology paper, repeatedly cited by Neu et al. (2013) itself as the baseline climatology reference ('a baseline climatology of extratropical storms, e.g. Hoskins and Hodges 2002'). NOT primary-read or snippet-content-fetched this sweep or this fix pass — title/existence-confirmed only. Flagged as a high-priority primary-read follow-up target; see provenance.flags.]"
+  newell1992:
+    citation: "Newell, R.E., Newell, N.E., Zhu, Y. & Scott, C. (1992). Tropospheric rivers? — A pilot study. Geophysical Research Letters 19(24), 2401-2404. [snippet-verified via a citing secondary/mini-review source; the original 1992 GRL paper itself was NOT independently fetched this sweep]"
+  maddox1980:
+    citation: "Maddox, R.A. (1980). Mesoscale convective complexes. Bulletin of the American Meteorological Society 61, 1374-1387. [snippet-verified via WebSearch — original paper not fetched this sweep; figures taken from convergent secondary/glossary sources (AMS Glossary of Meteorology), treated as established meteorological convention]"
+  era5-2026-update:
+    citation: "A new metric for net extratropical cyclone activity and its insights into surface climate trends. Environmental Research: Climate (IOP Publishing), DOI:10.1088/2752-5295/ae4cc4 (2026). [snippet-level WebFetch extraction of the publisher HTML page only this sweep, NOT a full independent primary read — flagged for a follow-up primary-read pass before further reliance]"
+  zhu-newell1998:
+    citation: "Zhu, Y. & Newell, R.E. (1998). A proposed algorithm for moisture fluxes from atmospheric rivers. Monthly Weather Review 126(3), 725-735. [snippet-verified via a citing Frontiers mini-review secondary source, direct-quote attribution; the original 1998 MWR paper itself was NOT independently fetched this sweep]"
+  charney1966:
+    citation: "Charney, J.G. et al. (1966). The feasibility of a global observation and analysis experiment. Bull. Amer. Meteorol. Soc. 47, 200-220. [search-summary level — not independently fetched as full text this or any prior session, per tropical-cyclones.yaml's own re-annotation of the same citation string, reused unchanged]"
+  mdpi2024-predictability:
+    citation: "Exploring the Origin of the Two-Week Predictability Limit: A Revisit of Lorenz's Predictability Studies in the 1960s. Atmosphere (MDPI) 15(7), 837 (2024). [snippet-verified via WebSearch]"
+  lovejoy1982:
+    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216(4542), 185-187. [primary-read in full, reused from tropical-cyclones.yaml/research/v0.2-sweep/verification-debt/tropical-cyclones.md, Item 1 — via McGill GANG group author-hosted PDF. Confirms D=1.35; paper is explicitly general tropical cloud/rain-field, never mentions tropical cyclones/hurricanes/typhoons — arguably a more direct fit for this entry than for tropical-cyclones itself, per the sweep's judgment.]"
+  luo2007:
+    citation: "Luo, Z.J. et al. (2007). Validation of the fractal dimension of cloud boundaries. Geophysical Research Letters. [snippet-verified via WebSearch, reused from planetary-climate.yaml; not independently re-verified this sweep]"
+  christensen2021:
+    citation: "Christensen, M.W. et al. (2021). The Fractal Nature of Clouds in Global Storm-Resolving Models. Geophysical Research Letters 48. [snippet-verified via WebSearch, reused from planetary-climate.yaml; not independently re-verified this sweep]"
+  peters-neelin2006:
+    citation: "Peters, O. & Neelin, J.D. (2006). Critical phenomena in atmospheric precipitation. Nature Physics 2, 393-396. doi:10.1038/nphys314. [primary-read in full via arXiv preprint cond-mat/0606076 (author's own text-identical preprint), reused/reassigned from the tropical-cyclones verification-debt sweep (research/v0.2-sweep/verification-debt/tropical-cyclones.md, Candidate B), where it was found NOT tropical-cyclone-specific and rejected there as out-of-scope. Concerns general tropical atmospheric convection/precipitation (TRMM satellite data, 4 ocean-basin regions), not extratropical cyclones/monsoons/atmospheric rivers specifically — see criticality's own justification for the scoping caveat.]"
+  sienz2010:
+    citation: "Sienz, F., Schneidereit, A., Blender, R., Fraedrich, K. & Lunkeit, F. (2010). Extreme value statistics for North Atlantic cyclones. Tellus A 62(4), 347-360. [snippet-verified via WebSearch only this sweep; original Tellus A paper NOT fetched — identified as using a Generalized Pareto Distribution (GPD) framework rather than a power-law tail exponent, flagged for a dedicated follow-up primary-read and translation pass before any value is entered under extreme_event_statistics]"
+  imd-noaa-monsoon:
+    citation: "India Meteorological Department (IMD) / NOAA Climate Prediction Center (CPC)-derived consensus figures on Indian summer monsoon season length and onset progression (~100-120 days, June-September; onset wave Andaman ~25 May to Delhi ~29 June). [snippet-verified via WebSearch, convergent domain-standard figures; no single primary paper isolated this sweep]"
+  sanders-gyakum1980:
+    citation: "Sanders, F. & Gyakum, J.R. (1980). Synoptic-Dynamic Climatology of the 'Bomb'. Monthly Weather Review 108(10), 1589-1606. [snippet-verified via WebSearch this fix pass (flag-fixer, 2026-07-02); the foundational, literature-standard bombogenesis threshold definition (central pressure fall >=24 hPa/24h normalized to 60N latitude via sin(lat)/sin(60) weighting, '1 bergeron' unit) is convergently reported across multiple secondary sources (Wikipedia 'Explosive cyclogenesis', AMS-adjacent review literature); original 1980 MWR paper NOT independently fetched/primary-read this session — flagged for a follow-up primary-read pass before promotion past draft, consistent with this entry's treatment of its other snippet-only sources]"
+  wikipedia-atmosphere-mass:
+    citation: "Wikipedia, 'Atmosphere of Earth' (total atmosphere mass 5.15e18 kg), cross-confirmed by Physics Factbook and textbook sources. [reused unchanged from planetary-climate.yaml's identical source entry, per that entry's own annotation: snippet-verified, convergent across independent sources — not a single-source claim, but not primary/peer-reviewed either]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent hand-build, v0.2 expansion, reusing tropical-cyclones/planetary-climate anchor reasoning per task instructions at every rubric column (nonlinearity, decentralization, information_processing, adaptive_capacity, self_organization, cascade_susceptibility, memory_hysteresis, robustness_resilience, modularity all carry direct comparator justifications to the adjacent nested-system entries)
+  verification:
+    citation_check: pending
+    plausibility_check: pending
+    consistency_check: pending
+    coverage_check: pending
+  flags:   # this agent's own top uncertainties, per task instructions
+    - column: numerosity
+      note: >
+        Neu et al. (2013)'s own headline finding is that 15 standard
+        algorithms applied to identical ERA-Interim input disagree by
+        roughly a factor of 3-5 on total NH extratropical-cyclone counts
+        (6,000-21,000 winter tracks over 20 years, depending on method).
+        This is recorded as an explicit range with the method-uncertainty
+        named, per the sweep's own recommendation, rather than collapsed
+        to a misleading point estimate — but it means this entry's
+        numerosity column is genuinely less clean than tropical-cyclones'
+        ~85/yr WMO figure, a real (not merely presentational) cross-entry
+        commensurability contrast worth flagging for the analysis layer.
+    - column: criticality
+      note: >
+        The Peters & Neelin (2006) citation is a reassignment, not a
+        purpose-built weather-systems study: it is rigorous and
+        primary-read, but concerns general tropical atmospheric
+        convection/precipitation over ocean basins (TRMM data), not
+        extratropical cyclones, monsoons, or atmospheric rivers
+        specifically — its data sit close to the tropical-cyclone boundary
+        this entry's own scoping note explicitly excludes. The orchestrator
+        scoping call recorded it here (as a weather-system-scale mesoscale-
+        convective-organization phenomenon, connected to this entry's own
+        MCC component) rather than deferring to a hypothetical separate
+        "tropical convection" entry; this remains a standing scoping
+        judgment call for the next revision, not a settled fact.
+    - column: energy_rate_density
+      note: >
+        No published power/mass figure for extratropical cyclones,
+        monsoons, or atmospheric rivers as a class was found this sweep —
+        a genuine literature gap, not an under-search. Tropical-cyclones'
+        own derived ~1.5-6e2 erg/s/g figure was deliberately NOT borrowed,
+        per filling_rules.no-guessing (it is a physically different,
+        narrower warm-core system's estimate). Candidate follow-up source
+        (Peixoto & Oort 1992, general-circulation energy-budget textbook)
+        identified but not checked this sweep.
+    - column: extreme_event_statistics
+      note: >
+        Sienz et al. (2010, Tellus A) is the closest extratropical-cyclone
+        -specific extreme-value-statistics paper identified but was only
+        snippet-verified via WebSearch this sweep, not primary-read. It
+        uses a Generalized Pareto Distribution (GPD) framework rather than
+        a power-law tail exponent — a genuinely different statistical
+        object from this column's "tail exponent alpha" definition — so
+        even a follow-up primary read may require an explicit translation/
+        justification before a panel-compatible value can be entered;
+        recorded unknown rather than force-fit.
+    - column: instance_population
+      note: >
+        The 2026 ERA5-based standing-population figures (~34 NH / ~28 SH /
+        5-6 Arctic cyclones at any analysis time-step) were retrieved via
+        WebFetch extraction of a publisher HTML page, not an independent
+        full-text primary read — recorded measured-untested and flagged
+        for a follow-up primary-read pass before promotion past draft.
+    - column: relations
+      note: >
+        moist-convection-cells is deliberately NOT listed in this entry's
+        own contains (reached transitively via tropical-cyclones and via
+        this entry's own component_ontology first-aggregation-level entry
+        instead) to preserve planetary-climate's declared strict
+        level-by-level hierarchy_depth ladder rather than skipping a rung;
+        this is an editorial judgment call, not a resolved reciprocity
+        fact, and should be revisited if a future moist-convection-cells
+        entry is drafted with its own explicit part_of claims.
+    # ---- flags appended by workflow-agent (flag-fixer), 2026-07-02 ----
+    # (flags block is append-only per project convention; the two prior
+    # entries below — criticality, energy_rate_density — are SUPERSEDED
+    # by the fix_log entries and the attribute values themselves, but are
+    # left in place rather than deleted/edited, per the append-only rule.)
+    - column: criticality
+      note: >
+        SUPERSEDES the prior criticality flag entry above (drafted
+        pre-fix): the score was rescored 1 -> 0 / mechanism_status:
+        proposed -> none at the 2026-07-02 flag-fix pass (consistency-check
+        finding), matching tropical-cyclones' own identical rescoring of
+        the same Peters & Neelin (2006) citation on the same grounds
+        (general tropical convection, not this entry's own scoped
+        exemplars; boundary_clarifications.published-claim-required). See
+        fix_log for the full rationale. The scoping-call tension the prior
+        note describes is now resolved in favor of the anchor's own
+        boundary_clarifications rather than the orchestrator scoping call
+        that previously kept it at 1.
+    - column: energy_rate_density
+      note: >
+        SUPERSEDES the prior energy_rate_density flag entry above (drafted
+        pre-fix): a class-general Phi_m ~2.0-2.6 erg/s/g was derived at the
+        2026-07-02 flag-fix pass (coverage-check finding) from convergent
+        WebSearch-sourced reanalysis estimates of the global atmospheric
+        Lorenz energy cycle's kinetic-dissipation rate (~2.0-2.6 W/m^2),
+        following planetary-climate.yaml's own atmosphere-mass-normalization
+        convention. Peixoto & Oort (1992) itself remains unread (a
+        WebSearch-convergent secondary characterization was used instead)
+        — still flagged as a high-priority primary-read follow-up to
+        confirm/refine the figure directly from the textbook.
+    - column: openness_dissipation
+      note: >
+        Score 3 justification updated at the 2026-07-02 flag-fix pass
+        (consistency-check + plausibility-check findings) to cite the same
+        newly-derived Lorenz-cycle wattage figure (~1.0-1.3e15 W global
+        kinetic-energy dissipation) grounding energy_rate_density above,
+        satisfying the openness_dissipation anchor's traceability
+        requirement for scores 3-4. The figure is a class-aggregate global
+        flux rather than a per-system power budget, which is the stated
+        reason the score remains at 3 rather than reaching tropical-cyclones'
+        4 (a per-storm-demonstrated figure).
+    - column: tipping_transitions
+      note: >
+        Score rescored 1 -> 2 at the 2026-07-02 flag-fix pass
+        (consistency-check finding): bombogenesis (Sanders & Gyakum 1980
+        threshold, >=24 hPa/24h normalized to 60N) is a named mechanism
+        with a published threshold, already implicit in this entry's own
+        feedback/emergence/emergent_phenomena sections but not previously
+        credited on this column. Matches tropical-cyclones' own
+        single-modeled-mechanism-is-2 precedent (rapid intensification).
+    - column: instance_population
+      note: >
+        SUPERSEDES the prior instance_population flag entry above (drafted
+        pre-fix): evidence_status reclassified measured-untested ->
+        measured (with confidence: low and the citation read-status
+        caveat retained in the attribute note) at the 2026-07-02 flag-fix
+        pass (plausibility-check finding), per panel-spec's own
+        measured-untested definition (reserved for CSN-grade tail/
+        power-law statistical-rigor caveats, not citation read-status),
+        matching this entry's own treatment of its other snippet-only
+        sources (rudeva-gulev2007, newell1992, maddox1980, zhu-newell1998).
+        Follow-up primary-read of the 2026 ERA5 paper remains an open item.
+    - column: hoskins-hodges2002 / spatial_extent
+      note: >
+        ADDED at the 2026-07-02 flag-fix pass (coverage-check finding):
+        Hoskins & Hodges (2002) was named the #2 canonical review source in
+        the original research sweep (research/v0.2-sweep/expansion/
+        weather-systems-sources.md) — the foundational NH storm-track
+        climatology paper Neu et al. (2013) itself cites as baseline — but
+        was absent from the drafted entry's sources block. Added with a
+        title-confirmed-only read-status annotation, matching the
+        treatment of rudeva-gulev2007 and era5-2026-update. Flagged as a
+        high-priority primary-read follow-up.
+    - column: self_organization
+      note: >
+        Verifier note (consistency-check, not acted on — text-accuracy
+        issue only, score unaffected): the justification's claim that the
+        self_organization anchor's own tropical-cyclones/river-networks
+        entries cite "an equivalent concentration/flux-share statistic" to
+        the atmospheric-river >90%-flux figure used here is inaccurate as
+        written (checked against self_organization.yaml directly:
+        tropical-cyclones cites spontaneous eyewall/rainband assembly;
+        river-networks cites Horton's-laws branching, neither a comparable
+        concentration statistic). The AR flux-concentration figure stands
+        on its own as sufficient evidence for score 4 without that
+        (inaccurate) appeal to anchor precedent; left unedited pending a
+        future revision pass, since the underlying score is not disputed.
+    - column: component_ontology / self_organization / spatial_extent
+      note: >
+        Coverage-check note (not acted on): the sweep report's Sahel MCC-
+        rainfall-organization figure ("80-90% of total Sahel rainfall from
+        storms >80,000-100,000 km^2 lasting >6h," overlapping the Maddox
+        1980 MCC convention already used elsewhere in this entry) is not
+        currently reflected in component_ontology's monsoon-circulations
+        entry, in self_organization's justification, or in spatial_extent's
+        detail block (Sahel spatial figures ~5,000 km east-west, 4-20N).
+        Candidate follow-up datum for a future revision, not a defect.
+    - column: component_ontology
+      note: >
+        Coverage-check note (not acted on): two count_oom sub-fields
+        (mesoscale convective complexes; convective cells/frontal zones)
+        remain unknown. MCC annual-frequency climatology (in the tradition
+        of Maddox's own follow-on work) was not searched this sweep and is
+        a plausibly fillable follow-up target for a future revision.
+    - column: component_ontology
+      note: >
+        Coverage-check note (not acted on): the "moist air parcels"
+        count_oom remains unconverted (would follow tropical-cyclones'
+        ~1e7-per-system convention scaled by this entry's larger
+        circulation volume). Honestly flagged already in the attribute
+        text as a same-session-fillable arithmetic exercise not completed
+        this sweep; left as-is pending a future revision pass or
+        orchestrator judgment on whether the derivation is worth the
+        effort.
+    - column: numerosity
+      note: >
+        Coverage-check note (not acted on, low priority, pre-existing
+        cross-entry pattern): panel-spec.yaml declares unit: count (order
+        of magnitude) for numerosity, but neither this entry's nor
+        tropical-cyclones.yaml's numerosity block carries a unit: field.
+        If addressed, should be fixed consistently across both entries
+        rather than only here.
+    - column: characteristic_timescales / numerosity (sweep-log only)
+      note: >
+        Citation-check note (not acted on): two Neu et al. (2013) figures
+        used in prose (cyclone lifetime-distribution shape; propagation-
+        speed range 20-50 km/hr, extreme >110 km/hr) could not be
+        independently re-confirmed via WebSearch this verification session
+        (the primary CentAUR PDF resists text extraction — Adobe InDesign
+        proof, image/stream-heavy). Neither claim is contradicted by
+        anything found, and both are already appropriately hedged. A
+        future primary-read pass with a text-layer-capable PDF tool could
+        close this gap.
+
+  fix_log:   # append-only; workflow-agent (flag-fixer), 2026-07-02
+    - "[FIX/citation] feedback (Klaus deepening-rate loop): independently re-verified via WebSearch this fix pass; found convergent independent case-study literature reporting Klaus at >37 hPa/24h (44 hPa/24h geostrophically adjusted to 60N), a modest discrepancy from the entry's cited 35 hPa/24h (traced to the sweep's reading of Neu et al. 2013's own Klaus case-study passage). Could not re-derive the figure directly from Neu et al. (2013) itself this pass (PDF resists text extraction — see citation-check note above), so per the flag's suggested fix applied the SOFTEN option: reworded to '~35-37 hPa/24h... case-study estimates vary slightly by 24h-window selection' with both figures and their sources acknowledged rather than silently picking one."
+    - "[FIX/plausibility] numerosity (value field): changed the headline value from the incorrect DJF-low/JJA-high collapsed range ('~6,000-28,000') that silently mixed the DJF lower bound with the JJA upper bound, to the TRUE combined range '~5,000-28,000' (DJF ~6,000-21,000 union JJA ~5,000-28,000), with both season ranges spelled out inline alongside the combined figure. The method field's own separate DJF/JJA ranges were already correct and unchanged."
+    - "[FIX/plausibility] instance_population (evidence_status): reclassified measured-untested -> measured with confidence: low, per panel-spec's definition of measured-untested as reserved for CSN-grade tail/power-law statistical-rigor caveats, not citation read-status caveats. The WebFetch-only read-status caveat for the 2026 ERA5 source is retained in the attribute note and the era5-2026-update source annotation, matching this entry's own treatment of rudeva-gulev2007/newell1992/maddox1980/zhu-newell1998 (all kept at measured with a source-level read-status caveat)."
+    - "[FIX/consistency] criticality: rescored 1 -> 0, mechanism_status: proposed -> none. Peters & Neelin (2006) is a general-tropical-convection study that never names this entry's own exemplars (extratropical cyclones, monsoons, MCCs, atmospheric rivers); the identical citation was already primary-read and rejected as out-of-scope for the sibling tropical-cyclones entry, which rescored its own criticality 1 -> 0 on the same grounds. criticality.yaml's boundary_clarifications.published-claim-required explicitly disallows the MCC-linkage inference the prior draft justification made. Rescored to match tropical-cyclones' precedent exactly."
+    - "[FIX/consistency] tipping_transitions: rescored 1 -> 2, citing bombogenesis (Sanders & Gyakum 1980, central pressure fall >=24 hPa/24h normalized to 60N latitude, '1 bergeron' unit) as a named mechanism with a published threshold — independently confirmed via WebSearch this fix pass. This entry's own feedback/emergence/emergent_phenomena sections already cited bombogenesis without it being credited on this column. Matches tipping_transitions.yaml's boundary_clarifications.single-modeled-mechanism-is-2 and tropical-cyclones' own score-2 precedent (rapid intensification). Added sanders-gyakum1980 to sources."
+    - "[FIX/consistency+plausibility] openness_dissipation: score kept at 3 (not changed) but justification updated to cite a newly-derived literal watts figure (~1.0-1.3e15 W global atmospheric kinetic-energy dissipation, from the Lorenz energy cycle, ~2.0-2.6 W/m^2 x Earth surface area), satisfying the anchor's own traceability-for-scores-3-4 requirement that was previously unmet. Explicit reasoning added for why this class-aggregate global figure does not warrant reaching tropical-cyclones' 4 (a per-storm-demonstrated power budget)."
+    - "[FIX/coverage] energy_rate_density: filled value: unknown -> ~2.0-2.6 erg/s/g (evidence_status: derived, confidence: low), derived by this project from convergent WebSearch-sourced reanalysis estimates of the global atmospheric Lorenz energy cycle's kinetic-dissipation rate (~2.0-2.6 W/m^2), converted to total watts via Earth's surface area and normalized by total atmospheric mass (5.15e18 kg), following planetary-climate.yaml's own atmosphere-mass-normalization convention for its Phi_m figure. Peixoto & Oort (1992) itself was NOT primary-read this pass (the flagged follow-up target remains open); the figure rests on WebSearch-convergent secondary characterizations of reanalysis literature, annotated accordingly in the new lorenz-cycle-reanalysis source entry. Added lorenz-cycle-reanalysis and wikipedia-atmosphere-mass (reused from planetary-climate.yaml) to sources."
+    - "[FIX/coverage] sources / spatial_extent: added hoskins-hodges2002 (Hoskins & Hodges 2002, J. Atmos. Sci. 59(6), 1041-1061) to the sources block and to spatial_extent.sources, with a title-confirmed-only read-status annotation, matching the treatment of rudeva-gulev2007 and era5-2026-update. This was named the #2 canonical review source in the original research sweep and cited by Neu et al. (2013) itself as baseline climatology, but had been dropped from the drafted entry without acknowledgment."
+    - "[NOTE] Recorded 9 note-severity verifier findings into provenance.flags above (self_organization text-accuracy issue; Sahel/MCC component_ontology cross-connection; MCC and moist-air-parcel component_ontology count_oom gaps; numerosity unit: field omission; characteristic_timescales/numerosity sweep-log citation-reconfirmation gap) per task instructions — no attribute values changed for these."

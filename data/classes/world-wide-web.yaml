@@ -1,0 +1,1067 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: world-wide-web
+# v0.2 expansion entry. Singleton class (n=1), mirroring
+# the-internet.yaml's own singleton treatment exactly — the Web
+# is the sole instance of "a global hyperlinked document graph,"
+# observed at different crawl dates, not sampled from a population.
+# ============================================================
+id: world-wide-web
+name: The World Wide Web
+category: cultural-informational
+status: verified   # promoted 2026-07-02, v0.2 expansion batch 1 — 4 verifiers + fixer + cross-entry audit clean (research/v0.2-sweep/expansion/verification/)
+
+exemplars:
+  - id: world-wide-web
+    name: The World Wide Web (the singular global system)
+    note: >
+      Singleton class — there is exactly one Web, exactly as
+      the-internet.yaml treats the Internet as a singleton (see that
+      entry's exemplars block, reused here). Per instance_population
+      below, this is an epistemic constraint on what can be claimed at
+      "class level," not a missing datum: every quantitative row in this
+      entry is a single-instance time-series measurement (the same Web
+      crawled/observed at different dates — the nd.edu-domain crawl,
+      Newman 2003 Table II, n=269,504; the Altavista crawl, ~1999-2000,
+      n~2.04e8; present-day indexed-page-count tracking, frozen at its
+      2025-01-15 value), never a sample drawn from a population of
+      comparable webs.
+
+scoping_note: >
+  The system is the World Wide Web as a hyperlinked document graph: the
+  population of HTML/web documents (pages) and the hyperlinks connecting
+  them, plus the retrieval/navigation protocols (HTTP, URLs) and indexing
+  infrastructure (search-engine crawlers, HITS/PageRank-style ranking) that
+  operate on that graph. Inside the boundary: pages, hyperlinks, the
+  page-to-page linking structure they form, and the crawling/indexing
+  processes that traverse and rank it. Outside: the physical transport and
+  routing substrate that carries HTTP traffic (routers, links, BGP,
+  packet-level dynamics — the domain of the-internet.yaml, which this
+  entry rides on top of and does not re-model), the human authors and
+  readers generating and consuming page content (out-of-scope(human), per
+  D2 — treated as the source of link/content-creation events, not modeled
+  as dynamical network components in their own right), and end-user
+  application behavior other than linking (search queries, social sharing,
+  recorded only as forcing where cited). This scoping is the direct
+  reciprocal of the-internet.yaml's own scoping_note, which explicitly
+  excludes "end-user application content and behavior (treated as
+  load/forcing on the network)" from its boundary specifically because
+  that is this entry's scope — see relations below. Atomicity per
+  filling_rules.atomicity-convention: pages (documents; the graph NODES)
+  and hyperlinks (the graph EDGES) are the atomic parts — a SINGLE-LAYER
+  atomicity choice, explicitly unlike the-internet.yaml's dual atomicity
+  (AS-nodes for topology vs. packets/flows for traffic), because the Web's
+  characteristic dynamics (linking, information retrieval, hub/authority
+  structure) all operate at one level, the document/hyperlink graph itself,
+  with no separate "traffic-layer" measurand analogous to the Internet's
+  packet arrival process. Scoring is class-general; exemplar evidence is
+  the singleton system itself, observed via named crawls/snapshots (nd.edu
+  1999, Altavista 1999-2000, present-day index tracking) per
+  instance_population.
+
+summary: >
+  The World Wide Web is a document graph that grew itself: hundreds of
+  billions of pages, linked by nobody's central plan, riding on top of
+  infrastructure (the Internet) that is itself a separate, older system.
+  No one designed its hyperlink structure — page authors made local
+  linking decisions with no reference to the graph's global shape — yet
+  that graph turned out to have a heavy-tailed, hub-dominated topology
+  well-known enough to have founded an algorithm industry (HITS,
+  PageRank) built on exploiting it. Its most-cited structural signature,
+  a power-law in-degree distribution around exponent ~2.1, is the
+  historical origin of the "scale-free web" folklore and was fit before
+  modern statistical rigor existed to test it. What is not in dispute is
+  the scale of the thing: from a few hundred documents at its 1991 debut
+  to a graph too large for its own indexers to fully count.
+
+relations:
+  part_of: [the-internet]   # RESOLVES the-internet.yaml's relations.contains: [world-wide-web] (that entry's line 71 comment: "unresolved -> roster expansion queue; content/application layer riding atop the network layer scoped by this entry"). This entry's scoping_note above states the identical boundary language from the other side: the-internet.yaml's scoping_note explicitly excludes "end-user application content and behavior (treated as load/forcing on the network)" from ITS boundary precisely because that content/application layer is what this entry (world-wide-web) scopes. The two entries' boundary language is deliberately mirror-image and load-bearing on both sides of this edge.
+  contains: []               # no existing catalog entries sit inside the Web's own boundary yet (candidate future entries: search-engines, hyperlink-based ranking systems — not yet in the roster)
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      The Web has no independent physical extent distinct from the
+      Internet's global cable/data-center footprint (which the-internet.yaml
+      records, itself only as a geometric Earth-circumference-order
+      estimate, evidence_status: qualitative, flagged low-confidence there).
+      Recorded here as not-applicable rather than duplicating that figure:
+      per this entry's scoping note, physical infrastructure is explicitly
+      outside the Web's boundary (it belongs to the-internet.yaml). Unlike
+      financial-markets' not-applicable-spatial (institutionally global,
+      physically concentrated at matching engines), the Web has no
+      analogous point-of-presence concentration either — its "location" is
+      wherever hosting infrastructure happens to sit, which is precisely
+      the Internet's domain, not this entry's.
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: page load / HTTP request-response round trip, value: "~1e0 s order of magnitude (2.5 s is the field-standard 'good' Largest Contentful Paint threshold; per the 2025 Web Almanac Performance chapter's CrUX-derived real-user data, 74% of desktop pages and 62% of mobile pages achieve 'good' LCP, i.e. LCP < 2.5 s, as of the 2025 crawl)", evidence_status: measured, confidence: medium, sources: [webalmanac2025perf], note: "upgraded from qualitative/model-knowledge (fix pass, 2026-07-02) per a coverage-verifier flag; source reports a pass-rate against the 2.5s LCP threshold from real-user CrUX data, not a directly stated median/percentile timing value in seconds — order-of-magnitude (~1e0 s) claim is supported, a tighter point estimate is not"}
+      - {name: page content update / link-rot half-life, value: "unknown", evidence_status: unknown, note: "no citable half-life figure located this session with primary or snippet-verified support; a widely-cited 'average webpage lifespan ~100 days' figure circulates in secondary/industry sources with no traced primary study and is not entered per the no-fabrication rule. Fix pass (2026-07-02) specifically chased SalahEldeen & Nelson 2013 ('Losing My Revolution') and Klein et al. 2014 ('Scholarly Context Not Found,' PLOS ONE) per a coverage-verifier flag: primary-read both (arxiv.org/abs/1209.3026 PDF via pdftotext for SalahEldeen & Nelson; search-snippet for Klein et al.) and confirmed NEITHER reports a fitted half-life — SalahEldeen & Nelson report a piecewise empirical decay curve (~11% of shared resources lost in year 1, then ~0.02%/day thereafter; 27% lost / 41% archived by 2.5 years), not a clean exponential fit with a stated half-life, and deriving one ourselves from a non-exponential curve would not be an honest evidence_status: derived value; Klein et al. report link-rot PREVALENCE (13-22% of references affected) not a half-life. A related figure was located via a secondary PMC citation (Hennessey & Ge 2013, BMC Bioinformatics, reportedly a 9.3-year median URL life) but the primary paper is paywalled and could not be fetched/verified this session — not entered, flagged in provenance.flags for a future pass with paywall access."}
+      - {name: crawl-to-crawl graph growth (nd.edu 1999 -> Altavista 1999-2000 -> present), value: "~1e9 s (system lifetime scale; the two Newman 2003 WWW snapshots are effectively contemporaneous, ~1999-2000, so this row records the SYSTEM's own age, not an inter-snapshot growth timescale)", evidence_status: qualitative, confidence: low}
+      - {name: system lifetime, value: "~1e9 s (~35 years: Berners-Lee's 1989 CERN proposal / 1991 first public site to present)", evidence_status: qualitative, confidence: medium, note: "standard historical dating (1989 proposal, 1991 first site); uncontroversial public record but no primary history paper was fetched this session, consistent with the-internet.yaml's identical treatment of its own founding dates"}
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "multi-typed — see component_ontology; no single scalar exists across pages, hyperlinks, and sites"
+    detail:
+      indexed_pages: "at least 3.98e9 (worldwidewebsize.com, frozen at its 2025-01-15 value; tracking now broken — Google has blocked the site's automated retrieval since that date, so this is a STALE snapshot, not a live 2026 figure)"
+      historical_milestone_unique_urls: "1e12 (1 trillion unique URLs Google's indexing systems had encountered as of July 2008, after exact-duplicate de-duplication — a definitionally LARGER and DIFFERENT quantity than 'pages currently indexed': URLs ever seen/crawled, not the current index. Not directly comparable to the indexed_pages figure above; recorded as a separate historical milestone, not combined into one number.)"
+      registered_domains_as_sites: "~3.9e8 (386.9 million, end-2025, DNIB/Verisign — the same figure the-internet.yaml records under its own numerosity, but framed there as the DNS NAMING LAYER; here framed as WEB SITES, the population of distinct site-level entry points into the page/hyperlink graph, one aggregation level above individual pages)"
+      graph_nodes_pages_nd_edu_1999: "269,504 (Newman 2003 Table II, nd.edu-domain crawl)"
+      graph_nodes_pages_altavista_1999_2000: "~2.04e8 (203,549,046; Newman 2003 Table II, Altavista crawl)"
+      graph_edges_hyperlinks_nd_edu_1999: "1,497,135 (Newman 2003 Table II)"
+      graph_edges_hyperlinks_altavista_1999_2000: "~2.13e9 (2,130,000,000; Newman 2003 Table II)"
+    sources: [newman2003, worldwidewebsize, google2008blog, dnib2025]
+    evidence_status: measured-disputed
+    confidence: low
+    note: >
+      measured-disputed per the-internet.yaml's identical treatment of its
+      own device-count spread: multiple distinct measurands (indexed pages
+      vs. unique URLs ever seen vs. registered domains vs. graph
+      nodes/edges at specific crawl dates) are genuinely different
+      quantities, not competing measurements of the same thing, and the
+      indexed-page-count figure specifically carries an acknowledged
+      stale-tracking methodology problem (frozen since 2025-01-15, per
+      worldwidewebsize.com's own admission that Google now blocks its
+      automated retrieval).
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "n = 1 (standing population); formation rate not applicable"
+    evidence_status: measured
+    confidence: high
+    note: >
+      Mirrors the-internet.yaml's instance_population treatment exactly:
+      the Web is a singleton, not a population of instances of a type.
+      This is a definitional/epistemic fact, not a measurement gap — it
+      governs which class-level statistical claims are legal for this
+      entry. Cross-sectional statistics below (graph node/edge counts,
+      degree exponents, clustering) are single-instance time-series
+      measurements (one system observed via different crawls at different
+      dates: nd.edu 1999, Altavista 1999-2000, present-day index-size
+      tracking), never samples from a population of independent webs.
+      Recorded as measured/high-confidence because n=1 is definitionally
+      certain, not because a survey was conducted.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: pages / documents (graph nodes)
+        count_oom: "~1e5-1e11 depending on definition and date (269,504 [~2.7e5] in the 1999 nd.edu crawl; ~2.04e8 in the 1999-2000 Altavista crawl; at least 3.98e9 currently indexed per worldwidewebsize.com's stale 2025 snapshot; true total page count, including unindexed/dark-web pages, is unmeasured and likely far larger). Range floor set by the smallest cited historical crawl (nd.edu 1999, ~2.7e5) rather than a 'current era' floor, so the stated range actually bounds all of its own cited supporting data points (fix pass, 2026-07-02: previous floor of 1e8 excluded the entry's own 1999 evidence by three orders of magnitude)."
+        interchangeable: no   # heterogeneous content, in/out-degree, and hub/authority role are load-bearing
+        itself_complex: no
+      - name: hyperlinks (graph edges)
+        count_oom: "~1e6-1e9 depending on crawl (1,497,135 in the 1999 nd.edu crawl; ~2.13e9 in the 1999-2000 Altavista crawl)"
+        interchangeable: yes
+        itself_complex: no
+      - name: web sites / registered domains (aggregation layer above pages)
+        count_oom: "~3.9e8 (386.9 million, end-2025, DNIB/Verisign)"
+        interchangeable: yes
+        itself_complex: no
+      - name: page authors / content creators (human, out of graph-structure scope)
+        count_oom: unknown
+        interchangeable: out-of-scope(human)
+        itself_complex: out-of-scope(human)
+        note: >
+          not separately measured this sweep; distinct from the-internet.yaml's
+          "human users" row (which counts all Internet users, ~6e9, a broader
+          population than the subset who author web content).
+    confidence: low
+    note: >
+      Single-layer atomicity per the scoping note: pages and hyperlinks are
+      the dynamical atoms (network-structure columns below use this graph
+      directly, with no dual-layer split analogous to the-internet.yaml's
+      AS-nodes/packets distinction). Sites and authors are adjacent
+      aggregation/generative layers, listed for completeness but not the
+      atomicity choice itself.
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Cross-references the-internet.yaml's own energy_rate_density verdict,
+      which is also unknown (mass figure rejected as unsourced/uncitable;
+      power figure scope-ambiguous between data-center-only and
+      network-wide draw). The Web has no distinguishable physical
+      infrastructure of its own separate from the Internet's — it rides
+      entirely on Internet infrastructure (the same data centers,
+      transmission links, and storage the-internet.yaml's own column
+      already covers) with no independent power or mass figure to derive
+      a Web-specific Phi_m from. This is a scoping observation, not a
+      fresh research gap: computing a Phi_m for "the Web" as distinct from
+      "the Internet" would require attributing some fraction of shared
+      infrastructure draw specifically to content/serving vs. transport,
+      a split no located source makes.
+    sources: []
+    evidence_status: unknown
+    confidence: n/a
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: hyperlinking (directed link creation)
+        mechanism: a page author embeds a directed HTML anchor pointing at another page/URL
+        participants: pages (source and target)
+        range: network-mediated
+      - name: HTTP retrieval / navigation
+        mechanism: a client (browser, crawler) requests a page over HTTP, traversing a hyperlink or typed URL
+        participants: pages <-> retrieving agents (users, crawlers)
+        range: network-mediated
+      - name: crawling / indexing
+        mechanism: automated agents systematically traverse the hyperlink graph to build a searchable index (and, for HITS/PageRank-style algorithms, compute hub/authority or importance scores from link topology alone)
+        participants: crawler/indexer <-> the page graph
+        range: global
+      - name: search-driven navigation
+        mechanism: users query a search index (built from the crawl) and follow ranked results, a distinct discovery channel from direct hyperlink-following
+        participants: users <-> search index <-> pages
+        range: global
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      The interaction alphabet is fixed by web standards (HTML/HTTP/URL
+      specifications) — a page cannot invent a new fundamental linking
+      mechanism outside the anchor-tag/HTTP-request model — but the
+      alphabet has evolved through standards-body governance (HTML/HTTP
+      versions, structured-data/schema.org markup, the rise of API-driven
+      "invisible web" retrieval). Same "constrained" reasoning as
+      the-internet.yaml's own protocol alphabet (BGP/IP/DNS) and
+      financial-markets' exchange rulebook: a fixed formal set that
+      changes only through institutional/standards process, between a
+      physics-closed alphabet (hurricanes) and a fully open one (language).
+
+      Per filling_rules.interaction-typing, individuation is by
+      mechanism/carrier, not outcome (the rule's own worked example: buy
+      and sell orders are one type, not two, because they share a carrier).
+      "HTTP retrieval / navigation" and "search-driven navigation" both use
+      HTTP request-response as their transport carrier, but they are kept
+      as separate types here because they differ in MECHANISM, not merely
+      outcome: direct navigation is a two-participant channel (retrieving
+      agent <-> page, mediated by a hyperlink or typed URL the agent
+      already possesses), while search-driven navigation is a
+      three-participant, index-mediated discovery channel (user -> search
+      index -> ranked results -> page) with a distinct causal step — the
+      index's HITS/PageRank-style computation over link topology — that
+      has no analogue in direct hyperlink-following. The carrier (HTTP) is
+      shared, but the discovery mechanism (how the target URL is arrived
+      at) is not, which is the load-bearing distinction the rule asks for,
+      not a same-mechanism/different-sign split like buy vs. sell orders.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: "power-law in/out-degree exponents; TWO independent crawls plus one earlier, differently-sourced dataset all cluster near alpha~2.1-2.7, but with disputed rigor and an unconfirmed status for later CSN-2009-grade re-testing (see note)"
+    measurand: "directed hyperlink-graph in-degree and out-degree distributions (page-level; a page's in-degree = number of pages linking TO it, out-degree = number of pages it links FROM it)"
+    method: >
+      THREE separate measurements, none independently re-fit by this
+      project, all pre-CSN methodology:
+
+      (1) Newman 2003 Table II, WWW (nd.edu domain): n=269,504 pages,
+      m=1,497,135 hyperlinks, mean degree z=5.55, mean geodesic distance
+      l=11.27, in/out-degree exponents alpha=2.1/2.4, clustering
+      C^(1)=0.11 (global transitivity), C^(2)=0.29 (mean local clustering),
+      assortativity r=-0.067 (weakly disassortative). [primary-read, Phase
+      1; reused per the-internet.yaml's identical treatment of its own
+      Newman 2003 AS-graph row]
+
+      (2) Newman 2003 Table II, WWW (Altavista crawl, ~1999-2000):
+      n=203,549,046 pages (~2.04e8), m=2,130,000,000 hyperlinks (~2.13e9),
+      z=10.46, l=16.18, in/out-degree exponents alpha=2.1/2.7. Clustering
+      and assortativity not given in Table II (dashes — too large to
+      compute at the time). [primary-read, Phase 1]
+
+      (3) Barabasi & Albert 1999 (Science 286:509): N=325,729 pages, mean
+      degree k=5.46, IN-DEGREE-ONLY exponent gamma=2.1+/-0.1 — no
+      out-degree exponent reported anywhere in the paper. Credited to a
+      separate, earlier reference (their citation 6, not independently
+      traced this session; likely Albert, Jeong & Barabasi 1999, "Diameter
+      of the World-Wide Web," Nature 401:130 — a DIFFERENT, earlier,
+      smaller nd.edu-domain crawl from Newman's own "nd.edu domain" row
+      above, despite the shared institutional label; NOT confirmed
+      identical to Newman's dataset, and NOT treated as such here per the
+      no-fabrication rule). [PRIMARY-READ this session, pdftotext
+      extraction of a stable mirror after WebFetch's own PDF parse garbled
+      Greek-letter/exponent characters; exact quotes: "(B) WWW, N =
+      325,729, k = 5.46 (6)"; "gamma_www = 2.1 +/- 0.1"]
+
+      Broido & Clauset (2019)'s CSN-2009-grade six-rung taxonomy
+      (Not-Scale-Free < Super-Weak < Weakest < Weak < Strong < Strongest),
+      already applied to the Internet's AS-level graph in
+      the-internet.yaml (finding a confirmed ~50/50 Weakest/Strong split
+      for CAIDA autonomous-systems networks), does NOT separately name
+      WWW/hyperlink graphs anywhere in the technological-networks passage
+      already primary-read for that entry — only CAIDA-AS networks,
+      "several peer-to-peer networks," and "a few digital circuit
+      networks" are named. Whether their broader ~1,000-network corpus
+      classifies WWW/hyperlink graphs under a different domain heading
+      (e.g., information networks) at all is UNCONFIRMED, not negative —
+      a literature gap in this project's own research (the full
+      supplementary corpus/SFAnalysis repository was not fetched), not a
+      confirmed absence in the paper. This entry does NOT assume the
+      CAIDA-AS ~50/50 Weakest/Strong verdict transfers to WWW graphs.
+    sources: [newman2003, barabasialbert1999, broido-clauset2019]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      Per filling_rules.power-law-rigor: all three exponent measurements
+      (Newman's two crawls, Barabasi & Albert's) predate CSN-2009-grade
+      testing (MLE fit + goodness-of-fit + comparison against alternative
+      heavy-tailed distributions) and are recorded measured-untested, the
+      identical treatment the-internet.yaml gives its own Newman 2003
+      AS-graph alpha=2.5 claim. This is the historical origin of the "the
+      Web is scale-free, gamma~2.1" folklore that Broido & Clauset (2019)
+      later stress-tested at the network-corpus level for OTHER
+      technological networks (CAIDA-AS) but, per the above, not confirmed
+      either way for WWW/hyperlink graphs specifically — the folklore's
+      CSN-grade status for THIS graph type remains untested rather than
+      vindicated or debunked. Directed-graph structural note: unlike
+      the-internet's undirected AS-topology treatment, this graph is
+      DIRECTED, with separate in- and out-degree exponents that must not
+      be silently averaged or conflated.
+
+  modularity:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      No published modularity Q for the hyperlink graph was located in
+      this sweep. Per this class's closest worked comparator
+      (the-internet anchor, modularity.yaml, score 2): the Web's link
+      structure shows real, citable community-like organization —
+      Kleinberg's (1999) HITS algorithm's entire premise is that a query
+      topic induces a "hub and authority" bipartite-like substructure
+      recoverable from link topology alone, and thematically/
+      linguistically/nationally clustered subgraphs (topic communities,
+      country-code-domain clusters) are well documented in the broader web-
+      science literature — but no dedicated Q value for a specific WWW
+      snapshot was recovered this sweep. Scored 2 (moderate, identifiable
+      modularity) by analogy to the-internet's AS-graph placement, using
+      Newman 2003's own WWW nd.edu clustering figures (C^(2)=0.29 mean
+      local clustering) as loose corroborating context, not a modularity Q
+      itself — a verified published Q for a specific WWW crawl would
+      supersede this qualitative placement.
+    sources: [newman2003, kleinberg1999]
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared, parallel to the-internet.yaml's and
+      financial-markets' level-counting choices): pages (atoms) ->
+      sites/domains (1, an aggregation of pages under one registered
+      domain) -> the single global page/hyperlink graph (2). Individual
+      hyperlinks are interaction substrate/tokens (the graph's edges), not
+      a separate counted aggregation level — consistent with
+      the-internet.yaml treating routers/links as sub-AS infrastructure
+      and financial-markets treating orders as interaction substrate, not
+      levels. Shallower than the-internet's 3-level convention (AS nodes
+      -> provider tiers -> regional fabrics -> global graph) because the
+      Web has no analogue to the Internet's Tier-1/Tier-2/Tier-3 transit
+      hierarchy — sites do not have a formal peering/transit relationship
+      with each other the way ASes do; the only real aggregation step is
+      pages-into-sites.
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      No primary SPATIAL structure exists for the hyperlink graph — unlike
+      the-internet.yaml's router/AS geographic-placement fractal dimension
+      (Yook, Jeong & Barabasi 2002, D_f=1.5, a property of physical router
+      LOCATION), the Web's pages have no inherent physical location of
+      their own distinct from the hosting infrastructure's location, which
+      is the-internet.yaml's own scope, not this entry's. Whether a
+      fractal dimension has been measured for the hyperlink GRAPH's link
+      structure itself (a graph-theoretic, not geographic, fractal
+      measure) was not searched this sweep and remains an open question
+      for a future pass, distinct from this not-applicable verdict on
+      physical/geographic fractal structure.
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      No single authority controls page creation or hyperlink placement —
+      any page author can link to any URL unilaterally, the same
+      "predominantly distributed" character the-internet.yaml's own
+      routing layer earns a 3 for. Narrow coordination points exist: the
+      W3C (HTML/HTTP standards), ICANN/domain registrars (site naming, a
+      layer this entry shares with the-internet.yaml's own decentralization
+      column), and dominant search engines (Google) exercise real,
+      concentrated influence over DISCOVERABILITY (crawling/indexing/
+      ranking decisions materially shape which pages are found), which
+      keeps this below a 4. But per the decentralization anchor's own
+      cross-column note ("score the layer where the system's characteristic
+      behavior lives, not the bookkeeping layer"): the graph's
+      characteristic structure-forming behavior — who links to whom — is
+      itself fully distributed, with no entity able to add or remove an
+      edge in another page's link structure. Scored 3, matching
+      the-internet's placement, for the identical reason: coordination is
+      real but scoped to bookkeeping/discoverability, not moment-to-moment
+      link-graph formation.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      The Web's core generative process — a page author decides to add a
+      hyperlink — is not itself governed by nonlinear equations of motion
+      in the sense the panel's physical/market anchors are (compare
+      tropical-cyclones' nonlinear moist-thermodynamic coupling or
+      financial-markets' multiplicative order-flow dynamics). Preferential
+      attachment models of web-graph growth (new pages disproportionately
+      link to already-popular pages) are a multiplicative/rich-get-richer
+      mechanism and could be read as mildly nonlinear at the population
+      level, but this is a STATISTICAL growth-model description of the
+      graph's evolution, not evidence of nonlinear dynamics in the
+      hyperlink-formation process itself (an individual link-creation
+      decision is not multiplicatively coupled to other links the way a
+      market order is coupled to other orders via price). Scored 1
+      (dominant dynamics linear to first order; nonlinear terms weak or
+      peripheral), below the-internet's 2 (which has genuinely nonlinear
+      congestion-control and BGP dynamics in its scope) — the Web's own
+      scoped dynamics (linking, retrieval, indexing) have no comparably
+      documented nonlinear mechanism.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 2
+    loops:
+      - {name: "preferential attachment / rich-get-richer linking", sign: reinforcing, mechanism: "a highly-linked-to page is easier to discover (via search rankings and organic browsing) -> more authors link to it -> its in-degree and search rank rise further -> loops back to (easier discovery); the generative mechanism behind the degree_distribution column's heavy right tail"}
+      - {name: "search-engine ranking feedback", sign: reinforcing, mechanism: "HITS/PageRank-style algorithms compute authority scores FROM link topology -> high-authority pages surface higher in results -> higher visibility drives more incoming links and traffic -> reinforces authority score"}
+    justification: >
+      Two documented reinforcing loops materially shape the graph's
+      degree-distribution shape and the search/discovery ecosystem built
+      on top of it, but they are not the totalizing, continuously
+      dominant organizing description of every page-creation or linking
+      decision the way WISHE is for a hurricane (score 4) or momentum/
+      herding is close to for markets (score 3) — most individual linking
+      decisions are content-driven (an author cites a source, a blogger
+      references an article) rather than loop-driven, and no balancing/
+      damping loop of comparable documented strength was located this
+      sweep. Scored 2 (loops matter at the margins/in specific dynamics —
+      here, the degree-distribution shape and search-visibility economy —
+      not continuously across the system's modal behavior), one step
+      above the-internet's 2 for a comparable reason (its loops, TCP AIMD
+      and BGP route-flap propagation, are similarly episodic/marginal
+      relative to modal traffic).
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      The Web as scoped (the page/hyperlink graph and its retrieval/
+      indexing processes) has no independent literal physical energy or
+      matter throughput of its own — per this entry's energy_rate_density
+      verdict (unknown) and its scoping note, ALL physical energy flux
+      (data-center power, transmission links) belongs to the-internet.yaml's
+      boundary, not this one. Scored 1 rather than 0 (at or approaching
+      equilibrium) because the graph's existence is not literally
+      equilibrium-independent either — serving, crawling, and indexing
+      pages requires continuously renewed electrical throughput in the
+      shared infrastructure substrate — but that throughput belongs to the
+      Internet layer per this entry's own boundary, exactly the same
+      "one-below-the-substrate-owner" reasoning the-internet.yaml itself
+      does not need to invoke (it owns the substrate) but financial-markets
+      and languages both do for their own infrastructure-adjacent but
+      not infrastructure-owning position. Lower than the-internet's own
+      score of 2, because this entry explicitly scopes the physical flux
+      OUT of its boundary rather than partially in.
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No Lyapunov-exponent, predictability-horizon, or sensitive-
+      dependence study for Web-graph growth or linking dynamics was
+      located or sought this sweep (a confirmed literature gap, not a
+      negative finding from a dedicated search). Unlike the-internet
+      (scored 1, on the strength of documented transient-instability
+      sub-processes — BGP route-flap storms, congestion-control
+      oscillation — that at least weakly qualify as localized
+      amplification), no analogous sub-process was identified for the
+      Web's own scoped dynamics (link creation, crawling, ranking) in this
+      sweep. Scored at the floor per the anchor's level-0 definition
+      (no evidence of sensitive dependence in the dominant dynamics) —
+      the honest default in the absence of ANY located candidate
+      mechanism, rather than inheriting the-internet's 1 by association
+      with a different (transport-layer) system.
+    evidence_status: qualitative
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      Per the criticality anchor's own boundary_clarifications
+      (events-not-structure): the Web's static, heavy-tailed degree
+      distribution (recorded under degree_distribution) is a TOPOLOGY
+      claim, not an EVENT-statistics claim, and does not count toward this
+      column — the identical reasoning the-internet.yaml applies to its
+      own AS-graph degree distribution. For actual dynamical EVENTS
+      generated by the Web's own scoped system (page-creation bursts,
+      viral-linking cascades, link-rot events), no primary source
+      establishing a rigorously fit power-law event-size distribution was
+      located or sought this sweep, and no SOC or critical-point mechanism
+      for any such Web-internal event class has been formally proposed.
+      Scored 0 rather than the-internet's 1: the-internet earns 1 on
+      "informal/claimed-untested heavy-tailedness of outage impact...
+      discussed in engineering literature"; no comparable informal claim
+      for a Web-internal event class (as opposed to the well-attested
+      topology claim) was located this sweep, so the honest floor score
+      applies per filling_rules.no-guessing rather than inheriting
+      the-internet's 1 by analogy.
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: "candidate Web-internal event distributions (viral-content size/spread, link-rot event timing, page-popularity rank-size) — none located with a citable rigorous fit this sweep"
+    method: >
+      No dedicated search for a Web-specific EVENT distribution (as
+      opposed to the static topology/degree-distribution claim recorded
+      separately above) was conducted this sweep. Page-popularity/traffic
+      rank-size distributions, if pursued, would be measurand_type
+      static-cross-sectional (a Zipf-style snapshot, no event structure)
+      per the panel-spec's own explicit example of the distinction this
+      column enforces — NOT the same claim as a temporal-event
+      distribution of, e.g., viral-sharing cascade sizes over time,
+      which would require a genuinely different, event-structured
+      dataset not located this sweep either. Recorded unknown per
+      filling_rules.no-guessing rather than guessed toward either
+      measurand_type.
+    sources: []
+    evidence_status: unknown
+    note: >
+      Legal, explicit "unknown," consistent with the-internet.yaml's
+      identical treatment of its own cascade/outage-size column (also
+      unknown, also flagged as a standing literature gap rather than a
+      confirmed negative).
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No established measurand was located or chosen for the Web's own
+      scoped dynamics this sweep. The Internet's own H~0.85-0.95
+      (Leland et al. 1993/1994) is EXPLICITLY a traffic/packet-layer
+      measurand belonging to the-internet.yaml's own dual-atomicity
+      scope (self-similarity of packet arrival processes), not a
+      Web/hyperlink-graph property — it does not transfer to this entry
+      per the-internet.yaml's own stated boundary. No candidate
+      Web-graph-specific temporal-correlation measurand (e.g.,
+      autocorrelation of link-creation rate, or of index-size growth)
+      was identified this sweep. Left unknown rather than stretched, per
+      filling_rules.no-guessing.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No regime-shift, bistability, or alternative-stable-state literature
+      for the Web as a whole graph/system was located or sought this
+      sweep. Retained as a deliberate floor anchor, matching
+      the-internet's own 0: highly distributed, redundant information
+      systems built from independent local decisions are not automatically
+      tipping-prone, and no specific bifurcation/threshold mechanism
+      (analogous to tropical-cyclones' rapid intensification or
+      financial-markets' bubble-crash models) has been formally proposed
+      for Web-graph dynamics in any source consulted this sweep.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      The hyperlink graph's current structure is a textbook case of
+      structural path-dependence, directly parallel to the-internet
+      anchor's AS-topology reasoning (score 2 there): today's hub
+      structure (which pages/sites accumulated the most in-links) reflects
+      the historical order in which pages were created and linked, not
+      just current content quality or relevance — a page created today
+      with identical content to an early-Web landmark page would not
+      reproduce its accumulated in-degree, because preferential attachment
+      (recorded under feedback) compounds historical linking advantage.
+      Scored 2, not higher, because there is no measured hysteresis LOOP
+      or bistability at the operational level (no published loop-width
+      analogous to AMOC's freshwater-forcing hysteresis or even markets'
+      volatility-regime scarring) — link-rot and dead-link cleanup mean
+      individual structural traces DO decay, unlike a language's permanent
+      etymological fossils (scored 4). Same "real structural
+      path-dependence, no measured loop" reasoning the-internet.yaml gives
+      its own AS-graph.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per the information_processing anchor's own cross-reference note
+      (engineered systems like the-internet, scored 3, "for the same
+      SCADA/protocol reasons as ERCOT"): search/ranking algorithms
+      operating on the Web graph are a genuine, state-dependent
+      detection-transmission-response system — HITS and PageRank-style
+      algorithms DETECT link-topology patterns (hub/authority scores,
+      iteratively computed), and downstream ranking/retrieval behavior is
+      demonstrably conditioned on this constructed state (a page's
+      computed authority score, not merely its raw in-degree count or
+      content). This clears the does_not_count bar decisively: it is not
+      mere signal propagation, and multiple integrated channels exist
+      (link topology, query text, click/usage signals in modern ranking
+      systems). Held at 3 rather than 4 (reserved for aggregating
+      genuinely dispersed PRIVATE information into an emergent public
+      statistic no participant holds, as with NYSE price formation):
+      search ranking aggregates PUBLIC link-topology information that is,
+      in principle, fully visible to any crawler, rather than dispersed
+      private signals — a real but narrower aggregation claim than price
+      discovery's.
+    sources: [kleinberg1999]
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Scored with page authors and site operators inside the boundary as
+      the source of link-creation decisions (per the scoping note's
+      component_ontology, out-of-scope(human) as dynamical atoms but their
+      link-creation ACTIONS are the events this column scores, the same
+      convention power-grids uses for its operators): authors and site
+      operators do change behavior systematically in response to outcomes
+      — search-engine-optimization practice is a direct, widespread
+      example of link/content strategies being revised because of
+      observed ranking outcomes, and dead/broken links get pruned or
+      redirected. This is real behavioral adaptation via selection among
+      strategies (SEO tactics that work are retained and imitated; those
+      that get penalized by ranking-algorithm updates are abandoned), but
+      it is not the pervasive, anticipatory, multi-level adaptation
+      earning financial-markets its 4 — most individual linking decisions
+      remain simple content-citation choices with no strategic revision
+      loop at all. Scored 2 (some components systematically change
+      behavior via feedback or selection among fixed rules, without
+      anticipation or internal models), matching the-internet's own
+      institutional-level-only placement for a structurally similar
+      reason: real but not pervasive/anticipatory.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Variation exists among competing linking strategies, content
+      formats, and site-architecture practices (SEO approaches, content
+      types); selection operates via ranking-algorithm visibility (pages/
+      sites/strategies that fail to earn links or satisfy ranking criteria
+      become undiscoverable, the functional equivalent of extinction for a
+      web resource) and via direct link-rot/removal; retention through
+      imitation of successful patterns and, at the standards level,
+      institutional codification (W3C recommendations, schema.org
+      adoption). Weaker and less centrally documented than
+      financial-markets' continuous strategy churn, but a real, present
+      mechanism, parallel to the-internet's own "present" verdict for
+      protocol/routing-policy variation-selection.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Aggregate Web structure shows recognizable macro-level patterns not
+      obvious from a single hyperlink's existence by inspection — the
+      heavy-tailed degree distribution, hub/authority bipartite-like
+      substructure (Kleinberg 1999's entire algorithmic contribution rests
+      on this being a real, exploitable pattern), and topic/community
+      clustering are all pattern-specific vocabulary web scientists use
+      routinely ("hub," "authority," "topic cluster"). However, unlike
+      price formation (financial-markets, 4) or even the Internet's own
+      congestion-collapse macro-pattern, there is no single widely
+      load-bearing order parameter the field organizes around to explain
+      and predict Web-graph behavior as a whole — web/network science
+      reasons at the level of specific algorithms (PageRank, HITS) applied
+      to specific snapshots, rather than via a formalized macro effective
+      theory of the graph's evolution. Scored 2, matching the-internet's
+      own placement for a parallel reason: real macro-pattern with
+      dedicated vocabulary, not yet a formalized order-parameter-level
+      theory.
+    sources: [kleinberg1999]
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The Web's substrate (HTML, HTTP, the URL/anchor-tag mechanism) is
+      designed, but unlike the-internet (scored 2: a designed substrate
+      hosting spontaneous topology/traffic on top of an engineered Tier-1/
+      Tier-2/Tier-3 transit skeleton), the Web's characteristic
+      STRUCTURE-FORMING mechanism itself — which page links to which — has
+      essentially no designed skeleton at all beyond the bare technical
+      protocol: there is no analogue to BGP peering agreements or exchange
+      rulebooks governing WHERE links form. Every hyperlink is an
+      individually, locally authored decision, and the graph's global
+      shape (hub dominance, clustering, degree distribution) is a pure
+      emergent consequence of millions of uncoordinated authoring choices
+      with no institutional templating of the link structure itself
+      (contrast the-internet's Tier-1/Tier-2 hierarchy, which IS
+      institutionally templated by peering economics and regulation).
+      Scored 3 (predominantly spontaneous order; external templating
+      present but marginal to the system's characteristic structure) —
+      one step above the-internet's 2, reflecting that the Web's
+      link-graph-formation process has even less structural templating
+      than the Internet's topology-formation process. Per the anchor's
+      cross-column note, this may create a real tension with
+      decentralization's 3 (same score here, unlike the-internet's
+      2-vs-3 disagreement) — recorded as the two columns simply agreeing
+      for this system, not forced to diverge.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The Web as a whole graph absorbs the loss of individual pages, sites,
+      and even entire domains (link rot, site shutdowns, service
+      discontinuations) continuously without loss of overall function —
+      alternate paths through the graph, redundant content, and
+      re-indexing by search engines route around missing nodes much as
+      the-internet's routing layer routes around damaged links (scored 3
+      there for the identical reasoning). Known systemic degradation modes
+      exist (widespread link rot degrading historical navigability,
+      concentration risk if a small number of platforms/CDNs host a large
+      fraction of content) that produce real but so-far-recoverable
+      degradation — scars (dead links, archived-but-inaccessible content)
+      rather than identity loss of the graph as a whole. Scored 3, not 4,
+      by the same normalization the-internet and financial-markets both
+      apply: known destructive event classes exist (a catastrophic,
+      coordinated loss of major hosting/CDN infrastructure, or of the
+      DNS/naming layer this entry's boundary excludes but depends on)
+      that would test the system beyond its demonstrated recovery
+      envelope.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Link-rot propagation (a page removal breaking many other pages'
+      outbound links) and site-outage-driven "404 cascades" are plausible
+      and informally discussed in web-archiving and digital-preservation
+      literature, but no dedicated empirical or model-based study
+      establishing a fitted cascade-size distribution for the Web's
+      hyperlink graph (analogous to Dobson et al.'s blackout work or even
+      the-internet's own graph-theoretic BGP-cascade simulation studies)
+      was located or sought this sweep. Scored 1 (local failure
+      propagation is plausible/informally discussed, no dedicated
+      cascade-size study), matching the-internet's own placement and
+      reasoning exactly — propagation is real and discussed, but nothing
+      rises to a level-2 dedicated study.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Hub/authority structure
+    order_parameter: HITS hub and authority scores (Kleinberg 1999); PageRank-style importance scores
+  - name: Heavy-tailed degree distribution
+    order_parameter: in-degree and out-degree power-law exponents (alpha ~ 2.1-2.7 across crawls)
+  - name: Topic/community clustering
+    order_parameter: link-density-based community structure (qualitative; no published modularity Q recovered this sweep)
+  - name: Search-driven discoverability concentration
+    order_parameter: ranking-score distribution governing which pages receive traffic/attention
+
+sources:
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167-256. Table II, WWW rows (nd.edu domain crawl and Altavista crawl). [primary-read, Phase 1; reused per the-internet.yaml's identical newman2003 source-key and citation string — Full text and Table II retrieved and read, research/phase1/quantitative-backbone.md]"
+  barabasialbert1999:
+    citation: "Barabasi, A.-L. & Albert, R. (1999). Emergence of Scaling in Random Networks. Science 286(5439), 509-512. DOI: 10.1126/science.286.5439.509. [PRIMARY-READ this session — fetched via a stable mirror (pdodds.w3.uvm.edu/files/papers/others/1999/barabasi1999a.pdf); WebFetch's own PDF parse garbled Greek-letter/exponent characters, so the raw PDF was re-extracted directly with pdftotext -layout (Git-Bash-bundled poppler) and read as raw text. Exact quotes obtained: '(B) WWW, N = 325,729, k = 5.46 (6)'; 'gamma_www = 2.1 +/- 0.1'. Measures IN-DEGREE ONLY; no out-degree exponent reported.]"
+  broido-clauset2019:
+    citation: "Broido, A.D. & Clauset, A. (2019). Scale-free networks are rare. Nature Communications 10, 1017. DOI: 10.1038/s41467-019-08746-5. arXiv:1801.03400. [primary-read via the-internet.yaml's own verification-debt pass (direct pdftotext extraction of arxiv.org/pdf/1801.03400), reused/re-examined this session rather than re-fetched. Confirms the six-rung taxonomy and the CAIDA-AS ~50/50 Weakest/Strong split; the technological-networks passage names CAIDA autonomous-systems, peer-to-peer, and digital-circuit networks specifically — WWW/hyperlink graphs are NOT named in that passage. Whether the broader corpus separately classifies WWW graphs under a different heading is unconfirmed (full corpus/supplementary data not fetched).]"
+  kleinberg1999:
+    citation: "Kleinberg, J.M. (1999). Authoritative sources in a hyperlinked environment. Journal of the ACM 46(5), 604-632. (Preliminary versions: SODA 1998; IBM Research Report, May 1997.) [primary-read (fix pass, 2026-07-02) — direct pdftotext -layout extraction of the Cornell-hosted PDF (cs.cornell.edu/home/kleinber/auth.pdf), correcting an earlier WebFetch/model-summarized snippet-verified pass that misstated the paper's dataset-scale figures. Core HITS-algorithm contribution confirmed. ACTUAL stated experimental parameters (exact quotes): root set parameter t 'typically set to about 200' pages ('For a parameter t (typically set to about 200), we first collect the t highest-ranked pages for the query...'); expanded base set S 'generally in the range 1000-5000' pages ('We find that S typically satisfies points (i), (ii), and (iii) above -- its size is generally in the range 1000-5000'). No '~2,000-page' or '~20,000-page' figure of any kind appears anywhere in the primary text — the previous citation string's numbers were incorrect and have been removed.]"
+  worldwidewebsize:
+    citation: "WorldWideWebSize.com (de Kunder, M., ongoing tracking study) — at least 3.98 billion indexed pages, most recent update 2025-01-15; the site states Google has blocked its automated data retrieval since that date, so the figure is frozen/stale, not live. Methodology: combines Google/Bing/Yahoo/Ask index-size estimates via daily word-frequency sampling against a >1M-page DMOZ background corpus. [snippet-verified this session; underlying methodology paper (de Kunder et al., Scientometrics, 'Estimating search engine index size variability: a 9-year longitudinal study') identified by title/venue via search snippet only, not itself primary-read]"
+  google2008blog:
+    citation: "Google Official Blog, 'We knew the web was big...' (2008-07-25) — Google's indexing systems had processed 1 trillion (1,000,000,000,000) unique URLs on the web at once, as of July 2008, after de-duplication of exact-duplicate URLs. [snippet-verified this session, via archived copy of googleblog.blogspot.com]"
+  dnib2025:
+    citation: "Domain Name Industry Brief (DNIB), Q4/annual 2025 — 386.9 million registered domains globally, +22.7 million / +6.2% y/y. [snippet-only: secondary aggregator summary of the DNIB report; reused per the-internet.yaml's own identical dnib2025 source-key and citation string. DNIB/Verisign is the primary publisher but was not opened directly.]"
+  webalmanac2025perf:
+    citation: "Jariyal, H., Rasam, P., Humaira & Grogg, A.T. 'Performance,' Chapter 7, The Web Almanac 2025 (HTTP Archive). https://almanac.httparchive.org/en/2025/performance — CrUX (Chrome UX Report) real-user field data: 74% of desktop pages and 62% of mobile pages achieve 'good' Largest Contentful Paint (LCP < 2.5 s) as of the 2025 crawl. [snippet-verified this session (fix pass, 2026-07-02) via WebFetch of the chapter page; no directly-stated median/percentile LCP timing value in seconds was located in the fetched passage, only the pass-rate against the 2.5s threshold — sufficient to support an order-of-magnitude (~1e0 s) timescale claim, not a tighter point estimate.]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  verification:
+    citation_check: flagged (2026-07-02); fixes applied by workflow-agent (flag-fixer), 2026-07-02
+    plausibility_check: flagged (2026-07-02); fixes applied by workflow-agent (flag-fixer), 2026-07-02
+    consistency_check: flagged (2026-07-02); fixes applied by workflow-agent (flag-fixer), 2026-07-02
+    coverage_check: flagged (2026-07-02); fixes applied by workflow-agent (flag-fixer), 2026-07-02
+  flags:
+    - column: relations.part_of
+      note: >
+        This entry declares part_of: [the-internet], reciprocating
+        the-internet.yaml's existing relations.contains: [world-wide-web]
+        (that file's line ~71 comment explicitly flagged this as
+        "unresolved -> roster expansion queue" pending this batch). The
+        the-internet.yaml file itself has NOT been edited by this drafting
+        pass per instructions (fixer stage handles any remaining mismatch);
+        the validator's relations-reciprocity check should now pass this
+        edge cleanly since the-internet.yaml already lists world-wide-web
+        under contains.
+    - column: degree_distribution
+      note: >
+        Barabasi & Albert (1999)'s N=325,729 WWW dataset (their reference
+        6) was not independently traced to confirm or deny identity with
+        Newman 2003's own "WWW (nd.edu domain)" row (N=269,504) — both are
+        nd.edu-domain crawls from the same 1998-1999 era but are NOT
+        confirmed to be the same underlying dataset, and are recorded as
+        three separate measurements accordingly. Re-verify by tracing
+        Barabasi & Albert's reference 6 (likely Albert, Jeong & Barabasi
+        1999, Nature 401:130) if the distinction becomes load-bearing for
+        analysis.
+    - column: degree_distribution
+      note: >
+        Whether Broido & Clauset (2019)'s ~1,000-network corpus separately
+        classifies WWW/hyperlink graphs at all (under any domain heading)
+        remains unconfirmed — a literature gap in this project's own
+        research (the technological-networks passage already primary-read
+        names CAIDA-AS, P2P, and digital-circuit networks specifically but
+        not WWW), not a confirmed absence in the paper. This entry
+        deliberately does NOT assume the CAIDA-AS ~50/50 Weakest/Strong
+        verdict transfers to WWW graphs. Re-verify against the paper's
+        full corpus/SFAnalysis repository if a definitive answer is
+        needed.
+    - column: numerosity
+      note: >
+        The indexed-page-count figure (worldwidewebsize.com, >=3.98e9) is
+        a frozen 2025-01-15 snapshot whose own tracking methodology is now
+        broken (Google blocks automated retrieval as of that date) — it is
+        explicitly NOT a live 2026 figure and should be re-verified or
+        replaced if a current tracking method is later identified. It is
+        also definitionally incommensurable with Google's 2008 "1 trillion
+        unique URLs" milestone (indexed pages currently in an index vs.
+        all URLs ever encountered/crawled) — the two are recorded
+        separately in numerosity.detail and must not be combined or
+        compared as if measuring the same thing.
+    - column: characteristic_timescales
+      note: >
+        Page-load-time and system-lifetime rows are order-of-magnitude,
+        largely [unverified — model knowledge] estimates; no dedicated
+        page-load-time study or Web-history primary source was fetched
+        this sweep. A widely-circulated "average webpage lifespan ~100
+        days" link-rot figure was found in secondary/industry sources
+        with no traced primary study and was deliberately NOT entered,
+        per the no-fabrication rule; that row is recorded unknown instead.
+    - column: modularity / fractal_dimension_spatial / temporal_correlation / extreme_event_statistics
+      note: >
+        Four columns recorded qualitative/unknown/not-applicable this
+        sweep represent confirmed literature gaps from a single sweep
+        pass, not confirmed negative results: no dedicated search for a
+        published WWW-graph modularity Q, hyperlink-graph fractal
+        dimension, Web-specific temporal-correlation measurand, or
+        Web-internal event-size distribution was conducted. Each is a
+        candidate for a future targeted research pass, flagged
+        individually in-column above.
+    - column: characteristic_timescales
+      severity: note
+      note: >
+        [Recorded from adversarial verification, 2026-07-02] The
+        crawl-to-crawl graph growth row and the system lifetime row both
+        carry value ~1e9 s, and the crawl-to-crawl row's own text admits
+        it records the system's own age, not a genuine inter-snapshot
+        growth timescale, because the two Newman 2003 WWW crawls
+        (nd.edu 1999, Altavista 1999-2000) are effectively contemporaneous.
+        Honestly disclosed, not fabricated, but leaves two of the four
+        timescale rows numerically and conceptually redundant under
+        different names. Not fixed this pass (would require either
+        merging rows or re-deriving a genuine inter-crawl growth-rate
+        claim, a judgment call better made by the entry's own
+        maintainers or a future targeted pass than by the flag-fixer
+        acting alone); left as-is with this note for visibility.
+    - column: memory_hysteresis
+      severity: note
+      note: >
+        [Recorded from adversarial verification, 2026-07-02] The
+        memory_hysteresis justification describes preferential-attachment
+        compounding of historical linking advantage but does not
+        explicitly cross-reference the feedback column, even though
+        feedback.loops names "preferential attachment / rich-get-richer
+        linking" as the same underlying mechanism. Not a substantive
+        error — applied consistently across both columns — just a missed
+        explicit cross-reference. Candidate for a future light-touch
+        editorial pass (add "see feedback" pointer, matching
+        degree_distribution's cross-referencing style).
+    - column: spatial_extent
+      severity: note
+      note: >
+        [Recorded from adversarial verification, 2026-07-02]
+        world-wide-web records spatial_extent as not-applicable while
+        the-internet.yaml records a numeric order-of-magnitude estimate
+        (4e7 m, Earth-circumference order) for what could be read as an
+        analogous "no independent physical footprint" situation. The
+        asymmetry is defensible given the scoping_note's explicit
+        assignment of all physical infrastructure to the-internet, but is
+        not explicitly reconciled in-column. Candidate for an optional
+        future one-line addition acknowledging the deliberate asymmetry.
+    - column: temporal_correlation / variation_selection
+      severity: note
+      note: >
+        [Recorded from adversarial verification, 2026-07-02] These two
+        columns omit an explicit top-level evidence_status field (present
+        on nearly every other column in this entry and in
+        the-internet.yaml's comparator entry), even though sibling
+        unknown-valued columns in the same entry (extreme_event_statistics,
+        energy_rate_density) redundantly carry both value: unknown and
+        evidence_status: unknown. Candidate for a future formatting-
+        consistency pass: add evidence_status: unknown to
+        temporal_correlation and evidence_status: qualitative to
+        variation_selection.
+    - column: (general — sweep/entry fidelity)
+      severity: note
+      note: >
+        [Recorded from adversarial verification, 2026-07-02] No orphaned
+        sweep-recovered values were found: every quantitative figure,
+        caveat, and open item in
+        research/v0.2-sweep/expansion/world-wide-web-sources.md is either
+        integrated into the entry or explicitly carried into
+        provenance.flags. All 30 panel-spec columns are structurally
+        present; relations.part_of/contains correctly reciprocates
+        the-internet.yaml with no dangling edges; all 15 rubric/hybrid
+        scores checked against their anchor files are internally
+        consistent and non-mechanically differentiated from
+        the-internet's comparator scores. No action needed — recorded for
+        the record.
+  fix_log:
+    - date: 2026-07-02
+      by: "workflow-agent (flag-fixer), 2026-07-02"
+      tag: "[FIX/citation]"
+      column: sources.kleinberg1999
+      change: >
+        Corrected the citation string's dataset-scale claim. Primary
+        pdftotext -layout extraction of the Cornell-hosted PDF
+        (cs.cornell.edu/home/kleinber/auth.pdf) confirms the paper's
+        actual stated parameters: root set t "typically set to about
+        200" pages; expanded base set S "generally in the range
+        1000-5000" pages. No "~2,000-page base set" or "~20,000-page
+        neighborhood" figure of any kind appears anywhere in the primary
+        text — that earlier snippet-verified claim was incorrect and has
+        been replaced with the verified figures and exact quotes.
+        Upgraded the citation's read-status from snippet-verified to
+        primary-read accordingly. No scored attribute changed value (the
+        flag itself confirmed modularity/information_processing/emergence
+        cite this source only for the qualitative HITS-algorithm
+        contribution, not the retracted number).
+    - date: 2026-07-02
+      by: "workflow-agent (flag-fixer), 2026-07-02"
+      tag: "[FIX/plausibility]"
+      column: component_ontology.parts (pages / documents)
+      change: >
+        Widened the pages count_oom range floor from ~1e8 to ~1e5, so the
+        stated range now actually bounds its own cited supporting data
+        point (the 1999 nd.edu crawl, 269,504 pages ~= 2.7e5), which the
+        previous 1e8 floor excluded by three orders of magnitude. Added a
+        one-line note explaining the corrected floor basis.
+    - date: 2026-07-02
+      by: "workflow-agent (flag-fixer), 2026-07-02"
+      tag: "[FIX/consistency]"
+      column: interaction_ontology
+      change: >
+        Added an explicit paragraph to the interaction_ontology
+        justification addressing the mechanism-vs-outcome question
+        required by filling_rules.interaction-typing: "HTTP retrieval /
+        navigation" and "search-driven navigation" share HTTP as their
+        transport carrier but differ in mechanism — direct navigation is
+        a two-participant channel (agent <-> page via an already-known
+        URL/hyperlink), while search-driven navigation is a
+        three-participant, index-mediated discovery channel (user ->
+        search index -> ranked results -> page) with a distinct causal
+        step (index-side HITS/PageRank-style computation) absent from
+        direct navigation. type_count=4 and alphabet_closure=constrained
+        are unchanged; only the justification text was extended.
+    - date: 2026-07-02
+      by: "workflow-agent (flag-fixer), 2026-07-02"
+      tag: "[FIX/coverage]"
+      column: characteristic_timescales (page load / HTTP request-response round trip)
+      change: >
+        Searched HTTP Archive / Google CrUX "State of the Web" reporting
+        per the flag's suggestion. Located the 2025 Web Almanac
+        Performance chapter (Jariyal, Rasam, Humaira & Grogg;
+        almanac.httparchive.org/en/2025/performance), snippet-verified via
+        WebFetch this session: CrUX real-user field data show 74% of
+        desktop pages and 62% of mobile pages achieve "good" Largest
+        Contentful Paint (LCP < 2.5 s) as of the 2025 crawl. Upgraded the
+        row from evidence_status: qualitative / [unverified — model
+        knowledge] to evidence_status: measured, confidence: medium,
+        citing a new source key webalmanac2025perf. Value updated to
+        reflect what the source actually supports: an order-of-magnitude
+        (~1e0 s) claim anchored to the 2.5s LCP threshold pass-rate, not a
+        tighter point-estimate (the source does not state a direct
+        median/percentile timing figure in the fetched passage).
+    - date: 2026-07-02
+      by: "workflow-agent (flag-fixer), 2026-07-02"
+      tag: "[FIX/coverage]"
+      column: characteristic_timescales (page content update / link-rot half-life)
+      change: >
+        Searched the academic link-rot/reference-rot literature per the
+        flag's suggestion. Primary-read SalahEldeen & Nelson 2013
+        ("Losing My Revolution," arxiv.org/abs/1209.3026, PDF fetched and
+        extracted via pdftotext -layout) and searched Klein et al. 2014
+        ("Scholarly Context Not Found," PLOS ONE). CONFIRMED neither paper
+        reports a fitted half-life: SalahEldeen & Nelson report a
+        piecewise empirical decay curve (~11% of shared resources lost by
+        year 1, then ~0.02%/day thereafter; 27% lost / 41% archived by 2.5
+        years) with no half-life parameter stated or derivable without
+        assuming a specific (unstated, non-exponential-fit) decay model;
+        Klein et al. report link-rot prevalence (13-22% of references
+        affected), not a half-life. A related figure (Hennessey & Ge 2013,
+        BMC Bioinformatics, reportedly median URL life ~9.3 years) was
+        located via a secondary PMC citation but the primary paper is
+        paywalled and could not be fetched this session, so it was NOT
+        entered — remains unresolved (see unresolved list). Row remains
+        evidence_status: unknown, per filling_rules.no-guessing; note text
+        expanded to record the sources actually chased and rejected, so a
+        future pass does not redundantly re-search SalahEldeen & Nelson or
+        Klein et al.

@@ -62,6 +62,34 @@ Full study: [research/v0.2-sweep/validation/robustness-report.md](../research/v0
 
 The full hostile-referee panel (psychometrics, complexity science, statistics) and the blind inter-rater reliability study live in [research/v0.2-sweep/validation/](../research/v0.2-sweep/validation/); their remaining open attacks (anchor↔sample circularity, single-model-family rating, column-redundancy artifacts in PCA) are logged there and stand as known limitations of v0.2.
 
+## n=15 update (v0.2 expansion batch, 2026-07-02)
+
+Five entries added through the automated pipeline v2 (global-economy, weather-systems, ocean-circulation, galaxies, world-wide-web; batch locked by Nick), all four verifiers + integrated fixer + cross-entry audit, zero blocker flags, promoted same day. Analysis re-run on the full 15×16 matrix (which also incorporates the day's two criticality rescores). All caveats from the epistemic-status paragraph and the Robustness section still apply — n=15 is still small, and three of the five new entries are compositional kin of existing entries, which deepens (not resolves) the non-independence caveat.
+
+**How the headline numbers moved (10 → 15):**
+
+| Statistic | n=10 | n=15 |
+|---|---|---|
+| PC1 explained variance | 37.9% | **42.4%** (PC2 19.5%, PC3 15.5% — now separated) |
+| information_processing ↔ adaptive_capacity | 0.952 | **0.957** |
+| modularity ↔ self_organization | −0.853 | **−0.870** |
+| adaptive_capacity ↔ alphabet_closure | 0.850 | 0.871 |
+| decentralization ↔ self_organization | 0.872 | 0.888 |
+
+PC1's identity is unchanged and sharper: information_processing (+0.36), chaos_sensitivity (−0.34), adaptive_capacity (+0.32), alphabet_closure (+0.31) — the informational-adaptive vs. energetic-chaotic axis survived five new systems it was never fit to.
+
+**Verdicts on the standing hypotheses (below):**
+
+1. **info ↔ adaptivity degeneracy: still degenerate (0.957)** — but the batch contained none of the predicted dissociators (chemical oscillators, bureaucratic systems), so this round adds n without adding a real test. The dissociation candidates remain the priority for the next batch.
+2. **modularity ↔ self_organization: still negative and slightly stronger (−0.870)** — same caveat: no physical-chemical entries yet (that category row is still empty), so the designed test is still pending.
+3. **the-internet ↔ earthquake-fault-systems kinship: DISSOLVED, as the robustness study's FRAGILE verdict predicted.** With real kin available, the-internet's nearest neighbor is now world-wide-web (its own contained child, d=2.34) and then global-economy (3.54); fault-systems drops to d=3.95. The v0.1 "odd kinship" is best read retrospectively as a loneliness artifact of a sparse roster — a concrete demonstration of why n=10 cluster stories needed the epistemic-status paragraph. (Asymmetric residue: fault-systems' own nearest neighbor is still the-internet, because the geophysical-networky corner remains sparse.)
+
+**New observations from the cross-entry audit at n=15** (log: [research/v0.2-sweep/expansion/verification/cross-entry-audit.md](../research/v0.2-sweep/expansion/verification/cross-entry-audit.md)):
+
+- **The alphabet_closure gradient is now a zero-exception law across 15 independently drafted entries**: 8 closed (all physical), 5 constrained (all engineered/institutional), 2 open (both cultural). Still consistent with the "re-encodes the folk taxonomy" attack from the hostile complexity-science review — the anomaly hunt (a physical system with an open alphabet, or a social one with a closed alphabet) is what would make this a discovery rather than a relabeling.
+- **Complexity metrics do not compose monotonically with containment.** Two clean cases: global-economy (decentralization 3) contains financial-markets (2) — aggregating many differently-governed subsystems dilutes central control; ocean-circulation (robustness 2) sits inside planetary-climate (3) — a subsystem can be nearer its own tipping threshold than the coupled system containing it. Together with v0.1's tropical-cyclones-out-dissipating-its-container observation, "composition does not imply monotonicity" is now a recurring cross-system pattern worth a dedicated write-up.
+- **The compositional pairs are the tightest pairs**: cities+global-economy (d=1.92) and weather-systems+tropical-cyclones (d=1.59) are now the closest pairs in the catalog. Partly genuine kinship, partly the non-independence caveat made visible — related entries share anchors, verifiers, and containment edges.
+
 ## Standing hypotheses for the next analysis round
 
 1. Does information_processing ↔ adaptive_capacity stay near-degenerate at n≈40, or do dissociating systems appear (candidates: chemical oscillators — processing-free adaptation-free; bureaucratic systems — processing without adaptation)?

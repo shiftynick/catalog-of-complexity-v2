@@ -21,8 +21,14 @@ export const meta = {
 //   (default 'research\\expansion'; Phase 4 used 'research\\phase4').
 
 const REPO = 'N:\\coc'
-const DATE = (args && args.date) || (() => { throw new Error('entry-pipeline: args.date is required') })()
-const RESEARCH = (args && args.researchDir) || 'research\\expansion'
+// args may arrive as a JSON-encoded string depending on the caller — normalize first.
+let ARGS = args
+if (typeof ARGS === 'string') {
+  try { ARGS = JSON.parse(ARGS) } catch (e) { throw new Error('entry-pipeline: args arrived as an unparseable string: ' + ARGS.slice(0, 80)) }
+}
+ARGS = ARGS || {}
+const DATE = ARGS.date || (() => { throw new Error('entry-pipeline: args.date is required') })()
+const RESEARCH = ARGS.researchDir || 'research\\expansion'
 
 const BATCH_SCHEMA = {
   type: 'object',
@@ -42,10 +48,10 @@ const BATCH_SCHEMA = {
   required: ['classes'],
 }
 
-let CLASSES = args && args.classes
-if (!CLASSES && args && args.batchFile) {
+let CLASSES = ARGS.classes
+if (!CLASSES && ARGS.batchFile) {
   const loaded = await agent(
-    'Read the JSON batch file at ' + REPO + '\\' + args.batchFile + ' and return its "classes" array VERBATIM as structured output — every field exactly as written, no paraphrasing, no additions. Touch no file.',
+    'Read the JSON batch file at ' + REPO + '\\' + ARGS.batchFile + ' and return its "classes" array VERBATIM as structured output — every field exactly as written, no paraphrasing, no additions. Touch no file.',
     { label: 'load-batch', phase: 'Sweep', model: 'haiku', schema: BATCH_SCHEMA }
   )
   CLASSES = loaded && loaded.classes

@@ -1,6 +1,6 @@
 # Catalog of Complexity — project guide
 
-A definitive, layered reference of canonical NON-BIOLOGICAL complex systems: every class entry carries the same 30-column "metric panel" (schema/panel-spec.yaml, **frozen v1.0**), with per-value provenance. The git repo IS the database; the Astro app renders it. Phases 0–5 complete (v0.1: 10 verified entries, first PCA findings, working app). **Phase 6 (public launch) is deliberately deferred** — repo stays private until then.
+A definitive, layered reference of canonical NON-BIOLOGICAL complex systems: every class entry carries the same 30-column "metric panel" (schema/panel-spec.yaml, **frozen v1.0**), with per-value provenance. The git repo IS the database; the Astro app renders it. Phases 0–5 complete; **v0.2 sweep complete (2026-07-02)**: 15 verified entries (pilot 10 + expansion batch 1: global-economy, weather-systems, ocean-circulation, galaxies, world-wide-web), validation program run (blind IRR, LOO robustness, hostile panel, prior art — verdicts in docs/findings.md, evidence in research/v0.2-sweep/), machine validator gating the build, scholarly-reference website with the periodic-table signature view. **Phase 6 (public launch) is deliberately deferred** — repo stays private until then.
 
 ## Layout
 
@@ -10,9 +10,10 @@ A definitive, layered reference of canonical NON-BIOLOGICAL complex systems: eve
 - `docs/decisions.md` — D1–D15 decision log + schema parking lot + open questions (license, effort budget, dream headline). Read before proposing changes.
 - `docs/findings.md` — first cross-system findings (with epistemic-status caveats).
 - `analysis/run.mjs` — Node pipeline: entries → z-scored matrix → PCA/clustering/correlations → `analysis/output/analysis.json`. Fails loudly on missing scores; never impute.
+- `analysis/validate.mjs` — machine conformance validator (30-column presence, evidence_status/level/measurand_type vocabularies, scores 0–4, source read-status annotations, relations reciprocity). Run `cd analysis && node validate.mjs` before committing entry changes; it also gates the Netlify build chain (netlify.toml). `analysis/robustness.mjs` — seeded LOO/perturbation study behind findings.md's survival verdicts.
 - `app/` — Astro + vanilla D3 (no React/Tailwind). Views: Table, system profiles (public layer + evidence layer), Compare (radar), Map (PCA).
-- `research/phaseN/` — full evidence trail: sweeps, verification logs, flag digests, primary-read logs. Provenance is a product feature; never delete.
-- `.claude/workflows/entry-pipeline.js` — the proven entry-production workflow (sweep → draft → 4 adversarial verifiers → cross-entry audit). To scale the roster, parameterize its CLASSES list (currently hardcoded to the Phase 4 batch).
+- `research/phaseN/` and `research/v0.2-sweep/` — full evidence trail: sweeps, verification logs, flag digests, primary-read logs, validation studies (IRR, robustness, hostile reviews). Provenance is a product feature; never delete.
+- `.claude/workflows/entry-pipeline.js` — the entry-production workflow, v2 (sweep → draft → 4 adversarial verifiers → integrated fixer with validator gate → cross-entry audit). Parameterized: pass `args: {batchFile, date, researchDir}` (batch data files live in `.claude/workflows/batches/`); the orchestrator still triages the returned flags and does the draft→verified status bump.
 
 ## Commands
 

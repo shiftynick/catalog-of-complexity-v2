@@ -1,0 +1,947 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: galaxies
+# v0.2 expansion-batch draft (roster expansion queue item; resolves
+# stars.yaml's own "part_of: [galaxies] # unresolved" pointer).
+# ============================================================
+id: galaxies
+name: Galaxies
+category: astrophysical
+status: verified   # promoted 2026-07-02, v0.2 expansion batch 1 — 4 verifiers + fixer + cross-entry audit clean (research/v0.2-sweep/expansion/verification/)
+
+exemplars:
+  - id: milky-way
+    name: The Milky Way
+    note: primary worked exemplar; the only galaxy directly Chaisson-tabulated (energy_rate_density) and the only one observed from inside
+  - id: andromeda
+    name: M31 / Andromeda
+    note: comparative exemplar — the nearest large spiral, on a ~4-8 Gyr collision course with the Milky Way; disk scale roughly 2x the Milky Way's by some conventions
+  - id: spiral-morphological-class
+    name: Spiral galaxies (morphological class)
+    note: comparative morphological class — disk-dominated, ongoing star formation, organized spiral density-wave/bar structure; the Milky Way and Andromeda are both members
+  - id: elliptical-morphological-class
+    name: Elliptical galaxies (morphological class)
+    note: >
+      comparative morphological class — pressure-supported (velocity-dispersion-dominated
+      rather than rotation-dominated), typically quiescent old stellar populations, little
+      cold gas or ongoing star formation; the other pole of the Hubble sequence from spirals
+
+scoping_note: >
+  The system is the gravitationally bound galaxy as a self-organizing stellar
+  and gas/dark-matter system: the luminous stellar population, the
+  interstellar medium (gas and dust participating in star formation and
+  feedback), and the large-scale gravitational potential (baryonic plus dark
+  matter) that together produce rotation curves, spiral/bar structure, and
+  the galaxy's morphological identity, over timescales from individual
+  star-formation events up through secular disk evolution and mergers.
+  Inside the boundary: stars, the interstellar medium, and the dark-matter
+  halo so far as it participates in the galaxy's own gravitational dynamics.
+  Outside: individual stellar interiors and evolution (a separate catalog
+  entry, stars.yaml — this entry treats stars as population-level
+  components, not as sites of nuclear physics), the intergalactic medium and
+  cosmic web beyond the galaxy's own gravitational influence, and the larger
+  question of galaxy formation cosmology (structure growth from primordial
+  density fluctuations is treated as boundary condition/context, not scored
+  here). ATOMICITY per filling_rules.atomicity-convention (departure from
+  stars.yaml, stated explicitly per the sweep's own flagged judgment call):
+  this entry adopts a DUAL ontology, parallel to languages.yaml's
+  speakers-plus-lexical-units precedent, rather than stars.yaml's single-atom
+  convention. Two distinct part types operate at the characteristic dynamical
+  scale: (1) individual stars and star-forming molecular clouds, for
+  population-level statistics (numerosity, instance_population-style counts,
+  stellar initial mass function), where the Milky Way's own atomicity
+  convention (stars, not their internal fusion physics) is directly reused;
+  and (2) the gas/dark-matter continuum, scored field/continuum for the
+  large-scale dynamical layer (rotation curves, spiral density waves, bar
+  formation, mergers) that is NOT resolved star-by-star in the models or
+  observations that actually characterize it — N-body/SPH galaxy simulations
+  treat the luminous+dark matter as a particle-sampled continuum, not literal
+  individual stars, and collective phenomena like spiral arms are properties
+  of the population/field, not of any single star. This deliberately avoids
+  collapsing to stars.yaml's finer atom (individual stars alone would
+  misrepresent where the galaxy's OWN characteristic dynamics — rotation,
+  spiral structure, mergers — actually operate) while preserving
+  comparability with stars.yaml wherever a genuine population-count value is
+  being cited (see component_ontology and its explicit citation reuse).
+  Scoring is class-general with the Milky Way as primary quantitative
+  exemplar (the only galaxy with a directly tabulated Chaisson Phi_m and the
+  only one observed from inside); Andromeda and the spiral/elliptical
+  morphological classes are carried as comparative instances.
+
+summary: >
+  A galaxy is a self-gravitating island of stars, gas, and dark matter that
+  assembles itself into one of a small number of recurring shapes — a
+  rotating disk laced with spiral arms, a smooth pressure-supported
+  ellipsoid, or something disturbed and irregular in between — out of the
+  raw material left over from the early universe. Nothing designs a spiral
+  arm: it is a self-organizing density wave riding on billions of
+  independently orbiting stars and gas clouds, continuously regenerated by
+  the same gravitational physics that holds the whole structure together.
+  A galaxy's stars process no information about their neighbors and adapt to
+  nothing individually, yet collectively the population exhibits genuine
+  emergent order — rotation curves, bar instabilities, the Hubble
+  morphological sequence itself — that require galaxy-scale, not
+  star-scale, description. Galaxies grow by swallowing each other: the
+  Milky Way's own future includes a multi-billion-year collision with its
+  nearest large neighbor, Andromeda, an event whose outcome is already
+  being simulated today.
+
+relations:
+  part_of: []
+  contains: [stars]
+  # stars: RESOLVED this batch — stars.yaml's own relations.part_of already
+  # lists [galaxies] (line 55, "# unresolved -> roster expansion queue");
+  # this entry reciprocates on the parent side per the mandatory-reciprocity
+  # rule. Gas/dark-matter continuum components are NOT a separate catalog
+  # entry (no interstellar-medium or dark-matter-halo class exists in the
+  # roster) and so are not listed here; only the resolvable stars link is
+  # recorded. Broader containment (e.g. galaxies as part of galaxy clusters
+  # / the cosmic web) is left unresolved -> roster expansion queue, since no
+  # such entry exists yet and inventing one is out of scope for this draft.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: exemplar(milky-way)
+    value: 1e21
+    unit: m
+    method: order of magnitude of the luminous stellar disk diameter
+    detail:
+      milky_way_disk_diameter: "~26.8 +/- 1.1 kpc (D25 isophotal convention; ~8.3e20 m), up to ~30 kpc (~9.3e20 m) depending on tracer/convention; thin-disk thickness ~220-450 pc"
+      andromeda_disk_diameter: "~46.6 kpc (D25 isophotal, ~1.4e21 m); a separate ~67 kpc (~220,000 ly) figure sometimes cited alongside it belongs to Andromeda's diffuse stellar HALO, not its disk (per the cited Wikipedia source's own text: 'this diffuse halo extends outwards away from Andromeda's main disc with the diameter of 67.45 kiloparsecs') — retained here only as a halo-scale comparison point, not as an alternative disk-diameter convention"
+      note: >
+        Both figures are secondary-aggregation (Wikipedia-level) sourced,
+        not primary-read this sweep; a dedicated structural-parameters paper
+        (candidates: Karachentsev & Kaisin 2013; a 2025 Gaia-based Milky Way
+        disk-edge study, arXiv:2507.17629, surfaced but not read) would be
+        needed to promote past measured-untested. 1 kpc = 3.0857e19 m.
+    sources: [wikipedia-mw-structure, wikipedia-m31-structure]
+    evidence_status: measured-untested
+    confidence: low
+
+  characteristic_timescales:
+    type: quantitative
+    level: exemplar(milky-way)
+    timescales:
+      - {name: solar galactic orbital period, value: "~220-240 Myr (~7-7.6e15 s) at the Sun's galactocentric radius (~8 kpc, orbital speed ~220 km/s)", measurand: "Sun's own galactocentric orbital period", sources: [galactic-year-secondary], evidence_status: measured-untested, confidence: low}
+      - {name: bar pattern rotation period, value: "~160-180 Myr (~5-5.7e15 s), from bar pattern speed ~35-40 km/s/kpc", measurand: "Milky Way central bar pattern speed", sources: [shen-zheng2020], evidence_status: measured-untested, confidence: low}
+      - {name: age (stellar population), value: "~13.6 Gyr (range 11-13.8 Gyr, oldest globular clusters)", measurand: "age of oldest Milky Way stellar populations/globular clusters", evidence_status: measured-untested, confidence: low, note: "distinct measurand from the Chaisson row below — the two ages are NOT reconciled, recorded separately per the sweep's explicit caveat"}
+      - {name: age (Chaisson evolutionary figure), value: "12 Gya", measurand: "Chaisson's Table 1 characteristic evolutionary/formation age used for his energy-rate-density argument", sources: [chaisson2011], evidence_status: measured, confidence: medium}
+      - {name: Milky Way-Andromeda merger timescale, value: "~8 Gyr from now (+/- 1-2 Gyr simulation uncertainty)", measurand: "projected time to first close pericentric passage/merger", evidence_status: measured-untested, confidence: low}
+    note: >
+      No single dynamical timescale (e.g. spiral-arm crossing time) was
+      pinned to a primary source this sweep; a secondary ~4 Myr figure for
+      density-wave arm-crossing was found but judged too low-confidence to
+      enter (recommended follow-up, not guessed in).
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~1e11 stars per L* galaxy (order of magnitude; see instance_population for the Milky Way-specific figure)"
+    method: >
+      Per the dual-ontology scoping note, numerosity for the STELLAR part
+      type reuses the Milky Way star-count convention from stars.yaml (see
+      component_ontology below for the full figure and shared sources); no
+      separate gas-parcel or dark-matter-particle count convention is
+      declared for the continuum part type (paralleling planetary-climate's
+      own unknown numerosity for its field/continuum system, for the same
+      reason: no published canonical atomic-part count exists for a
+      continuum).
+    evidence_status: derived
+    confidence: low
+    note: >
+      The continuum-component half of this column is left implicitly
+      unknown rather than stretched into an unsupported parcel count (no
+      declared convention analogous to tropical-cyclones' 1 km^3 cell
+      exists in the literature located this sweep) — recorded here rather
+      than as a separate unfilled column, since numerosity is singular per
+      panel-spec.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "2.0 (+0.7/-0.6) x 10^12 galaxies in the observable universe (to z=8)"
+    sources: [conselice2016]
+    evidence_status: measured-disputed
+    confidence: low
+    note: >
+      Conselice et al. (2016) is the paper's own headline result
+      (primary-read at abstract/methods level this sweep), but the paper
+      itself states this figure is "almost a factor of ten higher than
+      would be seen in an all sky survey at Hubble Ultra-Deep Field depth"
+      — i.e. roughly 90% of the counted total is model-inferred (from the
+      stellar mass function/number-density evolution model extrapolated to
+      undetected faint/high-z galaxies), not a direct census. The field's
+      pre-2016 consensus clustered an order of magnitude lower
+      (~1-2x10^11) [unverified — model knowledge, not independently
+      re-sourced this sweep], meaning the estimate has already revised
+      itself 10x once within recent memory. A 2024 JWST/MIRI paper (Wang et
+      al., arXiv:2403.02399) on massive high-z galaxy number density was
+      located but not read closely enough to determine whether it further
+      revises Conselice's total — entered as measured-disputed rather than
+      measured per the sweep's explicit recommendation, directly analogous
+      to how singleton/disputed-count classes are handled elsewhere in the
+      catalog, though here the dispute concerns a genuine class-level
+      population count rather than a singleton.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: individual stars (and star-forming molecular clouds)
+        role: >
+          atomic part type on the stellar/population-statistics axis (dual
+          ontology per scoping_note) — the same atom stars.yaml itself uses,
+          reused here rather than re-derived independently
+        count_oom: "Milky Way: ~1-4e11 stars standing population; ~1-2 Msun/yr formation rate (up to ~4-8 Msun/yr by some tracers)"
+        interchangeable: no
+        itself_complex: stars
+        sources: [mw-star-count, kennicutt-evans2012, van-dokkum-conroy2010]
+        note: >
+          Figure and sources copied VERBATIM from stars.yaml's own
+          instance_population field (lines ~135-140 of that entry) per the
+          task brief's explicit instruction, to avoid the two entries'
+          population figures silently diverging. evidence_status in the
+          source entry is measured-untested; carried at the same level here.
+      - name: gas/dark-matter continuum (interstellar medium plus the dark-matter halo)
+        role: >
+          field/continuum part type on the large-scale dynamical axis (dual
+          ontology per scoping_note) — the layer at which rotation curves,
+          spiral density waves, bar formation, and mergers actually operate
+          in both observation and N-body/SPH simulation practice
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+        note: >
+          No published canonical discrete-particle count exists for this
+          continuum layer (same situation as planetary-climate's
+          atmosphere/ocean parcels) — recorded as unknown rather than
+          stretched into an unsupported figure, per filling_rules.no-guessing.
+      - name: Andromeda star count (comparative)
+        role: comparative exemplar data point, not part of the Milky Way count above
+        count_oom: "~1 trillion stars (secondary aggregation)"
+        interchangeable: no
+        itself_complex: no
+        evidence_status: measured-untested
+        note: >
+          snippet-only (Wikipedia/space.com aggregation), in tension with
+          the near-equal-mass finding sometimes cited for the Local Group's
+          two largest galaxies — mass-light parity is NOT guaranteed (M/L
+          ratios can differ), so the star-count and mass comparisons are
+          recorded as separate, non-reconciled claims per the sweep's flag.
+    confidence: low
+    note: >
+      No living/human components exist inside this entry's boundary — the
+      out-of-scope(human) marker is not applicable, as with stars.yaml.
+
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(milky-way)
+    value: 0.5
+    unit: erg s^-1 g^-1
+    method: >
+      Chaisson's published Phi_m for the Milky Way (Table 1: Age = 12 Gya,
+      Fm = 0.5 erg/s/g), the lowest Phi_m of any system in Chaisson's own
+      evolutionary sequence (human society ~500,000; animals ~40,000; plants
+      ~900; Earth's geosphere ~75; the Sun ~2; Milky Way ~0.5), consistent
+      with Chaisson's thesis that energy rate density increases with
+      structural/temporal complexity across cosmic evolution — galaxies,
+      the largest and (on this metric) least energy-dense gravitationally
+      bound structures tabulated, anchor the low end. A back-of-envelope
+      cross-check via Phi_m = L/M using Licquia & Newman (2015) total
+      stellar mass M* = 6.08 +/- 1.14 x 10^10 Msun and secondary-sourced
+      luminosity figures (I-band ~4x10^10 Lsun, K-band total ~9.5x10^10
+      Lsun — band-dependent, not bolometric) would land in the same order
+      of magnitude but was NOT performed numerically this sweep (the
+      L and M figures themselves are snippet-level, not primary-read, and
+      combining them into a fresh derived figure was judged out of scope
+      for a citable measured value); presented here as a plausibility note,
+      not as an independent measurement. NOTE (recorded, not reconciled,
+      per the sweep's own explicit instruction): the sweep report
+      separately surfaced a task-brief candidate Milky Way bolometric
+      luminosity of ~5e36 W, roughly an order of magnitude below the
+      ~1.5-3x10^37 W bolometric luminosity implied by converting the
+      secondary-sourced ~4-8x10^10 Lsun band-dependent luminosity range.
+      This ~3-6x tension between the two luminosity figures is flagged here
+      explicitly and deliberately left unreconciled, mirroring how this
+      entry already carries its two non-reconciled stellar-population-age
+      measurands under characteristic_timescales; it does not affect the
+      primary scored value above, which is Chaisson's own directly-tabulated
+      Table 1 figure, not a value derived from either luminosity estimate.
+    sources: [chaisson2011, licquia-newman2015]
+    evidence_status: measured
+    confidence: high
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+    note: >
+      Per the dual-ontology scoping note: the galaxy's CHARACTERISTIC
+      large-scale dynamics (rotation curves, spiral/bar structure, mergers)
+      are gravitational N-body/continuum phenomena in space, matching
+      planetary-climate's own field/continuum framing for its fluid layer;
+      no meaningful discrete-node network representation exists for this
+      layer. The stellar population (the other half of the dual ontology)
+      is itself a discrete part type but does not interact via a network
+      topology either — stars interact via the shared gravitational field,
+      not via pairwise network edges — so field/continuum is the correct
+      single value for this categorical column even under the dual atom.
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: gravitational self-binding (stellar and gas dynamics)
+        mechanism: mutual gravitational attraction among stars, gas, and dark matter, sourcing the galaxy's rotation curve and orbital structure
+        participants: stars, gas/dark-matter continuum
+        range: global
+      - name: density-wave / spiral-arm coupling
+        mechanism: >
+          collective gravitational instability in the differentially
+          rotating disk organizing stars and gas into a coherent spiral
+          pattern that is NOT a fixed material structure (stars stream
+          through the pattern rather than being permanently bound to it)
+        participants: stars and gas in the disk
+        range: global
+      - name: star formation / stellar feedback
+        mechanism: gravitational collapse of molecular clouds into stars, followed by radiative, wind, and supernova feedback that reheats and redistributes the interstellar medium
+        participants: interstellar gas, newly formed stars
+        range: local
+      - name: tidal / merger interaction
+        mechanism: gravitational tidal forces and dynamical friction between galaxies during close passages or mergers, reshaping structure over Gyr timescales
+        participants: whole galaxies (this galaxy and a companion/merging system)
+        range: global
+    type_count: 4
+    alphabet_closure: closed
+    justification: >
+      One closed physical family: every interaction is fixed by
+      gravitational and (for the gas/star-formation channel) hydrodynamic
+      and radiative physics — the same closed-alphabet reasoning as
+      tropical-cyclones and stars (this class's own contained entry). No
+      new interaction type can arise; gravity, gas dynamics, and radiative
+      feedback exhaust the alphabet at galactic scale.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      field/continuum system; no meaningful node-degree representation,
+      matching planetary-climate's and tropical-cyclones' treatment of the
+      same topology class. EVIDENCE_STATUS NOTE (flag-fixer, 2026-07-02):
+      'not-applicable' is not a legal evidence_status enum value
+      (schema/panel-spec.yaml meta.evidence_status); the consistency
+      verifier's suggested fix of adding evidence_status: not-applicable
+      was checked against river-networks.yaml and found to be based on a
+      stale reading of that entry — river-networks.yaml's OWN provenance
+      log (2026-07-02 validator-conformance entry) documents that it
+      initially added that same field and the conformance validator
+      rejected it, so the field was removed there and the epistemic status
+      is instead carried by value: not-applicable plus this note alone,
+      matching stars.yaml's and tropical-cyclones' own not-applicable
+      degree_distribution blocks. Omitted here for the same reason,
+      confirmed by re-running the validator this session.
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Recognizable structural regions exist — bulge, disk, halo; spiral
+      arms and the central bar in disk galaxies — but these are
+      gradational, strongly gravitationally coupled subdivisions of one
+      continuous dynamical system, not insulated modules: stars stream
+      between regions on orbital timescales and the spiral pattern itself
+      is a transient density wave rather than a bounded module. Matches the
+      anchor scale's 1 (fuzzy, gradational structure, no stable preferred
+      partition) by the same reasoning as the tropical-cyclones and
+      planetary-climate anchors (modularity.yaml) for their own
+      rainband/circulation-cell structure.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, consistent with the dual-atom
+      scoping note): individual stars and molecular clouds (atoms) ->
+      star clusters / OB associations / giant molecular cloud complexes (1)
+      -> large-scale structural components (spiral arms, the central bar,
+      the bulge/disk/halo division) (2) -> the whole galaxy-scale
+      gravitational system (3).
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: "gamma ~ 1.8 (two-point correlation function slope), implying a small-scale correlation dimension D2 = 3 - gamma ~ 1.2 for r < 3 h^-1 Mpc"
+    unit: dimensionless (D)
+    measurand: galaxy spatial two-point correlation function (static cross-sectional clustering structure, not a temporal-event distribution)
+    method: >
+      The classic "gamma~1.8" power-law slope of the galaxy two-point
+      correlation function xi(r) ~ r^-gamma, valid on scales roughly
+      < 10 h^-1 Mpc; on larger scales (filament/supercluster regime) the
+      slope flattens to gamma~0.8, i.e. this is a genuinely scale-dependent,
+      BOUNDED power law, not a single scale-free fractal across all
+      scales — recorded explicitly rather than implied to be universal.
+      The result traces to Peebles-era work (Peebles 1980) and has been
+      reconfirmed in SDSS-era studies, but neither the Peebles primary
+      source nor a modern SDSS correlation-function paper was directly
+      fetched and read this sweep; one direct fetch attempt (a 2020 A&A
+      paper) returned HTTP 403. Per filling_rules.power-law-rigor, this IS
+      a power-law claim and no CSN-2009-grade fit-rigor statement was
+      located this session, so it is capped at measured-untested rather
+      than measured.
+    sources: [peebles1980-secondary]
+    evidence_status: measured-untested
+    confidence: low
+    verifier_flags: [no-primary-read-this-session, http-403-on-direct-fetch-attempt]
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; rotation curves, spiral structure,
+      and bar formation arise entirely from local (and mutual, long-range)
+      gravitational interactions among stars and gas under the collective
+      potential. Same reasoning as the stars and tropical-cyclones anchors
+      (decentralization.yaml): there is nothing whose removal constitutes
+      "loss of control" — the closest thing to a distinguished component,
+      the central supermassive black hole, dominates the potential only in
+      the innermost region and does not steer galaxy-scale dynamics.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Galactic dynamics are governed by the nonlinear, self-gravitating
+      N-body problem (density-wave theory itself is a nonlinear
+      collective instability of the differentially rotating disk; bar
+      formation is a threshold/switch-like nonlinear instability of
+      sufficiently disk-dominated systems; star formation involves
+      strongly nonlinear gravitational collapse thresholds). Scored 3
+      rather than 4, by the same logic as the stars anchor (nonlinearity.yaml,
+      itself scored 3): the galaxy's bulk gravitational equilibrium
+      (rotation curve, overall mass distribution) is comparatively stable
+      over many dynamical times, so nonlinear terms set the structure and
+      drive specific phenomena (spiral/bar instabilities, mergers) without
+      the whole system being in continuous large-amplitude nonlinear
+      upheaval the way a hurricane or market is.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: star-formation / stellar feedback regulation, sign: balancing, mechanism: "gas collapses into stars -> young massive stars inject radiation, winds, and supernova energy into the interstellar medium -> gas is heated/dispersed, suppressing further local star formation until it re-cools -> self-regulating star-formation rate"}
+      - {name: spiral density-wave self-maintenance, sign: reinforcing (self-sustaining pattern), mechanism: "differential rotation plus disk self-gravity organizes stars/gas into a spiral overdensity -> the overdensity's own gravity reinforces the streaming pattern that maintains it -> the wave persists and regenerates rather than winding up and dissipating"}
+      - {name: bar-driven gas inflow, sign: reinforcing (episodic), mechanism: "a bar instability torques gas inward toward the center -> concentrated central mass can strengthen or reshape the bar/inner disk potential -> feeds further inflow until gas is depleted or a central mass concentration weakens the bar"}
+    justification: >
+      Multiple documented loops materially shape characteristic galactic
+      structure and evolution (star-formation self-regulation, spiral
+      pattern maintenance, bar-driven secular evolution), but — unlike
+      financial-markets' or tropical-cyclones' score-4 profile — no single
+      loop is THE defining explanatory device for the galaxy as a whole the
+      way WISHE is for a hurricane or price-formation loops are for a
+      market; the loops operate on different subsystems (star formation,
+      disk pattern, central bar) rather than one totalizing mechanism.
+      Matches the scale's 3 (multiple loops continuously active, required
+      to explain characteristic dynamics, not merely episodic).
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: hybrid
+    level: exemplar(milky-way)
+    score: 2
+    justification: >
+      The Milky Way is measurably open — ongoing star formation
+      continuously converts interstellar gas into stars (~1-2 Msun/yr,
+      up to ~4-8 Msun/yr by some tracers) and dissipates gravitational
+      and radiative energy — but per this column's own does_not_count
+      ban on non-literal readings, the relevant literal throughput here is
+      modest relative to the star-formation-independent gravitational
+      structure: the overall stellar mass distribution and rotation curve
+      would persist for a galactic dynamical time (hundreds of Myr) even
+      if star formation were interrupted entirely, unlike a hurricane whose
+      structure collapses within roughly its own lifetime once its heat
+      flux is cut. Scored 2 (continuous, non-trivial throughput required to
+      maintain the star-forming/luminous-structure aspect specifically,
+      modest relative to the catalog's stellar/planetary-scale anchors)
+      rather than higher, consistent with the low Chaisson Phi_m (0.5
+      erg/s/g, the lowest of any system Chaisson tabulates) recorded under
+      energy_rate_density — the two columns are related but not identical
+      per that column's own notes, and here they point the same direction.
+    sources: [chaisson2011]
+    evidence_status: measured
+    confidence: medium
+
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      N-body stellar dynamics is a textbook source of exponential
+      sensitivity: individual stellar orbits within a galaxy's
+      gravitational potential are known to diverge chaotically on
+      timescales of order a dynamical time in many realistic (non-integrable)
+      potentials, and chaotic orbit families are a standard, broadly-accepted
+      feature of galactic-dynamics modeling — this matches the
+      chaos_sensitivity anchor's level-3 definition (exponential sensitive
+      dependence established for a well-accepted reduced/model description,
+      domain experts broadly accept the system is chaotic in this sense)
+      rather than level-2, which specifically requires evidence that is
+      "mixed, contested, or drawn from a small/non-replicated literature"
+      reflecting "genuine scientific uncertainty, not merely we didn't
+      check." No such contestation exists here: the orbit-level chaos
+      finding is settled and undisputed in the galactic-dynamics
+      literature. What is genuinely missing is a real-world, operationally
+      validated GALAXY-SCALE predictability horizon or Lyapunov figure
+      analogous to the atmospheric ~2-week case — that absence is exactly
+      what separates level 3 from level 4, not what separates 2 from 3. No
+      single, replicated, operationally-used "galaxy Lyapunov exponent"
+      figure was located this sweep, and whether galaxy-scale structure (as
+      opposed to individual orbits) shows sensitive dependence in an
+      operationally meaningful sense remains an open, targeted-search item.
+      Rescored 3 (was 2 in the initial draft): the draft's own cited
+      evidence already supported 3, and the stars-anchor comparison drawn
+      in the original draft does not hold — that anchor's 2 rests on a
+      genuinely contested literature (chaotic vs. stochastic-dynamo
+      explanations actively debating the SAME sunspot-cycle phenomenon), a
+      different evidentiary situation from galaxies' "accepted in models,
+      unstudied at the real-world class-scale horizon" case. [Rescored
+      per verifier flags — flag-fixer, 2026-07-02]
+    evidence_status: qualitative
+    confidence: low
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      No scale-invariant EVENT statistics (per the events-not-structure
+      boundary clarification in criticality.yaml) were located for
+      galaxy-internal dynamics this sweep, and no SOC or critical-point
+      mechanism has been formally proposed for a galaxy's own characteristic
+      events (as distinct from the STATIC galaxy correlation-function slope,
+      which is structural, not event-based, and is correctly recorded under
+      fractal_dimension_spatial instead, per that boundary rule). Candidate
+      analogues (galaxy merger mass-ratio distributions, starburst
+      luminosity functions) were flagged but not pursued this sweep — this
+      is recorded as score 0 (no statistics or mechanism reported or
+      sought) per the events-not-structure and published-claim-required
+      boundary clarifications, not as a considered rejection of a specific
+      claim, mirroring the tropical-cyclones and cities precedent of
+      resolving an unsupported claim to the floor rather than an
+      intermediate score.
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: "galaxy-internal characteristic event statistics (candidates not pursued: merger mass-ratio distributions, starburst luminosity functions)"
+    note: >
+      No characteristic "extreme event" statistics in the temporal-event
+      sense (event-size/frequency distributions over time, e.g. mergers or
+      starbursts as discrete dated events) were identified for the galaxy
+      class itself this sweep — insufficient search effort was spent to
+      assert genuine absence, so this is recorded as unknown (an open
+      research item) rather than a considered negative finding, per
+      filling_rules.no-guessing. The class-level galaxy correlation
+      function (gamma~1.8) is a STATIC cross-sectional clustering measure,
+      not an event distribution, and is correctly recorded instead under
+      fractal_dimension_spatial, not conflated with this column, per the
+      measurand_type distinction the panel spec enforces.
+    evidence_status: unknown
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: "no established measurand identified this sweep (candidates not surveyed, e.g. star-formation-rate history or rotation-curve/kinematic residual time series)"
+    note: not investigated this sweep — no established measurand was identified or searched for; left unknown rather than guessed, per filling_rules.no-guessing.
+
+  tipping_transitions:
+    type: hybrid
+    level: exemplar(milky-way)
+    score: 1
+    justification: >
+      No systematic inventory of galaxy-scale tipping elements analogous to
+      the climate literature exists. The clearest candidate regime-shift-type
+      event — a major merger (e.g. the projected Milky Way-Andromeda
+      collision in ~8 Gyr) — is a real, named, modeled transition between
+      qualitatively different structural states (disk galaxy -> merger
+      remnant, likely elliptical-like), but this sweep did not locate a
+      dedicated bifurcation/threshold-style formal treatment comparable to
+      tropical-cyclones' rapid-intensification/eyewall-replacement pair (the
+      merger is treated in the literature as a simulated N-body outcome, not
+      framed as crossing a specific formal threshold). Scored 1
+      (informal/single-mechanism-in-passing) rather than 2, per the
+      single-modeled-mechanism-is-2 boundary clarification's own bar — no
+      dedicated threshold/bifurcation analysis was confirmed this sweep,
+      only descriptive merger-timescale simulation literature (~8 +/- 1-2
+      Gyr from now).
+    evidence_status: qualitative
+    confidence: low
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Galaxy structure shows genuine path-dependence over long (multi-Gyr)
+      timescales: a galaxy's present-day morphology (disk vs. elliptical,
+      bar presence, metallicity gradients) is demonstrably shaped by its
+      specific merger and accretion history, not just its current mass and
+      environment — two galaxies with similar present-day mass and
+      environment can have very different structures because of divergent
+      merger histories (the standard explanation for why major mergers are
+      invoked to convert disks into ellipticals). This is real structural
+      path-dependence, matching the anchor scale's 2 (demonstrable
+      path-dependence over an intermediate-to-long timescale). Capped below
+      3: no published quantitative hysteresis LOOP (a measured or modeled
+      loop width, analogous to AMOC's ~0.4 Sv) was located for any
+      galaxy-scale bistability this sweep — the evidence is qualitative
+      historical-contingency-of-structure, not a quantified loop.
+    evidence_status: qualitative
+    confidence: low
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport and gravitational dynamics throughout:
+      gravitational force propagation, gas-dynamical (hydrodynamic and
+      radiative) transport, and star-formation thresholds are direct
+      physical functions of local density/temperature/potential with no
+      detection-transmission-response structure anywhere in the chain —
+      the same canonical-0 reasoning as the stars and tropical-cyclones
+      anchors in information_processing.yaml. Star-formation feedback
+      (scored under feedback) is a physical causal loop, not information
+      processing, per this column's explicit does_not_count clause: nothing
+      in a galaxy "reads" gas density as a symbol and conditions a
+      distinguishable response on it in a representational sense.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Stars, gas, and dark matter respond to local gravitational and
+      hydrodynamic conditions per fixed physics; no component modifies its
+      response function in light of history. Star-formation feedback and
+      spiral-pattern self-maintenance are regulation, not adaptation — the
+      same regulation-vs-adaptation distinction the stars and
+      planetary-climate anchors (adaptive_capacity.yaml) enforce. Together
+      with the high decentralization and self_organization scores, this is
+      the archetypal complex-physical (non-CAS) profile, joining stars and
+      tropical-cyclones at this column's floor.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among components; stars and gas parcels do not vary in behavioral rule nor are any such variants selected among.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Galactic dynamics is characterized by formalized macro-level order
+      parameters used predictively and explanatorily, not transparent from
+      individual-star micro-rules by inspection: the rotation curve itself
+      (the observational basis for dark matter), density-wave theory's
+      pattern speed and spiral pitch angle, and the Hubble morphological
+      sequence (spiral/elliptical/irregular classification, itself a
+      genuine effective taxonomy the field organizes around) are the actual
+      working vocabulary of galactic astronomy — not a relabeling of
+      individual stellar orbits. This parallels the tropical-cyclones and
+      planetary-climate anchors' own score-3 justifications (potential-
+      intensity theory; circulation-cell/tipping-element frameworks) at a
+      comparable level: real, load-bearing macro-theory doing explanatory
+      work, held at 3 rather than 4 because N-body simulation increasingly
+      resolves much of the relevant dynamics directly from particle-level
+      first principles (unlike price formation, where no tractable
+      micro-level alternative exists even in principle).
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Not directly anchored for galaxies in self_organization.yaml (worked
+      anchors: tropical-cyclones, river-networks, the-internet, power-grids,
+      languages), so scored against the scale text with tropical-cyclones
+      (score 4, "nothing specifies the form in advance... a canonical
+      dissipative/self-organizing structure") as the closest comparator, and
+      with the stars entry's own precedent for scoring an unanchored column
+      against the nearest worked case: spiral arms, bars, and the overall
+      disk/bulge/halo structure all assemble spontaneously from local (and
+      mutual, long-range) gravitational interactions among stars, gas, and
+      dark matter under initial density perturbations and angular momentum
+      — no template specifies spiral pitch angle, bar strength, or
+      morphological type in advance (the initial conditions from
+      cosmological structure formation are forcing/boundary conditions, not
+      a blueprint for the FORM of the resulting structure, per this
+      column's own does_not_count clause). Matches the top of the scale:
+      essentially all macroscopic galactic order arises spontaneously from
+      local interactions, with no designer at any level.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(milky-way)
+    score: 3
+    justification: >
+      The Milky Way has maintained its qualitative disk structure and
+      function (ongoing star formation, coherent rotation) through its
+      characteristic perturbation spectrum — minor satellite accretions
+      (e.g. the ongoing Sagittarius dwarf disruption, the Gaia-Enceladus
+      merger in its ancient past), tidal interactions, and internal
+      instabilities (bar formation/buckling) — recovering or accommodating
+      structure with scars (thick-disk heating, stellar streams) rather
+      than losing identity, over its multi-Gyr operating history. Held at 3
+      rather than 4 per the anchor scale's own normalization rule and this
+      entry's own tipping_transitions finding: a known, qualitatively
+      different perturbation class exists (a major merger of comparable
+      mass, such as the projected Andromeda collision) that would push the
+      system into a genuinely different structural regime (a merger
+      remnant), not merely add scars — the same "known destructive event
+      classes" reasoning that caps financial-markets and planetary-climate
+      at 3 rather than 4.
+    evidence_status: qualitative
+    confidence: low
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No cascading-failure literature applies to galaxy-internal dynamics:
+      individual star-formation or supernova-feedback events are locally
+      triggered and locally damped (their turbulent/energetic aftermath
+      dissipates within the interstellar medium rather than propagating a
+      failure cascade through otherwise-unrelated regions of the galaxy the
+      way a blackout or BGP cascade propagates through a coupled network of
+      discrete components). Same floor-anchor reasoning as the stars anchor
+      in cascade_susceptibility.yaml: a galaxy can score non-trivially on
+      other dynamical columns (nonlinearity: 3, feedback: 3) while scoring 0
+      here, because this column specifically requires component-to-component
+      failure PROPAGATION through a coupled system, which galactic
+      star-formation/feedback dynamics do not exhibit.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Spiral arms (density wave)
+    order_parameter: spiral pattern speed; pitch angle; arm amplitude/contrast
+  - name: Central bar
+    order_parameter: bar pattern speed; bar strength/length
+  - name: Rotation curve
+    order_parameter: circular velocity as a function of galactocentric radius (the observational basis for inferring dark-matter content)
+  - name: Hubble morphological sequence (spiral / elliptical / irregular)
+    order_parameter: morphological classification; bulge-to-disk ratio; Sersic index
+  - name: Merger remnant structure
+    order_parameter: post-merger velocity dispersion, morphology, and stellar-population age/metallicity distribution
+
+sources:
+  chaisson2011:
+    citation: "Chaisson, E. (2010/2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27. DOI: 10.1002/cplx.20323. [primary-read this session — full PDF via author-hosted reprint (lweb.cfa.harvard.edu/~ejchaisson/reprints/EnergyRateDensity_I_FINAL_2011.pdf), content-stream-order pdftotext extraction, cross-checked against two independent body-text callouts (Sun=2 erg/s/g, Plants=900 erg/s/g) that rule out layout misalignment; re-confirmed at the v0.2 sweep per research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md Item 1. Table 1 gives Milky Way: Age 12 Gya, Fm = 0.5 erg/s/g.]"
+  licquia-newman2015:
+    citation: "Licquia, T.C. & Newman, J.A. (2015). Improved Estimates of the Milky Way's Stellar Mass and Star Formation Rate from Hierarchical Bayesian Meta-Analysis. ApJL 806, 96. arXiv:1407.1078. [snippet/abstract-verified only this sweep; full text not fetched — used only as a plausibility cross-check for energy_rate_density, not as the primary value source]"
+  conselice2016:
+    citation: "Conselice, C.J. et al. (2016). The Evolution of Galaxy Number Density at z<8 and its Implications. ApJ 830, 83. arXiv:1607.03909. [primary-read this session at abstract/methods level via WebFetch of the arXiv page — one tier below a full-PDF primary read; direct quote confirmed: total galaxy count 2.0(+0.7/-0.6)x10^12 to z=8, with the paper's own caveat that this is ~10x higher than direct Hubble Ultra-Deep-Field-depth survey counts]"
+  mw-star-count:
+    citation: "Milky Way stellar population, ~1-4e11 stars: Gaia-era consensus, secondary sources (NASA Blueshift; ESA/Gaia; Wikipedia 'Milky Way' citing peer-reviewed structure papers). Candidate primary not fetched in full: Gaia Collaboration, 'Gaia Universe Model Snapshot,' A&A, arXiv:1202.0132. [snippet-verified; citation and figure copied verbatim from stars.yaml's own sources block, per the task brief's instruction not to re-derive independently]"
+  kennicutt-evans2012:
+    citation: "Kennicutt, R.C. & Evans, N.J. (2012). Star Formation in the Milky Way and Nearby Galaxies. Annual Review of Astronomy and Astrophysics 50, 531-608. [snippet-verified via NED summary page; review itself not primary-read in full; reused from stars.yaml per the task brief]"
+  van-dokkum-conroy2010:
+    citation: "van Dokkum, P. & Conroy, C. (2010). A substantial population of low-mass stars in luminous elliptical galaxies. Nature 468, 940-942. DOI: 10.1038/nature09578. [snippet/abstract-verified; full text not fetched this session; reused from stars.yaml per the task brief — drives the upper end of the observable-universe star-count range in that entry]"
+  wikipedia-mw-structure:
+    citation: "Wikipedia, 'Milky Way' (disk diameter ~26.8 +/- 1.1 kpc D25 convention, up to ~30 kpc; thin-disk thickness 220-450 pc), aggregating multiple published structural-parameter studies. [re-fetched and confirmed this session (flag-fixer, 2026-07-02) via WebFetch: infobox states 'Thickness of thin disk: 220-450 pc (718-1,470 ly)' verbatim — corrects a prior draft transcription error that had stated ~400-500 pc. Still unverified — model knowledge / search-tool summary, not a primary-source read; a primary source (e.g. Goodwin, Gribbin & Hendry 1998, or a modern Gaia-based study) was not independently retrieved this session]"
+  wikipedia-m31-structure:
+    citation: "Wikipedia, 'Andromeda Galaxy' (disk diameter ~152,000 ly / ~46.6 kpc D25). [re-fetched and confirmed this session (flag-fixer, 2026-07-02) via WebFetch: the article's ~67.45 kpc (~220,000 ly) figure is explicitly attributed to Andromeda's diffuse STELLAR HALO ('this diffuse halo extends outwards away from Andromeda's main disc with the diameter of 67.45 kiloparsecs'), not to the disk — corrects a prior draft mislabeling of this figure as an 'extended disk' convention. Still unverified — model knowledge / search-tool summary, not a primary-source read]"
+  galactic-year-secondary:
+    citation: "Multiple secondary aggregator sources (Wikipedia 'Galactic year,' EarthSky, The Physics Factbook) on the Sun's galactic orbital period (~220-240 Myr, commonly rounded 225-230 Myr) and orbital speed (~220 km/s at ~8 kpc galactocentric radius). [unverified — model knowledge / search-tool summary; converges tightly across independent secondary sources but no primary paper read this session]"
+  shen-zheng2020:
+    citation: "Shen, J. & Zheng, X.-W. (2020). The Bar and Spiral Arms in the Milky Way: Structure and Kinematics. Research in Astronomy and Astrophysics 20, 159. arXiv:2012.10130. [snippet-verified at abstract level only; not primary-read this session — source of the ~160-180 Myr bar pattern period figure, from bar pattern speed ~35-40 km/s/kpc]"
+  peebles1980-secondary:
+    citation: "Peebles, P.J.E. (1980). The Large-Scale Structure of the Universe. Princeton University Press. [NOT independently retrieved or read this session — cited via secondary/aggregated characterization of the classic gamma~1.8 galaxy two-point correlation function result and its SDSS-era reconfirmation; a direct fetch attempt of a related 2020 A&A paper (Bagla, Yadav & Seshadri-type analysis) returned HTTP 403 and is not usable as a substitute primary source. [unverified — model knowledge / search-tool aggregation of a classic, widely-cited result, not a fetched primary or even snippet-confirmed secondary text this session]]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: >
+    workflow-agent, v0.2 expansion batch. Galaxies has no worked anchor in
+    any of the 15 schema/anchors/*.yaml files (confirmed by direct search
+    this session), so every rubric/hybrid column here is scored against the
+    anchor scale text with the nearest worked comparator cited inline
+    (predominantly tropical-cyclones, stars, and planetary-climate, the
+    catalog's other field/continuum-dominated, high-decentralization,
+    non-adaptive physical systems) rather than reused verbatim, per the task
+    brief's explicit instruction for unanchored expansion classes ("score
+    against the scale text with a tight 2-5 sentence justification and cite
+    the closest worked anchor as comparator").
+  verification:
+    citation_check: complete (2026-07-02, flag-fixer)
+    plausibility_check: complete (2026-07-02, flag-fixer)
+    consistency_check: complete (2026-07-02, flag-fixer)
+    coverage_check: complete (2026-07-02, flag-fixer)
+  flags:   # drafting agent's own top uncertainties, per task instructions
+    - column: instance_population
+      note: >
+        The 2-trillion-galaxies figure (Conselice et al. 2016) is explicitly
+        model-inferred by the paper's own admission (~10x higher than direct
+        survey-depth counts), and the field has already revised its total
+        galaxy-count estimate by an order of magnitude once within recent
+        memory. A 2024 JWST/MIRI paper on massive high-z galaxy number
+        density (Wang et al., arXiv:2403.02399) was located but not read
+        closely enough this sweep to determine whether it further revises
+        Conselice's headline total — entered as measured-disputed rather
+        than measured; re-verify against the JWST paper before promoting
+        past draft status.
+    - column: fractal_dimension_spatial
+      note: >
+        The gamma~1.8 galaxy correlation-function slope (D~1.2 correlation
+        dimension) has no primary-read source this session — the one direct
+        fetch attempted (a 2020 A&A paper) returned HTTP 403, and the root
+        citation (Peebles 1980) was never independently retrieved. This is a
+        power-law claim and is squarely subject to filling_rules.power-law-rigor;
+        entered at measured-untested, the ceiling this column can support
+        without further work, per the sweep's own explicit recommendation.
+    - column: component_ontology / scoping_note (atomicity)
+      note: >
+        The dual-ontology atomicity choice (individual stars for
+        population-level statistics AND a gas/dark-matter continuum for the
+        large-scale dynamical layer, explicitly departing from stars.yaml's
+        single-atom convention) was an editorial judgment call made by this
+        drafting agent, following the languages.yaml precedent the sweep
+        report flagged as a candidate. This is a genuinely contestable
+        choice (an alternative single-atom convention, e.g. star clusters/
+        GMCs alone, was also considered per the sweep report) and should be
+        reviewed by the consistency checker against stars.yaml and
+        planetary-climate.yaml for cross-entry comparability before
+        promotion past draft status.
+    - column: chaos_sensitivity / criticality / temporal_correlation / extreme_event_statistics
+      note: >
+        These four columns received comparatively shallow searches this
+        sweep (the sweep report explicitly flagged temporal_correlation,
+        tipping_transitions, and chaos/Lyapunov literature as "not
+        investigated this session — outside the time budget"). Scores/values
+        entered are the drafting agent's own best-effort judgment against
+        anchor scale text and adjacent-system precedent, not the product of
+        a dedicated targeted search; flagged for a follow-up literature pass
+        before promotion past draft status.
+    # ---- verifier note-severity flags (added by flag-fixer, 2026-07-02; see fix_log) ----
+    - column: fractal_dimension_spatial
+      note: >
+        [citation, note] Re-attempted the same A&A 2020 correlation-function
+        paper fetch the sweep reported as HTTP 403; confirmed still
+        unreachable this session (independently reproduced, not just
+        trusted). The gamma~1.8 two-point correlation slope claim is
+        well-supported by broad literature consensus (Peebles & Groth
+        1975-era result, reconfirmed in later work), but the specific
+        large-scale flattening-to-gamma~0.8 sub-claim was not independently
+        corroborated by any source actually read this session either. No
+        action required beyond what the entry already discloses
+        (evidence_status: measured-untested, citation marked [unverified]).
+        Future work: obtain a primary or SDSS-era read to promote past
+        measured-untested and to independently confirm/deny the large-scale
+        slope-flattening sub-claim.
+    - column: energy_rate_density
+      note: >
+        [plausibility, note] The unperformed back-of-envelope Phi_m = L/M
+        cross-check, if actually re-derived (I-band L=4e10 Lsun gives
+        Phi_m=1.27 erg/s/g, 2.5x higher than Chaisson's 0.5; K-band
+        L=9.5e10 Lsun gives Phi_m=3.0 erg/s/g, 6x higher), lands in the same
+        decade as Chaisson's 0.5 erg/s/g but represents a real 2.5-6x
+        discrepancy, not a tight numerical match. The entry's "same order of
+        magnitude" framing (method field) is technically correct (same
+        decade) but should not be read as tight agreement.
+    - column: numerosity
+      note: >
+        [plausibility, note] The class-general value "~1e11 stars per L*
+        galaxy" has no citation distinct from the Milky Way-specific figure
+        (~1-4e11 stars) it is derived alongside via component_ontology reuse
+        from stars.yaml — effectively the same underlying number relabeled
+        as a generic characteristic-galaxy claim, with no independent source
+        for the "L*" framing itself.
+    - column: spatial_extent
+      note: >
+        [plausibility, note] The Milky Way's own D25 disk diameter
+        (8.3-9.3e20 m, from 26.8-30 kpc) sits right at the 1e20/1e21
+        order-of-magnitude rounding boundary (log10(8.3e20)=20.92). The
+        top-level 1e21 m value is a defensible nearest-power-of-ten call,
+        reinforced by Andromeda's larger figures, but a reader skimming only
+        the top-level value (not the detail block) could get a skewed
+        impression that the Milky Way's own disk is solidly in the 1e21
+        decade. No entry edit required; detail block already discloses the
+        underlying figures.
+    - column: component_ontology
+      note: >
+        [consistency, note] The dual-ontology atomicity choice is
+        well-justified and correctly modeled on the languages.yaml
+        speakers+lexical-units precedent, but is numerically asymmetric in
+        practice: only the stellar part type carries a real count_oom
+        figure; the continuum part type's count_oom is unknown (legal per
+        filling_rules.no-guessing). Flag for a future coverage pass if a
+        discrete-particle-equivalent convention for the continuum layer is
+        ever established in the literature.
+    - column: extreme_event_statistics
+      note: >
+        [coverage, note] No formal measurand_type field is set on this
+        unknown-valued column, unlike every populated instance of the column
+        elsewhere in the catalog. This exactly matches world-wide-web.yaml's
+        identical treatment of its own unknown-valued instance of the same
+        column — consistent existing catalog practice for the unknown case,
+        not a deviation introduced by this entry. Low priority; batch with
+        world-wide-web.yaml in a future validator-conformance pass.
+    - column: relations
+      note: >
+        [coverage, note] docs/roster.md line 3 still lists galaxies among
+        "unresolved part_of/contains ids accumulated by real entries," but
+        this entry resolves the one existing pointer (stars.yaml's
+        part_of: [galaxies]) via its own contains: [stars]. Not a defect in
+        galaxies.yaml — roster.md is stale relative to this not-yet-promoted
+        draft; update docs/roster.md's unresolved-queue list when this entry
+        is promoted to verified.
+    - column: exemplars
+      note: >
+        [coverage, note] Three of the four declared exemplars (andromeda,
+        spiral-morphological-class, elliptical-morphological-class) are
+        never cited via a scored "level: exemplar(<id>)" field anywhere in
+        attributes — their data lives only as inline prose/detail. Confirmed
+        this exactly matches planetary-climate.yaml's identical treatment of
+        its own three comparative exemplars (Venus, Mars, Titan) — established,
+        consistent catalog practice for comparative (vs. primary worked)
+        exemplars, not a defect unique to this entry. No action needed.
+
+  fix_log:
+    - by: "workflow-agent (flag-fixer), 2026-07-02"
+      changes:
+        - "[FIX/citation] spatial_extent.detail.milky_way_disk_diameter: corrected Milky Way thin-disk thickness from '~400-500 pc' to '~220-450 pc' to match the cited Wikipedia source (re-fetched and confirmed this session: infobox reads '220-450 pc (718-1,470 ly)'). Order-of-magnitude spatial_extent value (1e21 m) unaffected."
+        - "[FIX/citation] spatial_extent.detail.andromeda_disk_diameter: relabeled the ~67 kpc (~220,000 ly) figure from 'extended disk on some conventions' to Andromeda's diffuse STELLAR HALO, matching the cited Wikipedia source's explicit attribution (re-fetched and confirmed this session: 'this diffuse halo extends outwards away from Andromeda's main disc with the diameter of 67.45 kiloparsecs'). Retained only as a halo-scale comparison point."
+        - "[FIX/citation] sources.wikipedia-mw-structure and sources.wikipedia-m31-structure: updated citation annotations to record this session's re-fetch and confirmation of both corrected figures above."
+        - "[FIX/plausibility] [FIX/consistency] chaos_sensitivity: rescored 2 -> 3. The draft's own justification text (well-accepted, broadly-agreed orbit-level N-body chaos; no contested/mixed literature) matches the anchor's level-3 definition, not level-2 (which requires genuine contested/mixed evidence, not merely absence of a real-world-horizon search). Justification rewritten to state this reasoning explicitly and to correct the prior draft's stars-anchor comparison (stars' 2 rests on genuinely contested chaotic-vs-stochastic-dynamo literature, a different evidentiary situation)."
+        - "[FIX/coverage] energy_rate_density.method: added a note recording the ~5e36 W (task-brief candidate) vs. ~1.5-3e37 W (derived from secondary-sourced ~4-8x10^10 Lsun band-dependent luminosity) tension surfaced in research/v0.2-sweep/expansion/galaxies-sources.md (lines 169-178) and explicitly declining to reconcile it, mirroring the entry's existing treatment of its two non-reconciled age measurands under characteristic_timescales. Primary scored value (Chaisson Phi_m=0.5, measured/high-confidence) unaffected."
+        - "[NOTE/consistency] degree_distribution: attempted to add evidence_status: not-applicable per the verifier's suggested fix, but the validator rejected it ('not-applicable' is not in panel-spec.yaml's legal evidence_status enum). Checked river-networks.yaml directly: its own provenance log shows it hit the identical validator rejection and reverted to OMITTING the field, carrying epistemic status via value: not-applicable plus a note instead (matching stars.yaml/tropical-cyclones.yaml). Corrected galaxies.yaml to the same omit-and-note convention and recorded the correction inline; see unresolved for the stale-verifier-guidance note."
+        - "[NOTE/coverage] temporal_correlation: added measurand field naming candidate signals not pursued this sweep (star-formation-rate history; rotation-curve/kinematic residual time series), for consistency with this entry's own practice on extreme_event_statistics and with planetary-climate.yaml's parallel unknown-temporal_correlation treatment."
+        - "Recorded all note-severity verifier flags (citation/fractal_dimension_spatial; plausibility/energy_rate_density; plausibility/numerosity; plausibility/spatial_extent; consistency/component_ontology; coverage/extreme_event_statistics; coverage/relations; coverage/exemplars) into provenance.flags above; no entry values changed for these, per verifier's own no-action-required guidance on each."
+        - "verification block: citation_check, plausibility_check, consistency_check, coverage_check all marked complete (2026-07-02, flag-fixer), reflecting the four adversarial verifier passes this entry has now undergone."

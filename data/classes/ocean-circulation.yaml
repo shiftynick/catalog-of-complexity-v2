@@ -1,0 +1,1073 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: ocean-circulation
+# v0.2 expansion draft. Quantitative sweep: research/v0.2-sweep/expansion/ocean-circulation-sources.md.
+# Resolves planetary-climate.yaml's relations.contains roster-expansion-queue
+# comment for ocean-circulation (line ~86-87) via this entry's part_of.
+# ============================================================
+id: ocean-circulation
+name: Ocean circulation
+category: geophysical
+status: verified   # promoted 2026-07-02, v0.2 expansion batch 1 — 4 verifiers + fixer + cross-entry audit clean (research/v0.2-sweep/expansion/verification/)
+
+exemplars:
+  - id: amoc
+    name: Atlantic Meridional Overturning Circulation (AMOC)
+    note: >
+      primary worked exemplar; the best-observed limb of the global
+      thermohaline circulation (continuous RAPID-MOCHA-WBTS array
+      observations at 26.5°N since April 2004) and the one with a
+      quantified model-derived hysteresis width already used elsewhere in
+      this project (planetary-climate.yaml's memory_hysteresis and
+      tipping_transitions anchors).
+  - id: gulf-stream
+    name: Gulf Stream
+    note: >
+      comparative exemplar, NOT AMOC-equivalent — the wind-and-density-driven
+      western boundary current that carries the surface/upper branch of the
+      subtropical gyre northward along the US East Coast. Popular sources
+      routinely conflate "Gulf Stream collapse" with "AMOC collapse"; this
+      entry disambiguates explicitly (see scoping_note). The Gulf Stream is
+      A component contributor to AMOC's upper limb near the US coast, but
+      its transport is dominated by wind-driven gyre recirculation that
+      grows substantially downstream (Florida Strait to Cape Hatteras to
+      Line W), which is a distinct phenomenon from basin-scale overturning
+      strength.
+  - id: thermohaline-conveyor
+    name: Global thermohaline "conveyor belt" circulation
+    note: >
+      comparative exemplar — the basin-spanning, density-driven closure of
+      surface and deep-water pathways linking the Atlantic, Southern,
+      Indian, and Pacific Oceans (Broecker's schematic "conveyor belt"),
+      of which AMOC is the Atlantic sector. Used here for the
+      class-general full-loop transit-timescale figure, which is not
+      AMOC-specific.
+
+scoping_note: >
+  The system is large-scale ocean circulation as a density- and wind-driven
+  global fluid engine: the coupled set of basin-scale gyres, western
+  boundary currents, and the thermohaline overturning ("conveyor belt")
+  that redistributes heat, salt, and mass across the world ocean.
+  Atomicity per filling_rules.atomicity-convention: water parcels at a
+  mesoscale-resolving discretization (order 1-10 km, following the
+  hurricane precedent of "atoms are parcels, not molecules") as the
+  characteristic-dynamics atom, aggregating first into mesoscale eddies
+  (~100 km, the structures that dominate the ocean's total kinetic energy)
+  and then into named substructures: western boundary currents (Gulf
+  Stream, Kuroshio), subpolar/subtropical gyres, and deep-water formation
+  sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea).
+  Inside the boundary: the ocean's mass, heat, and salt transport and the
+  circulation structures that carry it, from wind-driven surface currents
+  down through the abyssal overturning limb. Outside: atmospheric forcing
+  (wind stress, heat/freshwater flux — treated as forcing, shared boundary
+  with planetary-climate and weather-systems), sea ice and ice-sheet
+  meltwater input (forcing), the solid seafloor/bathymetry (boundary
+  condition), and marine biology/biogeochemistry (out of scope for this
+  non-biological catalog). Primary exemplar for scoring is AMOC, the
+  best-instrumented and most extensively modeled overturning limb, with
+  the Gulf Stream and the global conveyor belt used only as explicitly
+  named comparative exemplars where they supply distinct, non-redundant
+  evidence (see exemplars block). Scoring is class-general unless marked
+  exemplar(amoc).
+
+summary: >
+  Ocean circulation is the planet's slowest and largest heat engine: a
+  basin-spanning system of wind-driven gyres and density-driven overturning
+  that carries heat from the tropics toward the poles on timescales from
+  weeks (western boundary currents) to a millennium (the full deep-ocean
+  "conveyor belt" loop). Its best-known limb, the Atlantic Meridional
+  Overturning Circulation, is not a single current but an integrated
+  mass and heat transport sustained by sinking dense water in the far
+  North Atlantic — a process just as sensitive to freshwater dilution as it
+  is essential to the mild climate of Northwest Europe. Nothing designs the
+  gyres or the overturning cell; they assemble from the interplay of wind
+  stress, the Coriolis effect, and seawater density differences, and models
+  show they can exist in more than one stable configuration for the same
+  external forcing — a self-organizing system with a genuine, still only
+  partially observed, tipping point built in.
+
+relations:
+  part_of: [planetary-climate]   # RESOLVED — reciprocates planetary-climate.yaml's relations.contains, which already lists ocean-circulation (line ~86-87, previously flagged unresolved -> roster expansion queue)
+  contains: []                   # mesoscale eddies and western boundary currents recorded in component_ontology as named substructures, not as separate catalog entries; no dedicated eddy-dynamics or boundary-current entry exists yet -> roster expansion queue candidate
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 1e7
+    unit: m
+    method: >
+      Order of magnitude of the Atlantic basin's meridional span, the scale
+      over which AMOC operates (equator to subpolar North Atlantic, order
+      10,000 km). No single dedicated citation for a "characteristic linear
+      extent" of ocean circulation as a whole was recovered in the sweep;
+      this figure is an order-of-magnitude inference from basin geography,
+      consistent with planetary-climate.yaml's own Earth-scale figure
+      (also O(10^7) m), not a directly cited measurement.
+    detail:
+      mesoscale_eddy_diameter: "~1e5 m (~100 km), the scale that dominates oceanic kinetic energy — named sub-scale structure, not independently sourced to a dedicated citation this sweep"
+      basin_span: "~1e7 m, Atlantic basin meridional extent"
+    evidence_status: derived
+    confidence: low
+    note: >
+      Flagged in the sweep report as a gap: no dedicated citation (e.g.
+      Talley et al., Descriptive Physical Oceanography, or Buckley &
+      Marshall 2016) was fetched this sweep to pin this figure formally.
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: mesoscale eddy turnover, value: "not quantified this sweep — spatial scale (~100 km) sourced, characteristic lifetime not recovered; flagged gap", evidence_status: unknown}
+      - {name: AMOC/RAPID continuous observational record, value: "20+ years as of 2024 (since April 2004) — an observing-system timescale, not a system dynamics timescale, kept separate from the dynamical figures below", sources: [johns2023], evidence_status: measured, confidence: high}
+      - {name: deep-water formation / full overturning "turnover", value: "~1000 years (range 1000-2000 years depending on stream-layer convention)", sources: [rahmstorf2006], evidence_status: measured-untested, confidence: low}
+      - {name: global thermohaline conveyor-belt full-loop transit time, value: "~1000 years, commonly cited headline figure, widely corroborated across independent tertiary sources", sources: [rahmstorf2006], evidence_status: measured-untested, confidence: medium}
+    note: >
+      "measured-untested" used here in a slightly broadened sense per
+      filling_rules intent: the ~1000-yr figure is a published, widely
+      corroborated order-of-magnitude estimate whose specific derivation
+      method (tracer-age vs. box-model inversion) was not independently
+      assessed this sweep — flagged for a follow-up primary read of
+      Rahmstorf (2006) or Buckley & Marshall (2016).
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "not meaningfully countable as a discrete parcel count at the declared atomicity convention; no dedicated numerosity source (water-parcel count, eddy count) found or expected to exist in directly citable form"
+    evidence_status: unknown
+    note: >
+      Continuum system, same treatment as tropical-cyclones' parcel-count
+      caveat but without even a defensible circulation-volume convention
+      recovered this sweep (no dedicated total-ocean-circulating-mass
+      figure at the declared atomicity was sourced) — left unknown rather
+      than forcing a project-computed estimate without a stated volume
+      convention, per no-guessing.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "n=1 (Earth-unique within this project's own comparative planetary set)"
+    evidence_status: derived
+    confidence: medium
+    note: >
+      Derived, not measured: cross-checked against planetary-climate.yaml's
+      own comparative exemplars (Venus: no surface ocean, ~737 K; Mars: no
+      standing liquid ocean; Titan: methane/ethane hydrocarbon lakes, not a
+      salinity-driven water ocean). AMOC-style thermohaline overturning
+      specifically requires a liquid-water ocean with salinity-driven
+      density gradients, which within the known comparative set only Earth
+      has. This is a within-planetary-climate singleton, not a class
+      admitting a population distribution the way tropical cyclones
+      (~85 storms/yr) do — flagged explicitly per the sweep's own
+      instruction rather than assumed silently. Titan's methane cycle is
+      the closest analog in the catalog's existing comparative set and is
+      NOT evaluated as an overturning equivalent (no dedicated Titan-
+      hydrology literature consulted).
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: water parcels (mesoscale-resolving discretization, ~1-10 km)
+        count_oom: "not derived this sweep — no defensible total circulating-volume convention was sourced (contrast tropical-cyclones, which had a published circulation-volume estimate); left as a gap rather than guessed"
+        interchangeable: yes
+        itself_complex: no
+      - name: mesoscale eddies
+        role: composite — first aggregation level above water parcels; dominate the ocean's total kinetic energy
+        count_oom: "not recovered this sweep; unknown"
+        interchangeable: yes
+        itself_complex: mesoscale-eddies   # unresolved -> roster expansion queue, matching tropical-cyclones' moist-convection-cells precedent (corrected 2026-07-02; was "no", contradicted this entry's own relations.contains comment)
+      - name: western boundary currents (Gulf Stream, Kuroshio, etc.)
+        role: composite — concentrated, fast-flowing return limbs of the wind-driven gyres
+        count_oom: "5 major western boundary current systems globally, one per subtropical gyre (Gulf Stream, Kuroshio, Agulhas, Brazil, East Australian Currents) — confirmed 2026-07-02 via WebSearch synthesis across multiple independent tertiary physical-oceanography sources (LibreTexts/oceanography textbook treatment, AVISO altimetry, NASA Earthdata); snippet-verified, not primary-read against a single citable paper. Several additional MINOR western boundary currents exist at tropical/subpolar latitudes not counted in this figure."
+        interchangeable: no
+        itself_complex: western-boundary-currents   # unresolved -> roster expansion queue (corrected 2026-07-02; was "no")
+      - name: subpolar / subtropical gyres
+        role: composite — basin-scale wind-driven circulation cells
+        count_oom: "5 major subtropical gyres confirmed 2026-07-02 via WebSearch synthesis (NOAA Ocean Service: North/South Pacific, North/South Atlantic, Indian Ocean — 2 each in Atlantic/Pacific, 1 in Indian), snippet-verified; ~10 total figure (5 subtropical + several subpolar gyres) retains the subpolar-gyre count as [unverified — model knowledge], not independently confirmed this pass."
+        interchangeable: no
+        itself_complex: ocean-gyres   # unresolved -> roster expansion queue (corrected 2026-07-02; was "no")
+      - name: deep-water formation sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea)
+        role: point sources for the overturning limb — where surface water becomes dense enough to sink and join the deep branch
+        count_oom: "order 4-5 named major sites confirmed 2026-07-02 via WebSearch synthesis (Labrador Sea, Nordic/Greenland Sea, Weddell Sea, Ross Sea, and — inconsistently included across sources — the Mediterranean outflow), snippet-verified across multiple independent physical-oceanography course/reference pages, not primary-read against a single citable paper; the entry's own named-site list (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea) is the commonly-cited Atlantic-plus-Southern-Ocean subset and is corroborated, not contradicted, by this check."
+        interchangeable: no
+        itself_complex: no   # named point locations, not a composite dynamical structure in their own right; distinct from the other three composite rows above
+    confidence: medium
+    note: >
+      Proposed in the sweep report and adopted at drafting; the three
+      composite-substructure counts (western boundary currents, gyres,
+      deep-water formation sites) were confirmed 2026-07-02 against
+      independent tertiary physical-oceanography sources per the
+      per-part notes above (snippet-verified level, not a single dedicated
+      primary-read citation). The part-type list itself (eddies, boundary
+      currents, gyres, deep-water formation sites) is standard
+      physical-oceanography vocabulary. Confidence raised from low to
+      medium accordingly; the subpolar-gyre sub-count within the ~10 total
+      gyre figure remains [unverified — model knowledge].
+
+  energy_rate_density:
+    type: quantitative
+    level: exemplar(amoc)
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Derivation deliberately NOT attempted, per the sweep report's explicit
+      recommendation. AMOC's meridional heat transport is well quantified
+      (1.20 ± 0.12 PW at 26.5°N, 2004-2020 mean — Johns et al. 2023), and
+      its meridional overturning transport is likewise well quantified
+      (16.9 ± 1.2 Sv, same array/period/source — RAPID array mean,
+      April 2004-December 2020, Johns et al. 2023), but converting either
+      to a mass-normalized Chaisson Phi_m requires a
+      defensible mass denominator for "the AMOC" (the whole basin? the
+      overturning limb's water mass specifically?), and no published Phi_m
+      value or citable mass-denominator figure was found. This is the same
+      category of honesty finding as the-internet's rejected mass figure
+      and tropical-cyclones' project-derived-with-caveats denominator, but
+      here no defensible project estimate was reached either — recorded as
+      unknown rather than forced, per filling_rules.no-guessing. The 1.20
+      PW heat-transport and 16.9 Sv overturning-transport figures are
+      carried as supporting narrative context only (the latter also
+      directly instantiates emergent_phenomena's "AMOC overturning cell"
+      order_parameter, meridional overturning transport in Sv; see
+      characteristic_timescales/tipping_transitions for the PW figure's
+      other uses), not folded into a derived erg s^-1 g^-1 number.
+    sources: [johns2023]
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+    note: >
+      Same treatment as tropical-cyclones: a continuum fluid system: no
+      meaningful discrete-node network representation at the atomic
+      (water-parcel) level, though named substructures (gyres, boundary
+      currents) form a coarse-grained compositional hierarchy recorded
+      under component_ontology and hierarchy_depth rather than as network
+      topology.
+    evidence_status: qualitative
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: momentum / pressure-gradient exchange
+        mechanism: fluid stress and pressure-gradient forces between adjacent water parcels, under Coriolis rotation
+        participants: water parcels
+        range: local
+      - name: buoyancy / density-driven exchange
+        mechanism: density differences from temperature and salinity gradients drive sinking, upwelling, and the overturning circulation (thermohaline forcing)
+        participants: water parcels
+        range: local, but integrates to basin-scale overturning
+      - name: wind-stress momentum input
+        mechanism: atmospheric wind stress transferring momentum across the air-sea interface, forcing the wind-driven gyres
+        participants: surface-layer parcels <-> atmosphere (boundary)
+        range: local (surface), propagating basin-scale via Ekman/Sverdrup dynamics
+      - name: air-sea heat and freshwater flux
+        mechanism: evaporation, precipitation, and sensible/latent heat exchange at the surface, setting the density structure that drives thermohaline circulation
+        participants: surface-layer parcels <-> atmosphere/cryosphere (boundary)
+        range: local, with basin-scale integrated consequences (deep-water formation)
+    type_count: 4
+    alphabet_closure: closed
+    justification: >
+      One closed physical family, directly parallel to tropical-cyclones'
+      justification: every interaction is fixed by fluid dynamics,
+      thermodynamics, and rotating-frame mechanics (Coriolis effect). No
+      new interaction type can arise that is not already one of momentum
+      transfer, buoyancy/density forcing, wind-stress input, or air-sea
+      flux exchange.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: >
+      Continuum system; no meaningful node-degree representation, per the
+      sweep report's recommendation (N/A rather than unknown, matching the
+      tropical-cyclones precedent for the same reason).
+    evidence_status: qualitative
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Ocean circulation shows recognizable regional/regime structure —
+      subtropical and subpolar gyres, western boundary currents, and
+      distinct overturning cells (Atlantic vs. Pacific vs. Southern Ocean
+      sectors) — but these are gradational, strongly coupled subdivisions
+      of one continuous fluid system, not insulated modules: gyres exchange
+      water at their boundaries (e.g., Gulf Stream ring-shedding into the
+      Sargasso Sea), and the overturning circulation explicitly links
+      surface and deep branches across basins (the global conveyor belt is
+      definitionally a cross-basin coupling that IS the system's defining
+      function, not incidental leakage between otherwise-insulated parts).
+      This matches planetary-climate.yaml's own modularity=1 treatment of
+      the identical physical structures (the same gyres/overturning cells,
+      one level up in the compositional hierarchy) rather than
+      river-networks' or cities' score-2 anchors, both of which describe
+      more genuinely insulated partitions (river sub-basins: cross-module
+      interaction "structurally forced to exactly zero except at
+      confluences"; city boroughs: "somewhat porous but real boundaries")
+      than ocean circulation's own cross-boundary coupling. Matches the
+      anchor scale's 1 (fuzzy, gradational structure, no stable preferred
+      partition). No published network-style modularity Q was found for
+      ocean circulation this sweep; scored qualitatively against the
+      planetary-climate/river-networks/cities comparators. CORRECTED
+      2026-07-02 from an initial score of 2: the original justification's
+      own coupling evidence in fact matched planetary-climate's score-1
+      anchor for the same structures, not the score-2 anchor language it
+      was drafted against.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, parallel to tropical-cyclones'
+      counting convention): water parcels (atoms) -> mesoscale eddies (1)
+      -> named substructures — boundary currents, gyres, deep-water
+      formation sites (2) -> basin-scale/global overturning circulation
+      (3).
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Actively searched this sweep and came up empty, per the sweep
+      report: no published fractal dimension for ocean circulation
+      structure (coastlines interacting with currents, eddy fields, or the
+      overturning pattern itself) was found. Recorded as unknown, not "not
+      yet searched." Mesoscale eddy literature describes a "universal
+      structure" in normalized coordinates, but this is not itself a
+      fractal-dimension claim.
+    evidence_status: unknown
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; the gyre and overturning structure
+      arises entirely from local fluid-dynamical, buoyancy, and wind-stress
+      interactions under rotation — the same reasoning as tropical-cyclones
+      (also 4) and the stars anchor: there is nothing whose removal would
+      constitute "loss of control." Unlike ERCOT or the NYSE, there is no
+      institutional operator of any kind; ocean circulation is a purely
+      physical system.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Governed by the nonlinear Navier-Stokes equations under rotation and
+      buoyancy forcing (the Boussinesq/primitive equations used in ocean
+      general circulation models), with strong multiplicative coupling
+      between wind-stress curl, density gradients, and transport
+      (Sverdrup/Stommel dynamics for gyres; the advective-diffusive balance
+      for overturning). AMOC's own bistability — the existence of two
+      qualitatively different stable circulation regimes for the same
+      freshwater forcing (van Westen & Dijkstra 2023) — is itself a
+      hallmark nonlinear (multiple-equilibria) phenomenon, directly
+      analogous to why tropical-cyclones scores 4 on this column via
+      threshold/switch-like rapid intensification. Nonlinearity is
+      definitional to gyre formation, western-boundary-current
+      intensification (the Stommel/Munk western intensification result
+      is itself a nonlinear consequence of the beta-effect), and the
+      existence of AMOC's alternative stable states.
+    sources: [vanwesten2023]
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: exemplar(amoc)
+    score: 4
+    loops:
+      - {name: salt-advection feedback, sign: reinforcing, mechanism: "weaker AMOC -> less salty water carried north -> reduced surface density in sinking regions -> further weakened deep-water formation -> further weakened AMOC (the textbook Stommel 1961 bistability mechanism underlying the hysteresis)"}
+      - {name: freshwater dilution feedback (ice-sheet melt / precipitation), sign: reinforcing, mechanism: "AMOC weakening -> reduced northward heat transport -> regional cooling feedback complications, WHILE increased high-latitude freshwater input (melt, precipitation) dilutes surface salinity -> further suppresses deep convection -> further AMOC weakening"}
+      - {name: sea-ice feedback (collapse/recovery asymmetry), sign: reinforcing/balancing (asymmetric), mechanism: "documented by van Westen & Dijkstra (2023) as the source of the hysteresis loop's asymmetry between the collapse and recovery branches — sea-ice expansion under a weakening AMOC insulates the ocean from further heat loss, altering the density-restoring pathway differently on the way down versus the way back up"}
+    justification: >
+      AMOC intensification/collapse is mechanistically a feedback
+      phenomenon in the same sense tropical-cyclone intensification is:
+      the salt-advection feedback is the field's own primary explanatory
+      device for why AMOC admits multiple stable states at all (Stommel
+      1961's original two-box model), and the hysteresis loop's asymmetry
+      is itself explained by a second, distinct feedback (sea-ice).
+      Multiple interacting, continuously relevant loops, not a single
+      isolated mechanism — matching the top of the scale alongside
+      planetary-climate and tropical-cyclones.
+    sources: [vanwesten2023]
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: exemplar(amoc)
+    score: 3
+    justification: >
+      AMOC transports a substantial, continuous physical heat flux — 1.20
+      ± 0.12 PW at 26.5°N (Johns et al. 2023, RAPID array mean 2004-2020)
+      — redistributing heat from low to high latitudes as part of Earth's
+      overall energy balance; this throughput is directly responsible for
+      maintaining the mild climate of Northwest Europe (a widely-cited
+      structural consequence), and interrupting it (per the tipping-point
+      literature) would measurably alter regional climate structure within
+      decades. Scored 3, not 4: unlike a hurricane's Carnot-engine
+      structure — where interrupting the ocean-heat-flux input collapses
+      the storm within about a day, much faster than its own lifetime —
+      AMOC's own collapse/recovery dynamics operate on multi-decade to
+      century timescales comparable to, not much faster than, its own
+      overturning turnover time, and the "structure" being maintained
+      (basin-scale water-mass transport) is the circulation itself rather
+      than a compact organized structure analogous to an eyewall. This
+      places it below tropical-cyclones' and the Sun's 4 but above
+      financial-markets' and cities' infrastructure-support-only 2-3.
+    sources: [johns2023]
+    evidence_status: measured
+
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Mehling, Börner & Lucarini (2024, Physica D 459:134043) find that in
+      a conceptual bistable-ocean-coupled-to-chaotic-atmosphere climate
+      model, AMOC's eventual asymptotic state (which stable branch it ends
+      up on) depends sensitively on initial conditions near a fractal
+      basin boundary with "almost full phase space dimension," quantified
+      via a positive maximum Lyapunov exponent and chaotic-saddle
+      lifetime. This is genuine, model-based evidence of sensitive
+      dependence — but per the sweep report's explicit caveat, this is a
+      conceptual/toy bistable box model, NOT a finding about the real
+      ocean's measured Lyapunov exponent or an observational
+      predictability horizon (unlike the atmosphere's ~2-week horizon
+      anchoring tropical-cyclones at 4). No observationally-derived
+      Lyapunov exponent or predictability-horizon figure for the real
+      AMOC/ocean circulation was found this sweep. Scored 2, matching this
+      column's own definition of "genuine nonlinear unpredictability
+      documented... but the evidence is [drawn from] a small/non-replicated
+      literature" — a single conceptual-model study, not yet corroborated
+      independently or connected to real-ocean data, consistent with the
+      planetary-climate anchor's treatment of slow climate modes as less
+      established than weather-scale chaos.
+    sources: [mehling2024]
+    evidence_status: measured-disputed
+    confidence: low
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      No scale-invariant EVENT statistics have been reported or sought for
+      ocean circulation's own dynamics (this is a distinct claim from
+      AMOC's tipping-point bistability, which is a state-space regime
+      shift recorded under tipping_transitions/memory_hysteresis, per
+      criticality.yaml's own explicit note: "a system can have a single
+      sharp tipping point with no power-law event statistics, e.g. AMOC
+      collapse, and score high on tipping_transitions while scoring low
+      here"). No SOC or critical-point mechanism has been proposed in the
+      literature for ocean circulation's characteristic events (as opposed
+      to AMOC's alternative-stable-states framing, which is bifurcation
+      language, not criticality language). Matches anchor level 0,
+      directly citing criticality.yaml's own AMOC example as the textbook
+      illustration of this column's floor score co-existing with a high
+      tipping_transitions score.
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: unknown
+    measurand: "candidate measurands would be AMOC transport-strength fluctuations or meridional-heat-transport extremes over time; no tail-exponent or power-law study of either was found this sweep"
+    method: "actively searched this sweep; no candidate study was found to flag as untested"
+    evidence_status: unknown
+    note: >
+      Recommended `unknown` rather than measured-untested per the sweep
+      report's explicit distinction: measured-untested would require at
+      least a candidate study to flag as methodologically unassessed, and
+      none was found.
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No established measurand or published autocorrelation/Hurst-exponent
+      figure for AMOC transport or ocean circulation more broadly was
+      recovered this sweep. Left unknown rather than stretched (parallel
+      to tropical-cyclones' identical treatment of this column).
+    evidence_status: unknown
+
+  tipping_transitions:
+    type: hybrid
+    level: exemplar(amoc)
+    score: 3
+    justification: >
+      AMOC is one of the most extensively studied individual tipping
+      elements within the systematic, citable Armstrong McKay et al.
+      (2022, Science 377:eabn7950) inventory of 16 climate tipping
+      elements (the inventory itself is "owned" at class-general level by
+      planetary-climate.yaml, which scores 4 there specifically because
+      the inventory-plus-early-warning-signal combination is climate's
+      reserved ceiling case). At the level of THIS entry's scope (AMOC
+      specifically, not the full 16-element inventory), the evidence is:
+      a named, formally modeled bifurcation mechanism (salt-advection
+      feedback, Stommel 1961) with a quantified hysteresis width (~0.4 Sv
+      in freshwater forcing, van Westen & Dijkstra 2023, GCM-derived) and
+      a threshold estimate (1.4-8°C sustained global warming, Armstrong
+      McKay et al. 2022) — well beyond a single ad hoc case (matches level
+      3's "systematic inventory... with named mechanisms and threshold
+      estimates"). Held at 3, not 4: per the tipping_transitions anchor
+      file, level 4 is "reserved for climate" as the FULL system (the
+      16-element inventory as a whole, scored on planetary-climate.yaml);
+      AMOC specifically has a real early-warning-signal literature (van
+      Westen, Jansen & Dijkstra 2024, Sci. Adv. — cited in the
+      memory_hysteresis anchor) but this entry does not independently
+      verify that early-warning-signal claim to primary-read standard this
+      sweep, so is not stretched to the reserved ceiling score.
+    sources: [mckay2022, vanwesten2023]
+    evidence_status: measured
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: exemplar(amoc)
+    score: 4
+    justification: >
+      Directly reuses the worked planetary-climate.yaml anchor (score 4),
+      now attributed to its more natural home per the sweep report's
+      entry-placement judgment: van Westen & Dijkstra (2023, GRL,
+      arXiv:2308.14098) estimate a hysteresis width of order 0.4 Sv in
+      freshwater forcing between AMOC collapse and recovery thresholds in
+      a state-of-the-art GCM — a quantitative loop with a qualitatively
+      different circulation regime on each branch ("on"/strong-overturning
+      vs. "off"/collapsed), both stable for a band of forcing values. This
+      is model-derived rather than an observed real-world loop (the real
+      ocean has not been driven through a full cycle), which must be
+      flagged explicitly per the anchor's own caveat — hence
+      evidence_status: measured-disputed, not measured, matching the
+      anchor file exactly.
+    sources: [vanwesten2023]
+    evidence_status: measured-disputed
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport: pressure-gradient forces, advection,
+      buoyancy-driven density adjustment, and wind-stress momentum input,
+      with no detection-transmission-response structure anywhere in the
+      chain — directly parallel to the information_processing anchor's
+      own explicit treatment of "ocean currents" as a canonical example of
+      physical transport that does NOT count (see does_not_count: "heat
+      advecting through ocean currents ... physical transport, not
+      detection-transmission-response"). The salt-advection feedback loop
+      (recorded under feedback) is a causal loop, not information
+      processing — nothing in the system "reads" salinity as a symbol;
+      density differences directly force fluid motion. Same canonical-0
+      reasoning as stars and tropical-cyclones.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Water parcels and the circulation structures they compose obey fixed
+      fluid-dynamical and thermodynamic physics; no component modifies its
+      response function in light of history. The salt-advection and
+      sea-ice feedbacks operate continuously, they do not learn — the
+      identical regulation-vs-adaptation distinction the anchor's
+      does_not_count enforces for planetary-climate (also scored 0 here,
+      "rich in feedbacks... but no component alters its response function
+      through experience"). Ocean circulation inherits this reasoning
+      directly from its parent system.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: >
+      No variation-selection-retention dynamics among components; water
+      parcels and circulation structures are not heritable units subject
+      to differential replication.
+    evidence_status: qualitative
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Basin-scale gyres, western boundary currents, and the overturning
+      circulation's transport strength (Sverdrup transport, AMOC
+      streamfunction/transport in Sv) are formalized, predictive
+      macro-descriptive machinery — the working vocabulary of physical
+      oceanography — genuinely used to explain and forecast circulation
+      behavior, not a trivial relabeling of grid-cell velocity fields
+      (matches level 3, parallel to tropical-cyclones' potential-intensity
+      theory, also scored 3). Held at 3, not 4: unlike financial markets'
+      price (the field's single all-organizing macro-variable), ocean
+      circulation science still relies heavily on direct numerical
+      simulation (ocean general circulation models resolving much of the
+      relevant physics) alongside the macro-theory, rather than the
+      macro-theory being the primary or sole tractable mode of
+      description.
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Gyres, western boundary currents, and the overturning cell assemble
+      spontaneously from the interplay of wind stress, the Coriolis
+      effect (the beta-effect driving western intensification), and
+      density-gradient forcing; nothing specifies the circulation pattern
+      in advance. A canonical dissipative/self-organized structure, directly
+      parallel to tropical-cyclones and river-networks (both scored 4 in
+      self_organization.yaml).
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(amoc)
+    score: 2
+    justification: >
+      AMOC has persisted through the observational record (continuous
+      RAPID measurements since 2004) with a qualitatively contested
+      weakening trend — the literature is not settled on either the
+      magnitude or the statistical significance of any decade-scale trend,
+      and this entry deliberately does not adjudicate between competing
+      published figures without a directly-verified primary quote (see
+      sources.moat2020 annotation) — and glacial-interglacial paleoclimate
+      evidence shows AMOC has operated in different states over Earth's
+      history without permanent loss of the overturning mechanism itself.
+      This is a moderate tolerance: known event classes within its
+      plausible forcing envelope (large freshwater input from ice-sheet
+      melt, per the ~0.4 Sv hysteresis width and the 1.4-8°C threshold
+      literature) CAN destroy or durably alter the current circulation
+      state — matching level 2's "known event classes within its normal
+      environment can destroy or permanently degrade it" rather than
+      level 3's broader tolerance. Scored at exemplar(amoc) level per the
+      does_not_count rule (class-level "ocean circulation always exists in
+      some form" is not credited as AMOC-specific robustness). The
+      quantitative trend figure previously cited here (-0.6 ± 0.8
+      Sv/decade, 2004-2020, "not significant") has been removed per
+      2026-07-02 citation-verification findings: it cannot be attributed to
+      Moat et al. (2020), whose own data record runs April 2004-September
+      2018 and which reports a change-point analysis rather than a single
+      linear Sv/decade trend; no Sv/decade figure from that paper was
+      recoverable this pass. The score itself does not depend on the
+      removed number and is unchanged.
+    sources: [mckay2022]
+    evidence_status: qualitative
+    confidence: low
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No component-to-component failure-propagation literature exists for
+      ocean circulation in the cascading-failure sense (comparable to
+      power-grid blackout cascades or BGP routing cascades): AMOC's
+      collapse is a single bifurcation of the whole circulation's state
+      (recorded under tipping_transitions/memory_hysteresis), not
+      propagation of a LOCAL failure through discrete coupled components.
+      Same floor-anchor reasoning as stars in cascade_susceptibility.yaml —
+      no documented mechanism by which a local disturbance cascades to
+      otherwise-unrelated parts of the circulation through component
+      coupling.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Western boundary current intensification (Gulf Stream, Kuroshio)
+    order_parameter: transport (Sv) and its along-stream growth via gyre recirculation
+  - name: AMOC overturning cell
+    order_parameter: meridional overturning transport (Sv) and meridional heat transport (PW) at a reference latitude (26.5°N)
+  - name: Bistable circulation regimes ("on"/strong vs. "off"/collapsed)
+    order_parameter: AMOC transport strength as a function of freshwater forcing (the hysteresis loop itself)
+  - name: Mesoscale eddy field
+    order_parameter: eddy kinetic energy
+
+sources:
+  johns2023:
+    citation: >
+      Johns, W.E., Elipot, S., Smeed, D.A., Moat, B., King, B., Volkov,
+      D.L., & Smith, R.H. (2023). Towards two decades of Atlantic Ocean
+      mass and heat transports at 26.5°N. Philosophical Transactions of
+      the Royal Society A 381(2262), 20220188. DOI: 10.1098/rsta.2022.0188.
+      [snippet-verified via WebFetch of PMC full text this sweep — direct
+      quote extracted for the 16.9 ± 1.2 Sv mean transport (2004-2020) and
+      1.20 ± 0.12 PW mean heat transport figures, not a full independent
+      read of the paper's methods.]
+  vanwesten2023:
+    citation: >
+      van Westen, R.M. & Dijkstra, H.A. (2023). Asymmetry of AMOC
+      Hysteresis in a State-of-the-Art Global Climate Model. Geophysical
+      Research Letters 50(22), e2023GL106088. arXiv:2308.14098. [snippet-
+      verified — inherited from planetary-climate.yaml's own provenance
+      (Phase 1 + prior sweep + this sweep's WebSearch); full arXiv PDF
+      exceeded fetch-tool size limit in every attempt to date, methods/
+      results NOT primary-read.]
+  mckay2022:
+    citation: >
+      Armstrong McKay, D.I., Staal, A., Abrams, J.F., et al. (2022).
+      Exceeding 1.5°C global warming could trigger multiple climate
+      tipping points. Science 377(6611), eabn7950. DOI:
+      10.1126/science.abn7950. [primary-read in Phase 1, per
+      planetary-climate.yaml's own provenance note; AMOC is the one of 16
+      tipping elements with full per-element threshold data (1.4-8°C
+      sustained warming) successfully extracted from the manuscript in
+      that Phase 1 read — the other 15 elements' thresholds were never
+      successfully extracted, a standing flag inherited unchanged from
+      planetary-climate.yaml.]
+  moat2020:
+    citation: >
+      Moat, B.I. et al. (2020). Pending recovery in the strength of the
+      meridional overturning circulation at 26°N. Ocean Science 16,
+      863-874. [title/journal/volume/page confirmed. CORRECTED 2026-07-02:
+      a -0.6 ± 0.8 Sv/decade (2004-2020, "not significant at 95%") trend
+      figure was PREVIOUSLY attributed to this paper via a search-engine
+      synthesis quote, not a direct-fetched quote, and has been REMOVED
+      from this entry's attributes (robustness_resilience) as a citation
+      error caught by 2026-07-02 verification: direct fetches of the
+      paper's own landing pages (Copernicus, Ifremer Archimer, Southampton
+      eprints) show the paper's actual data record is April 2004-September
+      2018, not 2004-2020, and no Sv/decade linear-trend value was found
+      anywhere in the paper's fetched content — one fetch indicates the
+      paper uses change-point analysis rather than a single linear trend
+      because "the tendency of the time series through 2016 was not
+      monotonic." No verified quote of an actual Sv/decade trend figure
+      from this paper has yet been obtained; this citation is retained
+      only for the title/journal/venue identification, not for any
+      quantitative trend value. A distinct -0.6 Sv/YEAR figure exists in
+      Johns et al. (2023) describing a short 2007-2011 interannual anomaly
+      (explicitly not a long-term trend, different units); a distinct
+      per-decade figure exists in McCarthy et al. (2025): -1.0 [-0.4 to
+      -1.6] Sv/decade for 2004-2023, reported as SIGNIFICANT at 95% (the
+      opposite significance conclusion from the removed figure). Neither
+      replacement figure has been independently primary- or
+      snippet-verified by this project and neither is entered into this
+      entry's attributes.]
+  buckleymarshall2016:
+    citation: >
+      Buckley, M.W. & Marshall, J. (2016). Observations, inferences, and
+      mechanisms of the Atlantic Meridional Overturning Circulation: A
+      review. Reviews of Geophysics 54(1), 5-63. DOI: 10.1002/2015RG000493.
+      [snippet-verified via WebSearch synthesis 2026-07-02 — title, authors,
+      journal, volume/issue/pages, and DOI corroborated across multiple
+      independent secondary listings (Wiley/AGU landing page metadata,
+      MIT DSpace repository record, Scientific Research Publishing
+      reference index); direct fetch of the Wiley/AGU full-text page
+      returned HTTP 403 in this environment (same access pattern as
+      vanwesten2023's AGU-hosted paper elsewhere in this entry), so full
+      text/methods NOT primary-read. Identified by the sweep report as the
+      standard comprehensive AMOC review (sweep report lines 236-241);
+      added here as an anchor/background citation only — no attribute
+      value in this entry currently depends on a specific number drawn
+      from this paper.]
+  rahmstorf2006:
+    citation: >
+      Rahmstorf, S. (2006). Thermohaline Ocean Circulation, in
+      Encyclopedia of Quaternary Sciences, Elsevier (PIK Potsdam-hosted
+      PDF, pik-potsdam.de/~stefan/Publications/Book_chapters/
+      rahmstorf_eqs_2006.pdf). [snippet-verified — title, venue, and
+      headline ~1000-yr transit-time figure confirmed via WebSearch
+      synthesis this sweep; full chapter NOT primary-read. The
+      1000-2000-yr range framing for different stream-layer conventions is
+      [unverified — model knowledge]-adjacent, though the ~1000-yr
+      headline itself is widely corroborated across independent tertiary
+      sources (encyclopedia and textbook treatments).]
+  mehling2024:
+    citation: >
+      Mehling, O., Börner, R., & Lucarini, V. (2024). Limits to
+      predictability of the asymptotic state of the Atlantic Meridional
+      Overturning Circulation in a conceptual climate model. Physica D:
+      Nonlinear Phenomena 459, 134043. arXiv:2308.16251. [primary abstract
+      read this sweep via WebFetch of the arXiv abstract page; full-text
+      methods/results NOT fetched. IMPORTANT SCOPING CAVEAT, carried
+      forward from the sweep report: this is a conceptual/toy bistable
+      climate model (simplified ocean box model coupled to a fast chaotic
+      atmosphere model), NOT a finding about the real ocean's measured
+      Lyapunov exponent or predictability horizon — must not be read as an
+      observational figure comparable to the atmosphere's ~2-week
+      predictability horizon.]
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: workflow-agent draft, v0.2 expansion sweep, scored
+    against schema/anchors/*.yaml (memory_hysteresis, tipping_transitions,
+    and criticality anchors already carry AMOC as a worked example; all
+    other rubric/hybrid columns scored fresh against the scale text with
+    tropical-cyclones and planetary-climate as the closest structural
+    comparators, per the fluid-continuum / no-controller / high-nonlinearity
+    profile they share).
+  verification:
+    citation_check: completed 2026-07-02 (workflow, 4 adversarial verifiers); fixes applied
+    plausibility_check: completed 2026-07-02 (workflow, 4 adversarial verifiers); fixes applied
+    consistency_check: completed 2026-07-02 (workflow, 4 adversarial verifiers); fixes applied
+    coverage_check: completed 2026-07-02 (workflow, 4 adversarial verifiers); fixes applied
+  fix_log:
+    - date: 2026-07-02
+      by: workflow-agent (flag-fixer), 2026-07-02
+      changes:
+        - "[BLOCKER/citation] robustness_resilience: removed the unsupported
+           -0.6 ± 0.8 Sv/decade (2004-2020, 'not significant') trend figure
+           and its attribution to Moat et al. (2020) — direct fetches of the
+           paper's own landing pages show its actual data record is April
+           2004-September 2018, not 2004-2020, and no Sv/decade linear-trend
+           value was found anywhere in the paper's fetched content (it uses
+           change-point analysis, not a single linear trend). Rewrote the
+           justification to describe the trend qualitatively as 'contested,
+           not adjudicated' rather than rely on the unverified number; the
+           score (2) is unchanged since it did not depend on the removed
+           figure. Corrected sources.moat2020's citation annotation to
+           document the error transparently and to record, without
+           entering into attributes, the two candidate replacement figures
+           the verifier identified (Johns et al. 2023's -0.6 Sv/YEAR
+           2007-2011 interannual anomaly; McCarthy et al. 2025's -1.0
+           [-0.4 to -1.6] Sv/decade 2004-2023, significant at 95%) — neither
+           independently verified this pass, so neither entered as a value.
+           evidence_status changed from measured-disputed to qualitative;
+           sources trimmed to [mckay2022] (moat2020 citation retained only
+           for venue identification, not for any quantitative claim)."
+        - "[FIX/citation] sources.vanwesten2023: corrected Geophysical
+           Research Letters issue number from 50(19) to 50(22), matching the
+           AGU journal's own table-of-contents record for this article
+           (e2023GL106088). This error was inherited from planetary-climate.yaml
+           and the sweep report; per the flag-fixer mandate this pass edits
+           only ocean-circulation.yaml — the same wrong issue number in
+           planetary-climate.yaml and the sweep report is reported under
+           unresolved for the orchestrator."
+        - "[FIX/plausibility] Added missing evidence_status field to five
+           attribute blocks per panel-spec.yaml ('required on every value'):
+           interaction_topology (qualitative), degree_distribution
+           (qualitative), fractal_dimension_spatial (unknown),
+           temporal_correlation (unknown), variation_selection (qualitative)
+           — mirroring planetary-climate.yaml's own prior fix for the
+           identical gap pattern."
+        - "[FIX/consistency] modularity: rescored from 2 to 1. The score-2
+           justification's own coupling evidence (cross-basin overturning
+           as 'definitionally' part of the system's function) in fact
+           matches planetary-climate.yaml's score-1 treatment of the
+           identical physical structures (the same gyres/overturning cells,
+           one level up in the compositional hierarchy), not the anchor's
+           score-2 text, which describes more genuinely insulated
+           partitions (river sub-basins, city boroughs) than this entry's
+           own justification depicted. Rewrote the justification to lead
+           with the coupling evidence and cite planetary-climate.yaml
+           directly as the closer comparator."
+        - "[FIX/consistency] component_ontology: changed itself_complex from
+           'no' to unresolved roster-queue ids (mesoscale-eddies,
+           western-boundary-currents, ocean-gyres) for the three composite
+           substructures (mesoscale eddies, western boundary currents,
+           subpolar/subtropical gyres), matching the tropical-cyclones
+           precedent (moist-convection-cells) and this entry's own
+           relations.contains comment, which already names these as roster
+           expansion queue candidates. 'no' retained for water parcels
+           (atomic) and deep-water formation sites (named point locations,
+           not composite dynamical structures in their own right — reasoning
+           now stated explicitly inline)."
+        - "[FIX/coverage] energy_rate_density: added the 16.9 ± 1.2 Sv mean
+           overturning-transport figure (Johns et al. 2023, RAPID array,
+           April 2004-December 2020, snippet-verified — same source/tier as
+           the already-carried 1.20 PW figure) as supporting narrative
+           context alongside the existing PW figure, and noted it directly
+           instantiates emergent_phenomena's 'AMOC overturning cell'
+           order_parameter (meridional overturning transport in Sv), which
+           previously named this quantity without any value entered
+           anywhere in the entry."
+        - "[FIX/coverage] sources: added buckleymarshall2016 (Buckley &
+           Marshall 2016, Reviews of Geophysics 54(1), 5-63, DOI
+           10.1002/2015RG000493) — title/authors/journal/volume/pages/DOI
+           snippet-verified via WebSearch synthesis across multiple
+           independent secondary listings this pass; direct fetch of the
+           Wiley/AGU full-text page returned HTTP 403 (same access pattern
+           as vanwesten2023's AGU-hosted paper), so full text NOT
+           primary-read. Added as an anchor/background citation per the
+           sweep report's identification of it as the standard
+           comprehensive AMOC review; no attribute value currently depends
+           on a specific number drawn from it."
+        - "[FIX/coverage] component_ontology: confirmed the three flagged
+           counts via WebSearch synthesis this pass — 5 major western
+           boundary current systems (Gulf Stream, Kuroshio, Agulhas,
+           Brazil, East Australian Currents, one per subtropical gyre),
+           5 major subtropical gyres (NOAA: North/South Pacific, North/South
+           Atlantic, Indian Ocean), and 4-5 major deep-water formation sites
+           (Labrador Sea, Nordic/Greenland Sea, Weddell Sea, Ross Sea, plus
+           an inconsistently-included Mediterranean outflow) — each
+           corroborated across multiple independent tertiary
+           physical-oceanography sources (textbook/course pages, NOAA,
+           AVISO, NASA Earthdata), snippet-verified level, not a single
+           dedicated primary-read paper. Updated the per-part count_oom
+           text and raised component_ontology.confidence from low to
+           medium; the subpolar-gyre sub-count within the ~10 total gyre
+           figure remains [unverified — model knowledge], not independently
+           confirmed this pass."
+      not_applied:
+        - "planetary-climate.yaml's identical wrong vanwesten2023 issue
+           number (50(19) vs. the correct 50(22)) and the same error in the
+           sweep report were left untouched — out of scope, this pass edits
+           only ocean-circulation.yaml per the flag-fixer mandate. Reported
+           under unresolved for the orchestrator."
+  flags:   # honest standing uncertainties at draft time, per task instructions
+    - column: energy_rate_density
+      note: >
+        Left unknown — no defensible mass denominator for converting
+        AMOC's well-quantified 1.2 PW heat transport into a Chaisson Phi_m
+        figure was found or could be responsibly estimated this sweep
+        (contrast tropical-cyclones, which had both a project estimate and
+        an independent published circulating-mass figure to cross-check
+        against). This is a genuine coverage finding, not a placeholder.
+    - column: characteristic_timescales / component_ontology
+      note: >
+        Mesoscale eddy turnover timescale and several component counts
+        (western boundary current count, gyre count, deep-water formation
+        site count) rest on [unverified — model knowledge] rather than a
+        specific fetched citation; the component_ontology part-type list
+        itself is standard physical-oceanography vocabulary but was not
+        independently verified against a dedicated component-ontology
+        source this sweep, per the sweep report's own flag.
+    - column: robustness_resilience / AMOC weakening trend
+      note: >
+        Both circulating AMOC weakening-trend figures (-0.6 ± 0.8
+        Sv/decade for 2004-2020, and a larger ~-1.0 Sv/decade figure for a
+        longer 2004-2023-ish extension) were recovered only via WebSearch
+        synthesis, not a direct-fetched primary quote, this sweep. Only
+        the better-attributed 2004-2020 figure (Moat et al. 2020) was
+        entered into this catalog entry's attributes; the extended-period
+        figure was deliberately withheld pending a direct fetch of Moat et
+        al. (2020) itself and its likely successor (possibly McCarthy et
+        al. 2025) before either trend number is treated as
+        measured-confidence. The Gulf Stream along-stream transport
+        figures (Florida Strait 32.9 ± 1.2 Sv; Cape Hatteras 57.3 ± 1.9 Sv;
+        Heiderich & Todd 2020) and the "~4% Gulf Stream slowdown over ~40
+        years" claim are similarly WebSearch-synthesis level and were
+        deliberately left OUT of this entry's attributes (recorded only in
+        the sweep report) pending the same follow-up verification, since
+        no exemplar(gulf-stream)-scored column in this entry currently
+        depends on them.
+    - column: spatial_extent / numerosity
+      note: >
+        Both figures rest on order-of-magnitude inference (spatial_extent)
+        or are left fully unknown (numerosity) for lack of a dedicated
+        citable source — flagged for a follow-up literature pass against
+        Talley et al. (Descriptive Physical Oceanography) or Buckley &
+        Marshall (2016), neither of which was primary-read this sweep
+        despite Buckley & Marshall being identified as the standard
+        comprehensive AMOC review. NOTE 2026-07-02: buckleymarshall2016
+        has since been added to sources (snippet-verified level, full text
+        still not primary-read — Wiley/AGU page returns HTTP 403) but no
+        follow-up attempt to pin spatial_extent/numerosity against it was
+        made this pass; the gap stands.
+    # --- note-severity verifier findings recorded 2026-07-02 (not acted on, per flag-fixer instructions) ---
+    - column: sources.johns2023
+      note: >
+        2026-07-02 citation verifier finding: the Johns et al. (2023)
+        figures (16.9 ± 1.2 Sv, 1.20 ± 0.12 PW, April 2004-December 2020)
+        were confirmed via a direct fetch of the paper's actual full text
+        (PMC10590663) with an exact quoted sentence matching this entry's
+        numbers precisely — stronger evidence than the citation's own
+        'snippet-verified' self-assessment implies. Suggested (not applied):
+        consider upgrading the read-status annotation to primary-read/
+        verified; no content change needed.
+    - column: sources.mckay2022
+      note: >
+        2026-07-02 citation verifier finding: the 1.4-8°C AMOC threshold
+        could not be independently primary-read this check (PDF extraction
+        failed for two copies of the paper), but was corroborated by two
+        independent secondary/tertiary sources giving the identical range
+        at low confidence. Matches the entry's existing claim; does not
+        raise the entry's own disclosed evidence tier. No action required;
+        a future primary re-read of the full Science paper/table would
+        still be valuable.
+    - column: tipping_transitions
+      note: >
+        2026-07-02 plausibility verifier finding: the score-3 justification
+        gestures at AMOC's early-warning-signal literature (van Westen,
+        Jansen & Dijkstra 2024) to explain why the score isn't pushed to 4,
+        but that 2024 paper is not in this entry's own sources block (only
+        cited inside the memory_hysteresis anchor file) and the entry
+        admits it has not verified that EWS claim. Not blocking since the
+        score does not actually rest on the unverified claim. Suggested
+        (not applied): either add van Westen, Jansen & Dijkstra (2024) to
+        this entry's own sources with an explicit read-status annotation,
+        or rephrase to avoid citing a paper this entry hasn't independently
+        checked, even in passing.
+    - column: chaos_sensitivity
+      note: >
+        2026-07-02 plausibility verifier finding: score 2 rests on a single
+        conceptual/toy-model study (Mehling et al. 2024) with no competing
+        or corroborating study — fits the anchor's disjunctive
+        'small/non-replicated literature' clause for level 2, but is a
+        materially different evidentiary situation from the anchor's other
+        worked level-2 example (stars/Sun, which cites genuinely competing
+        studies). Not an error; borderline application worth the record.
+        Suggested (not applied): note explicitly in a future revision that
+        this is the 'small/non-replicated' branch of level 2, not the
+        'mixed/contested' branch, to preempt inter-rater disagreement.
+    - column: temporal_correlation
+      note: >
+        2026-07-02 consistency verifier finding: value is unknown with no
+        candidate measurand named, unlike planetary-climate.yaml's
+        temporal_correlation (unknown but names a candidate measurand).
+        Suggested (not applied): add a candidate measurand, e.g. "AMOC
+        transport strength time series (RAPID array), Hurst exponent /
+        autocorrelation candidate measurand — not computed this sweep."
+    - column: interaction_ontology
+      note: >
+        2026-07-02 consistency verifier finding: the 4-type interaction
+        list omits "radiative exchange," present in both tropical-cyclones'
+        and planetary-climate's interaction_ontology for the same
+        fluid-continuum family, without an explicit justification for the
+        omission/merge. Suggested (not applied): add a one-line
+        justification noting whether radiative exchange is folded into
+        "air-sea heat and freshwater flux" by mechanism, or add it as a
+        fifth type for cross-entry consistency.
+    - column: characteristic_timescales (mesoscale eddy turnover)
+      note: >
+        2026-07-02 coverage verifier finding: mesoscale eddy spatial scale
+        (~100 km) is sourced but characteristic lifetime/turnover timescale
+        is left unquantified. Chelton et al. (2011), a well-known
+        altimetry-based global eddy census, plausibly reports typical eddy
+        lifetimes and was not checked this sweep. Suggested (not applied):
+        follow-up literature pass against Chelton et al. (2011) or similar.
+    - column: spatial_extent
+      note: >
+        2026-07-02 coverage verifier finding: the 1e7 m figure is an
+        order-of-magnitude inference from basin geography (confidence low),
+        not from a dedicated citation. Candidate sources (Talley et al.,
+        Buckley & Marshall 2016) are named by the entry itself but were not
+        fetched this sweep for this specific figure. Suggested (not
+        applied): one more targeted literature attempt against the named
+        candidate sources before accepting this as a permanent
+        low-confidence figure; not blocking since the derivation is
+        transparently labeled.
+    - column: numerosity
+      note: >
+        2026-07-02 coverage verifier finding: left fully unknown for lack
+        of a stated circulation-volume convention, but total ocean volume
+        (~1.3-1.4x10^9 km^3) is a widely available textbook figure that
+        could combine with the entry's own declared water-parcel atomicity
+        (1-10 km) to produce a project-derived order-of-magnitude parcel
+        count, parallel to tropical-cyclones' precedent. Suggested (not
+        applied): consider a derived order-of-magnitude estimate with an
+        explicitly stated volume-convention citation, or explicitly
+        confirm no defensible convention exists and keep as unknown with
+        that reasoning documented.

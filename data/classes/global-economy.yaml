@@ -1,0 +1,1007 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: global-economy
+# v0.2 expansion draft. Roster-expansion class: reciprocates
+# financial-markets.part_of and cities.part_of (both already list
+# global-economy as unresolved parents — see relations block).
+# Genuinely dual-scale: n=1 at class scope, but a real
+# ~195-economy population sits one level down and a much larger
+# firm population two levels down (Zipf firm-size literature).
+# ============================================================
+id: global-economy
+name: Global economy
+category: socio-economic
+status: verified   # promoted 2026-07-02, v0.2 expansion batch 1 — 4 verifiers + fixer + cross-entry audit clean (research/v0.2-sweep/expansion/verification/)
+
+exemplars:
+  - id: world-economy
+    name: World economy in aggregate
+    note: >
+      primary worked exemplar; singleton-at-top-scope (n=1), directly
+      parallel to the-internet's own singleton framing — see
+      scoping_note and instance_population
+  - id: national-economies
+    name: National economies (e.g. USA, China, EU, Germany)
+    note: >
+      comparative/component evidence population, via Bettencourt et al.
+      (2007) PNAS 104(17):7301's GDP-scaling rows (the same primary source
+      cities.yaml uses for its own urban-scaling evidence; reused here for
+      the national-economy layer, not double-counted as a city finding).
+      ~195 economies (193 UN member states + 2 observer states); declared
+      as this entry's component_ontology population per the scoping note.
+  - id: firms
+    name: Firms (the atomic economic agent)
+    note: >
+      secondary/deeper population, via the Zipf/power-law firm-size
+      literature (Axtell 2001, Science 293:1818) — U.S. firms with
+      employees, 1997 Census data, N=5,541,918. Functions as the class's
+      atomic economic-agent evidence for extreme_event_statistics and
+      numerosity; NOT drafted this batch as its own catalog entry
+      (candidate roster-expansion-queue item: firms-and-corporations,
+      unresolved, flagged in relations.contains below).
+
+scoping_note: >
+  The system is the integrated world economy: the totality of production,
+  trade, and finance linking national economies, firms, and households into
+  a single interdependent global system. Inside the boundary: national
+  economies and their trade/capital-flow interdependence, firms as the
+  agents that produce and exchange, and the institutions (WTO, IMF, central
+  banks, trade agreements) that set the rules those agents operate under —
+  so institutional rule changes (tariff regimes, monetary-policy frameworks)
+  count as internal adaptation, mirroring financial-markets' treatment of
+  exchange rule-making. Outside: the financial-markets class specifically
+  (recorded as a contained child, per relations below, not re-scored here to
+  avoid double-counting price-formation dynamics), the physical/ecological
+  resource base (forcing), and individual consumer psychology (out-of-scope
+  per D2).
+
+  ATOMICITY (per filling_rules.atomicity-convention, and per this entry's
+  own sweep report's recommended resolution, research/v0.2-sweep/expansion/
+  global-economy-sources.md Section 1 — accepted here, not merely inherited):
+  this entry is dual-scale in a stronger sense than the-internet's own
+  dual-atomicity split. (a) At class-general/global scope the object "the
+  global economy" is a SINGLETON, n=1 — there is exactly one integrated
+  world economy, parallel to the-internet's singleton framing, and
+  instance_population is scored n=1 accordingly. (b) National economies
+  (~195) are declared the entry's component_ontology / atomicity population:
+  the lowest level at which the class's OWN CHARACTERISTIC dynamics —
+  trade flows, capital flows, macro interdependence, the Hidalgo-Hausmann
+  economic-complexity network — actually operate, exactly as "traders" are
+  NYSE's atoms rather than the neurons of the humans involved. National
+  economies are not "parts of" the global economy in a simple mereological
+  sense so much as they ARE its decomposition into interacting units. (c)
+  Firms (n~5.5e6 in the U.S. alone, deeper still) are a second, much larger
+  population relevant to specific columns (extreme_event_statistics' Zipf
+  claim, numerosity's deepest count) but are NOT the primary atomicity
+  choice for this entry's characteristic dynamics — parallel to how
+  the-internet tracks end-user devices as an adjacent population distinct
+  from its AS-node structural atom. This is a considered resolution, not a
+  default; it is flagged as revisable in provenance.flags.
+
+summary: >
+  The global economy is the largest human-made complex system with no
+  designer and no center: a single interdependent web of production, trade,
+  and finance spanning every inhabited continent, assembled from roughly
+  two hundred national economies and tens of millions of firms, none of
+  which can see more than a fraction of the whole. No institution sets its
+  prices, plans its output, or steers its business cycles — the IMF and
+  central banks manage pieces of it, but the aggregate pattern (world GDP
+  growth, the size distribution of firms, the recurring rhythm of expansion
+  and contraction) emerges from the uncoordinated decisions of billions of
+  participants. It is the socio-economic system that contains the other
+  socio-economic systems in this catalog — cities and financial markets are
+  both, in a real sense, organs of it — while itself remaining a single,
+  unrepeated instance: there is only one global economy to observe.
+
+relations:
+  part_of: []
+  contains:
+    - financial-markets  # RESOLVED, reciprocal: financial-markets.yaml's relations.part_of already lists [global-economy, cities] (comment: "global-economy unresolved -> expansion queue"); this entry's contains claim reciprocates that reference from the parent side. financial-markets is scoped narrowly (exchanges/price-formation) and is not re-scored here to avoid double-counting.
+    - cities              # RESOLVED, reciprocal: cities.yaml's relations.part_of already lists [global-economy] (comment: "unresolved -> roster expansion queue"); this entry's contains claim reciprocates that reference from the parent side. Cities are economic agglomerations within the global economy but are not re-scored here.
+    - firms                # UNRESOLVED -> roster expansion queue. Candidate atomic-agent-level entry (component_ontology's declared deeper population); not drafted this batch per task brief.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 4e7
+    unit: m
+    method: >
+      Order-of-magnitude estimate: Earth's circumference (~40,075 km), by
+      the same geometric-inference logic the-internet.yaml uses for its own
+      spatial_extent (value 4e7, evidence_status: qualitative). No dedicated
+      "spatial extent of the global economy" measurement paper exists or
+      would be expected to exist — production, trade, and finance span every
+      inhabited continent, making this a structural/geometric fact rather
+      than a measured quantity.
+    evidence_status: qualitative
+    confidence: low
+    note: "[unverified — model-knowledge order-of-magnitude estimate, not independently sourced, directly reused from the-internet's own framing per the sweep report]"
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: transaction / price-adjustment, value: "~1e0-1e5 s (seconds for a single trade to days/weeks for price adjustment in many markets)", evidence_status: qualitative}
+      - {name: business cycle, value: "~6e7-3.5e8 s (NBER-style cycles ~2-10 yr; Kitchin inventory cycles ~3-5 yr; Juglar fixed-investment cycles ~7-11 yr) [corrected 2026-07-02, plausibility-check flag: prior '~1e8-1e9 s' upper bound of 1e9 s (~31.7 yr) was not supported by any of the three cited periodizations, whose longest cycle (Juglar, 11 yr) is ~3.47e8 s]", evidence_status: qualitative}
+      - {name: system lifetime, value: "unresolved scoping ambiguity — no single defensible start date; candidates range from Bretton Woods (1944) to millennia-old long-distance trade networks", evidence_status: unknown}
+    note: >
+      No dedicated primary source read this session for macro timescales;
+      these are standard, uncontroversial economics-literature figures
+      recorded as [unverified — model knowledge], qualitative, low
+      confidence, per the sweep report. The system-lifetime row is left
+      genuinely unknown rather than resolved by picking a start date — a
+      larger and more genuine scoping ambiguity than the-internet's own
+      1969-vs-1983 flag (decades vs. this entry's centuries-wide window).
+      Confirmed literature gap; NBER business-cycle dating committee figures
+      are the correct primary source for a follow-up pass.
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: >
+      national economies: ~195 (qualitative); U.S. firms with employees
+      (1997 Census): 5,541,918 (measured, primary-read); U.S. all business
+      entities incl. nonemployer (1997): ~2.1e7 (measured, primary-read);
+      global firms: ~3-4e8 (measured-disputed, not primary-read); human
+      participants (workers/consumers, out-of-scope(human)): ~8.2e9 world
+      population (2024)
+    sources: [axtell2001, un-membership]
+    evidence_status: measured-disputed
+    confidence: medium
+    note: >
+      Multi-typed list, parallel to the-internet's own numerosity framing.
+      The U.S. firm counts are primary-read and solid; the global firm
+      count genuinely diverges across secondary aggregators (300-430
+      million range) and is recorded as measured-disputed rather than
+      picked arbitrarily, per no-guessing. World Bank Entrepreneurship
+      Database (~188 economies via business-registry data) would be the
+      correct primary source for a citable global aggregate but was not
+      fetched this session — flagged as a follow-up.
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "n = 1 (standing population); formation rate not applicable"
+    evidence_status: measured
+    confidence: high
+    note: >
+      The global economy is a singleton at class scope: exactly one
+      integrated world economy exists, directly parallel to the-internet's
+      own instance_population treatment. This is a definitional/epistemic
+      fact, not a measurement gap — per filling_rules and the scoping
+      note's atomicity discussion, it governs which class-level statistical
+      claims are legal: the entry cannot support cross-sectional statistics
+      about "global economies" (there being only one), but the ~195-economy
+      population one level down (component_ontology) and the firm
+      population two levels down DO support genuine statistical claims
+      (Bettencourt's city/national GDP-scaling rows, Axtell's firm-size
+      Zipf fits) — those populations are recorded under component_ontology
+      and extreme_event_statistics respectively, not here.
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: national economies
+        count_oom: "~195 (193 UN member states + 2 observer states — Holy See, State of Palestine)"
+        interchangeable: no   # heterogeneous size, structure, and trade-network position are load-bearing
+        itself_complex: no
+        sources: [un-membership]
+        evidence_status: qualitative
+        note: "[unverified — model knowledge / general public record, not independently primary-read from a UN primary source this session; figure is uncontroversial and stable]. Declared as this entry's primary atomicity population per the scoping note."
+      - name: firms
+        count_oom: "~5.5e6 U.S. firms with employees (1997 Census, primary-read); ~2.1e7 total U.S. business entities; ~3-4e8 globally (disputed, secondary)"
+        interchangeable: no   # heterogeneous size (Zipf-distributed) is the load-bearing fact
+        itself_complex: out-of-scope(human) / firms   # firms unresolved -> roster expansion queue
+        sources: [axtell2001]
+        evidence_status: measured-disputed
+        note: "Global count not pinned to a single primary source; U.S. figures are primary-read and solid (Axtell 2001, Table 3, citing U.S. Census Bureau)."
+      - name: households / consumers
+        role: out-of-scope(human) demand-side agents
+        count_oom: "~8.2e9 world population (2024)"
+        interchangeable: yes
+        itself_complex: out-of-scope(human)
+        evidence_status: qualitative
+        note: "[unverified — model knowledge], not independently fetched this session; recorded per D2's out-of-scope(human) convention, parallel to the-internet's human_users row."
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Power input is findable: world primary energy consumption ~620 EJ/yr
+      (2023) / ~607 EJ/yr (2022), Energy Institute 2024 Statistical Review
+      of World Energy (successor to the BP Statistical Review); 620 EJ/yr =
+      6.2e20 J/yr, an average continuous power draw of ~1.97e13 W
+      [snippet-only: secondary summaries of the report; the report PDF
+      itself was not directly opened this session]. Mass input is NOT
+      COMPUTABLE: unlike the-internet (which at least has a rejected,
+      unsourced infrastructure-mass folklore figure to flag) or cities
+      (body-mass-normalizable), no citable "mass of the global economy"
+      figure exists or would be expected to exist — GDP is a value-flow
+      measure, not a mass measure, and no standard "total material stock of
+      the world economy" figure with the needed citability was located.
+      (Candidate concept: UNEP International Resource Panel "global
+      material footprint," but that is itself a FLOW in gigatonnes/yr, not
+      a stock, and was not verified this session.) Recorded as unknown
+      rather than derived, directly parallel to financial-markets' own
+      energy_rate_density treatment (no citable NYSE draw figure existed
+      either) — here the mass figure is not even a rejected folklore claim,
+      it is a confirmed absence of any candidate denominator.
+    sources: [energy-institute-2024]
+    evidence_status: unknown
+    confidence: low
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: network
+    note: >
+      Trade and capital flows between the ~195-economy population form a
+      genuine network object (gravity-model and complex-network trade
+      studies are an established literature, not searched in depth this
+      session); overlaid with the hierarchical-mixed character financial-
+      markets and cities each display internally, but at THIS entry's own
+      scope (inter-economy interdependence) network is the better-fitting
+      single category, distinct from cities' explicitly mixed verdict.
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: trade flow
+        mechanism: cross-border exchange of goods and services, recorded in bilateral trade statistics and the Hidalgo-Hausmann country-product export network
+        participants: national economies (via firms as the operating agents)
+        range: network-mediated
+      - name: capital flow
+        mechanism: cross-border investment, lending, and portfolio flows (FDI, bond and equity purchases, interbank lending)
+        participants: national economies, firms, financial institutions
+        range: network-mediated
+      - name: price/market coupling
+        mechanism: commodity and asset prices transmitted across borders via arbitrage and financial-markets institutions (overlaps financial-markets where formalized; recorded here only as the cross-border transmission channel)
+        participants: national economies, firms, financial-markets (contained child)
+        range: global
+      - name: institutional rule-setting
+        mechanism: trade agreements, tariff regimes, monetary-policy frameworks, and multilateral institutional rules (WTO, IMF, central-bank coordination)
+        participants: national governments/central banks <-> the system of economies
+        range: global, slow timescale
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      Comparator: closest to financial-markets' own anchor treatment
+      (constrained) rather than the fully open alphabet of cities or
+      languages. The channels through which economies interact — trade,
+      capital flows, price transmission, institutional rule-setting — are a
+      recognizable, largely fixed formal set defined by the architecture of
+      international economic institutions (WTO rules, IMF frameworks,
+      bilateral/multilateral treaties), but that alphabet DOES change
+      through governance (new trade-agreement structures, new financial
+      instruments crossing borders, new multilateral frameworks), exactly
+      the "constrained" gradient financial-markets' own justification
+      describes. Not "open" in the cities/languages sense: unlike a city's
+      genuinely unbounded social/cultural interaction types, cross-border
+      economic interaction is channeled through a comparatively small,
+      named set of institutional mechanisms.
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      World trade network degree/node-strength distribution studies exist
+      (gravity-model and complex-network trade literature) but were not
+      searched this session — a distinct literature from both Bettencourt's
+      city-scaling and CSN's dataset table, neither of which covers this.
+      Left unknown per no-guessing rather than borrowing an unpinned
+      exponent; flagged as a follow-up now that interaction_topology is
+      scored network (making this column live, per the sweep report's own
+      conditional note).
+  modularity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Comparator: closest to financial-markets' own anchor (modularity.yaml,
+      score 2) and cities' worked anchor (also 2). The global economy
+      decomposes into recognizable regional trade blocs and currency areas
+      (EU/Eurozone, NAFTA/USMCA, ASEAN, RCEP) with denser internal trade and
+      capital-flow ties than across bloc boundaries — real, citable
+      structure in the international-trade-network literature (not
+      independently pinned to a specific Q value this session) — but
+      heavily coupled: global supply chains, dollar-denominated finance, and
+      commodity markets integrate every bloc into arbitrage and demand
+      relationships that cross boundaries constantly, and 2008-style stress
+      episodes correlate the whole system. Matches the anchor scale's 2
+      (recognizable subunits, substantial cross-module flow), not the
+      stronger insulation of a 3.
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, parallel to financial-markets'
+      own agents -> desks/firms -> venues -> integrated-market counting)
+      [corrected 2026-07-02, consistency-check flag: counted from national
+      economies, the entry's declared atomicity population per the scoping
+      note, not from firms, which the scoping note explicitly excludes as
+      "NOT the primary atomicity choice"]: national economies (atoms, this
+      entry's declared component_ontology/atomicity level) -> regional
+      trade blocs/currency areas (1, e.g. EU/Eurozone, NAFTA/USMCA, ASEAN,
+      RCEP) -> the integrated global system (2). Firms are a deeper,
+      parallel population (per the scoping note's three-tier resolution)
+      relevant to extreme_event_statistics and numerosity but are not
+      counted as a hierarchy_depth level, exactly as the-internet counts
+      up from its declared atom (AS nodes) without inserting its own
+      deeper adjacent population (end-user devices) as an extra level.
+      Composition BETWEEN catalog entries (the global economy containing
+      financial-markets, containing cities) lives in relations.contains,
+      not counted here per the column's own convention note.
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No candidate source located this session. Unlike cities (boundary
+      fractal dimension of urban form) or the-internet (router/AS
+      geographic placement), "the spatial structure of the global economy"
+      has no obvious single measurand a fractal-dimension study would
+      target — candidate measurands (spatial distribution of GDP density,
+      trade-network node geography) were not searched. Left unknown per
+      no-guessing rather than borrowing a city-level figure that would
+      double-count cities' own entry.
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: above financial-markets' single-exchange-operator anchor
+      (score 2) and closest to the-internet's anchor (decentralization.yaml,
+      score 3). Coordination points exist — the IMF, World Bank, WTO,
+      central-bank coordination fora (BIS, G20) — but per the infrastructure-
+      category guidance in decentralization.yaml, the discriminator is
+      whether the coordination layer does real-time steering or bookkeeping/
+      rule-setting only: none of these institutions dispatches trade flows,
+      sets prices, or plans output moment-to-moment the way a system
+      operator dispatches a grid or an exchange operates a matching engine.
+      Their authority is real but narrow in scope (surveillance,
+      standard-setting, crisis lending conditionality) and does not steer
+      the characteristic behavior of interest (production, trade, and price
+      formation across ~195 economies and tens of millions of firms), which
+      is produced by distributed decisions no institution commands. Scored
+      3 rather than 4: unlike English (no coordination points at all),
+      real — if narrow — multilateral coordination points exist.
+      Class-general: the reasoning is generic to the international
+      institutional architecture, not any single body.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: between cities (score 3) and financial-markets/tropical-
+      cyclones (4). Business-cycle dynamics show genuine nonlinear
+      dependence — Brock & Sayers (1988), J. Monetary Econ. 22:71, find BDS-
+      test-confirmed nonlinearity in U.S. macroeconomic time series
+      (employment, unemployment, industrial production), corroborated
+      independently for Canadian and international data (Frank & Stengos
+      1988; Frank et al. 1988) — and multiplicative/threshold mechanisms are
+      well documented elsewhere in the literature (financial-contagion
+      amplification, supply-chain bullwhip effects, debt-deflation
+      spirals). Scored 3, not 4: much of routine day-to-day global economic
+      activity (steady-state trade flows, incremental price adjustment) is
+      reasonably approximated by quasi-linear models; nonlinearity is most
+      load-bearing during business-cycle turning points and crisis episodes
+      rather than pervasively dominant at every subsystem simultaneously —
+      the same reasoning cities' own entry uses for its 3.
+    sources: [brock-sayers1988]
+    evidence_status: measured
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - name: trade/capital-flow amplification
+        sign: reinforcing
+        mechanism: "rising demand in one economy pulls imports -> exporting economies see growth and investment -> increased demand for the first economy's exports and capital -> further growth (documented in business-cycle synchronization literature across trading partners)"
+      - name: monetary-policy / central-bank stabilization
+        sign: balancing
+        mechanism: "overheating (inflation, credit expansion) -> central-bank tightening -> reduced credit and demand -> cooling, feeding back to reduce inflationary pressure"
+      - name: financial-contagion / deleveraging spiral
+        sign: reinforcing (episodic)
+        mechanism: "asset-price decline in one economy -> forced deleveraging and capital flight -> credit contraction and further asset-price decline, transmitted to trade/capital-linked economies (documented in the 2008 global financial crisis' cross-border transmission)"
+    justification: >
+      Comparator: matches financial-markets' and cities' own anchor level
+      (feedback.yaml, score 3) — multiple documented loops shape global
+      economic dynamics without being the sole organizing description of
+      all activity outside crisis episodes (idiosyncratic productivity
+      shocks, demographic trends operate largely open-loop). Loop structure
+      is a primary explanatory device in international macroeconomics
+      (business-cycle synchronization, contagion literature) but not
+      totalizing, hence 3 rather than 4.
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: matches cities' own anchor level (openness_dissipation.yaml,
+      score 3), one below the Sun/hurricane ceiling of 4. The global economy
+      draws large, continuous, literal energy throughput to maintain its
+      characteristic structure: world primary energy consumption ~620 EJ/yr
+      (2023, Energy Institute Statistical Review), equivalent to a
+      continuous average power draw of ~2e13 W — a genuine Prigogine-style
+      dissipative structure; global economic activity (production,
+      transport, trade) would not persist without continuous energy import,
+      and a sustained global energy-supply interruption would materially
+      degrade economic function well within the system's own operating
+      timescale. Held at 3, not 4: while enormous in absolute terms, this
+      throughput is small relative to planetary/stellar-scale fluxes
+      anchoring the column's top (Earth's total insolation is ~1.7e17 W;
+      the Sun's luminosity ~3.8e26 W), and the economy's underlying
+      productive capital stock persists on a longer timescale than a short
+      energy interruption would destroy — the same "collapse timescale
+      longer than a hurricane's" reasoning cities' entry uses.
+    sources: [energy-institute-2024]
+    evidence_status: measured
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Directly verified, not merely inherited from financial-markets: Brock
+      & Sayers (1988, J. Monetary Econ. 22:71) test U.S. macroeconomic time
+      series (employment 1950-1983, unemployment 1949-1982, monthly
+      industrial production, pig-iron production 1877-1937) for
+      low-dimensional deterministic chaos and find weak-to-absent evidence —
+      genuine NONLINEARITY is detected via the BDS test, but the authors
+      explicitly caution their tests "may have been too weak to detect"
+      chaos (a non-rejection, not a strong disproof). Frank & Stengos
+      (1988, Canadian data) and Frank et al. (1988, international data) are
+      reported to reach the same "no evidence of chaos" conclusion
+      independently [snippet-only, secondary-source attribution]. Per the
+      BINDING no-market-chaos rule and directly parallel to financial-
+      markets' own chaos_sensitivity treatment: "nonlinear dependence: yes;
+      low-dimensional deterministic chaos: no accepted evidence." Scored 1
+      to match financial-markets' identical evidentiary structure, not
+      averaged upward for contestedness.
+    sources: [brock-sayers1988]
+    evidence_status: measured-disputed
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      Per filling_rules.soc-two-claims and the criticality anchor's own
+      boundary_clarifications (events-of-the-scoped-system): no dedicated
+      formal literature on scale-invariant EVENT statistics internal to the
+      global economy's own dynamics (recession severity, crisis-frequency
+      distributions) was located or searched this session — this is a
+      confirmed gap, not a negative finding. No SOC or critical-point
+      mechanism has been formally proposed for the global economy as
+      scoped here (distinct from financial-markets' own criticality entry,
+      which concerns market-internal SOC claims specifically and is not
+      double-counted here per the scoping note's exclusion of re-scoring
+      contained children). Matches the anchor scale's floor case (river-
+      networks precedent before its own correction; the-internet's floor
+      text): no scale-invariant event statistics reported or sought, no
+      mechanism proposed for THIS scoped system. Recession/crisis severity
+      distributions (candidate: Reinhart & Rogoff-style crisis chronologies)
+      are flagged as a follow-up search target, not resolved here.
+    evidence_status: unknown
+  extreme_event_statistics:
+    type: quantitative
+    level: exemplar(firms)
+    measurand_type: static-cross-sectional
+    value: "Pareto tail exponent alpha = 1.059 (employee-based, OLS slope -2.059, SE 0.054, adjusted R^2=0.992, 1997 cross-section); alpha = 0.995 (SE 0.031, all-businesses, 1992 only, OLS regression, Table 2); alpha in 0.9966-1.0039 across all years 1988-1997 (Table 3, all-business-entities series, closed-form N/A estimator per the paper's eq. 4 — NOT OLS regression)"
+    measurand: "U.S. firm-size distribution (1997 Census data, N=5,541,918 firms with employees), rank-size / Pareto tail fit"
+    method: >
+      Axtell, R.L. (2001). "Zipf Distribution of U.S. Firm Sizes." Science
+      293(5536), 1818-1820 — PRIMARY-READ in full this session (pdftotext
+      extraction). Two distinct methods/tables, not to be conflated
+      [corrected 2026-07-02, citation-check flag]: Table 2 gives OLS
+      log-log-regression tail exponents for a SINGLE year (1992 only):
+      alpha=0.994 (SE 0.043, firms with employees) and alpha=0.995 (SE
+      0.031, all businesses). Table 3 gives the actual ten-year 1988-1997
+      series via a DIFFERENT, closed-form method (the paper's eq. 4,
+      computed directly from total firm count N and total employment A,
+      not OLS regression): the printed values are 1997:0.9966,
+      1996:0.9986, 1995:0.9983, 1994:1.0004, 1993:1.0008, 1992:1.0009,
+      1991:1.0004, 1990:0.9995, 1989:1.0006, 1988:1.0039 — i.e. the true
+      1988-1997 range is 0.9966-1.0039. The fit is so close to alpha=1
+      that Axtell labels it "the Zipf distribution... over nearly six
+      decades of firm size." Confirmed NOT present in Clauset-Shalizi-
+      Newman's (2009) 24-dataset table (re-checked directly against the
+      primary-read table transcription in research/phase1/
+      quantitative-backbone.md this session — no firm-size row exists;
+      "Net worth of richest Americans" is the closest wealth-adjacent CSN
+      row and is a different, explicitly REJECTED quantity, not to be
+      conflated).
+    sources: [axtell2001, csn2009]
+    evidence_status: measured-untested
+    confidence: medium
+    note: >
+      Per filling_rules.power-law-rigor: Axtell's method is ordinary
+      least-squares log-log regression, explicitly NOT the CSN-2009-grade
+      maximum-likelihood-plus-goodness-of-fit-testing standard (no KS test,
+      no comparison against alternative distributions such as log-normal is
+      reported). This MUST enter the catalog as measured-untested — the
+      same status CSN's own paper implies for any power-law claim fit only
+      by pre-2009-style OLS. The fit's strength (adjusted R^2=0.99+ across
+      multiple independent measures and 10 years of data) is a genuinely
+      unusual mitigating factor worth recording but does not substitute for
+      CSN-style testing. LEVEL: exemplar(firms), not class-general — Axtell
+      himself states non-U.S. firm-size Zipf behavior is "a conjecture that
+      can only be tested once individual governments make available...
+      data that purport to be comprehensive," i.e. NOT yet established as a
+      class-general claim across all national firm populations. MEASURAND_
+      TYPE: static-cross-sectional — a rank-size distribution of firm sizes
+      at a point in time, no event/frequency structure, the same category
+      as Zipf city-size and word-frequency claims elsewhere in the catalog.
+      Recession/crisis event-frequency statistics (a genuine temporal-event
+      candidate for this column) were not located this session — confirmed
+      gap, not resolved here; see provenance.flags.
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No macro/world-GDP-specific Hurst-exponent or long-range-dependence
+      study with a citable H value was located this session (general
+      Hurst-exponent methodology literature was found, but nothing
+      GDP-specific and pinned). Business-cycle chaos-sensitivity literature
+      (Brock & Sayers 1988, recorded above) addresses nonlinearity/chaos,
+      not long-range temporal correlation specifically, and is not
+      conflated here. Left unknown per no-guessing; flagged for a follow-up
+      search targeting econophysics/macro-time-series literature
+      (detrended fluctuation analysis of GDP, long-memory business-cycle
+      studies).
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Comparator: below financial-markets' and river-networks' anchor level
+      (score 2), matching earthquake-fault-systems' near-floor case (score
+      1). No systematic inventory of global-economy "tipping elements"
+      analogous to Lenton/Armstrong McKay's climate work, and no dedicated
+      formal regime-shift/bifurcation study specific to the global economy
+      as a whole was located or searched this session. "Tipping point" and
+      "systemic risk" language is applied informally in economic
+      commentary and financial-stability literature (e.g., discussions of
+      sovereign-debt-crisis contagion, "too big to fail" cascade risk), and
+      Scheffer et al.'s (2009) generic early-warning-signal framework — the
+      same one financial-markets' own anchor cites for its 2 — is proposed
+      as potentially applicable to macro-financial systems in the broader
+      literature, but no dedicated, published bifurcation/threshold model
+      specific to the GLOBAL economy (as distinct from a single market or a
+      single country's economy) was found this session. Scored 1: informal/
+      metaphorical language and adjacent single-market modeling exist, but
+      no specific named mechanism with a proposed threshold has been
+      formally identified FOR THIS SCOPED SYSTEM per the anchor's own
+      single-modeled-mechanism-is-2 boundary clarification — a genuine gap,
+      flagged for follow-up (candidate: sovereign-debt-contagion or
+      global-financial-network cascade literature) rather than guessed
+      upward.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: matches financial-markets' and cities' own anchor level
+      (memory_hysteresis.yaml, score 3) — documented path-dependent
+      "scarring" without a single canonical loop-width number. Two lines of
+      evidence: (1) institutional/structural path-dependence — post-crisis
+      regulatory regimes (Bretton Woods institutions post-1944, financial
+      regulation post-2008, supply-chain reconfiguration post-2020) persist
+      for years to decades after the triggering shock, materially shaping
+      subsequent economic structure rather than reverting to a pre-shock
+      baseline; (2) documented economic hysteresis in the labor-economics
+      literature: prolonged unemployment following a recession can
+      permanently reduce an economy's productive capacity (labor-market
+      "scarring," skill atrophy) rather than fully reversing once demand
+      recovers, a genuine path-dependence claim distinct from simple
+      relaxation lag. Held at 3, not 4: no single quantitative loop-width or
+      threshold figure (comparable to AMOC's ~0.4 Sv) was recovered for the
+      global economy as a whole this session, so the evidence is
+      qualitative and structural rather than a pinned quantitative loop.
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: below financial-markets' top-of-scale anchor (score 4,
+      which concerns price discovery within a single market specifically),
+      above power-grids' operator-mediated anchor (score 3, for a different
+      reason). The global economy runs multiple genuine information-
+      aggregation layers: cross-border prices (commodity benchmarks,
+      exchange rates) aggregate dispersed information about relative
+      scarcity and demand across economies; the Hidalgo & Hausmann (2009,
+      PNAS 106:10570) "Method of Reflections" formalizes exactly this kind
+      of distributed aggregation for trade structure specifically — a
+      country's Economic Complexity Index emerges from the whole
+      country-product export network's bipartite structure (diversity
+      k_c,0 and ubiquity k_p,0 recursively defined), with no single agent
+      holding "the" complexity value, structurally analogous to how price
+      formation aggregates information in a single market; the paper
+      further shows deviations between complexity and current income
+      predict future growth, i.e., the aggregated state is used
+      state-dependently by the system (capital and trade reallocate toward
+      economies whose complexity exceeds what their income would predict).
+      Central-bank policy responses condition on aggregated macro
+      indicators (inflation, output gaps) in a state-dependent way. Held at
+      3 rather than 4: unlike a single exchange's limit order book, no
+      single mechanism is as cleanly load-bearing or as thoroughly
+      documented across the WHOLE global system — the various channels
+      (trade-network structure, exchange rates, capital flows, monetary
+      policy) are more loosely integrated with each other than one
+      continuous auction, the same reasoning cities' entry uses for its own
+      3.
+    sources: [hidalgo-hausmann2009]
+    evidence_status: measured
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: below financial-markets' top score (adaptive_capacity.yaml,
+      score 4), above power-grids' operator-mediated score (2), matching
+      cities' own level (3). Firms and national economies (components, per
+      the scoping note's boundary) hold internal models and adjust behavior
+      anticipatorily — reallocating investment and trade relationships based
+      on expected demand and policy shifts, not just reacting to current
+      conditions; central banks and international institutions revise
+      frameworks after crises (post-2008 macroprudential regulation,
+      post-1997-Asian-crisis IMF conditionality reform). Selection-like
+      dynamics operate on firms (failing firms exit; successful business
+      models are imitated across borders) and on national economies
+      (policy regimes that produce poor outcomes face pressure to reform).
+      Held at 3, not 4: adaptation is real and multi-level but slower and
+      more constrained than a single market's — institutional reform at the
+      global-governance level (WTO rounds, IMF quota reform) moves on
+      multi-year-to-decade timescales, far slower than a market's
+      near-continuous strategy churn, the same reasoning cities' own entry
+      uses relative to financial-markets.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Variation is continuous across firms' business models, national
+      economic policy regimes, and technologies; selection operates through
+      market mechanisms (uncompetitive firms exit, unproductive capital is
+      reallocated) and through policy competition among nations (regimes
+      that produce poor growth outcomes face pressure to reform or lose
+      capital/talent to more successful peers); retention occurs through
+      imitation (successful development and business strategies are
+      copied across firms and economies) and through institutionalization
+      (trade agreements, regulatory frameworks, central-bank mandates).
+      Mechanism taxonomy recorded here per the panel spec, referenced by
+      adaptive_capacity.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: matches cities' and languages' anchor level (emergence.yaml,
+      score 3), below financial-markets' top-of-scale (4, reserved for
+      price as THE sole organizing object of a single market). World GDP,
+      the business cycle, and — most concretely — the Hidalgo & Hausmann
+      (2009) Economic Complexity Index are formalized macro-level order
+      parameters with real predictive content not transparent from any
+      single firm's or economy's behavior by inspection: ECI is derived
+      from the whole country-product bipartite export network and its
+      DEVIATION from current income is explicitly used to predict future
+      growth (a genuine, quantitatively formalized macro-law doing
+      real explanatory and predictive work, not a bookkeeping aggregate).
+      Business-cycle phase (expansion/contraction, NBER dating) is
+      similarly a load-bearing macro-classification the field organizes
+      around. Held at 3, not 4: unlike financial markets, where price is
+      the field's entire organizing object, international economics uses
+      several macro-theories (trade theory, growth theory, business-cycle
+      theory) alongside substantial micro-level (firm- and
+      household-level) analysis — macro-description is load-bearing but not
+      the sole mode by which the field studies the global economy.
+    sources: [hidalgo-hausmann2009]
+    evidence_status: measured
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: above the-internet's designed-skeleton anchor (score 2),
+      matching cities' own level (3), below the fully authorless anchors
+      (tropical-cyclones, languages, both 4). International institutions
+      (WTO, IMF, central-bank frameworks) constitute a real but partial
+      designed skeleton — but the system's characteristic structure, which
+      economies trade what with whom, how capital flows across borders,
+      how the size distribution of firms takes its Zipf-like shape, how
+      business cycles synchronize across trading partners — grows
+      overwhelmingly from uncoordinated decisions by billions of firms and
+      households, not from any planning document; no institution designed
+      the world trade network's topology or the firm-size distribution.
+      Scored 3 rather than 2: unlike a single exchange (financial-markets,
+      scored 2, whose rulebook substantially determines the resulting
+      microstructure) the international institutional skeleton constrains
+      but does not come close to determining the emergent trade, capital,
+      and firm-size patterns built on top of it — closer to cities' own
+      reasoning that external templating is present but marginal to the
+      system's characteristic structure.
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Comparator: matches financial-markets' and cities' own anchor level
+      (robustness_resilience.yaml, score 3). The global economy has
+      absorbed its characteristic perturbation spectrum — the 2008 global
+      financial crisis, the 2020 COVID-19 pandemic shock, the 1970s oil
+      shocks, the 1997 Asian financial crisis — recovering function with
+      scars (post-2008 financial regulation, post-2020 supply-chain
+      reconfiguration) rather than identity loss, over many decades of
+      operating history as an integrated system. Not a 4: known
+      destructive event classes exist that would plausibly overwhelm this
+      tolerance (a systemic collapse of the international monetary system,
+      a multi-decade breakdown of global trade cooperation into sustained
+      autarky/conflict), which is what separates 3 from 4 under the
+      anchor's own normalization rule, exactly as for NYSE and NYC.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Comparator: matches financial-markets' and cities' own anchor level
+      (cascade_susceptibility.yaml, score 2). Dedicated case studies and
+      mechanism analyses exist and are genuinely global-economy-scale, not
+      merely inherited from financial-markets' narrower scope: the 2008
+      global financial crisis is a documented cross-border contagion
+      cascade (US subprime mortgage failures propagating through
+      securitized-debt networks to European banks and sovereign
+      balance sheets, then to trade-linked emerging economies), and
+      supply-chain cascade literature (post-2020 relevance, e.g.
+      semiconductor and shipping bottlenecks propagating across
+      manufacturing sectors globally) documents real cross-economy
+      propagation mechanisms. These are dedicated case studies and
+      mechanism analyses (level 2: cascades occur, rough extent
+      characterized), but no fitted cross-event cascade-size distribution
+      analogous to the multi-decade blackout dataset was located this
+      session, so this does not reach level 3. Sovereign-debt-crisis
+      contagion literature (candidate: Reinhart & Rogoff) was flagged but
+      not searched this session — follow-up item.
+    sources: [degryse-elahi-penas2010]
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: World GDP / aggregate output
+    order_parameter: "world gross domestic product (nominal ~$105.69T 2023 / ~$111.3T 2024, World Bank, snippet-level)"
+  - name: Business cycle
+    order_parameter: "phase classification (expansion/contraction), NBER-style dating; amplitude and duration of cyclical fluctuations"
+  - name: Firm-size distribution
+    order_parameter: "Pareto/Zipf tail exponent alpha ~1.0 (U.S. firms, Axtell 2001) — class-level regularity in how economic activity distributes across firm sizes"
+  - name: Economic Complexity Index
+    order_parameter: "k_c,0 (diversity) / k_p,0 (ubiquity) recursive Method-of-Reflections statistic (Hidalgo & Hausmann 2009); a country-level macro-variable emergent from the whole bipartite trade network, predictive of growth deviations"
+
+sources:
+  axtell2001:
+    citation: "Axtell, R.L. (2001). Zipf Distribution of U.S. Firm Sizes. Science 293(5536), 1818-1820. DOI: 10.1126/science.1062081. [primary-read this session — full-text pdftotext extraction of the Science PDF via an author/journal mirror; Table 3 (U.S. Census data, 1988-1997) transcribed directly]"
+  csn2009:
+    citation: "Clauset, A., Shalizi, C.R. & Newman, M.E.J. (2009). Power-law distributions in empirical data. SIAM Review 51(4), 661. [primary-read, full text, Phase 1 — reused unchanged per that provenance; re-confirmed this session that firm size is NOT among the 24 datasets in the study's own table]"
+  hidalgo-hausmann2009:
+    citation: "Hidalgo, C.A. & Hausmann, R. (2009). The Building Blocks of Economic Complexity. PNAS 106(26), 10570-10575. DOI: 10.1073/pnas.0900943106. [primary-read this session — full-text PDF fetched and extracted via pdftotext; core Method-of-Reflections mechanism and diversity/ubiquity definitions confirmed directly. NOTE: the exact ECI normalization formula beyond k_c,0/k_c,1 and the headline ECI-income correlation coefficient were NOT cleanly extractable from this session's garbled PDF table/figure regions — multiple candidate r-values (0.63, -0.73, 0.59, -0.54) appear in extracted figure-caption fragments but could not be reliably attributed to specific claims; no specific correlation coefficient is cited in this entry for that reason, per no-guessing.]"
+  brock-sayers1988:
+    citation: "Brock, W.A. & Sayers, C.L. (1988). Is the Business Cycle Characterized by Deterministic Chaos? Journal of Monetary Economics 22(1), 71-90. [snippet-verified this session via multiple independent secondary summaries — abstract/findings confirmed (BDS-test results on U.S. employment, unemployment, industrial production, and pig-iron production series), full text not fetched. Corroborating findings for Canadian data (Frank & Stengos 1988) and international data (Frank et al. 1988) are reported via the same secondary summaries — [snippet-only, secondary-source attribution, original papers not independently fetched this session].]"
+  energy-institute-2024:
+    citation: "Energy Institute (2024). Statistical Review of World Energy 2024 (successor to the BP Statistical Review of World Energy). World primary energy consumption ~620 EJ/yr (2023) / ~607 EJ/yr (2022). [snippet-only this session: figures drawn from secondary summaries (Carbon Brief, Forbes, Statista coverage of the report); the Energy Institute's own report PDF was not directly opened. Direct fetches to data.worldbank.org, worldometers.info, tradingeconomics.com, and imf.org for corroborating World GDP figures all failed (403 Forbidden or empty extraction) this session.]"
+  un-membership:
+    citation: "UN membership figures: 193 member states + 2 observer states (Holy See, State of Palestine), ~195 total. General public record. [unverified — model knowledge / general public record; not independently primary-read from a UN primary source this session, though the figure is uncontroversial and stable]"
+  world-bank-gdp:
+    citation: "World Bank: World GDP (nominal) $105.69 trillion (2023) / $111.3 trillion (2024). [snippet-only this session: search-engine-summarized secondary aggregation of the World Bank data portal; direct fetch to data.worldbank.org returned no extractable figures this session — flagged for a follow-up direct API/CSV pull]"
+  degryse-elahi-penas2010:
+    citation: "Degryse, H., Elahi, M.A. & Penas, M.F. (2010). Cross-Border Exposures and Financial Contagion. International Review of Finance 10(2), 209-240. [snippet-verified this session — existence, authorship, venue, and year confirmed via multiple independent secondary/aggregator sources (IDEAS/RePEc, Wiley Online Library listing, Tilburg University research portal); full text not fetched this session. Added 2026-07-02 (flag fixer) to satisfy cascade_susceptibility's citation-rigor bar per the financial-markets/cities precedent — documents cross-border bank exposure as a contagion-propagation channel, consistent with (not a replacement for) the entry's own 2008-crisis and post-2020-supply-chain narrative, which remains otherwise general/model knowledge.]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-02)
+  scoping_and_rubrics: >
+    workflow-agent draft, v0.2 expansion sweep, adapted from the
+    tropical-cyclones and financial-markets gold examples and the 15
+    anchor files. No column in this catalog has a directly worked
+    "global-economy" anchor; every rubric/hybrid column here is scored by
+    explicit comparator reasoning against the closest worked anchor
+    (predominantly financial-markets and cities, both socio-economic
+    class-general precedents), flagged as such in each justification, per
+    the task brief's instruction for expansion (non-anchored) classes.
+  verification:
+    citation_check: "flags received 2026-07-02; fix pass completed 2026-07-02 (see fix_log) — re-verification by the citation checker itself still pending"
+    plausibility_check: "flags received 2026-07-02; fix pass completed 2026-07-02 (see fix_log) — re-verification by the plausibility checker itself still pending"
+    consistency_check: "flags received 2026-07-02; fix pass completed 2026-07-02 (see fix_log) — re-verification by the consistency checker itself still pending"
+    coverage_check: "flags received 2026-07-02; fix pass completed 2026-07-02 (see fix_log) — re-verification by the coverage checker itself still pending"
+  fix_log:   # APPEND-ONLY. Responses to the four adversarial verifiers' structured flags.
+    - by: "workflow-agent (flag-fixer), 2026-07-02"
+      entries:
+        - tag: "[FIX/citation]"
+          column: extreme_event_statistics
+          change: >
+            Corrected the Axtell (2001) citation, which conflated Table 2
+            (single-year 1992 OLS regression, alpha=0.994/0.995) with Table
+            3 (the actual 1988-1997 ten-year series, computed via a
+            different closed-form N/A estimator, eq. 4). Replaced the
+            claimed "0.994-1.004 across all years 1988-1997" range — which
+            does not appear anywhere in the paper — with the true printed
+            Table 3 range (0.9966-1.0039) and separated out the Table 2
+            single-year OLS figures with explicit "1992 only, OLS
+            regression (Table 2)" labeling, per the verifier's suggested
+            fix.
+        - tag: "[FIX/plausibility]"
+          column: hierarchy_depth
+          change: >
+            Rewrote the method text to count from national economies (the
+            entry's declared atomicity population per the scoping note) as
+            atoms, rather than firms (which the scoping note explicitly
+            excludes as "NOT the primary atomicity choice"). This removed
+            one level: national economies (atoms) -> regional trade
+            blocs/currency areas (1) -> integrated global system (2). Value
+            changed from 3 to 2. No additional genuine intermediate level
+            was identified to justify keeping 3, so the count was not
+            artificially preserved.
+        - tag: "[FIX/plausibility]"
+          column: characteristic_timescales
+          change: >
+            Tightened the business-cycle row's stated range from
+            "~1e8-1e9 s" to "~6e7-3.5e8 s," matching the three cited
+            periodizations (NBER ~2-10 yr, Kitchin ~3-5 yr, Juglar ~7-11
+            yr); the prior 1e9 s (~31.7 yr) upper bound was unsupported by
+            any of them. No citation for a longer secular cycle (e.g.
+            Kondratiev) was added, since none was verified this session —
+            the range was tightened to match existing citations rather than
+            expanded with an unverified one.
+        - tag: "[FIX/consistency]"
+          column: hierarchy_depth
+          change: >
+            Same fix as the plausibility-check finding above (both flags
+            targeted the same firms-vs-national-economies atom
+            contradiction against scoping_note/component_ontology); resolved
+            once, consistently, by both flags' shared suggested fix
+            (rewrite to use national economies as atoms).
+        - tag: "[FIX/consistency]"
+          column: cascade_susceptibility
+          change: >
+            Added sources: [degryse-elahi-penas2010] — Degryse, Elahi &
+            Penas (2010), "Cross-Border Exposures and Financial Contagion,"
+            International Review of Finance 10(2), 209-240
+            [snippet-verified this session via multiple independent
+            secondary/aggregator sources: IDEAS/RePEc, Wiley Online Library
+            listing, Tilburg University research portal; full text not
+            fetched] — documenting cross-border bank exposure as a
+            contagion-propagation channel, matching the citation rigor of
+            the financial-markets and cities precedents for this column.
+            Full source block added under sources:.
+        - tag: "[FIX/coverage]"
+          column: sources.world-bank-gdp
+          change: >
+            Did not force-bind world-bank-gdp into a quantitative attribute
+            (no existing column is a correct home for a GDP value-flow
+            figure — numerosity is a count of atomic parts, not a value
+            aggregate). Instead recorded an explicit provenance.flags entry
+            (column: sources.world-bank-gdp) documenting that this citation
+            is narrative-only-by-design, backing emergent_phenomena[0]'s
+            order_parameter text, per docs/schema.md's worked example (in
+            which emergent_phenomena entries never carry a sources: field)
+            — matching the verifier's suggested "note in provenance.flags"
+            alternative fix.
+  flags:   # standing data limitations and open judgment calls, this drafter's own top uncertainties
+    - column: scoping_note (atomicity)
+      note: >
+        The instance_population=1 / component_ontology=national-economies /
+        deeper-population=firms three-tier resolution is a considered
+        judgment call accepted from the sweep report's own recommendation
+        (research/v0.2-sweep/expansion/global-economy-sources.md, Section
+        1), not a settled fact inherited from a precedent entry — no other
+        catalog entry has quite this three-tier structure (the-internet's
+        dual-atomicity is the closest precedent but is genuinely simpler,
+        splitting only network-structure vs. traffic-signal atoms at ONE
+        level, not three nested population scales). Flagged as open to
+        revision at the next consistency-check pass.
+    - column: energy_rate_density
+      note: >
+        Recorded as unknown, not derived — no citable "mass of the global
+        economy" figure exists or was found, unlike every other socio-
+        economic entry in the catalog (cities has body mass; financial-
+        markets tried and also landed on unknown, the direct precedent).
+        This is a confirmed absence of a candidate denominator, not merely
+        an unsearched gap; revisit only if a global material-stock
+        accounting figure (distinct from UNEP's material-FLOW figures)
+        surfaces.
+    - column: extreme_event_statistics
+      note: >
+        Only the firm-size (static-cross-sectional) measurand is filled,
+        at exemplar(firms)/U.S.-only level per Axtell's own explicit
+        caveat about non-U.S. firm data. The temporal-event counterpart
+        this column is designed to also potentially hold (recession/
+        financial-crisis severity or frequency distributions, candidate
+        source: Reinhart & Rogoff-style crisis chronologies) was not
+        searched this session at all — a complete, named gap, not a
+        negative finding, and the single most actionable follow-up item
+        for this entry.
+    - column: World GDP / global firm count / degree_distribution
+      note: >
+        World GDP, global energy consumption, and global firm-count figures
+        all rest on search-engine-summarized secondary aggregation this
+        session, not directly-opened World Bank/IMF/Energy Institute
+        primary tables or APIs (direct fetches to data.worldbank.org,
+        worldometers.info, tradingeconomics.com, and imf.org all failed —
+        403 Forbidden or empty extraction). The figures are convergent
+        across independent secondary summaries and very likely correct,
+        but should be upgraded to primary-read via a direct API/CSV pull
+        before this entry is promoted past draft. World trade network
+        degree-distribution literature (now live per interaction_topology:
+        network) was flagged but not searched at all.
+    - column: sources.world-bank-gdp
+      note: >
+        [FIX/coverage, added 2026-07-02 by flag fixer] The world-bank-gdp
+        source block (World GDP $105.69T 2023 / $111.3T 2024) is
+        deliberately narrative-only: it backs emergent_phenomena[0]'s
+        ("World GDP / aggregate output") order_parameter text, not a
+        first-class cited attribute value. Per docs/schema.md's worked
+        example, emergent_phenomena entries never carry a sources: field,
+        so this citation cannot be "bound" into that list the way
+        attributes.*.sources can. No existing quantitative column is a
+        correct home for a world GDP figure either: numerosity is a count
+        of atomic parts, not a value-flow aggregate, and
+        energy_rate_density's own note explains why GDP cannot serve as a
+        mass/stock denominator. Recorded here explicitly so a future
+        auditor does not mistake this for an orphan citation — it is
+        intentionally narrative-only by design, not an incomplete binding.
+    - column: component_ontology (firms.itself_complex)
+      note: >
+        [note, recorded 2026-07-02 by flag fixer, not acted per fix-scope
+        rules — cosmetic/non-blocking] The firms part-type's itself_complex
+        field is set to "out-of-scope(human) / firms," a slash-joined pair
+        rather than a single value per panel-spec's controlled format
+        (<catalog-entry-id> | out-of-scope(<what>) | no). Ambiguous as
+        written. This is an inherited pattern — financial-markets.yaml uses
+        the identical non-conformant notation for its own "trading agents"
+        part-type — so not a new error, but worth a future consistency pass
+        across both entries. Suggested fix: itself_complex: firms (the
+        unresolved roster-queue catalog-entry-id), with out-of-scope(human)
+        framing moved to the note/role field.
+    - column: nonlinearity
+      note: >
+        [note, recorded 2026-07-02 by flag fixer, not acted — cosmetic]
+        Justification text originally read "between cities (score 3) and
+        financial-markets/tropical-cyclones (4)," but the assigned score
+        (3) equals cities' anchor value rather than sitting strictly
+        between the two figures named. Wording-only issue; the underlying
+        reasoning is sound and matches the anchor's level-3 text. Suggested
+        rewording: "Comparator: matches cities' own anchor level (score 3),
+        below financial-markets/tropical-cyclones (4)."
+    - column: extreme_event_statistics / degree_distribution / temporal_correlation
+      note: >
+        [note, recorded 2026-07-02 by flag fixer, not acted — follow-up
+        research items, not fixable without fabrication] Three confirmed,
+        named literature gaps flagged by the coverage verifier: (1)
+        recession/financial-crisis severity or frequency distributions
+        (candidate: Reinhart & Rogoff, "This Time Is Different") for
+        extreme_event_statistics' temporal-event measurand; (2) world/
+        international trade network degree/node-strength distribution
+        studies (gravity-model and complex-network trade literature) for
+        degree_distribution, now live per interaction_topology: network;
+        (3) GDP Hurst-exponent / long-range-dependence studies (detrended
+        fluctuation analysis, long-memory business-cycle econophysics) for
+        temporal_correlation, distinct from the Brock & Sayers
+        chaos-sensitivity literature already cited. All three are correctly
+        left unknown/gapped rather than guessed; each has a named candidate
+        source for a future research pass.
