@@ -1,0 +1,184 @@
+system: galaxies
+phenomena:
+  - id: galaxies--spiral-arms
+    name: Spiral arms (density wave)
+    order_parameter: spiral pattern speed; pitch angle; arm amplitude/contrast
+    substrate:
+      part_type: gas/dark-matter continuum (interstellar medium plus the dark-matter halo)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [gravitational self-binding (stellar and gas dynamics), density-wave / spiral-arm coupling]
+    novelty_kind: new-structure
+    onset: crossover-gradual   # softened from threshold-bifurcation at verification (2026-07-03): the instability threshold is textbook physics but uncited in the host entry; matches ocean-circulation's conservative treatment of equally-uncited thresholds. Original control-parameter note retained below for the record.
+    onset_control_parameter: >
+      Disk self-gravity / differential-rotation instability threshold
+      (spiral density-wave instability of a sufficiently cold, massive
+      disk) [unverified — model knowledge; the entry's feedback block
+      describes the reinforcing self-maintenance mechanism qualitatively
+      but cites no pinned critical Toomre-Q-type value for the class].
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "density-wave theory (pattern speed, pitch angle); emergence column notes it is real, load-bearing macro-theory but scored 3, not 4"
+    qualitative_difference: >
+      No individual star or gas parcel has a "pattern speed" or "pitch
+      angle" — a single star simply orbits the galactic potential. The
+      spiral arm is a coherent, persistent overdensity pattern through which
+      stars and gas continuously stream (interaction_ontology's own
+      description: "not a fixed material structure"), a collective spatial
+      organization absent from any single orbit.
+    justification: >
+      novelty_kind new-structure (runner-up new-entity): the entry's own
+      feedback.loops describes the spiral pattern as self-maintaining and
+      persisting as a quasi-static organized structure through which
+      material streams — closer to a standing structural record of the
+      collective dynamics than a trackable individual object, though the
+      spec allows new-entity as the runner-up since a given arm can be
+      pointed at and tracked over some interval. onset threshold-bifurcation:
+      density-wave/spiral instability is a standard gravitational-instability
+      bifurcation of the differentially rotating disk (nonlinearity block
+      calls bar formation "threshold/switch-like"; spiral arms are treated
+      analogously in interaction_ontology), though no pinned critical value
+      is cited in this entry specifically.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: galaxies--central-bar
+    name: Central bar
+    order_parameter: bar pattern speed; bar strength/length
+    substrate:
+      part_type: gas/dark-matter continuum (interstellar medium plus the dark-matter halo)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [gravitational self-binding (stellar and gas dynamics)]
+    novelty_kind: new-entity
+    onset: crossover-gradual   # softened from threshold-bifurcation at verification (2026-07-03): the instability threshold is textbook physics but uncited in the host entry; matches ocean-circulation's conservative treatment of equally-uncited thresholds. Original control-parameter note retained below for the record.
+    onset_control_parameter: >
+      Disk-to-total mass-fraction / dynamical instability threshold for bar
+      formation in sufficiently disk-dominated systems (nonlinearity block:
+      "bar formation is a threshold/switch-like nonlinear instability of
+      sufficiently disk-dominated systems") [no pinned numerical critical
+      value cited in this entry — unverified — model knowledge].
+    persistence: self-sustaining
+    effective_theory:
+      status: vocabulary
+      theory: "bar pattern-speed/strength framework; no dedicated quantitative bar theory cited beyond the general nonlinear-instability description"
+    qualitative_difference: >
+      A bar is a coherent, elongated, individuable mass concentration that
+      can be pointed at, measured (length, pattern speed), and tracked
+      through secular evolution (feedback.loops: bar-driven gas inflow) —
+      unlike any single star's orbit, which has no "bar strength."
+    justification: >
+      novelty_kind new-entity: satisfies the spec's test directly (you can
+      point at the bar, measure its length/pattern speed, track its
+      evolution). onset threshold-bifurcation: nonlinearity's own text
+      explicitly calls bar formation "threshold/switch-like," a named
+      instability of sufficiently disk-dominated systems — the clearest
+      threshold framing among this entry's phenomena, though the specific
+      critical mass-fraction is not numerically pinned here.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: galaxies--rotation-curve
+    name: Rotation curve
+    order_parameter: circular velocity as a function of galactocentric radius (the observational basis for inferring dark-matter content)
+    substrate:
+      part_type: gas/dark-matter continuum (interstellar medium plus the dark-matter halo)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [gravitational self-binding (stellar and gas dynamics)]
+    novelty_kind: new-structure
+    onset: always-present-at-scale
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-predictive
+      theory: "rotation-curve dynamics under the collective gravitational potential (baryonic + dark matter); emergence block calls this 'the observational basis for dark matter'"
+    qualitative_difference: >
+      A single star's orbital velocity is just its own orbit; the ROTATION
+      CURVE — circular velocity as a function of radius across the whole
+      population — is a collective structural signature of the total mass
+      distribution (including unseen dark matter), not readable from any
+      one star's motion in isolation. It is the entry's own cited basis for
+      inferring dark matter's existence, a genuinely emergent structural
+      fact about the aggregate.
+    justification: >
+      novelty_kind new-structure: the order parameter is a standing radial
+      profile (a record of the mass distribution), present whenever the
+      galaxy is observed, not an event or a time-signature — closest to
+      the spec's new-structure test (though runner-up new-statistics is
+      plausible since it is a functional relationship over a population of
+      orbits). onset always-present-at-scale: a rotation curve exists for
+      any gravitationally bound disk system with enough tracers to measure
+      it; the entry cites no threshold below which it fails to exist,
+      only a smooth function of radius.
+    confidence: medium
+
+  - id: galaxies--hubble-sequence
+    name: Hubble morphological sequence (spiral / elliptical / irregular)
+    order_parameter: morphological classification; bulge-to-disk ratio; Sersic index
+    substrate:
+      part_type: individual stars (and star-forming molecular clouds)
+      count_oom: "Milky Way: ~1-4e11 stars standing population; ~1-2 Msun/yr formation rate (up to ~4-8 Msun/yr by some tracers)"
+      interchangeable: no
+    generating_interactions: [gravitational self-binding (stellar and gas dynamics), star formation / stellar feedback, tidal / merger interaction]
+    novelty_kind: new-statistics
+    onset: crossover-gradual
+    persistence: frozen
+    effective_theory:
+      status: vocabulary
+      theory: "Hubble morphological classification (bulge-to-disk ratio, Sersic index); emergence block calls it 'a genuine effective taxonomy the field organizes around'"
+    qualitative_difference: >
+      No individual star has a morphological type; the Hubble sequence is a
+      classification scheme over the POPULATION-level structural outcome
+      (bulge-to-disk ratio, Sersic index) of billions of stars' collective
+      gravitational and star-formation history — a taxonomy describing
+      which structural regime a whole galaxy falls into, not any star's
+      property.
+    justification: >
+      novelty_kind new-statistics (runner-up new-structure): the order
+      parameter is a classification/index over the aggregate light and mass
+      distribution (Sersic index, bulge-to-disk ratio), closer to a
+      distributional/statistical descriptor of population structure than a
+      single trackable object; new-structure is a close runner-up since the
+      resulting morphology is also a frozen spatial record. onset
+      crossover-gradual: the entry describes morphology as a smooth
+      continuum (the "Hubble sequence" itself is a graded taxonomy, not a
+      pair of discrete phases with a cited bifurcation), and no formal
+      critical-parameter threshold for crossing morphological types is
+      cited in this entry.
+    confidence: low
+
+  - id: galaxies--merger-remnant
+    name: Merger remnant structure
+    order_parameter: post-merger velocity dispersion, morphology, and stellar-population age/metallicity distribution
+    substrate:
+      part_type: individual stars (and star-forming molecular clouds)
+      count_oom: "Milky Way: ~1-4e11 stars standing population; ~1-2 Msun/yr formation rate (up to ~4-8 Msun/yr by some tracers)"
+      interchangeable: no
+    generating_interactions: [tidal / merger interaction]
+    novelty_kind: new-structure
+    onset: episodic-triggered
+    persistence: frozen
+    effective_theory:
+      status: vocabulary
+      theory: "merger-remnant classification (velocity dispersion, morphology, age/metallicity distribution); no dedicated quantitative bifurcation theory cited"
+    qualitative_difference: >
+      An individual star's orbit is smoothly perturbed during a merger; the
+      MERGER REMNANT is a qualitatively new, frozen structural class (a
+      pressure-supported ellipsoid replacing an ordered disk) recorded in
+      the collective velocity-dispersion and metallicity distribution —
+      a population-level structural record no single stellar orbit
+      captures, and memory_hysteresis explicitly ties present-day
+      morphology to specific past merger history.
+    justification: >
+      novelty_kind new-structure: matches the spec's test directly — it
+      persists as a structural RECORD of the interaction (memory_hysteresis:
+      "present-day morphology... is demonstrably shaped by its specific
+      merger and accretion history"), not an ongoing event. onset
+      episodic-triggered: mergers are discrete, named events (tipping_transitions
+      cites the projected Milky Way-Andromeda collision as the clearest
+      candidate regime-shift, occurring only when two galaxies pass close
+      enough) rather than a standing feature or a smooth crossover — the
+      entry explicitly notes no formal bifurcation/threshold treatment was
+      located, only descriptive N-body simulation outcomes, so
+      threshold-bifurcation was not chosen despite the qualitative
+      regime-shift language.
+    confidence: medium

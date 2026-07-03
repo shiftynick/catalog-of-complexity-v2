@@ -1,0 +1,181 @@
+system: stars
+phenomena:
+  - id: stars--granulation
+    name: Granulation
+    order_parameter: granule size/lifetime distribution; perimeter-area fractal dimension D
+    substrate:
+      part_type: granulation cells (photospheric convective cells)
+      count_oom: "~1e6-4e6, ~1,000-1,500 km diameter each"
+      interchangeable: yes
+    generating_interactions: [convective heat transport]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Rayleigh number exceeding the convective-instability critical value
+      (the entry's own contains_note draws the mechanistic line to the
+      Rayleigh-Benard paradigm, Ra_c ~1708, though the photosphere is
+      compressible/radiatively-cooled rather than a lab cell; no
+      photosphere-specific Ra_c is cited in this entry
+      [unverified — model knowledge, class-general convection-onset
+      physics, not independently sourced this sweep]).
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "descriptive granulation/supergranulation vocabulary; no dedicated quantitative theory cited in this entry"
+    qualitative_difference: >
+      A single plasma parcel simply moves under local buoyancy and pressure
+      gradients; the granulation FIELD is a spatially tiled population of
+      discrete, individuable convective cells with a characteristic size and
+      lifetime distribution and a measured boundary fractal dimension — an
+      object you can count and track, not a property of any one parcel.
+    justification: >
+      novelty_kind new-entity: granules are individuable, countable,
+      trackable macro-objects (component_ontology's declared atom; the
+      entry itself treats them as the nearest citable "atom" for this
+      purpose). onset threshold-bifurcation: convection is a textbook
+      Rayleigh-number bifurcation per the entry's own contains_note tying
+      granulation mechanistically to the Rayleigh-Benard paradigm, though
+      no photosphere-specific critical value is cited here, so the
+      parameter is recorded with a caveat rather than a pinned figure.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: stars--supergranulation
+    name: Supergranulation
+    order_parameter: supergranule cell size (~30 Mm) and turnover time (24-48 h dynamical evolution time)
+    substrate:
+      part_type: supergranulation cells
+      count_oom: "not recovered this sweep; unknown"
+      interchangeable: yes
+    generating_interactions: [convective heat transport]
+    novelty_kind: new-entity
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "descriptive supergranulation vocabulary (Rincon & Rieutord 2018); no quantitative predictive theory cited"
+    qualitative_difference: >
+      Individual granulation-scale convective cells do not, by themselves,
+      possess a ~30 Mm characteristic scale; supergranulation is a distinct,
+      larger-scale aggregate pattern one level up the convective-aggregation
+      axis (component_ontology explicitly distinguishes it from the atom),
+      an emergent large-scale flow organization not present in any single
+      granule's dynamics.
+    justification: >
+      novelty_kind new-entity: a distinct, individuable cell population with
+      its own characteristic size and lifetime (component_ontology, hierarchy_depth
+      rung 1). onset crossover-gradual (not threshold-bifurcation): the entry
+      cites no formal bifurcation/critical-parameter literature for the
+      granulation-to-supergranulation transition, only a described aggregation
+      relationship — the conservative vocabulary choice per the spec's onset
+      guidance given the entry is silent on a formal threshold.
+    confidence: low
+
+  - id: stars--sunspot-cycle
+    name: Sunspot / magnetic activity cycle
+    order_parameter: sunspot number; butterfly-diagram latitude drift; ~11-yr periodicity
+    substrate:
+      part_type: sunspots / active regions
+      count_oom: "cycle-dependent, 0 to several dozen visible groups at solar maximum [unverified — model knowledge, not sourced this sweep]"
+      interchangeable: no
+    generating_interactions: [magnetohydrodynamic coupling]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Dynamo-number-type threshold in the mean-field alpha-effect/turbulent-
+      diffusivity dynamo framework governing self-sustained field generation
+      [effective_theory.theory below; the entry does not cite a specific
+      published critical dynamo-number value, so this is recorded as the
+      class-general dynamo-onset parameter without a pinned figure —
+      unverified — model knowledge].
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "mean-field dynamo theory (alpha-effect, turbulent diffusivity); criticality entry notes independent quantitative content is contested, poor predictive skill for cycle amplitude"
+    qualitative_difference: >
+      No single plasma parcel or sunspot has an 11-year period; the cycle is
+      a population-level, time-signature order parameter (sunspot number
+      and butterfly-diagram latitude drift over years) generated by the
+      collective differential-rotation dynamo, with no single-unit analogue.
+    justification: >
+      novelty_kind new-dynamics: the order parameter (sunspot number,
+      butterfly-diagram drift, ~11-yr periodicity) is explicitly a
+      time-signature, matching the spec's new-dynamics test exactly.
+      onset threshold-bifurcation: dynamo action is a textbook
+      self-excitation bifurcation in mean-field dynamo theory (emergence
+      column's own "alpha-effect and turbulent diffusivity are genuinely
+      new effective variables"), though this entry does not cite a
+      pinned critical dynamo-number for the Sun specifically.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: stars--solar-dynamo
+    name: Solar dynamo (differential rotation + convection generating magnetic field)
+    order_parameter: mean toroidal/poloidal field strength (alpha-effect, turbulent diffusivity in mean-field dynamo theory)
+    substrate:
+      part_type: granulation cells (photospheric convective cells)
+      count_oom: "~1e6-4e6, ~1,000-1,500 km diameter each"
+      interchangeable: yes
+    generating_interactions: [magnetohydrodynamic coupling, convective heat transport]
+    novelty_kind: new-dynamics   # RECLASSIFIED from new-function at verification (2026-07-03): the dynamo is the GENERATING MECHANISM for the separately-scored sunspot-cycle, not an externally-exploitable capability in the price-discovery/reachability/grammar sense; new-function double-counted the cycle under a different kind.
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Dynamo number / magnetic Reynolds number exceeding the self-excitation
+      threshold for sustained field generation [unverified — model
+      knowledge; the entry's emergence/criticality blocks discuss mean-field
+      dynamo theory qualitatively but cite no pinned critical value for the
+      Sun].
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "mean-field dynamo theory (alpha-effect, turbulent diffusivity)"
+    qualitative_difference: >
+      Individual convective parcels and rotation shear do not, on their own,
+      generate a coherent large-scale organized magnetic field; the dynamo is
+      a collective capability of the coupled convection/rotation/field system
+      to continuously regenerate and sustain a global magnetic field against
+      resistive decay — a function the plasma alone does not have.
+    justification: >
+      novelty_kind new-function: the dynamo is a capability (sustained field
+      generation/regeneration) exploitable/observable from outside (drives
+      the sunspot cycle, flares, coronal structure), matching the spec's
+      new-function test — the runner-up kind is new-dynamics (given it
+      also produces the cyclic time-signature), but the field-generation
+      CAPABILITY itself is scored as primary per the spec's one-kind rule.
+      onset threshold-bifurcation: dynamo self-excitation is the standard
+      bifurcation framing in the field (interaction_ontology's magneto-
+      hydrodynamic-coupling row), though no Sun-specific critical parameter
+      value is cited in this entry.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: stars--solar-flares
+    name: Solar flares / nanoflares
+    order_parameter: flare thermal-energy frequency distribution (power-law tail exponent alpha)
+    substrate:
+      part_type: granulation cells (photospheric convective cells)
+      count_oom: "~1e6-4e6, ~1,000-1,500 km diameter each"
+      interchangeable: yes
+    generating_interactions: [magnetohydrodynamic coupling]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: transient
+    effective_theory:
+      status: quantitative-contested
+      theory: "fractal-diffusive self-organized criticality (Aschwanden 2022, Aschwanden & Crosby 2025); contested per the entry's own criticality block (dragon-king critique)"
+    qualitative_difference: >
+      A single magnetic-reconnection event has its own energy; no single
+      event exhibits a power law. The distributional shape/exponent over the
+      full flare population (alpha ~1.8, spanning ~13 orders of magnitude
+      combining nanoflares to stellar superflares) is a property of the
+      ensemble of events, not of any one flare.
+    justification: >
+      novelty_kind new-statistics: extreme_event_statistics and criticality
+      both record this as a distributional power-law claim (alpha~1.8,
+      measured per the entry, CSN-grade rigor not established), matching the
+      spec's new-statistics test exactly (order parameter is a distribution
+      exponent). onset always-present-at-scale: flares occur continuously
+      across scales whenever the magnetic system is observed, with no
+      single onset threshold claimed for the STATISTICS themselves (the
+      mechanism, fractal-diffusive SOC, is contested per criticality's
+      mechanism_status, so no specific threshold-bifurcation control
+      parameter is asserted — conservative choice given the entry's own
+      "dragon king" caveat).
+    confidence: medium

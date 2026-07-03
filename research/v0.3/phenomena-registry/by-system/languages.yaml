@@ -1,0 +1,161 @@
+system: languages
+phenomena:
+  - id: languages--grammar
+    name: Grammar (shared syntactic convention)
+    order_parameter: >
+      degree of grammatical convergence/acceptability judgments across a
+      speech community; no individual speaker specifies it
+    substrate:
+      part_type: speakers (agents)
+      count_oom: "English exemplar: ~1.53e9 (L1+L2, order 1e9)"
+      interchangeable: no
+    generating_interactions: [communicative exchange (utterance/comprehension), innovation adoption / diffusion, intergenerational transmission]
+    novelty_kind: new-function
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: vocabulary
+      theory: "none — descriptive linguistic-typology vocabulary (grammaticalization clines); no formalized predictive macro-theory of grammar-as-convention cited in this entry"
+    qualitative_difference: >
+      A single speaker produces individual utterances following internalized rules;
+      grammar as a shared convention is a population-level capability — mutual
+      intelligibility and compositional generativity across the whole speech
+      community — that no one speaker legislates or could unilaterally produce; it is
+      usable/exploitable by any speaker precisely because it is held in common.
+    justification: >
+      Chosen as new-function per SPEC's own listed example ("grammar as a shared
+      convention") verbatim, describing a capability (mutual intelligibility,
+      unbounded generativity) the population exhibits collectively. This is
+      substrate-wise generated primarily by SPEAKERS (agents) rather than lexical
+      replicators: grammar is scored here as a speaker-level convention (acquisition,
+      convergence, mutual acceptability), which is the interaction set involving
+      intergenerational transmission and communicative exchange — the dual-ontology
+      call for this record, defended because grammar's order_parameter (acceptability
+      judgments across a COMMUNITY) is about agent consensus, not lexical-unit
+      frequency structure (that is Zipf's law, scored separately with the replicator
+      substrate). Runner-up new-structure (grammar as an accumulated historical
+      residue, per memory_hysteresis score 4) was close but new-function was
+      preferred since the SPEC text names this phenomenon as its own new-function
+      example. Onset crossover-gradual: language change/convergence is documented via
+      S-curve logistic adoption (feedback score 2), a smooth, non-threshold process;
+      no bifurcation control parameter is cited.
+    confidence: medium
+
+  - id: languages--zipfs-law
+    name: Zipf's law (word-frequency distribution)
+    order_parameter: "rank-frequency tail exponent alpha (alpha~1.95 for English, Moby Dick)"
+    substrate:
+      part_type: lexical/grammatical units (replicators — phonemes, morphemes, words, constructions)
+      count_oom: "English exemplar: ~1e5-1e6 (OED online 520,779 entries)"
+      interchangeable: no
+    generating_interactions: [word co-occurrence / syntagmatic combination]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Zipf's law, CSN-2009-grade confirmed fit (csn2009)"
+    qualitative_difference: >
+      A single word occurs some number of times in a text; the rank-frequency
+      exponent is a property of the ENTIRE lexical population's usage distribution,
+      not of any one word — the SPEC's own canonical new-statistics example.
+    justification: >
+      Directly matches SPEC's own worked example of new-statistics (Zipf, verbatim).
+      Substrate is the lexical/grammatical replicator population (word types), not
+      speakers, since the measurand is word-token rank-frequency in a corpus — the
+      generating interaction is word co-occurrence/syntagmatic combination among
+      lexical units, consistent with this entry's dual-ontology split. This is the
+      single strongest power-law claim in the whole catalog (CSN's only "good"-rated
+      fit of 24 datasets), so quantitative-predictive status is fully earned, unlike
+      most other power-law entries in this registry. Onset always-present-at-scale: a
+      rank-frequency law is a standing statistical property of any sufficiently large
+      corpus, not a threshold-emergent feature.
+    confidence: high
+
+  - id: languages--sound-change-grammaticalization
+    name: Sound change / grammaticalization clines
+    order_parameter: >
+      S-curve adoption fraction of an innovating form through a speech
+      community over historical time
+    substrate:
+      part_type: speakers (agents)
+      count_oom: "English exemplar: ~1.53e9 (L1+L2, order 1e9)"
+      interchangeable: no
+    generating_interactions: [innovation adoption / diffusion, communicative exchange (utterance/comprehension), intergenerational transmission]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      adoption fraction crossing a critical uptake threshold in logistic/S-curve
+      diffusion models (Abrams-Strogatz-type language-competition dynamics, Nature
+      424:900, 2003 — cited in this entry's tipping_transitions but flagged
+      "surfaced but not read this session"; treat as [unverified — model knowledge]
+      for the specific critical-threshold claim)
+    persistence: frozen
+    effective_theory:
+      status: quantitative-contested
+      theory: "S-curve/logistic diffusion models of language change; Abrams-Strogatz language-competition dynamics (not independently verified this pass)"
+    qualitative_difference: >
+      An individual speaker either uses an innovating form or does not; the S-curve
+      adoption TRAJECTORY — the characteristic slow-start/rapid-rise/plateau
+      time-signature of uptake across the whole community — is a population-level
+      temporal dynamic with no single-speaker analogue, matching SPEC's time-signature
+      test for new-dynamics.
+    justification: >
+      new-dynamics fits cleanly: the order parameter (adoption fraction over
+      historical time) is explicitly a temporal curve/regime, not an object or
+      distribution shape. Onset is the hardest call of this batch: the entry's own
+      nonlinearity justification describes adoption as "S-shaped uptake," which
+      formally implies a logistic/threshold dynamic (a genuine bifurcation-like
+      tipping in the technical S-curve sense), so threshold-bifurcation is used
+      rather than the more conservative crossover-gradual — but the entry does NOT
+      cite a specific published critical value, so onset_control_parameter is marked
+      [unverified — model knowledge] per SPEC's evidence-discipline instruction
+      rather than fabricated; confidence is kept low accordingly. Persistence is
+      recorded as frozen because once a sound change/grammaticalization completes, it
+      becomes part of the language's permanent structural record (per
+      memory_hysteresis score 4's "accumulated, largely irreversible residue"),
+      distinguishing the completed change from the transient diffusion episode itself.
+    confidence: low
+
+  - id: languages--lexical-semantic-network-structure
+    name: Lexical/semantic network structure
+    order_parameter: >
+      word co-occurrence network degree distribution and clustering
+      (alpha~2.7 high-degree, gamma~1.5 low-degree, C~0.44, English BNC)
+    substrate:
+      part_type: lexical/grammatical units (replicators — phonemes, morphemes, words, constructions)
+      count_oom: "English exemplar: 460,902 word-type nodes (BNC-derived co-occurrence network)"
+      interchangeable: no
+    generating_interactions: [word co-occurrence / syntagmatic combination]
+    novelty_kind: new-structure
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "small-world word co-occurrence network (Ferrer i Cancho & Sole 2001, ferrer-i-cancho2001)"
+    qualitative_difference: >
+      A single word has co-occurrence relations with its immediate syntagmatic
+      neighbors; the network's global degree distribution, mean degree (z=70.13), and
+      clustering coefficient (C=0.437) are properties of the whole lexical graph,
+      persisting as the accumulated record of usage patterns rather than any one
+      word's local relations.
+    justification: >
+      Scored new-structure because the phenomenon is the network's persisting
+      topological organization (a graph structure accreted from usage, recoverable
+      and stable independent of any single ongoing utterance), close to SPEC's
+      hub-hierarchy example; new-statistics is the strong runner-up since the
+      degree-distribution EXPONENT itself is a distributional-shape claim (the two
+      kinds are genuinely entangled for network-topology phenomena, as SPEC's own
+      example list implies by naming "degree distributions" under new-statistics but
+      "hub hierarchy" under new-structure) — new-structure was preferred because the
+      order_parameter as named foregrounds the NETWORK STRUCTURE (topology +
+      clustering) rather than a bare exponent alone. evidence_status is
+      measured-untested (pre-CSN log-log regression fitting per this entry's own
+      degree_distribution note), hence quantitative-contested. Onset
+      always-present-at-scale: the co-occurrence network exists and is measurable for
+      any sufficiently large corpus; no threshold vocabulary size is cited as
+      required for the structure to emerge.
+    confidence: medium

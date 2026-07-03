@@ -1,0 +1,2084 @@
+{
+  "generated": "2026-07-03",
+  "n_phenomena": 63,
+  "n_excluded": 1,
+  "excluded": [
+    {
+      "id": "global-economy--world-gdp-aggregate-output",
+      "reason": "fails — conceded bookkeeping summation (sum of national GDPs), not a qualitative departure from unit behavior; excluded from motif/cross-tab analysis (verification 2026-07-03)"
+    }
+  ],
+  "n_systems": 15,
+  "conformance_problems": [],
+  "crossTabs": {
+    "novelty_x_onset": {
+      "new-entity": {
+        "threshold-bifurcation": 5,
+        "crossover-gradual": 5,
+        "always-present-at-scale": 1,
+        "episodic-triggered": 1,
+        "unknown": 0
+      },
+      "new-dynamics": {
+        "threshold-bifurcation": 7,
+        "crossover-gradual": 4,
+        "always-present-at-scale": 1,
+        "episodic-triggered": 3,
+        "unknown": 2
+      },
+      "new-statistics": {
+        "threshold-bifurcation": 1,
+        "crossover-gradual": 2,
+        "always-present-at-scale": 10,
+        "episodic-triggered": 2,
+        "unknown": 0
+      },
+      "new-structure": {
+        "threshold-bifurcation": 1,
+        "crossover-gradual": 7,
+        "always-present-at-scale": 4,
+        "episodic-triggered": 1,
+        "unknown": 0
+      },
+      "new-function": {
+        "threshold-bifurcation": 0,
+        "crossover-gradual": 4,
+        "always-present-at-scale": 2,
+        "episodic-triggered": 0,
+        "unknown": 0
+      }
+    },
+    "novelty_x_category": {
+      "new-entity": {
+        "socio-economic": 0,
+        "geophysical": 9,
+        "astrophysical": 3,
+        "cultural-informational": 0,
+        "infrastructure": 0
+      },
+      "new-dynamics": {
+        "socio-economic": 2,
+        "geophysical": 8,
+        "astrophysical": 2,
+        "cultural-informational": 2,
+        "infrastructure": 3
+      },
+      "new-statistics": {
+        "socio-economic": 5,
+        "geophysical": 3,
+        "astrophysical": 2,
+        "cultural-informational": 2,
+        "infrastructure": 3
+      },
+      "new-structure": {
+        "socio-economic": 1,
+        "geophysical": 6,
+        "astrophysical": 3,
+        "cultural-informational": 2,
+        "infrastructure": 1
+      },
+      "new-function": {
+        "socio-economic": 3,
+        "geophysical": 0,
+        "astrophysical": 0,
+        "cultural-informational": 2,
+        "infrastructure": 1
+      }
+    },
+    "novelty_x_closure": {
+      "new-entity": {
+        "closed": 12,
+        "constrained": 0,
+        "open": 0
+      },
+      "new-dynamics": {
+        "closed": 10,
+        "constrained": 6,
+        "open": 1
+      },
+      "new-statistics": {
+        "closed": 5,
+        "constrained": 7,
+        "open": 3
+      },
+      "new-structure": {
+        "closed": 9,
+        "constrained": 2,
+        "open": 2
+      },
+      "new-function": {
+        "closed": 0,
+        "constrained": 4,
+        "open": 2
+      }
+    },
+    "onset_x_theory": {
+      "threshold-bifurcation": {
+        "none": 0,
+        "vocabulary": 2,
+        "quantitative-contested": 5,
+        "quantitative-predictive": 7
+      },
+      "crossover-gradual": {
+        "none": 0,
+        "vocabulary": 10,
+        "quantitative-contested": 4,
+        "quantitative-predictive": 8
+      },
+      "always-present-at-scale": {
+        "none": 0,
+        "vocabulary": 5,
+        "quantitative-contested": 6,
+        "quantitative-predictive": 7
+      },
+      "episodic-triggered": {
+        "none": 0,
+        "vocabulary": 4,
+        "quantitative-contested": 2,
+        "quantitative-predictive": 1
+      },
+      "unknown": {
+        "none": 0,
+        "vocabulary": 2,
+        "quantitative-contested": 0,
+        "quantitative-predictive": 0
+      }
+    },
+    "novelty_x_persistence": {
+      "new-entity": {
+        "transient": 3,
+        "sustained-while-driven": 8,
+        "self-sustaining": 1,
+        "frozen": 0
+      },
+      "new-dynamics": {
+        "transient": 3,
+        "sustained-while-driven": 7,
+        "self-sustaining": 6,
+        "frozen": 1
+      },
+      "new-statistics": {
+        "transient": 2,
+        "sustained-while-driven": 4,
+        "self-sustaining": 5,
+        "frozen": 4
+      },
+      "new-structure": {
+        "transient": 0,
+        "sustained-while-driven": 7,
+        "self-sustaining": 1,
+        "frozen": 5
+      },
+      "new-function": {
+        "transient": 0,
+        "sustained-while-driven": 5,
+        "self-sustaining": 1,
+        "frozen": 0
+      }
+    }
+  },
+  "substrate_interchangeable": {
+    "yes": 30,
+    "no": 33,
+    "other": 0
+  },
+  "motifs": [
+    {
+      "signature": "new-dynamics | crossover-gradual | sustained-while-driven",
+      "n": 4,
+      "n_lineages": 4,
+      "categories": [
+        "socio-economic",
+        "geophysical",
+        "cultural-informational"
+      ],
+      "members": [
+        "financial-markets: Volatility regimes",
+        "global-economy: Business cycle",
+        "ocean-circulation: AMOC overturning cell",
+        "world-wide-web: Search-driven discoverability concentration"
+      ]
+    },
+    {
+      "signature": "new-structure | crossover-gradual | frozen",
+      "n": 4,
+      "n_lineages": 4,
+      "categories": [
+        "geophysical",
+        "infrastructure",
+        "cultural-informational"
+      ],
+      "members": [
+        "river-networks: Dendritic drainage network / stream order hierarchy",
+        "river-networks: Network fractal branching geometry",
+        "the-internet: AS-level hub hierarchy (Tier-1/2/3 structure)",
+        "world-wide-web: Topic/community clustering"
+      ]
+    },
+    {
+      "signature": "new-structure | crossover-gradual | sustained-while-driven",
+      "n": 3,
+      "n_lineages": 3,
+      "categories": [
+        "socio-economic",
+        "astrophysical",
+        "geophysical"
+      ],
+      "members": [
+        "cities: Neighborhood identity / segregation patterns",
+        "galaxies: Spiral arms (density wave)",
+        "tropical-cyclones: Warm core"
+      ]
+    },
+    {
+      "signature": "new-statistics | always-present-at-scale | self-sustaining",
+      "n": 5,
+      "n_lineages": 5,
+      "categories": [
+        "socio-economic",
+        "cultural-informational"
+      ],
+      "members": [
+        "cities: City-size distribution (Zipf's law)",
+        "financial-markets: Strategy ecology",
+        "global-economy: Firm-size distribution",
+        "languages: Zipf's law (word-frequency distribution)",
+        "world-wide-web: Heavy-tailed degree distribution"
+      ]
+    },
+    {
+      "signature": "new-dynamics | threshold-bifurcation | self-sustaining",
+      "n": 5,
+      "n_lineages": 5,
+      "categories": [
+        "geophysical",
+        "astrophysical"
+      ],
+      "members": [
+        "ocean-circulation: Bistable circulation regimes (\"on\"/strong vs. \"off\"/collapsed)",
+        "planetary-climate: Ocean circulation (gyres, thermohaline/meridional overturning)",
+        "river-networks: Delta lobe-switching cycle",
+        "stars: Sunspot / magnetic activity cycle",
+        "stars: Solar dynamo (differential rotation + convection generating magnetic field)"
+      ]
+    },
+    {
+      "signature": "new-function | crossover-gradual | sustained-while-driven",
+      "n": 3,
+      "n_lineages": 3,
+      "categories": [
+        "socio-economic",
+        "cultural-informational"
+      ],
+      "members": [
+        "cities: Commuting / agglomeration structure",
+        "global-economy: Economic Complexity Index",
+        "world-wide-web: Hub/authority structure"
+      ]
+    },
+    {
+      "signature": "new-structure | always-present-at-scale | sustained-while-driven",
+      "n": 3,
+      "n_lineages": 3,
+      "categories": [
+        "cultural-informational",
+        "geophysical"
+      ],
+      "members": [
+        "languages: Lexical/semantic network structure",
+        "planetary-climate: Global atmospheric circulation (Hadley/Ferrel/polar cells, jet streams)",
+        "weather-systems: Atmospheric river"
+      ]
+    },
+    {
+      "signature": "new-entity | threshold-bifurcation | sustained-while-driven",
+      "n": 5,
+      "n_lineages": 3,
+      "categories": [
+        "geophysical",
+        "astrophysical"
+      ],
+      "members": [
+        "planetary-climate: Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry) [lineage: tropical-cyclone-vortex-complex]",
+        "stars: Granulation",
+        "tropical-cyclones: Eyewall (and eye) [lineage: tropical-cyclone-vortex-complex]",
+        "tropical-cyclones: Storm-scale vortex [lineage: tropical-cyclone-vortex-complex]",
+        "weather-systems: Extratropical cyclone (with fronts)"
+      ]
+    }
+  ],
+  "phenomena": [
+    {
+      "id": "cities--urban-scaling-laws",
+      "name": "Urban scaling laws",
+      "order_parameter": "city-level output Y as a power-law function of population N (Y=Y0*N^beta); beta=1.27 (patents), beta=0.77 (gasoline stations), per Bettencourt et al. 2007",
+      "substrate": {
+        "part_type": "residents/households",
+        "count_oom": "~8.5e6 (NYC city proper); ~2.0e7 (NYC metro/MSA)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "spatial proximity / land use",
+        "economic exchange",
+        "commuting / mobility flow"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Bettencourt urban scaling framework (bettencourt2007)"
+      },
+      "qualitative_difference": "A single resident or firm produces or consumes at some rate; no individual generates a systematic super/sub-linear relationship between population and per-capita output. The scaling exponent beta != 1 is a property of the whole city's interaction network (agglomeration effects compounding across residents) that has no analogue at the level of one household's economic activity.\n",
+      "justification": "The order parameter is a distributional/statistical law (an exponent relating city size to output), not an object or a time-signature, so new-statistics fits best; new-dynamics is the runner-up since the scaling relationship does describe systemic behavior, but per SPEC's own test the order parameter here is an exponent/shape, not a period or regime. Onset is crossover-gradual: Bettencourt et al. (2007) fit a continuous power law across the full city-size range with no published critical population threshold at which scaling \"turns on.\"\n",
+      "confidence": "high",
+      "system": "cities",
+      "category": "socio-economic",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "cities--neighborhood-identity-segregation",
+      "name": "Neighborhood identity / segregation patterns",
+      "order_parameter": "spatial clustering of land use, income, and social composition (morphological; no single pinned index for NYC/Tokyo this sweep)",
+      "substrate": {
+        "part_type": "residents/households",
+        "count_oom": "~8.5e6 (NYC city proper)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "spatial proximity / land use",
+        "economic exchange",
+        "social interaction"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "none — descriptive urban-morphology vocabulary (boroughs, neighborhoods); no formal model cited in this entry"
+      },
+      "qualitative_difference": "An individual household's residence/employment choice is a single decision; neighborhood identity and segregation are a frozen-ish spatial record of millions of such choices interacting through land markets and social ties, persisting and recognizable independent of any one household's continued presence — the record of interaction, not an event or an individual behavior.\n",
+      "justification": "Matches new-structure's test directly (quasi-static spatial organization that persists when day-to-day dynamics pause, per the entry's own hierarchy_depth convention treating neighborhoods as a stable aggregation level and memory_hysteresis citing street-grid/neighborhood identity as accumulated irreversible residue). Runner-up new-statistics (segregation indices exist in the literature generally) rejected because this entry records no pinned distributional index, only the structural/morphological claim. Onset: crossover-gradual — no threshold-bifurcation claim is made or cited; modularity (score 2) describes gradual, real but porous subdivision, not a sharp transition.\n",
+      "confidence": "low",
+      "system": "cities",
+      "category": "socio-economic",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "cities--city-size-distribution-zipf",
+      "name": "City-size distribution (Zipf's law)",
+      "order_parameter": "rank-size / pdf-exponent alpha-hat=2.37(8) across the US urban system (class-level, not NYC-specific)",
+      "substrate": {
+        "part_type": "residents/households",
+        "count_oom": "n=19,447 US cities (population from the CSN dataset, not NYC-specific)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "economic exchange",
+        "commuting / mobility flow",
+        "governance / regulation"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Zipf/Gabaix rank-size law (csn2009, Gabaix 1999)"
+      },
+      "qualitative_difference": "No single city \"has\" a Zipf exponent; the exponent is a property of the entire population of cities' size distribution, exhibiting a heavy-tailed rank-size regularity that only exists as a statement about the collection, unlike any one city's own population count.\n",
+      "justification": "Textbook new-statistics per SPEC's own definition (a distributional law over units; the order parameter is a distribution shape/exponent). CSN (2009) rates the fit only \"moderate,\" not \"good\" (contested vs. log-normal), hence quantitative-contested rather than quantitative-predictive, carried over directly from the entry's own extreme_event_statistics caveat. Onset: always-present-at-scale — city-size regularities are treated in the literature as a standing statistical feature of any sufficiently large urban system, not an emergent threshold effect; no bifurcation control parameter is proposed.\n",
+      "confidence": "medium",
+      "system": "cities",
+      "category": "socio-economic",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "cities--commuting-agglomeration-structure",
+      "name": "Commuting / agglomeration structure",
+      "order_parameter": "commute-flow network structure and land-value gradient (labor-market integration)",
+      "substrate": {
+        "part_type": "residents/households",
+        "count_oom": "~8.5e6 (NYC city proper); ~2.0e7 (NYC metro/MSA)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "commuting / mobility flow",
+        "spatial proximity / land use",
+        "economic exchange"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "none — informal 'labor-market integration' framing; no formalized network-flow model cited in this entry"
+      },
+      "qualitative_difference": "An individual commute is a single trip; the aggregated commute-flow network and the land-value gradient it sustains constitute a capability the city as a whole exhibits — integrating a metro area into one functional labor and housing market — that no individual resident's trip does or could provide alone. This is a systemic function (labor-market integration), usable/exploitable at the city scale (site selection, wage arbitrage), not an object or a distribution.\n",
+      "justification": "new-function fits the SPEC test best: the phenomenon describes what the metro area's transportation/land system enables the system to DO (integrate a labor/housing market across boroughs), per this entry's own information_processing justification explicitly analogizing commute/land-value aggregation to financial-markets' price-discovery function. Runner-up new-structure (the commute-flow network itself is a persisting structure) is close but the entry's own order_parameter text foregrounds the functional \"integration\" framing over a static structural record. Onset crossover-gradual: no published threshold population/density at which labor-market integration \"switches on\" is cited; congestion/MFD dynamics are documented qualitatively as gradual, not bifurcating.\n",
+      "confidence": "medium",
+      "system": "cities",
+      "category": "socio-economic",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "earthquake-fault-systems--gutenberg-richter-scaling",
+      "name": "Gutenberg-Richter magnitude-frequency scaling",
+      "order_parameter": "b-value (log-linear slope of event count vs. magnitude)",
+      "substrate": {
+        "part_type": "fault segments/patches",
+        "count_oom": "~10^2 for SSAF alone; ~10^3 statewide",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "elastic stress transfer (Coulomb stress change)",
+        "frictional locking/unlocking (rate-and-state friction)"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Gutenberg-Richter magnitude-frequency law, b=1.03+/-0.12 (Page & Felzer 2015, page-felzer-2015, primary-read)"
+      },
+      "qualitative_difference": "A single fault patch either slips or does not, governed by a local friction threshold; the G-R law is a distributional regularity over the entire POPULATION of rupture events across all patches and scales, with no single rupture exhibiting a \"slope\" — the textbook distributional-law case.\n",
+      "justification": "new-statistics is unambiguous per the entry's own criticality attribute, which treats G-R scaling as solid EVENT STATISTICS (evidence_status: measured) distinct from any mechanism claim. onset always-present-at-scale: b-value is a standing statistical regularity measured whenever the seismicity catalog is large enough (M>=2.5, UCERF3 catalog), with no onset threshold in N or coupling — unlike the entry's criticality mechanism_status (contested), which is a SEPARATE claim not conflated here per the entry's own soc-two-claims discipline.\n",
+      "confidence": "high",
+      "system": "earthquake-fault-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "earthquake-fault-systems--multi-fault-cascading-rupture",
+      "name": "Multi-fault cascading rupture",
+      "order_parameter": "number/identity of named faults involved in a single rupture (Wesnousky 2008 case-count statistic)",
+      "substrate": {
+        "part_type": "fault segments/patches",
+        "count_oom": "~10^2 for SSAF alone; ~10^3 statewide",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "elastic stress transfer (Coulomb stress change)",
+        "frictional locking/unlocking (rate-and-state friction)"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "episodic-triggered",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "no formalized cascade-size model cited; case-count statistics only (cascade_susceptibility attribute, source page-felzer-2015, quoting Wesnousky 2008)"
+      },
+      "qualitative_difference": "A single fault segment ruptures on its own local patch; a multi-fault cascading rupture is a discrete, individuable event spanning and linking several NAMED faults in one occurrence (e.g. Denali 2002 rupturing three named faults in sequence) — you can point at one rupture and name which faults it crossed, a trackable single-event object rather than a statistical law or a standing structure.\n",
+      "justification": "new-entity chosen (runner-up: new-statistics) because the order_parameter names the IDENTITY of faults in a SINGLE rupture, an individuable event-object, rather than a fitted size distribution — this entry's own cascade_susceptibility attribute (score 2) explicitly says \"no fitted cross-event cascade-SIZE distribution exists,\" ruling out new-statistics as the primary kind. onset episodic-triggered because cascading rupture arises in discrete events when stress conditions align across segment boundaries (Coulomb stress transfer), not as a standing feature.\n",
+      "confidence": "medium",
+      "system": "earthquake-fault-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "earthquake-fault-systems--seismicity-rate-clustering",
+      "name": "Seismicity-rate clustering (aftershock sequences)",
+      "order_parameter": "time-varying seismicity rate relative to long-term mean (ETAS-modeled)",
+      "substrate": {
+        "part_type": "fault segments/patches",
+        "count_oom": "~10^2 for SSAF alone; ~10^3 statewide",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "aftershock triggering (ETAS-type)",
+        "elastic stress transfer (Coulomb stress change)"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "episodic-triggered",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "ETAS model (Ogata 1988, cited via page-felzer-2015); temporal_correlation attribute"
+      },
+      "qualitative_difference": "A single fault patch's slip is a one-off local threshold event; the clustering pattern (rate elevated then decaying, median rates well below the long-term mean over 30-day to even 100-year windows) is a collective temporal signature of the whole population of triggered events, with no single-patch analogue.\n",
+      "justification": "new-dynamics because the order parameter is an explicitly temporal time-signature (seismicity rate vs. mean, ETAS-modeled), matching the SPEC's own ENSO/sunspot-cycle test. onset episodic-triggered because aftershock sequences are triggered discretely by a mainshock's stress perturbation over a decaying window (interaction_ontology's aftershock-triggering mechanism), not a standing background rate.\n",
+      "confidence": "medium",
+      "system": "earthquake-fault-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "earthquake-fault-systems--segment-scale-recurrence-behavior",
+      "name": "Segment-scale recurrence behavior",
+      "order_parameter": "paleoseismic recurrence interval at a given site (Carrizo Plain, Pallett Creek)",
+      "substrate": {
+        "part_type": "fault segments/patches",
+        "count_oom": "~10^2 for SSAF alone; ~10^3 statewide",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "frictional locking/unlocking (rate-and-state friction)",
+        "elastic stress transfer (Coulomb stress change)"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "no formal recurrence model cited beyond empirical paleoseismic interval statistics (characteristic_timescales attribute, source page-felzer-2015)"
+      },
+      "qualitative_difference": "A single rupture is a one-time threshold-triggered slip event; the RECURRENCE INTERVAL at a site is a property of the repeated cycle of loading and release over centuries (~132-137 yr average, gaps up to ~300 yr) — a temporal regularity/period that only exists across multiple cycles, not in any one rupture.\n",
+      "justification": "new-dynamics (order parameter is a recurrence interval, i.e. a period/time-signature) rather than new-statistics, because this is a site-specific characteristic timescale, not a distributional shape fit across a population. onset is scored unknown, conservatively: the entry documents strong irregularity (gaps up to ~2-3x the mean) and no published threshold/bifurcation or clean crossover description for why recurrence settles at its observed interval — the entry itself offers no onset-mechanism citation for this specific phenomenon (as distinct from the avulsion-style threshold reasoning used elsewhere), so the conservative vocabulary item is used per SPEC guidance.\n",
+      "confidence": "low",
+      "system": "earthquake-fault-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "financial-markets--price",
+      "name": "Price",
+      "order_parameter": "the price itself — aggregated dispersed information",
+      "substrate": {
+        "part_type": "orders (limit/market/cancel messages)",
+        "count_oom": "~1e11-1e12 per day (NYSE message volume)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "order flow (submit / amend / cancel)",
+        "trade execution",
+        "public information broadcast"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "price discovery / information aggregation (Hayek 1945, operationalized in the limit order book)"
+      },
+      "qualitative_difference": "A single order is a private instruction to buy or sell at a stated quantity/price; no individual order \"knows\" fundamental value. Price is a public statistic produced by the matching engine crossing many orders that aggregates dispersed private information no single participant holds — a capability (information aggregation) the collective exhibits that no order or trader does alone.\n",
+      "justification": "new-function is explicit in this entry's own information_processing top-of-scale justification: \"price discovery aggregates dispersed private information into a public statistic no participant holds.\" Runner-up new-statistics (price series exhibit heavy tails, considered under extreme_event_statistics) rejected because the order_parameter here is the price ITSELF as a functional output, not a distribution shape. Onset always-present-at-scale: price formation operates continuously wherever a matching engine and order flow exist; the entry records no threshold order-flow volume below which price discovery fails to occur, so threshold-bifurcation is not supported by cited evidence.\n",
+      "confidence": "high",
+      "system": "financial-markets",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "financial-markets--volatility-regimes",
+      "name": "Volatility regimes",
+      "order_parameter": "realized/implied volatility level and persistence",
+      "substrate": {
+        "part_type": "orders (limit/market/cancel messages)",
+        "count_oom": "~1e11-1e12 per day",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "order flow (submit / amend / cancel)",
+        "trade execution"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "GARCH-type variance dynamics (referenced under nonlinearity); autocorrelation of |returns| power-law decay (cont2001)"
+      },
+      "qualitative_difference": "An individual order or single trade has no \"volatility\" of its own; volatility is a temporal property of the aggregate return process — its level and how long high/low states persist — with no single-order analogue. The order parameter is a time-signature (regime persistence), matching the new-dynamics test directly.\n",
+      "justification": "new-dynamics per SPEC's own listed example (volatility clustering) verbatim. Runner-up new-statistics (the |returns| autocorrelation decay is itself a power-law exponent, temporal_correlation column) is close, but the phenomenon as named (\"volatility regimes\") is about persistence/regime character over time, a dynamics claim, not a cross-sectional distribution. Onset crossover-gradual: this entry's temporal_correlation and feedback columns describe volatility clustering as a continuous statistical feature (long-memory exponent beta in [0.2,0.4]) rather than citing any bifurcation threshold; no onset_control_parameter is supported by the entry's evidence.\n",
+      "confidence": "medium",
+      "system": "financial-markets",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "financial-markets--liquidity",
+      "name": "Liquidity",
+      "order_parameter": "bid-ask spread, order-book depth",
+      "substrate": {
+        "part_type": "orders (limit/market/cancel messages)",
+        "count_oom": "~1e11-1e12 per day",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "order flow (submit / amend / cancel)",
+        "trade execution"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "episodic-triggered",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "volatility-liquidity spiral (feedback loop, this entry's own feedback.loops)"
+      },
+      "qualitative_difference": "A single order has a size and a limit price, but \"liquidity\" — how much can be traded without moving price, aggregated across the whole book — is a property of the standing collection of resting orders, not of any one order; it can vanish (as in the Flash Crash) through collective withdrawal even while individual orders behave unremarkably.\n",
+      "justification": "Scored new-statistics: the order parameter (spread, depth) is a summary statistic over the order-book population at an instant, closest to SPEC's distribution-shape test, though it lacks a classic power-law exponent form — new-dynamics is the runner-up given liquidity's crash-time collapse is time-signature-like (the volatility-liquidity spiral). Onset is episodic-triggered: this entry's cascade_susceptibility and feedback columns describe liquidity withdrawal specifically as a stress-episode phenomenon (the 2010 Flash Crash) rather than a standing always-on statistic or a formally thresholded bifurcation.\n",
+      "confidence": "low",
+      "system": "financial-markets",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "financial-markets--strategy-ecology",
+      "name": "Strategy ecology",
+      "order_parameter": "population shares of strategy types (momentum, value, market-making)",
+      "substrate": {
+        "part_type": "trading agents (human traders, algorithmic strategies)",
+        "count_oom": "~6.4e5 registered representatives, ~3.2e3 member firms; algorithmic-agent counts unmeasured",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "order flow (submit / amend / cancel)",
+        "trade execution"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "variation-selection dynamics among strategies (this entry's own adaptive_capacity/variation_selection columns); no formal population model cited"
+      },
+      "qualitative_difference": "A single trader runs one strategy at a time; \"strategy ecology\" is a population-level distribution over strategy types that persists and shifts through entry, exit, and imitation, a composition statistic with no single-agent analogue — an individual agent doesn't have a \"population share.\"\n",
+      "justification": "new-statistics fits the SPEC test (a distribution over units — here, strategy types among agents) better than new-dynamics, since the order parameter as named is a population-share composition, not itself a time-signature, though the ecology's evolution over time is a close runner-up (new-dynamics). This entry provides no formal fitted distribution (evidence_status throughout this area is qualitative), so effective_theory is vocabulary-level only, and confidence is correspondingly low. Onset always-present-at-scale: variation and selection among strategies is described as continuous and structural to the market (adaptive_capacity score 4), not an episodic or thresholded event.\n",
+      "confidence": "low",
+      "system": "financial-markets",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "galaxies--spiral-arms",
+      "name": "Spiral arms (density wave)",
+      "order_parameter": "spiral pattern speed; pitch angle; arm amplitude/contrast",
+      "substrate": {
+        "part_type": "gas/dark-matter continuum (interstellar medium plus the dark-matter halo)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "gravitational self-binding (stellar and gas dynamics)",
+        "density-wave / spiral-arm coupling"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "Disk self-gravity / differential-rotation instability threshold (spiral density-wave instability of a sufficiently cold, massive disk) [unverified — model knowledge; the entry's feedback block describes the reinforcing self-maintenance mechanism qualitatively but cites no pinned critical Toomre-Q-type value for the class].\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "density-wave theory (pattern speed, pitch angle); emergence column notes it is real, load-bearing macro-theory but scored 3, not 4"
+      },
+      "qualitative_difference": "No individual star or gas parcel has a \"pattern speed\" or \"pitch angle\" — a single star simply orbits the galactic potential. The spiral arm is a coherent, persistent overdensity pattern through which stars and gas continuously stream (interaction_ontology's own description: \"not a fixed material structure\"), a collective spatial organization absent from any single orbit.\n",
+      "justification": "novelty_kind new-structure (runner-up new-entity): the entry's own feedback.loops describes the spiral pattern as self-maintaining and persisting as a quasi-static organized structure through which material streams — closer to a standing structural record of the collective dynamics than a trackable individual object, though the spec allows new-entity as the runner-up since a given arm can be pointed at and tracked over some interval. onset threshold-bifurcation: density-wave/spiral instability is a standard gravitational-instability bifurcation of the differentially rotating disk (nonlinearity block calls bar formation \"threshold/switch-like\"; spiral arms are treated analogously in interaction_ontology), though no pinned critical value is cited in this entry specifically.\n",
+      "confidence": "low",
+      "system": "galaxies",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "galaxies--central-bar",
+      "name": "Central bar",
+      "order_parameter": "bar pattern speed; bar strength/length",
+      "substrate": {
+        "part_type": "gas/dark-matter continuum (interstellar medium plus the dark-matter halo)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "gravitational self-binding (stellar and gas dynamics)"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "Disk-to-total mass-fraction / dynamical instability threshold for bar formation in sufficiently disk-dominated systems (nonlinearity block: \"bar formation is a threshold/switch-like nonlinear instability of sufficiently disk-dominated systems\") [no pinned numerical critical value cited in this entry — unverified — model knowledge].\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "bar pattern-speed/strength framework; no dedicated quantitative bar theory cited beyond the general nonlinear-instability description"
+      },
+      "qualitative_difference": "A bar is a coherent, elongated, individuable mass concentration that can be pointed at, measured (length, pattern speed), and tracked through secular evolution (feedback.loops: bar-driven gas inflow) — unlike any single star's orbit, which has no \"bar strength.\"\n",
+      "justification": "novelty_kind new-entity: satisfies the spec's test directly (you can point at the bar, measure its length/pattern speed, track its evolution). onset threshold-bifurcation: nonlinearity's own text explicitly calls bar formation \"threshold/switch-like,\" a named instability of sufficiently disk-dominated systems — the clearest threshold framing among this entry's phenomena, though the specific critical mass-fraction is not numerically pinned here.\n",
+      "confidence": "low",
+      "system": "galaxies",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "galaxies--rotation-curve",
+      "name": "Rotation curve",
+      "order_parameter": "circular velocity as a function of galactocentric radius (the observational basis for inferring dark-matter content)",
+      "substrate": {
+        "part_type": "gas/dark-matter continuum (interstellar medium plus the dark-matter halo)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "gravitational self-binding (stellar and gas dynamics)"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "always-present-at-scale",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "rotation-curve dynamics under the collective gravitational potential (baryonic + dark matter); emergence block calls this 'the observational basis for dark matter'"
+      },
+      "qualitative_difference": "A single star's orbital velocity is just its own orbit; the ROTATION CURVE — circular velocity as a function of radius across the whole population — is a collective structural signature of the total mass distribution (including unseen dark matter), not readable from any one star's motion in isolation. It is the entry's own cited basis for inferring dark matter's existence, a genuinely emergent structural fact about the aggregate.\n",
+      "justification": "novelty_kind new-structure: the order parameter is a standing radial profile (a record of the mass distribution), present whenever the galaxy is observed, not an event or a time-signature — closest to the spec's new-structure test (though runner-up new-statistics is plausible since it is a functional relationship over a population of orbits). onset always-present-at-scale: a rotation curve exists for any gravitationally bound disk system with enough tracers to measure it; the entry cites no threshold below which it fails to exist, only a smooth function of radius.\n",
+      "confidence": "medium",
+      "system": "galaxies",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "galaxies--hubble-sequence",
+      "name": "Hubble morphological sequence (spiral / elliptical / irregular)",
+      "order_parameter": "morphological classification; bulge-to-disk ratio; Sersic index",
+      "substrate": {
+        "part_type": "individual stars (and star-forming molecular clouds)",
+        "count_oom": "Milky Way: ~1-4e11 stars standing population; ~1-2 Msun/yr formation rate (up to ~4-8 Msun/yr by some tracers)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "gravitational self-binding (stellar and gas dynamics)",
+        "star formation / stellar feedback",
+        "tidal / merger interaction"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "crossover-gradual",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "Hubble morphological classification (bulge-to-disk ratio, Sersic index); emergence block calls it 'a genuine effective taxonomy the field organizes around'"
+      },
+      "qualitative_difference": "No individual star has a morphological type; the Hubble sequence is a classification scheme over the POPULATION-level structural outcome (bulge-to-disk ratio, Sersic index) of billions of stars' collective gravitational and star-formation history — a taxonomy describing which structural regime a whole galaxy falls into, not any star's property.\n",
+      "justification": "novelty_kind new-statistics (runner-up new-structure): the order parameter is a classification/index over the aggregate light and mass distribution (Sersic index, bulge-to-disk ratio), closer to a distributional/statistical descriptor of population structure than a single trackable object; new-structure is a close runner-up since the resulting morphology is also a frozen spatial record. onset crossover-gradual: the entry describes morphology as a smooth continuum (the \"Hubble sequence\" itself is a graded taxonomy, not a pair of discrete phases with a cited bifurcation), and no formal critical-parameter threshold for crossing morphological types is cited in this entry.\n",
+      "confidence": "low",
+      "system": "galaxies",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "galaxies--merger-remnant",
+      "name": "Merger remnant structure",
+      "order_parameter": "post-merger velocity dispersion, morphology, and stellar-population age/metallicity distribution",
+      "substrate": {
+        "part_type": "individual stars (and star-forming molecular clouds)",
+        "count_oom": "Milky Way: ~1-4e11 stars standing population; ~1-2 Msun/yr formation rate (up to ~4-8 Msun/yr by some tracers)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "tidal / merger interaction"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "episodic-triggered",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "merger-remnant classification (velocity dispersion, morphology, age/metallicity distribution); no dedicated quantitative bifurcation theory cited"
+      },
+      "qualitative_difference": "An individual star's orbit is smoothly perturbed during a merger; the MERGER REMNANT is a qualitatively new, frozen structural class (a pressure-supported ellipsoid replacing an ordered disk) recorded in the collective velocity-dispersion and metallicity distribution — a population-level structural record no single stellar orbit captures, and memory_hysteresis explicitly ties present-day morphology to specific past merger history.\n",
+      "justification": "novelty_kind new-structure: matches the spec's test directly — it persists as a structural RECORD of the interaction (memory_hysteresis: \"present-day morphology... is demonstrably shaped by its specific merger and accretion history\"), not an ongoing event. onset episodic-triggered: mergers are discrete, named events (tipping_transitions cites the projected Milky Way-Andromeda collision as the clearest candidate regime-shift, occurring only when two galaxies pass close enough) rather than a standing feature or a smooth crossover — the entry explicitly notes no formal bifurcation/threshold treatment was located, only descriptive N-body simulation outcomes, so threshold-bifurcation was not chosen despite the qualitative regime-shift language.\n",
+      "confidence": "medium",
+      "system": "galaxies",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "global-economy--world-gdp-aggregate-output",
+      "emergence_test": "fails — conceded bookkeeping summation (sum of national GDPs), not a qualitative departure from unit behavior; excluded from motif/cross-tab analysis (verification 2026-07-03)",
+      "name": "World GDP / aggregate output",
+      "order_parameter": "world gross domestic product (nominal ~$105.69T 2023 / ~$111.3T 2024, World Bank, snippet-level)",
+      "substrate": {
+        "part_type": "national economies",
+        "count_oom": "~195 (193 UN member states + 2 observer states)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "trade flow",
+        "capital flow",
+        "price/market coupling"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "national-accounts GDP aggregation; no formalized macro-dynamical theory of the aggregate itself cited beyond bookkeeping summation"
+      },
+      "qualitative_difference": "A single national economy has its own GDP; world GDP is the summed/aggregated output of ~195 interacting economies, and its business-cycle behavior (see separate phenomenon) reflects cross-economy trade and capital coupling that no single economy's output series exhibits alone.\n",
+      "justification": "Scored new-statistics because the order parameter is an aggregate scalar/summary statistic over the national-economy population, not an individuable object; new-dynamics (business-cycle behavior of the aggregate) is the runner-up and is in fact recorded as its own separate emergent-phenomena entry in the host, so is not double-counted here. Onset always-present-at-scale: world GDP exists as an aggregable quantity for any nonzero population of economies; no threshold is claimed. Note the source citation (world-bank-gdp) is explicitly flagged narrative-only in the host entry's provenance, so this record's evidentiary weight is correspondingly modest.\n",
+      "confidence": "low",
+      "system": "global-economy",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "global-economy--business-cycle",
+      "name": "Business cycle",
+      "order_parameter": "phase classification (expansion/contraction), NBER-style dating; amplitude and duration of cyclical fluctuations",
+      "substrate": {
+        "part_type": "national economies",
+        "count_oom": "~195",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "trade flow",
+        "capital flow",
+        "institutional rule-setting"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "BDS-test-confirmed nonlinear macro dynamics (Brock & Sayers 1988); NBER-style cycle dating"
+      },
+      "qualitative_difference": "No single national economy's output series constitutes \"the\" business cycle; the phenomenon is a recurring temporal regime (expansion/contraction) that emerges from synchronized trade/capital coupling across economies, a time-signature with no single-unit analogue — exactly the SPEC's own listed new-dynamics example.\n",
+      "justification": "Textbook new-dynamics per SPEC's verbatim example (\"business cycle\"). Runner-up new-statistics considered (cycle-length distributions could in principle be fit) but the host entry records only phase/period characterization, not a distributional claim, so new-dynamics is the clear primary. Onset: crossover-gradual — Brock & Sayers (1988) confirm nonlinearity via BDS testing but explicitly find no accepted evidence of low-dimensional deterministic chaos or a sharp bifurcation threshold (chaos_sensitivity score 1, \"no accepted evidence\" of chaos); no onset_control_parameter is supported.\n",
+      "confidence": "medium",
+      "system": "global-economy",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "global-economy--firm-size-distribution",
+      "name": "Firm-size distribution",
+      "order_parameter": "Pareto/Zipf tail exponent alpha ~1.0 (U.S. firms, Axtell 2001) — class-level regularity in how economic activity distributes across firm sizes",
+      "substrate": {
+        "part_type": "firms",
+        "count_oom": "~5.5e6 U.S. firms with employees (1997 Census); ~3-4e8 globally (disputed)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "trade flow",
+        "capital flow"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Zipf/Pareto firm-size law (Axtell 2001)"
+      },
+      "qualitative_difference": "A single firm has one size (employee count); the Zipf/Pareto tail exponent is a property of the entire firm population's size distribution (alpha~1.0 across nearly six decades of firm size, per Axtell), unmeasurable from any individual firm and only meaningful as a statement about the population's shape.\n",
+      "justification": "Directly matches SPEC's new-statistics test (a distributional law over units; Zipf is the SPEC's own named example). Onset always-present-at-scale: Axtell finds the ~alpha=1 fit stable across all ten years 1988-1997, i.e. a standing statistical regularity of the firm population whenever measured, not a threshold-triggered emergence. evidence_status is measured-untested (OLS log-log fitting, not CSN-2009-grade), hence quantitative-contested rather than quantitative-predictive, carried directly from the host entry's own filling_rules.power-law-rigor treatment. Level is exemplar(firms)/U.S.-only per Axtell's own caveat about non-U.S. data, reflected in low confidence here.\n",
+      "confidence": "medium",
+      "system": "global-economy",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "global-economy--economic-complexity-index",
+      "name": "Economic Complexity Index",
+      "order_parameter": "k_c,0 (diversity) / k_p,0 (ubiquity) recursive Method-of-Reflections statistic (Hidalgo & Hausmann 2009); a country-level macro-variable emergent from the whole bipartite trade network, predictive of growth deviations",
+      "substrate": {
+        "part_type": "national economies",
+        "count_oom": "~195",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "trade flow",
+        "price/market coupling"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Method of Reflections / Economic Complexity Index (Hidalgo & Hausmann 2009, hidalgo-hausmann2009)"
+      },
+      "qualitative_difference": "No single country's export basket alone determines its complexity; ECI is recursively derived from the entire country-product bipartite network's diversity/ubiquity structure, and its value — and predictive power for future growth — exists only as a property of the whole trade network, not of any one country-product link.\n",
+      "justification": "Scored new-function per SPEC's test: ECI describes a capability the trade-network system exhibits (predicting which economies are \"under- or over-performing\" relative to income, usable/exploitable by outside analysts and institutions) — a hard case explicitly flagged in the assignment brief. Runner-up new-statistics is genuinely close (ECI is a computed statistic over a bipartite network) and is the harder call here: new-function was chosen because the host entry's own information_processing and emergence justifications foreground what the aggregated state DOES (predicts growth deviations, is \"used state-dependently\" by capital reallocation) rather than merely describing a distribution shape. Onset crossover-gradual: Hidalgo & Hausmann's Method of Reflections is a continuous recursive computation over the trade network with no cited critical threshold of network density/diversity at which complexity \"switches on.\"\n",
+      "confidence": "medium",
+      "system": "global-economy",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "languages--grammar",
+      "name": "Grammar (shared syntactic convention)",
+      "order_parameter": "degree of grammatical convergence/acceptability judgments across a speech community; no individual speaker specifies it\n",
+      "substrate": {
+        "part_type": "speakers (agents)",
+        "count_oom": "English exemplar: ~1.53e9 (L1+L2, order 1e9)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "communicative exchange (utterance/comprehension)",
+        "innovation adoption / diffusion",
+        "intergenerational transmission"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "none — descriptive linguistic-typology vocabulary (grammaticalization clines); no formalized predictive macro-theory of grammar-as-convention cited in this entry"
+      },
+      "qualitative_difference": "A single speaker produces individual utterances following internalized rules; grammar as a shared convention is a population-level capability — mutual intelligibility and compositional generativity across the whole speech community — that no one speaker legislates or could unilaterally produce; it is usable/exploitable by any speaker precisely because it is held in common.\n",
+      "justification": "Chosen as new-function per SPEC's own listed example (\"grammar as a shared convention\") verbatim, describing a capability (mutual intelligibility, unbounded generativity) the population exhibits collectively. This is substrate-wise generated primarily by SPEAKERS (agents) rather than lexical replicators: grammar is scored here as a speaker-level convention (acquisition, convergence, mutual acceptability), which is the interaction set involving intergenerational transmission and communicative exchange — the dual-ontology call for this record, defended because grammar's order_parameter (acceptability judgments across a COMMUNITY) is about agent consensus, not lexical-unit frequency structure (that is Zipf's law, scored separately with the replicator substrate). Runner-up new-structure (grammar as an accumulated historical residue, per memory_hysteresis score 4) was close but new-function was preferred since the SPEC text names this phenomenon as its own new-function example. Onset crossover-gradual: language change/convergence is documented via S-curve logistic adoption (feedback score 2), a smooth, non-threshold process; no bifurcation control parameter is cited.\n",
+      "confidence": "medium",
+      "system": "languages",
+      "category": "cultural-informational",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "languages--zipfs-law",
+      "name": "Zipf's law (word-frequency distribution)",
+      "order_parameter": "rank-frequency tail exponent alpha (alpha~1.95 for English, Moby Dick)",
+      "substrate": {
+        "part_type": "lexical/grammatical units (replicators — phonemes, morphemes, words, constructions)",
+        "count_oom": "English exemplar: ~1e5-1e6 (OED online 520,779 entries)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "word co-occurrence / syntagmatic combination"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Zipf's law, CSN-2009-grade confirmed fit (csn2009)"
+      },
+      "qualitative_difference": "A single word occurs some number of times in a text; the rank-frequency exponent is a property of the ENTIRE lexical population's usage distribution, not of any one word — the SPEC's own canonical new-statistics example.\n",
+      "justification": "Directly matches SPEC's own worked example of new-statistics (Zipf, verbatim). Substrate is the lexical/grammatical replicator population (word types), not speakers, since the measurand is word-token rank-frequency in a corpus — the generating interaction is word co-occurrence/syntagmatic combination among lexical units, consistent with this entry's dual-ontology split. This is the single strongest power-law claim in the whole catalog (CSN's only \"good\"-rated fit of 24 datasets), so quantitative-predictive status is fully earned, unlike most other power-law entries in this registry. Onset always-present-at-scale: a rank-frequency law is a standing statistical property of any sufficiently large corpus, not a threshold-emergent feature.\n",
+      "confidence": "high",
+      "system": "languages",
+      "category": "cultural-informational",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "languages--sound-change-grammaticalization",
+      "name": "Sound change / grammaticalization clines",
+      "order_parameter": "S-curve adoption fraction of an innovating form through a speech community over historical time\n",
+      "substrate": {
+        "part_type": "speakers (agents)",
+        "count_oom": "English exemplar: ~1.53e9 (L1+L2, order 1e9)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "innovation adoption / diffusion",
+        "communicative exchange (utterance/comprehension)",
+        "intergenerational transmission"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "adoption fraction crossing a critical uptake threshold in logistic/S-curve diffusion models (Abrams-Strogatz-type language-competition dynamics, Nature 424:900, 2003 — cited in this entry's tipping_transitions but flagged \"surfaced but not read this session\"; treat as [unverified — model knowledge] for the specific critical-threshold claim)\n",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "S-curve/logistic diffusion models of language change; Abrams-Strogatz language-competition dynamics (not independently verified this pass)"
+      },
+      "qualitative_difference": "An individual speaker either uses an innovating form or does not; the S-curve adoption TRAJECTORY — the characteristic slow-start/rapid-rise/plateau time-signature of uptake across the whole community — is a population-level temporal dynamic with no single-speaker analogue, matching SPEC's time-signature test for new-dynamics.\n",
+      "justification": "new-dynamics fits cleanly: the order parameter (adoption fraction over historical time) is explicitly a temporal curve/regime, not an object or distribution shape. Onset is the hardest call of this batch: the entry's own nonlinearity justification describes adoption as \"S-shaped uptake,\" which formally implies a logistic/threshold dynamic (a genuine bifurcation-like tipping in the technical S-curve sense), so threshold-bifurcation is used rather than the more conservative crossover-gradual — but the entry does NOT cite a specific published critical value, so onset_control_parameter is marked [unverified — model knowledge] per SPEC's evidence-discipline instruction rather than fabricated; confidence is kept low accordingly. Persistence is recorded as frozen because once a sound change/grammaticalization completes, it becomes part of the language's permanent structural record (per memory_hysteresis score 4's \"accumulated, largely irreversible residue\"), distinguishing the completed change from the transient diffusion episode itself.\n",
+      "confidence": "low",
+      "system": "languages",
+      "category": "cultural-informational",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "languages--lexical-semantic-network-structure",
+      "name": "Lexical/semantic network structure",
+      "order_parameter": "word co-occurrence network degree distribution and clustering (alpha~2.7 high-degree, gamma~1.5 low-degree, C~0.44, English BNC)\n",
+      "substrate": {
+        "part_type": "lexical/grammatical units (replicators — phonemes, morphemes, words, constructions)",
+        "count_oom": "English exemplar: 460,902 word-type nodes (BNC-derived co-occurrence network)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "word co-occurrence / syntagmatic combination"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "small-world word co-occurrence network (Ferrer i Cancho & Sole 2001, ferrer-i-cancho2001)"
+      },
+      "qualitative_difference": "A single word has co-occurrence relations with its immediate syntagmatic neighbors; the network's global degree distribution, mean degree (z=70.13), and clustering coefficient (C=0.437) are properties of the whole lexical graph, persisting as the accumulated record of usage patterns rather than any one word's local relations.\n",
+      "justification": "Scored new-structure because the phenomenon is the network's persisting topological organization (a graph structure accreted from usage, recoverable and stable independent of any single ongoing utterance), close to SPEC's hub-hierarchy example; new-statistics is the strong runner-up since the degree-distribution EXPONENT itself is a distributional-shape claim (the two kinds are genuinely entangled for network-topology phenomena, as SPEC's own example list implies by naming \"degree distributions\" under new-statistics but \"hub hierarchy\" under new-structure) — new-structure was preferred because the order_parameter as named foregrounds the NETWORK STRUCTURE (topology + clustering) rather than a bare exponent alone. evidence_status is measured-untested (pre-CSN log-log regression fitting per this entry's own degree_distribution note), hence quantitative-contested. Onset always-present-at-scale: the co-occurrence network exists and is measurable for any sufficiently large corpus; no threshold vocabulary size is cited as required for the structure to emerge.\n",
+      "confidence": "medium",
+      "system": "languages",
+      "category": "cultural-informational",
+      "alphabet_closure": "open"
+    },
+    {
+      "id": "ocean-circulation--western-boundary-current-intensification",
+      "name": "Western boundary current intensification (Gulf Stream, Kuroshio)",
+      "order_parameter": "transport (Sv) and its along-stream growth via gyre recirculation",
+      "substrate": {
+        "part_type": "western boundary currents (Gulf Stream, Kuroshio, etc.)",
+        "count_oom": "5 major western boundary current systems globally",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "wind-stress momentum input",
+        "momentum / pressure-gradient exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Sverdrup/Stommel-Munk western-intensification dynamics (beta-effect); no single source key in this entry, referenced via nonlinearity's discussion"
+      },
+      "qualitative_difference": "A single water parcel only obeys local momentum and pressure-gradient balance under Coriolis rotation; the western boundary current is a persistent, individuable, fast-flowing jet — a concentrated, trackable macro-object (you can point at the Gulf Stream, count the boundary currents, follow one downstream) that no parcel-level description exhibits.\n",
+      "justification": "Chosen new-entity over new-structure because the order_parameter (transport in Sv, along-stream growth) tracks a coherent, moving current as an object, not a frozen spatial record; onset is crossover-gradual because western intensification emerges smoothly as basin-scale wind-stress curl integrates via the beta-effect (Stommel/Munk dynamics), with no published critical value cited in this entry (nonlinearity attribute, entry text) for a bifurcation threshold.\n",
+      "confidence": "medium",
+      "system": "ocean-circulation",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "ocean-circulation--amoc-overturning-cell",
+      "name": "AMOC overturning cell",
+      "order_parameter": "meridional overturning transport (Sv) and meridional heat transport (PW) at a reference latitude (26.5N)",
+      "substrate": {
+        "part_type": "deep-water formation sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea)",
+        "count_oom": "order 4-5 named major sites",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "buoyancy / density-driven exchange",
+        "wind-stress momentum input",
+        "air-sea heat and freshwater flux"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "meridional overturning transport/streamfunction (Sv); Johns et al. 2023 (johns2023) for the measured transport and heat-flux figures"
+      },
+      "qualitative_difference": "No single water parcel \"overturns\"; the AMOC is a basin-integrated mass and heat transport sustained by many parcels' buoyancy-driven sinking and wind-driven surface flow acting together. The order parameter is a collective transport rate (Sv, PW), a temporal/ integrated system behavior with no single-parcel analogue.\n",
+      "justification": "new-dynamics fits better than new-entity because the overturning \"cell\" is not a compact, trackable object but an integrated circulation rate; onset scored crossover-gradual for the steady-state overturning strength itself (as distinct from the bistable regime switch, recorded separately below), since Johns et al. (2023) characterizes it as a continuously varying transport, not a threshold-onset phenomenon in its own right.\n",
+      "confidence": "medium",
+      "system": "ocean-circulation",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "ocean-circulation--bistable-circulation-regimes",
+      "name": "Bistable circulation regimes (\"on\"/strong vs. \"off\"/collapsed)",
+      "order_parameter": "AMOC transport strength as a function of freshwater forcing (the hysteresis loop itself)",
+      "substrate": {
+        "part_type": "deep-water formation sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea)",
+        "count_oom": "order 4-5 named major sites",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "buoyancy / density-driven exchange",
+        "air-sea heat and freshwater flux"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Freshwater forcing into the North Atlantic; hysteresis width ~0.4 Sv and a sustained-global-warming threshold estimate of 1.4-8C (van Westen & Dijkstra 2023, source key vanwesten2023; Armstrong McKay et al. 2022, source key mckay2022) — both cited in this entry's memory_hysteresis and tipping_transitions attributes.\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Stommel (1961) two-box salt-advection bistability model; van Westen & Dijkstra (2023, vanwesten2023) GCM-derived hysteresis"
+      },
+      "qualitative_difference": "A single water parcel has no notion of \"which stable state\" it is in; bistability is a property of the coupled circulation-feedback system as a whole (the salt-advection feedback loop), a regime-level temporal signature (which branch, how it is reached) that no individual parcel or even a single current exhibits.\n",
+      "justification": "new-dynamics chosen over new-structure because the order parameter is a forcing-vs-state hysteresis loop (a dynamical regime signature), not a frozen spatial record. threshold-bifurcation is required and supported: this entry's own memory_hysteresis (score 4) and tipping_transitions (score 3) attributes cite a quantified hysteresis width and threshold from van Westen & Dijkstra (2023) and Armstrong McKay et al. (2022), explicitly flagged model-derived (evidence_status: measured-disputed) rather than an observed real-world cycle — carried through here rather than upgraded.\n",
+      "confidence": "medium",
+      "system": "ocean-circulation",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "ocean-circulation--mesoscale-eddy-field",
+      "name": "Mesoscale eddy field",
+      "order_parameter": "eddy kinetic energy",
+      "substrate": {
+        "part_type": "mesoscale eddies",
+        "count_oom": "not recovered this sweep; unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "buoyancy / density-driven exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "eddy kinetic energy as a field-standard descriptive quantity; no dedicated citation in this entry beyond the component_ontology's note that eddies 'dominate the ocean's total kinetic energy'"
+      },
+      "qualitative_difference": "Individual water parcels undergo local advection and pressure-gradient motion; the eddy field as a whole is a statistical/energetic property of the population of eddies (their aggregate kinetic energy budget), not a trait any single parcel possesses, and any single eddy is already a composite structure one level up in this entry's own hierarchy.\n",
+      "justification": "Chosen new-statistics (over new-entity, the runner-up) because the declared order_parameter is eddy KINETIC ENERGY — a population-level energetic/statistical quantity — rather than a count or track of individual eddies; onset is always-present-at-scale because this entry's spatial_extent attribute treats mesoscale eddies as a standing structural feature of the ocean's kinetic-energy budget with no onset threshold discussed, and characteristic_timescales records the eddy turnover timescale as an unquantified but structurally constant feature, not an episodic or threshold event.\n",
+      "confidence": "low",
+      "system": "ocean-circulation",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--global-circulation",
+      "name": "Global atmospheric circulation (Hadley/Ferrel/polar cells, jet streams)",
+      "order_parameter": "meridional overturning streamfunction; jet-stream latitude and strength",
+      "substrate": {
+        "part_type": "atmospheric fluid parcels (air, water vapor, condensate)",
+        "count_oom": "unknown; no published canonical count (see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "radiative exchange"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "Hadley/Ferrel/polar circulation-cell framework (emergence block: part of the field's working vocabulary)"
+      },
+      "qualitative_difference": "A single air parcel simply moves under local pressure gradients and Coriolis force; the Hadley/Ferrel/polar cell structure is a standing, planet-spanning organized circulation pattern (self_organization: \"circulation cells, jet streams... arises spontaneously from local fluid-thermodynamic interactions\") that redistributes heat pole-ward — a collective spatial organization no single parcel's trajectory exhibits.\n",
+      "justification": "novelty_kind new-structure: modularity describes the cells as \"gradational, strongly coupled subdivisions of one continuous fluid system,\" i.e. a standing large-scale pattern rather than an individuable object or a time-signature — closest to the spec's new-structure test (a persistent organizational record of the forcing). onset always-present-at-scale: circulation cells are present whenever a rotating, differentially heated atmosphere of sufficient scale exists; the entry cites no formal critical-parameter threshold for their existence, only continuous self-organization under solar forcing and rotation.\n",
+      "confidence": "medium",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--ocean-circulation",
+      "name": "Ocean circulation (gyres, thermohaline/meridional overturning)",
+      "order_parameter": "overturning transport (Sverdrups); gyre strength",
+      "substrate": {
+        "part_type": "ocean water masses (where present — Earth; absent/exotic on Venus/Mars/Titan)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy / momentum flux"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Freshwater-forcing threshold governing AMOC bistability: van Westen & Dijkstra (2023, GRL, arXiv:2308.14098) quantify a hysteresis width of order 0.4 Sv between collapse and recovery thresholds in the CESM GCM; tipping_transitions additionally cites an AMOC-specific sustained-warming threshold of 1.4-8C (Armstrong McKay et al. 2022).\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "AMOC overturning-strength / hysteresis framework (van Westen & Dijkstra 2023; Armstrong McKay et al. 2022)"
+      },
+      "qualitative_difference": "A single water parcel simply moves under local density and wind forcing; the overturning circulation is a basin-scale collective transport pattern (measured in Sverdrups) that can exist in two qualitatively different stable states (\"on\"/strong vs. \"off\"/collapsed) depending on forcing HISTORY, not current forcing alone — a genuine regime/time-signature property no single parcel has.\n",
+      "justification": "novelty_kind new-dynamics (runner-up new-structure, since gyres are also standing spatial patterns): the AMOC's bistable regime behavior (memory_hysteresis' top score, 4) is fundamentally a TEMPORAL/regime order parameter (which stable state the system occupies, and how it got there) — matching the spec's new-dynamics test most directly, per this entry's own emphasis on hysteresis over static structure. onset threshold-bifurcation: this is the entry's most rigorously cited bifurcation, with a quantified hysteresis width and explicit published critical thresholds, satisfying the REQUIRED onset_control_parameter citation cleanly (though model-derived, not an observed completed real-world cycle, per memory_hysteresis' own caveat).\n",
+      "confidence": "high",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--enso",
+      "name": "ENSO (El Nino-Southern Oscillation)",
+      "order_parameter": "sea-surface-temperature anomaly indices (e.g. Nino 3.4)",
+      "substrate": {
+        "part_type": "ocean water masses (where present — Earth; absent/exotic on Venus/Mars/Titan)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy / momentum flux"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "ENSO index framework (e.g. Nino 3.4); chaos_sensitivity block references ENSO irregularity as a possible slow-mode chaotic signature but no dedicated quantitative ENSO theory is cited in this entry"
+      },
+      "qualitative_difference": "No individual ocean parcel or air parcel oscillates with a multi-year period; ENSO is a coupled ocean-atmosphere OSCILLATION — a collective time-signature regime (warm/cool phase alternation measured via SST-anomaly indices) that is a genuinely emergent property of the coupled system, absent from any single parcel's dynamics.\n",
+      "justification": "novelty_kind new-dynamics: the order parameter (SST anomaly indices, phase alternation) is explicitly a time-signature/oscillation, matching the spec's test directly. onset unknown: chaos_sensitivity mentions \"ENSO irregularity\" only in passing as a candidate chaotic slow mode, and this entry cites no dedicated ENSO mechanism paper, critical parameter, or bifurcation treatment anywhere in its attributes or sources — the conservative \"literature silent\" choice per the spec, rather than guessing at a threshold-bifurcation framing the entry does not actually support.\n",
+      "confidence": "low",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--ice-albedo",
+      "name": "Ice-albedo pattern (sea ice, snow cover, ice sheets)",
+      "order_parameter": "planetary albedo; ice extent/mass",
+      "substrate": {
+        "part_type": "ice sheets / sea ice / cryosphere bodies",
+        "count_oom": "~10 major named bodies (Earth: Antarctic and Greenland ice sheets, major sea-ice regions, major glaciers/ice caps) [unverified — order-of-magnitude estimate, not independently sourced this sweep]",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "radiative exchange",
+        "latent-heat / moisture exchange"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Ice-sheet mass-balance bistability threshold documented in the tipping-elements literature (memory_hysteresis: \"ice-sheet mass balance (Greenland/WAIS) shows analogous documented bistability\"); tipping_transitions' broader 16-element inventory (Armstrong McKay et al. 2022) includes multiple ice-sheet/sea-ice tipping elements with published (though not individually extracted in this entry) thresholds.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "ice-albedo feedback (Clausius-Clapeyron-independent radiative feedback loop) plus the tipping-elements bistability framework (Armstrong McKay et al. 2022)"
+      },
+      "qualitative_difference": "A single patch of ice or snow simply reflects sunlight locally; the ICE-ALBEDO PATTERN is the planet-scale coupled consequence — reduced ice cover lowering PLANETARY albedo, absorbing more shortwave radiation, and reinforcing further melt (feedback.loops: ice-albedo feedback) — a global structural/radiative signature emerging from the distributed cryosphere, not a property of any one ice patch.\n",
+      "justification": "novelty_kind new-structure (runner-up new-dynamics, given the feedback loop's temporal reinforcing character): planetary albedo and ice extent/mass are standing structural/radiative state variables (this entry's own emergent_phenomena order_parameter choice), closer to a spatial-record framing than a trackable single object. onset threshold-bifurcation: memory_hysteresis explicitly documents ice-sheet bistability analogous to AMOC's, and the tipping_transitions 16-element inventory includes cryosphere elements with published thresholds, though this entry does not individually extract those per-element numbers (flagged as a standing gap in provenance), so the citation is at the inventory level rather than a single pinned value.\n",
+      "confidence": "medium",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--weather-systems",
+      "lineage": "tropical-cyclone-vortex-complex",
+      "name": "Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry)",
+      "order_parameter": "minimum central pressure, maximum sustained wind (see tropical-cyclones entry)",
+      "substrate": {
+        "part_type": "weather systems / storm systems (cyclones, anticyclones, convective complexes)",
+        "count_oom": "~85 named tropical storm-strength systems/yr globally (tropical-cyclones class only; extratropical/synoptic system counts not recovered this sweep)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy / momentum flux",
+        "radiative exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Rapid-intensification / bombogenesis-type thresholds inherited from the child entries (tropical-cyclones' rapid intensification, tipping_transitions score 2; weather-systems' own bombogenesis criterion, Sanders & Gyakum 1980) — this parent entry does not re-derive these but references them via its contains relation and component_ontology's explicit itself_complex links.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "cyclone/anticyclone classification and potential-intensity theory, inherited from the tropical-cyclones and weather-systems child entries"
+      },
+      "qualitative_difference": "A single fluid parcel exchanges momentum and heat locally; individual weather systems (cyclones, anticyclones, convective complexes) are coherent, individuable rotating or organized structures with their own measurable central pressure and wind speed — the first aggregation level of atmospheric organization above bare parcels (component_ontology's own hierarchy_depth rung 1-2).\n",
+      "justification": "NOTE per task instructions: this phenomenon points at resolved child catalog entries (tropical-cyclones, and implicitly weather-systems itself as a sibling class) and is classified here as a phenomenon OF planetary-climate as well as a standalone entry. novelty_kind new-entity: individual storms are the paradigm point-at-it/count-it/ track-it objects, consistent with tropical-cyclones' own classification of its \"Storm-scale vortex\" phenomenon as new-entity. onset threshold-bifurcation: inherits the rapid-intensification and bombogenesis threshold citations already established in the child entries (tropical-cyclones.yaml, weather-systems.yaml), which this parent entry references via component_ontology's itself_complex links rather than re-deriving.\n",
+      "confidence": "medium",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "planetary-climate--tipping-elements",
+      "name": "Climate tipping elements",
+      "order_parameter": "element-specific threshold state variables (e.g. AMOC strength in Sv; ice-sheet mass balance)",
+      "substrate": {
+        "part_type": "atmospheric fluid parcels (air, water vapor, condensate)",
+        "count_oom": "unknown; no published canonical count (see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "radiative exchange",
+        "latent-heat / moisture exchange",
+        "momentum / pressure-gradient exchange",
+        "surface enthalpy / momentum flux"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Per-element bifurcation thresholds synthesized across 16 climate tipping elements (9 global \"core\" + 7 regional \"impact\"; Armstrong McKay et al. 2022, Science 377:eabn7950, 200+ studies synthesized); several elements assessed as already within their uncertainty range for triggering at ~1.1C observed warming; AMOC-specific threshold 1.4-8C sustained warming (this entry's own calibration-ceiling score of 4 on tipping_transitions).\n",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "tipping-element threshold framework (Armstrong McKay et al. 2022; Lenton et al. 2008); emergence block calls this part of the field's actual working vocabulary"
+      },
+      "qualitative_difference": "No single subsystem process (a melting glacier patch, a weakening current filament) constitutes a \"tipping element\" in isolation; the CATALOG of 16 tipping elements is itself a population-level classification — a distributional/inventory object over the whole coupled system's possible bifurcation-prone subsystems, with each element's threshold and count being the emergent object of study, not any single physical process's local behavior.\n",
+      "justification": "novelty_kind new-statistics (runner-up new-structure, since each individual tipping element's post-transition state is also a frozen structural record): the order parameter here is explicitly the INVENTORY/COUNT and threshold DISTRIBUTION across 16 named elements — a population-level cataloging object — distinguishing it from any single element's own transition (already separately captured under Ice-albedo pattern and Ocean circulation above); new-structure is a close runner-up since post-tipping states are frozen records. onset threshold-bifurcation: this is tipping_transitions' own calibration ceiling (score 4) for the whole catalog, with the most rigorously documented, multiply-replicated threshold citations of any phenomenon in this system.\n",
+      "confidence": "low",
+      "system": "planetary-climate",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "power-grids--system-frequency",
+      "name": "System frequency",
+      "order_parameter": "grid-wide frequency deviation from 60 Hz nominal -- the single scalar summarizing instantaneous supply-demand balance across thousands of buses",
+      "substrate": {
+        "part_type": "buses/substations (network nodes)",
+        "count_oom": "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "frequency/voltage synchronization",
+        "power flow (AC electrical transfer)"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "AC power-flow/frequency-regulation control theory; feedback attribute (governor droop, AGC loops)"
+      },
+      "qualitative_difference": "A single bus/generator only has its own local voltage and power injection; system frequency is a single global scalar that only exists because thousands of synchronized generators are locked to a shared 60 Hz reference — no individual component \"has\" a system frequency, it is a collective synchronization state.\n",
+      "justification": "new-dynamics because the order parameter (frequency deviation) is a real-time time-signature of the whole interconnection's supply-demand balance, not an object or a static distribution. onset always-present-at-scale: frequency synchronization is a standing feature of any operating synchronous AC network (per interaction_ontology's frequency/voltage-synchronization type, \"physical coupling of all generators... global (within the interconnection)\"), not something that switches on past a threshold.\n",
+      "confidence": "high",
+      "system": "power-grids",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "power-grids--voltage-collapse-bifurcation",
+      "name": "Voltage-collapse bifurcation",
+      "order_parameter": "load-flow saddle-node bifurcation point (Dobson 1992; Simpson-Porco et al. 2016 closed-form network-structure-dependent stability margin)",
+      "substrate": {
+        "part_type": "buses/substations (network nodes)",
+        "count_oom": "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "power flow (AC electrical transfer)",
+        "frequency/voltage synchronization"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Load-flow saddle-node bifurcation point of the AC power-flow equations (Dobson 1992, source key dobson1992; Simpson-Porco, Dorfler & Bullo 2016, source key simpson-porco2016) — cited directly in this entry's tipping_transitions (score 2) and nonlinearity attributes as a specific, named, formally modeled mechanism with a closed-form network-structure-dependent stability margin.\n",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "saddle-node bifurcation of the load-flow equations (Dobson 1992, dobson1992; Simpson-Porco et al. 2016, simpson-porco2016)"
+      },
+      "qualitative_difference": "Individual buses obey local Kirchhoff/power-flow constraints; voltage collapse is a qualitative regime change of the WHOLE network's load-flow solution (the system loses a stable operating point entirely) — a bifurcation of the collective state, not a local bus failure.\n",
+      "justification": "new-dynamics because the order parameter is the location of a bifurcation point in state space (a regime-change signature), the canonical threshold-bifurcation case named explicitly in the SPEC itself (\"power-grids' voltage-collapse block carries the saddle-node bifurcation citation\"). This is the strongest-evidenced onset classification across all five systems in this registry.\n",
+      "confidence": "high",
+      "system": "power-grids",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "power-grids--cascading-blackout-size",
+      "name": "Cascading blackout size",
+      "order_parameter": "unserved-energy / blackout-size distribution tail (Dobson et al. 2007)",
+      "substrate": {
+        "part_type": "transmission lines (network edges)",
+        "count_oom": "~6.5e3 edges (Deka & Vishwanath 2015)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "power flow (AC electrical transfer)",
+        "telemetry and control signaling (SCADA/AGC/protection)"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "episodic-triggered",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "power-law-tail blackout-size distribution, exponent between -1 and -2 (Dobson et al. 2007, dobson2007, primary-read); SOC-adjacent mechanism, contested"
+      },
+      "qualitative_difference": "A single line trip is a local protective-relay event; the blackout SIZE DISTRIBUTION is a population-level statistical regularity over many cascade events (NERC 1984-1998 data) — no single blackout has a \"tail exponent,\" only the population of blackouts does.\n",
+      "justification": "new-statistics per the entry's own extreme_event_statistics and cascade_susceptibility attributes, which explicitly fit a distributional tail exponent to blackout-size data (though disputed: evidence_status measured-disputed, an eyeballed log-log range, not MLE-fitted). onset episodic-triggered: cascades arise in discrete events (a line overload trips a relay, redistributing load, per the feedback attribute's cascading-protective-tripping loop) rather than being a standing statistical feature always present — the events themselves are episodic even though their SIZE distribution can be characterized in aggregate.\n",
+      "confidence": "medium",
+      "system": "power-grids",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "power-grids--exponential-tail-degree-distribution",
+      "name": "Exponential-tail degree distribution",
+      "order_parameter": "node-degree p.d.f. shape, shifted sum of exponentials (Deka & Vishwanath 2015) -- the emergent topological signature distinguishing grids from designed-to-be-scale-free networks",
+      "substrate": {
+        "part_type": "buses/substations (network nodes)",
+        "count_oom": "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "power flow (AC electrical transfer)"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "node-degree p.d.f. fit, shifted sum of exponentials (Deka & Vishwanath 2015, deka-vishwanath, primary-read; corroborated by Newman 2003, newman2003)"
+      },
+      "qualitative_difference": "No individual bus \"has\" a degree distribution; the shape of the distribution (exponential-tailed, not power-law/scale-free) is a population-level structural regularity over all ~5,500 buses, the textbook degree-distribution case named explicitly in the SPEC.\n",
+      "justification": "new-statistics is unambiguous: the order_parameter is a distribution SHAPE, directly fit by Deka & Vishwanath (2015) with confidence (evidence_status: measured). onset always-present-at-scale because this is a static topological property of the built network measured at a point in time (the topology accretes via engineering over decades, per component_ontology, but the exponential-tail SHAPE itself has no onset threshold reported — it is the standing structure of the network as built), and persistence is frozen rather than sustained-while-driven since the topology (unlike power flow) does not require active driving to persist.\n",
+      "confidence": "medium",
+      "system": "power-grids",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "river-networks--dendritic-drainage-network",
+      "name": "Dendritic drainage network / stream order hierarchy",
+      "order_parameter": "Strahler stream order; Horton bifurcation/length/area ratios (R_B, R_L, R_A)",
+      "substrate": {
+        "part_type": "channel links/segments (between confluences)",
+        "count_oom": "~1e5-1e6 for the Mississippi basin",
+        "interchangeable": "yes within order class, no across orders"
+      },
+      "generating_interactions": [
+        "water/sediment flux transfer",
+        "erosion-deposition feedback"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "Horton's laws (bifurcation/length/area ratios); component_ontology and fractal_dimension_spatial attributes, sources rodriguez-iturbe-rinaldo1997, moussa2009"
+      },
+      "qualitative_difference": "A single channel link only carries local water/sediment flux and erodes/deposits its own bed and banks; the branching tree with its regular Strahler ordering and Horton ratios is a persisting spatial record of millions of years of local process, not a property any one link possesses — it is the accreted network topology itself.\n",
+      "justification": "new-structure fits because the network is a quasi-static organization that persists when the fast dynamics (individual flow events) pause — the tree geometry is the record of the process, matching the SPEC's own dendritic-drainage-network example verbatim. Onset is crossover-gradual: Horton's laws are steady-state scaling regularities with no cited critical threshold in this entry (self_organization attribute describes gradual erosion-flow feedback, not a bifurcation).\n",
+      "confidence": "medium",
+      "system": "river-networks",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "river-networks--hacks-law-scaling",
+      "name": "Hack's law scaling (channel length vs. basin area)",
+      "order_parameter": "Hack exponent h (0.6 original; basin-size-dependent 0.6/0.5/0.47 per Muller 1973)",
+      "substrate": {
+        "part_type": "channel links/segments (between confluences)",
+        "count_oom": "~1e5-1e6 for the Mississippi basin",
+        "interchangeable": "yes within order class, no across orders"
+      },
+      "generating_interactions": [
+        "water/sediment flux transfer",
+        "erosion-deposition feedback"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Hack's law, L ~ A^h (Hack 1957, hack1957; Rigon et al. 1996, rigon1996, primary-read)"
+      },
+      "qualitative_difference": "No single channel link has a \"length vs. basin-area\" scaling exponent; h is a statistical regularity that only appears across the population of basins/sub-basins of varying size, a distributional law no individual realization exhibits.\n",
+      "justification": "new-statistics because the order parameter (the Hack exponent) is a scaling-law exponent fit across many basins, the SPEC's own distribution-shape/exponent test. Onset always-present-at-scale: the fractal_dimension_spatial attribute records h as holding across basin sizes (with the exponent itself drifting by basin size per Muller 1973), not as a phenomenon that switches on past a threshold.\n",
+      "confidence": "medium",
+      "system": "river-networks",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "river-networks--network-fractal-branching-geometry",
+      "name": "Network fractal branching geometry",
+      "order_parameter": "planform fractal dimension D (Horton-ratio-derived, ~1.6-1.9); topological D_T (~1.7-1.8)",
+      "substrate": {
+        "part_type": "channel links/segments (between confluences)",
+        "count_oom": "~1e5-1e6 for the Mississippi basin",
+        "interchangeable": "yes within order class, no across orders"
+      },
+      "generating_interactions": [
+        "water/sediment flux transfer",
+        "erosion-deposition feedback"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "fractal dimension D = log(R_B)/log(R_L) (fractal_dimension_spatial attribute, sources rodriguez-iturbe-rinaldo1997, moussa2009, mantilla2010, rigon1996, hack1957)"
+      },
+      "qualitative_difference": "Fractal branching geometry is a property of the whole network's self-similar spatial arrangement across scales, not of any single link; it is measured by box-counting/divider methods over the assembled tree, a structural record rather than a single-link trait.\n",
+      "justification": "new-structure (closely related to the dendritic-network item above, but recorded separately per the entry's own emergent_phenomena listing) because D characterizes a frozen geometric self-similarity, not a temporal dynamic or event distribution. onset crossover-gradual: this entry explicitly reports D as sensitive to which R_B/R_L pair is used, i.e. a continuously varying derived quantity, with no bifurcation threshold in the literature reviewed.\n",
+      "confidence": "low",
+      "system": "river-networks",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "river-networks--delta-lobe-switching-cycle",
+      "name": "Delta lobe-switching cycle",
+      "order_parameter": "active delta lobe position / avulsion state (period ~1,000-1,500 yr)",
+      "substrate": {
+        "part_type": "channel links/segments (between confluences)",
+        "count_oom": "~1e5-1e6 for the Mississippi basin",
+        "interchangeable": "yes within order class, no across orders"
+      },
+      "generating_interactions": [
+        "avulsion / channel abandonment",
+        "erosion-deposition feedback"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Bed aggradation exceeding a critical superelevation ratio triggers avulsion to a lower-gradient course (interaction_ontology's avulsion/channel-abandonment mechanism; tipping_transitions attribute, source mississippi-delta-wikipedia, evidence_status qualitative — no quantified critical superelevation-ratio VALUE is cited in this entry, only the qualitative mechanism and the ~1,000-1,500 yr cycle period).\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "avulsion threshold mechanism (tipping_transitions attribute); no formal quantitative model cited in this entry"
+      },
+      "qualitative_difference": "A single channel link erodes or deposits locally; lobe-switching is a basin/delta-scale regime change — an entire flow path abandoning its course for another — a discrete temporal event/cycle no individual link produces alone.\n",
+      "justification": "new-dynamics because the order parameter is the AVULSION STATE over time (a regime signature/cycle), not a persistent object or a static distribution. onset is threshold-bifurcation on the strength of the entry's own tipping_transitions attribute (score 2), which names a specific mechanistic threshold (critical superelevation ratio) with a real-world case (Old River Control Structure) — flagged conservatively since no numeric critical-ratio value is given, only the mechanism and the cycle period.\n",
+      "confidence": "medium",
+      "system": "river-networks",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "stars--granulation",
+      "name": "Granulation",
+      "order_parameter": "granule size/lifetime distribution; perimeter-area fractal dimension D",
+      "substrate": {
+        "part_type": "granulation cells (photospheric convective cells)",
+        "count_oom": "~1e6-4e6, ~1,000-1,500 km diameter each",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "convective heat transport"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Rayleigh number exceeding the convective-instability critical value (the entry's own contains_note draws the mechanistic line to the Rayleigh-Benard paradigm, Ra_c ~1708, though the photosphere is compressible/radiatively-cooled rather than a lab cell; no photosphere-specific Ra_c is cited in this entry [unverified — model knowledge, class-general convection-onset physics, not independently sourced this sweep]).\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "descriptive granulation/supergranulation vocabulary; no dedicated quantitative theory cited in this entry"
+      },
+      "qualitative_difference": "A single plasma parcel simply moves under local buoyancy and pressure gradients; the granulation FIELD is a spatially tiled population of discrete, individuable convective cells with a characteristic size and lifetime distribution and a measured boundary fractal dimension — an object you can count and track, not a property of any one parcel.\n",
+      "justification": "novelty_kind new-entity: granules are individuable, countable, trackable macro-objects (component_ontology's declared atom; the entry itself treats them as the nearest citable \"atom\" for this purpose). onset threshold-bifurcation: convection is a textbook Rayleigh-number bifurcation per the entry's own contains_note tying granulation mechanistically to the Rayleigh-Benard paradigm, though no photosphere-specific critical value is cited here, so the parameter is recorded with a caveat rather than a pinned figure.\n",
+      "confidence": "low",
+      "system": "stars",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "stars--supergranulation",
+      "name": "Supergranulation",
+      "order_parameter": "supergranule cell size (~30 Mm) and turnover time (24-48 h dynamical evolution time)",
+      "substrate": {
+        "part_type": "supergranulation cells",
+        "count_oom": "not recovered this sweep; unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "convective heat transport"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "descriptive supergranulation vocabulary (Rincon & Rieutord 2018); no quantitative predictive theory cited"
+      },
+      "qualitative_difference": "Individual granulation-scale convective cells do not, by themselves, possess a ~30 Mm characteristic scale; supergranulation is a distinct, larger-scale aggregate pattern one level up the convective-aggregation axis (component_ontology explicitly distinguishes it from the atom), an emergent large-scale flow organization not present in any single granule's dynamics.\n",
+      "justification": "novelty_kind new-entity: a distinct, individuable cell population with its own characteristic size and lifetime (component_ontology, hierarchy_depth rung 1). onset crossover-gradual (not threshold-bifurcation): the entry cites no formal bifurcation/critical-parameter literature for the granulation-to-supergranulation transition, only a described aggregation relationship — the conservative vocabulary choice per the spec's onset guidance given the entry is silent on a formal threshold.\n",
+      "confidence": "low",
+      "system": "stars",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "stars--sunspot-cycle",
+      "name": "Sunspot / magnetic activity cycle",
+      "order_parameter": "sunspot number; butterfly-diagram latitude drift; ~11-yr periodicity",
+      "substrate": {
+        "part_type": "sunspots / active regions",
+        "count_oom": "cycle-dependent, 0 to several dozen visible groups at solar maximum [unverified — model knowledge, not sourced this sweep]",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "magnetohydrodynamic coupling"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Dynamo-number-type threshold in the mean-field alpha-effect/turbulent- diffusivity dynamo framework governing self-sustained field generation [effective_theory.theory below; the entry does not cite a specific published critical dynamo-number value, so this is recorded as the class-general dynamo-onset parameter without a pinned figure — unverified — model knowledge].\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "mean-field dynamo theory (alpha-effect, turbulent diffusivity); criticality entry notes independent quantitative content is contested, poor predictive skill for cycle amplitude"
+      },
+      "qualitative_difference": "No single plasma parcel or sunspot has an 11-year period; the cycle is a population-level, time-signature order parameter (sunspot number and butterfly-diagram latitude drift over years) generated by the collective differential-rotation dynamo, with no single-unit analogue.\n",
+      "justification": "novelty_kind new-dynamics: the order parameter (sunspot number, butterfly-diagram drift, ~11-yr periodicity) is explicitly a time-signature, matching the spec's new-dynamics test exactly. onset threshold-bifurcation: dynamo action is a textbook self-excitation bifurcation in mean-field dynamo theory (emergence column's own \"alpha-effect and turbulent diffusivity are genuinely new effective variables\"), though this entry does not cite a pinned critical dynamo-number for the Sun specifically.\n",
+      "confidence": "low",
+      "system": "stars",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "stars--solar-dynamo",
+      "name": "Solar dynamo (differential rotation + convection generating magnetic field)",
+      "order_parameter": "mean toroidal/poloidal field strength (alpha-effect, turbulent diffusivity in mean-field dynamo theory)",
+      "substrate": {
+        "part_type": "granulation cells (photospheric convective cells)",
+        "count_oom": "~1e6-4e6, ~1,000-1,500 km diameter each",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "magnetohydrodynamic coupling",
+        "convective heat transport"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Dynamo number / magnetic Reynolds number exceeding the self-excitation threshold for sustained field generation [unverified — model knowledge; the entry's emergence/criticality blocks discuss mean-field dynamo theory qualitatively but cite no pinned critical value for the Sun].\n",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "mean-field dynamo theory (alpha-effect, turbulent diffusivity)"
+      },
+      "qualitative_difference": "Individual convective parcels and rotation shear do not, on their own, generate a coherent large-scale organized magnetic field; the dynamo is a collective capability of the coupled convection/rotation/field system to continuously regenerate and sustain a global magnetic field against resistive decay — a function the plasma alone does not have.\n",
+      "justification": "novelty_kind new-function: the dynamo is a capability (sustained field generation/regeneration) exploitable/observable from outside (drives the sunspot cycle, flares, coronal structure), matching the spec's new-function test — the runner-up kind is new-dynamics (given it also produces the cyclic time-signature), but the field-generation CAPABILITY itself is scored as primary per the spec's one-kind rule. onset threshold-bifurcation: dynamo self-excitation is the standard bifurcation framing in the field (interaction_ontology's magneto- hydrodynamic-coupling row), though no Sun-specific critical parameter value is cited in this entry.\n",
+      "confidence": "low",
+      "system": "stars",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "stars--solar-flares",
+      "name": "Solar flares / nanoflares",
+      "order_parameter": "flare thermal-energy frequency distribution (power-law tail exponent alpha)",
+      "substrate": {
+        "part_type": "granulation cells (photospheric convective cells)",
+        "count_oom": "~1e6-4e6, ~1,000-1,500 km diameter each",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "magnetohydrodynamic coupling"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "fractal-diffusive self-organized criticality (Aschwanden 2022, Aschwanden & Crosby 2025); contested per the entry's own criticality block (dragon-king critique)"
+      },
+      "qualitative_difference": "A single magnetic-reconnection event has its own energy; no single event exhibits a power law. The distributional shape/exponent over the full flare population (alpha ~1.8, spanning ~13 orders of magnitude combining nanoflares to stellar superflares) is a property of the ensemble of events, not of any one flare.\n",
+      "justification": "novelty_kind new-statistics: extreme_event_statistics and criticality both record this as a distributional power-law claim (alpha~1.8, measured per the entry, CSN-grade rigor not established), matching the spec's new-statistics test exactly (order parameter is a distribution exponent). onset always-present-at-scale: flares occur continuously across scales whenever the magnetic system is observed, with no single onset threshold claimed for the STATISTICS themselves (the mechanism, fractal-diffusive SOC, is contested per criticality's mechanism_status, so no specific threshold-bifurcation control parameter is asserted — conservative choice given the entry's own \"dragon king\" caveat).\n",
+      "confidence": "medium",
+      "system": "stars",
+      "category": "astrophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "the-internet--congestion-collapse-and-recovery",
+      "name": "Congestion collapse and recovery",
+      "order_parameter": "aggregate throughput / goodput vs. offered load",
+      "substrate": {
+        "part_type": "routers / physical infrastructure nodes",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "packet forwarding / data transfer",
+        "BGP peering / route advertisement"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "episodic-triggered",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "TCP AIMD congestion control (nonlinearity and feedback attributes); no dedicated congestion-collapse citation in this entry's sources block"
+      },
+      "qualitative_difference": "A single router only forwards or drops packets according to local queue state; congestion collapse is a global regime where AGGREGATE throughput falls despite (or because of) rising offered load across the whole network — a collective temporal failure mode no single router's forwarding rule predicts by inspection.\n",
+      "justification": "new-dynamics because the order parameter (throughput vs. load) is a time-varying collective regime, matching the SPEC's own explicit example (\"congestion collapse episodes\" under episodic-triggered). onset scored episodic-triggered per the SPEC's own worked case language, and consistent with this entry's nonlinearity attribute, which frames congestion collapse as an edge-case regime actively suppressed by engineering rather than a standing feature — though this entry itself carries no dedicated citation/history for a congestion-collapse EVENT beyond the general TCP AIMD mechanism, a gap noted here conservatively.\n",
+      "confidence": "low",
+      "system": "the-internet",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "the-internet--traffic-self-similarity",
+      "name": "Traffic self-similarity",
+      "order_parameter": "Hurst exponent of packet/octet arrival process across timescales",
+      "substrate": {
+        "part_type": "connected devices (hosts/endpoints)",
+        "count_oom": "~1e10 (methodology-dependent)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "packet forwarding / data transfer"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "self-similar/long-range-dependent traffic model (Leland, Taqqu, Willinger & Wilson 1993/1994, leland1994, primary-read); H~0.85-0.95 packet-count, H~0.75-0.85 byte-count"
+      },
+      "qualitative_difference": "A single packet's arrival is a discrete event with no scale structure; self-similarity is a property of the AGGREGATE arrival PROCESS across timescales (milliseconds to hours) — traffic aggregation intensifies rather than smooths burstiness, contrary to classical Poisson expectation, a statistical-shape regularity no single packet or flow exhibits.\n",
+      "justification": "new-statistics because the order parameter is explicitly a Hurst exponent — a distribution-shape/scaling statistic over the whole traffic process, the SPEC's own paradigm case. onset always-present-at-scale: this entry's temporal_correlation attribute states the self-similarity phenomenon is \"solid and uncontested\" across timescales and traces, a standing statistical regularity whenever traffic is measured, not a threshold-triggered event.\n",
+      "confidence": "high",
+      "system": "the-internet",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "the-internet--as-level-hub-hierarchy",
+      "name": "AS-level hub hierarchy (Tier-1/2/3 structure)",
+      "order_parameter": "degree distribution and disassortative mixing (r) of the AS graph",
+      "substrate": {
+        "part_type": "Autonomous Systems (AS-level nodes)",
+        "count_oom": "~1e4-1e5 (10,697 in 2001; ~75,000-83,739 in 2025/26)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "BGP peering / route advertisement"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "AS-graph degree distribution (Newman 2003, newman2003, alpha=2.5, measured-untested by CSN standards) and Broido & Clauset (2019, broido-clauset2019) scale-free-rarity counterweight"
+      },
+      "qualitative_difference": "A single AS only makes its own local peering decisions; the Tier-1/ Tier-2/Tier-3 hub hierarchy is an accreted, quasi-static structural record of tens of thousands of uncoordinated peering decisions made over decades — the SPEC's own named example (\"AS-level hub hierarchy\") of a frozen structural record, persisting independent of any single routing event.\n",
+      "justification": "new-structure directly matches the SPEC's worked example. onset crossover-gradual rather than threshold-bifurcation: this entry's self_organization attribute (score 2) describes the hierarchy as growing from \"thousands of uncoordinated local decisions\" over decades with no cited critical N or coupling threshold, and degree_distribution's own evidence is explicitly disputed (measured-disputed) as to whether it is even power-law/scale-free at all (Broido & Clauset 2019 find only ~50% of CAIDA AS-graphs classify \"Strong\"), ruling out a confident threshold claim.\n",
+      "confidence": "medium",
+      "system": "the-internet",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "the-internet--global-reachability-despite-local-failure",
+      "name": "Global reachability despite local failure",
+      "order_parameter": "post-perturbation routing reconvergence time and residual connectivity",
+      "substrate": {
+        "part_type": "Autonomous Systems (AS-level nodes)",
+        "count_oom": "~1e4-1e5 (10,697 in 2001; ~75,000-83,739 in 2025/26)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "BGP peering / route advertisement",
+        "packet forwarding / data transfer"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "no formal reconvergence-time/residual-connectivity model cited beyond BGP convergence measurement (labovitz-bgp-convergence, snippet-only) and robustness_resilience's qualitative resilience discussion"
+      },
+      "qualitative_difference": "No single router or AS \"reaches\" the globe; global reachability is a CAPABILITY the network as a whole provides — packets can traverse from any host to any other despite the failure of individual links or ASes — a function usable/exploitable from outside the system that no individual component possesses on its own, the SPEC's own \"global reachability\" new-function example verbatim.\n",
+      "justification": "new-function is the direct SPEC-named case. onset always-present-at-scale because robustness_resilience (score 3) frames this as a standing, continuously-available design property (\"designed for partial failure... routing reconverges around damaged links\") rather than a phenomenon that switches on past a specific threshold of N or coupling; the runner-up kind considered was new-dynamics (reconvergence TIME is a temporal measurand), but the declared order_parameter pairs that timing with RESIDUAL CONNECTIVITY, i.e., what the system can still do, which is the function-level claim this entry's own robustness attribute is actually making.\n",
+      "confidence": "medium",
+      "system": "the-internet",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "tropical-cyclones--eyewall",
+      "lineage": "tropical-cyclone-vortex-complex",
+      "name": "Eyewall (and eye)",
+      "order_parameter": "radius of maximum wind; minimum central pressure",
+      "substrate": {
+        "part_type": "moist air parcels (incl. condensate)",
+        "count_oom": "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy flux"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Rapid intensification / eyewall organization threshold, per tipping_transitions' citation of rapid intensification as a named, formally modeled threshold/switch-like transition (actively studied as a forecasting problem); no single pinned numerical critical value is cited in this entry beyond the qualitative threshold framing.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "potential-intensity theory (Emanuel 1986); emergence block calls this formalized, predictive macro-machinery"
+      },
+      "qualitative_difference": "A single moist air parcel simply advects, condenses, and exchanges momentum locally; the eyewall is a coherent, individuable ring-shaped structure with a measurable radius of maximum wind and minimum central pressure that can be tracked, replaced (eyewall replacement cycle), and reorganized — none of which is a property of any one parcel.\n",
+      "justification": "novelty_kind new-entity: the eyewall is the catalog's own canonical \"point at it, count it, track it\" object (self_organization: \"eyewall, rainbands, and the storm-scale circulation assemble spontaneously\"). onset threshold-bifurcation: tipping_transitions explicitly names rapid intensification as a threshold/switch-like mechanism with published, formally modeled treatment (scored 2 on that column for exactly this), satisfying the REQUIRED control-parameter citation at the qualitative level the entry itself supports.\n",
+      "confidence": "high",
+      "system": "tropical-cyclones",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "tropical-cyclones--rainbands",
+      "name": "Spiral rainbands",
+      "order_parameter": "band spacing/geometry (morphological)",
+      "substrate": {
+        "part_type": "convective cells / hot towers",
+        "count_oom": "not recovered in Phase 3 sweep; unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "crossover-gradual",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "descriptive rainband morphology (band spacing/geometry); no dedicated quantitative theory cited"
+      },
+      "qualitative_difference": "A single convective cell is a localized updraft-downdraft couplet; rainbands are a distinct, larger-scale organized spiral pattern of many such cells with characteristic spacing and geometry, individually identifiable features of the storm that form and dissolve on hour timescales (modularity block), not a property any single cell has.\n",
+      "justification": "novelty_kind new-entity: rainbands are named, individuable morphological features (self_organization's own list: \"eyewall, rainbands, and the storm-scale circulation\"). onset crossover-gradual: modularity describes rainbands as giving only \"weak, transient lateral structure,\" with no cited formal threshold/bifurcation specific to rainband formation — the conservative choice given the entry's own description of gradational, non-modular organization.\n",
+      "confidence": "medium",
+      "system": "tropical-cyclones",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "tropical-cyclones--warm-core",
+      "name": "Warm core",
+      "order_parameter": "core temperature anomaly",
+      "substrate": {
+        "part_type": "moist air parcels (incl. condensate)",
+        "count_oom": "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "latent-heat / moisture exchange",
+        "momentum / pressure-gradient exchange"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "potential-intensity theory (Emanuel 1986), which links core temperature anomaly to storm intensity"
+      },
+      "qualitative_difference": "Individual parcels simply carry their own local temperature; the warm core is a persistent, spatially organized temperature ANOMALY at the storm's center, maintained continuously by the collective latent-heat release of the whole circulation (WISHE feedback loop) — a structural signature of the vortex as a whole, not any parcel's own state.\n",
+      "justification": "novelty_kind new-structure (runner-up new-entity, since it has a central, locatable position): the order parameter (core temperature anomaly) is a standing structural feature maintained by the storm's circulation, closer to a spatial organizational record than a trackable discrete object with its own boundary. onset crossover-gradual: the entry describes warm-core intensification as continuous with the WISHE feedback loop's reinforcing growth rather than citing a specific formal threshold for warm-core onset itself (distinct from the separately-scored rapid-intensification threshold under Storm-scale vortex/tipping_transitions) — conservative choice given no dedicated warm-core-onset citation exists in this entry.\n",
+      "confidence": "low",
+      "system": "tropical-cyclones",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "tropical-cyclones--vortex",
+      "lineage": "tropical-cyclone-vortex-complex",
+      "name": "Storm-scale vortex",
+      "order_parameter": "maximum sustained wind (Saffir-Simpson categorization)",
+      "substrate": {
+        "part_type": "moist air parcels (incl. condensate)",
+        "count_oom": "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy flux",
+        "radiative exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Rapid intensification threshold (tipping_transitions: \"a threshold/switch-like transition actively studied as a forecasting problem,\" one of two named formally modeled mechanisms scoring this column 2); the WISHE reinforcing feedback loop (Emanuel 1986) is the cited generating mechanism for crossing into self-sustained intensification.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "potential-intensity theory (Emanuel 1986); Saffir-Simpson categorization as the field's working vocabulary (emergence block)"
+      },
+      "qualitative_difference": "No single moist air parcel has a \"maximum sustained wind\" or a Saffir-Simpson category; the storm-scale vortex is the entire coherent rotating circulation itself — the whole self-organizing heat-engine structure (summary: \"a rotating storm system that assembles itself\") — a qualitatively distinct organized entity relative to the disorganized convection it assembles from.\n",
+      "justification": "novelty_kind new-entity: the vortex is the catalog's paradigm individuable macro-object — the entry's whole scoping_note defines the system boundary around this one trackable circulation. onset threshold-bifurcation: tipping_transitions' rapid-intensification citation (score 2, \"specific mechanisms published\") directly supports a formal threshold-crossing framing for genesis/intensification of the vortex as a whole, distinct from decay (robustness_resilience: landfall/shear/cool water \"rapidly destroy\" the vortex, an asymmetric collapse not itself modeled as a bifurcation in this entry).\n",
+      "confidence": "high",
+      "system": "tropical-cyclones",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "weather-systems--extratropical-cyclone",
+      "name": "Extratropical cyclone (with fronts)",
+      "order_parameter": "minimum central pressure; deepening rate (hPa/24h, bombogenesis threshold)",
+      "substrate": {
+        "part_type": "extratropical cyclones (incl. attendant fronts and anticyclones)",
+        "count_oom": "~6,000-28,000 tracks per 20-yr NH seasonal aggregate (method-dependent, see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "momentum / pressure-gradient exchange",
+        "latent-heat / moisture exchange",
+        "surface enthalpy / momentum flux"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Bombogenesis threshold: central pressure fall >=24 hPa/24h normalized to 60N latitude via sin(lat)/sin(60) weighting (\"1 bergeron\" unit; Sanders & Gyakum 1980), cited by tipping_transitions (rescored to 2) as a named, quantitatively thresholded bifurcation/regime-transition criterion for explosive cyclogenesis.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "baroclinic-instability framework plus bombogenesis criteria (Sanders & Gyakum 1980); emergence block calls minimum pressure/deepening rate the field's working vocabulary"
+      },
+      "qualitative_difference": "A single air parcel simply moves under local pressure-gradient and Coriolis forces; the extratropical cyclone is a coherent, individuable rotating structure with fronts, a measurable minimum central pressure, and a deepening rate that can cross a named explosive-intensification threshold — none of which any single parcel possesses.\n",
+      "justification": "novelty_kind new-entity: satisfies the spec's point-at-it/count-it/ track-it test directly, and is this entry's own primary named structure type (component_ontology). onset threshold-bifurcation: the bombogenesis criterion is a REQUIRED, explicitly cited quantitative threshold (tipping_transitions rescored 1->2 specifically because this entry independently cites the named Sanders & Gyakum 1980 criterion), the strongest onset citation among this system's phenomena.\n",
+      "confidence": "high",
+      "system": "weather-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "weather-systems--mcc",
+      "name": "Mesoscale convective complex (MCC)",
+      "order_parameter": "cold-cloud-shield area (km^2); eccentricity; duration",
+      "substrate": {
+        "part_type": "mesoscale convective complexes (MCCs)",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "latent-heat / moisture exchange",
+        "momentum / pressure-gradient exchange"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "crossover-gradual",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "Maddox (1980) MCC size/duration classification convention (cold-cloud-shield area, eccentricity)"
+      },
+      "qualitative_difference": "A single convective cell is a localized updraft; an MCC is a large (>100,000 km^2), organized, self-sustaining cluster of many convective cells with a literature-canonical size/duration convention (Maddox 1980) distinguishing it as its own structural class, individuable and trackable across its multi-hour lifecycle.\n",
+      "justification": "novelty_kind new-entity: component_ontology lists MCCs as a named composite sub-structure with its own literature-canonical convention, distinct from both extratropical and tropical cyclones — matches the point-at-it test. onset crossover-gradual: no formal bifurcation/ threshold criterion for MCC organization (analogous to bombogenesis) is cited in this entry; Maddox's convention is a classification threshold on OUTCOME size/duration, not a dynamical control-parameter bifurcation, so the conservative vocabulary item is chosen.\n",
+      "confidence": "low",
+      "system": "weather-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "weather-systems--atmospheric-river",
+      "name": "Atmospheric river",
+      "order_parameter": "integrated water-vapor transport (IVT, kg/m/s); length-to-width ratio",
+      "substrate": {
+        "part_type": "atmospheric rivers",
+        "count_oom": "3-5 major conduits per hemisphere at any time (Zhu & Newell 1998)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "latent-heat / moisture exchange",
+        "momentum / pressure-gradient exchange"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "integrated water-vapor-transport (IVT) detection framework (Newell et al. 1992; Guan & Waliser 2015 referenced in emergence)"
+      },
+      "qualitative_difference": "A single moist air parcel carries only its own local moisture; an atmospheric river is a narrow, elongated, standing corridor concentrating >90% of total midlatitude water-vapor flux while covering only ~10% of the hemispheric circumference (self_organization's own cited statistic) — a collective concentration pattern no single parcel's transport exhibits.\n",
+      "justification": "novelty_kind new-structure (runner-up new-entity, since individual rivers are also trackable corridors): self_organization frames this as a striking concentration signature — a small fraction of the domain organizing to carry the overwhelming majority of a globally conserved flux — closer to the spec's structural-record framing (a persistent transport channel) than a single localized object; new-entity is a strong runner-up given each river is individually trackable. onset always-present-at-scale: 3-5 major conduits exist per hemisphere at any time as a standing statistical feature (instance_population), with no cited formation threshold analogous to bombogenesis — conservative choice given the entry names only a standing-population count, not an onset mechanism.\n",
+      "confidence": "low",
+      "system": "weather-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "weather-systems--monsoon",
+      "name": "Monsoon circulation",
+      "order_parameter": "seasonal wind reversal; onset-date progression front",
+      "substrate": {
+        "part_type": "monsoon circulations",
+        "count_oom": "handful of named regional systems (Indian, West African, East Asian, North American, Australian monsoons); no single canonical global count located this sweep",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "latent-heat / moisture exchange",
+        "surface enthalpy / momentum flux",
+        "radiative exchange"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "episodic-triggered",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "monsoon onset/seasonal-cycle description (IMD/NOAA consensus figures); no dedicated quantitative bifurcation theory cited in this entry"
+      },
+      "qualitative_difference": "No single air parcel \"reverses\" seasonally; the monsoon is a continent-scale wind-direction reversal sustained over ~100-120 days, a collective seasonal regime with its own onset-date progression front (characteristic_timescales: \"onset itself is a progressive wave\") — a time-signature phenomenon with no single-parcel analogue.\n",
+      "justification": "novelty_kind new-dynamics: the order parameter (seasonal wind reversal, onset-date progression) is explicitly a time-signature regime change, matching the spec's new-dynamics test. onset episodic-triggered: monsoon onset is described as a discrete, progressive seasonal wave (Andaman ~25 May to Delhi ~29 June) that recurs annually under aligned seasonal forcing, rather than a standing feature or a cleanly modeled bifurcation — the entry cites no formal critical-parameter/threshold treatment of monsoon onset (distinct from the bombogenesis citation for extratropical cyclones), so threshold-bifurcation was not chosen despite \"onset\" language.\n",
+      "confidence": "low",
+      "system": "weather-systems",
+      "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "world-wide-web--hub-authority-structure",
+      "name": "Hub/authority structure",
+      "order_parameter": "HITS hub and authority scores (Kleinberg 1999); PageRank-style importance scores",
+      "substrate": {
+        "part_type": "pages / documents (graph nodes)",
+        "count_oom": "~1e5-1e11 depending on definition/date (269,504 in 1999 nd.edu crawl; at least 3.98e9 currently indexed, stale 2025 snapshot)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "hyperlinking (directed link creation)",
+        "crawling / indexing"
+      ],
+      "novelty_kind": "new-function",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "HITS algorithm (Kleinberg 1999, kleinberg1999); PageRank-style ranking"
+      },
+      "qualitative_difference": "A single page has an in-degree count (how many pages link to it), but \"hub\" and \"authority\" scores are computed recursively over the ENTIRE link-topology graph (a page's authority depends on the hub scores of pages linking to it, and vice versa) — a capability the graph as a whole supports (ranking/retrieval) that no page's raw in-degree alone provides.\n",
+      "justification": "Scored new-function per SPEC's own test (a capability the system can DO, exploitable from outside — here, information retrieval/ranking), matching this entry's own information_processing justification that ranking is \"conditioned on this constructed state,\" not raw in-degree. Runner-up new-structure (the hub/authority pattern is also a persisting topological feature) is close and is partially captured by the separate degree-distribution phenomenon below; this one is scored new-function specifically because the order_parameter names computed SCORES used for retrieval, an exploitable output. Onset crossover-gradual: no threshold link-density or graph size is cited at which hub/authority structure \"switches on\" — Kleinberg's algorithm is a continuous recursive computation applicable at any graph scale.\n",
+      "confidence": "medium",
+      "system": "world-wide-web",
+      "category": "cultural-informational",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "world-wide-web--heavy-tailed-degree-distribution",
+      "name": "Heavy-tailed degree distribution",
+      "order_parameter": "in-degree and out-degree power-law exponents (alpha ~ 2.1-2.7 across crawls)",
+      "substrate": {
+        "part_type": "pages / documents (graph nodes)",
+        "count_oom": "269,504 (nd.edu 1999) to ~2.04e8 (Altavista 1999-2000) to >=3.98e9 (2025 stale index)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "hyperlinking (directed link creation)"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "preferential-attachment scale-free network model (Barabasi & Albert 1999; degree exponents per Newman 2003 Table II)"
+      },
+      "qualitative_difference": "A single page has one in-degree and one out-degree value; the power-law EXPONENT characterizing the whole population's degree distribution is a property only the entire graph exhibits, unmeasurable from any individual page's link count.\n",
+      "justification": "Directly matches SPEC's own new-statistics test (degree distributions named explicitly as the worked example). All three cited fits (Newman's two crawls, Barabasi & Albert) predate CSN-2009-grade testing, so evidence_status is measured-untested in the host entry and this record is marked quantitative-contested rather than quantitative-predictive, exactly per the \"historical origin of scale-free folklore, untested rather than vindicated or debunked\" framing in the host's own note. Onset always-present-at-scale: the heavy-tailed shape is treated as a standing structural feature present in every crawl measured (1999 through Altavista), not a threshold-triggered emergence, and preferential attachment (the proposed generative mechanism) is a continuous process operating from the graph's earliest growth, not a bifurcation.\n",
+      "confidence": "medium",
+      "system": "world-wide-web",
+      "category": "cultural-informational",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "world-wide-web--topic-community-clustering",
+      "name": "Topic/community clustering",
+      "order_parameter": "link-density-based community structure (qualitative; no published modularity Q recovered this sweep)",
+      "substrate": {
+        "part_type": "pages / documents (graph nodes)",
+        "count_oom": "~1e5-1e11 depending on definition/date",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "hyperlinking (directed link creation)",
+        "crawling / indexing"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "frozen",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "none — no published modularity Q for the hyperlink graph was located; Kleinberg's hub/authority substructure used as loose corroborating context, not a modularity metric itself"
+      },
+      "qualitative_difference": "A single hyperlink connects two specific pages; topic/community clusters are a persisting, quasi-static organization of densely-interlinked subgraphs (thematic, linguistic, or national-domain clusters) that exists as an accumulated record of many authors' independent, uncoordinated linking decisions — recognizable and stable even though no individual link \"belongs\" to a community by design.\n",
+      "justification": "Scored new-structure per SPEC's test (frozen/quasi-static spatial-like organization accreted by the dynamics, the record of interaction rather than an event) — this entry's own modularity justification explicitly frames topic clusters as citable \"community-like organization\" recoverable from the graph's static topology, not a live process. Runner-up new-statistics considered (community structure is sometimes reported via a modularity Q exponent-like score) but rejected as primary because this entry explicitly records NO published Q value for any WWW snapshot (modularity score of 2 is comparator-based, not a measured statistic), so the structural-record framing is the safer, better-evidenced choice. Persistence is recorded as frozen (rather than sustained-while-driven) because the host entry's own memory_hysteresis reasoning treats accumulated hub/cluster structure as a path-dependent residue of historical linking order, though it also notes link-rot causes some decay — onset crossover-gradual, no threshold density is cited.\n",
+      "confidence": "low",
+      "system": "world-wide-web",
+      "category": "cultural-informational",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "world-wide-web--search-driven-discoverability-concentration",
+      "name": "Search-driven discoverability concentration",
+      "order_parameter": "ranking-score distribution governing which pages receive traffic/attention",
+      "substrate": {
+        "part_type": "pages / documents (graph nodes)",
+        "count_oom": "~1e5-1e11 depending on definition/date",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "search-driven navigation",
+        "crawling / indexing"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "preferential attachment / search-engine ranking feedback loop (this entry's own feedback.loops); no formalized concentration-dynamics model cited"
+      },
+      "qualitative_difference": "An individual page's ranking score is just one number; discoverability CONCENTRATION is a population-level, self-reinforcing temporal process — the rich-get-richer loop by which already-visible pages become steadily more visible relative to others — a dynamic with no single-page analogue, since concentration is a statement about how attention redistributes across the whole population over time.\n",
+      "justification": "Scored new-dynamics: the phenomenon as named describes an ongoing reinforcing-feedback PROCESS (search-ranking feedback compounding visibility over time, per this entry's own feedback.loops \"search-engine ranking feedback\"), a time-signature of redistribution rather than a static object. Runner-up new-statistics (the resulting traffic/ranking distribution could be fit as a rank-size law) is a real alternative but the host entry records no such fitted distribution (extreme_event_statistics is explicitly unknown for this system), so the dynamics framing — for which this entry DOES provide qualitative mechanism evidence (the feedback column) — is better supported. Onset crossover-gradual: preferential attachment is a continuous compounding process from a page's creation, with no cited threshold visibility level at which concentration \"switches on.\"\n",
+      "confidence": "low",
+      "system": "world-wide-web",
+      "category": "cultural-informational",
+      "alphabet_closure": "constrained"
+    }
+  ]
+}

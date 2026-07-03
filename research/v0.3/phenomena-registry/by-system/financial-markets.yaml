@@ -1,0 +1,131 @@
+system: financial-markets
+phenomena:
+  - id: financial-markets--price
+    name: Price
+    order_parameter: the price itself — aggregated dispersed information
+    substrate:
+      part_type: orders (limit/market/cancel messages)
+      count_oom: "~1e11-1e12 per day (NYSE message volume)"
+      interchangeable: yes
+    generating_interactions: [order flow (submit / amend / cancel), trade execution, public information broadcast]
+    novelty_kind: new-function
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "price discovery / information aggregation (Hayek 1945, operationalized in the limit order book)"
+    qualitative_difference: >
+      A single order is a private instruction to buy or sell at a stated quantity/price;
+      no individual order "knows" fundamental value. Price is a public statistic
+      produced by the matching engine crossing many orders that aggregates dispersed
+      private information no single participant holds — a capability (information
+      aggregation) the collective exhibits that no order or trader does alone.
+    justification: >
+      new-function is explicit in this entry's own information_processing top-of-scale
+      justification: "price discovery aggregates dispersed private information into a
+      public statistic no participant holds." Runner-up new-statistics (price series
+      exhibit heavy tails, considered under extreme_event_statistics) rejected because
+      the order_parameter here is the price ITSELF as a functional output, not a
+      distribution shape. Onset always-present-at-scale: price formation operates
+      continuously wherever a matching engine and order flow exist; the entry records
+      no threshold order-flow volume below which price discovery fails to occur, so
+      threshold-bifurcation is not supported by cited evidence.
+    confidence: high
+
+  - id: financial-markets--volatility-regimes
+    name: Volatility regimes
+    order_parameter: realized/implied volatility level and persistence
+    substrate:
+      part_type: orders (limit/market/cancel messages)
+      count_oom: "~1e11-1e12 per day"
+      interchangeable: yes
+    generating_interactions: [order flow (submit / amend / cancel), trade execution]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "GARCH-type variance dynamics (referenced under nonlinearity); autocorrelation of |returns| power-law decay (cont2001)"
+    qualitative_difference: >
+      An individual order or single trade has no "volatility" of its own; volatility
+      is a temporal property of the aggregate return process — its level and how long
+      high/low states persist — with no single-order analogue. The order parameter is
+      a time-signature (regime persistence), matching the new-dynamics test directly.
+    justification: >
+      new-dynamics per SPEC's own listed example (volatility clustering) verbatim.
+      Runner-up new-statistics (the |returns| autocorrelation decay is itself a
+      power-law exponent, temporal_correlation column) is close, but the phenomenon
+      as named ("volatility regimes") is about persistence/regime character over
+      time, a dynamics claim, not a cross-sectional distribution. Onset
+      crossover-gradual: this entry's temporal_correlation and feedback columns
+      describe volatility clustering as a continuous statistical feature (long-memory
+      exponent beta in [0.2,0.4]) rather than citing any bifurcation threshold;
+      no onset_control_parameter is supported by the entry's evidence.
+    confidence: medium
+
+  - id: financial-markets--liquidity
+    name: Liquidity
+    order_parameter: bid-ask spread, order-book depth
+    substrate:
+      part_type: orders (limit/market/cancel messages)
+      count_oom: "~1e11-1e12 per day"
+      interchangeable: yes
+    generating_interactions: [order flow (submit / amend / cancel), trade execution]
+    novelty_kind: new-statistics
+    onset: episodic-triggered
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "volatility-liquidity spiral (feedback loop, this entry's own feedback.loops)"
+    qualitative_difference: >
+      A single order has a size and a limit price, but "liquidity" — how much can be
+      traded without moving price, aggregated across the whole book — is a property of
+      the standing collection of resting orders, not of any one order; it can vanish
+      (as in the Flash Crash) through collective withdrawal even while individual
+      orders behave unremarkably.
+    justification: >
+      Scored new-statistics: the order parameter (spread, depth) is a summary
+      statistic over the order-book population at an instant, closest to SPEC's
+      distribution-shape test, though it lacks a classic power-law exponent form —
+      new-dynamics is the runner-up given liquidity's crash-time collapse is
+      time-signature-like (the volatility-liquidity spiral). Onset is
+      episodic-triggered: this entry's cascade_susceptibility and feedback columns
+      describe liquidity withdrawal specifically as a stress-episode phenomenon (the
+      2010 Flash Crash) rather than a standing always-on statistic or a
+      formally thresholded bifurcation.
+    confidence: low
+
+  - id: financial-markets--strategy-ecology
+    name: Strategy ecology
+    order_parameter: population shares of strategy types (momentum, value, market-making)
+    substrate:
+      part_type: trading agents (human traders, algorithmic strategies)
+      count_oom: "~6.4e5 registered representatives, ~3.2e3 member firms; algorithmic-agent counts unmeasured"
+      interchangeable: no
+    generating_interactions: [order flow (submit / amend / cancel), trade execution]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: vocabulary
+      theory: "variation-selection dynamics among strategies (this entry's own adaptive_capacity/variation_selection columns); no formal population model cited"
+    qualitative_difference: >
+      A single trader runs one strategy at a time; "strategy ecology" is a
+      population-level distribution over strategy types that persists and shifts
+      through entry, exit, and imitation, a composition statistic with no single-agent
+      analogue — an individual agent doesn't have a "population share."
+    justification: >
+      new-statistics fits the SPEC test (a distribution over units — here, strategy
+      types among agents) better than new-dynamics, since the order parameter as
+      named is a population-share composition, not itself a time-signature, though
+      the ecology's evolution over time is a close runner-up (new-dynamics). This
+      entry provides no formal fitted distribution (evidence_status throughout this
+      area is qualitative), so effective_theory is vocabulary-level only, and
+      confidence is correspondingly low. Onset always-present-at-scale: variation and
+      selection among strategies is described as continuous and structural to the
+      market (adaptive_capacity score 4), not an episodic or thresholded event.
+    confidence: low

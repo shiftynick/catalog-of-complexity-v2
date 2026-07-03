@@ -1,0 +1,128 @@
+system: earthquake-fault-systems
+phenomena:
+  - id: earthquake-fault-systems--gutenberg-richter-scaling
+    name: Gutenberg-Richter magnitude-frequency scaling
+    order_parameter: b-value (log-linear slope of event count vs. magnitude)
+    substrate:
+      part_type: fault segments/patches
+      count_oom: "~10^2 for SSAF alone; ~10^3 statewide"
+      interchangeable: no
+    generating_interactions: [elastic stress transfer (Coulomb stress change), frictional locking/unlocking (rate-and-state friction)]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Gutenberg-Richter magnitude-frequency law, b=1.03+/-0.12 (Page & Felzer 2015, page-felzer-2015, primary-read)"
+    qualitative_difference: >
+      A single fault patch either slips or does not, governed by a local
+      friction threshold; the G-R law is a distributional regularity over
+      the entire POPULATION of rupture events across all patches and scales,
+      with no single rupture exhibiting a "slope" — the textbook
+      distributional-law case.
+    justification: >
+      new-statistics is unambiguous per the entry's own criticality
+      attribute, which treats G-R scaling as solid EVENT STATISTICS
+      (evidence_status: measured) distinct from any mechanism claim. onset
+      always-present-at-scale: b-value is a standing statistical regularity
+      measured whenever the seismicity catalog is large enough (M>=2.5,
+      UCERF3 catalog), with no onset threshold in N or coupling — unlike
+      the entry's criticality mechanism_status (contested), which is a
+      SEPARATE claim not conflated here per the entry's own soc-two-claims
+      discipline.
+    confidence: high
+
+  - id: earthquake-fault-systems--multi-fault-cascading-rupture
+    name: Multi-fault cascading rupture
+    order_parameter: number/identity of named faults involved in a single rupture (Wesnousky 2008 case-count statistic)
+    substrate:
+      part_type: fault segments/patches
+      count_oom: "~10^2 for SSAF alone; ~10^3 statewide"
+      interchangeable: no
+    generating_interactions: [elastic stress transfer (Coulomb stress change), frictional locking/unlocking (rate-and-state friction)]
+    novelty_kind: new-entity
+    onset: episodic-triggered
+    persistence: transient
+    effective_theory:
+      status: vocabulary
+      theory: "no formalized cascade-size model cited; case-count statistics only (cascade_susceptibility attribute, source page-felzer-2015, quoting Wesnousky 2008)"
+    qualitative_difference: >
+      A single fault segment ruptures on its own local patch; a multi-fault
+      cascading rupture is a discrete, individuable event spanning and
+      linking several NAMED faults in one occurrence (e.g. Denali 2002
+      rupturing three named faults in sequence) — you can point at one
+      rupture and name which faults it crossed, a trackable single-event
+      object rather than a statistical law or a standing structure.
+    justification: >
+      new-entity chosen (runner-up: new-statistics) because the
+      order_parameter names the IDENTITY of faults in a SINGLE rupture, an
+      individuable event-object, rather than a fitted size distribution —
+      this entry's own cascade_susceptibility attribute (score 2) explicitly
+      says "no fitted cross-event cascade-SIZE distribution exists," ruling
+      out new-statistics as the primary kind. onset episodic-triggered
+      because cascading rupture arises in discrete events when stress
+      conditions align across segment boundaries (Coulomb stress transfer),
+      not as a standing feature.
+    confidence: medium
+
+  - id: earthquake-fault-systems--seismicity-rate-clustering
+    name: Seismicity-rate clustering (aftershock sequences)
+    order_parameter: time-varying seismicity rate relative to long-term mean (ETAS-modeled)
+    substrate:
+      part_type: fault segments/patches
+      count_oom: "~10^2 for SSAF alone; ~10^3 statewide"
+      interchangeable: no
+    generating_interactions: [aftershock triggering (ETAS-type), elastic stress transfer (Coulomb stress change)]
+    novelty_kind: new-dynamics
+    onset: episodic-triggered
+    persistence: transient
+    effective_theory:
+      status: quantitative-predictive
+      theory: "ETAS model (Ogata 1988, cited via page-felzer-2015); temporal_correlation attribute"
+    qualitative_difference: >
+      A single fault patch's slip is a one-off local threshold event; the
+      clustering pattern (rate elevated then decaying, median rates well
+      below the long-term mean over 30-day to even 100-year windows) is a
+      collective temporal signature of the whole population of triggered
+      events, with no single-patch analogue.
+    justification: >
+      new-dynamics because the order parameter is an explicitly temporal
+      time-signature (seismicity rate vs. mean, ETAS-modeled), matching the
+      SPEC's own ENSO/sunspot-cycle test. onset episodic-triggered because
+      aftershock sequences are triggered discretely by a mainshock's stress
+      perturbation over a decaying window (interaction_ontology's
+      aftershock-triggering mechanism), not a standing background rate.
+    confidence: medium
+
+  - id: earthquake-fault-systems--segment-scale-recurrence-behavior
+    name: Segment-scale recurrence behavior
+    order_parameter: paleoseismic recurrence interval at a given site (Carrizo Plain, Pallett Creek)
+    substrate:
+      part_type: fault segments/patches
+      count_oom: "~10^2 for SSAF alone; ~10^3 statewide"
+      interchangeable: no
+    generating_interactions: [frictional locking/unlocking (rate-and-state friction), elastic stress transfer (Coulomb stress change)]
+    novelty_kind: new-dynamics
+    onset: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "no formal recurrence model cited beyond empirical paleoseismic interval statistics (characteristic_timescales attribute, source page-felzer-2015)"
+    qualitative_difference: >
+      A single rupture is a one-time threshold-triggered slip event; the
+      RECURRENCE INTERVAL at a site is a property of the repeated cycle of
+      loading and release over centuries (~132-137 yr average, gaps up to
+      ~300 yr) — a temporal regularity/period that only exists across
+      multiple cycles, not in any one rupture.
+    justification: >
+      new-dynamics (order parameter is a recurrence interval, i.e. a
+      period/time-signature) rather than new-statistics, because this is a
+      site-specific characteristic timescale, not a distributional shape
+      fit across a population. onset is scored unknown, conservatively: the
+      entry documents strong irregularity (gaps up to ~2-3x the mean) and
+      no published threshold/bifurcation or clean crossover description for
+      why recurrence settles at its observed interval — the entry itself
+      offers no onset-mechanism citation for this specific phenomenon (as
+      distinct from the avulsion-style threshold reasoning used elsewhere),
+      so the conservative vocabulary item is used per SPEC guidance.
+    confidence: low

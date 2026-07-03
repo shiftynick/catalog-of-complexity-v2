@@ -1,0 +1,242 @@
+system: planetary-climate
+phenomena:
+  - id: planetary-climate--global-circulation
+    name: Global atmospheric circulation (Hadley/Ferrel/polar cells, jet streams)
+    order_parameter: meridional overturning streamfunction; jet-stream latitude and strength
+    substrate:
+      part_type: atmospheric fluid parcels (air, water vapor, condensate)
+      count_oom: "unknown; no published canonical count (see numerosity)"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, radiative exchange]
+    novelty_kind: new-structure
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "Hadley/Ferrel/polar circulation-cell framework (emergence block: part of the field's working vocabulary)"
+    qualitative_difference: >
+      A single air parcel simply moves under local pressure gradients and
+      Coriolis force; the Hadley/Ferrel/polar cell structure is a
+      standing, planet-spanning organized circulation pattern (self_organization:
+      "circulation cells, jet streams... arises spontaneously from local
+      fluid-thermodynamic interactions") that redistributes heat
+      pole-ward — a collective spatial organization no single parcel's
+      trajectory exhibits.
+    justification: >
+      novelty_kind new-structure: modularity describes the cells as
+      "gradational, strongly coupled subdivisions of one continuous fluid
+      system," i.e. a standing large-scale pattern rather than an
+      individuable object or a time-signature — closest to the spec's
+      new-structure test (a persistent organizational record of the
+      forcing). onset always-present-at-scale: circulation cells are
+      present whenever a rotating, differentially heated atmosphere of
+      sufficient scale exists; the entry cites no formal critical-parameter
+      threshold for their existence, only continuous self-organization
+      under solar forcing and rotation.
+    confidence: medium
+
+  - id: planetary-climate--ocean-circulation
+    name: Ocean circulation (gyres, thermohaline/meridional overturning)
+    order_parameter: overturning transport (Sverdrups); gyre strength
+    substrate:
+      part_type: ocean water masses (where present — Earth; absent/exotic on Venus/Mars/Titan)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy / momentum flux]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Freshwater-forcing threshold governing AMOC bistability: van Westen &
+      Dijkstra (2023, GRL, arXiv:2308.14098) quantify a hysteresis width of
+      order 0.4 Sv between collapse and recovery thresholds in the CESM
+      GCM; tipping_transitions additionally cites an AMOC-specific
+      sustained-warming threshold of 1.4-8C (Armstrong McKay et al. 2022).
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-predictive
+      theory: "AMOC overturning-strength / hysteresis framework (van Westen & Dijkstra 2023; Armstrong McKay et al. 2022)"
+    qualitative_difference: >
+      A single water parcel simply moves under local density and wind
+      forcing; the overturning circulation is a basin-scale collective
+      transport pattern (measured in Sverdrups) that can exist in two
+      qualitatively different stable states ("on"/strong vs. "off"/collapsed)
+      depending on forcing HISTORY, not current forcing alone — a genuine
+      regime/time-signature property no single parcel has.
+    justification: >
+      novelty_kind new-dynamics (runner-up new-structure, since gyres are
+      also standing spatial patterns): the AMOC's bistable regime behavior
+      (memory_hysteresis' top score, 4) is fundamentally a TEMPORAL/regime
+      order parameter (which stable state the system occupies, and how it
+      got there) — matching the spec's new-dynamics test most directly,
+      per this entry's own emphasis on hysteresis over static structure.
+      onset threshold-bifurcation: this is the entry's most rigorously
+      cited bifurcation, with a quantified hysteresis width and explicit
+      published critical thresholds, satisfying the REQUIRED
+      onset_control_parameter citation cleanly (though model-derived, not
+      an observed completed real-world cycle, per memory_hysteresis' own
+      caveat).
+    confidence: high
+
+  - id: planetary-climate--enso
+    name: ENSO (El Nino-Southern Oscillation)
+    order_parameter: sea-surface-temperature anomaly indices (e.g. Nino 3.4)
+    substrate:
+      part_type: ocean water masses (where present — Earth; absent/exotic on Venus/Mars/Titan)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy / momentum flux]
+    novelty_kind: new-dynamics
+    onset: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: vocabulary
+      theory: "ENSO index framework (e.g. Nino 3.4); chaos_sensitivity block references ENSO irregularity as a possible slow-mode chaotic signature but no dedicated quantitative ENSO theory is cited in this entry"
+    qualitative_difference: >
+      No individual ocean parcel or air parcel oscillates with a multi-year
+      period; ENSO is a coupled ocean-atmosphere OSCILLATION — a collective
+      time-signature regime (warm/cool phase alternation measured via
+      SST-anomaly indices) that is a genuinely emergent property of the
+      coupled system, absent from any single parcel's dynamics.
+    justification: >
+      novelty_kind new-dynamics: the order parameter (SST anomaly indices,
+      phase alternation) is explicitly a time-signature/oscillation,
+      matching the spec's test directly. onset unknown: chaos_sensitivity
+      mentions "ENSO irregularity" only in passing as a candidate chaotic
+      slow mode, and this entry cites no dedicated ENSO mechanism paper,
+      critical parameter, or bifurcation treatment anywhere in its
+      attributes or sources — the conservative "literature silent" choice
+      per the spec, rather than guessing at a threshold-bifurcation framing
+      the entry does not actually support.
+    confidence: low
+
+  - id: planetary-climate--ice-albedo
+    name: Ice-albedo pattern (sea ice, snow cover, ice sheets)
+    order_parameter: planetary albedo; ice extent/mass
+    substrate:
+      part_type: ice sheets / sea ice / cryosphere bodies
+      count_oom: "~10 major named bodies (Earth: Antarctic and Greenland ice sheets, major sea-ice regions, major glaciers/ice caps) [unverified — order-of-magnitude estimate, not independently sourced this sweep]"
+      interchangeable: no
+    generating_interactions: [radiative exchange, latent-heat / moisture exchange]
+    novelty_kind: new-structure
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Ice-sheet mass-balance bistability threshold documented in the
+      tipping-elements literature (memory_hysteresis: "ice-sheet mass
+      balance (Greenland/WAIS) shows analogous documented bistability");
+      tipping_transitions' broader 16-element inventory (Armstrong McKay
+      et al. 2022) includes multiple ice-sheet/sea-ice tipping elements
+      with published (though not individually extracted in this entry)
+      thresholds.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "ice-albedo feedback (Clausius-Clapeyron-independent radiative feedback loop) plus the tipping-elements bistability framework (Armstrong McKay et al. 2022)"
+    qualitative_difference: >
+      A single patch of ice or snow simply reflects sunlight locally; the
+      ICE-ALBEDO PATTERN is the planet-scale coupled consequence — reduced
+      ice cover lowering PLANETARY albedo, absorbing more shortwave
+      radiation, and reinforcing further melt (feedback.loops: ice-albedo
+      feedback) — a global structural/radiative signature emerging from the
+      distributed cryosphere, not a property of any one ice patch.
+    justification: >
+      novelty_kind new-structure (runner-up new-dynamics, given the
+      feedback loop's temporal reinforcing character): planetary albedo and
+      ice extent/mass are standing structural/radiative state variables
+      (this entry's own emergent_phenomena order_parameter choice), closer
+      to a spatial-record framing than a trackable single object.
+      onset threshold-bifurcation: memory_hysteresis explicitly documents
+      ice-sheet bistability analogous to AMOC's, and the tipping_transitions
+      16-element inventory includes cryosphere elements with published
+      thresholds, though this entry does not individually extract those
+      per-element numbers (flagged as a standing gap in provenance), so the
+      citation is at the inventory level rather than a single pinned value.
+    confidence: medium
+
+  - id: planetary-climate--weather-systems
+    lineage: tropical-cyclone-vortex-complex   # verification 2026-07-03: compositional kin — count as one lineage in motif analysis
+    name: "Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry)"
+    order_parameter: "minimum central pressure, maximum sustained wind (see tropical-cyclones entry)"
+    substrate:
+      part_type: weather systems / storm systems (cyclones, anticyclones, convective complexes)
+      count_oom: "~85 named tropical storm-strength systems/yr globally (tropical-cyclones class only; extratropical/synoptic system counts not recovered this sweep)"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy / momentum flux, radiative exchange]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Rapid-intensification / bombogenesis-type thresholds inherited from
+      the child entries (tropical-cyclones' rapid intensification,
+      tipping_transitions score 2; weather-systems' own bombogenesis
+      criterion, Sanders & Gyakum 1980) — this parent entry does not
+      re-derive these but references them via its contains relation and
+      component_ontology's explicit itself_complex links.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "cyclone/anticyclone classification and potential-intensity theory, inherited from the tropical-cyclones and weather-systems child entries"
+    qualitative_difference: >
+      A single fluid parcel exchanges momentum and heat locally; individual
+      weather systems (cyclones, anticyclones, convective complexes) are
+      coherent, individuable rotating or organized structures with their
+      own measurable central pressure and wind speed — the first
+      aggregation level of atmospheric organization above bare parcels
+      (component_ontology's own hierarchy_depth rung 1-2).
+    justification: >
+      NOTE per task instructions: this phenomenon points at resolved child
+      catalog entries (tropical-cyclones, and implicitly weather-systems
+      itself as a sibling class) and is classified here as a phenomenon OF
+      planetary-climate as well as a standalone entry. novelty_kind
+      new-entity: individual storms are the paradigm point-at-it/count-it/
+      track-it objects, consistent with tropical-cyclones' own classification
+      of its "Storm-scale vortex" phenomenon as new-entity. onset
+      threshold-bifurcation: inherits the rapid-intensification and
+      bombogenesis threshold citations already established in the child
+      entries (tropical-cyclones.yaml, weather-systems.yaml), which this
+      parent entry references via component_ontology's itself_complex links
+      rather than re-deriving.
+    confidence: medium
+
+  - id: planetary-climate--tipping-elements
+    name: Climate tipping elements
+    order_parameter: element-specific threshold state variables (e.g. AMOC strength in Sv; ice-sheet mass balance)
+    substrate:
+      part_type: atmospheric fluid parcels (air, water vapor, condensate)
+      count_oom: "unknown; no published canonical count (see numerosity)"
+      interchangeable: yes
+    generating_interactions: [radiative exchange, latent-heat / moisture exchange, momentum / pressure-gradient exchange, surface enthalpy / momentum flux]
+    novelty_kind: new-statistics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Per-element bifurcation thresholds synthesized across 16 climate
+      tipping elements (9 global "core" + 7 regional "impact"; Armstrong
+      McKay et al. 2022, Science 377:eabn7950, 200+ studies synthesized);
+      several elements assessed as already within their uncertainty range
+      for triggering at ~1.1C observed warming; AMOC-specific threshold
+      1.4-8C sustained warming (this entry's own calibration-ceiling score
+      of 4 on tipping_transitions).
+    persistence: frozen
+    effective_theory:
+      status: quantitative-predictive
+      theory: "tipping-element threshold framework (Armstrong McKay et al. 2022; Lenton et al. 2008); emergence block calls this part of the field's actual working vocabulary"
+    qualitative_difference: >
+      No single subsystem process (a melting glacier patch, a weakening
+      current filament) constitutes a "tipping element" in isolation; the
+      CATALOG of 16 tipping elements is itself a population-level
+      classification — a distributional/inventory object over the whole
+      coupled system's possible bifurcation-prone subsystems, with each
+      element's threshold and count being the emergent object of study, not
+      any single physical process's local behavior.
+    justification: >
+      novelty_kind new-statistics (runner-up new-structure, since each
+      individual tipping element's post-transition state is also a frozen
+      structural record): the order parameter here is explicitly the
+      INVENTORY/COUNT and threshold DISTRIBUTION across 16 named elements —
+      a population-level cataloging object — distinguishing it from any
+      single element's own transition (already separately captured under
+      Ice-albedo pattern and Ocean circulation above); new-structure is a
+      close runner-up since post-tipping states are frozen records. onset
+      threshold-bifurcation: this is tipping_transitions' own calibration
+      ceiling (score 4) for the whole catalog, with the most rigorously
+      documented, multiply-replicated threshold citations of any phenomenon
+      in this system.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md

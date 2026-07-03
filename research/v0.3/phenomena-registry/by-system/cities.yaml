@@ -1,0 +1,127 @@
+system: cities
+phenomena:
+  - id: cities--urban-scaling-laws
+    name: Urban scaling laws
+    order_parameter: "city-level output Y as a power-law function of population N (Y=Y0*N^beta); beta=1.27 (patents), beta=0.77 (gasoline stations), per Bettencourt et al. 2007"
+    substrate:
+      part_type: residents/households
+      count_oom: "~8.5e6 (NYC city proper); ~2.0e7 (NYC metro/MSA)"
+      interchangeable: no
+    generating_interactions: [spatial proximity / land use, economic exchange, commuting / mobility flow]
+    novelty_kind: new-statistics
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Bettencourt urban scaling framework (bettencourt2007)"
+    qualitative_difference: >
+      A single resident or firm produces or consumes at some rate; no individual
+      generates a systematic super/sub-linear relationship between population and
+      per-capita output. The scaling exponent beta != 1 is a property of the whole
+      city's interaction network (agglomeration effects compounding across residents)
+      that has no analogue at the level of one household's economic activity.
+    justification: >
+      The order parameter is a distributional/statistical law (an exponent relating
+      city size to output), not an object or a time-signature, so new-statistics fits
+      best; new-dynamics is the runner-up since the scaling relationship does describe
+      systemic behavior, but per SPEC's own test the order parameter here is an
+      exponent/shape, not a period or regime. Onset is crossover-gradual: Bettencourt
+      et al. (2007) fit a continuous power law across the full city-size range with no
+      published critical population threshold at which scaling "turns on."
+    confidence: high
+
+  - id: cities--neighborhood-identity-segregation
+    name: Neighborhood identity / segregation patterns
+    order_parameter: "spatial clustering of land use, income, and social composition (morphological; no single pinned index for NYC/Tokyo this sweep)"
+    substrate:
+      part_type: residents/households
+      count_oom: "~8.5e6 (NYC city proper)"
+      interchangeable: no
+    generating_interactions: [spatial proximity / land use, economic exchange, social interaction]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "none — descriptive urban-morphology vocabulary (boroughs, neighborhoods); no formal model cited in this entry"
+    qualitative_difference: >
+      An individual household's residence/employment choice is a single decision;
+      neighborhood identity and segregation are a frozen-ish spatial record of millions
+      of such choices interacting through land markets and social ties, persisting and
+      recognizable independent of any one household's continued presence — the record
+      of interaction, not an event or an individual behavior.
+    justification: >
+      Matches new-structure's test directly (quasi-static spatial organization that
+      persists when day-to-day dynamics pause, per the entry's own hierarchy_depth
+      convention treating neighborhoods as a stable aggregation level and memory_hysteresis
+      citing street-grid/neighborhood identity as accumulated irreversible residue).
+      Runner-up new-statistics (segregation indices exist in the literature generally)
+      rejected because this entry records no pinned distributional index, only the
+      structural/morphological claim. Onset: crossover-gradual — no threshold-bifurcation
+      claim is made or cited; modularity (score 2) describes gradual, real but porous
+      subdivision, not a sharp transition.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: cities--city-size-distribution-zipf
+    name: City-size distribution (Zipf's law)
+    order_parameter: "rank-size / pdf-exponent alpha-hat=2.37(8) across the US urban system (class-level, not NYC-specific)"
+    substrate:
+      part_type: residents/households
+      count_oom: "n=19,447 US cities (population from the CSN dataset, not NYC-specific)"
+      interchangeable: no
+    generating_interactions: [economic exchange, commuting / mobility flow, governance / regulation]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "Zipf/Gabaix rank-size law (csn2009, Gabaix 1999)"
+    qualitative_difference: >
+      No single city "has" a Zipf exponent; the exponent is a property of the entire
+      population of cities' size distribution, exhibiting a heavy-tailed rank-size
+      regularity that only exists as a statement about the collection, unlike any
+      one city's own population count.
+    justification: >
+      Textbook new-statistics per SPEC's own definition (a distributional law over
+      units; the order parameter is a distribution shape/exponent). CSN (2009) rates
+      the fit only "moderate," not "good" (contested vs. log-normal), hence
+      quantitative-contested rather than quantitative-predictive, carried over
+      directly from the entry's own extreme_event_statistics caveat. Onset:
+      always-present-at-scale — city-size regularities are treated in the literature
+      as a standing statistical feature of any sufficiently large urban system, not
+      an emergent threshold effect; no bifurcation control parameter is proposed.
+    confidence: medium
+
+  - id: cities--commuting-agglomeration-structure
+    name: Commuting / agglomeration structure
+    order_parameter: "commute-flow network structure and land-value gradient (labor-market integration)"
+    substrate:
+      part_type: residents/households
+      count_oom: "~8.5e6 (NYC city proper); ~2.0e7 (NYC metro/MSA)"
+      interchangeable: no
+    generating_interactions: [commuting / mobility flow, spatial proximity / land use, economic exchange]
+    novelty_kind: new-function
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "none — informal 'labor-market integration' framing; no formalized network-flow model cited in this entry"
+    qualitative_difference: >
+      An individual commute is a single trip; the aggregated commute-flow network and
+      the land-value gradient it sustains constitute a capability the city as a whole
+      exhibits — integrating a metro area into one functional labor and housing
+      market — that no individual resident's trip does or could provide alone. This
+      is a systemic function (labor-market integration), usable/exploitable at the
+      city scale (site selection, wage arbitrage), not an object or a distribution.
+    justification: >
+      new-function fits the SPEC test best: the phenomenon describes what the
+      metro area's transportation/land system enables the system to DO (integrate a
+      labor/housing market across boroughs), per this entry's own information_processing
+      justification explicitly analogizing commute/land-value aggregation to
+      financial-markets' price-discovery function. Runner-up new-structure (the
+      commute-flow network itself is a persisting structure) is close but the entry's
+      own order_parameter text foregrounds the functional "integration" framing over
+      a static structural record. Onset crossover-gradual: no published threshold
+      population/density at which labor-market integration "switches on" is cited;
+      congestion/MFD dynamics are documented qualitatively as gradual, not bifurcating.
+    confidence: medium

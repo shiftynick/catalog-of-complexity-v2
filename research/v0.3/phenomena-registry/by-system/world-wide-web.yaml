@@ -1,0 +1,146 @@
+system: world-wide-web
+phenomena:
+  - id: world-wide-web--hub-authority-structure
+    name: Hub/authority structure
+    order_parameter: HITS hub and authority scores (Kleinberg 1999); PageRank-style importance scores
+    substrate:
+      part_type: pages / documents (graph nodes)
+      count_oom: "~1e5-1e11 depending on definition/date (269,504 in 1999 nd.edu crawl; at least 3.98e9 currently indexed, stale 2025 snapshot)"
+      interchangeable: no
+    generating_interactions: [hyperlinking (directed link creation), crawling / indexing]
+    novelty_kind: new-function
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "HITS algorithm (Kleinberg 1999, kleinberg1999); PageRank-style ranking"
+    qualitative_difference: >
+      A single page has an in-degree count (how many pages link to it), but "hub" and
+      "authority" scores are computed recursively over the ENTIRE link-topology graph
+      (a page's authority depends on the hub scores of pages linking to it, and vice
+      versa) — a capability the graph as a whole supports (ranking/retrieval) that no
+      page's raw in-degree alone provides.
+    justification: >
+      Scored new-function per SPEC's own test (a capability the system can DO,
+      exploitable from outside — here, information retrieval/ranking), matching this
+      entry's own information_processing justification that ranking is "conditioned
+      on this constructed state," not raw in-degree. Runner-up new-structure (the
+      hub/authority pattern is also a persisting topological feature) is close and is
+      partially captured by the separate degree-distribution phenomenon below; this
+      one is scored new-function specifically because the order_parameter names
+      computed SCORES used for retrieval, an exploitable output. Onset
+      crossover-gradual: no threshold link-density or graph size is cited at which
+      hub/authority structure "switches on" — Kleinberg's algorithm is a continuous
+      recursive computation applicable at any graph scale.
+    confidence: medium
+
+  - id: world-wide-web--heavy-tailed-degree-distribution
+    name: Heavy-tailed degree distribution
+    order_parameter: in-degree and out-degree power-law exponents (alpha ~ 2.1-2.7 across crawls)
+    substrate:
+      part_type: pages / documents (graph nodes)
+      count_oom: "269,504 (nd.edu 1999) to ~2.04e8 (Altavista 1999-2000) to >=3.98e9 (2025 stale index)"
+      interchangeable: no
+    generating_interactions: [hyperlinking (directed link creation)]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "preferential-attachment scale-free network model (Barabasi & Albert 1999; degree exponents per Newman 2003 Table II)"
+    qualitative_difference: >
+      A single page has one in-degree and one out-degree value; the power-law
+      EXPONENT characterizing the whole population's degree distribution is a
+      property only the entire graph exhibits, unmeasurable from any individual
+      page's link count.
+    justification: >
+      Directly matches SPEC's own new-statistics test (degree distributions named
+      explicitly as the worked example). All three cited fits (Newman's two crawls,
+      Barabasi & Albert) predate CSN-2009-grade testing, so evidence_status is
+      measured-untested in the host entry and this record is marked
+      quantitative-contested rather than quantitative-predictive, exactly per the
+      "historical origin of scale-free folklore, untested rather than vindicated or
+      debunked" framing in the host's own note. Onset always-present-at-scale: the
+      heavy-tailed shape is treated as a standing structural feature present in every
+      crawl measured (1999 through Altavista), not a threshold-triggered emergence,
+      and preferential attachment (the proposed generative mechanism) is a continuous
+      process operating from the graph's earliest growth, not a bifurcation.
+    confidence: medium
+
+  - id: world-wide-web--topic-community-clustering
+    name: Topic/community clustering
+    order_parameter: link-density-based community structure (qualitative; no published modularity Q recovered this sweep)
+    substrate:
+      part_type: pages / documents (graph nodes)
+      count_oom: "~1e5-1e11 depending on definition/date"
+      interchangeable: no
+    generating_interactions: [hyperlinking (directed link creation), crawling / indexing]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: frozen
+    effective_theory:
+      status: vocabulary
+      theory: "none — no published modularity Q for the hyperlink graph was located; Kleinberg's hub/authority substructure used as loose corroborating context, not a modularity metric itself"
+    qualitative_difference: >
+      A single hyperlink connects two specific pages; topic/community clusters are a
+      persisting, quasi-static organization of densely-interlinked subgraphs
+      (thematic, linguistic, or national-domain clusters) that exists as an
+      accumulated record of many authors' independent, uncoordinated linking
+      decisions — recognizable and stable even though no individual link "belongs"
+      to a community by design.
+    justification: >
+      Scored new-structure per SPEC's test (frozen/quasi-static spatial-like
+      organization accreted by the dynamics, the record of interaction rather than an
+      event) — this entry's own modularity justification explicitly frames topic
+      clusters as citable "community-like organization" recoverable from the graph's
+      static topology, not a live process. Runner-up new-statistics considered
+      (community structure is sometimes reported via a modularity Q exponent-like
+      score) but rejected as primary because this entry explicitly records NO
+      published Q value for any WWW snapshot (modularity score of 2 is comparator-based,
+      not a measured statistic), so the structural-record framing is the safer,
+      better-evidenced choice. Persistence is recorded as frozen (rather than
+      sustained-while-driven) because the host entry's own memory_hysteresis
+      reasoning treats accumulated hub/cluster structure as a path-dependent residue
+      of historical linking order, though it also notes link-rot causes some decay —
+      onset crossover-gradual, no threshold density is cited.
+    confidence: low
+
+  - id: world-wide-web--search-driven-discoverability-concentration
+    name: Search-driven discoverability concentration
+    order_parameter: ranking-score distribution governing which pages receive traffic/attention
+    substrate:
+      part_type: pages / documents (graph nodes)
+      count_oom: "~1e5-1e11 depending on definition/date"
+      interchangeable: no
+    generating_interactions: [search-driven navigation, crawling / indexing]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "preferential attachment / search-engine ranking feedback loop (this entry's own feedback.loops); no formalized concentration-dynamics model cited"
+    qualitative_difference: >
+      An individual page's ranking score is just one number; discoverability
+      CONCENTRATION is a population-level, self-reinforcing temporal process — the
+      rich-get-richer loop by which already-visible pages become steadily more
+      visible relative to others — a dynamic with no single-page analogue, since
+      concentration is a statement about how attention redistributes across the whole
+      population over time.
+    justification: >
+      Scored new-dynamics: the phenomenon as named describes an ongoing
+      reinforcing-feedback PROCESS (search-ranking feedback compounding visibility
+      over time, per this entry's own feedback.loops "search-engine ranking
+      feedback"), a time-signature of redistribution rather than a static object.
+      Runner-up new-statistics (the resulting traffic/ranking distribution could be
+      fit as a rank-size law) is a real alternative but the host entry records no
+      such fitted distribution (extreme_event_statistics is explicitly unknown for
+      this system), so the dynamics framing — for which this entry DOES provide
+      qualitative mechanism evidence (the feedback column) — is better supported.
+      Onset crossover-gradual: preferential attachment is a continuous compounding
+      process from a page's creation, with no cited threshold visibility level at
+      which concentration "switches on."
+    confidence: low

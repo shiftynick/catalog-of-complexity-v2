@@ -1,0 +1,134 @@
+system: ocean-circulation
+phenomena:
+  - id: ocean-circulation--western-boundary-current-intensification
+    name: Western boundary current intensification (Gulf Stream, Kuroshio)
+    order_parameter: transport (Sv) and its along-stream growth via gyre recirculation
+    substrate:
+      part_type: western boundary currents (Gulf Stream, Kuroshio, etc.)
+      count_oom: "5 major western boundary current systems globally"
+      interchangeable: no
+    generating_interactions: [wind-stress momentum input, momentum / pressure-gradient exchange]
+    novelty_kind: new-entity
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Sverdrup/Stommel-Munk western-intensification dynamics (beta-effect); no single source key in this entry, referenced via nonlinearity's discussion"
+    qualitative_difference: >
+      A single water parcel only obeys local momentum and pressure-gradient
+      balance under Coriolis rotation; the western boundary current is a
+      persistent, individuable, fast-flowing jet — a concentrated, trackable
+      macro-object (you can point at the Gulf Stream, count the boundary
+      currents, follow one downstream) that no parcel-level description
+      exhibits.
+    justification: >
+      Chosen new-entity over new-structure because the order_parameter
+      (transport in Sv, along-stream growth) tracks a coherent, moving
+      current as an object, not a frozen spatial record; onset is
+      crossover-gradual because western intensification emerges smoothly
+      as basin-scale wind-stress curl integrates via the beta-effect
+      (Stommel/Munk dynamics), with no published critical value cited in
+      this entry (nonlinearity attribute, entry text) for a bifurcation
+      threshold.
+    confidence: medium
+
+  - id: ocean-circulation--amoc-overturning-cell
+    name: AMOC overturning cell
+    order_parameter: meridional overturning transport (Sv) and meridional heat transport (PW) at a reference latitude (26.5N)
+    substrate:
+      part_type: deep-water formation sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea)
+      count_oom: "order 4-5 named major sites"
+      interchangeable: no
+    generating_interactions: [buoyancy / density-driven exchange, wind-stress momentum input, air-sea heat and freshwater flux]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "meridional overturning transport/streamfunction (Sv); Johns et al. 2023 (johns2023) for the measured transport and heat-flux figures"
+    qualitative_difference: >
+      No single water parcel "overturns"; the AMOC is a basin-integrated
+      mass and heat transport sustained by many parcels' buoyancy-driven
+      sinking and wind-driven surface flow acting together. The order
+      parameter is a collective transport rate (Sv, PW), a temporal/
+      integrated system behavior with no single-parcel analogue.
+    justification: >
+      new-dynamics fits better than new-entity because the overturning
+      "cell" is not a compact, trackable object but an integrated
+      circulation rate; onset scored crossover-gradual for the steady-state
+      overturning strength itself (as distinct from the bistable regime
+      switch, recorded separately below), since Johns et al. (2023)
+      characterizes it as a continuously varying transport, not a
+      threshold-onset phenomenon in its own right.
+    confidence: medium
+
+  - id: ocean-circulation--bistable-circulation-regimes
+    name: Bistable circulation regimes ("on"/strong vs. "off"/collapsed)
+    order_parameter: AMOC transport strength as a function of freshwater forcing (the hysteresis loop itself)
+    substrate:
+      part_type: deep-water formation sites (Labrador Sea, Nordic Seas/Greenland-Iceland outflow, Weddell Sea)
+      count_oom: "order 4-5 named major sites"
+      interchangeable: no
+    generating_interactions: [buoyancy / density-driven exchange, air-sea heat and freshwater flux]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Freshwater forcing into the North Atlantic; hysteresis width ~0.4 Sv
+      and a sustained-global-warming threshold estimate of 1.4-8C (van
+      Westen & Dijkstra 2023, source key vanwesten2023; Armstrong McKay et
+      al. 2022, source key mckay2022) — both cited in this entry's
+      memory_hysteresis and tipping_transitions attributes.
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "Stommel (1961) two-box salt-advection bistability model; van Westen & Dijkstra (2023, vanwesten2023) GCM-derived hysteresis"
+    qualitative_difference: >
+      A single water parcel has no notion of "which stable state" it is
+      in; bistability is a property of the coupled circulation-feedback
+      system as a whole (the salt-advection feedback loop), a regime-level
+      temporal signature (which branch, how it is reached) that no
+      individual parcel or even a single current exhibits.
+    justification: >
+      new-dynamics chosen over new-structure because the order parameter is
+      a forcing-vs-state hysteresis loop (a dynamical regime signature), not
+      a frozen spatial record. threshold-bifurcation is required and
+      supported: this entry's own memory_hysteresis (score 4) and
+      tipping_transitions (score 3) attributes cite a quantified hysteresis
+      width and threshold from van Westen & Dijkstra (2023) and Armstrong
+      McKay et al. (2022), explicitly flagged model-derived
+      (evidence_status: measured-disputed) rather than an observed
+      real-world cycle — carried through here rather than upgraded.
+    confidence: medium
+
+  - id: ocean-circulation--mesoscale-eddy-field
+    name: Mesoscale eddy field
+    order_parameter: eddy kinetic energy
+    substrate:
+      part_type: mesoscale eddies
+      count_oom: "not recovered this sweep; unknown"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, buoyancy / density-driven exchange]
+    novelty_kind: new-entity   # RECLASSIFIED from new-statistics at verification (2026-07-03): individual eddies are tracked/counted/identified in the literature exactly like the tropical-cyclone objects scored new-entity elsewhere in this registry; the scalar order_parameter (EKE) must not override the SPEC point-at-it/track-it test. Runner-up: new-statistics (the EKE-budget reading).
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "eddy kinetic energy as a field-standard descriptive quantity; no dedicated citation in this entry beyond the component_ontology's note that eddies 'dominate the ocean's total kinetic energy'"
+    qualitative_difference: >
+      Individual water parcels undergo local advection and pressure-gradient
+      motion; the eddy field as a whole is a statistical/energetic property
+      of the population of eddies (their aggregate kinetic energy budget),
+      not a trait any single parcel possesses, and any single eddy is
+      already a composite structure one level up in this entry's own
+      hierarchy.
+    justification: >
+      Chosen new-statistics (over new-entity, the runner-up) because the
+      declared order_parameter is eddy KINETIC ENERGY — a population-level
+      energetic/statistical quantity — rather than a count or track of
+      individual eddies; onset is always-present-at-scale because this
+      entry's spatial_extent attribute treats mesoscale eddies as a
+      standing structural feature of the ocean's kinetic-energy budget with
+      no onset threshold discussed, and characteristic_timescales records
+      the eddy turnover timescale as an unquantified but structurally
+      constant feature, not an episodic or threshold event.
+    confidence: low

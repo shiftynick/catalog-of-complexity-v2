@@ -1,0 +1,133 @@
+system: the-internet
+phenomena:
+  - id: the-internet--congestion-collapse-and-recovery
+    name: Congestion collapse and recovery
+    order_parameter: aggregate throughput / goodput vs. offered load
+    substrate:
+      part_type: routers / physical infrastructure nodes
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [packet forwarding / data transfer, BGP peering / route advertisement]
+    novelty_kind: new-dynamics
+    onset: episodic-triggered
+    persistence: transient
+    effective_theory:
+      status: quantitative-contested
+      theory: "TCP AIMD congestion control (nonlinearity and feedback attributes); no dedicated congestion-collapse citation in this entry's sources block"
+    qualitative_difference: >
+      A single router only forwards or drops packets according to local
+      queue state; congestion collapse is a global regime where AGGREGATE
+      throughput falls despite (or because of) rising offered load across
+      the whole network — a collective temporal failure mode no single
+      router's forwarding rule predicts by inspection.
+    justification: >
+      new-dynamics because the order parameter (throughput vs. load) is a
+      time-varying collective regime, matching the SPEC's own explicit
+      example ("congestion collapse episodes" under episodic-triggered).
+      onset scored episodic-triggered per the SPEC's own worked case
+      language, and consistent with this entry's nonlinearity attribute,
+      which frames congestion collapse as an edge-case regime actively
+      suppressed by engineering rather than a standing feature — though
+      this entry itself carries no dedicated citation/history for a
+      congestion-collapse EVENT beyond the general TCP AIMD mechanism, a
+      gap noted here conservatively.
+    confidence: low
+
+  - id: the-internet--traffic-self-similarity
+    name: Traffic self-similarity
+    order_parameter: Hurst exponent of packet/octet arrival process across timescales
+    substrate:
+      part_type: connected devices (hosts/endpoints)
+      count_oom: "~1e10 (methodology-dependent)"
+      interchangeable: yes
+    generating_interactions: [packet forwarding / data transfer]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "self-similar/long-range-dependent traffic model (Leland, Taqqu, Willinger & Wilson 1993/1994, leland1994, primary-read); H~0.85-0.95 packet-count, H~0.75-0.85 byte-count"
+    qualitative_difference: >
+      A single packet's arrival is a discrete event with no scale
+      structure; self-similarity is a property of the AGGREGATE arrival
+      PROCESS across timescales (milliseconds to hours) — traffic
+      aggregation intensifies rather than smooths burstiness, contrary to
+      classical Poisson expectation, a statistical-shape regularity no
+      single packet or flow exhibits.
+    justification: >
+      new-statistics because the order parameter is explicitly a Hurst
+      exponent — a distribution-shape/scaling statistic over the whole
+      traffic process, the SPEC's own paradigm case. onset
+      always-present-at-scale: this entry's temporal_correlation attribute
+      states the self-similarity phenomenon is "solid and uncontested"
+      across timescales and traces, a standing statistical regularity
+      whenever traffic is measured, not a threshold-triggered event.
+    confidence: high
+
+  - id: the-internet--as-level-hub-hierarchy
+    name: AS-level hub hierarchy (Tier-1/2/3 structure)
+    order_parameter: degree distribution and disassortative mixing (r) of the AS graph
+    substrate:
+      part_type: Autonomous Systems (AS-level nodes)
+      count_oom: "~1e4-1e5 (10,697 in 2001; ~75,000-83,739 in 2025/26)"
+      interchangeable: no
+    generating_interactions: [BGP peering / route advertisement]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    persistence: frozen
+    effective_theory:
+      status: quantitative-contested
+      theory: "AS-graph degree distribution (Newman 2003, newman2003, alpha=2.5, measured-untested by CSN standards) and Broido & Clauset (2019, broido-clauset2019) scale-free-rarity counterweight"
+    qualitative_difference: >
+      A single AS only makes its own local peering decisions; the Tier-1/
+      Tier-2/Tier-3 hub hierarchy is an accreted, quasi-static structural
+      record of tens of thousands of uncoordinated peering decisions made
+      over decades — the SPEC's own named example ("AS-level hub
+      hierarchy") of a frozen structural record, persisting independent of
+      any single routing event.
+    justification: >
+      new-structure directly matches the SPEC's worked example. onset
+      crossover-gradual rather than threshold-bifurcation: this entry's
+      self_organization attribute (score 2) describes the hierarchy as
+      growing from "thousands of uncoordinated local decisions" over
+      decades with no cited critical N or coupling threshold, and
+      degree_distribution's own evidence is explicitly disputed
+      (measured-disputed) as to whether it is even power-law/scale-free at
+      all (Broido & Clauset 2019 find only ~50% of CAIDA AS-graphs
+      classify "Strong"), ruling out a confident threshold claim.
+    confidence: medium
+
+  - id: the-internet--global-reachability-despite-local-failure
+    name: Global reachability despite local failure
+    order_parameter: post-perturbation routing reconvergence time and residual connectivity
+    substrate:
+      part_type: Autonomous Systems (AS-level nodes)
+      count_oom: "~1e4-1e5 (10,697 in 2001; ~75,000-83,739 in 2025/26)"
+      interchangeable: no
+    generating_interactions: [BGP peering / route advertisement, packet forwarding / data transfer]
+    novelty_kind: new-function
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "no formal reconvergence-time/residual-connectivity model cited beyond BGP convergence measurement (labovitz-bgp-convergence, snippet-only) and robustness_resilience's qualitative resilience discussion"
+    qualitative_difference: >
+      No single router or AS "reaches" the globe; global reachability is a
+      CAPABILITY the network as a whole provides — packets can traverse from
+      any host to any other despite the failure of individual links or
+      ASes — a function usable/exploitable from outside the system that no
+      individual component possesses on its own, the SPEC's own
+      "global reachability" new-function example verbatim.
+    justification: >
+      new-function is the direct SPEC-named case. onset
+      always-present-at-scale because robustness_resilience (score 3)
+      frames this as a standing, continuously-available design property
+      ("designed for partial failure... routing reconverges around damaged
+      links") rather than a phenomenon that switches on past a specific
+      threshold of N or coupling; the runner-up kind considered was
+      new-dynamics (reconvergence TIME is a temporal measurand), but the
+      declared order_parameter pairs that timing with RESIDUAL
+      CONNECTIVITY, i.e., what the system can still do, which is the
+      function-level claim this entry's own robustness attribute is
+      actually making.
+    confidence: medium

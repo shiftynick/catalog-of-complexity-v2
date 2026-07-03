@@ -1,0 +1,132 @@
+system: power-grids
+phenomena:
+  - id: power-grids--system-frequency
+    name: System frequency
+    order_parameter: "grid-wide frequency deviation from 60 Hz nominal -- the single scalar summarizing instantaneous supply-demand balance across thousands of buses"
+    substrate:
+      part_type: buses/substations (network nodes)
+      count_oom: "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)"
+      interchangeable: no
+    generating_interactions: [frequency/voltage synchronization, power flow (AC electrical transfer)]
+    novelty_kind: new-dynamics
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "AC power-flow/frequency-regulation control theory; feedback attribute (governor droop, AGC loops)"
+    qualitative_difference: >
+      A single bus/generator only has its own local voltage and power
+      injection; system frequency is a single global scalar that only
+      exists because thousands of synchronized generators are locked to a
+      shared 60 Hz reference — no individual component "has" a system
+      frequency, it is a collective synchronization state.
+    justification: >
+      new-dynamics because the order parameter (frequency deviation) is a
+      real-time time-signature of the whole interconnection's
+      supply-demand balance, not an object or a static distribution.
+      onset always-present-at-scale: frequency synchronization is a
+      standing feature of any operating synchronous AC network (per
+      interaction_ontology's frequency/voltage-synchronization type,
+      "physical coupling of all generators... global (within the
+      interconnection)"), not something that switches on past a threshold.
+    confidence: high
+
+  - id: power-grids--voltage-collapse-bifurcation
+    name: Voltage-collapse bifurcation
+    order_parameter: "load-flow saddle-node bifurcation point (Dobson 1992; Simpson-Porco et al. 2016 closed-form network-structure-dependent stability margin)"
+    substrate:
+      part_type: buses/substations (network nodes)
+      count_oom: "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)"
+      interchangeable: no
+    generating_interactions: [power flow (AC electrical transfer), frequency/voltage synchronization]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Load-flow saddle-node bifurcation point of the AC power-flow
+      equations (Dobson 1992, source key dobson1992; Simpson-Porco, Dorfler
+      & Bullo 2016, source key simpson-porco2016) — cited directly in this
+      entry's tipping_transitions (score 2) and nonlinearity attributes as
+      a specific, named, formally modeled mechanism with a closed-form
+      network-structure-dependent stability margin.
+    persistence: transient
+    effective_theory:
+      status: quantitative-predictive
+      theory: "saddle-node bifurcation of the load-flow equations (Dobson 1992, dobson1992; Simpson-Porco et al. 2016, simpson-porco2016)"
+    qualitative_difference: >
+      Individual buses obey local Kirchhoff/power-flow constraints; voltage
+      collapse is a qualitative regime change of the WHOLE network's
+      load-flow solution (the system loses a stable operating point
+      entirely) — a bifurcation of the collective state, not a local bus
+      failure.
+    justification: >
+      new-dynamics because the order parameter is the location of a
+      bifurcation point in state space (a regime-change signature), the
+      canonical threshold-bifurcation case named explicitly in the SPEC
+      itself ("power-grids' voltage-collapse block carries the saddle-node
+      bifurcation citation"). This is the strongest-evidenced onset
+      classification across all five systems in this registry.
+    confidence: high
+
+  - id: power-grids--cascading-blackout-size
+    name: Cascading blackout size
+    order_parameter: "unserved-energy / blackout-size distribution tail (Dobson et al. 2007)"
+    substrate:
+      part_type: transmission lines (network edges)
+      count_oom: "~6.5e3 edges (Deka & Vishwanath 2015)"
+      interchangeable: yes
+    generating_interactions: [power flow (AC electrical transfer), telemetry and control signaling (SCADA/AGC/protection)]
+    novelty_kind: new-statistics
+    onset: episodic-triggered
+    persistence: transient
+    effective_theory:
+      status: quantitative-contested
+      theory: "power-law-tail blackout-size distribution, exponent between -1 and -2 (Dobson et al. 2007, dobson2007, primary-read); SOC-adjacent mechanism, contested"
+    qualitative_difference: >
+      A single line trip is a local protective-relay event; the blackout
+      SIZE DISTRIBUTION is a population-level statistical regularity over
+      many cascade events (NERC 1984-1998 data) — no single blackout has a
+      "tail exponent," only the population of blackouts does.
+    justification: >
+      new-statistics per the entry's own extreme_event_statistics and
+      cascade_susceptibility attributes, which explicitly fit a
+      distributional tail exponent to blackout-size data (though disputed:
+      evidence_status measured-disputed, an eyeballed log-log range, not
+      MLE-fitted). onset episodic-triggered: cascades arise in discrete
+      events (a line overload trips a relay, redistributing load, per the
+      feedback attribute's cascading-protective-tripping loop) rather than
+      being a standing statistical feature always present — the events
+      themselves are episodic even though their SIZE distribution can be
+      characterized in aggregate.
+    confidence: medium
+
+  - id: power-grids--exponential-tail-degree-distribution
+    name: Exponential-tail degree distribution
+    order_parameter: "node-degree p.d.f. shape, shifted sum of exponentials (Deka & Vishwanath 2015) -- the emergent topological signature distinguishing grids from designed-to-be-scale-free networks"
+    substrate:
+      part_type: buses/substations (network nodes)
+      count_oom: "~5.5e3 (Deka & Vishwanath 2015, ERCOT-specific graph)"
+      interchangeable: no
+    generating_interactions: [power flow (AC electrical transfer)]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: frozen
+    effective_theory:
+      status: quantitative-predictive
+      theory: "node-degree p.d.f. fit, shifted sum of exponentials (Deka & Vishwanath 2015, deka-vishwanath, primary-read; corroborated by Newman 2003, newman2003)"
+    qualitative_difference: >
+      No individual bus "has" a degree distribution; the shape of the
+      distribution (exponential-tailed, not power-law/scale-free) is a
+      population-level structural regularity over all ~5,500 buses, the
+      textbook degree-distribution case named explicitly in the SPEC.
+    justification: >
+      new-statistics is unambiguous: the order_parameter is a distribution
+      SHAPE, directly fit by Deka & Vishwanath (2015) with confidence
+      (evidence_status: measured). onset always-present-at-scale because
+      this is a static topological property of the built network measured
+      at a point in time (the topology accretes via engineering over
+      decades, per component_ontology, but the exponential-tail SHAPE
+      itself has no onset threshold reported — it is the standing structure
+      of the network as built), and persistence is frozen rather than
+      sustained-while-driven since the topology (unlike power flow) does
+      not require active driving to persist.
+    confidence: medium

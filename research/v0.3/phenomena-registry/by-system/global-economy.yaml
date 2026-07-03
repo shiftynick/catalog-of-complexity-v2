@@ -1,0 +1,134 @@
+system: global-economy
+phenomena:
+  - id: global-economy--world-gdp-aggregate-output
+    emergence_test: "fails — conceded bookkeeping summation (sum of national GDPs), not a qualitative departure from unit behavior; excluded from motif/cross-tab analysis (verification 2026-07-03)"
+    name: World GDP / aggregate output
+    order_parameter: "world gross domestic product (nominal ~$105.69T 2023 / ~$111.3T 2024, World Bank, snippet-level)"
+    substrate:
+      part_type: national economies
+      count_oom: "~195 (193 UN member states + 2 observer states)"
+      interchangeable: no
+    generating_interactions: [trade flow, capital flow, price/market coupling]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "national-accounts GDP aggregation; no formalized macro-dynamical theory of the aggregate itself cited beyond bookkeeping summation"
+    qualitative_difference: >
+      A single national economy has its own GDP; world GDP is the summed/aggregated
+      output of ~195 interacting economies, and its business-cycle behavior (see
+      separate phenomenon) reflects cross-economy trade and capital coupling that no
+      single economy's output series exhibits alone.
+    justification: >
+      Scored new-statistics because the order parameter is an aggregate scalar/summary
+      statistic over the national-economy population, not an individuable object;
+      new-dynamics (business-cycle behavior of the aggregate) is the runner-up and is
+      in fact recorded as its own separate emergent-phenomena entry in the host, so is
+      not double-counted here. Onset always-present-at-scale: world GDP exists as an
+      aggregable quantity for any nonzero population of economies; no threshold is
+      claimed. Note the source citation (world-bank-gdp) is explicitly flagged
+      narrative-only in the host entry's provenance, so this record's evidentiary
+      weight is correspondingly modest.
+    confidence: low   # downgraded at verification (2026-07-03) — see research/v0.3/phenomena-registry/verification.md
+
+  - id: global-economy--business-cycle
+    name: Business cycle
+    order_parameter: "phase classification (expansion/contraction), NBER-style dating; amplitude and duration of cyclical fluctuations"
+    substrate:
+      part_type: national economies
+      count_oom: "~195"
+      interchangeable: no
+    generating_interactions: [trade flow, capital flow, institutional rule-setting]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "BDS-test-confirmed nonlinear macro dynamics (Brock & Sayers 1988); NBER-style cycle dating"
+    qualitative_difference: >
+      No single national economy's output series constitutes "the" business cycle;
+      the phenomenon is a recurring temporal regime (expansion/contraction) that
+      emerges from synchronized trade/capital coupling across economies, a
+      time-signature with no single-unit analogue — exactly the SPEC's own listed
+      new-dynamics example.
+    justification: >
+      Textbook new-dynamics per SPEC's verbatim example ("business cycle"). Runner-up
+      new-statistics considered (cycle-length distributions could in principle be
+      fit) but the host entry records only phase/period characterization, not a
+      distributional claim, so new-dynamics is the clear primary. Onset:
+      crossover-gradual — Brock & Sayers (1988) confirm nonlinearity via BDS testing
+      but explicitly find no accepted evidence of low-dimensional deterministic chaos
+      or a sharp bifurcation threshold (chaos_sensitivity score 1, "no accepted
+      evidence" of chaos); no onset_control_parameter is supported.
+    confidence: medium
+
+  - id: global-economy--firm-size-distribution
+    name: Firm-size distribution
+    order_parameter: "Pareto/Zipf tail exponent alpha ~1.0 (U.S. firms, Axtell 2001) — class-level regularity in how economic activity distributes across firm sizes"
+    substrate:
+      part_type: firms
+      count_oom: "~5.5e6 U.S. firms with employees (1997 Census); ~3-4e8 globally (disputed)"
+      interchangeable: no
+    generating_interactions: [trade flow, capital flow]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "Zipf/Pareto firm-size law (Axtell 2001)"
+    qualitative_difference: >
+      A single firm has one size (employee count); the Zipf/Pareto tail exponent is a
+      property of the entire firm population's size distribution (alpha~1.0 across
+      nearly six decades of firm size, per Axtell), unmeasurable from any individual
+      firm and only meaningful as a statement about the population's shape.
+    justification: >
+      Directly matches SPEC's new-statistics test (a distributional law over units;
+      Zipf is the SPEC's own named example). Onset always-present-at-scale: Axtell
+      finds the ~alpha=1 fit stable across all ten years 1988-1997, i.e. a standing
+      statistical regularity of the firm population whenever measured, not a
+      threshold-triggered emergence. evidence_status is measured-untested (OLS
+      log-log fitting, not CSN-2009-grade), hence quantitative-contested rather than
+      quantitative-predictive, carried directly from the host entry's own
+      filling_rules.power-law-rigor treatment. Level is exemplar(firms)/U.S.-only per
+      Axtell's own caveat about non-U.S. data, reflected in low confidence here.
+    confidence: medium
+
+  - id: global-economy--economic-complexity-index
+    name: Economic Complexity Index
+    order_parameter: "k_c,0 (diversity) / k_p,0 (ubiquity) recursive Method-of-Reflections statistic (Hidalgo & Hausmann 2009); a country-level macro-variable emergent from the whole bipartite trade network, predictive of growth deviations"
+    substrate:
+      part_type: national economies
+      count_oom: "~195"
+      interchangeable: no
+    generating_interactions: [trade flow, price/market coupling]
+    novelty_kind: new-function
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Method of Reflections / Economic Complexity Index (Hidalgo & Hausmann 2009, hidalgo-hausmann2009)"
+    qualitative_difference: >
+      No single country's export basket alone determines its complexity; ECI is
+      recursively derived from the entire country-product bipartite network's
+      diversity/ubiquity structure, and its value — and predictive power for future
+      growth — exists only as a property of the whole trade network, not of any one
+      country-product link.
+    justification: >
+      Scored new-function per SPEC's test: ECI describes a capability the trade-network
+      system exhibits (predicting which economies are "under- or over-performing"
+      relative to income, usable/exploitable by outside analysts and institutions) — a
+      hard case explicitly flagged in the assignment brief. Runner-up new-statistics
+      is genuinely close (ECI is a computed statistic over a bipartite network) and is
+      the harder call here: new-function was chosen because the host entry's own
+      information_processing and emergence justifications foreground what the
+      aggregated state DOES (predicts growth deviations, is "used state-dependently"
+      by capital reallocation) rather than merely describing a distribution shape.
+      Onset crossover-gradual: Hidalgo & Hausmann's Method of Reflections is a
+      continuous recursive computation over the trade network with no cited critical
+      threshold of network density/diversity at which complexity "switches on."
+    confidence: medium

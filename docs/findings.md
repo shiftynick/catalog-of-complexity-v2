@@ -90,6 +90,27 @@ PC1's identity is unchanged and sharper: information_processing (+0.36), chaos_s
 - **Complexity metrics do not compose monotonically with containment.** Two clean cases: global-economy (decentralization 3) contains financial-markets (2) — aggregating many differently-governed subsystems dilutes central control; ocean-circulation (robustness 2) sits inside planetary-climate (3) — a subsystem can be nearer its own tipping threshold than the coupled system containing it. Together with v0.1's tropical-cyclones-out-dissipating-its-container observation, "composition does not imply monotonicity" is now a recurring cross-system pattern worth a dedicated write-up.
 - **The compositional pairs are the tightest pairs**: cities+global-economy (d=1.92) and weather-systems+tropical-cyclones (d=1.59) are now the closest pairs in the catalog. Partly genuine kinship, partly the non-independence caveat made visible — related entries share anchors, verifiers, and containment edges.
 
+## The phenomena registry (v0.3 opening, 2026-07-03 — the D20 emergence-first lens)
+
+Per Nick's reframing (decision D20), the pattern hunt now also runs one level down: over the
+**emergent phenomena themselves** (63 classified from the 15 entries, one adversarial
+verification pass applied). Full findings with epistemic caveats:
+[research/v0.3/phenomena-registry/FINDINGS.md](../research/v0.3/phenomena-registry/FINDINGS.md).
+Headlines, all pre-registered with their tests:
+
+- **Candidate law — entity/function complementarity**: all 12 individuable emergent *objects*
+  sit in closed-alphabet physical systems; all 6 emergent *capabilities* sit in
+  constrained/open ones ("physics makes things, society makes capabilities"). Partly a
+  naming-granularity artifact per the verifier; the traffic jam (road-traffic-systems, queue
+  priority raised) is the designated breaker.
+- **Eight recurring emergence motifs**, five with faces: the dissipative cell, the rank-size
+  law (exclusively social, 5 lineages), the bistable engine (exclusively physical), and —
+  the two that genuinely cross the physical/social divide — **the frozen network record**
+  (drainage networks ≍ AS hierarchy ≍ web communities) and **the drifting collective rhythm**
+  (volatility regimes ≍ business cycle ≍ AMOC overturning).
+- **Sharp onsets come with theories**: threshold-bifurcation phenomena carry quantitative
+  effective theories in 12/14 cases vs 3/7 for episodic ones.
+
 ## Standing hypotheses for the next analysis round
 
 1. Does information_processing ↔ adaptive_capacity stay near-degenerate at n≈40, or do dissociating systems appear (candidates: chemical oscillators — processing-free adaptation-free; bureaucratic systems — processing without adaptation)?

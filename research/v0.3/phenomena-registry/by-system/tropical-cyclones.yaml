@@ -1,0 +1,144 @@
+system: tropical-cyclones
+phenomena:
+  - id: tropical-cyclones--eyewall
+    lineage: tropical-cyclone-vortex-complex   # verification 2026-07-03: compositional kin — count as one lineage in motif analysis
+    name: Eyewall (and eye)
+    order_parameter: radius of maximum wind; minimum central pressure
+    substrate:
+      part_type: moist air parcels (incl. condensate)
+      count_oom: "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy flux]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Rapid intensification / eyewall organization threshold, per
+      tipping_transitions' citation of rapid intensification as a named,
+      formally modeled threshold/switch-like transition (actively studied
+      as a forecasting problem); no single pinned numerical critical value
+      is cited in this entry beyond the qualitative threshold framing.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "potential-intensity theory (Emanuel 1986); emergence block calls this formalized, predictive macro-machinery"
+    qualitative_difference: >
+      A single moist air parcel simply advects, condenses, and exchanges
+      momentum locally; the eyewall is a coherent, individuable ring-shaped
+      structure with a measurable radius of maximum wind and minimum central
+      pressure that can be tracked, replaced (eyewall replacement cycle),
+      and reorganized — none of which is a property of any one parcel.
+    justification: >
+      novelty_kind new-entity: the eyewall is the catalog's own canonical
+      "point at it, count it, track it" object (self_organization: "eyewall,
+      rainbands, and the storm-scale circulation assemble spontaneously").
+      onset threshold-bifurcation: tipping_transitions explicitly names
+      rapid intensification as a threshold/switch-like mechanism with
+      published, formally modeled treatment (scored 2 on that column for
+      exactly this), satisfying the REQUIRED control-parameter citation at
+      the qualitative level the entry itself supports.
+    confidence: high
+
+  - id: tropical-cyclones--rainbands
+    name: Spiral rainbands
+    order_parameter: band spacing/geometry (morphological)
+    substrate:
+      part_type: convective cells / hot towers
+      count_oom: "not recovered in Phase 3 sweep; unknown"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange]
+    novelty_kind: new-entity
+    onset: crossover-gradual
+    persistence: transient
+    effective_theory:
+      status: vocabulary
+      theory: "descriptive rainband morphology (band spacing/geometry); no dedicated quantitative theory cited"
+    qualitative_difference: >
+      A single convective cell is a localized updraft-downdraft couplet;
+      rainbands are a distinct, larger-scale organized spiral pattern of
+      many such cells with characteristic spacing and geometry, individually
+      identifiable features of the storm that form and dissolve on hour
+      timescales (modularity block), not a property any single cell has.
+    justification: >
+      novelty_kind new-entity: rainbands are named, individuable
+      morphological features (self_organization's own list: "eyewall,
+      rainbands, and the storm-scale circulation"). onset crossover-gradual:
+      modularity describes rainbands as giving only "weak, transient lateral
+      structure," with no cited formal threshold/bifurcation specific to
+      rainband formation — the conservative choice given the entry's own
+      description of gradational, non-modular organization.
+    confidence: medium
+
+  - id: tropical-cyclones--warm-core
+    name: Warm core
+    order_parameter: core temperature anomaly
+    substrate:
+      part_type: moist air parcels (incl. condensate)
+      count_oom: "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)"
+      interchangeable: yes
+    generating_interactions: [latent-heat / moisture exchange, momentum / pressure-gradient exchange]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "potential-intensity theory (Emanuel 1986), which links core temperature anomaly to storm intensity"
+    qualitative_difference: >
+      Individual parcels simply carry their own local temperature; the warm
+      core is a persistent, spatially organized temperature ANOMALY at the
+      storm's center, maintained continuously by the collective latent-heat
+      release of the whole circulation (WISHE feedback loop) — a structural
+      signature of the vortex as a whole, not any parcel's own state.
+    justification: >
+      novelty_kind new-structure (runner-up new-entity, since it has a
+      central, locatable position): the order parameter (core temperature
+      anomaly) is a standing structural feature maintained by the storm's
+      circulation, closer to a spatial organizational record than a
+      trackable discrete object with its own boundary. onset
+      crossover-gradual: the entry describes warm-core intensification as
+      continuous with the WISHE feedback loop's reinforcing growth rather
+      than citing a specific formal threshold for warm-core onset itself
+      (distinct from the separately-scored rapid-intensification threshold
+      under Storm-scale vortex/tipping_transitions) — conservative choice
+      given no dedicated warm-core-onset citation exists in this entry.
+    confidence: low
+
+  - id: tropical-cyclones--vortex
+    lineage: tropical-cyclone-vortex-complex   # verification 2026-07-03: compositional kin — count as one lineage in motif analysis
+    name: Storm-scale vortex
+    order_parameter: maximum sustained wind (Saffir-Simpson categorization)
+    substrate:
+      part_type: moist air parcels (incl. condensate)
+      count_oom: "~1e7 at the declared 1 km^3 convention (circulation volume ~1e16 m^3)"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy flux, radiative exchange]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Rapid intensification threshold (tipping_transitions: "a
+      threshold/switch-like transition actively studied as a forecasting
+      problem," one of two named formally modeled mechanisms scoring this
+      column 2); the WISHE reinforcing feedback loop (Emanuel 1986) is the
+      cited generating mechanism for crossing into self-sustained
+      intensification.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "potential-intensity theory (Emanuel 1986); Saffir-Simpson categorization as the field's working vocabulary (emergence block)"
+    qualitative_difference: >
+      No single moist air parcel has a "maximum sustained wind" or a
+      Saffir-Simpson category; the storm-scale vortex is the entire coherent
+      rotating circulation itself — the whole self-organizing heat-engine
+      structure (summary: "a rotating storm system that assembles itself")
+      — a qualitatively distinct organized entity relative to the
+      disorganized convection it assembles from.
+    justification: >
+      novelty_kind new-entity: the vortex is the catalog's paradigm
+      individuable macro-object — the entry's whole scoping_note defines
+      the system boundary around this one trackable circulation. onset
+      threshold-bifurcation: tipping_transitions' rapid-intensification
+      citation (score 2, "specific mechanisms published") directly supports
+      a formal threshold-crossing framing for genesis/intensification of
+      the vortex as a whole, distinct from decay (robustness_resilience:
+      landfall/shear/cool water "rapidly destroy" the vortex, an
+      asymmetric collapse not itself modeled as a bifurcation in this entry).
+    confidence: high

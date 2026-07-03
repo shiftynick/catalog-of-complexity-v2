@@ -1,0 +1,137 @@
+system: weather-systems
+phenomena:
+  - id: weather-systems--extratropical-cyclone
+    name: Extratropical cyclone (with fronts)
+    order_parameter: minimum central pressure; deepening rate (hPa/24h, bombogenesis threshold)
+    substrate:
+      part_type: extratropical cyclones (incl. attendant fronts and anticyclones)
+      count_oom: "~6,000-28,000 tracks per 20-yr NH seasonal aggregate (method-dependent, see numerosity)"
+      interchangeable: yes
+    generating_interactions: [momentum / pressure-gradient exchange, latent-heat / moisture exchange, surface enthalpy / momentum flux]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Bombogenesis threshold: central pressure fall >=24 hPa/24h normalized
+      to 60N latitude via sin(lat)/sin(60) weighting ("1 bergeron" unit;
+      Sanders & Gyakum 1980), cited by tipping_transitions (rescored to 2)
+      as a named, quantitatively thresholded bifurcation/regime-transition
+      criterion for explosive cyclogenesis.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: "baroclinic-instability framework plus bombogenesis criteria (Sanders & Gyakum 1980); emergence block calls minimum pressure/deepening rate the field's working vocabulary"
+    qualitative_difference: >
+      A single air parcel simply moves under local pressure-gradient and
+      Coriolis forces; the extratropical cyclone is a coherent, individuable
+      rotating structure with fronts, a measurable minimum central pressure,
+      and a deepening rate that can cross a named explosive-intensification
+      threshold — none of which any single parcel possesses.
+    justification: >
+      novelty_kind new-entity: satisfies the spec's point-at-it/count-it/
+      track-it test directly, and is this entry's own primary named
+      structure type (component_ontology). onset threshold-bifurcation: the
+      bombogenesis criterion is a REQUIRED, explicitly cited quantitative
+      threshold (tipping_transitions rescored 1->2 specifically because this
+      entry independently cites the named Sanders & Gyakum 1980 criterion),
+      the strongest onset citation among this system's phenomena.
+    confidence: high
+
+  - id: weather-systems--mcc
+    name: Mesoscale convective complex (MCC)
+    order_parameter: cold-cloud-shield area (km^2); eccentricity; duration
+    substrate:
+      part_type: mesoscale convective complexes (MCCs)
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [latent-heat / moisture exchange, momentum / pressure-gradient exchange]
+    novelty_kind: new-entity
+    onset: crossover-gradual
+    persistence: transient
+    effective_theory:
+      status: vocabulary
+      theory: "Maddox (1980) MCC size/duration classification convention (cold-cloud-shield area, eccentricity)"
+    qualitative_difference: >
+      A single convective cell is a localized updraft; an MCC is a large
+      (>100,000 km^2), organized, self-sustaining cluster of many convective
+      cells with a literature-canonical size/duration convention (Maddox
+      1980) distinguishing it as its own structural class, individuable and
+      trackable across its multi-hour lifecycle.
+    justification: >
+      novelty_kind new-entity: component_ontology lists MCCs as a named
+      composite sub-structure with its own literature-canonical convention,
+      distinct from both extratropical and tropical cyclones — matches the
+      point-at-it test. onset crossover-gradual: no formal bifurcation/
+      threshold criterion for MCC organization (analogous to bombogenesis)
+      is cited in this entry; Maddox's convention is a classification
+      threshold on OUTCOME size/duration, not a dynamical control-parameter
+      bifurcation, so the conservative vocabulary item is chosen.
+    confidence: low
+
+  - id: weather-systems--atmospheric-river
+    name: Atmospheric river
+    order_parameter: integrated water-vapor transport (IVT, kg/m/s); length-to-width ratio
+    substrate:
+      part_type: atmospheric rivers
+      count_oom: "3-5 major conduits per hemisphere at any time (Zhu & Newell 1998)"
+      interchangeable: yes
+    generating_interactions: [latent-heat / moisture exchange, momentum / pressure-gradient exchange]
+    novelty_kind: new-structure
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "integrated water-vapor-transport (IVT) detection framework (Newell et al. 1992; Guan & Waliser 2015 referenced in emergence)"
+    qualitative_difference: >
+      A single moist air parcel carries only its own local moisture; an
+      atmospheric river is a narrow, elongated, standing corridor
+      concentrating >90% of total midlatitude water-vapor flux while
+      covering only ~10% of the hemispheric circumference (self_organization's
+      own cited statistic) — a collective concentration pattern no single
+      parcel's transport exhibits.
+    justification: >
+      novelty_kind new-structure (runner-up new-entity, since individual
+      rivers are also trackable corridors): self_organization frames this
+      as a striking concentration signature — a small fraction of the
+      domain organizing to carry the overwhelming majority of a globally
+      conserved flux — closer to the spec's structural-record framing
+      (a persistent transport channel) than a single localized object;
+      new-entity is a strong runner-up given each river is individually
+      trackable. onset always-present-at-scale: 3-5 major conduits exist
+      per hemisphere at any time as a standing statistical feature
+      (instance_population), with no cited formation threshold analogous
+      to bombogenesis — conservative choice given the entry names only a
+      standing-population count, not an onset mechanism.
+    confidence: low
+
+  - id: weather-systems--monsoon
+    name: Monsoon circulation
+    order_parameter: seasonal wind reversal; onset-date progression front
+    substrate:
+      part_type: monsoon circulations
+      count_oom: "handful of named regional systems (Indian, West African, East Asian, North American, Australian monsoons); no single canonical global count located this sweep"
+      interchangeable: no
+    generating_interactions: [latent-heat / moisture exchange, surface enthalpy / momentum flux, radiative exchange]
+    novelty_kind: new-dynamics
+    onset: episodic-triggered
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "monsoon onset/seasonal-cycle description (IMD/NOAA consensus figures); no dedicated quantitative bifurcation theory cited in this entry"
+    qualitative_difference: >
+      No single air parcel "reverses" seasonally; the monsoon is a
+      continent-scale wind-direction reversal sustained over ~100-120 days,
+      a collective seasonal regime with its own onset-date progression front
+      (characteristic_timescales: "onset itself is a progressive wave") —
+      a time-signature phenomenon with no single-parcel analogue.
+    justification: >
+      novelty_kind new-dynamics: the order parameter (seasonal wind
+      reversal, onset-date progression) is explicitly a time-signature
+      regime change, matching the spec's new-dynamics test. onset
+      episodic-triggered: monsoon onset is described as a discrete,
+      progressive seasonal wave (Andaman ~25 May to Delhi ~29 June) that
+      recurs annually under aligned seasonal forcing, rather than a standing
+      feature or a cleanly modeled bifurcation — the entry cites no formal
+      critical-parameter/threshold treatment of monsoon onset (distinct from
+      the bombogenesis citation for extratropical cyclones), so
+      threshold-bifurcation was not chosen despite "onset" language.
+    confidence: low

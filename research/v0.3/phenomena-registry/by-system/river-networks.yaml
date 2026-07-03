@@ -1,0 +1,125 @@
+system: river-networks
+phenomena:
+  - id: river-networks--dendritic-drainage-network
+    name: Dendritic drainage network / stream order hierarchy
+    order_parameter: "Strahler stream order; Horton bifurcation/length/area ratios (R_B, R_L, R_A)"
+    substrate:
+      part_type: channel links/segments (between confluences)
+      count_oom: "~1e5-1e6 for the Mississippi basin"
+      interchangeable: "yes within order class, no across orders"
+    generating_interactions: [water/sediment flux transfer, erosion-deposition feedback]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    persistence: frozen
+    effective_theory:
+      status: quantitative-predictive
+      theory: "Horton's laws (bifurcation/length/area ratios); component_ontology and fractal_dimension_spatial attributes, sources rodriguez-iturbe-rinaldo1997, moussa2009"
+    qualitative_difference: >
+      A single channel link only carries local water/sediment flux and
+      erodes/deposits its own bed and banks; the branching tree with its
+      regular Strahler ordering and Horton ratios is a persisting spatial
+      record of millions of years of local process, not a property any
+      one link possesses — it is the accreted network topology itself.
+    justification: >
+      new-structure fits because the network is a quasi-static organization
+      that persists when the fast dynamics (individual flow events) pause —
+      the tree geometry is the record of the process, matching the SPEC's
+      own dendritic-drainage-network example verbatim. Onset is
+      crossover-gradual: Horton's laws are steady-state scaling regularities
+      with no cited critical threshold in this entry (self_organization
+      attribute describes gradual erosion-flow feedback, not a bifurcation).
+    confidence: medium
+
+  - id: river-networks--hacks-law-scaling
+    name: Hack's law scaling (channel length vs. basin area)
+    order_parameter: "Hack exponent h (0.6 original; basin-size-dependent 0.6/0.5/0.47 per Muller 1973)"
+    substrate:
+      part_type: channel links/segments (between confluences)
+      count_oom: "~1e5-1e6 for the Mississippi basin"
+      interchangeable: "yes within order class, no across orders"
+    generating_interactions: [water/sediment flux transfer, erosion-deposition feedback]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: frozen
+    effective_theory:
+      status: quantitative-contested
+      theory: "Hack's law, L ~ A^h (Hack 1957, hack1957; Rigon et al. 1996, rigon1996, primary-read)"
+    qualitative_difference: >
+      No single channel link has a "length vs. basin-area" scaling
+      exponent; h is a statistical regularity that only appears across the
+      population of basins/sub-basins of varying size, a distributional law
+      no individual realization exhibits.
+    justification: >
+      new-statistics because the order parameter (the Hack exponent) is a
+      scaling-law exponent fit across many basins, the SPEC's own
+      distribution-shape/exponent test. Onset always-present-at-scale: the
+      fractal_dimension_spatial attribute records h as holding across basin
+      sizes (with the exponent itself drifting by basin size per Muller
+      1973), not as a phenomenon that switches on past a threshold.
+    confidence: medium
+
+  - id: river-networks--network-fractal-branching-geometry
+    name: Network fractal branching geometry
+    order_parameter: "planform fractal dimension D (Horton-ratio-derived, ~1.6-1.9); topological D_T (~1.7-1.8)"
+    substrate:
+      part_type: channel links/segments (between confluences)
+      count_oom: "~1e5-1e6 for the Mississippi basin"
+      interchangeable: "yes within order class, no across orders"
+    generating_interactions: [water/sediment flux transfer, erosion-deposition feedback]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    persistence: frozen
+    effective_theory:
+      status: quantitative-contested
+      theory: "fractal dimension D = log(R_B)/log(R_L) (fractal_dimension_spatial attribute, sources rodriguez-iturbe-rinaldo1997, moussa2009, mantilla2010, rigon1996, hack1957)"
+    qualitative_difference: >
+      Fractal branching geometry is a property of the whole network's
+      self-similar spatial arrangement across scales, not of any single
+      link; it is measured by box-counting/divider methods over the
+      assembled tree, a structural record rather than a single-link trait.
+    justification: >
+      new-structure (closely related to the dendritic-network item above,
+      but recorded separately per the entry's own emergent_phenomena
+      listing) because D characterizes a frozen geometric self-similarity,
+      not a temporal dynamic or event distribution. onset crossover-gradual:
+      this entry explicitly reports D as sensitive to which R_B/R_L pair is
+      used, i.e. a continuously varying derived quantity, with no
+      bifurcation threshold in the literature reviewed.
+    confidence: low
+
+  - id: river-networks--delta-lobe-switching-cycle
+    name: Delta lobe-switching cycle
+    order_parameter: "active delta lobe position / avulsion state (period ~1,000-1,500 yr)"
+    substrate:
+      part_type: channel links/segments (between confluences)
+      count_oom: "~1e5-1e6 for the Mississippi basin"
+      interchangeable: "yes within order class, no across orders"
+    generating_interactions: [avulsion / channel abandonment, erosion-deposition feedback]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Bed aggradation exceeding a critical superelevation ratio triggers
+      avulsion to a lower-gradient course (interaction_ontology's
+      avulsion/channel-abandonment mechanism; tipping_transitions attribute,
+      source mississippi-delta-wikipedia, evidence_status qualitative — no
+      quantified critical superelevation-ratio VALUE is cited in this entry,
+      only the qualitative mechanism and the ~1,000-1,500 yr cycle period).
+    persistence: self-sustaining
+    effective_theory:
+      status: vocabulary
+      theory: "avulsion threshold mechanism (tipping_transitions attribute); no formal quantitative model cited in this entry"
+    qualitative_difference: >
+      A single channel link erodes or deposits locally; lobe-switching is a
+      basin/delta-scale regime change — an entire flow path abandoning its
+      course for another — a discrete temporal event/cycle no individual
+      link produces alone.
+    justification: >
+      new-dynamics because the order parameter is the AVULSION STATE over
+      time (a regime signature/cycle), not a persistent object or a static
+      distribution. onset is threshold-bifurcation on the strength of the
+      entry's own tipping_transitions attribute (score 2), which names a
+      specific mechanistic threshold (critical superelevation ratio) with a
+      real-world case (Old River Control Structure) — flagged conservatively
+      since no numeric critical-ratio value is given, only the mechanism and
+      the cycle period.
+    confidence: medium
