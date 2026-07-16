@@ -159,6 +159,20 @@ classified and adversarially verified; registry now 81 phenomena / 20 systems; f
 - **The rank-size motif took its 6th lineage (firm sizes, lineage-deduplicated against
   global-economy) and stays exclusively social** at n=20.
 
+## The dream-headline analysis (2026-07-16, Workstream B — the four candidates at n=20)
+
+The v0.2 review left four headline candidates open. A dedicated pass at n=20 (robustness re-run: [research/v0.3/validation/robustness-report-n20.md](../research/v0.3/validation/robustness-report-n20.md); inversion census: this section) now lets the data rank them:
+
+**(a) The alphabet-closure law — STRENGTHENED, and its overreach was cut back by a pre-registered test.** The entry-level law stands at **zero exceptions across 20 independently drafted entries** (11 closed — all physical; 6 constrained — all engineered/institutional; 3 open — cultural + cities). The phenomena-level strong corollary (entities only in closed systems) was killed exactly as pre-registered by the traffic jam — which is what a real law's boundary looks like being mapped, not a relabeling artifact. The two category-defying entries (cities open, world-wide-web constrained) argue closure from mechanism against their own category labels. What it still needs: the anomaly hunt (granular media and plasmas are the physical-side probes in the roster candidates).
+
+**(b) PC1 as THE axis — GROWING but still composition-SENSITIVE.** Variance share climbed monotonically with n (37.9% → 42.4% → 45.1%) and the informational-adaptive pole survives every LOO run; but the #3–5 loadings still reshuffle in 3/20 LOO runs and PC2/PC3 identities remain unstable. A real but not-yet-crisp headline.
+
+**(c) info ≡ adaptivity — the identity BROKE this round (0.957 → 0.882), and the breakage has structure.** Eight of 20 entries now carry a ≥1 gap, in two opposite directions: *adaptation without processing* (road-traffic-systems +2, firms +1) and *processing without adaptation* (the-internet, power-grids, world-wide-web, languages, earthquake-fault-systems, convection-cells at −1). The identity was a roster artifact; what remains is a **two-sided residual taxonomy** that the missing bureaucratic-systems-style entry would test directly.
+
+**(d) Composition non-monotonicity — SYSTEMATIZED, and it has a shape.** Census across all 13 containment edges × 15 rubric/hybrid columns: **36/195 scored parent-child pairs invert (18.5%), touching 11 of 13 edges** — non-monotonic composition is the norm, not a curiosity. The inversions concentrate overwhelmingly in the **sharp-dynamics columns**: criticality inverts on 7 of 13 edges, chaos_sensitivity on 5, tipping_transitions on 4 — versus zero on decentralization-toward-parents and near-zero on the structural columns. Reading: **aggregation smooths — containers average over their subsystems, so the sharpest member out-scores its whole on precisely the spiky columns.** Financial-markets is the extreme case, out-scoring BOTH its containers (cities and global-economy) on nonlinearity, criticality, tipping, information_processing, adaptive_capacity, AND emergence — the catalog's hottest subsystem sits two levels deep.
+
+**Ranking the data suggests:** (d) is the most *finished* result (a census with a mechanism-shaped pattern, no pending dependencies); (a) is the most *law-like* (zero exceptions, survived a designed kill-test at its corollary layer, clear falsification program); (c) just became *newly alive* (the identity broke into an interpretable two-pole structure); (b) needs more roster. A defensible composite headline: **"complexity metrics do not compose: the parts are spikier than the wholes"** (d) with (a) as the second act — but this is Nick's call, per the open question.
+
 ## Standing hypotheses for the next analysis round
 
 *(Rewritten 2026-07-16 after the n=20 batch resolved the previous three: #1 partially dissociated via road-traffic-systems, #2 survived its designed test, #3 stays dissolved.)*
