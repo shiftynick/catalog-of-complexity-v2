@@ -156,7 +156,13 @@ attributes:
       picked arbitrarily, per no-guessing. World Bank Entrepreneurship
       Database (~188 economies via business-registry data) would be the
       correct primary source for a citable global aggregate but was not
-      fetched this session — flagged as a follow-up.
+      fetched this session — flagged as a follow-up. [Update 2026-07-16,
+      orchestrated standing-item pass: the follow-up was attempted via the
+      World Bank API and found NOT to resolve the gap — the Entrepreneurship
+      Database exposes only new-registration flows (IC.BUS.NREG, null at
+      world aggregate) and new-business density (IC.BUS.NDNS.ZS), no
+      total-firm-stock indicator; the global count stays measured-disputed
+      at ~3-4e8 from secondary aggregators.]
   instance_population:
     type: quantitative
     level: class-general
@@ -190,7 +196,7 @@ attributes:
       - name: firms
         count_oom: "~5.5e6 U.S. firms with employees (1997 Census, primary-read); ~2.1e7 total U.S. business entities; ~3-4e8 globally (disputed, secondary)"
         interchangeable: no   # heterogeneous size (Zipf-distributed) is the load-bearing fact
-        itself_complex: out-of-scope(human) / firms   # firms unresolved -> roster expansion queue
+        itself_complex: firms   # firms.yaml now exists in the catalog; the human interior of firms remains out-of-scope(human) per the scoping note (cleaned 2026-07-16 from the non-conformant "out-of-scope(human) / firms" slash-pair — see provenance.flags and fix_log)
         sources: [axtell2001]
         evidence_status: measured-disputed
         note: "Global count not pinned to a single primary source; U.S. figures are primary-read and solid (Axtell 2001, Table 3, citing U.S. Census Bureau)."
@@ -787,7 +793,7 @@ attributes:
 
 emergent_phenomena:
   - name: World GDP / aggregate output
-    order_parameter: "world gross domestic product (nominal ~$105.69T 2023 / ~$111.3T 2024, World Bank, snippet-level)"
+    order_parameter: "world gross domestic product (nominal ~$107.35T 2023 / ~$111.67T 2024, World Bank API, primary-read 2026-07-16; IMF WEO concurs at ~$107.25T / ~$111.60T — prior snippet-level figures $105.69T / $111.3T superseded by current data vintage)"
   - name: Business cycle
     order_parameter: "phase classification (expansion/contraction), NBER-style dating; amplitude and duration of cyclical fluctuations"
   - name: Firm-size distribution
@@ -809,7 +815,9 @@ sources:
   un-membership:
     citation: "UN membership figures: 193 member states + 2 observer states (Holy See, State of Palestine), ~195 total. General public record. [unverified — model knowledge / general public record; not independently primary-read from a UN primary source this session, though the figure is uncontroversial and stable]"
   world-bank-gdp:
-    citation: "World Bank: World GDP (nominal) $105.69 trillion (2023) / $111.3 trillion (2024). [snippet-only this session: search-engine-summarized secondary aggregation of the World Bank data portal; direct fetch to data.worldbank.org returned no extractable figures this session — flagged for a follow-up direct API/CSV pull]"
+    citation: "World Bank: World GDP (current US$) $107,348,614,073,350 (~$107.35T, 2023) / $111,669,432,109,121 (~$111.67T, 2024) / $118,350,166,039,396 (~$118.35T, 2025). [primary-read 2026-07-16: direct JSON pull from the World Bank's own statistical API, endpoint api.worldbank.org/v2/country/WLD/indicator/NY.GDP.MKTP.CD?format=json, indicator NY.GDP.MKTP.CD, country 1W/WLD, API lastupdated 2026-07-13. Supersedes the 2026-07-02 snippet-only figures ($105.69T 2023 / $111.3T 2024, search-engine-summarized secondary aggregation) — the differences reflect World Bank data revisions between vintages, not an error in the earlier secondary summaries. Cross-checked against IMF WEO (see imf-weo-datamapper): convergent within ~0.1%.]"
+  imf-weo-datamapper:
+    citation: "IMF World Economic Outlook: GDP, current prices, world aggregate (NGDPD, WEOWORLD): $107,245.572B (~$107.25T, 2023) / $111,598.554B (~$111.60T, 2024) / $118,175.485B (~$118.18T, 2025). [primary-read 2026-07-16: direct JSON pull from the IMF's own DataMapper API, endpoint www.imf.org/external/datamapper/api/v1/NGDPD, series NGDPD, group code WEOWORLD. Used as an independent primary cross-check on the world-bank-gdp figure; the two publishers agree within ~0.1% for 2023-2025.]"
   degryse-elahi-penas2010:
     citation: "Degryse, H., Elahi, M.A. & Penas, M.F. (2010). Cross-Border Exposures and Financial Contagion. International Review of Finance 10(2), 209-240. [snippet-verified this session — existence, authorship, venue, and year confirmed via multiple independent secondary/aggregator sources (IDEAS/RePEc, Wiley Online Library listing, Tilburg University research portal); full text not fetched this session. Added 2026-07-02 (flag fixer) to satisfy cascade_susceptibility's citation-rigor bar per the financial-markets/cities precedent — documents cross-border bank exposure as a contagion-propagation channel, consistent with (not a replacement for) the entry's own 2008-crisis and post-2020-supply-chain narrative, which remains otherwise general/model knowledge.]"
 
@@ -902,6 +910,53 @@ provenance:
             which emergent_phenomena entries never carry a sources: field)
             — matching the verifier's suggested "note in provenance.flags"
             alternative fix.
+    - by: "orchestrated standing-item pass, 2026-07-16"
+      entries:
+        - tag: "[UPGRADE/primary-read]"
+          column: emergent_phenomena[0].order_parameter / sources.world-bank-gdp
+          change: >
+            Upgraded the world GDP figure from snippet-only (search-engine-
+            summarized secondary aggregation, 2026-07-02) to primary-read
+            via a direct JSON pull from the World Bank's own statistical
+            API (api.worldbank.org/v2/country/WLD/indicator/NY.GDP.MKTP.CD?
+            format=json, indicator NY.GDP.MKTP.CD, country 1W/WLD, API
+            lastupdated 2026-07-13, retrieved 2026-07-16). Values updated
+            to the current data vintage: 2023 $107.35T (was $105.69T
+            snippet-level), 2024 $111.67T (was $111.3T), 2025 $118.35T
+            (new). The deltas are World Bank data revisions between
+            vintages, not errors in the earlier secondary summaries.
+            Added an independent primary cross-check source,
+            imf-weo-datamapper (IMF DataMapper API, series NGDPD, group
+            WEOWORLD, retrieved 2026-07-16): 2023 $107.25T / 2024 $111.60T
+            / 2025 $118.18T — convergent with the World Bank within ~0.1%.
+            Pull log: research/v0.3/verification-debt/
+            global-economy-primary-upgrades.md.
+        - tag: "[NO-UPGRADE/honest-failure]"
+          column: numerosity (global firm count) / energy_rate_density (world energy consumption)
+          change: >
+            Attempted but did NOT upgrade two other figures named in the
+            same standing flag, per never-fake-an-upgrade: (1) global firm
+            count — the World Bank API has no total-firm-stock indicator
+            (Entrepreneurship Database exposes only IC.BUS.NREG new
+            registrations, null at world aggregate, and IC.BUS.NDNS.ZS
+            new-business density; IC.BUS.TOTL does not exist); the ~3-4e8
+            figure stays measured-disputed/secondary. (2) world primary
+            energy consumption — energyinst.org returned 403 Forbidden to
+            direct fetch on 2026-07-16, the same failure mode as
+            2026-07-02; the Energy Institute 2024 figure stays
+            snippet-level. Both annotations left as-is; resolution notes
+            appended to the standing flag.
+        - tag: "[FIX/cosmetic]"
+          column: component_ontology (firms.itself_complex)
+          change: >
+            Applied the 2026-07-02 flag fixer's own suggested cosmetic fix,
+            now unblocked because data/classes/firms.yaml exists: replaced
+            the non-conformant slash-pair "out-of-scope(human) / firms"
+            with the single controlled value "firms", keeping the
+            out-of-scope(human) framing for the human interior of firms in
+            the inline comment and scoping note. financial-markets.yaml's
+            parallel notation deliberately not touched (out of this pass's
+            scope); resolution note appended to the standing flag.
   flags:   # standing data limitations and open judgment calls, this drafter's own top uncertainties
     - column: scoping_note (atomicity)
       note: >
@@ -949,6 +1004,23 @@ provenance:
         before this entry is promoted past draft. World trade network
         degree-distribution literature (now live per interaction_topology:
         network) was flagged but not searched at all.
+        [RESOLUTION NOTE, appended 2026-07-16, orchestrated standing-item
+        pass — PARTIALLY RESOLVED: (1) World GDP UPGRADED to primary-read
+        via direct World Bank API pull (NY.GDP.MKTP.CD, WLD) with an
+        independent IMF WEO DataMapper API cross-check (NGDPD, WEOWORLD);
+        both publishers' own data services returned JSON directly and agree
+        within ~0.1% — see sources.world-bank-gdp, sources.imf-weo-datamapper,
+        and research/v0.3/verification-debt/global-economy-primary-upgrades.md.
+        (2) Global firm count NOT upgraded: the World Bank API carries no
+        total-firm-stock indicator — the Entrepreneurship Database exposes
+        only new registrations (IC.BUS.NREG, null at world level) and
+        new-business density (IC.BUS.NDNS.ZS), neither a substitute for the
+        ~3-4e8 stock figure, which stays measured-disputed/secondary.
+        (3) Global energy consumption NOT upgraded: energyinst.org still
+        returns 403 Forbidden to direct fetch (2026-07-16), same failure as
+        2026-07-02; the Energy Institute figure stays snippet-level.
+        (4) Trade-network degree-distribution literature: still unsearched,
+        remains open.]
     - column: sources.world-bank-gdp
       note: >
         [FIX/coverage, added 2026-07-02 by flag fixer] The world-bank-gdp
@@ -978,6 +1050,15 @@ provenance:
         across both entries. Suggested fix: itself_complex: firms (the
         unresolved roster-queue catalog-entry-id), with out-of-scope(human)
         framing moved to the note/role field.
+        [RESOLUTION NOTE, appended 2026-07-16, orchestrated standing-item
+        pass — RESOLVED for this entry: itself_complex set to the single
+        controlled value "firms" (data/classes/firms.yaml now exists in the
+        catalog, so the id is no longer an unresolved roster-queue
+        reference); the out-of-scope(human) framing for the human interior
+        of firms is preserved in the field's inline comment and the scoping
+        note. financial-markets.yaml's parallel non-conformant notation was
+        NOT touched in this pass and remains a cross-entry consistency
+        follow-up.]
     - column: nonlinearity
       note: >
         [note, recorded 2026-07-02 by flag fixer, not acted — cosmetic]

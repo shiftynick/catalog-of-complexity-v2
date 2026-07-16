@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "generated_by": "irr-rerun/compute-alpha.mjs",
+    "generated_at": "2026-07-16",
+    "design": "see method.md — re-run of the 3 at-or-below-chance columns against boundary-clarified anchors",
+    "baseline_alpha_3blind": {
+      "criticality": -0.27,
+      "tipping_transitions": -0.032,
+      "emergence": 0
+    },
+    "entries": [
+      "stars",
+      "river-networks",
+      "cities",
+      "the-internet",
+      "languages"
+    ],
+    "columns": [
+      "criticality",
+      "tipping_transitions",
+      "emergence"
+    ],
+    "scale": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rater_tiers": [
+      {
+        "rater": 1,
+        "tier": "haiku"
+      },
+      {
+        "rater": 2,
+        "tier": "sonnet"
+      },
+      {
+        "rater": 3,
+        "tier": "opus"
+      }
+    ]
+  },
+  "missing_cells": [],
+  "per_column": {
+    "criticality": {
+      "alpha_4rater": {
+        "alpha": -0.11666666666666692,
+        "n": 20.000000000000007,
+        "units": 5,
+        "zero_variance": false
+      },
+      "alpha_3blind": {
+        "alpha": 1,
+        "n": 15,
+        "units": 5,
+        "zero_variance": true
+      },
+      "cells": {
+        "stars": {
+          "catalog": 2,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "river-networks": {
+          "catalog": 1,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "cities": {
+          "catalog": 0,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "the-internet": {
+          "catalog": 1,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "languages": {
+          "catalog": 0,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "exact_match_all3_vs_catalog": "2/5"
+    },
+    "tipping_transitions": {
+      "alpha_4rater": {
+        "alpha": 0.5412990196078433,
+        "n": 20,
+        "units": 5,
+        "zero_variance": false
+      },
+      "alpha_3blind": {
+        "alpha": 0.7445759368836291,
+        "n": 15,
+        "units": 5,
+        "zero_variance": false
+      },
+      "cells": {
+        "stars": {
+          "catalog": 0,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "river-networks": {
+          "catalog": 2,
+          "blind": [
+            1,
+            2,
+            2
+          ]
+        },
+        "cities": {
+          "catalog": 1,
+          "blind": [
+            0,
+            1,
+            0
+          ]
+        },
+        "the-internet": {
+          "catalog": 0,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        },
+        "languages": {
+          "catalog": 2,
+          "blind": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "exact_match_all3_vs_catalog": "2/5"
+    },
+    "emergence": {
+      "alpha_4rater": {
+        "alpha": 0.07638888888888884,
+        "n": 19.999999999999996,
+        "units": 5,
+        "zero_variance": false
+      },
+      "alpha_3blind": {
+        "alpha": -0.1200000000000001,
+        "n": 15,
+        "units": 5,
+        "zero_variance": false
+      },
+      "cells": {
+        "stars": {
+          "catalog": 2,
+          "blind": [
+            3,
+            2,
+            2
+          ]
+        },
+        "river-networks": {
+          "catalog": 2,
+          "blind": [
+            2,
+            3,
+            3
+          ]
+        },
+        "cities": {
+          "catalog": 3,
+          "blind": [
+            3,
+            3,
+            3
+          ]
+        },
+        "the-internet": {
+          "catalog": 2,
+          "blind": [
+            3,
+            3,
+            2
+          ]
+        },
+        "languages": {
+          "catalog": 3,
+          "blind": [
+            3,
+            2,
+            3
+          ]
+        }
+      },
+      "exact_match_all3_vs_catalog": "1/5"
+    }
+  },
+  "per_rater": [
+    {
+      "rater": 1,
+      "tier": "haiku",
+      "mean_signed_bias_vs_catalog": -0.4
+    },
+    {
+      "rater": 2,
+      "tier": "sonnet",
+      "mean_signed_bias_vs_catalog": -0.3333333333333333
+    },
+    {
+      "rater": 3,
+      "tier": "opus",
+      "mean_signed_bias_vs_catalog": -0.4
+    }
+  ]
+}

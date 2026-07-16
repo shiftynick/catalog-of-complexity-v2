@@ -841,7 +841,20 @@ provenance:
            not stated in the paper's main text; their public code/data repository
            (github.com/adbroido/SFAnalysis, cited in the paper's data-availability statement) was
            NOT fetched this session and might resolve this further if a per-snapshot table exists
-           there, but a code repository would need separate evaluation as a citable source type."
+           there, but a code repository would need separate evaluation as a citable source type.
+           RESOLVED-NEGATIVE (2026-07-16, standing-item pass): the repo was fetched and its full
+           git tree enumerated (3,716 entries at commit 306768a769b41049b5b462ad4e3832272e418d5e,
+           static since 2019-07-19) — it contains the pipeline code and 3,669 degree-sequence
+           INPUT files (the CAIDA subset is exactly 122 as-caida snapshots, 2004-01-05 to
+           2007-11-12, x 9 simple-graph variants = 1,098 files, which quantitatively
+           substantiates the 'many simple graphs per snapshot' framing above) but NO results
+           table of any kind; per-snapshot classification is recoverable only by re-running the
+           authors' Python pipeline (~9 CPU-hours), which would be project-original computation,
+           not a citation. The aggregate ~50/50 split therefore remains the best citable answer,
+           now definitively rather than provisionally. Citability evaluation and full tree
+           evidence: research/v0.3/verification-debt/the-internet-sfanalysis.md (verdict:
+           repo citable as a primary-read supplementary artifact of the paper if pinned to the
+           commit SHA above; adopting repo-as-source is a small loggable precedent)."
   flags:
     - column: degree_distribution
       note: >
