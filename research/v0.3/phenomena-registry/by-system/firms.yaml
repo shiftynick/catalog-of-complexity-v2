@@ -1,0 +1,125 @@
+system: firms
+phenomena:
+  - id: firms--firm-size-distribution
+    lineage: firm-size-zipf   # 2026-07-16: same phenomenon as global-economy--firm-size-distribution (same Axtell 2001 evidence base, viewed from child scope) — count as ONE lineage in motif analysis, mirroring the tropical-cyclone-vortex-complex handling
+    name: Firm-size distribution
+    order_parameter: the Pareto/Zipf tail exponent of the size distribution (employees or receipts)
+    substrate:
+      part_type: employees / managers (human agents)
+      count_oom: "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])"
+      interchangeable: no
+    generating_interactions: [market transaction (buy/sell), employment / authority relation]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: self-sustaining
+    effective_theory:
+      status: quantitative-contested
+      theory: "Zipf/Pareto firm-size law (axtell2001); evidence_status measured-untested in the host (OLS log-log fit, no CSN-grade retest confirmed), hence contested rather than predictive"
+    qualitative_difference: >
+      A single firm has one size (an employee count or receipts figure); the
+      Zipf/Pareto tail exponent (employee-based alpha=1.059 per Axtell 2001)
+      is a property of the entire firm population's size distribution across
+      nearly six decades of firm size, unmeasurable from any individual firm
+      and only meaningful as a statement about the population's shape.
+    justification: >
+      Directly matches SPEC's new-statistics test (a distributional law over
+      units; Zipf is the SPEC's own named example) — the same classification
+      the registry already assigned to global-economy--firm-size-distribution,
+      which is the SAME phenomenon on the SAME Axtell 2001 evidence viewed
+      from the parent scope; the lineage tag above prevents double-counting.
+      Substrate note: the distribution's units are firm INSTANCES (the host's
+      instance_population, ~5.5e6 U.S. employer firms, which the host says
+      "licenses the Zipf-law claim"), a population the host records under
+      instance_population rather than component_ontology; the nearest binding
+      component_ontology part is the human-agent row, since firm size is
+      itself measured as employee headcount. Onset always-present-at-scale:
+      Axtell finds the ~alpha=1 fit stable across all ten years 1988-1997 —
+      a standing statistical regularity whenever measured, no threshold
+      claimed. Persistence self-sustaining, mirroring the parent record: the
+      distribution re-forms after shocks via entry/exit replacement (host
+      robustness_resilience justification). Level is
+      exemplar(us-firm-population)/U.S.-only per Axtell's own caveat.
+    confidence: medium
+
+  - id: firms--growth-rate-scaling-law
+    name: Growth-rate scaling law
+    order_parameter: size-dependent standard deviation of annual log growth rate
+    substrate:
+      part_type: employees / managers (human agents)
+      count_oom: "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])"
+      interchangeable: no
+    generating_interactions: [market transaction (buy/sell), employment / authority relation]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "Stanley et al. 1996 growth-rate scaling (stanley1996, snippet-verified for the qualitative exponential/Laplace shape only; the beta~0.18-0.20 exponent is NOT primary-read per the host); Gibrat's 1931 proportionate-growth law as the documented null model it departs from (gibrat1931, [unverified — model knowledge, canonical])"
+    qualitative_difference: >
+      A single firm realizes one growth rate per year; the phenomenon is the
+      SHAPE of the population's growth-rate distribution (exponential/Laplace
+      "tent," not Gaussian) and the power-law decrease of its conditional
+      standard deviation with firm size over ~7 orders of magnitude — both
+      properties of the firm population conditional on size, exhibited by no
+      individual growth realization.
+    justification: >
+      new-statistics per SPEC's test: the order parameter is a distribution
+      shape plus a conditional-scaling exponent, not an object or a
+      time-signature. Runner-up new-dynamics (growth is a temporal process)
+      rejected on the host's own explicit column note: the Stanley et al.
+      finding is "a cross-sectional-conditional-on-size relationship, not a
+      serial autocorrelation claim" (host temporal_correlation). Onset
+      always-present-at-scale: a standing regularity of the measured firm
+      population (U.S. publicly traded manufacturing firms 1975-1991), no
+      threshold claimed. Persistence sustained-while-driven (rather than the
+      size distribution's self-sustaining): growth-rate statistics exist only
+      over ongoing transaction/growth events, i.e. only under continued
+      economic throughput. Effective-theory status quantitative-contested,
+      carried from the host's measured-untested evidence_status and its flag
+      that the beta exponent is "sourced below the project's normal bar."
+    confidence: medium
+
+  - id: firms--organizational-routines
+    name: Organizational routines
+    order_parameter: persistent internal practice patterns (qualitative; no fitted quantitative order parameter located this sweep)
+    substrate:
+      part_type: employees / managers (human agents)
+      count_oom: "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])"
+      interchangeable: no
+    generating_interactions: [employment / authority relation, internal resource/information flow]
+    novelty_kind: new-structure
+    onset: crossover-gradual
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: "evolutionary theory of routines (Nelson & Winter 1982, nelson-winter1982 [unverified — model knowledge, canonical]); organizational-learning vocabulary (March & Simon 1958, march-simon1958 [unverified — model knowledge, canonical]) — named frameworks, no fitted quantitative order parameter in the host"
+    qualitative_difference: >
+      An individual employee performs individual tasks and makes individual
+      decisions; a routine is a persistent, transpersonal practice pattern
+      that survives the turnover of the specific people enacting it — the
+      accreted record of repeated authority and information-flow interactions
+      that shapes future behavior (the host's memory_hysteresis: routines,
+      culture, and capital structure "persist and shape future behavior after
+      shocks"), which no single agent's behavior constitutes.
+    justification: >
+      new-structure per SPEC's test: routines are quasi-static organizational
+      patterning accreted by the dynamics — the RECORD of interaction, not an
+      event — and the host lists "internal teams / routines" as a standing
+      component_ontology part, i.e. the phenomenon persists as recognized
+      structure. Runner-up new-function is genuinely close (Nelson & Winter
+      treat routines as organizational capabilities, and the
+      Coase-transaction-cost view of the firm as a coordination structure
+      would make the firm's capability the phenomenon; the host's provenance
+      flags Coase 1937 as surfaced-but-uncited), but the host's own order
+      parameter foregrounds "persistent internal practice patterns" — a
+      structural framing — so new-structure is primary. Onset
+      crossover-gradual: routines accrete with firm age and repetition; no
+      threshold is claimed anywhere in the host — conservative choice.
+      Persistence sustained-while-driven rather than frozen: routines require
+      continual enactment by employed agents and dissolve with the
+      organization (bankruptcy as absorbing state, host tipping_transitions),
+      unlike a street grid that outlasts its dynamics.
+    confidence: low

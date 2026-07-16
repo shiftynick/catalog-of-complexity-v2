@@ -421,3 +421,231 @@ becomes CLEANER and stronger (new-function genuinely zero in closed systems), wh
 is the opposite direction of weakening — this reclassification actually
 strengthens the second headline. Net verdict for new-function: SURVIVES (post-fix),
 having removed its one contaminating case.
+
+## Batch-2 verification pass (2026-07-16)
+
+Adversarial verifier pass over the five new by-system files (convection-cells,
+chemical-oscillators, turbulent-flows, firms, road-traffic-systems; 18 phenomena) against
+SPEC.md v1 and the 2026-07-03 pass above as severity calibration. Every host-entry evidence
+claim in the 18 records was checked against the host YAML directly (backing columns read:
+summaries, tipping_transitions, criticality, extreme_event_statistics, memory_hysteresis,
+openness_dissipation, chaos_sensitivity, emergence, self_organization, robustness_resilience,
+scoping notes). All 18 substrate bindings were checked mechanically: every substrate.part_type
+matches a component_ontology part name verbatim, every generating_interactions item matches an
+interaction_ontology row name verbatim, and every count_oom/interchangeable pair matches the
+ontology — zero binding errors found. All phenomenon names and order_parameters are verbatim
+from the hosts' emergent_phenomena blocks, in order, none invented. Every
+threshold-bifurcation record carries onset_control_parameter text.
+
+### Verdict table (18 records)
+
+| record | verdict | change |
+|---|---|---|
+| convection-cells--rolls-hexagons | SOUND | none |
+| convection-cells--spiral-defect-chaos | SOUND | none |
+| convection-cells--turbulent-heat-transport | **CHALLENGE** | novelty_kind new-function -> new-statistics |
+| chemical-oscillators--temporal-oscillation | SOUND | none |
+| chemical-oscillators--trigger-spiral-target-waves | SOUND | none (onset unknown affirmed as correct conservatism) |
+| chemical-oscillators--turing-pattern | SOUND | none (hard case affirmed) |
+| chemical-oscillators--period-doubling-chaos | SOUND | none |
+| turbulent-flows--energy-cascade | SOUND | none (new-dynamics affirmed) |
+| turbulent-flows--coherent-structures | SOUND | none |
+| turbulent-flows--laminar-turbulent-transition | SOUND | none |
+| turbulent-flows--intermittency | SOUND | none |
+| firms--firm-size-distribution | SOUND | none |
+| firms--growth-rate-scaling-law | SOUND | none |
+| firms--organizational-routines | SOUND | none (NOT excluded from emergence test — see below) |
+| road-traffic-systems--wide-moving-jam | **CHALLENGE** | persistence self-sustaining -> sustained-while-driven; onset disclosure sharpened; **new-entity SURVIVES** |
+| road-traffic-systems--macroscopic-fundamental-diagram | SOUND | none (quantitative-contested demotion affirmed) |
+| road-traffic-systems--synchronized-flow | SOUND | none |
+| road-traffic-systems--capacity-drop | SOUND | none |
+
+### CHALLENGE 1 — convection-cells--turbulent-heat-transport: new-function -> new-statistics
+
+The record scored the high-Ra heat-transport regime new-function on the argument that Nu
+"measures what the layer as a whole can DO — move heat — exploitable/measurable from
+outside." This is the same argument shape the 2026-07-03 pass REJECTED for
+stars--solar-dynamo (Section 4 above): the surviving new-function records (price discovery,
+global reachability, grammar, ECI/agglomeration, hub/authority) are all
+information/service capabilities consumed by an external agent; enhanced heat transport,
+like sustained field regeneration, is a downstream PHYSICAL CONSEQUENCE of the collective
+state, not a capability an outside agent uses in that sense. Accepting it would have
+reintroduced the registry's only closed-system new-function (convection-cells declares
+alphabet_closure: closed) via precisely the argument already ruled out — silently
+re-contaminating the "new-function is non-closed" headline the original pass declared
+CLEAN post-fix. The record's own named runner-up, new-statistics for the Nu~Ra scaling-law
+framing, is the consistent kind: a fitted functional relation among aggregate variables
+(Grossmann-Lohse piecewise exponents) that no single realization at one Ra exhibits —
+the same treatment the registry gives cities--urban-scaling-laws and (this batch) the MFD.
+new-dynamics (the "regime" in the phenomenon's name) was considered and set aside: the
+recorded order parameter is a transport-response scaling, not a regime label or
+time-signature. Applied: novelty_kind flipped, justification rewritten, dated note on the
+record. Confidence stays medium.
+
+### CHALLENGE 2 — road-traffic-systems--wide-moving-jam (the breaker-test record)
+
+Scrutinized hardest, per the pre-registered breaker test (FINDINGS.md standing test #3).
+Three sub-verdicts:
+
+**new-entity: SURVIVES hostile review.** SPEC's own new-entity vocabulary names "traffic
+jam" verbatim as a paradigm case (SPEC.md line 42), and the point/count/track test is met
+on the host's OWN evidence, not general knowledge: extreme_event_statistics records
+empirical detector-station tracking of jam fronts with a measured, near-invariant
+propagation speed (~15-20 km/h; evidence_status measured-untested), nonlinearity records
+the Sugiyama ring's demonstration of a trackable backward-propagating jam
+(secondary-corroborated), and the qualitative_difference is the batch's best-articulated
+SFI test (upstream propagation against every constituent's direction of motion;
+constituent turnover with object identity preserved — no single driver-vehicle unit is or
+contains a jam). The sourcing is snippet/secondary throughout, which is disclosed and
+already caps confidence at medium; per the calibration set in Section 3 above (weakly
+cited onsets got confidence downgrades, never novelty_kind flips), citation weakness is
+not grounds to overturn a SPEC-verbatim kind assignment supported by the host's recorded
+measurands. No SPEC-text or host-evidence reason to reclassify was found.
+
+**persistence: RECLASSIFIED self-sustaining -> sustained-while-driven.** SPEC defines
+self-sustaining as "persists without specific driving once formed." A wide moving jam
+exists only under vehicle throughput: the record's own justification concedes it
+"dissolves when upstream inflow starves it," and the Sugiyama ring — the record's main
+self-sustainment evidence — is persistence under CONTINUOUS driving (fueled,
+driver-propelled vehicles perpetually feeding the upstream front), not autonomy from
+driving; a jam in zero traffic does not exist. The record conflated independence from the
+INITIATING perturbation (no bottleneck needed — true, and captured by the
+instability/threshold framing) with independence from driving (false). The
+chemical-oscillators host itself draws exactly this distinction with its hurricane
+analogy, and the registry's other driven macro-objects (eyewall, granulation, extratropical
+cyclone, coherent structures' population reading) are all sustained-while-driven. Applied:
+persistence flipped, justification rewritten, dated note on the record. Side effect worth
+recording: the jam now carries the full dissipative-cell motif signature
+(new-entity | threshold-bifurcation | sustained-while-driven) — the motif's first
+non-closed-alphabet member, which is a cleaner and more interesting result than the
+original self-sustaining outlier reading.
+
+**onset: threshold-bifurcation STANDS, disclosure sharpened.** The hostile case: the cited
+kc = 27 veh/km/lane is the MFD's calibrated critical-density parameter (an illustrative
+lecture-notes calibration of a different phenomenon's order parameter), the Sugiyama ring
+density (~1e2 veh/km) is a different regime, and no jam-formation-specific published
+critical value is pinned anywhere in the host — so the call really rests on the host's
+qualitative critical-density/phase-transition framing (criticality block, mechanism_status
+proposed), not on a pinned number. That is, however, exactly the qualitative-threshold
+shape the 2026-07-03 pass let stand for tropical-cyclones--eyewall and --vortex ("no
+single pinned numerical critical value, qualitative threshold framing only" — kept, flagged
+weak), and the host does carry an entry-cited, snippet-verified numeric control-parameter
+value plus an explicit discontinuous-transition framing, which is strictly stronger than
+the [unverified — model knowledge] onsets the original pass also let stand (with
+confidence downgrades) for stars and galaxies. Flipping to episodic-triggered (whose SPEC
+text names "congestion collapse episodes") was considered and rejected: individual jams
+are episodic realizations, but the Krakauer onset axis asks how the phenomenon appears as
+driving grows, and the host's framing is a density threshold — the same
+realizations-vs-onset distinction that keeps hurricanes at threshold-bifurcation. Applied:
+verifier note appended inside onset_control_parameter naming the kc-borrowing problem
+plainly; onset value and medium confidence unchanged (the record had already self-capped
+confidence for exactly this reason).
+
+**Consequence for the candidate law:** the entity/function complementarity law's STRONG
+form (all new-entity phenomena live in closed-alphabet systems) is DEAD, exactly as the
+pre-registration anticipated: road-traffic-systems declares alphabet_closure: constrained,
+and its wide moving jam is new-entity after hostile review. The honest reading the
+2026-07-03 pass already recommended ("entities are rarer, not absent, outside physics")
+is now the only supportable form. The function side of the law is untouched — and this
+pass's convection reclassification actively protected it from a spurious closed-system
+new-function.
+
+### One-line notes on the SOUND records
+
+- **rolls-hexagons**: cleanest record in the batch; Ra_c = 1707.762 is entry-cited
+  (chandrasekhar1961, multiply snippet-corroborated including the exact figure) in three
+  host blocks; new-entity with new-structure runner-up properly argued via the host's own
+  O(10-20) roll-count numerosity note; confidence high is earned (unlike the stars/galaxies
+  precedents, the citation IS in the host with the number corroborated).
+- **spiral-defect-chaos**: crossover-gradual is correct conservatism — the host names a
+  "secondary transition" but pins no critical Ra; new-dynamics regime reading matches the
+  host's "real, established chaotic regime" language (chaos_sensitivity, verified).
+- **temporal-oscillation**: Hopf bifurcation entry-cited via host tipping_transitions
+  (fn1974, snippet-verified); sustained-while-driven correctly follows the host
+  scoping_note's explicit anti-self-sustaining ruling (verified verbatim).
+- **trigger/spiral/target waves**: onset unknown is CORRECT conservatism, not missed
+  evidence — the host was checked: no excitability criterion, initiation threshold, or
+  control parameter for wave nucleation appears in any attribute or source ("assemble
+  spontaneously" in unstirred layers is a regime condition, as the record says);
+  episodic-triggered would rest on the "trigger wave" name alone. new-entity is clean
+  (host summary's "crawl across the dish" + countable spirals/rings).
+- **turing-pattern**: the new-structure vs new-entity hard case is affirmed as scored —
+  SPEC's "frozen OR quasi-static" wording covers a stationary maintained pattern, the
+  stationarity genuinely distinguishes it from the convection rolls' new-entity call
+  (circulating dynamical cells vs. static concentration lattice), and the new-entity
+  runner-up is named per the hard-case rule. Not fully satisfying, but a defensible
+  anchored judgment with the disagreement disclosed; medium confidence is right.
+- **period-doubling-chaos**: strongest citation in the batch (sws1982 abstract directly
+  retrieved); textbook new-dynamics; SOUND at high confidence.
+- **energy-cascade**: the new-dynamics call survives scrutiny — the phenomenon the host
+  names is the CASCADE (a sustained collective cross-scale transfer process; the host
+  interaction_ontology's "mechanistic engine" language, verified), with the -5/3 spectrum
+  its statistical signature; the record names new-statistics as runner-up with honest
+  reasoning, satisfying the hard-case rule. K41 at quantitative-contested correctly
+  carries the host's own intermittency-anomaly hold-at-3.
+- **coherent-structures**: Re_c ~ 2040 is the batch's best onset citation (avila2011,
+  snippet-verified, carried in four host blocks — verified); puffs are the textbook
+  point/count/track case; the transient-entity vs sustained-population split is correctly
+  recorded per the rainbands precedent. The subcritical (finite-amplitude-trigger) nature
+  of puff creation was weighed against threshold-bifurcation and rejected as grounds to
+  flip: SPEC's test is a published critical value in a formal control parameter, which
+  this record meets verbatim.
+- **laminar-turbulent-transition**: regime test met verbatim; the DP framing tension is
+  inherited from the host's own disclosure, correctly held at quantitative-contested and
+  medium confidence.
+- **intermittency**: verbatim new-statistics; always-present-at-scale per SPEC's own
+  "many new-statistics items" clause; low confidence correctly reflects the
+  [unverified — model knowledge] She-Leveque lineage.
+- **firm-size-distribution**: Zipf is SPEC's named new-statistics example; the
+  units-are-firm-instances vs component_ontology-binds-humans wrinkle is disclosed inside
+  the record (the host has no firms part — firms are its instance_population), which is
+  the honest resolution of a mechanical SPEC constraint; the lineage tag against
+  global-economy--firm-size-distribution correctly imports the Section 2 lineage
+  convention; self-sustaining is host-backed (robustness_resilience: entry/exit
+  replacement, verified) and matches the parent record and the rank-size motif.
+- **growth-rate-scaling-law**: new-statistics clean; the new-dynamics runner-up rejection
+  correctly quotes the host's own cross-sectional-not-serial ruling
+  (temporal_correlation, verified verbatim).
+- **organizational-routines**: examined for world-GDP-style exclusion from the emergence
+  test and KEPT — the two cases are not alike. World GDP was excluded because it is
+  conceded bookkeeping summation (no qualitative organization change). A routine passes
+  the SFI test on its own stated terms: it is a transpersonal practice pattern that
+  survives complete turnover of the individuals enacting it (host memory_hysteresis,
+  verified) — no individual's behavior constitutes it, and persistence-through-
+  substrate-replacement is a qualitative organizational property, not a sum. Its weakness
+  is evidentiary (vocabulary-level theory, [unverified — model knowledge, canonical]
+  citations, no fitted order parameter), which is exactly what effective_theory:
+  vocabulary and confidence: low already encode — the same treatment the original pass
+  gave planetary-climate--tipping-elements (kept at low) rather than the world-GDP
+  exclusion. Exclusion is for emergence-test FAILURE, not for weak evidence.
+- **macroscopic-fundamental-diagram**: the new-statistics call matches the
+  urban-scaling-laws comparator; the new-function runner-up is correctly rejected (the MFD
+  is a regularity the flow OBEYS, not a capability exercised — and the field's USE of it
+  is researchers' use of a description, the tipping-elements category-error the original
+  pass flagged). The quantitative-predictive -> quantitative-contested demotion is
+  affirmed: the host's own memory_hysteresis documents the relation is not single-valued
+  (loading/unloading loops, geroliminis-sun2011) and all sourcing is snippet-level —
+  demoting against the host's more flattering "predictive macro-law" emergence language
+  is the right SPEC-conservative move, not an error.
+- **synchronized-flow**: episodic-triggered is correct conservatism (SPEC's own
+  "congestion collapse episodes" text; host "metastable" framing verified; no published
+  F->S critical value in the host); low confidence correctly reflects the
+  secondary-synthesis-only sourcing of the entire three-phase taxonomy.
+- **capacity-drop**: new-dynamics via documented two-branch hysteresis (host
+  memory_hysteresis score 3, "genuine documented loop/bistability," verified);
+  threshold-bifurcation is better-grounded here than for the jam record because the host's
+  tipping_transitions is specifically ABOUT this mechanism ("specific, modeled,
+  thresholded mechanism ... quantified magnitude," verified) — though it shares the
+  borrowed-kc weakness documented in Challenge 2, which the record's medium confidence
+  already prices in.
+
+### Headline verdict
+
+**The wide-moving-jam new-entity classification SURVIVED hostile review.** The strong form
+of the entity/function complementarity law (new-entity occurs only in closed-alphabet
+systems) is dead on a pre-registered, adversarially-verified record; the weak form
+("entities are rarer, not absent, outside physics") stands. Post-pass batch-2 kind counts:
+new-entity 4 (rolls-hexagons, trigger/spiral/target waves, coherent-structures,
+wide-moving-jam — three closed, ONE CONSTRAINED), new-dynamics 7, new-statistics 5 (up one
+via the convection reclassification), new-structure 2, new-function 0 — batch 2
+contributes no new-function at all, keeping the function side of the law clean.

@@ -1,6 +1,6 @@
 {
   "generated": "2026-07-03",
-  "n_phenomena": 63,
+  "n_phenomena": 81,
   "n_excluded": 1,
   "excluded": [
     {
@@ -8,34 +8,34 @@
       "reason": "fails — conceded bookkeeping summation (sum of national GDPs), not a qualitative departure from unit behavior; excluded from motif/cross-tab analysis (verification 2026-07-03)"
     }
   ],
-  "n_systems": 15,
+  "n_systems": 20,
   "conformance_problems": [],
   "crossTabs": {
     "novelty_x_onset": {
       "new-entity": {
-        "threshold-bifurcation": 5,
+        "threshold-bifurcation": 8,
         "crossover-gradual": 5,
         "always-present-at-scale": 1,
         "episodic-triggered": 1,
-        "unknown": 0
+        "unknown": 1
       },
       "new-dynamics": {
-        "threshold-bifurcation": 7,
-        "crossover-gradual": 4,
+        "threshold-bifurcation": 11,
+        "crossover-gradual": 6,
         "always-present-at-scale": 1,
-        "episodic-triggered": 3,
+        "episodic-triggered": 4,
         "unknown": 2
       },
       "new-statistics": {
         "threshold-bifurcation": 1,
-        "crossover-gradual": 2,
-        "always-present-at-scale": 10,
+        "crossover-gradual": 3,
+        "always-present-at-scale": 14,
         "episodic-triggered": 2,
         "unknown": 0
       },
       "new-structure": {
-        "threshold-bifurcation": 1,
-        "crossover-gradual": 7,
+        "threshold-bifurcation": 2,
+        "crossover-gradual": 8,
         "always-present-at-scale": 4,
         "episodic-triggered": 1,
         "unknown": 0
@@ -50,34 +50,39 @@
     },
     "novelty_x_category": {
       "new-entity": {
+        "physical-chemical": 3,
         "socio-economic": 0,
         "geophysical": 9,
         "astrophysical": 3,
         "cultural-informational": 0,
-        "infrastructure": 0
+        "infrastructure": 1
       },
       "new-dynamics": {
+        "physical-chemical": 5,
         "socio-economic": 2,
         "geophysical": 8,
         "astrophysical": 2,
         "cultural-informational": 2,
-        "infrastructure": 3
+        "infrastructure": 5
       },
       "new-statistics": {
-        "socio-economic": 5,
+        "physical-chemical": 2,
+        "socio-economic": 7,
         "geophysical": 3,
         "astrophysical": 2,
         "cultural-informational": 2,
-        "infrastructure": 3
+        "infrastructure": 4
       },
       "new-structure": {
-        "socio-economic": 1,
+        "physical-chemical": 1,
+        "socio-economic": 2,
         "geophysical": 6,
         "astrophysical": 3,
         "cultural-informational": 2,
         "infrastructure": 1
       },
       "new-function": {
+        "physical-chemical": 0,
         "socio-economic": 3,
         "geophysical": 0,
         "astrophysical": 0,
@@ -87,23 +92,23 @@
     },
     "novelty_x_closure": {
       "new-entity": {
-        "closed": 12,
-        "constrained": 0,
+        "closed": 15,
+        "constrained": 1,
         "open": 0
       },
       "new-dynamics": {
-        "closed": 10,
-        "constrained": 6,
+        "closed": 15,
+        "constrained": 8,
         "open": 1
       },
       "new-statistics": {
-        "closed": 5,
-        "constrained": 7,
+        "closed": 7,
+        "constrained": 10,
         "open": 3
       },
       "new-structure": {
-        "closed": 9,
-        "constrained": 2,
+        "closed": 10,
+        "constrained": 3,
         "open": 2
       },
       "new-function": {
@@ -115,57 +120,57 @@
     "onset_x_theory": {
       "threshold-bifurcation": {
         "none": 0,
-        "vocabulary": 2,
-        "quantitative-contested": 5,
-        "quantitative-predictive": 7
+        "vocabulary": 3,
+        "quantitative-contested": 8,
+        "quantitative-predictive": 11
       },
       "crossover-gradual": {
         "none": 0,
-        "vocabulary": 10,
-        "quantitative-contested": 4,
+        "vocabulary": 12,
+        "quantitative-contested": 6,
         "quantitative-predictive": 8
       },
       "always-present-at-scale": {
         "none": 0,
         "vocabulary": 5,
-        "quantitative-contested": 6,
+        "quantitative-contested": 10,
         "quantitative-predictive": 7
       },
       "episodic-triggered": {
         "none": 0,
         "vocabulary": 4,
-        "quantitative-contested": 2,
+        "quantitative-contested": 3,
         "quantitative-predictive": 1
       },
       "unknown": {
         "none": 0,
         "vocabulary": 2,
         "quantitative-contested": 0,
-        "quantitative-predictive": 0
+        "quantitative-predictive": 1
       }
     },
     "novelty_x_persistence": {
       "new-entity": {
-        "transient": 3,
-        "sustained-while-driven": 8,
+        "transient": 4,
+        "sustained-while-driven": 11,
         "self-sustaining": 1,
         "frozen": 0
       },
       "new-dynamics": {
         "transient": 3,
-        "sustained-while-driven": 7,
+        "sustained-while-driven": 14,
         "self-sustaining": 6,
         "frozen": 1
       },
       "new-statistics": {
         "transient": 2,
-        "sustained-while-driven": 4,
-        "self-sustaining": 5,
+        "sustained-while-driven": 8,
+        "self-sustaining": 6,
         "frozen": 4
       },
       "new-structure": {
         "transient": 0,
-        "sustained-while-driven": 7,
+        "sustained-while-driven": 9,
         "self-sustaining": 1,
         "frozen": 5
       },
@@ -178,25 +183,82 @@
     }
   },
   "substrate_interchangeable": {
-    "yes": 30,
-    "no": 33,
+    "yes": 41,
+    "no": 40,
     "other": 0
   },
   "motifs": [
     {
       "signature": "new-dynamics | crossover-gradual | sustained-while-driven",
-      "n": 4,
-      "n_lineages": 4,
+      "n": 6,
+      "n_lineages": 6,
       "categories": [
+        "physical-chemical",
         "socio-economic",
         "geophysical",
         "cultural-informational"
       ],
       "members": [
+        "convection-cells: Spiral-defect chaos",
         "financial-markets: Volatility regimes",
         "global-economy: Business cycle",
         "ocean-circulation: AMOC overturning cell",
+        "turbulent-flows: Energy cascade",
         "world-wide-web: Search-driven discoverability concentration"
+      ]
+    },
+    {
+      "signature": "new-entity | threshold-bifurcation | sustained-while-driven",
+      "n": 7,
+      "n_lineages": 5,
+      "categories": [
+        "physical-chemical",
+        "geophysical",
+        "infrastructure",
+        "astrophysical"
+      ],
+      "members": [
+        "convection-cells: Convection rolls / hexagonal cells",
+        "planetary-climate: Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry) [lineage: tropical-cyclone-vortex-complex]",
+        "road-traffic-systems: Wide moving jam (stop-and-go wave)",
+        "stars: Granulation",
+        "tropical-cyclones: Eyewall (and eye) [lineage: tropical-cyclone-vortex-complex]",
+        "tropical-cyclones: Storm-scale vortex [lineage: tropical-cyclone-vortex-complex]",
+        "weather-systems: Extratropical cyclone (with fronts)"
+      ]
+    },
+    {
+      "signature": "new-statistics | always-present-at-scale | sustained-while-driven",
+      "n": 5,
+      "n_lineages": 5,
+      "categories": [
+        "geophysical",
+        "socio-economic",
+        "infrastructure",
+        "physical-chemical"
+      ],
+      "members": [
+        "earthquake-fault-systems: Gutenberg-Richter magnitude-frequency scaling",
+        "firms: Growth-rate scaling law",
+        "road-traffic-systems: Macroscopic fundamental diagram (MFD)",
+        "the-internet: Traffic self-similarity",
+        "turbulent-flows: Intermittency"
+      ]
+    },
+    {
+      "signature": "new-structure | crossover-gradual | sustained-while-driven",
+      "n": 4,
+      "n_lineages": 4,
+      "categories": [
+        "socio-economic",
+        "astrophysical",
+        "geophysical"
+      ],
+      "members": [
+        "cities: Neighborhood identity / segregation patterns",
+        "firms: Organizational routines",
+        "galaxies: Spiral arms (density wave)",
+        "tropical-cyclones: Warm core"
       ]
     },
     {
@@ -216,23 +278,8 @@
       ]
     },
     {
-      "signature": "new-structure | crossover-gradual | sustained-while-driven",
-      "n": 3,
-      "n_lineages": 3,
-      "categories": [
-        "socio-economic",
-        "astrophysical",
-        "geophysical"
-      ],
-      "members": [
-        "cities: Neighborhood identity / segregation patterns",
-        "galaxies: Spiral arms (density wave)",
-        "tropical-cyclones: Warm core"
-      ]
-    },
-    {
       "signature": "new-statistics | always-present-at-scale | self-sustaining",
-      "n": 5,
+      "n": 6,
       "n_lineages": 5,
       "categories": [
         "socio-economic",
@@ -241,7 +288,8 @@
       "members": [
         "cities: City-size distribution (Zipf's law)",
         "financial-markets: Strategy ecology",
-        "global-economy: Firm-size distribution",
+        "firms: Firm-size distribution [lineage: firm-size-zipf]",
+        "global-economy: Firm-size distribution [lineage: firm-size-zipf]",
         "languages: Zipf's law (word-frequency distribution)",
         "world-wide-web: Heavy-tailed degree distribution"
       ]
@@ -260,6 +308,21 @@
         "river-networks: Delta lobe-switching cycle",
         "stars: Sunspot / magnetic activity cycle",
         "stars: Solar dynamo (differential rotation + convection generating magnetic field)"
+      ]
+    },
+    {
+      "signature": "new-dynamics | threshold-bifurcation | sustained-while-driven",
+      "n": 4,
+      "n_lineages": 4,
+      "categories": [
+        "physical-chemical",
+        "infrastructure"
+      ],
+      "members": [
+        "chemical-oscillators: Temporal oscillation (color-cycling)",
+        "chemical-oscillators: Period-doubling route to chaos (CSTR regime)",
+        "road-traffic-systems: Capacity drop at breakdown",
+        "turbulent-flows: Laminar-turbulent transition"
       ]
     },
     {
@@ -289,25 +352,123 @@
         "planetary-climate: Global atmospheric circulation (Hadley/Ferrel/polar cells, jet streams)",
         "weather-systems: Atmospheric river"
       ]
-    },
-    {
-      "signature": "new-entity | threshold-bifurcation | sustained-while-driven",
-      "n": 5,
-      "n_lineages": 3,
-      "categories": [
-        "geophysical",
-        "astrophysical"
-      ],
-      "members": [
-        "planetary-climate: Weather systems (cyclones, anticyclones — includes tropical-cyclones as a resolved sub-entry) [lineage: tropical-cyclone-vortex-complex]",
-        "stars: Granulation",
-        "tropical-cyclones: Eyewall (and eye) [lineage: tropical-cyclone-vortex-complex]",
-        "tropical-cyclones: Storm-scale vortex [lineage: tropical-cyclone-vortex-complex]",
-        "weather-systems: Extratropical cyclone (with fronts)"
-      ]
     }
   ],
   "phenomena": [
+    {
+      "id": "chemical-oscillators--temporal-oscillation",
+      "name": "Temporal oscillation (color-cycling)",
+      "order_parameter": "oscillation period and amplitude of the indicator redox potential (ferroin/ferriin or Ce3+/Ce4+ ratio)",
+      "substrate": {
+        "part_type": "substrate/oxidant/catalyst molecules and ions (bromate, malonic acid, cerium or ferroin, bromide, bromous acid, and other Oregonator-model intermediates)",
+        "count_oom": "~1e22-1e23 (1 L batch, see numerosity)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "autocatalytic amplification",
+        "inhibitory bromide regeneration"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Hopf bifurcation governing oscillation onset, analyzed in Oregonator parameter space (reagent concentrations / flow rate) — Field & Noyes 1974 (fn1974) [snippet-verified — title/existence confirmed via search; not primary-read this sweep, per the host entry's read-status annotation]. This is the host's tipping_transitions score-2 mechanism: \"a named mechanism with a threshold in the control-parameter space ... published and modeled.\"\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "the Oregonator limit-cycle model (fn1974) atop the FKN mechanism (fkn1972); host emergence block: \"formalized, predictive macro-level descriptions ... the actual working vocabulary the field uses\"\n"
+      },
+      "qualitative_difference": "A single molecule undergoes individual reaction events with no period; the bulk oscillation is a collective limit cycle of the whole reacting medium — the beaker \"ticks,\" swinging its redox state back and forth with a measurable period and amplitude generated entirely by the coupled autocatalytic and delayed-inhibitory kinetics (host summary: \"nothing external times the beat\"). Period is a property no molecule has.\n",
+      "justification": "novelty_kind new-dynamics: the order parameter (period and amplitude) is a pure time-signature, the spec's own test case. onset threshold-bifurcation: the Hopf bifurcation (fn1974) is a named, formally modeled threshold carried by the host's tipping_transitions. persistence sustained-while-driven, NOT self-sustaining — recorded per the host scoping_note's explicit ruling: the batch regime damps out as reagents are irreversibly consumed (transient train, ~1e3-1e4 s), and the CSTR regime oscillates only while fresh reagent is continuously pumped; \"Neither regime is 'self-sustaining' in this catalog's autonomous-once-formed sense ... externally driven exactly as a hurricane requires ocean heat flux.\" The single recorded value takes the CSTR (sustained-while-driven) reading, with the batch regime's transient reading preserved here rather than blended, mirroring the host's own openness_dissipation convention.\n",
+      "confidence": "high",
+      "system": "chemical-oscillators",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "chemical-oscillators--trigger-spiral-target-waves",
+      "name": "Trigger/spiral/target waves",
+      "order_parameter": "wave-front propagation speed; spiral-core rotation period",
+      "substrate": {
+        "part_type": "substrate/oxidant/catalyst molecules and ions (bromate, malonic acid, cerium or ferroin, bromide, bromous acid, and other Oregonator-model intermediates)",
+        "count_oom": "~1e22-1e23 (1 L batch, see numerosity)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "autocatalytic amplification",
+        "inhibitory bromide regeneration",
+        "molecular diffusion"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "excitable-medium wave theory atop the Oregonator (host emergence block names \"excitable-medium wave theory\" as working vocabulary that predicts wave speed; fn1974; primary wave papers zaikin-zhabotinsky1970 and winfree1972, both [unverified — model knowledge] per the host's annotations)\n"
+      },
+      "qualitative_difference": "A single molecule diffuses and reacts locally; a spiral or target wave is a persistent, localized, individuable macro-object — you can point at one spiral, count the spirals and target rings in a dish, and track a given spiral core's rotation over time as it \"crawls across the dish\" (host summary) — with its own propagation speed (~1-10 mm/min, host timescales) and core rotation period that no molecule possesses.\n",
+      "justification": "novelty_kind new-entity: spiral cores and target patterns pass the spec's strict point/count/track test — they are the registry's cleanest chemical example of trackable localized objects; runner-up new-dynamics for the rotation-period framing, but the phenomenon is the objects, not the regime. onset unknown — the conservative choice per spec: the host entry says the waves \"assemble spontaneously\" in UNSTIRRED thin layers (a regime condition, not a control parameter) and cites no threshold, bifurcation analysis, or excitability criterion for wave initiation anywhere in its attributes or sources; episodic-triggered (waves nucleating from local perturbations) is plausible from the \"trigger wave\" name alone but would rest on a claim the entry does not carry. persistence sustained-while-driven: waves propagate only while the medium's chemical-potential throughput lasts (batch thin-layer waves die with reagent exhaustion, per the scoping_note's regime ruling on the parent chemistry).\n",
+      "confidence": "medium",
+      "system": "chemical-oscillators",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "chemical-oscillators--turing-pattern",
+      "name": "Turing pattern (CIMA/gel-reactor variant)",
+      "order_parameter": "stationary pattern wavelength (hexagonal/striped)",
+      "substrate": {
+        "part_type": "substrate/oxidant/catalyst molecules and ions (bromate, malonic acid, cerium or ferroin, bromide, bromous acid, and other Oregonator-model intermediates)",
+        "count_oom": "~1e22-1e23 (1 L batch, see numerosity)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "autocatalytic amplification",
+        "inhibitory bromide regeneration",
+        "molecular diffusion"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Turing (reaction-diffusion) instability of the uniform state — Ouyang & Swinney 1991, \"Transition from a uniform state to hexagonal and striped Turing patterns\" (ouyang-swinney1991) [snippet-verified — title and existence confirmed via search, per the host's annotation]. The instability is a named, published bifurcation of the uniform state, but the host entry pins no numerical critical value for the controlling parameter (and deliberately withholds the ~0.2 mm wavelength figure as unconfirmed) — the citation is at the qualitative-bifurcation level the entry itself supports, per the tropical-cyclones registry precedent.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "Turing/reaction-diffusion instability framework (ouyang-swinney1991; host self_organization: \"a spatial pattern can emerge purely from reaction-diffusion instability with zero external templating\") — held at vocabulary rather than quantitative because the host entry carries no confirmed quantitative prediction (the wavelength value was explicitly withheld as unverified)\n"
+      },
+      "qualitative_difference": "Individual molecules react and diffuse isotropically with no preferred length scale; the Turing pattern is a STATIONARY spatial organization — hexagons or stripes with a selected wavelength — that the initially uniform medium builds and holds against diffusion, the first experimental realization of Turing's instability (ouyang-swinney1991). No molecule has a wavelength or a lattice position.\n",
+      "justification": "novelty_kind new-structure (runner-up new-entity, since individual spots/stripes are countable): the order parameter is a quasi-static spatial wavelength and the pattern is stationary — the spec's \"quasi-static spatial organization accreted by the dynamics\" — rather than a moving trackable object or a time-signature. onset threshold-bifurcation: the Turing instability is by construction a bifurcation of the uniform state and the host cites the transition paper directly (ouyang-swinney1991); recorded with the qualitative caveat above since no numerical critical parameter value exists in the entry. persistence sustained-while-driven: the gel reactor is continuously fed; the pattern is a maintained dissipative structure, not a frozen record — it does not survive reagent cutoff.\n",
+      "confidence": "medium",
+      "system": "chemical-oscillators",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "chemical-oscillators--period-doubling-chaos",
+      "name": "Period-doubling route to chaos (CSTR regime)",
+      "order_parameter": "bifurcation-parameter (flow rate) indexed period sequence; reconstructed attractor dimension",
+      "substrate": {
+        "part_type": "substrate/oxidant/catalyst molecules and ions (bromate, malonic acid, cerium or ferroin, bromide, bromous acid, and other Oregonator-model intermediates)",
+        "count_oom": "~1e22-1e23 (1 L batch, see numerosity)",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "autocatalytic amplification",
+        "inhibitory bromide regeneration",
+        "continuous feed/removal (CSTR regime only)"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "CSTR flow rate as the bifurcation parameter of an experimentally demonstrated period-doubling cascade to chaos — Simoyi, Wolf & Swinney 1982, PRL 49:245 (sws1982) [snippet-verified — abstract text retrieved directly via search, per the host's annotation; companion attractor-reconstruction paper rss1983 remains unverified — model knowledge, a standing verification debt flagged by the host].\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "one-dimensional return-map description of the experimental time series (sws1982; host chaos_sensitivity: \"dynamics well-described by a one-dimensional map,\" an experimentally reconstructed low-dimensional attractor, evidence_status measured)\n"
+      },
+      "qualitative_difference": "No molecule's kinetics contain a period-2, period-4, ... cascade or a strange attractor; the period-doubling sequence is a collective bifurcation structure of the whole driven medium's limit cycle, traversed as an external flow rate is tuned — a time-signature of the bulk dynamics that exists at no molecular scale.\n",
+      "justification": "novelty_kind new-dynamics: the order parameter (a bifurcation-indexed period sequence and attractor dimension) is entirely a time-signature/ regime object, the spec's clearest test. onset threshold-bifurcation: the cascade is literally a sequence of published bifurcations in a named control parameter (flow rate), with the strongest read-status in this entry (directly retrieved abstract, sws1982). persistence sustained-while-driven: the phenomenon exists only in the pumped CSTR regime — the host notes the batch regime \"never sustains oscillation long enough to exhibit period-doubling\" (chaos_sensitivity flag).\n",
+      "confidence": "high",
+      "system": "chemical-oscillators",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
     {
       "id": "cities--urban-scaling-laws",
       "name": "Urban scaling laws",
@@ -419,6 +580,91 @@
       "system": "cities",
       "category": "socio-economic",
       "alphabet_closure": "open"
+    },
+    {
+      "id": "convection-cells--rolls-hexagons",
+      "name": "Convection rolls / hexagonal cells",
+      "order_parameter": "pattern amplitude near onset (Ginzburg-Landau-type order parameter); roll/cell wavelength (2*pi/k_c)",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "continuum; not independently countable (see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "buoyancy coupling",
+        "viscous momentum exchange",
+        "thermal diffusion"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Rayleigh number Ra with published critical value Ra_c = 1707.762 (rigid-rigid boundaries; Ra_c ~= 1100.65 rigid-free, 657.51 free-free) and critical wavenumber k_c ~= 3.117 — Chandrasekhar 1961 (chandrasekhar1961) [unverified — model knowledge / multiply snippet-corroborated; NOT primary-read, per the host entry's own read-status annotation], underlying original solution Pellew & Southwell 1940 (pellew-southwell1940) [unverified — model knowledge]. The host entry's tipping_transitions (score 2) and emergence blocks both name this bifurcation explicitly.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "amplitude-equation / Ginzburg-Landau pattern-formation theory (cross-hohenberg1993; host emergence block: \"standard, predictive, and not a mere restatement of the underlying Navier-Stokes/ heat-equation micro-dynamics\")\n"
+      },
+      "qualitative_difference": "A single fluid parcel simply conducts heat and experiences local buoyancy and drag; the rolls/hexagons are individuable, countable cellular structures with a selected wavelength (2*pi/k_c) set by the layer depth, which appear spontaneously above Ra_c — \"order can crystallize out of nothing but a temperature difference\" (host summary). No parcel has a wavelength or a cell boundary.\n",
+      "justification": "novelty_kind new-entity: rolls and hexagonal cells pass the spec's point-at-one/count-them/track-one test directly (the host's numerosity note even discusses counting rolls across an apparatus, O(10) at aspect ratio ~10); runner-up new-structure, since the pattern is also a standing spatial organization, but the cells are discrete trackable objects first. onset threshold-bifurcation: the cleanest control-parameter citation in this batch — a published numerical critical value (Ra_c=1707.762, chandrasekhar1961) that the host entry carries in emergence, tipping_transitions, and its sources block. persistence sustained-while-driven: openness_dissipation (score 4) states removing the temperature difference collapses the pattern to pure conduction \"essentially instantly\" — a canonical dissipative structure.\n",
+      "confidence": "high",
+      "system": "convection-cells",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "convection-cells--spiral-defect-chaos",
+      "name": "Spiral-defect chaos",
+      "order_parameter": "defect density / correlation length in the spatiotemporal-chaos regime (no single scalar order parameter established)",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "continuum; not independently countable (see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "buoyancy coupling",
+        "viscous momentum exchange",
+        "thermal diffusion"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "spiral-defect-chaos regime description via defect density / correlation length (morris-bodenschatz-cannell-ahlers1993); the host entry's own order-parameter note concedes \"no single scalar order parameter established\"\n"
+      },
+      "qualitative_difference": "A single fluid parcel follows a smooth deterministic trajectory under local forces; spiral-defect chaos is a genuine spatiotemporal-chaotic REGIME of the whole layer — a shifting tangle of spirals and defects in which the ordered collective pattern itself becomes dynamically disordered (host chaos_sensitivity: \"a real, established chaotic regime, not a metaphorical one\"). No parcel exhibits a regime.\n",
+      "justification": "novelty_kind new-dynamics (runner-up new-entity, since individual spirals and defects are momentarily trackable objects): the phenomenon the host entry names is the chaotic REGIME — a collective temporal behavior/state of the layer, matching the spec's regime test — not the individual short-lived defects. onset crossover-gradual is the CONSERVATIVE choice per spec: the host calls this a \"secondary transition ... at Ra well above onset\" (morris-bodenschatz-cannell- ahlers1993) but cites no published critical Ra value or formal bifurcation analysis for SDC onset (its tipping_transitions score 2 counts only the Ra_c conduction-convection onset), so threshold-bifurcation's required control-parameter citation is not available in the entry; crossover-gradual is chosen and flagged as conservative rather than guessing a threshold.\n",
+      "confidence": "medium",
+      "system": "convection-cells",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "convection-cells--turbulent-heat-transport",
+      "name": "Turbulent heat-transport regime (high Ra)",
+      "order_parameter": "Nusselt number Nu (dimensionless heat flux) as a function of Ra and Pr",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "continuum; not independently countable (see numerosity)",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "buoyancy coupling",
+        "viscous momentum exchange",
+        "thermal diffusion"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Grossmann-Lohse unifying scaling theory (grossmann-lohse2000; ahlers-grossmann-lohse2009) — the host's own Nu-Ra flag notes the exponent is regime-dependent/piecewise (~0.28-0.31 classically, trending toward ~1/2 in a HYPOTHESIZED ultimate regime), and the entry deliberately declines to record one universal exponent\n"
+      },
+      "qualitative_difference": "A single fluid parcel can only conduct or advect its own heat content locally; the turbulent high-Ra layer transports heat across the gap at Nu times the conductive rate — a system-level transport CAPABILITY, measured from outside as a dimensionless heat flux, that no parcel and no sub-threshold (conducting) layer possesses.\n",
+      "justification": "novelty_kind new-statistics (reclassified from new-function at the 2026-07-16 batch-2 verification pass; runner-ups: new-function for the original capability framing, new-dynamics for the \"regime\" reading in the phenomenon's name): the order parameter is a fitted scaling relation among aggregate variables (Nu as a function of Ra and Pr, Grossmann-Lohse piecewise exponents) that no single realization at one Ra exhibits — the same treatment the registry gives urban scaling laws and the MFD. The original new-function call failed the verification pass's tightened external-use test (set in the stars--solar-dynamo reclassification): enhanced heat transport is a downstream physical consequence of the collective state, not an information/service capability consumed by an external agent, and it would have reintroduced the registry's only closed-system new-function on the same argument shape already rejected for the solar dynamo. onset crossover-gradual: the host cites Ra_c only for convective ONSET (the rolls item above) and provides no published critical Ra for entry into the turbulent transport regime; the Grossmann-Lohse framework the entry cites is a smooth regime-crossover description (piecewise exponents in the Ra-Pr plane), so crossover-gradual is both accurate and conservative. effective_theory quantitative-contested: quantitatively predictive in the classical regimes but with the ultimate-regime exponent explicitly hypothesized/unsettled per the host's own flag.\n",
+      "confidence": "medium",
+      "system": "convection-cells",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
     },
     {
       "id": "earthquake-fault-systems--gutenberg-richter-scaling",
@@ -642,6 +888,91 @@
       "alphabet_closure": "constrained"
     },
     {
+      "id": "firms--firm-size-distribution",
+      "lineage": "firm-size-zipf",
+      "name": "Firm-size distribution",
+      "order_parameter": "the Pareto/Zipf tail exponent of the size distribution (employees or receipts)",
+      "substrate": {
+        "part_type": "employees / managers (human agents)",
+        "count_oom": "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "market transaction (buy/sell)",
+        "employment / authority relation"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "self-sustaining",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Zipf/Pareto firm-size law (axtell2001); evidence_status measured-untested in the host (OLS log-log fit, no CSN-grade retest confirmed), hence contested rather than predictive"
+      },
+      "qualitative_difference": "A single firm has one size (an employee count or receipts figure); the Zipf/Pareto tail exponent (employee-based alpha=1.059 per Axtell 2001) is a property of the entire firm population's size distribution across nearly six decades of firm size, unmeasurable from any individual firm and only meaningful as a statement about the population's shape.\n",
+      "justification": "Directly matches SPEC's new-statistics test (a distributional law over units; Zipf is the SPEC's own named example) — the same classification the registry already assigned to global-economy--firm-size-distribution, which is the SAME phenomenon on the SAME Axtell 2001 evidence viewed from the parent scope; the lineage tag above prevents double-counting. Substrate note: the distribution's units are firm INSTANCES (the host's instance_population, ~5.5e6 U.S. employer firms, which the host says \"licenses the Zipf-law claim\"), a population the host records under instance_population rather than component_ontology; the nearest binding component_ontology part is the human-agent row, since firm size is itself measured as employee headcount. Onset always-present-at-scale: Axtell finds the ~alpha=1 fit stable across all ten years 1988-1997 — a standing statistical regularity whenever measured, no threshold claimed. Persistence self-sustaining, mirroring the parent record: the distribution re-forms after shocks via entry/exit replacement (host robustness_resilience justification). Level is exemplar(us-firm-population)/U.S.-only per Axtell's own caveat.\n",
+      "confidence": "medium",
+      "system": "firms",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "firms--growth-rate-scaling-law",
+      "name": "Growth-rate scaling law",
+      "order_parameter": "size-dependent standard deviation of annual log growth rate",
+      "substrate": {
+        "part_type": "employees / managers (human agents)",
+        "count_oom": "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "market transaction (buy/sell)",
+        "employment / authority relation"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Stanley et al. 1996 growth-rate scaling (stanley1996, snippet-verified for the qualitative exponential/Laplace shape only; the beta~0.18-0.20 exponent is NOT primary-read per the host); Gibrat's 1931 proportionate-growth law as the documented null model it departs from (gibrat1931, [unverified — model knowledge, canonical])"
+      },
+      "qualitative_difference": "A single firm realizes one growth rate per year; the phenomenon is the SHAPE of the population's growth-rate distribution (exponential/Laplace \"tent,\" not Gaussian) and the power-law decrease of its conditional standard deviation with firm size over ~7 orders of magnitude — both properties of the firm population conditional on size, exhibited by no individual growth realization.\n",
+      "justification": "new-statistics per SPEC's test: the order parameter is a distribution shape plus a conditional-scaling exponent, not an object or a time-signature. Runner-up new-dynamics (growth is a temporal process) rejected on the host's own explicit column note: the Stanley et al. finding is \"a cross-sectional-conditional-on-size relationship, not a serial autocorrelation claim\" (host temporal_correlation). Onset always-present-at-scale: a standing regularity of the measured firm population (U.S. publicly traded manufacturing firms 1975-1991), no threshold claimed. Persistence sustained-while-driven (rather than the size distribution's self-sustaining): growth-rate statistics exist only over ongoing transaction/growth events, i.e. only under continued economic throughput. Effective-theory status quantitative-contested, carried from the host's measured-untested evidence_status and its flag that the beta exponent is \"sourced below the project's normal bar.\"\n",
+      "confidence": "medium",
+      "system": "firms",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "firms--organizational-routines",
+      "name": "Organizational routines",
+      "order_parameter": "persistent internal practice patterns (qualitative; no fitted quantitative order parameter located this sweep)",
+      "substrate": {
+        "part_type": "employees / managers (human agents)",
+        "count_oom": "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])",
+        "interchangeable": "no"
+      },
+      "generating_interactions": [
+        "employment / authority relation",
+        "internal resource/information flow"
+      ],
+      "novelty_kind": "new-structure",
+      "onset": "crossover-gradual",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "vocabulary",
+        "theory": "evolutionary theory of routines (Nelson & Winter 1982, nelson-winter1982 [unverified — model knowledge, canonical]); organizational-learning vocabulary (March & Simon 1958, march-simon1958 [unverified — model knowledge, canonical]) — named frameworks, no fitted quantitative order parameter in the host"
+      },
+      "qualitative_difference": "An individual employee performs individual tasks and makes individual decisions; a routine is a persistent, transpersonal practice pattern that survives the turnover of the specific people enacting it — the accreted record of repeated authority and information-flow interactions that shapes future behavior (the host's memory_hysteresis: routines, culture, and capital structure \"persist and shape future behavior after shocks\"), which no single agent's behavior constitutes.\n",
+      "justification": "new-structure per SPEC's test: routines are quasi-static organizational patterning accreted by the dynamics — the RECORD of interaction, not an event — and the host lists \"internal teams / routines\" as a standing component_ontology part, i.e. the phenomenon persists as recognized structure. Runner-up new-function is genuinely close (Nelson & Winter treat routines as organizational capabilities, and the Coase-transaction-cost view of the firm as a coordination structure would make the firm's capability the phenomenon; the host's provenance flags Coase 1937 as surfaced-but-uncited), but the host's own order parameter foregrounds \"persistent internal practice patterns\" — a structural framing — so new-structure is primary. Onset crossover-gradual: routines accrete with firm age and repetition; no threshold is claimed anywhere in the host — conservative choice. Persistence sustained-while-driven rather than frozen: routines require continual enactment by employed agents and dissolve with the organization (bankruptcy as absorbing state, host tipping_transitions), unlike a street grid that outlasts its dynamics.\n",
+      "confidence": "low",
+      "system": "firms",
+      "category": "socio-economic",
+      "alphabet_closure": "constrained"
+    },
+    {
       "id": "galaxies--spiral-arms",
       "name": "Spiral arms (density wave)",
       "order_parameter": "spiral pattern speed; pitch angle; arm amplitude/contrast",
@@ -837,6 +1168,7 @@
     },
     {
       "id": "global-economy--firm-size-distribution",
+      "lineage": "firm-size-zipf",
       "name": "Firm-size distribution",
       "order_parameter": "Pareto/Zipf tail exponent alpha ~1.0 (U.S. firms, Axtell 2001) — class-level regularity in how economic activity distributes across firm sizes",
       "substrate": {
@@ -1504,6 +1836,120 @@
       "alphabet_closure": "closed"
     },
     {
+      "id": "road-traffic-systems--wide-moving-jam",
+      "name": "Wide moving jam (stop-and-go wave)",
+      "order_parameter": "downstream-front propagation speed (~15-20 km/h, near-invariant)",
+      "substrate": {
+        "part_type": "driver-vehicle units",
+        "count_oom": "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "car-following",
+        "lane-changing / merging"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "vehicle density. Critical-density breakdown is the host's own framing (criticality: \"a sharp, discontinuous drop in flow at a critical density\"); an illustrative calibrated critical density kc = 27 veh/km/lane is carried in the host's MFD order parameter (tudelft-fhwa-mfd-capacity, [snippet-verified — not primary-read]), and the Sugiyama ring experiment demonstrates spontaneous jam formation at a specific density (22-23 vehicles on a 230 m circuit; sugiyama2008, [secondary-corroborated — not primary-read, IOPscience 403]). Citation quality is snippet/secondary throughout — disclosed per SPEC rather than upgraded. VERIFIER NOTE (batch-2 verification, 2026-07-16): the kc = 27 veh/km/lane figure is the MFD's calibrated critical-density parameter — an illustrative lecture-notes calibration of a DIFFERENT phenomenon's order parameter — pressed into service here because it is the only numeric critical density the host carries; the Sugiyama ring density (22-23 veh per 230 m, ~1e2 veh/km) is a different regime, not a published critical value for open-road jam formation. No jam-formation-specific published critical value is pinned anywhere in the host: the threshold-bifurcation call rests on the host's qualitative critical-density/phase-transition framing (criticality, mechanism_status: proposed) — the same qualitative-threshold shape the original verification pass let stand for tropical-cyclones--eyewall, so it stands here too, with this disclosure sharpened.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Kerner three-phase theory / wide-moving-jam characteristic-speed invariance (kerner-rehborn1996-secondary, secondary-synthesis only); car-following instability demonstrated experimentally (sugiyama2008). The host records the three-phase framework's mechanism_status as 'proposed', and no CSN-grade jam-size event statistics exist — quantitative claims present but contested/unconsolidated"
+      },
+      "qualitative_difference": "A single driver-vehicle unit brakes, accelerates, and follows the car ahead; the wide moving jam is a macroscopic object that no unit is or contains — it propagates UPSTREAM at ~15-20 km/h against the direction every constituent vehicle is facing, maintains that front speed near-invariantly across widely different traffic and road conditions, and persists as the same trackable object while its constituent vehicles completely turn over (each car enters the back of the jam and exits the front).\n",
+      "justification": "new-entity applied strictly: the SPEC's own vocabulary names \"traffic jam\" verbatim as a new-entity example, and the test is met on the host's own evidence — you can point at one, count them, and track one over time (empirical detector-station tracking of jam fronts with a measured, near-invariant propagation speed, host extreme_event_statistics, kerner-rehborn1996-secondary; jams have identifiable birth at breakdown and death at dissolution, host nonlinearity justification). No principled SPEC reason to classify otherwise was found; runner-up new-dynamics (the stop-and-go OSCILLATION viewed as a time-signature) is rejected because the host's order parameter is a property of a trackable object (front speed), not a period or regime label. REGISTRY NOTE (pre-registered breaker test #3, FINDINGS.md): the host declares interaction_ontology alphabet_closure: constrained, NOT closed — so this record is a new-entity phenomenon in a non-closed-alphabet system, and the strong form of the entity/function complementarity law (all new-entity in closed-alphabet systems) fails on this record as classified. Recorded plainly, per the test's pre-registration. Onset threshold-bifurcation over episodic-triggered (the considered alternative, whose SPEC text names \"congestion collapse episodes\"): individual jams are indeed episodic realizations, but the Krakauer onset axis asks how the phenomenon appears as driving grows, and the host carries an explicit published-critical-density, phase-transition framing (criticality, tipping_transitions) with citable control-parameter values — threshold-bifurcation's test. Persistence sustained-while-driven (reclassified from self-sustaining at the 2026-07-16 batch-2 verification pass): once formed, the jam persists and propagates independent of the INITIATING perturbation — the Sugiyama ring shows it needs no bottleneck at all, and the ring jam persists indefinitely at constant vehicle count — but it exists only under vehicle throughput and dissolves when upstream inflow starves it; the flow itself IS the driving (a jam in zero traffic does not exist), so the SPEC's dissipative-structure category applies, exactly as it does to the eyewall and to BZ oscillation under the host's own hurricane analogy. Independence from the trigger is captured by the threshold/instability framing, not by the persistence field.\n",
+      "confidence": "medium",
+      "system": "road-traffic-systems",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "road-traffic-systems--macroscopic-fundamental-diagram",
+      "name": "Macroscopic fundamental diagram (MFD)",
+      "order_parameter": "network-wide space-mean flow/density/speed relationship; nominal practical freeway lane capacity ~2000-2400 veh/h/lane (commonly cited nominal value ~2200 veh/h/lane), and a calibrated illustrative three-parameter fit — free-flow speed u0=110 km/h, critical density kc=27 veh/km/lane, jam density kj=110 veh/km/lane, implied capacity ~2241 veh/h/lane (sources.tudelft-fhwa-mfd-capacity) [snippet-verified — added per flag-fixing 2026-07-16, coverage check; not primary-read]\n",
+      "substrate": {
+        "part_type": "driver-vehicle units",
+        "count_oom": "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "car-following",
+        "lane-changing / merging",
+        "signal / right-of-way control",
+        "route/path choice"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "MFD / network fundamental diagram (geroliminis-daganzo2008, snippet-verified; calibrated parameters tudelft-fhwa-mfd-capacity, snippet-verified). The host's emergence justification calls it a 'formalized, predictive macro-law used by the transportation-engineering field' — but the same host documents loading/unloading hysteresis loops (memory_hysteresis, geroliminis-sun2011) showing the relation is not single-valued, and all sourcing is snippet-level, so demoted from quantitative-predictive to quantitative-contested"
+      },
+      "qualitative_difference": "A single driver-vehicle unit has a speed and a spacing; the MFD is a reproducible whole-network relation between space-mean flow, density, and speed that emerges only when averaging over a large urban area (Geroliminis & Daganzo's Yokohama demonstration) — individual links show wide scatter, and no vehicle or link exhibits the network-level curve that lets a metro area be treated as a single flow system.\n",
+      "justification": "This is the batch's hard call. Scored new-statistics: the order parameter is a curve/shape — a fitted functional relation among aggregate variables (u0, kc, kj parameters) — matching the registry's own treatment of urban scaling laws (cities--urban-scaling-laws), whose order parameter is likewise a fitted law relating aggregates rather than an object, regime, or time-signature. Runner-up: new-function — the host's emergence justification foregrounds that the MFD is USED by the field to characterize and manage network flow (a macro-law exploitable from outside, the same consideration that tipped commuting/agglomeration structure to new-function in cities) — rejected here because the MFD itself is a regularity the flow OBEYS, not a capability the system exercises; the host frames it as an order parameter/macro-law, not as something the network does. Onset always-present-at-scale over crossover-gradual (considered): the well-defined MFD appears whenever the averaging population of links/vehicles is large enough (the host's exemplar note: the collapse appears \"when averaged over a large urban area\"), which is SPEC's always-present-at-scale test almost verbatim; no critical aggregation threshold is published in the host. Persistence sustained-while-driven: the relation is a property of ongoing flow and vanishes without vehicle throughput.\n",
+      "confidence": "medium",
+      "system": "road-traffic-systems",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "road-traffic-systems--synchronized-flow",
+      "name": "Synchronized flow (three-phase theory)",
+      "order_parameter": "flow-density scatter pattern distinct from free flow and wide moving jams",
+      "substrate": {
+        "part_type": "driver-vehicle units",
+        "count_oom": "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "car-following",
+        "lane-changing / merging"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "episodic-triggered",
+      "onset_control_parameter": "unknown",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "Kerner three-phase traffic theory (kerner-rehborn1996-secondary, secondary-synthesis only — not primary- or snippet-verified against the originating paper). The host's criticality column records the framework's mechanism_status as 'proposed' with no CSN-grade event statistics — a quantitative phase taxonomy whose standing is contested/unconsolidated"
+      },
+      "qualitative_difference": "A single driver-vehicle unit follows the car ahead at some speed and gap; synchronized flow is a distinct collective traffic REGIME — congested but still moving, with speeds correlated across lanes and a two-dimensional flow-density scatter that fits no single fundamental- diagram curve — qualitatively distinct from both free flow and the wide moving jam, and definable only at the level of the traffic stream, not of any one vehicle.\n",
+      "justification": "new-dynamics per SPEC's test: the order parameter identifies a REGIME (one of three phases in Kerner's taxonomy), and \"regime\" is SPEC's own new-dynamics keyword. Runner-up new-entity: Kerner's empirical taxonomy does individuate synchronized-flow regions (typically pinned at bottlenecks) as spatially localized patterns, but unlike the wide moving jam they lack the trackable, condition-invariant propagating front that makes the jam countable and followable (the host's extreme_event_statistics measurand belongs to the jam, not to synchronized flow), so the entity test is not cleanly met. Onset episodic-triggered: synchronized flow arises in discrete breakdown episodes at bottlenecks when conditions align — SPEC's own episodic-triggered text names \"congestion collapse episodes\" — and the host describes these states as \"metastable\" (tipping_transitions) rather than carrying a dedicated published critical value for the free-flow-to-synchronized transition itself (the F->S transition is nucleation-like in the three-phase literature); the conservative choice over threshold-bifurcation, whose control-parameter requirement the host cannot meet for this specific transition. Persistence sustained-while-driven: pinned at bottlenecks while demand persists, dissolving as demand falls.\n",
+      "confidence": "low",
+      "system": "road-traffic-systems",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
+      "id": "road-traffic-systems--capacity-drop",
+      "name": "Capacity drop at breakdown",
+      "order_parameter": "post-breakdown outflow relative to pre-breakdown maximum flow (2-25% reduction range)",
+      "substrate": {
+        "part_type": "driver-vehicle units",
+        "count_oom": "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "car-following",
+        "lane-changing / merging"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "vehicle density at the bottleneck. Breakdown at a critical density is the host's explicit framing (tipping_transitions: \"a specific, modeled, thresholded mechanism is published with a quantified magnitude\" — capacity drop of 2-25%, commonly cited example ~500 veh/h / 11.9% at a freeway ramp merge; mdpi-capacity-drop-2023, [snippet-verified — not primary-read]); the illustrative calibrated critical density kc = 27 veh/km/lane is carried in the host's MFD order parameter (tudelft-fhwa-mfd-capacity, [snippet-verified]). Citation quality is snippet-level throughout — disclosed per SPEC.\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "capacity-drop literature (mdpi-capacity-drop-2023 review/tutorial, snippet-verified): magnitude quantified but ranging widely (2-25%) across studies, mechanism still under review; paired with the two-branch fundamental-diagram hysteresis (memory_hysteresis, geroliminis-sun2011). Quantified but unconsolidated — contested rather than predictive"
+      },
+      "qualitative_difference": "A single driver-vehicle unit's throughput contribution is just its own passage; the capacity drop is a collective regime shift in which the bottleneck's discharge flow, once breakdown occurs, settles measurably BELOW the maximum flow the same road sustained moments earlier under free flow — the system as a whole holds a memory of its breakdown (two-branch hysteresis: deceleration and acceleration branches at the same density), a bistability no individual vehicle's behavior exhibits or explains alone.\n",
+      "justification": "new-dynamics per SPEC's test: the order parameter characterizes a regime shift — the switch from the free-flow branch to a distinct, lower-throughput congested branch with documented hysteresis between them (host memory_hysteresis score 3, \"genuine documented loop/bistability, not mere relaxation lag\") — a collective temporal behavior with no single-unit analogue. Runner-up new-statistics (the 2-25% reduction range) rejected: that range is dispersion across STUDIES, not a distributional law over units or events within the system. Onset threshold-bifurcation over episodic-triggered (considered): the host's tipping_transitions column explicitly calls this a thresholded, formally modeled mechanism with a quantified magnitude and citable control-parameter values, meeting threshold-bifurcation's bar; individual breakdowns are episodic realizations of that threshold crossing. Persistence sustained-while-driven: the reduced-outflow state persists while the upstream queue is present and recovers when the queue dissolves (the acceleration branch of the hysteresis loop).\n",
+      "confidence": "medium",
+      "system": "road-traffic-systems",
+      "category": "infrastructure",
+      "alphabet_closure": "constrained"
+    },
+    {
       "id": "stars--granulation",
       "name": "Granulation",
       "order_parameter": "granule size/lifetime distribution; perimeter-area fractal dimension D",
@@ -1856,6 +2302,119 @@
       "confidence": "high",
       "system": "tropical-cyclones",
       "category": "geophysical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "turbulent-flows--energy-cascade",
+      "name": "Energy cascade",
+      "order_parameter": "dissipation rate epsilon / spectral energy flux",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "nonlinear inertial (advective) coupling",
+        "momentum / pressure-gradient exchange",
+        "viscous dissipation"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "crossover-gradual",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "K41 theory (kolmogorov1941a, kolmogorov1941b; frisch1995 — all [unverified — model knowledge] per the host's annotations): E(k)=C*epsilon^(2/3)*k^(-5/3), quantitatively predictive for low-order statistics but with intermittency (anomalous higher-order structure-function scaling) as \"the field's own acknowledged open anomaly,\" per the host's emergence block (held at 3 pending its resolution)\n"
+      },
+      "qualitative_difference": "A single fluid parcel has no cascade (the host entry's own qualitative-difference note): it merely exchanges momentum locally and dissipates viscously. The cascade is a collective cross-scale transfer process — energy injected at the integral scale is handed down through a hierarchy of eddies spanning L/eta ~ Re^(3/4) and dissipated at the Kolmogorov microscale — a multi-scale organized process with no single-parcel or single-scale analogue.\n",
+      "justification": "novelty_kind new-dynamics, with new-statistics the genuine and explicitly named runner-up: the phenomenon named is the CASCADE — a sustained collective transfer PROCESS whose order parameter (epsilon, spectral flux) is a rate of the ongoing dynamics — matching new-dynamics' collective-temporal-behavior test; the runner-up new-statistics reading rests on the -5/3 spectrum being an ensemble-statistical law no single realization exhibits, but that spectrum is the cascade's SIGNATURE, and the host's interaction_ ontology names advective coupling as \"the mechanistic engine of the energy cascade\" — a process, not a distribution. onset crossover-gradual: given a turbulent flow, the inertial range opens smoothly as scale separation L/eta ~ Re^(3/4) grows (host spatial_extent detail); the sharp Re_c threshold belongs to the laminar-turbulent transition, registered separately below, and the host cites no distinct threshold for the cascade itself. persistence sustained-while-driven: host openness_dissipation — remove injection and the cascade decays within roughly one eddy-turnover time.\n",
+      "confidence": "medium",
+      "system": "turbulent-flows",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "turbulent-flows--coherent-structures",
+      "name": "Coherent structures (puffs, vortex tubes)",
+      "order_parameter": "puff count/density and lifetime statistics (transitional pipe flow)",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "nonlinear inertial (advective) coupling",
+        "momentum / pressure-gradient exchange",
+        "viscous dissipation"
+      ],
+      "novelty_kind": "new-entity",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Reynolds number, critical value Re_c ~ 2040 in pipe flow — the balance point between puff decay and puff splitting — Avila et al. 2011, Science 333:192-196 (avila2011) [snippet-verified via PubMed/arXiv/IOP secondary sources; not primary-read, per the host's annotation]. Carried by the host's characteristic_timescales (measured, medium confidence), feedback, tipping_transitions, and memory_hysteresis blocks.\n",
+      "persistence": "transient",
+      "effective_theory": {
+        "status": "quantitative-predictive",
+        "theory": "puff decay/splitting-time statistics (super-exponential scaling with Re near Re_c, Poisson/memoryless — avila2011, evidence_status measured) plus the self-sustaining-process (SSP) regeneration mechanism (waleffe1997, [unverified — model knowledge])\n"
+      },
+      "qualitative_difference": "A single fluid parcel is featureless and interchangeable; a puff is a localized, individuable patch of turbulence in a laminar background that can be pointed at, counted (puff count/density is the host's own order parameter), and tracked from birth through decay or splitting — with measured lifetime statistics — none of which is a property of any parcel or of the laminar flow around it.\n",
+      "justification": "novelty_kind new-entity: puffs are the registry's textbook point/count/track case — the entire Avila et al. 2011 measurement program consists of tracking individual puffs' decay and splitting events; vortex tubes pass the same test qualitatively. onset threshold-bifurcation: Re_c ~ 2040 is an entry-cited, named control parameter with a published critical value (avila2011), satisfying the spec's requirement directly. persistence transient: individual puffs form and dissolve on eddy-turnover timescales (host modularity) with memoryless finite lifetimes even above Re_c; the puff POPULATION is sustained-while-driven above Re_c (splitting outpaces decay while the pressure gradient drives the flow), but the named entities themselves are transient — recorded per the tropical-cyclones rainbands precedent, with the population reading preserved here rather than blended.\n",
+      "confidence": "high",
+      "system": "turbulent-flows",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "turbulent-flows--laminar-turbulent-transition",
+      "name": "Laminar-turbulent transition",
+      "order_parameter": "Reynolds number relative to Re_c (~2040, pipe flow) — a formally cited control parameter",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "nonlinear inertial (advective) coupling",
+        "momentum / pressure-gradient exchange",
+        "viscous dissipation"
+      ],
+      "novelty_kind": "new-dynamics",
+      "onset": "threshold-bifurcation",
+      "onset_control_parameter": "Reynolds number, Re_c ~ 2040 for pipe flow (avila2011, [snippet-verified via PubMed/arXiv/IOP secondary sources; not primary-read]); the same transition is claimed in the primary literature to be a continuous directed-percolation-class critical transition in Couette flow (lemoult2016) and channel flow (sanotamai2016), both [snippet-verified; nature.com full text blocked — DP critical exponent values not recovered, the host's single biggest disclosed verification debt].\n",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "directed-percolation universality-class framework (lemoult2016, sanotamai2016; dp-review-2022) — quantitative critical-exponent claims exist in the primary literature but are unverified by this project (mechanism_status: proposed in the host's criticality block), and the host's tipping_transitions discloses an unresolved framing tension between the discrete bistable-puff picture and the continuous DP-transition picture as \"the field's own open question\"\n"
+      },
+      "qualitative_difference": "A single fluid parcel has no Reynolds number and no flow regime; the laminar-turbulent transition is a change in the collective dynamical REGIME of the entire flow — from ordered laminar sliding to the disordered multi-scale turbulent state — a whole-system qualitative reorganization (\"a genuine phase transition whose critical exponents belong to the same universality class as forest fires and epidemics,\" host summary) that exists only at the level of the coupled flow.\n",
+      "justification": "novelty_kind new-dynamics (runner-up new-statistics, for the DP laminar-gap/cluster scale-invariant statistics at threshold): the order parameter is which dynamical REGIME the flow occupies — the spec's regime test for new-dynamics — while the DP statistics are the transition's critical signature, unverified at exponent level in this project's evidence base. onset threshold-bifurcation: the host's own emergent_phenomena line calls Re_c \"a formally cited control parameter,\" with the published value Re_c ~ 2040 (avila2011). persistence sustained-while-driven: the turbulent state above Re_c persists only while driving (pressure gradient/stirring) continues — dropping below Re_c through routine flow changes \"destroys the turbulent state outright\" (host robustness_resilience).\n",
+      "confidence": "medium",
+      "system": "turbulent-flows",
+      "category": "physical-chemical",
+      "alphabet_closure": "closed"
+    },
+    {
+      "id": "turbulent-flows--intermittency",
+      "name": "Intermittency",
+      "order_parameter": "anomalous scaling exponents of higher-order velocity structure functions vs. K41's linear prediction (She-Leveque 1994 lineage) [unverified — model knowledge]; the field's own acknowledged open anomaly, disclosed here rather than smoothed over.\n",
+      "substrate": {
+        "part_type": "fluid parcels",
+        "count_oom": "unknown",
+        "interchangeable": "yes"
+      },
+      "generating_interactions": [
+        "nonlinear inertial (advective) coupling",
+        "viscous dissipation"
+      ],
+      "novelty_kind": "new-statistics",
+      "onset": "always-present-at-scale",
+      "persistence": "sustained-while-driven",
+      "effective_theory": {
+        "status": "quantitative-contested",
+        "theory": "anomalous-scaling / intermittency-correction models (She-Leveque 1994 lineage, [unverified — model knowledge] per the host's own order-parameter annotation) — the host's emergence block holds the class at 3 explicitly \"pending resolution of known anomalies (intermittency)\"\n"
+      },
+      "qualitative_difference": "No single fluid parcel — and no single flow realization — exhibits a structure-function scaling exponent: the anomalous exponents are ensemble-statistical properties of velocity-increment distributions across the cascade, whose systematic deviation from K41's linear prediction reflects the collective spatial burstiness of dissipation that only the statistics of many eddies across many scales reveal.\n",
+      "justification": "novelty_kind new-statistics: the order parameter is a set of distribution-shape exponents that no single realization exhibits — the spec's new-statistics test verbatim; no runner-up is close (there is no object, regime, or capability here). onset always-present-at-scale: intermittency is a statistical regularity of the developed cascade wherever the inertial range is wide enough to measure structure functions — the spec's own \"many new-statistics items\" case; the host entry offers no separate onset claim for it, and the only citation lineage is [unverified — model knowledge], so confidence is held low rather than reaching for a threshold framing the entry does not carry. persistence sustained-while-driven: it is a statistic of the driven cascade and vanishes with it. effective_theory quantitative-contested: this is the field's named open anomaly per the host's own disclosure.\n",
+      "confidence": "low",
+      "system": "turbulent-flows",
+      "category": "physical-chemical",
       "alphabet_closure": "closed"
     },
     {

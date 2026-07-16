@@ -1,0 +1,144 @@
+system: convection-cells
+phenomena:
+  - id: convection-cells--rolls-hexagons
+    name: Convection rolls / hexagonal cells
+    order_parameter: "pattern amplitude near onset (Ginzburg-Landau-type order parameter); roll/cell wavelength (2*pi/k_c)"
+    substrate:
+      part_type: fluid parcels
+      count_oom: "continuum; not independently countable (see numerosity)"
+      interchangeable: yes
+    generating_interactions: [buoyancy coupling, viscous momentum exchange, thermal diffusion]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Rayleigh number Ra with published critical value Ra_c = 1707.762
+      (rigid-rigid boundaries; Ra_c ~= 1100.65 rigid-free, 657.51 free-free)
+      and critical wavenumber k_c ~= 3.117 — Chandrasekhar 1961
+      (chandrasekhar1961) [unverified — model knowledge / multiply
+      snippet-corroborated; NOT primary-read, per the host entry's own
+      read-status annotation], underlying original solution Pellew &
+      Southwell 1940 (pellew-southwell1940) [unverified — model knowledge].
+      The host entry's tipping_transitions (score 2) and emergence blocks
+      both name this bifurcation explicitly.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-predictive
+      theory: >
+        amplitude-equation / Ginzburg-Landau pattern-formation theory
+        (cross-hohenberg1993; host emergence block: "standard, predictive,
+        and not a mere restatement of the underlying Navier-Stokes/
+        heat-equation micro-dynamics")
+    qualitative_difference: >
+      A single fluid parcel simply conducts heat and experiences local
+      buoyancy and drag; the rolls/hexagons are individuable, countable
+      cellular structures with a selected wavelength (2*pi/k_c) set by the
+      layer depth, which appear spontaneously above Ra_c — "order can
+      crystallize out of nothing but a temperature difference"
+      (host summary). No parcel has a wavelength or a cell boundary.
+    justification: >
+      novelty_kind new-entity: rolls and hexagonal cells pass the spec's
+      point-at-one/count-them/track-one test directly (the host's numerosity
+      note even discusses counting rolls across an apparatus, O(10) at
+      aspect ratio ~10); runner-up new-structure, since the pattern is also
+      a standing spatial organization, but the cells are discrete trackable
+      objects first. onset threshold-bifurcation: the cleanest
+      control-parameter citation in this batch — a published numerical
+      critical value (Ra_c=1707.762, chandrasekhar1961) that the host entry
+      carries in emergence, tipping_transitions, and its sources block.
+      persistence sustained-while-driven: openness_dissipation (score 4)
+      states removing the temperature difference collapses the pattern to
+      pure conduction "essentially instantly" — a canonical dissipative
+      structure.
+    confidence: high
+
+  - id: convection-cells--spiral-defect-chaos
+    name: Spiral-defect chaos
+    order_parameter: "defect density / correlation length in the spatiotemporal-chaos regime (no single scalar order parameter established)"
+    substrate:
+      part_type: fluid parcels
+      count_oom: "continuum; not independently countable (see numerosity)"
+      interchangeable: yes
+    generating_interactions: [buoyancy coupling, viscous momentum exchange, thermal diffusion]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: vocabulary
+      theory: >
+        spiral-defect-chaos regime description via defect density /
+        correlation length (morris-bodenschatz-cannell-ahlers1993); the host
+        entry's own order-parameter note concedes "no single scalar order
+        parameter established"
+    qualitative_difference: >
+      A single fluid parcel follows a smooth deterministic trajectory under
+      local forces; spiral-defect chaos is a genuine spatiotemporal-chaotic
+      REGIME of the whole layer — a shifting tangle of spirals and defects
+      in which the ordered collective pattern itself becomes dynamically
+      disordered (host chaos_sensitivity: "a real, established chaotic
+      regime, not a metaphorical one"). No parcel exhibits a regime.
+    justification: >
+      novelty_kind new-dynamics (runner-up new-entity, since individual
+      spirals and defects are momentarily trackable objects): the phenomenon
+      the host entry names is the chaotic REGIME — a collective temporal
+      behavior/state of the layer, matching the spec's regime test — not the
+      individual short-lived defects. onset crossover-gradual is the
+      CONSERVATIVE choice per spec: the host calls this a "secondary
+      transition ... at Ra well above onset" (morris-bodenschatz-cannell-
+      ahlers1993) but cites no published critical Ra value or formal
+      bifurcation analysis for SDC onset (its tipping_transitions score 2
+      counts only the Ra_c conduction-convection onset), so
+      threshold-bifurcation's required control-parameter citation is not
+      available in the entry; crossover-gradual is chosen and flagged as
+      conservative rather than guessing a threshold.
+    confidence: medium
+
+  - id: convection-cells--turbulent-heat-transport
+    name: Turbulent heat-transport regime (high Ra)
+    order_parameter: "Nusselt number Nu (dimensionless heat flux) as a function of Ra and Pr"
+    substrate:
+      part_type: fluid parcels
+      count_oom: "continuum; not independently countable (see numerosity)"
+      interchangeable: yes
+    generating_interactions: [buoyancy coupling, viscous momentum exchange, thermal diffusion]
+    novelty_kind: new-statistics   # RECLASSIFIED from new-function at batch-2 verification (2026-07-16): reintroduced a closed-system new-function via the same physical-throughput argument the original pass rejected for stars--solar-dynamo — enhanced heat transport is a physical consequence/response property, not an information/service capability consumed by an external agent (price/reachability/grammar sense); the record's own named runner-up (new-statistics, Nu~Ra scaling law) is the consistent kind, matching the registry's urban-scaling-laws and MFD treatment of fitted aggregate scaling relations.
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: >
+        Grossmann-Lohse unifying scaling theory (grossmann-lohse2000;
+        ahlers-grossmann-lohse2009) — the host's own Nu-Ra flag notes the
+        exponent is regime-dependent/piecewise (~0.28-0.31 classically,
+        trending toward ~1/2 in a HYPOTHESIZED ultimate regime), and the
+        entry deliberately declines to record one universal exponent
+    qualitative_difference: >
+      A single fluid parcel can only conduct or advect its own heat content
+      locally; the turbulent high-Ra layer transports heat across the gap
+      at Nu times the conductive rate — a system-level transport CAPABILITY,
+      measured from outside as a dimensionless heat flux, that no parcel and
+      no sub-threshold (conducting) layer possesses.
+    justification: >
+      novelty_kind new-statistics (reclassified from new-function at the
+      2026-07-16 batch-2 verification pass; runner-ups: new-function for
+      the original capability framing, new-dynamics for the "regime"
+      reading in the phenomenon's name): the order parameter is a fitted
+      scaling relation among aggregate variables (Nu as a function of Ra
+      and Pr, Grossmann-Lohse piecewise exponents) that no single
+      realization at one Ra exhibits — the same treatment the registry
+      gives urban scaling laws and the MFD. The original new-function call
+      failed the verification pass's tightened external-use test (set in
+      the stars--solar-dynamo reclassification): enhanced heat transport
+      is a downstream physical consequence of the collective state, not an
+      information/service capability consumed by an external agent, and it
+      would have reintroduced the registry's only closed-system
+      new-function on the same argument shape already rejected for the
+      solar dynamo. onset crossover-gradual:
+      the host cites Ra_c only for convective ONSET (the rolls item above)
+      and provides no published critical Ra for entry into the turbulent
+      transport regime; the Grossmann-Lohse framework the entry cites is a
+      smooth regime-crossover description (piecewise exponents in the Ra-Pr
+      plane), so crossover-gradual is both accurate and conservative.
+      effective_theory quantitative-contested: quantitatively predictive in
+      the classical regimes but with the ultimate-regime exponent explicitly
+      hypothesized/unsettled per the host's own flag.
+    confidence: medium

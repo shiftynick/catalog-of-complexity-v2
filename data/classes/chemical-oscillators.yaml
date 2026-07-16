@@ -1,0 +1,731 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: chemical-oscillators
+# v0.3 expansion batch. First fully greenfield entry since the pilot
+# (no existing entry references this id in any relation/component/prose).
+# ============================================================
+id: chemical-oscillators
+name: Chemical oscillators
+category: physical-chemical
+status: verified
+
+exemplars:
+  - id: bz-reaction
+    name: The Belousov-Zhabotinsky (BZ) reaction
+    note: >
+      primary worked exemplar — the canonical oscillating chemical reaction
+      (malonic acid + bromate + cerium or ferroin catalyst in dilute sulfuric
+      acid); discovered by Belousov (1959, rejected by journals; published only
+      as an obscure conference abstract), rediscovered and analyzed by
+      Zhabotinsky (1964) [sources: belousov1959, zhabotinsky1964 —
+      unverified, model knowledge; not primary-read this sweep]
+  - id: briggs-rauscher
+    name: Briggs-Rauscher reaction
+    note: comparative exemplar — the "iodine clock" oscillator; visually dramatic amber/blue color-cycling variant of the same oscillatory-chemistry family
+  - id: cima-reaction
+    name: CIMA (chlorite-iodide-malonic-acid) reaction
+    note: comparative exemplar — the reaction in which Turing patterns were first experimentally realized (Ouyang & Swinney 1991), in a gel reactor that suppresses convective mixing
+
+scoping_note: >
+  The system is the non-living oscillatory chemical reaction network itself:
+  the coupled set of reacting species (organic substrate, oxidant, catalyst/
+  indicator, intermediates) and their autocatalytic/inhibitory reaction steps,
+  in either of two operating regimes distinguished throughout this entry —
+  (a) BATCH (closed): a well-stirred beaker undergoes transient oscillation
+  that damps out as reagents are irreversibly consumed; (b) CSTR-FED
+  (continuously stirred tank reactor): oscillation is sustained only while
+  fresh reagent is continuously pumped in and products removed. Neither
+  regime is "self-sustaining" in this catalog's autonomous-once-formed sense;
+  the CSTR case is externally driven exactly as a hurricane requires ocean
+  heat flux, not a counterexample to openness_dissipation reasoning.
+  GLYCOLYTIC AND OTHER BIOCHEMICAL OSCILLATORS (e.g. NAD+/NADH glycolytic
+  oscillations, circadian and cell-cycle oscillators) are explicitly OUT OF
+  SCOPE per D2 (exclude living matter), even though the nonlinear-chemical-
+  dynamics literature (Epstein & Pojman 1998) routinely treats them alongside
+  the BZ reaction as instances of one mathematical class (limit-cycle
+  chemical kinetics). This entry covers only reactions occurring in
+  non-living, laboratory (or laboratory-analog) chemical media. Atomicity per
+  filling_rules.atomicity-convention: reacting molecules/ions (the bromate,
+  malonic acid, cerium/ferroin, and bromide/bromous-acid intermediate
+  populations) — not their constituent atoms or electrons, which play no role
+  in the characteristic oscillatory dynamics. Scoring is class-general;
+  exemplar evidence primarily from the BZ reaction (both batch and CSTR
+  regimes are cited where they diverge).
+
+summary: >
+  A chemical oscillator is a beaker that ticks: a well-mixed solution of
+  ordinary reagents that, instead of settling smoothly to equilibrium, swings
+  its color back and forth — clear to amber to blue, or colorless to yellow —
+  dozens or hundreds of times before the chemistry finally runs out. Nothing
+  external times the beat; the rhythm is generated entirely by the reaction's
+  own nonlinear kinetics, an autocatalytic step racing against a delayed
+  inhibitory one. Left undisturbed in a thin layer, the same chemistry throws
+  off spiral and target waves that crawl across the dish, and in a gel that
+  blocks fluid stirring it was the first system ever caught in the act of
+  forming a Turing pattern — the same instability Turing proposed for
+  biological pattern formation, filmed in a Petri dish of dye. A textbook case
+  of nonlinear dynamics with no living thing anywhere near it.
+
+relations:
+  part_of: []
+  contains: []
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 1e-1
+    unit: m
+    method: >
+      Order of magnitude of a typical laboratory preparation (a stirred beaker
+      or a thin-layer/Petri-dish spatial-pattern experiment); no natural
+      spatial scale exists independent of the vessel used.
+    detail:
+      stirred_batch_vessel: "~0.05-0.15 m (typical beaker/flask)"
+      thin_layer_dish: "~0.1-0.15 m diameter (14.2 cm dish commonly cited); layer depth ~1 mm"
+      gel_reactor_variant: "~0.025 m (25 mm) diameter, ~0.4 mm thick (Turing-pattern/CIMA gel-reactor literature)"
+    sources: []
+    evidence_status: qualitative
+    confidence: low
+    note: >
+      No primary source pins an exact canonical dish size this sweep; figures
+      are secondary/search-synthesis characterizations of typical apparatus,
+      not a measured property of the chemistry itself. Recorded as an
+      apparatus fact, not a system-intrinsic scale.
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: "batch oscillation period (stirred beaker, classic FKN recipe)", value: "~10-100 s; secondary lecture-demo/protocol sources (RSC, CU Boulder) most commonly cite ~20 s for the classic stirred demonstration — the drafting agent's earlier '~30-60 s' figure was its own estimate, not a figure traceable to FKN 1972 itself", sources: [fkn1972], evidence_status: measured-untested, confidence: medium, note: "read-status snippet-verified — abstract/secondary summaries; full-text period value not directly pulled this sweep; the ~20 s figure is likewise secondary/demo-sourced, not primary-read from fkn1972"}
+      - {name: "trigger-wave propagation speed, unstirred thin layer", value: "~1-10 mm/min (commonly cited ~2-6 mm/min)", sources: [winfree1972], evidence_status: measured-untested, confidence: low, note: "[unverified — model knowledge] + weak snippet; full Winfree 1972 not primary-read this sweep"}
+      - {name: "CSTR chaotic-regime period-doubling cascade", value: "seconds-scale, successive multiples of the base oscillation period (period-2, period-4, ... cascading)", sources: [sws1982], evidence_status: measured, confidence: medium, note: "snippet-verified — PRL abstract retrieved directly"}
+      - {name: "batch reaction lifetime (transient oscillation train)", value: "~1e3-1e4 s (tens of minutes to ~1-2 hours) before reagent exhaustion damps oscillation", evidence_status: qualitative, confidence: low}
+    note: >
+      Batch and CSTR regimes have genuinely different characteristic
+      timescales (transient, decaying period vs. sustained, tunable-by-flow-
+      rate period); this distinction is the scoping note's regime split, not
+      an inconsistency.
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~1e22-1e23 molecules/ions (order of magnitude, 1 L batch preparation)"
+    evidence_status: derived
+    note: >
+      DERIVED by this project from standard FKN-recipe reagent concentrations
+      (~0.01-0.1 M bromate, malonic acid, and cerium/ferroin catalyst/
+      indicator ions) multiplied by Avogadro's number for a 1 L batch;
+      measurand named: combined bromate + malonic-acid + cerium(or ferroin)
+      ion/molecule count. Not a directly published figure — no paper reports
+      a total particle count for a BZ preparation, since it is not a quantity
+      chemists have reason to state directly. Value corrected 2026-07-16 to
+      match the stated ~0.01-0.1 M concentration band exactly (an earlier
+      draft figure of ~1e23-1e24 was roughly one order of magnitude too high
+      for these inputs, though it would be consistent with more
+      concentrated, also-realistic FKN recipes of ~0.1-0.5 M combined; this
+      entry retains the more conservative, self-consistent band rather than
+      widening the stated concentrations to match the larger figure).
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "unboundedly replicable lab preparation (no natural standing population or formation rate); same framing as the convection-cells sibling entry"
+    evidence_status: qualitative
+    note: >
+      Per the sweep report: this class has no analogue to tropical-cyclones'
+      "~85 storms/yr" figure — a BZ reaction is prepared on demand in any
+      chemistry lab worldwide, with no natural rate-of-occurrence to record.
+      Recorded qualitatively rather than left unknown, since the absence
+      itself is a stated, reasoned fact (class-general, not a gap).
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: substrate/oxidant/catalyst molecules and ions (bromate, malonic acid, cerium or ferroin, bromide, bromous acid, and other Oregonator-model intermediates)
+        count_oom: "~1e22-1e23 (1 L batch, see numerosity)"
+        interchangeable: no
+        itself_complex: no
+        note: heterogeneous — the oscillation mechanism requires the specific autocatalytic (bromous-acid self-amplification) and inhibitory (bromide-generation) roles; not interchangeable in the way tropical-cyclone air parcels are.
+    confidence: medium
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Sweep verdict: no published per-mass power figure exists for the BZ
+      reaction or its relatives. An apparatus-specific derivation (reaction
+      enthalpy x rate / medium mass) was considered and explicitly NOT forced,
+      per the D18 instruction not to derive a figure that would not generalize
+      across the class (batch vs. CSTR regimes have wildly different
+      effective throughput, and no standard "the" BZ preparation exists the
+      way a hurricane's circulation volume is a stable convention).
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+    note: well-stirred (batch/CSTR) or reaction-diffusion medium (thin-layer/gel); not a network system.
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: autocatalytic amplification
+        mechanism: "bromous acid (HBrO2) autocatalytically generates more of itself via the Oregonator's rate-limiting step, oxidizing the metal catalyst (Ce3+ -> Ce4+ or ferroin -> ferriin)"
+        participants: bromate, bromous acid, metal catalyst
+        range: local
+      - name: inhibitory bromide regeneration
+        mechanism: "the oxidized catalyst reacts with malonic acid (and its brominated derivatives) to regenerate bromide ion, which suppresses the autocatalytic step — the delayed negative-feedback arm that turns growth into oscillation"
+        participants: malonic acid, oxidized catalyst, bromide
+        range: local
+      - name: molecular diffusion
+        mechanism: concentration-gradient-driven diffusive transport of reactive intermediates, responsible for trigger-wave and spiral/target pattern propagation in unstirred layers (Zaikin & Zhabotinsky 1970)
+        participants: all reacting species
+        range: local
+        sources: [zaikin-zhabotinsky1970]
+      - name: continuous feed/removal (CSTR regime only)
+        mechanism: "pumped inflow of fresh reagent and outflow of product/spent solution at a controlled flow rate, the external driving that sustains oscillation past the batch-regime's transient decay"
+        participants: reactor <-> external reservoir
+        range: global (boundary condition, not internal to the reacting medium)
+    type_count: 4
+    alphabet_closure: closed
+    justification: >
+      One closed physical-chemical family: every interaction is fixed by
+      reaction kinetics and diffusion (and, in the CSTR case, a fixed pumping
+      boundary condition); no new interaction type can arise. Same reasoning
+      as the tropical-cyclones anchor (closed-alphabet, physics-fixed).
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: continuum/well-stirred system; no meaningful node-degree representation, per the sweep report.
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      A well-stirred batch or CSTR medium is a single undifferentiated
+      reaction volume with no internal subdivision at all — even weaker than
+      the tropical-cyclones anchor's transient convective cells (modularity
+      1), since a BZ beaker has no analogous quasi-persistent internal
+      structure while stirred. In the unstirred thin-layer/spiral-wave regime,
+      distinct wave fronts exist but are propagating pattern, not insulated
+      functional modules with reduced cross-boundary coupling — the whole
+      medium remains one continuously coupled reaction-diffusion field.
+      Matches the anchor scale's 0 (no identifiable subdivision; uniform
+      medium).
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 1
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): count aggregation levels above the
+      atomic parts (reacting molecules/ions) up to and including the whole —
+      molecules/ions (atoms) -> the well-mixed reacting medium as a whole (1).
+      No intermediate aggregation level exists (unlike a hurricane's
+      convective-cell intermediate stage); a BZ solution has no meso-scale
+      structure between molecule and bulk medium in the stirred regime. The
+      unstirred spiral-wave regime adds spatial pattern but not an
+      organizational LEVEL in this column's sense (it is state, not a nested
+      aggregate).
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No published fractal dimension found for BZ spiral/target wave patterns
+      specifically, per the sweep report. Left unknown rather than borrowed
+      from an unrelated system.
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; the oscillation and any spatial wave
+      pattern arise entirely from local reaction-diffusion kinetics with no
+      privileged controlling molecule or region. Same reasoning as the
+      tropical-cyclones and stars anchors: nothing whose removal would
+      constitute "loss of control" exists in the medium (the CSTR's external
+      pump sets a boundary condition/forcing, not internal control, per the
+      decentralization anchor's does_not_count on external forcing).
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Rescored from an earlier draft 4 to 3 (2026-07-16 flag-fix): the
+      anchor's 4-tier requires nonlinearity pervasive AND load-bearing across
+      MULTIPLE distinct mechanisms/subsystems simultaneously (tropical-
+      cyclones' 4 = WISHE + SST-drawdown + eyewall-replacement, three
+      separate mechanisms; financial-markets' 4 = volatility clustering +
+      herding + liquidity-feedback). Chemical oscillators have essentially
+      one nonlinear kinetic mechanism — the Oregonator's autocatalytic
+      bromous-acid self-amplification (Field & Noyes 1974) — which manifests
+      across several phenomena (oscillation, excitability, wave formation)
+      but is not itself multiple simultaneously load-bearing mechanisms.
+      This is structurally closer to the anchor's 3-tier (San Andreas,
+      stars: nonlinearity central and essential, but not pervasive across
+      multiple simultaneously load-bearing subsystems) — the reaction does
+      not oscillate at all without it, but the single mechanism does not
+      clear the 4-tier's multiplicity bar.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 4
+    loops:
+      - {name: "bromous-acid autocatalysis", sign: reinforcing, mechanism: "HBrO2 catalyzes its own production from bromate, driving rapid oxidation of the metal catalyst (Field, Körös & Noyes 1972 — the FKN mechanism's defining step)"}
+      - {name: "bromide inhibition", sign: balancing, mechanism: "the oxidized catalyst reacting with malonic acid regenerates Br-, which suppresses the autocatalytic step once concentration builds sufficiently — the delayed negative feedback that turns runaway growth into a periodic reset"}
+      - {name: "CSTR period-doubling route to chaos", sign: "reinforcing/balancing interplay, tunable", mechanism: "at fixed flow rate in a driven CSTR, the interaction of the two loops above produces a period-doubling cascade to chaos as a control parameter (flow rate) is varied (Simoyi, Wolf & Swinney 1982)"}
+    justification: >
+      Per the tropical-cyclones/financial-markets anchor format: the
+      oscillation IS a feedback phenomenon — autocatalytic growth and delayed
+      inhibitory reset are the entire explanatory mechanism the field uses
+      (Field-Körös-Noyes 1972; the Oregonator, Field & Noyes 1974), and
+      loop structure is the primary explanatory device in the literature,
+      exactly matching the scale's top-level description.
+    sources: [fkn1972, fn1974]
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: exemplar(bz-reaction)
+    score: 3
+    justification: >
+      Convention corrected 2026-07-16 (flag-fix) to match this entry's own
+      robustness_resilience treatment: rather than blending the batch and
+      CSTR regimes into a single class-general middle-ground score (the move
+      this entry explicitly declines to make for robustness_resilience two
+      attributes later), this column is scored at exemplar(bz-reaction) level
+      using the CSTR-fed regime — the textbook Prigogine dissipative-
+      structure case the discipline itself showcases (Prigogine's own
+      Nobel-cited work used exactly this reaction class). The CSTR regime is
+      a genuine dissipative structure: continuous reagent feed and product
+      removal sustain oscillation indefinitely, and interrupting the flow
+      collapses the oscillatory state within roughly one relaxation period
+      (comparable to or shorter than the structure's own dynamical
+      timescale), matching the anchor scale's 3. The BATCH regime instead
+      requires no sustained external throughput — it is a closed system
+      running down a one-way chemical-potential gradient toward equilibrium,
+      oscillating only transiently while reagents last (closer to the
+      anchor's 1-2 band); this weaker batch reading is preserved here in
+      justification rather than blended into the recorded score, exactly as
+      robustness_resilience preserves its CSTR reading in justification
+      rather than blending it into that column's batch-exemplar score.
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: 3
+    measurand: "bromide-ion-selective-electrode potential (or Ce(IV)/Ce(III) redox potential) time series in a CSTR at fixed flow rate"
+    value: "positive Lyapunov exponent / low-dimensional strange attractor reconstructed via time-delay embedding; period-doubling route to chaos"
+    method: "one-dimensional return-map analysis of experimental time series (Simoyi, Wolf & Swinney 1982); attractor reconstruction (Roux, Simoyi & Swinney 1983)"
+    justification: >
+      Simoyi, Wolf & Swinney (1982, PRL 49:245) experimentally demonstrated a
+      period-doubling cascade to chaos in a CSTR-driven BZ reaction, with
+      dynamics well-described by a one-dimensional map (positive Lyapunov
+      exponent implied by the map's slope structure); Roux, Simoyi & Swinney
+      (1983, Physica D 8:257) is reported (search-snippet level) to
+      reconstruct a strange attractor directly from the experimental
+      bromide-electrode time series. This is a well-accepted, low-dimensional
+      chaos result for a reduced/model description matching the anchor
+      scale's level 3 (exponential sensitive dependence established for a
+      well-accepted reduced description; domain experts broadly accept the
+      chaotic character), but — unlike the atmospheric ~2-week predictability
+      horizon anchoring tropical-cyclones at 4 — no operationally-used,
+      replicated real-world PREDICTABILITY HORIZON figure (a doubling time in
+      physical units, used practically) was located for the BZ system, so 4
+      is not earned per the scale's own 3/4 distinction. Held at
+      evidence_status: measured for the qualitative chaos finding itself
+      (this is an experimentally reconstructed attractor, not a mere modeling
+      claim) while flagging the companion paper (Roux/Simoyi/Swinney 1983) as
+      not yet primary-read this sweep — a standing verification debt, not a
+      reason to lower the score, since the 1982 PRL alone (abstract directly
+      retrieved) already establishes the period-doubling/chaos finding.
+    sources: [sws1982, rss1983]
+    evidence_status: measured
+    confidence: medium
+    verifier_flags: [roux-simoyi-swinney-1983-not-primary-read]
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      No scale-invariant event statistics have been reported or sought for BZ
+      chemical waves or oscillation-amplitude distributions (sweep report:
+      "no avalanche/event-size statistics found"), and no SOC or
+      critical-point mechanism has been proposed in the primary literature for
+      this system specifically. Per boundary_clarifications.published-claim-
+      required, a rater's inference from adjacent nonlinear-dynamics
+      literature does not clear the bar absent an actual published claim.
+      Matches the anchor scale's floor exactly (tropical-cyclones' and
+      cities' precedent for the same negative-search pattern).
+    evidence_status: unknown
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: unknown
+    measurand: "no scale-invariant avalanche/event-size distribution found for BZ oscillation amplitudes, wave-front sizes, or induction-time distributions"
+    method: "targeted search for a heavy-tail/power-law claim; none located"
+    sources: []
+    evidence_status: unknown
+    note: >
+      Per the sweep report and consistent with the D18 brief's expectation:
+      recorded as unknown (nothing found) rather than inferred absent, per
+      filling_rules.no-guessing. measurand_type recorded as temporal-event on
+      the (unfulfilled) expectation that if such a distribution existed it
+      would concern discrete oscillation/wave events over time, not a static
+      rank-size cross-section — should this column ever be filled.
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No published Hurst-exponent-style or autocorrelation-decay figure found
+      for BZ oscillation time series this sweep; left unknown rather than
+      stretched. Candidate measurand if pursued: autocorrelation structure of
+      the redox-potential time series in a CSTR.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      At least one specific, formally modeled bifurcation exists in the
+      primary literature: the Hopf bifurcation governing oscillation onset,
+      analyzed in Oregonator parameter space (Field & Noyes 1974) — a named
+      mechanism with a threshold in the control-parameter space (reagent
+      concentrations / flow rate), published and modeled, matching the scale's
+      level 2 exactly (single formally modeled mechanism, no systematic
+      multi-element inventory). CSTR bistability between a steady (non-
+      oscillatory) state and an oscillatory branch at fixed feed parameters
+      is also experimentally documented in the De Kepper/Boissonade/Epstein-
+      group systematic CSTR-design literature, though the specific citation
+      was not independently pulled this sweep (flagged below) — this would be
+      a second named mechanism if confirmed, but the score is not raised on
+      an unconfirmed citation per filling_rules.no-guessing. Per
+      boundary_clarifications.single-modeled-mechanism-is-2 (tropical-
+      cyclones' own precedent), one confirmed named mechanism with a
+      threshold analysis = 2.
+    evidence_status: measured-untested
+    sources: [fn1974]
+    verifier_flags: [cstr-bistability-citation-unconfirmed]
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      In the CSTR regime, the reacting medium's state at a given instant is
+      essentially a function of current feed composition and flow rate, with
+      relaxation lag on the order of the oscillation period; documented
+      multistability exists in the sense of the oscillatory-vs-steady-state
+      transition (tipping_transitions) but no published hysteresis LOOP
+      (a documented loop width, where the same flow-rate/feed-concentration
+      setting yields different states depending on approach direction) was
+      located this sweep. The batch regime shows even less history-dependence
+      — it monotonically runs down toward equilibrium with no bistability at
+      all. Matches the anchor scale's level 1 (weak, short-lived relaxation
+      memory only; no multistability loop measurement), the same floor as the
+      tropical-cyclones anchor's reasoning.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical-chemical transport and reaction: concentration gradients
+      diffuse, reaction rates respond directly to local concentrations, and
+      wave fronts propagate via mass-action kinetics and diffusion with no
+      detection-transmission-response structure — the autocatalytic threshold
+      is a bifurcation in the kinetics (rate exceeding a critical value), not
+      detection, per the information_processing anchor's does_not_count on
+      fixed physical thresholds. Same canonical-0 reasoning as the stars and
+      tropical-cyclones anchors: nothing in the medium evaluates a signal
+      against a reference and emits a distinguishable response.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Reacting molecules and ions obey fixed reaction kinetics; no component
+      modifies its rate law or response function in light of history or
+      environment. The autocatalytic and inhibitory loops regulate the
+      system, they do not learn — the same regulation-vs-adaptation
+      distinction the anchor's does_not_count enforces for the Sun and
+      tropical-cyclones (both scored 0). Together with a high
+      self_organization score, this is the archetypal complex-physical
+      (non-CAS) profile, structurally identical in kind to tropical-cyclones.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among reacting molecules or reaction pathways.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The oscillation period, wave speed, and (for the CSTR) the
+      period-doubling bifurcation sequence are formalized, predictive
+      macro-level descriptions (the Oregonator model, Field & Noyes 1974)
+      that are not transparent from raw molecular collision dynamics by
+      inspection — nonlinear-dynamics theory (limit cycles, Hopf bifurcation,
+      excitable-medium wave theory) is the actual working vocabulary the
+      field uses to explain and predict BZ behavior, matching the scale's
+      level 3 (a formalized order parameter/effective law doing real
+      explanatory work, weak/epistemic sense only). Held at 3 rather than 4
+      because a single well-characterized reduced model (the Oregonator, and
+      its refinements) suffices to organize the field's understanding, rather
+      than the multiple simultaneously load-bearing macro-theories that
+      anchor 4 for financial markets; comparable in kind to the
+      Rayleigh-Benard convection-cells anchor (score 3), which the BZ
+      reaction's own textbook standing as a limit-cycle/pattern-formation
+      exemplar closely parallels.
+    sources: [fn1974]
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Temporal oscillation, and — in unstirred layers — spiral and target
+      waves and (in gel reactors) stationary Turing patterns, all assemble
+      spontaneously from a spatially and temporally uniform initial mixture;
+      nothing external specifies the pattern's form, period, or wavelength in
+      advance (the CIMA gel-reactor Turing pattern is in fact the textbook
+      demonstration that a spatial pattern can emerge purely from
+      reaction-diffusion instability with zero external templating — Ouyang &
+      Swinney 1991). Matches the anchor scale's top level exactly, on the same
+      grounds as the tropical-cyclones anchor (a canonical dissipative
+      structure, here specifically Prigogine's own showcase reaction class
+      for spontaneous order far from equilibrium).
+    sources: [ouyang-swinney1991]
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: exemplar(bz-reaction)
+    score: 0
+    justification: >
+      The batch BZ reaction's oscillatory organization is inherently
+      transient and self-terminating: it is destroyed by the very
+      perturbation spectrum most central to its own operation — reagent
+      depletion, an entirely routine and inevitable feature of its closed
+      environment, not an exceptional shock. Unlike tropical-cyclones (scored
+      1: destroyed by routine but avoidable environmental features such as
+      landfall), a batch BZ preparation's "perturbation" is simply the
+      passage of its own characteristic operating time; there is no scenario
+      in which it persists indefinitely undisturbed. The CSTR regime is more
+      robust while driven (perturbations within the normal flow-rate/feed
+      envelope are tolerated, matching something closer to a 2), but per
+      does_not_count this column scores the EXEMPLAR/regime as actually
+      studied, and the class's characteristic (most-studied, most-cited)
+      case is the batch preparation. Recorded as 0 rather than borrowing the
+      CSTR figure, per the level-required rule; the CSTR distinction is
+      preserved in the justification rather than silently averaged in.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No component-to-component failure-propagation literature exists for
+      this system: an oscillation damping out from reagent exhaustion, or a
+      spiral wave dying at a boundary, is direct chemical-kinetic
+      relaxation, not a failure cascading through coupled discrete
+      components. Same floor-anchor reasoning as stars and tropical-cyclones
+      in cascade_susceptibility.yaml.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Temporal oscillation (color-cycling)
+    order_parameter: oscillation period and amplitude of the indicator redox potential (ferroin/ferriin or Ce3+/Ce4+ ratio)
+  - name: Trigger/spiral/target waves
+    order_parameter: wave-front propagation speed; spiral-core rotation period
+    sources: [zaikin-zhabotinsky1970]
+  - name: Turing pattern (CIMA/gel-reactor variant)
+    order_parameter: stationary pattern wavelength (hexagonal/striped)
+  - name: Period-doubling route to chaos (CSTR regime)
+    order_parameter: bifurcation-parameter (flow rate) indexed period sequence; reconstructed attractor dimension
+
+sources:
+  fkn1972:
+    citation: "Field, R.J., Körös, E. & Noyes, R.M. (1972). Oscillations in Chemical Systems II: Thorough Analysis of Temporal Oscillation in the Bromate-Cerium-Malonic Acid System. J. Am. Chem. Soc. 94(25), 8649-8664. [snippet-verified — abstract confirmed via search; full mechanism and period value not primary-read this sweep, per research/v0.3/expansion/chemical-oscillators-sources.md]"
+  fn1974:
+    citation: "Field, R.J. & Noyes, R.M. (1974). Oscillations in chemical systems IV. Limit cycle behavior in a model of a real chemical reaction. J. Chem. Phys. 60(5), 1877-1884. (The Oregonator.) [snippet-verified — title/existence confirmed via search; not primary-read this sweep]"
+  winfree1972:
+    citation: "Winfree, A.T. (1972). Spiral Waves of Chemical Activity. Science 175(4022), 634-636. [unverified — model knowledge; not fetched this sweep]"
+  sws1982:
+    citation: "Simoyi, R.H., Wolf, A. & Swinney, H.L. (1982). One-Dimensional Dynamics in a Multicomponent Chemical Reaction. Phys. Rev. Lett. 49(4), 245-248. [snippet-verified — abstract text retrieved directly via search: stirred flow reactor, period-doubling to chaos, 1-D map theory]"
+  rss1983:
+    citation: "Roux, J.C., Simoyi, R.H. & Swinney, H.L. (1983). Observation of a strange attractor. Physica D 8(1-2), 257-266. [unverified — model knowledge; referenced in search results as a companion reconstructed-attractor paper, not independently fetched this sweep — standing verification debt, see provenance.flags]"
+  ouyang-swinney1991:
+    citation: "Ouyang, Q. & Swinney, H.L. (1991). Transition from a uniform state to hexagonal and striped Turing patterns. Nature 352, 610-612. [snippet-verified — title and existence confirmed via search; specific wavelength figure (~0.2 mm) is NOT confirmed in any retrieved snippet and is NOT asserted as a value anywhere in this entry, per the sweep report's explicit caution]"
+  zaikin-zhabotinsky1970:
+    citation: "Zaikin, A.N. & Zhabotinsky, A.M. (1970). Concentration Wave Propagation in Two-dimensional Liquid-phase Self-oscillating System. Nature 225, 535-537. [unverified — model knowledge; not fetched this sweep, per the sweep report's own characterization — the primary paper for BZ spiral/target wave propagation, added 2026-07-16 flag-fix to close a coverage gap]"
+  belousov1959:
+    citation: "Belousov, B.P. (1959). Periodicheskaya reaktsiya i ee mekhanizm (A periodic reaction and its mechanism). Sbornik referatov po radiatsionnoi meditsine [Compilation of Abstracts on Radiation Medicine], Moscow, 145. [unverified — model knowledge; not attempted this sweep, per the sweep report — the original (journal-rejected, published only as an obscure conference abstract) description of the reaction, added 2026-07-16 flag-fix]"
+  zhabotinsky1964:
+    citation: "Zhabotinsky, A.M. (1964). Periodicheskiy protsess okisleniya malonovoy kisloty rastvore (Periodic processes of the oxidation of malonic acid in solution). Biofizika 9, 306-311. [unverified — model knowledge; not attempted this sweep, per the sweep report — the rediscovery/analysis paper, added 2026-07-16 flag-fix]"
+  epstein-pojman1998:
+    citation: "Epstein, I.R. & Pojman, J.A. (1998). An Introduction to Nonlinear Chemical Dynamics. Oxford University Press. [unverified — model knowledge for any specific numeric claim attributed to it; standard monograph, not separately fetched, cited here only for the scoping note's characterization of how the field treats chemical vs. biochemical oscillators together]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-16)
+  scoping_and_rubrics: workflow-agent draft, v0.3 expansion batch, adapting the tropical-cyclones and financial-markets gold-example patterns and reusing worked anchor language (self_organization, nonlinearity, feedback, chaos_sensitivity, information_processing, adaptive_capacity, decentralization, cascade_susceptibility, criticality, tipping_transitions, emergence, robustness_resilience, modularity, openness_dissipation, memory_hysteresis anchors all cite tropical-cyclones/financial-markets/stars comparators directly in-line)
+  verification:
+    citation_check: complete (2026-07-16)
+    plausibility_check: complete (2026-07-16)
+    consistency_check: complete (2026-07-16)
+    coverage_check: complete (2026-07-16)
+  fix_log:
+    - by: "workflow-agent (flag-fixer), 2026-07-16"
+      changes:
+        - "[FIX/citation] characteristic_timescales (batch oscillation period): softened the 'commonly ~30-60 s' sub-claim, noted the more commonly-cited ~20 s figure from secondary lecture-demo sources, and clarified neither figure traces to a primary-read of fkn1972 itself."
+        - "[FIX/plausibility] numerosity + component_ontology.parts[0].count_oom: corrected ~1e23-1e24 to ~1e22-1e23 molecules/ions to match the entry's own stated ~0.01-0.1 M concentration band; noted the larger figure would fit more concentrated (~0.1-0.5 M) realistic FKN recipes but the entry keeps the conservative, self-consistent band rather than widening the stated concentrations."
+        - "[FIX/consistency] nonlinearity: rescored 4 -> 3; the anchor's 4-tier requires multiple simultaneously load-bearing nonlinear mechanisms (per tropical-cyclones/financial-markets precedent), but chemical oscillators have essentially one nonlinear kinetic mechanism (Oregonator autocatalysis), matching the 3-tier instead."
+        - "[FIX/consistency] openness_dissipation: changed from a class-general blended score (2) to level: exemplar(bz-reaction), score 3 (CSTR/Prigogine-dissipative-structure reading), matching the resolution convention robustness_resilience already uses (single-regime exemplar score, with the other regime's reading preserved in justification rather than blended)."
+        - "[FIX/coverage] emergent_phenomena (Trigger/spiral/target waves) + interaction_ontology (molecular diffusion): added zaikin-zhabotinsky1970 as a source (Nature 225:535, [unverified — model knowledge; not fetched this sweep]) and cited it from both."
+        - "[FIX/coverage] exemplars[0].note (BZ discovery history): added belousov1959 and zhabotinsky1964 source entries ([unverified — model knowledge; not attempted this sweep]) and referenced them inline in the exemplar note."
+  flags:
+    - column: chaos_sensitivity
+      note: >
+        Roux, Simoyi & Swinney (1983, Physica D 8:257) — the strange-attractor
+        reconstruction paper — is cited only at [unverified — model
+        knowledge]/search-snippet level, not primary-read. This is the
+        highest-priority follow-up primary read given the D18
+        dissociation-stakes framing (a chaos claim resting partly on an
+        unverified companion citation). The 1982 PRL alone (independently
+        snippet-confirmed via direct abstract retrieval) already supports the
+        score assigned; the flag concerns full corroboration, not the score's
+        validity.
+    - column: characteristic_timescales / criticality (CIMA wavelength)
+      note: >
+        The commonly-cited CIMA Turing-pattern wavelength (~0.2 mm,
+        Ouyang & Swinney 1991) was deliberately NOT recorded as a value
+        anywhere in this entry because it could not be confirmed in any
+        retrieved snippet this sweep and is flagged in the sweep report as
+        the drafting agent's own prior model knowledge. Re-verify against
+        the primary Nature 1991 text before any future revision states this
+        figure.
+    - column: energy_rate_density / extreme_event_statistics
+      note: >
+        Both recorded as unknown after a targeted (not exhaustive)
+        literature search, per the sweep report's own caveat — read as "not
+        found in this pass," not "definitively absent." A deeper
+        primary-literature search (rather than search-engine snippets) has
+        not been exhausted for either column.
+    - column: tipping_transitions
+      note: >
+        CSTR bistability between steady and oscillatory branches (De
+        Kepper/Boissonade/Epstein-group systematic CSTR-design literature) is
+        referenced in the sweep report at [unverified — model knowledge]
+        level with no specific citation pulled; not used to raise the score
+        beyond 2, but flagged as a candidate second mechanism pending
+        confirmation.
+    - column: openness_dissipation
+      note: >
+        Scored 2 at class-general level as a considered middle ground across
+        the batch (weaker, self-terminating) and CSTR (stronger, textbook
+        Prigogine dissipative-structure) regimes; a future exemplar-level
+        split (batch vs. CSTR-fed BZ, mirroring this entry's own regime
+        distinction) might resolve this more precisely than a single
+        class-general score can.
+    - column: robustness_resilience
+      note: >
+        Scored at exemplar(bz-reaction) level per the anchor's own
+        does_not_count guidance, using the batch (most-studied) regime;
+        the CSTR regime would plausibly score higher (~2) while actively
+        driven — recorded in the justification rather than as a separate
+        value, since the panel spec provides no clean mechanism for
+        dual-regime scores within one column.
+    - column: plausibility / tipping_transitions / characteristic_timescales
+      note: >
+        (Verifier note, 2026-07-16.) evidence_status: measured-untested is
+        applied to non-power-law claims (the Hopf bifurcation citation, and
+        the fkn1972 oscillation-period timescale). Panel-spec defines
+        measured-untested narrowly for CSN-grade tail-testing claims
+        (power-law tails default here); neither of these is a tail claim, so
+        the label is a vocabulary-fit stretch, not a misrepresentation of
+        evidentiary strength. Left as-is (low priority, no correction
+        required before verified status).
+    - column: characteristic_timescales (trigger-wave propagation speed)
+      note: >
+        (Verifier note, 2026-07-16.) This entry is a velocity (mm/min), not
+        a timescale (s), inside a column whose panel-spec definition and
+        unit are s. Substantively harmless and clearly labeled; left as-is.
+    - column: chaos_sensitivity
+      note: >
+        (Verifier note, 2026-07-16.) Score of 3 rests entirely on
+        CSTR-regime-specific evidence (Simoyi/Wolf/Swinney 1982; the batch
+        regime never sustains oscillation long enough to exhibit
+        period-doubling), but is tagged level: class-general without the
+        explicit regime caveat given elsewhere in the entry (openness_
+        dissipation, robustness_resilience) for the same batch/CSTR
+        ambiguity. Score itself is well-supported; flagged for a future
+        regime-caveat addition, not changed here (outside this fixer's
+        remit to avoid over-editing beyond the actionable flags).
+    - column: modularity
+      note: >
+        (Verifier note, 2026-07-16.) Justification cites "the
+        tropical-cyclones anchor's transient convective cells" as if this
+        were a worked entry in schema/anchors/modularity.yaml; that file has
+        no tropical-cyclones anchor. The actual precedent is the
+        tropical-cyclones CLASS ENTRY (data/classes/tropical-cyclones.yaml),
+        which independently scores modularity 1 with matching reasoning —
+        the comparison itself checks out, only the citation's label is
+        imprecise. Left unedited per fixer scope (wording-only, no scoring
+        change; can be tightened in a future pass).
+    - column: robustness_resilience
+      note: >
+        (Verifier note, 2026-07-16.) Score of 0 is the catalog's first use
+        of this column's floor value; no worked anchor in schema/anchors/
+        robustness_resilience.yaml currently sits at 0 (lowest is
+        tropical-cyclones/Katrina at 1). Reasoning is careful and does not
+        misapply the anchor's does_not_count clause. Flagged as a possible
+        future anchor candidate for this column's floor case; no change
+        needed.
+    - column: degree_distribution
+      note: >
+        (Verifier note, 2026-07-16.) Value 'not-applicable' with no
+        block-level evidence_status field matches the established
+        cross-entry convention (earthquake-fault-systems.yaml,
+        convection-cells.yaml) and is validator-recognized as a legal escape
+        hatch. No action needed.

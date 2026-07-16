@@ -1,0 +1,899 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: road-traffic-systems
+# v0.3 expansion batch. Infrastructure-category entry; flow
+# dynamics on a road graph, sibling to power-grids/the-internet
+# in the closed/constrained/open interaction-topology gradient.
+# ============================================================
+id: road-traffic-systems
+name: Road traffic systems
+category: infrastructure
+status: verified
+
+exemplars:
+  - id: yokohama-network
+    name: Yokohama urban road network (Geroliminis & Daganzo 2008)
+    note: >
+      primary worked exemplar; the canonical whole-network macroscopic
+      fundamental diagram (MFD) demonstration — space-mean flow/density/speed
+      collapse onto a reproducible curve when averaged over a large urban
+      area, the empirical basis for treating a metro network as a single
+      flow system rather than a collection of independent links
+  - id: us-freeway-corridors
+    name: US freeway corridors (loop-detector archives — Chicago/Portland/Irvine)
+    note: >
+      comparative exemplar; Mahmassani/Geroliminis-lineage hysteresis
+      datasets already snippet-logged by this project (research/phase4/
+      cities-sources.md) — MFD hysteresis loops under loading/unloading
+  - id: sugiyama-ring
+    name: Sugiyama circular-road experiment (2008)
+    note: >
+      comparative exemplar; the controlled phantom-jam demonstration — a
+      230 m single-lane circuit with 22-23 vehicles spontaneously forms a
+      backward-propagating stop-and-go wave with no bottleneck, obstacle,
+      or driver error required
+  - id: german-autobahn-detectors
+    name: German autobahn detector network (Kerner three-phase empirical base)
+    note: >
+      comparative exemplar; the induction-loop dataset underlying Kerner &
+      Rehborn's synchronized-flow and wide-moving-jam empirical taxonomy
+
+scoping_note: >
+  The system is the road-network flow system: a metro-area road graph
+  (freeways, arterials, intersections) plus the vehicle flow dynamics that
+  run on it. Inside the boundary: the physical road graph (links, nodes,
+  ramps, signals) and the driver-vehicle units moving through it, treated
+  as the interacting entities. Outside: land use and trip generation
+  (origin-destination demand is forcing, not internal dynamics), vehicle
+  manufacturing, and the human cognitive/social internals of drivers
+  (out-of-scope(human) per the scope line — only the driver-vehicle unit's
+  behavioral output, car-following/lane-changing response, is in scope, not
+  the driver's reasoning). Atomicity per filling_rules.atomicity-convention:
+  the driver-vehicle unit is the atom (a single car plus its driver acting
+  as one behavioral entity in the traffic stream) — not the driver's
+  neurons/cognition, and not the individual road segment (a graph node/edge
+  is a fixed structural feature of the substrate, not a dynamical atom).
+  Scoring is class-general; exemplar evidence primarily from the Yokohama
+  MFD study and the Sugiyama ring experiment, the two most load-bearing
+  citable field/lab demonstrations recovered this sweep.
+
+summary: >
+  A road traffic system is a self-organizing flow running on an engineered
+  skeleton: thousands of independently steered vehicles, coupled only
+  through following distance and lane changes, spontaneously produce
+  structures nobody designed — stop-and-go waves that crawl backward
+  through free-flowing traffic, congestion that snaps on and off at a
+  bottleneck like a phase transition, and a network-wide relationship
+  between how many cars are on the road and how fast they collectively
+  move. The Sugiyama ring experiment proved the point in miniature: put
+  cars on a circular track with no obstacle at all, and a traffic jam
+  still forms and propagates backward from pure car-following instability.
+  Nothing about congestion requires an accident or a red light; the traffic
+  itself is the phenomenon.
+
+relations:
+  part_of: [cities]
+  # cities.yaml line 69's relations.contains lists road-traffic-systems
+  # (with the line-72 comment "road-traffic-systems: unresolved -> roster
+  # expansion queue") — RESOLVED by this entry; reciprocated here as
+  # part_of: cities. cities.yaml line 170's component row
+  # (itself_complex: power-grids # road-traffic-systems and others also
+  # apply) and line 230's interaction-participant note ("residents, firms
+  # (via transportation networks; road-traffic-systems unresolved link)")
+  # are now-resolvable cross-references against this entry; NOT edited
+  # here per instructions — flagged below in provenance.flags for a future
+  # cities.yaml consistency pass.
+  contains: []
+  # vehicles / driver-vehicle units are the atoms (component_ontology
+  # below); drivers get the out-of-scope(human) idiom, not a child class id.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: m
+    method: >
+      Split into two explicit sub-values per flag-fixing (the single
+      top-level value previously recorded, 1e4 m, conflated an unsourced
+      metro-network order-of-magnitude figure with the Sugiyama ring
+      circuit, which is a different exemplar at a different scale — see
+      detail). Metro-network span is model-knowledge only and carries no
+      citation; ring circuit is secondary-corroborated only. Neither alone
+      supports a single measured class-general value, so the top-level
+      value is recorded unknown rather than silently picking the low end
+      of an unsourced range.
+    detail:
+      metro_network_span: "~1e4-1e5 m [unverified — model knowledge; order-of-magnitude only, no dedicated citation found this sweep; no source attached]"
+      sugiyama_ring_circuit: "230 m, single-lane circular track, 22-23 vehicles (Sugiyama et al. 2008, NJP 10:033001) — secondary-corroborated, not primary-read; evidence_status for this sub-value only: measured-untested"
+    evidence_status: unknown
+    confidence: low
+    note: >
+      The Sugiyama figure is widely secondary-corroborated (contemporaneous
+      science-press coverage) but the primary paper itself returned HTTP 403
+      on fetch this sweep (bot-block, not an actual paywall per the OA
+      status) — not primary-read. The metro-network order-of-magnitude
+      figure carries no citation at all this sweep and is model-knowledge
+      only; recorded honestly rather than dressed up. Per flag-fixing
+      (2026-07-16, plausibility check, blocker): sugiyama2008 does not
+      support the metro-span figure, so it has been removed from this
+      attribute's top-level sources and the value downgraded from
+      measured-untested/1e4 to unknown, with the ring-circuit figure kept
+      only as a labeled sub-value in detail rather than presented as
+      grounding the top-level number.
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: car-following reaction time, value: "~1 s (standard traffic-engineering perception-reaction assumption)", evidence_status: qualitative}
+      - {name: stop-and-go wave period, value: "O(10-100 s) per oscillation cycle in ring experiments", sources: [sugiyama2008], evidence_status: measured-untested}
+      - {name: congestion episode (breakdown-to-recovery), value: "tens of minutes to hours (rush-hour cycle)", evidence_status: qualitative}
+      - {name: infrastructure lifetime, value: "decades", evidence_status: qualitative}
+    note: >
+      All four values are [unverified — model knowledge] except the ring
+      oscillation period, which traces to the same Sugiyama source flagged
+      above as secondary-corroborated only. A follow-up primary read of
+      Helbing 2001 (fetched but unparseable this sweep — binary PDF stream)
+      or a traffic-flow textbook (Treiber & Kesting) is needed before any of
+      these can be upgraded past qualitative/measured-untested.
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~1.28e9 vehicles in use worldwide (2015 estimate)"
+    sources: [oica-statista]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      OICA-sourced figure (~947M passenger cars + ~335M commercial vehicles)
+      reached only via a Statista secondary citation; OICA's own
+      oica.net/statistics/ page was not directly fetched this sweep.
+      US-specific figure (FHWA Highway Statistics 2022, Table MV-1) was
+      searched for but the national total was not surfaced in the snippet
+      and the page itself was not fetched — left unknown rather than
+      using the unverified ~2.8e8 folk figure. Per-network vehicle counts
+      (vehicles active on one metro network at once) are unknown; not
+      recovered this sweep.
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "on the order of 1e3-1e4 distinct metropolitan road networks globally (each urban agglomeration is one instance)"
+    evidence_status: unknown
+    confidence: low
+    note: >
+      UN/World Bank urban-agglomeration counts run ~1700+ agglomerations
+      above 300k population, which would ground this count, but that figure
+      itself was not independently sourced this sweep — [unverified — model
+      knowledge]. Recorded as an order-of-magnitude placeholder with
+      evidence_status: unknown rather than dressed up as measured; the
+      qualitative point (a real, large, n>>1 population — satisfying
+      instance_population's epistemic-possibility test for class-level
+      distributions) is the load-bearing content here, not the digit.
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: driver-vehicle units
+        count_oom: "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak"
+        interchangeable: yes
+        itself_complex: out-of-scope(human)
+        note: >
+          The driver's cognitive/decision internals are out-of-scope(human);
+          the unit is scored as one behavioral atom (car-following/
+          lane-changing response), consistent with the atomicity-convention
+          declared in scoping_note.
+      - name: road-graph elements (links, nodes/intersections, ramps, signals)
+        count_oom: "not recovered this sweep; unknown — a metro network's link/node count is a real, findable quantity (OSM-derived studies exist) but was not sourced"
+        interchangeable: no
+        itself_complex: no
+        note: >
+          Fixed structural substrate, not a dynamical atom per the
+          atomicity-convention — listed for the compositional record, not
+          as a counted dynamical population.
+    confidence: low
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      Sweep verdict: no published Phi_m or fuel-throughput-per-network-mass
+      figure exists or was searched for — both the power (aggregate fuel
+      energy throughput) and mass (vehicles? roadbed? both?) denominators
+      are ill-defined at class-general level, the same honesty finding as
+      the-internet precedent (financial-markets carries the same
+      unknown verdict for an analogous institutional-scale reason).
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: hierarchical-mixed
+    note: >
+      A static network substrate (the road graph: links, nodes, ramps) plus
+      continuum-like flow dynamics running on it (car-following is
+      local/field-like along a lane) — neither a pure network nor a pure
+      continuum, hence hierarchical-mixed rather than forcing one or the
+      other.
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: car-following
+        mechanism: >
+          longitudinal spacing/speed adjustment to the vehicle immediately
+          ahead in the same lane (gap acceptance, reaction-time-lagged
+          response)
+        participants: driver-vehicle units (adjacent, same lane)
+        range: local
+      - name: lane-changing / merging
+        mechanism: >
+          lateral gap-acceptance maneuver coupling a unit to units in an
+          adjacent lane, including ramp merge points
+        participants: driver-vehicle units (adjacent lanes)
+        range: local
+      - name: signal / right-of-way control
+        mechanism: >
+          traffic-signal phasing and priority rules at intersections that
+          gate when units may proceed
+        participants: driver-vehicle units <-> fixed signal/control infrastructure
+        range: local (per intersection)
+      - name: route/path choice
+        mechanism: >
+          network-level route selection in response to perceived or
+          real-time congestion information (navigation apps, experience)
+        participants: driver-vehicle units, mediated by the road graph
+        range: network-mediated
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      The interaction alphabet is fixed by traffic law, road geometry, and
+      control infrastructure (drivers cannot invent a new interaction
+      mechanism), but the alphabet itself changes through slow institutional
+      /technological change (new signal-control algorithms, connected-vehicle
+      messaging, adaptive ramp metering) — the same "constrained" reasoning
+      financial-markets carries for its exchange-rulebook alphabet, sitting
+      between a physics-closed system (hurricanes) and a fully open one
+      (language/culture).
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Not searched this sweep (time budget). Road-network graphs are
+      reported in the transportation-network-science literature as
+      near-planar with low, non-power-law node degree (most intersections
+      degree 3-4) — [unverified — model knowledge], no citation fetched;
+      left unknown rather than asserting an exponent without a source.
+  modularity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Metro networks show real subdivision — freeway vs. arterial
+      subnetworks, distinct zones/districts with internally denser flow
+      coupling than cross-zone flow — matching the anchor scale's 2
+      (recognizable subunits, not insulated: congestion propagates freely
+      across zone boundaries via shared links and route choice). Comparator:
+      financial-markets scores the same 2 for an analogous
+      venue/asset-class subdivision under heavy cross-module coupling.
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): driver-vehicle units (atoms) ->
+      platoons/queues at a link (1) -> corridor/subnetwork (freeway or
+      arterial district) (2) -> the network-wide flow system (3, where the
+      MFD lives).
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      Road-network spatial fractal dimension has a real literature
+      (street-network box-counting studies report D~1.7-1.9 for grid-like
+      urban patterns) but was not searched this sweep (flagged in the
+      sweep report as a time-budget gap); left unknown per the no-guessing
+      rule rather than asserting the unsourced figure.
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per the decentralization anchor's infrastructure-category
+      discriminator (real-time steering vs. bookkeeping-only): traffic
+      signals and ramp meters exert only local, narrow-scope control
+      (a single intersection or on-ramp), not moment-to-moment steering of
+      network-wide flow the way a grid operator dispatches generation.
+      Route choice, car-following, and lane-changing are made autonomously
+      by driver-vehicle units. Matches anchor level 3 (predominantly
+      distributed; coordination points exist but are narrow in scope) —
+      comparator: the-internet (score 3, BGP routing autonomous, IANA/IETF
+      scoped to bookkeeping) rather than power-grids (score 1, a central
+      operator actively steers grid-wide behavior in real time).
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per the nonlinearity anchor's scale: car-following models are
+      intrinsically nonlinear (multiplicative speed-gap coupling), and the
+      Sugiyama ring experiment demonstrates that even a trivially simple,
+      obstacle-free system produces a threshold/switch-like transition from
+      free flow to a self-sustaining backward-propagating jam purely from
+      this nonlinear coupling — formation, propagation, and dissolution of
+      wide moving jams all depend on nonlinear terms. Downgraded from an
+      earlier draft's 4 to 3 per flag-fixing (2026-07-16, consistency
+      check): this entry's own feedback justification (elsewhere in this
+      file) states that "free-flow driving well below capacity is largely
+      open-loop car-following," which is the same quasi-linear-modal-
+      state-plus-nonlinear-edge-phenomenon shape the anchor file scores 3
+      for earthquake-fault-systems ("nonlinearity concentrated at
+      rupture...not pervasive across the full duty cycle") rather than the
+      hurricane anchor's pervasive-4 case — nonlinearity is central to the
+      characteristic breakdown/jam/MFD phenomena but not pervasive across
+      the whole free-flow-dominant duty cycle, matching a 3.
+    sources: [sugiyama2008]
+    evidence_status: qualitative
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: density-speed-flow coupling, sign: reinforcing then balancing, mechanism: "rising density reduces speed, which at a critical density triggers breakdown to a lower-flow congested branch (capacity drop) — a self-reinforcing collapse followed by a new, lower-throughput balance"}
+      - {name: route-choice feedback, sign: balancing (slow), mechanism: "perceived congestion on a route drives drivers to alternate routes/times, redistributing load network-wide"}
+      - {name: stop-and-go wave self-propagation, sign: reinforcing (local), mechanism: "a following vehicle's braking response to a lead vehicle's deceleration amplifies the perturbation upstream, sustaining the wave (Sugiyama ring)"}
+    justification: >
+      Feedback loops are central to characteristic dynamics (breakdown,
+      capacity drop, wave propagation) but coexist with substantial
+      feedback-free behavior (free-flow driving well below capacity is
+      largely open-loop car-following) — matching a 3 rather than 4,
+      parallel to the financial-markets reasoning (loops central but not
+      the sole organizing description outside stress episodes).
+    sources: [sugiyama2008, mdpi-capacity-drop-2023]
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Genuinely open as a physical system (fuel/energy throughput, driven
+      by continuous vehicle-engine dissipation), and the throughput is
+      directly load-bearing for the dynamics of interest (vehicle
+      kinetic energy and following behavior, not merely an ancillary
+      substrate as in financial-markets' datacenter case) — but no
+      published aggregate energy-throughput figure for a road-traffic
+      system was sourced this sweep (see energy_rate_density: unknown),
+      so the score rests on qualitative physical reasoning rather than a
+      quantified flux, capping it below the hurricane anchor's textbook 4.
+    evidence_status: qualitative
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Individual-vehicle trajectories in a jam are sensitively dependent on
+      small perturbations (the Sugiyama ring's central finding: a jam forms
+      from generic small fluctuations, not a specific triggering event),
+      but network-wide flow/density/speed relationships (the MFD) are
+      reproducible and predictable when averaged over a large area
+      (Geroliminis & Daganzo 2008) — sensitivity is real at the
+      microscopic/local scale but does not propagate into unpredictability
+      of the aggregate state, unlike weather's whole-system chaos.
+      Downgraded from an earlier draft's 2 to 1 per flag-fixing (2026-07-16,
+      consistency check): this is the same clean local-vs-aggregate-split
+      argument the-internet's entry uses to justify its own score of 1
+      ("documented transient instability...sub-processes that can amplify
+      small perturbations" while dominant dynamics are not chaotic); the
+      anchor's level 2 requires contested/mixed evidence in the literature,
+      not a clean split, which is level 1's text ("weak or highly
+      localized...not characteristic of the system's dominant dynamics").
+      No quantitative predictability-horizon figure was sourced this sweep;
+      score is qualitative, not measured.
+    sources: [sugiyama2008, geroliminis-daganzo2008]
+    evidence_status: qualitative
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: proposed
+    justification: >
+      Traffic breakdown at a bottleneck has a genuine phase-transition-like
+      character (a sharp, discontinuous drop in flow at a critical density —
+      the capacity-drop literature, 2-25% flow reduction reported), and
+      Kerner's three-phase theory explicitly proposes synchronized-flow and
+      wide-moving-jam states as a criticality-adjacent framework — but this
+      sweep found no CSN-grade heavy-tail event-statistics fit for
+      real (field-measured) jam sizes or durations to pair with the
+      mechanism claim (Nagel & Paczuski 1995's jam statistics are a
+      cellular-automaton MODEL result, not field data, per the brief).
+      Per filling_rules.soc-two-claims and the mechanism-alone-caps-at-1
+      convention: a proposed mechanism without citable event-statistics
+      evidence caps at 1, matching financial-markets' analogous
+      mechanism-proposed-but-contested profile rather than reaching 2.
+    evidence_status: qualitative
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: >
+      not a heavy-tail/power-law fit — no CSN-grade tail-exponent statistic
+      for real (field-measured) jam size/duration was located this sweep;
+      recorded instead as the best available characteristic-event constant:
+      wide-moving-jam downstream-front propagation speed, empirically
+      ~15-20 km/h (average examples -15 to -16 km/h), remarkably invariant
+      across widely different traffic and road conditions
+    measurand: >
+      wide-moving-jam downstream propagation speed (a velocity constant of
+      the characteristic traffic-jam event, NOT an event-size/frequency
+      tail exponent)
+    method: >
+      empirical detector-station tracking of jam fronts (Kerner & Rehborn
+      1996 as the originating claim). The general ~15-20 km/h class range
+      and its German-autobahn-A5 empirical base are corroborated by
+      independent web verification (Wikipedia's three-phase-traffic-theory
+      synthesis, cross-checked against search aggregation); however, no
+      source located this sweep or during flag-fixing pairs a specific I-5
+      North figure with an A5 figure the way an earlier draft of this
+      field implied — that specific numeric pairing traces solely through
+      the unfetched secondary synthesis in sources.kerner-rehborn1996-secondary
+      and should not be read as independently corroborated.
+    sources: [kerner-rehborn1996-secondary]
+    evidence_status: measured-untested
+    confidence: low
+    note: >
+      MEASURAND-TYPE FLAG (drafter's own, following the sweep report's
+      explicit warning): this column's spec calls for a tail exponent
+      alpha with CSN-grade fit status, and the strongest quantitative
+      "extreme event" figure this sweep recovered is a propagation-speed
+      constant, not a heavy-tail statistic — it is recorded here rather
+      than forced, because it IS the class's most citable characteristic-
+      event quantity, but it should not be read as satisfying
+      filling_rules.power-law-rigor; no power-law claim is being made.
+      A genuine field-measured jam-size/duration tail fit remains
+      unsourced and would be the correct target for a future upgrade.
+      Kerner & Rehborn (1996) itself was not directly located/fetched this
+      sweep — the figure traces through a secondary synthesis only.
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No established measurand or citation found this sweep for
+      long-range temporal correlation of a traffic signal (candidate:
+      autocorrelation of flow or speed at a fixed detector across
+      breakdown-recovery cycles). Left unknown rather than stretched.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      A specific, modeled, thresholded mechanism is published with a
+      quantified magnitude: the capacity drop at breakdown (2-25% flow
+      reduction across studies; a commonly cited example ~500 veh/h, 11.9%,
+      at a freeway ramp merge), together with the flow-density fundamental
+      diagram's two-branch hysteresis (deceleration vs. acceleration) and
+      Kerner's metastable synchronized-flow states as a second named
+      mechanism. This satisfies the anchor's level-2 bar (a specific
+      regime-shift mechanism formally identified and modeled, empirical
+      confirmation present but not a systematic multi-element inventory
+      comparable to climate's 16-element case) — matching, not exceeding,
+      financial-markets' analogous 2. Contingent per the sweep report on a
+      primary read of at least one capacity-drop/hysteresis paper before
+      further reliance; this draft rests on snippet-level sourcing only.
+    sources: [mdpi-capacity-drop-2023]
+    evidence_status: measured-untested
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Documented hysteresis: the flow-density fundamental diagram shows
+      distinct deceleration and acceleration branches at the same density
+      (post-breakdown outflow at a bottleneck is measurably lower than the
+      pre-breakdown maximum flow — the capacity-drop literature), and
+      network-scale MFD hysteresis loops are reported for loading vs.
+      unloading conditions (Geroliminis & Sun 2011, snippet-verified,
+      not upgraded to primary this sweep). This is genuine documented
+      loop/bistability, not mere relaxation lag — matching the memory_
+      hysteresis anchor's level 3 (documented hysteresis or multistability,
+      localized/partial rather than the AMOC-grade level-4 case). The
+      panel-spec's own note names "traffic hysteresis loops" (Treiterer &
+      Myers 1974) as one of only two literature-grounded quantitative
+      exemplars for this column — this entry is that citation finally
+      landing in the catalog, though Treiterer & Myers 1974 itself was not
+      independently re-fetched this sweep.
+    sources: [mdpi-capacity-drop-2023, geroliminis-sun2011]
+    evidence_status: measured-untested
+    confidence: low
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Car-following is a state-dependent response (a driver-vehicle unit
+      conditions its action on the perceived gap/speed of the vehicle
+      ahead, not merely a fixed forwarding rule), which clears the
+      anchor's does_not_count bar for "mere signal propagation" at a
+      minimal level; but there is no aggregation of dispersed information
+      into a constructed public state the way price formation or the
+      Internet's routing tables do — modern route-choice information
+      systems (navigation apps) exist but are exogenous to the
+      driver-vehicle-unit-only atomicity boundary declared in scoping_note.
+      Scored 1: real but minimal state-dependent response, well below
+      financial-markets' textbook-4 information-aggregation profile.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Driver-vehicle units adapt within a trip (route switching in
+      response to perceived congestion, following-distance adjustment to
+      conditions) and across trips (learned habitual routes/departure
+      times), but there is no population-level selection/retention
+      mechanism analogous to trading-strategy selection in
+      financial-markets, and the road-graph substrate itself does not
+      adapt on the timescale of the flow dynamics (infrastructure changes
+      operate on a separate, much slower institutional timescale, treated
+      as forcing per the scoping note). Upgraded from an earlier draft's 2
+      to 3 per flag-fixing (2026-07-16, consistency check): route
+      switching in response to perceived congestion and learned habitual
+      routes/departure times describe anticipatory, experience-conditioned
+      behavior — the anchor's level-3 text ("components possess internal
+      models and adjust behavior anticipatorily"), not level 2's explicit
+      exclusion ("...without anticipation or internal models"). Scored 3:
+      real anticipatory, model-based adaptation at the component level,
+      stopping short of 4 because there is no population-level
+      selection/retention and the road-graph substrate adapts only on a
+      much slower institutional timescale.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: contested
+    justification: >
+      Route/departure-time choice varies across driver-vehicle units and
+      persists via habit formation, which resembles variation-retention,
+      but there is no clear selection pressure removing "losing" driving
+      strategies analogous to firm failure in markets — recorded as
+      contested rather than asserting present or absent without a citation
+      this sweep.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The macroscopic fundamental diagram (Geroliminis & Daganzo 2008) is
+      a formalized, predictive macro-law used by the transportation-
+      engineering field to characterize and manage network-wide flow —
+      not transparent from individual car-following rules by inspection —
+      matching the emergence anchor's level 3 (a formalized order
+      parameter/macro-law doing real explanatory work, weak/epistemic
+      sense). Falls short of a 4 because network-wide traffic management
+      still relies heavily on link-level and corridor-level models
+      alongside the MFD, unlike tropical-cyclone science's field-wide
+      commitment to potential-intensity theory as the primary descriptive
+      mode.
+    sources: [geroliminis-daganzo2008]
+    evidence_status: qualitative
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The road-graph substrate is designed (lanes, signals, ramps), but
+      the system's characteristic phenomena — stop-and-go waves, the
+      synchronized-flow and wide-moving-jam phases, the MFD itself — are
+      not templated anywhere; the Sugiyama ring experiment is the clean
+      proof (a circuit with no bottleneck at all still spontaneously forms
+      a jam). This exceeds the-internet anchor's 2 (designed skeleton with
+      substantial spontaneous order) because the defining phenomena here
+      are MORE thoroughly emergent — jams form and propagate with no
+      engineered trigger whatsoever, matching predominantly-spontaneous
+      order (anchor level 3) rather than a 2, though signals/ramp meters
+      remain a real designed layer preventing a 4.
+    sources: [sugiyama2008]
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Networks absorb routine perturbation (an incident, a closed lane)
+      by rerouting and re-equilibrating flow, but characteristic
+      congestion episodes recur predictably under ordinary daily load
+      (rush hour) rather than being rare externally-imposed shocks the
+      system merely survives — a genuinely different failure mode from
+      the tropical-cyclone or grid-blackout cases. No citable systematic
+      resilience study was sourced this sweep; scored qualitatively at a
+      middle value reflecting routine-perturbation absorption without
+      strong evidence either way for rare/severe shocks.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Congestion propagates upstream from a bottleneck (the wide-moving-jam
+      wave itself is a spatial cascade with a measured propagation speed,
+      ~15-20 km/h, recorded under extreme_event_statistics) and can spill
+      across links/routes as drivers divert into already-loaded alternates,
+      a real, mechanistically documented propagation phenomenon — but no
+      fitted cross-event cascade-size distribution comparable to the
+      power-grid blackout literature was located this sweep. Matches
+      financial-markets' analogous 2 (dedicated case studies and mechanism
+      analyses exist; no fitted cascade-size distribution).
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Wide moving jam (stop-and-go wave)
+    order_parameter: downstream-front propagation speed (~15-20 km/h, near-invariant)
+  - name: Macroscopic fundamental diagram (MFD)
+    order_parameter: >
+      network-wide space-mean flow/density/speed relationship; nominal
+      practical freeway lane capacity ~2000-2400 veh/h/lane (commonly cited
+      nominal value ~2200 veh/h/lane), and a calibrated illustrative
+      three-parameter fit — free-flow speed u0=110 km/h, critical density
+      kc=27 veh/km/lane, jam density kj=110 veh/km/lane, implied capacity
+      ~2241 veh/h/lane (sources.tudelft-fhwa-mfd-capacity) [snippet-verified
+      — added per flag-fixing 2026-07-16, coverage check; not primary-read]
+  - name: Synchronized flow (three-phase theory)
+    order_parameter: flow-density scatter pattern distinct from free flow and wide moving jams
+  - name: Capacity drop at breakdown
+    order_parameter: post-breakdown outflow relative to pre-breakdown maximum flow (2-25% reduction range)
+
+sources:
+  sugiyama2008:
+    citation: >
+      Sugiyama, Y., Fukui, M., Kikuchi, M., Hasebe, K., Nakayama, A.,
+      Nishinari, K., Tadaki, S. & Yukawa, S. (2008). Traffic jams without
+      bottlenecks — experimental evidence for the physical mechanism of the
+      formation of a jam. New Journal of Physics 10, 033001.
+      [read-status: NOT primary-read — IOPscience returned HTTP 403 on
+      fetch this sweep despite the journal's open-access status (bot-block
+      suspected, not an actual paywall). The 230 m circuit length, 22-23
+      vehicle count, and qualitative jam-formation/propagation finding are
+      secondary-corroborated only (widely reported in contemporaneous
+      science coverage) — treat as [snippet/secondary — not primary-read]
+      pending a direct-PDF or arXiv-mirror retry.]
+  oica-statista:
+    citation: >
+      OICA (International Organization of Motor Vehicle Manufacturers),
+      "Number of vehicles in use worldwide," via Statista secondary
+      citation: ~947M passenger cars + ~335M commercial vehicles ≈ 1.28
+      billion vehicles in use, 2015 estimate.
+      https://www.statista.com/statistics/281134/number-of-vehicles-in-use-worldwide/
+      [snippet-verified — search-snippet only; OICA's own oica.net/statistics/
+      page was not directly fetched this sweep.]
+  mdpi-capacity-drop-2023:
+    citation: >
+      "Capacity Drop at Freeway Ramp Merges: A Review and a Tutorial
+      Report." Sustainability 15(3), 2050 (2023).
+      https://www.mdpi.com/2071-1050/15/3/2050
+      [snippet-verified — search-result summary only, full paper not
+      fetched this sweep.]
+  geroliminis-daganzo2008:
+    citation: >
+      Geroliminis, N. & Daganzo, C.F. (2008). Existence of urban-scale
+      macroscopic fundamental diagrams: some experimental findings.
+      Transportation Research Part B 42(9), 759-770.
+      [snippet-verified — located via search (ScienceDirect/RePEc listings)
+      but not fetched; confirms the Yokohama field experiment and the
+      qualitative MFD flow/density/speed-collapse finding. No specific
+      numeric MFD parameter values recovered this sweep.]
+  geroliminis-sun2011:
+    citation: >
+      Geroliminis, N. & Sun, J. (2011). Hysteresis phenomena of a
+      macroscopic fundamental diagram in freeway networks. Transportation
+      Research Part B 45(9), 1643-1656.
+      [snippet-verified — already logged in research/phase4/cities-sources.md
+      (lines 320-333); an upgrade to primary-read was recommended by the
+      sweep report but deferred this batch for time budget; no numeric
+      value recovered from it in either pass.]
+  kerner-rehborn1996-secondary:
+    citation: >
+      Kerner, B.S. & Rehborn, H. (1996). Experimental properties of
+      complex traffic flow: induction of synchronized flow. Phys. Rev. E
+      53, R4275 (or a closely related 1996 Kerner & Rehborn paper) — the
+      likely originating source for the ~15-20 km/h wide-moving-jam
+      propagation-speed figure.
+      [NOT directly located or fetched this sweep — the figure (including
+      the -15 km/h I-5 North and -16 km/h German autobahn A5 corroborating
+      examples) reaches this entry only via an unfetched secondary
+      synthesis found in search. Treat as [secondary-synthesis level, not
+      primary- or snippet-verified against the originating paper itself].]
+  tudelft-fhwa-mfd-capacity:
+    citation: >
+      TU Delft OpenCourseWare traffic-flow-theory lecture notes (fundamental
+      diagram calibration example: free-flow speed u0=110 km/h, critical
+      density kc=27 veh/km/lane, jam density kj=110 veh/km/lane, implied
+      capacity ~2241 veh/h/lane), corroborated by FHWA/Hall practical
+      freeway lane-capacity guidance (~2000-2400 veh/h/lane, nominal ~2200
+      veh/h/lane). Added per flag-fixing (2026-07-16, coverage check).
+      [snippet-verified — search-result/course-notes summary only, not
+      primary-read this pass.]
+  helbing2001:
+    citation: >
+      Helbing, D. (2001). Traffic and related self-driven many-particle
+      systems. Reviews of Modern Physics 73, 1067. arXiv:cond-mat/0012229.
+      [NOT read this sweep — the arXiv PDF was fetched but the fetch tool
+      returned an unparseable binary stream (zero numeric content
+      extracted); the file is saved locally
+      (C:\Users\shift\.claude\projects\N--coc\2f961e2a-5343-46b1-aa19-422fa6499e4c\tool-results\webfetch-1784221376139-f93r7o.pdf)
+      pending a proper PDF-text-extraction pass. Listed here as an
+      orphan/candidate reference for a future revision, NOT cited by any
+      attribute value in this draft — no claim in this entry rests on it.]
+
+provenance:
+  drafted_by: workflow-agent (2026-07-16)
+  verification:
+    citation_check: complete
+    plausibility_check: complete
+    consistency_check: complete
+    coverage_check: complete
+  fix_log:
+    - by: workflow-agent (flag-fixer), 2026-07-16
+      changes:
+        - "[FIX/citation] extreme_event_statistics.method: hedged the I-5 North/A5 numeric pairing — no source pairs them; only the general ~15-20 km/h class range and the A5 empirical base are independently corroborated, the specific pairing rests solely on the unfetched kerner-rehborn1996-secondary synthesis."
+        - "[BLOCKER/plausibility] spatial_extent: split the conflated top-level value into two labeled sub-values (metro_network_span: unverified model knowledge, no source; sugiyama_ring_circuit: 230 m, secondary-corroborated). Removed sugiyama2008 from top-level sources (it does not support the metro-span figure) and downgraded value/evidence_status from 1e4/measured-untested to unknown/unknown."
+        - "[FIX/consistency] nonlinearity: rescored 4 -> 3, parallel to the earthquake-fault-systems anchor (nonlinearity central to characteristic breakdown/jam/MFD phenomena but not pervasive across the free-flow-dominant duty cycle), per the entry's own feedback justification admitting largely open-loop free-flow driving."
+        - "[FIX/consistency] chaos_sensitivity: rescored 2 -> 1, for consistency with the-internet's directly comparable local-vs-aggregate-split reasoning, which that entry scores 1, not 2."
+        - "[FIX/consistency] adaptive_capacity: rescored 2 -> 3; the justification's own content (anticipatory route switching, learned habitual routes) is anchor level-3 text (internal models, anticipatory adjustment), not level 2's explicit exclusion of anticipation."
+        - "[FIX/coverage] emergent_phenomena (MFD): added nominal freeway lane capacity (~2000-2400 veh/h/lane, nominal ~2200) and a calibrated (u0=110 km/h, kc=27 veh/km/lane, kj=110 veh/km/lane, implied capacity ~2241 veh/h/lane) triple, sourced to new sources.tudelft-fhwa-mfd-capacity (snippet-verified)."
+      unresolved_this_pass:
+        - "[UNRESOLVED/coverage] instance_population: attempted to fetch UN World Urbanization Prospects 2018 Highlights PDF (population.un.org/wup/assets/WUP2018-Highlights.pdf) to source the ~1700+ agglomeration count; fetch returned binary/encoded content, no readable figure extracted (same PDF-parsing failure pattern already disclosed for helbing2001). Value/evidence_status left unchanged (unknown) rather than fabricating the exact count."
+        - "[UNRESOLVED/coverage] degree_distribution: fetched the Cardillo et al. 2006 arXiv abstract (arxiv.org/abs/physics/0510162) to check the suggested citation — confirmed the paper exists and studies planar urban-street-network graphs (meshedness, cycles, efficiency, cost) but the abstract does not state a degree-distribution finding, and the full PDF could not be parsed (binary stream). Left unknown rather than asserting the unconfirmed 'near-planar low-degree' claim against this specific citation."
+        - "[UNRESOLVED/coverage] fractal_dimension_spatial: fetched the Lammer, Gehlsen & Helbing 2006 arXiv abstract (arxiv.org/abs/physics/0603257) — the paper reports an effective metric-space dimension d>2 for travel-time-weighted road networks, a different measurand (travel-time metric dimension, not spatial box-counting fractal dimension) than the D~1.7-1.9 figure this entry's note surmised. Does not support filling this column; left unknown rather than force-fitting a mismatched measurand."
+    - by: workflow-agent (flag-fixer), 2026-07-16
+      changes: []
+      note_flags_recorded: >
+        Recorded (not acted on) note-severity findings from all four verifiers
+        below in this same flags list, appended under a dated sub-note where
+        not already covered by an existing flag entry.
+  flags:
+    - column: spatial_extent / characteristic_timescales
+      note: >
+        Sugiyama et al. 2008 — the brief's "emergence core" source — could
+        not be primary-read this sweep (IOPscience HTTP 403 despite
+        open-access status); the 230 m circuit length and oscillation-
+        period figures are secondary-corroborated only. Highest-priority
+        re-fetch for the verification stage (direct-PDF or arXiv-mirror
+        retry).
+    - column: nonlinearity / self_organization / chaos_sensitivity
+      note: >
+        Helbing 2001's arXiv PDF (cond-mat/0012229) was fetched but the
+        fetch tool could not parse the binary stream — zero numeric
+        content extracted from what would likely be the single best
+        citation-hub source for this class. Not cited in any attribute
+        value; needs a proper PDF-text-extraction pass (e.g. via the pdf
+        skill) before it can support any claim here.
+    - column: extreme_event_statistics
+      note: >
+        Measurand-type mismatch risk, flagged by the sweep report and
+        carried forward explicitly in the attribute's own note: the only
+        strong quantitative "extreme event" figure found (15-20 km/h jam
+        propagation speed) is a velocity constant, not a heavy-tail/
+        power-law exponent. No CSN-grade tail-exponent fit for real
+        (non-CA-model) jam-size/duration statistics was located. Recorded
+        as the best available characteristic-event quantity with an
+        explicit flag rather than forced into the tail-exponent shape or
+        silently dropped.
+    - column: degree_distribution / fractal_dimension_spatial
+      note: >
+        Both left unknown — real literatures likely exist (road-network
+        graph degree distributions; street-network box-counting fractal
+        dimension D~1.7-1.9) but neither was searched this sweep due to
+        time budget. Flagged for a follow-up sweep rather than guessed.
+    - column: instance_population / energy_rate_density
+      note: >
+        instance_population's ~1e3-1e4 metropolitan-network count and the
+        underlying ~1700+ UN/World Bank agglomeration figure are
+        [unverified — model knowledge], not independently sourced this
+        sweep. energy_rate_density is recorded unknown per the sweep's own
+        pre-diagnosis (ill-defined power/mass denominators at class-general
+        level, the-internet precedent) — no search was run for it.
+    - column: relations (cross-entry reciprocity)
+      note: >
+        cities.yaml line 69's relations.contains already lists
+        road-traffic-systems (resolved here via this entry's part_of:
+        [cities]). cities.yaml line 170's component_ontology row
+        (itself_complex: power-grids # road-traffic-systems and others
+        also apply) and line 230's interaction-ontology participant note
+        (residents, firms via transportation networks; road-traffic-systems
+        unresolved link) are now resolvable against this entry but were
+        NOT edited this batch per instructions — flagged here for a future
+        cities.yaml consistency pass to update those two lines' comments/
+        links to point at this now-existing entry.
+    - column: tipping_transitions / memory_hysteresis
+      note: >
+        Both rest on snippet-level sourcing only (MDPI capacity-drop
+        tutorial report, Geroliminis & Sun 2011) per the sweep report's
+        explicit caveat that at least one capacity-drop/hysteresis paper
+        should be primary-read before further reliance on the score-2/
+        score-3 justifications.
+    - column: numerosity
+      note: >
+        [note, flag-fixer 2026-07-16] OICA's own site returned 404 on direct
+        fetch during verification, and Statista could not be fetched
+        (redirect loop/paywall gate); the 947M+335M=1.28B figure is
+        nonetheless consistently reported across multiple independent
+        secondary aggregators. No action required to keep
+        evidence_status: measured-untested/low-confidence; if upgrading
+        later, try web.archive.org for OICA's original statistics page.
+    - column: spatial_extent / sugiyama2008 exemplar
+      note: >
+        [note, flag-fixer 2026-07-16] The qualitative Sugiyama finding is
+        independently corroborated by multiple secondary sources (Semantic
+        Scholar, SciRP, a PMC citing-article) beyond this entry's own
+        citation chain, but the specific numeric details (230 m, 22-23
+        vehicles) remain unconfirmed by any fetchable source (IOPscience
+        and a ResearchGate mirror both returned HTTP 403). No change
+        needed; already honestly disclosed as secondary-corroborated only.
+    - column: extreme_event_statistics (range/example optics)
+      note: >
+        [note, flag-fixer 2026-07-16] The stated class range (~15-20 km/h)
+        and the two corroborating examples (-15, -16 km/h) both sit at the
+        low end rather than spanning the range — a minor internal-
+        consistency wrinkle, not a fabrication. Left as-is; a future sweep
+        should either broaden the examples or narrow the stated range.
+    - column: tipping_transitions / criticality lane-count consistency
+      note: >
+        [note, flag-fixer 2026-07-16] The capacity-drop example (~500
+        veh/h, 11.9%) implies a pre-breakdown flow of ~4200 veh/h, not
+        cross-checked against this entry's own ~2000-2400 veh/h/lane
+        practical capacity figures to confirm plausibility for the cited
+        ramp-merge scenario (plausible only if ~2 lanes). Flagged for
+        confirmation at a future primary-read pass of the MDPI paper.
+    - column: memory_hysteresis (Treiterer & Myers 1974)
+      note: >
+        [note, flag-fixer 2026-07-16] Scored conservatively (measured-
+        untested/low confidence) because Treiterer & Myers 1974 — the
+        panel-spec anchor file's own named flagship exemplar for this
+        column — was not primary-read this sweep; correct, conservative
+        call given sourcing actually done. Flagged as a priority
+        primary-read target for a follow-up sweep.
+    - column: robustness_resilience (level convention)
+      note: >
+        [note, flag-fixer 2026-07-16] Scored level: class-general,
+        departing from the anchor file's stated default of
+        exemplar(<name>) for this column (per D14), but matching existing
+        precedent in the-internet and financial-markets entries. Not an
+        entry-specific defect; a future roster-wide pass should reconcile
+        the anchor file's stated default against mixed existing practice.
+    - column: sources coverage (Lighthill & Whitham 1955; Nagel & Schreckenberg 1992)
+      note: >
+        [note, flag-fixer 2026-07-16] These two canonical review/source-list
+        targets from the sweep report are absent from this entry's sources
+        block, without an orphan-flag courtesy (unlike helbing2001, which
+        was deliberately carried in as a flagged orphan). Flagged for a
+        future sweep to either add them as flagged orphan/candidate sources
+        or confirm the omission was deliberate.
+    - column: temporal_correlation
+      note: >
+        [note, flag-fixer 2026-07-16] Left unknown; a weaker candidate
+        literature (Hurst-exponent/multifractal analyses of loop-detector
+        flow time series) may exist but no specific canonical paper was
+        identified by this pass either. Lower-priority follow-up.
+    - column: component_ontology (road-graph elements) / numerosity (per-network active count)
+      note: >
+        [note, flag-fixer 2026-07-16] Both left unrecovered/unknown;
+        OSM-derived street-network statistics and city/TomTom vehicle-count
+        estimates are plausible candidate sources but nothing this pass
+        can point to as a single clean, canonical citation. Lower priority
+        than the degree_distribution/fractal_dimension/instance_population
+        gaps above.

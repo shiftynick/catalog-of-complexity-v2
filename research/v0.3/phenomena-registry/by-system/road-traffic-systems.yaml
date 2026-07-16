@@ -1,0 +1,240 @@
+system: road-traffic-systems
+phenomena:
+  - id: road-traffic-systems--wide-moving-jam
+    name: Wide moving jam (stop-and-go wave)
+    order_parameter: downstream-front propagation speed (~15-20 km/h, near-invariant)
+    substrate:
+      part_type: driver-vehicle units
+      count_oom: "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak"
+      interchangeable: yes
+    generating_interactions: [car-following, lane-changing / merging]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      vehicle density. Critical-density breakdown is the host's own framing
+      (criticality: "a sharp, discontinuous drop in flow at a critical
+      density"); an illustrative calibrated critical density kc = 27
+      veh/km/lane is carried in the host's MFD order parameter
+      (tudelft-fhwa-mfd-capacity, [snippet-verified — not primary-read]),
+      and the Sugiyama ring experiment demonstrates spontaneous jam
+      formation at a specific density (22-23 vehicles on a 230 m circuit;
+      sugiyama2008, [secondary-corroborated — not primary-read, IOPscience
+      403]). Citation quality is snippet/secondary throughout — disclosed
+      per SPEC rather than upgraded. VERIFIER NOTE (batch-2 verification,
+      2026-07-16): the kc = 27 veh/km/lane figure is the MFD's calibrated
+      critical-density parameter — an illustrative lecture-notes
+      calibration of a DIFFERENT phenomenon's order parameter — pressed
+      into service here because it is the only numeric critical density
+      the host carries; the Sugiyama ring density (22-23 veh per 230 m,
+      ~1e2 veh/km) is a different regime, not a published critical value
+      for open-road jam formation. No jam-formation-specific published
+      critical value is pinned anywhere in the host: the
+      threshold-bifurcation call rests on the host's qualitative
+      critical-density/phase-transition framing (criticality,
+      mechanism_status: proposed) — the same qualitative-threshold shape
+      the original verification pass let stand for
+      tropical-cyclones--eyewall, so it stands here too, with this
+      disclosure sharpened.
+    persistence: sustained-while-driven   # RECLASSIFIED from self-sustaining at batch-2 verification (2026-07-16): a jam exists only under vehicle throughput — the record's own justification concedes "it dissolves when upstream inflow starves it," and the Sugiyama ring's persistence is persistence under continuous driving (fueled, driver-propelled vehicles continuously feeding the upstream front), not autonomy from driving. SPEC's self-sustaining means "persists without SPECIFIC driving once formed"; independence from the INITIATING perturbation (no bottleneck needed) is not independence from driving. Consistent with the eyewall/granulation dissipative-structure treatment and with the BZ host's own hurricane analogy for the identical distinction.
+    effective_theory:
+      status: quantitative-contested
+      theory: "Kerner three-phase theory / wide-moving-jam characteristic-speed invariance (kerner-rehborn1996-secondary, secondary-synthesis only); car-following instability demonstrated experimentally (sugiyama2008). The host records the three-phase framework's mechanism_status as 'proposed', and no CSN-grade jam-size event statistics exist — quantitative claims present but contested/unconsolidated"
+    qualitative_difference: >
+      A single driver-vehicle unit brakes, accelerates, and follows the car
+      ahead; the wide moving jam is a macroscopic object that no unit is or
+      contains — it propagates UPSTREAM at ~15-20 km/h against the direction
+      every constituent vehicle is facing, maintains that front speed
+      near-invariantly across widely different traffic and road conditions,
+      and persists as the same trackable object while its constituent
+      vehicles completely turn over (each car enters the back of the jam and
+      exits the front).
+    justification: >
+      new-entity applied strictly: the SPEC's own vocabulary names "traffic
+      jam" verbatim as a new-entity example, and the test is met on the
+      host's own evidence — you can point at one, count them, and track one
+      over time (empirical detector-station tracking of jam fronts with a
+      measured, near-invariant propagation speed, host
+      extreme_event_statistics, kerner-rehborn1996-secondary; jams have
+      identifiable birth at breakdown and death at dissolution, host
+      nonlinearity justification). No principled SPEC reason to classify
+      otherwise was found; runner-up new-dynamics (the stop-and-go
+      OSCILLATION viewed as a time-signature) is rejected because the host's
+      order parameter is a property of a trackable object (front speed), not
+      a period or regime label. REGISTRY NOTE (pre-registered breaker test
+      #3, FINDINGS.md): the host declares interaction_ontology
+      alphabet_closure: constrained, NOT closed — so this record is a
+      new-entity phenomenon in a non-closed-alphabet system, and the strong
+      form of the entity/function complementarity law (all new-entity in
+      closed-alphabet systems) fails on this record as classified. Recorded
+      plainly, per the test's pre-registration. Onset threshold-bifurcation
+      over episodic-triggered (the considered alternative, whose SPEC text
+      names "congestion collapse episodes"): individual jams are indeed
+      episodic realizations, but the Krakauer onset axis asks how the
+      phenomenon appears as driving grows, and the host carries an explicit
+      published-critical-density, phase-transition framing (criticality,
+      tipping_transitions) with citable control-parameter values —
+      threshold-bifurcation's test. Persistence sustained-while-driven
+      (reclassified from self-sustaining at the 2026-07-16 batch-2
+      verification pass): once formed, the jam persists and propagates
+      independent of the INITIATING perturbation — the Sugiyama ring shows
+      it needs no bottleneck at all, and the ring jam persists indefinitely
+      at constant vehicle count — but it exists only under vehicle
+      throughput and dissolves when upstream inflow starves it; the flow
+      itself IS the driving (a jam in zero traffic does not exist), so the
+      SPEC's dissipative-structure category applies, exactly as it does to
+      the eyewall and to BZ oscillation under the host's own hurricane
+      analogy. Independence from the trigger is captured by the
+      threshold/instability framing, not by the persistence field.
+    confidence: medium   # novelty_kind itself is high-confidence (SPEC-verbatim example, host-evidenced trackability); confidence capped at medium because the onset control-parameter citations are snippet/secondary-level only
+
+  - id: road-traffic-systems--macroscopic-fundamental-diagram
+    name: Macroscopic fundamental diagram (MFD)
+    order_parameter: >
+      network-wide space-mean flow/density/speed relationship; nominal
+      practical freeway lane capacity ~2000-2400 veh/h/lane (commonly cited
+      nominal value ~2200 veh/h/lane), and a calibrated illustrative
+      three-parameter fit — free-flow speed u0=110 km/h, critical density
+      kc=27 veh/km/lane, jam density kj=110 veh/km/lane, implied capacity
+      ~2241 veh/h/lane (sources.tudelft-fhwa-mfd-capacity) [snippet-verified
+      — added per flag-fixing 2026-07-16, coverage check; not primary-read]
+    substrate:
+      part_type: driver-vehicle units
+      count_oom: "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak"
+      interchangeable: yes
+    generating_interactions: [car-following, lane-changing / merging, signal / right-of-way control, route/path choice]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "MFD / network fundamental diagram (geroliminis-daganzo2008, snippet-verified; calibrated parameters tudelft-fhwa-mfd-capacity, snippet-verified). The host's emergence justification calls it a 'formalized, predictive macro-law used by the transportation-engineering field' — but the same host documents loading/unloading hysteresis loops (memory_hysteresis, geroliminis-sun2011) showing the relation is not single-valued, and all sourcing is snippet-level, so demoted from quantitative-predictive to quantitative-contested"
+    qualitative_difference: >
+      A single driver-vehicle unit has a speed and a spacing; the MFD is a
+      reproducible whole-network relation between space-mean flow, density,
+      and speed that emerges only when averaging over a large urban area
+      (Geroliminis & Daganzo's Yokohama demonstration) — individual links
+      show wide scatter, and no vehicle or link exhibits the network-level
+      curve that lets a metro area be treated as a single flow system.
+    justification: >
+      This is the batch's hard call. Scored new-statistics: the order
+      parameter is a curve/shape — a fitted functional relation among
+      aggregate variables (u0, kc, kj parameters) — matching the registry's
+      own treatment of urban scaling laws (cities--urban-scaling-laws),
+      whose order parameter is likewise a fitted law relating aggregates
+      rather than an object, regime, or time-signature. Runner-up:
+      new-function — the host's emergence justification foregrounds that
+      the MFD is USED by the field to characterize and manage network flow
+      (a macro-law exploitable from outside, the same consideration that
+      tipped commuting/agglomeration structure to new-function in cities) —
+      rejected here because the MFD itself is a regularity the flow OBEYS,
+      not a capability the system exercises; the host frames it as an order
+      parameter/macro-law, not as something the network does. Onset
+      always-present-at-scale over crossover-gradual (considered): the
+      well-defined MFD appears whenever the averaging population of
+      links/vehicles is large enough (the host's exemplar note: the collapse
+      appears "when averaged over a large urban area"), which is SPEC's
+      always-present-at-scale test almost verbatim; no critical aggregation
+      threshold is published in the host. Persistence sustained-while-driven:
+      the relation is a property of ongoing flow and vanishes without
+      vehicle throughput.
+    confidence: medium
+
+  - id: road-traffic-systems--synchronized-flow
+    name: Synchronized flow (three-phase theory)
+    order_parameter: flow-density scatter pattern distinct from free flow and wide moving jams
+    substrate:
+      part_type: driver-vehicle units
+      count_oom: "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak"
+      interchangeable: yes
+    generating_interactions: [car-following, lane-changing / merging]
+    novelty_kind: new-dynamics
+    onset: episodic-triggered
+    onset_control_parameter: unknown
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "Kerner three-phase traffic theory (kerner-rehborn1996-secondary, secondary-synthesis only — not primary- or snippet-verified against the originating paper). The host's criticality column records the framework's mechanism_status as 'proposed' with no CSN-grade event statistics — a quantitative phase taxonomy whose standing is contested/unconsolidated"
+    qualitative_difference: >
+      A single driver-vehicle unit follows the car ahead at some speed and
+      gap; synchronized flow is a distinct collective traffic REGIME —
+      congested but still moving, with speeds correlated across lanes and a
+      two-dimensional flow-density scatter that fits no single fundamental-
+      diagram curve — qualitatively distinct from both free flow and the
+      wide moving jam, and definable only at the level of the traffic
+      stream, not of any one vehicle.
+    justification: >
+      new-dynamics per SPEC's test: the order parameter identifies a REGIME
+      (one of three phases in Kerner's taxonomy), and "regime" is SPEC's own
+      new-dynamics keyword. Runner-up new-entity: Kerner's empirical
+      taxonomy does individuate synchronized-flow regions (typically pinned
+      at bottlenecks) as spatially localized patterns, but unlike the wide
+      moving jam they lack the trackable, condition-invariant propagating
+      front that makes the jam countable and followable (the host's
+      extreme_event_statistics measurand belongs to the jam, not to
+      synchronized flow), so the entity test is not cleanly met. Onset
+      episodic-triggered: synchronized flow arises in discrete breakdown
+      episodes at bottlenecks when conditions align — SPEC's own
+      episodic-triggered text names "congestion collapse episodes" — and
+      the host describes these states as "metastable"
+      (tipping_transitions) rather than carrying a dedicated published
+      critical value for the free-flow-to-synchronized transition itself
+      (the F->S transition is nucleation-like in the three-phase
+      literature); the conservative choice over threshold-bifurcation,
+      whose control-parameter requirement the host cannot meet for this
+      specific transition. Persistence sustained-while-driven: pinned at
+      bottlenecks while demand persists, dissolving as demand falls.
+    confidence: low   # sourcing for the entire three-phase taxonomy traces through an unfetched secondary synthesis; the dynamics-vs-entity call is genuinely close
+
+  - id: road-traffic-systems--capacity-drop
+    name: Capacity drop at breakdown
+    order_parameter: post-breakdown outflow relative to pre-breakdown maximum flow (2-25% reduction range)
+    substrate:
+      part_type: driver-vehicle units
+      count_oom: "~1e9 globally (1.28e9 vehicles in use); ~1e5-1e6 concurrently active on a single large metro network at peak"
+      interchangeable: yes
+    generating_interactions: [car-following, lane-changing / merging]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      vehicle density at the bottleneck. Breakdown at a critical density is
+      the host's explicit framing (tipping_transitions: "a specific,
+      modeled, thresholded mechanism is published with a quantified
+      magnitude" — capacity drop of 2-25%, commonly cited example ~500
+      veh/h / 11.9% at a freeway ramp merge; mdpi-capacity-drop-2023,
+      [snippet-verified — not primary-read]); the illustrative calibrated
+      critical density kc = 27 veh/km/lane is carried in the host's MFD
+      order parameter (tudelft-fhwa-mfd-capacity, [snippet-verified]).
+      Citation quality is snippet-level throughout — disclosed per SPEC.
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: "capacity-drop literature (mdpi-capacity-drop-2023 review/tutorial, snippet-verified): magnitude quantified but ranging widely (2-25%) across studies, mechanism still under review; paired with the two-branch fundamental-diagram hysteresis (memory_hysteresis, geroliminis-sun2011). Quantified but unconsolidated — contested rather than predictive"
+    qualitative_difference: >
+      A single driver-vehicle unit's throughput contribution is just its own
+      passage; the capacity drop is a collective regime shift in which the
+      bottleneck's discharge flow, once breakdown occurs, settles measurably
+      BELOW the maximum flow the same road sustained moments earlier under
+      free flow — the system as a whole holds a memory of its breakdown
+      (two-branch hysteresis: deceleration and acceleration branches at the
+      same density), a bistability no individual vehicle's behavior
+      exhibits or explains alone.
+    justification: >
+      new-dynamics per SPEC's test: the order parameter characterizes a
+      regime shift — the switch from the free-flow branch to a distinct,
+      lower-throughput congested branch with documented hysteresis between
+      them (host memory_hysteresis score 3, "genuine documented
+      loop/bistability, not mere relaxation lag") — a collective temporal
+      behavior with no single-unit analogue. Runner-up new-statistics (the
+      2-25% reduction range) rejected: that range is dispersion across
+      STUDIES, not a distributional law over units or events within the
+      system. Onset threshold-bifurcation over episodic-triggered
+      (considered): the host's tipping_transitions column explicitly calls
+      this a thresholded, formally modeled mechanism with a quantified
+      magnitude and citable control-parameter values, meeting
+      threshold-bifurcation's bar; individual breakdowns are episodic
+      realizations of that threshold crossing. Persistence
+      sustained-while-driven: the reduced-outflow state persists while the
+      upstream queue is present and recovers when the queue dissolves (the
+      acceleration branch of the hysteresis loop).
+    confidence: medium

@@ -97,7 +97,7 @@ relations:
   contains:
     - financial-markets  # RESOLVED, reciprocal: financial-markets.yaml's relations.part_of already lists [global-economy, cities] (comment: "global-economy unresolved -> expansion queue"); this entry's contains claim reciprocates that reference from the parent side. financial-markets is scoped narrowly (exchanges/price-formation) and is not re-scored here to avoid double-counting.
     - cities              # RESOLVED, reciprocal: cities.yaml's relations.part_of already lists [global-economy] (comment: "unresolved -> roster expansion queue"); this entry's contains claim reciprocates that reference from the parent side. Cities are economic agglomerations within the global economy but are not re-scored here.
-    - firms                # UNRESOLVED -> roster expansion queue. Candidate atomic-agent-level entry (component_ontology's declared deeper population); not drafted this batch per task brief.
+    - firms                # RESOLVED, reciprocal (v0.3 expansion batch 2, 2026-07-16): firms.yaml exists; its relations.part_of lists [global-economy], reciprocating this edge from the child side. Firms remain this entry's declared deeper population (component_ontology) and are not re-scored here.
 
 attributes:
 

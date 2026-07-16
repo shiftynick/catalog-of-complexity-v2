@@ -90,6 +90,36 @@ PC1's identity is unchanged and sharper: information_processing (+0.36), chaos_s
 - **Complexity metrics do not compose monotonically with containment.** Two clean cases: global-economy (decentralization 3) contains financial-markets (2) — aggregating many differently-governed subsystems dilutes central control; ocean-circulation (robustness 2) sits inside planetary-climate (3) — a subsystem can be nearer its own tipping threshold than the coupled system containing it. Together with v0.1's tropical-cyclones-out-dissipating-its-container observation, "composition does not imply monotonicity" is now a recurring cross-system pattern worth a dedicated write-up.
 - **The compositional pairs are the tightest pairs**: cities+global-economy (d=1.92) and weather-systems+tropical-cyclones (d=1.59) are now the closest pairs in the catalog. Partly genuine kinship, partly the non-independence caveat made visible — related entries share anchors, verifiers, and containment edges.
 
+## n=20 update (v0.3 expansion batch 2, 2026-07-16)
+
+Five entries added through pipeline v2 (convection-cells, chemical-oscillators, turbulent-flows, firms, road-traffic-systems; batch list signed off by Nick with road-traffic-systems in the fifth slot per D20's queue elevation). All four verifiers + integrated fixer + cross-entry audit; one audit-level rescore applied at orchestrator triage (turbulent-flows criticality 3 → 2, restoring anchor ordering against earthquake-fault-systems' measured G-R 2 — the DP-transition literature publishes the stronger claim, but this project's evidence base for it is search-synthesis only). This batch **fills the previously empty physical-chemical category row** (three entries) and was the designed test of both standing hypotheses. Non-independence caveat deepens again: firms sits inside global-economy, road-traffic-systems inside cities.
+
+**How the headline numbers moved (15 → 20):**
+
+| Statistic | n=15 | n=20 |
+|---|---|---|
+| PC1 explained variance | 42.4% | **45.1%** (PC2 17.3%, PC3 12.2%) |
+| information_processing ↔ adaptive_capacity | 0.957 | **0.882** |
+| modularity ↔ self_organization | −0.870 | **−0.830** |
+| information_processing ↔ alphabet_closure | (0.868 at n=10) | 0.872 |
+| adaptive_capacity ↔ alphabet_closure | 0.871 | 0.859 |
+| decentralization ↔ self_organization | 0.888 | 0.811 |
+| chaos_sensitivity ↔ information_processing | — | **−0.827** (new to the top five) |
+
+**Multiple-comparison status flips favorable at n=20**: Bonferroni-corrected critical |r| ≈ 0.713 (α=0.05/120 two-tailed, df=18, computed 2026-07-16) — all five top pairs now clear correction, versus exactly one at n=10/15. The catalog's headline correlations are no longer only-suggestive.
+
+**Verdicts on the standing hypotheses:**
+
+1. **info ↔ adaptivity: the degeneracy finally moved (0.957 → 0.882) — but the predicted dissociator was the wrong suspect.** Chemical-oscillators, the designed breaker, landed 0/0 on both columns: a BZ reaction, scored honestly against the anchors, neither processes information in the anchor's sense nor adapts — floor-degenerate, not dissociating. The dissociation actually came from **road-traffic-systems (information_processing 1, adaptive_capacity 3)** — drivers' anticipatory rerouting and demand adaptation give the system real adaptive capacity while its information processing stays thin — plus firms (3 vs 4). Eight of 20 entries now carry a ≥1-point gap between the two columns. Reading: the near-identity was partly a roster artifact; the residual structure now has faces, and "adaptation exceeding processing" (traffic) is a different failure of the identity than the long-predicted "processing without adaptation" (bureaucracies — still uncatalogued).
+2. **modularity ↔ self_organization: SURVIVED its designed test (−0.830).** The physical-chemical row landed exactly on the trend line — chemical-oscillators is the new extreme point (modularity 0, self_organization 4; the catalog's first double-floor/ceiling on the pair), convection-cells and turbulent-flows both 1/4. Self-assembly produces continua; the correlation now spans an entirely new category without weakening in direction. This graduates from "surprise" to the catalog's most theory-shaped finding.
+3. **the-internet ↔ fault-systems kinship: stays dissolved** at n=20 (fault-systems still attaches to the internet+web cluster late, at merge height 4.49 — the geophysical-networky corner remains sparse; still an anecdote).
+
+**New cross-system observations at n=20** (cross-audit log: [research/v0.3/expansion/verification/cross-entry-audit.md](../research/v0.3/expansion/verification/cross-entry-audit.md)):
+
+- **The dissipative-structure cluster now spans thirteen orders of magnitude in scale.** Convection-cells joins the tropical-cyclones + weather-systems pair at merge height 2.31 (third merge in the whole catalog), chemical-oscillators joins the same cluster next — a lab dish, a hurricane, and a synoptic storm system land in one unsupervised cluster from scores alone. Turbulent-flows instead pairs with galaxies (h=3.53) — the energetic, non-adaptive, high-decentralization profile finds its own odd couple.
+- **The alphabet-closure law holds at n=20 with zero exceptions on the physical side**: all 11 closed-alphabet entries are physical/geophysical/astrophysical; the three new physical-chemical entries all landed closed, firms and road-traffic-systems landed constrained. The audit's flagship contrast: the two category-defiers (cities scores open against its constrained socio-economic category-mates; world-wide-web scores constrained against its open cultural category-mate languages) are both argued from interaction mechanism, not category label — the column is discriminating, not relabeling. The anomaly hunt (a physical system with a non-closed alphabet) remains open.
+- **Composition non-monotonicity gains its sharpest case yet**: firms (decentralization 1) sits inside global-economy (3) — the audit's observation that a firm has a real-time-steering controller (CEO/board) makes it structurally closer to power-grids (1) than to any of its own category-mates. Child-out-scores-parent also recurs: firms' adaptive_capacity 4 vs global-economy's 3.
+
 ## The phenomena registry (v0.3 opening, 2026-07-03 — the D20 emergence-first lens)
 
 Per Nick's reframing (decision D20), the pattern hunt now also runs one level down: over the
@@ -111,8 +141,29 @@ Headlines, all pre-registered with their tests:
 - **Sharp onsets come with theories**: threshold-bifurcation phenomena carry quantitative
   effective theories in 12/14 cases vs 3/7 for episodic ones.
 
+**Batch-2 update (2026-07-16) — all four pre-registered tests resolved** (18 new phenomena
+classified and adversarially verified; registry now 81 phenomena / 20 systems; full write-up in
+[FINDINGS.md](../research/v0.3/phenomena-registry/FINDINGS.md)):
+
+- **The entity/function law's strong form is DEAD, as pre-registered**: the traffic jam
+  classified new-entity in a constrained-alphabet system and survived hostile review
+  (closure table now 15/1/0). The weak form stands and the function side stays perfectly
+  clean (0/4/2): *physics makes things easily, society makes them rarely, but only society
+  makes capabilities.*
+- **The BZ oscillator FAILED to join the bistable engine** (sustained-while-driven, not
+  self-sustaining — no stored gradient), which sharpened the motif's membership rule: bistable
+  engines run on *storage*. Plate tectonics (elastic strain) is the new designated probe.
+- **The dissipative-cell motif gained its type specimen**: convection rolls with the project's
+  first entry-cited Ra_c (1707.762), plus turbulence puffs (Re_c ≈ 2040) — 3 → 5 lineages,
+  lab dish to synoptic storm.
+- **The rank-size motif took its 6th lineage (firm sizes, lineage-deduplicated against
+  global-economy) and stays exclusively social** at n=20.
+
 ## Standing hypotheses for the next analysis round
 
-1. Does information_processing ↔ adaptive_capacity stay near-degenerate at n≈40, or do dissociating systems appear (candidates: chemical oscillators — processing-free adaptation-free; bureaucratic systems — processing without adaptation)?
-2. Does modularity ↔ self_organization stay negative once physical-chemical entries (convection cells, BZ reaction) enter?
-3. Is the internet/fault-systems kinship robust to leave-one-out and to adding more infrastructure entries?
+*(Rewritten 2026-07-16 after the n=20 batch resolved the previous three: #1 partially dissociated via road-traffic-systems, #2 survived its designed test, #3 stays dissolved.)*
+
+1. Does information_processing ↔ adaptive_capacity keep sliding at n≈30, and does the "adaptation exceeding processing" pole (road-traffic-systems +2, firms +1) acquire more members? The mirror candidate — processing WITHOUT adaptation, the long-predicted bureaucratic-systems case — is still uncatalogued and is now the more informative missing entry.
+2. Does the alphabet-closure law survive the anomaly hunt — specifically, is there a famous physical system with a non-closed interaction alphabet anywhere in the roster candidates (granular media? plasmas?), or a social one with a closed alphabet?
+3. Does modularity ↔ self_organization (−0.830, direction-robust across two designed tests) survive entries built to break it — highly modular self-organized systems (software ecosystems? supply chains?)?
+4. The phenomena-registry pre-registered tests carried forward from the batch-2 classification (see the registry section above and FINDINGS.md for the resolved and open ones).

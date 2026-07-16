@@ -96,6 +96,67 @@ and driven collectives develop slow rhythms, *regardless of what the units are*.
 4. Does firms' entry hand the rank-size motif its 6th lineage (Axtell) and does the motif
    stay social-only?
 
+## Batch-2 resolution of the pre-registered tests (2026-07-16)
+
+**Data:** 18 new phenomena classified from the five batch-2 entries (convection-cells,
+chemical-oscillators, turbulent-flows, firms, road-traffic-systems), two classifier agents,
+one adversarial verification pass ([verification.md](verification.md) batch-2 section; 2
+challenges applied: convection heat-transport new-function → new-statistics, jam persistence
+self-sustaining → sustained-while-driven; the other 16 records SOUND). Registry now: **81
+phenomena, 20 systems, 0 conformance problems** (world-GDP still the sole emergence-test
+exclusion). All four pre-registered tests resolved:
+
+1. **BZ joins the bistable engine: NO — the motif's chemistry-scale test FAILED, informatively.**
+   The BZ oscillation matches on novelty (new-dynamics) and onset (Hopf, threshold-bifurcation)
+   but classified `sustained-while-driven`, not `self-sustaining`: a batch BZ damps as reagents
+   exhaust; a CSTR BZ oscillates only while pumped. The bistable engine stays n=5, exclusively
+   geophysical/astrophysical — and the failure sharpened what the motif actually requires:
+   members persist on *stored* gradients (ocean heat/salt structure, stellar rotation), while
+   the BZ has no storage. A new cross-divide signature emerged instead:
+   `new-dynamics | threshold-bifurcation | sustained-while-driven` (BZ oscillation, BZ
+   period-doubling chaos, laminar-turbulent transition, traffic capacity drop — physical-chemical
+   + infrastructure, 4 lineages).
+2. **Dissipative-cell motif with entry-cited control parameters: YES, both.** Convection rolls
+   (Ra_c = 1707.762, chandrasekhar1961, snippet-corroborated — the first *entry-cited* Ra_c in
+   the project, closing the [unverified] onset debt) and turbulence puffs (Re_c ≈ 2040,
+   avila2011) both landed `new-entity | threshold-bifurcation`. The motif grew 3 → 5 lineages
+   and now spans a lab dish to a synoptic storm. (Puffs individually classify `transient` —
+   memoryless finite lifetimes — a disclosed within-motif persistence nuance.)
+3. **The traffic jam breaks the entity-closure law: YES. The strong form is dead.** The wide
+   moving jam classified `new-entity` in a `constrained`-alphabet system and **survived the
+   adversarial pass** (the SPEC names "traffic jam" as a new-entity paradigm; the
+   point/count/track test is met on the host's own detector-tracking evidence, ~15–20 km/h
+   invariant upstream front speed). The closure table now reads new-entity **15 / 1 / 0** —
+   the honest reading is the pre-registered fallback: **entities are rarer, not absent,
+   outside physics.** The function side stays perfectly clean (new-function **0 / 4 / 2**;
+   the verifier's convection reclassification specifically prevented a spurious closed-side
+   new-function). Weak-form slogan: *physics makes things easily, society makes them rarely,
+   but only society makes capabilities.* The jam is also the dissipative-cell motif's first
+   non-closed member.
+4. **Rank-size motif's 6th lineage: YES, without double-counting.** firms--firm-size-distribution
+   carries `lineage: firm-size-zipf` reciprocally with global-economy's record (same Axtell 2001
+   evidence, parent/child scope — one lineage). The motif **stays exclusively
+   socio-economic/cultural** at n=20: no physical rank-size law has appeared, and firms'
+   growth-rate scaling law joined the separate always-present new-statistics signature instead.
+
+**Score for the pre-registrations: 4/4 resolved, 2 as predicted (tests 2, 4), 1 predicted-and-
+confirmed law-breaker (test 3), 1 informative negative (test 1).** The taxonomy itself held up
+under 18 new classifications with zero vocabulary failures — relevant to the D20(b)
+prove-then-formalize gate on promoting typed phenomenon fields into the schema.
+
+## Standing tests for the NEXT batch (pre-registered 2026-07-16)
+
+1. Does the weak entity-closure law (entities rare outside closed systems) hold as constrained
+   systems accumulate — i.e. does the constrained new-entity count stay ≪ the closed count, or
+   was the jam the first of many? (Granular media's force chains and avalanches are the next
+   designated probe; supply chains and software ecosystems the social-side probes.)
+2. Does anything ever join the bistable engine from outside geophysics/astrophysics — the
+   motif now predicts members need *stored* gradients, so the designated probe is a system
+   with genuine storage (plate tectonics: elastic strain storage).
+3. Does the new `threshold-bifurcation | sustained-while-driven` new-dynamics signature (the
+   "driven switch") keep crossing the physical/infrastructure divide?
+4. Does the rank-size motif stay social-only past n=25?
+
 ## Provenance note
 
 Registry layer only (prove-then-formalize, D8/D20): no catalog entry, schema, or anchor file

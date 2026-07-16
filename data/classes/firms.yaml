@@ -1,0 +1,699 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: firms
+# v0.3 expansion batch. Resolves the roster-expansion-queue
+# pointer left open by global-economy.yaml (component_ontology
+# firms row) and financial-markets.yaml / cities.yaml's
+# out-of-scope(human)/firms itself_complex pointers.
+# ============================================================
+id: firms
+name: Firms
+category: socio-economic
+status: verified
+
+exemplars:
+  - id: us-firm-population
+    name: The U.S. employer-firm population (1997 Census universe, Axtell 2001)
+    note: >
+      Primary evidence carrier for the class's quantitative backbone — the
+      1997 U.S. Census Bureau universe of N=5,541,918 employer firms,
+      already primary-read by this project (Axtell 2001, Science 293:1818).
+      Size-distribution and count figures below attach here unless marked
+      class-general.
+  - id: walmart
+    name: Walmart Inc.
+    note: >
+      Narrative exemplar for the public layer — fame-gated pick over General
+      Motors: the world's largest private employer by headcount, chosen for
+      immediate public recognizability. Headcount figure below is
+      [unverified — model knowledge]; not independently re-fetched this
+      session.
+
+scoping_note: >
+  The system is the individual firm as an economic organization: a bounded,
+  legally and managerially defined entity that combines labor, capital, and
+  routines to produce and transact, persisting across the individual
+  transactions and employment relationships that pass through it. Atomicity
+  per filling_rules.atomicity-convention: a firm's atomic parts are its
+  EMPLOYEES/AGENTS and internal ROUTINES/TEAMS — not neurons, not the
+  individual dollars of revenue. Human components (workers, managers) are
+  marked out-of-scope(human), per the established idiom already used at this
+  pointer by financial-markets.yaml (line 99, "trading agents... out-of-scope
+  (human) / firms") and cities.yaml (line 175, matching itself_complex
+  pointer) — both entries' dangling firms references are resolved by this
+  entry's existence; no part_of edge is added to either, since neither
+  entry's relations.contains lists firms (financial-markets' orders and
+  listed instruments are not firms; cities contains road-traffic-systems and
+  similar infrastructure classes, not firms as such — per the v0.3 audit
+  queue). The sole containing edge on record is global-economy, whose
+  component_ontology firms row (lines 190-196) already carries the count
+  figures this entry reuses rather than re-derives. Scoring is class-general,
+  with quantitative backbone from the U.S. employer-firm population
+  (Axtell 2001) and narrative color from Walmart as a single, extreme,
+  fame-gated exemplar of the size distribution's tail.
+
+summary: >
+  A firm is the small machine capitalism runs on: a bounded organization that
+  buys inputs, pays wages, and sells outputs, mostly invisibly, until one of
+  a small handful gets very large and very famous. The population of firms
+  is a textbook self-organizing size distribution — millions of
+  near-identical small entities and a vanishingly rare tail of giants, tied
+  together not by a designer's plan but by market entry, exit, and growth
+  operating on the same simple rules at every scale. Its adaptive core is
+  literal: firms are collections of learning, replaceable agents who
+  imitate, compete, and occasionally invent a new routine that outcompetes
+  the old one. Unlike a hurricane or a fault system, the firm is an entity
+  that FitzGerald could have used to write "the rich are different from you
+  and me" and be making a statistical claim, not an aphorism.
+
+relations:
+  part_of: [global-economy]  # RESOLVED this batch: global-economy.yaml's component_ontology firms row (lines 190-196) and relations.contains (line 100, "UNRESOLVED -> roster expansion queue") are reciprocated here; count figures (~5.5e6 US employer firms; ~2.1e7 total US entities; ~3-4e8 globally, disputed) are reused verbatim from that row, not re-derived. NON-relations (declared per task brief, not edges): financial-markets.yaml line 99 and cities.yaml line 175 both carry an "out-of-scope(human) / firms" itself_complex pointer at their firm-shaped components — this entry's existence resolves the dangling id at both, but neither entry lists firms in relations.contains, so no part_of/contains edge is added on either side. Flagged for a future consistency pass (not performed here, per instructions): global-economy.yaml lines 968-978 carries a cosmetic flag suggesting its slash-joined "out-of-scope(human) / firms" wording be cleaned to "itself_complex: firms" now that this entry exists.
+  contains: []  # a firm's internal parts are humans/teams/routines — out-of-scope(human), per the atomicity note above; no child class ids.
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: not-applicable-spatial
+    note: >
+      No single characteristic linear extent: firms range from a single
+      storefront to a multinational footprint spanning continents (Walmart:
+      operations on multiple continents). Recorded as a boundary fact rather
+      than a misleading meters figure, following financial-markets.yaml's
+      precedent for the same institutional-scale problem.
+    evidence_status: qualitative
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: daily operational cycle, value: "~1e5 s (a business day)", evidence_status: qualitative}
+      - {name: annual reporting / growth-rate cycle, value: "~3e7 s (one year; matches the Stanley et al. 1996 growth-rate measurand)", sources: [stanley1996], evidence_status: qualitative}
+      - {name: young-firm survival window, value: "~1e8 s (a few years) with a long right tail; ~42-50% of new establishments reported to survive to year 5 (BLS Business Employment Dynamics / Census BDS Table 7)", sources: [bls-bds-survival], evidence_status: unknown, note: "figure is SEARCH-SNIPPET ONLY — every direct fetch to bls.gov this sweep returned HTTP 403; not page-verified, so the percent value is recorded as unknown at the evidence_status level even though the qualitative pattern (large 5-year attrition) is uncontroversial. [unverified — search-snippet, not primary-read]"}
+      - {name: firm lifespan (population level), value: "heavy right skew — median lifespan far below the mean because a rare tail of firms persists for decades to centuries", evidence_status: qualitative}
+    note: candidate timescales synthesized from the sweep report; no single primary source gives all four in one table.
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "~5.5e6 U.S. employer firms (1997 Census universe, primary-read); ~2.1e7 total U.S. business entities incl. nonemployer; ~3-4e8 firms globally (measured-disputed, secondary aggregators, not primary-read)"
+    sources: [axtell2001]
+    evidence_status: measured-disputed
+    confidence: medium
+    note: >
+      Reused verbatim from global-economy.yaml's component_ontology firms row
+      (lines 190-196) per the task brief, rather than re-derived. Per-firm
+      employee count (a candidate second numerosity figure, the within-firm
+      component count) is NOT independently verified this pass: mean ~20
+      employees/firm is plausible given N=5.5e6 firms against ~1.1e8 total
+      1997 private employment, but this specific division was not confirmed
+      against Axtell's own tables in this sweep — left as an open follow-up
+      rather than stated as measured.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "~5.5e6 U.S. employer firms (1997, standing count, primary-read); formation/exit rates not pinned this pass (see characteristic_timescales survival figure)"
+    sources: [axtell2001]
+    evidence_status: measured
+    confidence: high
+    note: >
+      Unlike global-economy (n=1) or the-internet, firms are a genuine
+      large-n class-statistical population — this is exactly the case the
+      instance_population column was built to distinguish from n=1 classes;
+      it is what licenses the Zipf-law claim recorded under
+      extreme_event_statistics below.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: employees / managers (human agents)
+        count_oom: "highly heterogeneous, ~1 (sole proprietorships) to ~1e6 (Walmart: ~2.1e6 employees [unverified — model knowledge])"
+        interchangeable: no
+        itself_complex: out-of-scope(human)
+      - name: internal teams / routines (organizational sub-units)
+        count_oom: "unknown — no general count exists; scales with firm size and internal hierarchy_depth"
+        interchangeable: no
+        itself_complex: no
+        evidence_status: unknown
+      - name: capital assets (plant, equipment, inventory)
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+        evidence_status: unknown
+    confidence: low
+    note: >
+      Only the human-agent row has a citable order-of-magnitude anchor
+      (Walmart's headcount); the internal-routine and capital-asset rows are
+      recorded honestly as unknown rather than guessed, per no-guessing.
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    method: >
+      No citable firm-level or class-general energy-throughput-over-mass
+      figure was located this sweep; the same coverage gap financial-markets
+      and the-internet record for institutional systems (no defensible mass
+      denominator for an organization). Recorded as unknown rather than
+      derived.
+    evidence_status: unknown
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: hierarchical-mixed
+    note: >
+      Internally hierarchical (management layers, reporting lines) with a
+      network overlay (cross-functional collaboration, informal ties);
+      externally networked via supply chains, board interlocks, and
+      customer/supplier relationships (Newman 2003's board-interlock data
+      below).
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: employment / authority relation
+        mechanism: formal contract plus managerial directive
+        participants: managers -> employees
+        range: local
+      - name: internal resource/information flow
+        mechanism: routines, reporting, internal communication
+        participants: teams/departments within the firm
+        range: network-mediated
+      - name: market transaction (buy/sell)
+        mechanism: contracts, orders, payment
+        participants: firm <-> suppliers/customers/other firms
+        range: network-mediated
+      - name: board interlock / governance tie
+        mechanism: shared directors across firm boards
+        participants: firms (via director appointments)
+        range: network-mediated
+    type_count: 4
+    alphabet_closure: constrained
+    justification: >
+      The interaction alphabet is bounded by contract law, accounting
+      convention, and corporate-governance rules (a fixed formal set,
+      comparable to financial-markets' exchange rulebook), but the alphabet
+      itself evolves institutionally (new contract forms, new governance
+      structures) — "constrained," not "closed," matching
+      financial-markets.yaml's own reasoning for the same gradient position.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: "board-interlock (director) network: mean degree z=14.44, n=7,673 directors; clustering C=0.59 (network) / 0.88 (one-mode projection formula); assortativity r=+0.276"
+    measurand: board-interlock projection network specifically (shared directors across firm boards) — not supply-chain or ownership ties, which this source does not cover
+    sources: [newman2003]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      Newman's table records mean degree/clustering/assortativity for this
+      network but does NOT fit a distribution class or exponent for this
+      row — no power-law claim is attached here; do not fabricate one.
+      [FIX/citation, 2026-07-16] These figures could not be re-verified this
+      pass against a freshly-opened primary copy of Table II (all direct PDF
+      fetch attempts this sweep — arXiv, math.bme.hu, pdodds.w3.uvm.edu,
+      cs.rice.edu, cs.cornell.edu mirrors — exceeded WebFetch's size cap or
+      returned unreadable/garbled content); independent WebSearch corroboration
+      strongly matches the two most distinctive figures (n=7,673, z=14.44,
+      r=0.276/0.28) from sources not obviously copying this entry, but this
+      falls short of a fresh primary-read confirmation. The existing citation
+      rests on the Phase-1 primary-read transcription (research/phase1/
+      quantitative-backbone.md line 231) plus this session's secondary
+      corroboration only. Recommend a follow-up primary re-read via an
+      OCR'd/copy-pasted text source before promoting this entry past verified.
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Recognizable internal sub-units (departments, business units,
+      subsidiaries) with substantial cross-module flow (shared finance,
+      shared brand, corporate-level resource allocation) — comparable to
+      financial-markets' own score-2 justification (real but heavily
+      coupled subdivision), adapted here to organizational rather than
+      market structure.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: "3-4 (typical): individual employee (atom) -> team/department (1) -> business unit/division (2) -> firm-level management (3) -> (for multinationals) corporate parent (4)"
+    unit: organizational levels
+    method: >
+      Convention (declared): counts INSIDE the firm boundary only, per the
+      hierarchy_depth column note; composition with the surrounding
+      economy is recorded in relations, not here. Value is a stated
+      convention/range, not a measured figure — no single citable source
+      counts "typical hierarchy depth across all firms."
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: no primary spatial structure at the class level; individual firms' facility footprints are not fractal objects in the literature surveyed.
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Most firms retain a single privileged controller (owner, CEO, board)
+      with formal authority to direct resources and overrule subordinates —
+      closer to the anchor scale's low end than financial-markets' own
+      decentralization score of 2 (which describes the market surrounding
+      firms, not firms themselves). Some decentralization exists in large,
+      divisionalized firms (delegated authority to business units), which is
+      why this is 1 rather than 0.
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Threshold and multiplicative effects are common (bankruptcy as an
+      absorbing threshold, network effects in growth, increasing-returns
+      dynamics), comparable to but somewhat below financial-markets' score
+      of 4 — firm-level dynamics are less continuously and observably
+      nonlinear than intraday market microstructure, per the anchor
+      comparator's own emphasis on cascades and threshold effects.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 3
+    loops:
+      - {name: growth-reinvestment, sign: reinforcing, mechanism: "profit funds expansion -> larger scale -> (for some firms) further profit, up to diminishing returns or market saturation"}
+      - {name: competitive selection, sign: balancing, mechanism: "underperforming firms lose market share/capital and exit, freeing resources for competitors (variation_selection mechanism)"}
+      - {name: reputation/network effects, sign: reinforcing, mechanism: "larger firms attract more customers/talent/capital, a size-begets-size loop consistent with the Zipf tail"}
+    justification: >
+      Loops are central to growth and survival dynamics but not the sole
+      organizing description (idiosyncratic strategy, technology shocks,
+      and regulation also matter) — matching financial-markets' own
+      score-3 justification structure.
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Firms are physically open systems (energy, materials, capital, and
+      information throughput sustain operations) but, per
+      openness_dissipation's literal-flux convention (echoing
+      financial-markets' own reading), this throughput sustains the
+      organization's operation rather than directly generating the
+      phenomena of primary interest (growth, size distribution) — a
+      moderate score reflecting real but non-central dissipation.
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      No accepted evidence of low-dimensional deterministic chaos in
+      firm-level dynamics; nonlinear statistical dependence (volatile
+      growth rates, per Stanley et al. 1996) is documented, but per
+      filling_rules.no-market-chaos and its extension by analogy — cited
+      directly from financial-markets.yaml lines 241-251 and
+      global-economy.yaml lines 449-471 as sibling treatments of the same
+      "nonlinear-yes, deterministic-chaos-no" verdict for economic systems.
+    evidence_status: measured-disputed
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 1
+    mechanism_status: proposed
+    justification: >
+      No valid event-statistics exist for criticality purposes at the
+      scoped system: the firm-size Zipf rank-size distribution recorded
+      under extreme_event_statistics is itself typed measurand_type:
+      static-cross-sectional there, and criticality's anchor
+      boundary_clarification ("events-not-structure") explicitly rules out
+      static/rank-size distributions as evidence here — only scale-invariant
+      statistics of events generated by the system's own dynamics count.
+      This is therefore a mechanism-only claim: SOC-flavored proposals exist
+      in the econophysics literature (Bak-Sneppen-style models of firm
+      dynamics) [unverified — model knowledge; no specific paper identified
+      or cited this pass], but no consensus mechanism-level claim is
+      established. Per the anchor's mechanism-alone-caps-at-1 rule, the
+      score stays at 1, parallel to financial-markets' own score-1
+      treatment. [FIX/consistency, 2026-07-16: rewritten per verifier
+      finding — previous wording incorrectly treated the static Zipf
+      distribution as event statistics.]
+    evidence_status: qualitative
+
+  extreme_event_statistics:
+    type: quantitative
+    level: exemplar(us-firm-population)
+    measurand_type: static-cross-sectional
+    value: >
+      Firm-size rank-size distribution (Zipf/Pareto tail): employee-based
+      alpha = 1.059 (OLS log-log slope -2.059, SE 0.054, adjusted
+      R^2=0.992); receipts-based alpha = 0.994; all-business-entities
+      series 1988-1997 alpha range 0.9966-1.0039 (corrected range). SECOND,
+      SEPARATE claim (growth-rate scaling, measurand named below):
+      annual log-growth-rate distribution has an exponential/Laplace (not
+      Gaussian) tent shape whose standard deviation decreases with firm
+      size as a power law over ~7 orders of magnitude; the size-scaling
+      exponent beta is reported by a secondary search-summary as ~0.18-0.20
+      (sales/employees/assets/COGS/PP&E) but is NOT primary-read this pass.
+    measurand: >
+      (a) firm size measured as employee count / receipts, a static
+      rank-size cross-section, U.S. 1997 Census universe; (b) annual
+      log-growth rate of sales/employees/assets, conditional standard
+      deviation vs. firm size, U.S. publicly traded manufacturing firms
+      1975-1991 (Stanley et al. 1996).
+    method: >
+      (a) OLS log-log regression, pre-CSN methodology, no CSN-grade
+      KS-test/likelihood-ratio retest confirmed in this project's source
+      base despite a targeted search this pass. (b) Stanley et al.'s
+      original scaling analysis; exponent value not independently
+      confirmed by primary read (paywalled beyond abstract this sweep).
+    sources: [axtell2001, stanley1996, gibrat1931]
+    evidence_status: measured-untested
+    confidence: medium
+    note: >
+      Per filling_rules.power-law-rigor: both claims recorded as
+      measured-untested rather than measured. The Zipf claim (a) is
+      exemplar(us-firm-population)-scoped per Axtell's own U.S.-only text
+      ("The Zipf distribution may describe firm sizes in other countries
+      as well, a conjecture...") — not promoted to class-general absent a
+      non-U.S. retest. The growth-rate beta value itself is flagged
+      [unverified — model/search-summary, needs a real primary read] and is
+      NOT stated as a pinned number above; only the qualitative
+      distribution-shape finding (exponential, size-dependent spread) is
+      treated as confirmed (snippet-verified via direct fetch of the
+      Nature landing page). No CSN-grade retest of the firm-size power law
+      was confirmed despite one targeted search this pass — candidates
+      (Aoyama et al. 2011; Fujiwara et al. 2004, arXiv cond-mat/0310061)
+      remain unread. [FIX/coverage, 2026-07-16] Stanley et al.'s growth-rate
+      scaling finding is a documented departure from Gibrat's (1931)
+      proportional-growth-of-firms null model (the "law of proportionate
+      effect," under which growth-rate variance would be size-independent),
+      per the sweep report's own recommendation (research/v0.2-sweep/
+      expansion/firms-sources.md) [unverified — model knowledge, canonical].
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No primary or snippet-level source located this sweep for
+      autocorrelation/Hurst-type structure of firm-level time series (e.g.
+      revenue or employment over time) at the class level; the closest
+      adjacent finding (Stanley et al.'s growth-rate SIZE scaling) is a
+      cross-sectional-conditional-on-size relationship, not a serial
+      autocorrelation claim, and is recorded instead under
+      extreme_event_statistics per the sweep report's explicit column
+      assignment.
+    evidence_status: unknown
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      Bankruptcy functions as an identifiable absorbing-state tipping point
+      for an individual firm, but no systematic tipping-element inventory
+      or early-warning-signal literature comparable to financial-markets'
+      score-2 treatment was located this sweep for firms as a class —
+      scored one point lower, reflecting thinner literature coverage
+      specifically, not a claim that firm collapse is less real.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Firms exhibit path-dependent structure (organizational routines,
+      culture, and capital structure persist and shape future behavior
+      after shocks — layoffs and restructurings leave lasting scars on
+      subsequent hiring and investment), a real but more modestly evidenced
+      effect at the class level than financial-markets' score of 3, which
+      rests on documented market-wide volatility-regime scarring.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Firms detect market signals (prices, demand, competitor behavior) and
+      respond in a state-dependent way (pricing, hiring, investment
+      decisions conditioned on internal accounting state and external
+      signals) — real information processing, though less purely
+      information-theoretic than financial-markets' score-4 price-discovery
+      function (which aggregates dispersed information into a single public
+      statistic no participant holds); firms process information for their
+      own decisions rather than producing a public aggregate.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Firms learn, adopt new routines, restructure, and are themselves
+      selected for or against by the market (entry/exit) — the same
+      full-CAS profile financial-markets.yaml scores 4 for market
+      participants, applied here to the firm as the adapting unit itself
+      (organizational learning per March & Simon 1958 [unverified — model
+      knowledge, canonical], routine variation and replacement per Nelson &
+      Winter 1982 [unverified — model knowledge, canonical]).
+    sources: [march-simon1958, nelson-winter1982]
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: present
+    justification: >
+      Firm variation (differing routines, strategies, sizes) is continuous;
+      selection removes underperforming/undercapitalized firms via exit and
+      bankruptcy; retention occurs through imitation of successful
+      practices and institutionalization of routines. Quantitative backing
+      (BLS/Census establishment survival, ~42-50% at year 5) is recorded
+      only as a search-snippet this pass — see characteristic_timescales
+      note — but the qualitative pattern of entry/exit is well documented
+      independent of the exact percentage.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The firm-size distribution (a macro-level Zipf/Pareto regularity) and
+      firm-level growth dynamics are order parameters requiring
+      description in new terms, not trivially reducible to individual
+      transactions — comparable to but one step below financial-markets'
+      score-4 treatment of price, since the firm class's emergent
+      regularities (size distribution, growth-rate scaling) are somewhat
+      narrower in scope than a continuously-updated aggregate public
+      statistic like price.
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The firm-size distribution and growth-rate scaling arise from
+      millions of uncoordinated entry, growth, and exit decisions without
+      central templating of the AGGREGATE pattern — no planner sets the
+      Zipf exponent — though each individual firm operates inside a
+      designed legal/regulatory skeleton (corporate law, accounting
+      standards), the population-level regularity itself is spontaneous, a
+      score one point above financial-markets' 2 because no single
+      "exchange" analog re-templates the population-level pattern the way
+      Reg NMS re-templates market microstructure.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      The firm POPULATION recovers its characteristic size distribution and
+      function after recessions and shocks (individual firm deaths do not
+      destroy the pattern — new entrants replace them), while individual
+      firms themselves are frequently NOT robust (the ~42-50% five-year
+      survival figure, snippet-level this pass, is itself evidence of
+      routine mortality) — this is the class-level, population-scale
+      reading, parallel to financial-markets' own class-general framing.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Firm failures can cascade through supply chains and credit
+      relationships (supplier/customer bankruptcy contagion, credit
+      crunches), documented in case studies of major bankruptcies and
+      financial contagion episodes, but no fitted cross-event cascade-size
+      distribution comparable to the blackout or flash-crash literature was
+      located this sweep — matching financial-markets' own score-2
+      justification pattern (real documented propagation, no fitted
+      distribution).
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Firm-size distribution
+    order_parameter: the Pareto/Zipf tail exponent of the size distribution (employees or receipts)
+  - name: Growth-rate scaling law
+    order_parameter: size-dependent standard deviation of annual log growth rate
+  - name: Organizational routines
+    order_parameter: persistent internal practice patterns (qualitative; no fitted quantitative order parameter located this sweep)
+
+sources:
+  axtell2001:
+    citation: "Axtell, R.L. (2001). Zipf Distribution of U.S. Firm Sizes. Science 293(5536), 1818-1820. DOI 10.1126/science.1062081. [primary-read, reused verbatim from v0.2 sweep — global-economy.yaml lines 793-802; extraction log research/v0.2-sweep/expansion/global-economy-sources.md lines 223-257; verification research/v0.2-sweep/expansion/verification/global-economy-citation.md]"
+  newman2003:
+    citation: "Newman, M.E.J. (2003). The structure and function of complex networks. SIAM Review 45(2), 167, Table II (company-directors / board-interlock row). [primary-read, Phase 1, transcribed research/phase1/quantitative-backbone.md line 231]"
+  stanley1996:
+    citation: "Stanley, M.H.R., Amaral, L.A.N., Buldyrev, S.V., Havlin, S., Leschhorn, H., Maass, P., Salinger, M.A. & Stanley, H.E. (1996). Scaling behaviour in the growth of companies. Nature 379, 804-806. DOI 10.1038/379804a0. [snippet-verified — direct WebFetch of the nature.com landing page confirmed dataset (all publicly traded U.S. manufacturing companies, 1975-1991) and qualitative finding (exponential growth-rate distribution, power-law size-dependent spread); the numeric beta exponent value was NOT visible in that fetch and is NOT entered as measured — see extreme_event_statistics note]"
+  bls-bds-survival:
+    citation: "U.S. Bureau of Labor Statistics, Business Employment Dynamics, Establishment Age and Survival Data, Table 7 'Survival of private sector establishments by opening year' (bls.gov/bdm/us_age_naics_00_table7.txt); alternatively U.S. Census Bureau, Business Dynamics Statistics, Firm/Establishment Survival tables. [SEARCH-SNIPPET ONLY — all direct WebFetch attempts to bls.gov (bdm/, spotlight page, ted article, raw table7.txt) returned HTTP 403 this sweep; the ~42-50%-at-year-5 figure is not page-verified, let alone primary-read]"
+  march-simon1958:
+    citation: "March, J.G. & Simon, H.A. (1958). Organizations. Wiley. [unverified — model knowledge, canonical; added [FIX/coverage, 2026-07-16] — cited inline under adaptive_capacity but missing from this registry until now]"
+  nelson-winter1982:
+    citation: "Nelson, R.R. & Winter, S.G. (1982). An Evolutionary Theory of Economic Change. Harvard University Press. [unverified — model knowledge, canonical; added [FIX/coverage, 2026-07-16] — cited inline under adaptive_capacity but missing from this registry until now]"
+  gibrat1931:
+    citation: "Gibrat, R. (1931). Les Inégalités Économiques. Paris: Librairie du Recueil Sirey. (Proportionate-growth / 'law of proportionate effect' null model.) [unverified — model knowledge, canonical; added [FIX/coverage, 2026-07-16] per the sweep report's recommendation to integrate this orphaned citation under extreme_event_statistics]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-16)
+  verification:
+    citation_check: complete (2026-07-16, adversarial pass; see firms-fixes.md)
+    plausibility_check: complete (2026-07-16, adversarial pass; see firms-fixes.md)
+    consistency_check: complete (2026-07-16, adversarial pass; see firms-fixes.md)
+    coverage_check: complete (2026-07-16, adversarial pass; see firms-fixes.md)
+  flags:
+    - column: extreme_event_statistics
+      note: >
+        The growth-rate scaling exponent beta (Stanley et al. 1996) is the
+        single highest-value fact this entry wants and is currently sourced
+        below the project's normal bar (secondary search-summary only,
+        beta~0.18-0.20 unconfirmed). Recommend a primary-read follow-up
+        (open-access mirror candidates: Amaral Lab publication page,
+        ResearchGate) before promoting past measured-untested.
+    - column: characteristic_timescales / variation_selection
+      note: >
+        The BLS/Census ~42-50% five-year establishment-survival figure is
+        blocked by bot-detection (HTTP 403 on all bls.gov fetch attempts
+        this pass) and is recorded as evidence_status unknown /
+        [unverified — search-snippet] rather than measured. A
+        differently-configured fetch (browser-driven, curl with browser UA,
+        or the Census BDS CSV/API route) would likely resolve this; flagged
+        as a follow-up, not resolved here.
+    - column: extreme_event_statistics (firm-size tail, post-CSN status)
+      note: >
+        No CSN-grade retest of the firm-size Pareto tail was confirmed
+        despite one targeted search this pass, per the sweep brief's
+        instruction. The most promising unread lead is Fujiwara et al.
+        2004 (arXiv cond-mat/0310061, open-access) — a candidate follow-up
+        if the measured-untested status is worth upgrading later.
+    - column: relations
+      note: >
+        Per task brief: global-economy.yaml lines 968-978 already flags a
+        cosmetic cleanup (its slash-joined "out-of-scope(human) / firms"
+        wording in the component_ontology firms row could now read
+        "itself_complex: firms" since this entry exists) — recorded here as
+        a pointer for a future consistency pass, not performed in this
+        drafting session per instructions to touch no other file.
+    - column: numerosity
+      note: >
+        [note/citation] Axtell 2001's own Table 3 directly states 1997 mean
+        firm size = 19.00 employees/firm (21.8 excluding size-0 firms) — a
+        cheap future upgrade the entry could quote directly rather than
+        leaving as an open follow-up. Not acted on this pass (verifier
+        marked this a note, not a fix).
+    - column: extreme_event_statistics
+      note: >
+        [note/plausibility] Axtell's slope-to-alpha mapping (OLS slope
+        -2.059 => alpha=1.059) does not follow the standard
+        CCDF-slope-equals-alpha convention; already PASS-verified at v0.2 as
+        Axtell's own primary-read quote (research/v0.2-sweep/expansion/
+        verification/global-economy-citation.md lines 26-30), not a
+        project-introduced error. A future method note explaining Axtell's
+        specific regression specification would preempt reviewer confusion.
+    - column: characteristic_timescales
+      note: >
+        [note/plausibility] The "daily operational cycle" ~1e5 s figure
+        labeled "a business day" is closer to a full calendar day (~27.8 hr)
+        than a literal 8-9 hour working day (~3e4-3.2e4 s); consider
+        relabeling as "daily/calendar cycle" or adjusting the order of
+        magnitude in a future pass.
+    - column: extreme_event_statistics
+      note: >
+        [note/plausibility] The column's single measurand_type
+        (static-cross-sectional) is stated for a value that bundles the
+        genuinely static-cross-sectional Zipf/Pareto claim with the Stanley
+        et al. growth-rate scaling claim, which the sweep report itself
+        calls "cross-sectional-conditional-on-size" — arguably a distinct
+        measurand character. Flagged for a future consistency/schema
+        review of whether a second measurand_type annotation is warranted.
+    - column: openness_dissipation
+      note: >
+        [note/consistency] No literal energy-throughput figure (watts,
+        joules/s, or order-of-magnitude estimate) is cited to support the
+        rubric score of 2, unlike financial-markets' comparator score-2
+        justification which cites a rough [unverified] datacenter-wattage
+        figure. Consider adding an order-of-magnitude placeholder (even
+        [unverified]) in a future pass.
+    - column: self_organization
+      note: >
+        [note/consistency] The claim that "no single exchange analog
+        re-templates the population-level pattern" the way Reg NMS does for
+        financial-markets (used to justify scoring firms one point above
+        financial-markets, 3 vs 2) is a defensible but genuinely debatable
+        judgment call given firms operate inside a comparably dense designed
+        skeleton (corporate law, accounting standards, securities
+        regulation). Flagged for a second read at a future cross-entry audit
+        pass; no change made now.
+    - column: scoping_note
+      note: >
+        [note/coverage] Coase (1937) "The Nature of the Firm" was surfaced
+        by the sweep as directly relevant foundational theory for the
+        firm-as-bounded-entity framing but is not referenced in the entry.
+        Optional future addition, backs no quantitative claim.
+    - column: component_ontology
+      note: >
+        [note/coverage] Walmart's ~2.1e6 employee headcount is
+        [unverified — model knowledge] and not independently re-fetched
+        this session, though it is trivially fillable from Walmart's own
+        10-K/annual report. Recommend a primary-read follow-up before
+        promoting past draft/verified.
+    - column: numerosity
+      note: >
+        [note/coverage] The per-firm employee count (mean employees/firm)
+        could be derived from global-economy-sources.md's total 1997 U.S.
+        private employment figure divided by the firm count, but was left
+        as an open follow-up rather than computed this pass — a candidate
+        evidence_status: derived value for a future pass.
+  fix_log:
+    - by: "workflow-agent (flag-fixer), 2026-07-16"
+      entries:
+        - "[FIX/citation] degree_distribution: appended a caveat noting Newman 2003 board-interlock figures could not be re-verified this pass against a fresh primary PDF read (all fetch attempts failed/garbled); independent WebSearch corroborates the two most distinctive figures but this falls short of a fresh primary-read confirmation. Recommended a follow-up primary re-read before promoting past verified."
+        - "[FIX/plausibility] hierarchy_depth: narrowed stated range from \"3-5 (typical)\" to \"3-4 (typical)\" to match the entry's own worked enumeration, which only reaches a 4th level (corporate parent)."
+        - "[FIX/consistency] criticality: rewrote justification to state plainly that no valid event-statistics exist (the Zipf distribution is static-cross-sectional per extreme_event_statistics and excluded by the criticality anchor's events-not-structure boundary), and tagged the Bak-Sneppen-style econophysics claim [unverified — model knowledge; no specific paper identified]. Numeric score (1) unchanged, per the mechanism-alone-caps-at-1 rule."
+        - "[FIX/coverage] adaptive_capacity: added march-simon1958 and nelson-winter1982 as keyed entries in the sources: block (both [unverified — model knowledge, canonical]) and added sources: [march-simon1958, nelson-winter1982] to the adaptive_capacity attribute."
+        - "[FIX/coverage] extreme_event_statistics: added a note integrating Gibrat's (1931) proportional-growth null model as the departure point for Stanley et al.'s growth-rate finding, with a gibrat1931 sources: entry annotated [unverified — model knowledge, canonical]."

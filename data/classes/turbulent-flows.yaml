@@ -1,0 +1,692 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: turbulent-flows
+# v0.3 expansion batch. Drafted by workflow-agent, 2026-07-16.
+# ============================================================
+id: turbulent-flows
+name: Turbulent flows
+category: physical-chemical
+status: verified
+
+exemplars:
+  - id: turbulent-pipe-shear-flow
+    name: Turbulent pipe / shear flow (Reynolds 1883 lineage)
+    note: >
+      primary worked exemplar — the best-controlled laminar-turbulent
+      transition experiments (Reynolds 1883 origin; Avila et al. 2011 puff
+      dynamics; the 2016 directed-percolation confirmations)
+  - id: homogeneous-isotropic-turbulence
+    name: Homogeneous isotropic turbulence (K41 paradigm, wind-tunnel grid turbulence)
+    note: comparative exemplar — the theoretical-statistical paradigm case (Kolmogorov 1941 spectrum) and its lab realization
+  - id: geophysical-turbulence
+    name: Atmospheric / oceanic geophysical turbulence
+    note: >
+      NAMED but explicitly NOT scored here — deferred to the host entries
+      weather-systems and ocean-circulation per the scoping note below
+
+scoping_note: >
+  The system is the GENERIC fluid-dynamical turbulence regime: the state a
+  Newtonian fluid flow enters above its critical Reynolds number, in which
+  motion is disordered across a broad range of coupled spatial and temporal
+  scales and energy cascades from the scale it is injected at down to the
+  scale at which viscosity dissipates it as heat. This entry scores the
+  regime as studied in lab/engineering/idealized flows (pipe, channel,
+  Couette, grid turbulence) and the universal theory built on them (K41
+  scaling, the laminar-turbulent transition, the directed-percolation
+  critical-transition literature). It explicitly does NOT re-score the
+  geophysical instantiations of this same regime: atmospheric boundary-layer
+  and tropospheric turbulence are scored inside weather-systems (which
+  already carries tropospheric-turbulence prose), and oceanic turbulence
+  (including mesoscale eddies) is scored inside ocean-circulation, which
+  carries mesoscale-eddies as its own unresolved child id. Turbulence is not
+  a PART of weather-systems or ocean-circulation in the compositional sense
+  the relations block encodes — it is a dynamical regime those systems'
+  fluids are in, at different scales and with different forcing, boundary
+  conditions, and rotation/stratification physics than the idealized case
+  scored here. No relations edges are therefore added to those two entries;
+  reciprocity is satisfied by the prose cross-references only, per the
+  cross-entry audit's scoping-boundary requirement (this avoids double-
+  counting the same physical phenomenon under two different class ids at two
+  different scales). Atomicity per filling_rules.atomicity-convention: fluid
+  parcels at a scale set by the flow's own integral/Kolmogorov length ratio —
+  the same "parcel" convention used by tropical-cyclones and convection-cells,
+  not molecules. Scoring is class-general; where a value is genuinely
+  flow-specific (energy_rate_density, spatial_extent) it is recorded as a
+  disclosed range across named exemplar flows rather than forced into one
+  number, per decisions.md's D19 resolution on Phi_m.
+
+summary: >
+  Turbulence is the generic way flowing matter behaves once it moves fast
+  enough, or thins out enough, that smooth layers of fluid can no longer
+  slide past each other in an orderly way. Above a critical Reynolds number,
+  a pipe flow, a jet, or a stirred tank abandons laminar order for a cascade
+  of eddies within eddies, spanning scales from the size of the whole flow
+  down to the point where viscosity finally converts motion into heat.
+  Nothing designs this cascade and nothing controls it — it assembles itself
+  from local shear instabilities, obeys a universal statistical law
+  (Kolmogorov's -5/3 spectrum) far from any boundary, and turns on and off
+  through a genuine phase transition whose critical exponents belong to the
+  same universality class as forest fires and epidemics. It may be the most
+  ubiquitous complex-system regime in this catalog: almost every moving
+  fluid on Earth, and most fluids anywhere, spend most of their existence in
+  it.
+
+relations:
+  part_of: []
+  contains: []
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: "no single class-general value; disclosed per exemplar"
+    unit: m
+    detail:
+      transitional_pipe_couette_flow: "apparatus scale, O(1e-2 to 1e-1) m (pipe diameter / gap width — Reynolds 1883, Avila et al. 2011, Lemoult et al. 2016 lab rigs)"
+      inertial_range_k41: "spans integral scale L down to Kolmogorov microscale eta=(nu^3/epsilon)^(1/4); ratio L/eta ~ Re^(3/4), a defining relation of the theory rather than a fixed number"
+    method: order-of-magnitude per named exemplar; no meaningful single class figure given orders-of-magnitude spread across flow types
+    sources: [reynolds1883, avila2011]
+    evidence_status: qualitative
+    confidence: low
+    note: apparatus-scale and L/eta relation are [unverified — model knowledge]-adjacent generic facts of the field, not independently primary-read this session; recorded per the sweep's own hedge.
+
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: Kolmogorov (dissipation-scale) time, value: "tau_eta=(nu/epsilon)^(1/2), ~1e-3 to 1e-1 s in lab flows depending on Re", evidence_status: derived}
+      - {name: integral-scale eddy turnover, value: "~1 s (wind tunnel); much longer geophysically (deferred to host entries)", evidence_status: qualitative}
+      - {name: puff lifetime / splitting (transitional pipe flow), value: "mean decay/splitting times scale super-exponentially with Re near Re_c~2040; Poisson-like (memoryless) statistics", sources: [avila2011], evidence_status: measured, confidence: medium}
+    note: Kolmogorov/integral-scale timescales are derived from epsilon and nu, not independently measured per flow this session.
+
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: not-applicable-by-continuum-topology
+    evidence_status: qualitative
+    note: >
+      Continuum field system; no discretely countable atomic-part count is
+      meaningful, consistent with how other field/continuum entries in the
+      catalog (e.g. planetary-climate) handle this column.
+
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "unbounded / ubiquitous — arguably the most common complex-system regime in the catalog (any fluid flow above its critical Reynolds number)"
+    evidence_status: qualitative
+    note: >
+      No formation-rate figure is meaningful at class level. An "instance" is
+      defined here as a statistically stationary turbulent-flow realization:
+      a specific flow configuration + Reynolds number + boundary conditions.
+
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: fluid parcels
+        count_oom: unknown
+        interchangeable: yes
+        itself_complex: no
+    confidence: low
+    note: >
+      Continuum topology means component_ontology is thin by construction
+      (one interchangeable part type); the interesting structure lives in
+      interaction_ontology and the emergent-phenomena registry instead.
+
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: "no single class-general value; epsilon (turbulent kinetic energy dissipation rate per unit mass) is Phi_m's NATIVE quantity for this class but varies over many orders of magnitude by flow"
+    unit: erg s^-1 g^-1
+    detail:
+      atmospheric_boundary_layer: "epsilon ~ 1e-2 to 1e2 erg s^-1 g^-1 (= 1e-6 to 1e-2 m^2/s^3; order-of-magnitude range; convective daytime ~1e2, stable nocturnal ~1e-2 to 1)"
+      wind_tunnel_grid_turbulence: "epsilon ~ 4.4e-3 to 4.0e3 erg s^-1 g^-1 (= 4.4e-7 to 0.40 m^2/s^3) depending on grid/free-stream velocity"
+    method: >
+      epsilon has native SI units m^2/s^3 = W/kg; converted here to the
+      panel-spec unit erg s^-1 g^-1 (1 m^2/s^3 = 1e4 erg s^-1 g^-1) —
+      dimensionally identical to Chaisson's Phi_m, and the central quantity
+      of K41 theory itself (E(k)=C*epsilon^(2/3)*k^(-5/3)), not a derived
+      convenience. This class therefore resolves the Phi_m parked question
+      (decisions.md) via disclosure: epsilon is well-defined per-flow but
+      undefined at class-general single-value level given orders-of-magnitude
+      variation across turbulent regimes — the anticipated outcome of D19's
+      review. Distinct from weather-systems.yaml's own energy_rate_density
+      value (~2.0-2.6 erg s^-1 g^-1, the areal atmospheric Lorenz-energy-cycle
+      KE-dissipation flux) — that is a different measurand (a global areal
+      energy-cycle flux, not a local per-mass dissipation rate epsilon) and
+      the two figures should not be conflated when comparing entries.
+    sources: [chaisson2011]
+    evidence_status: measured
+    confidence: low
+    verifier_flags: [epsilon-figures-snippet-verified-only, no-primary-paper-pinned-for-abl-or-grid-figures]
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: momentum / pressure-gradient exchange
+        mechanism: viscous and Reynolds-stress momentum transfer between adjacent fluid parcels
+        participants: fluid parcels
+        range: local
+      - name: nonlinear inertial (advective) coupling
+        mechanism: the Navier-Stokes advection term coupling velocity scales, the mechanistic engine of the energy cascade
+        participants: fluid parcels across scales
+        range: local (scale-local in the cascade sense)
+      - name: viscous dissipation
+        mechanism: molecular viscosity converting kinetic energy to heat at the Kolmogorov microscale
+        participants: fluid parcels at the smallest resolved scale
+        range: local
+    type_count: 3
+    alphabet_closure: closed
+    justification: >
+      One closed physical family fixed by the incompressible Navier-Stokes
+      equations: momentum transfer, nonlinear advective coupling, and viscous
+      dissipation exhaust the interaction alphabet. Same reasoning as the
+      tropical-cyclones anchor's closed-alphabet call — no new interaction
+      type can arise short of changing the constitutive fluid physics.
+
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: continuum field system; no meaningful node-degree representation (same call as tropical-cyclones).
+
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Coherent structures (puffs in transitional pipe flow, vortex tubes,
+      turbulent/non-turbulent interface patches) give weak, transient lateral
+      structure that forms and dissolves on eddy-turnover timescales, strongly
+      coupled through the shared cascade. Matches the anchor scale's 1
+      (weak, mostly gradational structure), closest comparator the
+      tropical-cyclones anchor's score of 1 for convective cells/rainbands.
+    evidence_status: qualitative
+
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 3
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec): count aggregation levels above
+      the atomic fluid parcels up to and including the whole flow — parcels
+      (atoms) -> dissipation-scale (Kolmogorov) eddies (1) -> inertial-range
+      coherent structures / puffs (2) -> integral-scale flow-defining
+      structure (3).
+    evidence_status: qualitative
+
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: "two distinct, non-conflatable figures: D~2.35+/-0.05 (scalar/TNTI-interface convention) and D~1.3-1.4 (turbulent isobar / TNTI-contour convention, D=4/3 quoted)"
+    unit: dimensionless (D)
+    measurand: >
+      D=2.35+/-0.05: scalar (temperature/concentration) interface fractal
+      dimension in fully turbulent boundary layers, 3D embedding
+      (Sreenivasan & Meneveau 1986 lineage). D=4/3~1.35: turbulent-isobar /
+      TNTI-contour dimension, quoted by Lovejoy 1982 (Science 216:185) as a
+      comparison value for tropical rain/cloud-area perimeters, and already
+      reused as "D=4/3 for isotropic homogeneous turbulence" in stars.yaml
+      line 303.
+    method: two independently reported figures for two different measurands/embeddings, deliberately not merged (sweep's own flag).
+    sources: [sreenivasan1986, lovejoy1982]
+    evidence_status: qualitative
+    confidence: low
+    verifier_flags: [fractal-dimension-conflation-risk, neither-figure-primary-read-this-session]
+
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per the decentralization anchor's own explicit does_not_count clause
+      ("a turbulent cascade has hierarchy with no controller"): no component
+      or scale of the cascade steers any other; the multi-scale structure
+      arises entirely from local Navier-Stokes dynamics. Same reasoning as
+      the stars/tropical-cyclones anchors — nothing whose removal would
+      constitute "loss of control."
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      The Navier-Stokes advective nonlinearity IS the energy cascade — the
+      system's single most characteristic phenomenon is a nonlinear
+      scale-coupling process, not a peripheral effect. Matches anchor level 4
+      (nonlinear interactions are central and definitional), the same
+      register as the tropical-cyclones and financial-markets anchors' top
+      score.
+    evidence_status: qualitative
+
+  feedback:
+    type: rubric
+    level: class-general
+    score: 2
+    loops:
+      - {name: puff self-sustenance vs. decay, sign: balancing/bistable, mechanism: "a transitional puff's internal shear regenerates turbulent fluctuations against viscous decay via the self-sustaining-process (SSP) mechanism (streaks -> instability -> rolls -> streaks; Waleffe 1997) — the Re_c~2040 balance point is where regeneration matches decay (Avila et al. 2011)"}
+    background_context: >
+      The forward energy cascade (large eddies breaking into smaller ones via
+      nonlinear straining, transferring energy down-scale to viscous
+      dissipation, K41) is NOT scored as a loop here: it is a directional
+      cross-scale transfer with no documented causal path back to the
+      variable that started it, failing the feedback anchor's does_not_count
+      test. Recorded as background context only, not as a scored loop.
+    justification: >
+      Only the puff self-sustenance/decay loop qualifies as a genuine
+      feedback loop under this column's anchor: a transitional puff's SSP
+      regeneration mechanism (Waleffe 1997) balances against viscous decay,
+      with Re_c~2040 the balance point (Avila et al. 2011). This is a real
+      but narrow-scope loop specific to the transitional regime — it does
+      not organize the fully developed cascade the way WISHE organizes a
+      hurricane — matching anchor level 2 (loops materially shape specific
+      regimes/episodes but do not organize the whole system).
+    sources: [avila2011, waleffe1997]
+    evidence_status: qualitative
+
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Sustained turbulence requires continuous energy injection (stirring,
+      pressure gradient, buoyancy) to balance the viscous dissipation rate
+      epsilon; remove the injection and the cascade decays within roughly one
+      integral-scale eddy-turnover time — comparable to or only somewhat
+      longer than the system's own characteristic timescale. Scored 3 rather
+      than the hurricane anchor's 4 because, unlike a hurricane's Carnot-type
+      heat engine, generic turbulence has no single characteristic
+      throughput-to-content ratio across the flows this class spans (grid
+      turbulence, ABL, pipe flow) — the qualitative case for sustained,
+      structure-maintaining throughput is nonetheless clear and load-bearing.
+    evidence_status: qualitative
+
+  chaos_sensitivity:
+    type: hybrid
+    level: class-general
+    score: 3
+    justification: >
+      Two regimes, recorded separately per the sweep: (a) transitional/
+      low-Re shear flow shows established low-dimensional deterministic
+      chaos (Ruelle & Takens 1971's proposed route to turbulence, Gollub &
+      Swinney 1975's experimental confirmation in Taylor-Couette flow —
+      [unverified — model knowledge], not fetched this session); (b) fully
+      developed turbulence is high-dimensional spatiotemporal chaos with
+      positive Lyapunov spectra, where "low-dimensional" no longer applies.
+      No single predictability-horizon figure (analogous to the atmosphere's
+      ~2-week ceiling) was sourced for turbulence proper. Scored 3 — genuine,
+      well-documented sensitive dependence across both regimes — rather than
+      4, pending the horizon figure and full-text confirmation of the
+      classic chaos-onset papers.
+    evidence_status: qualitative
+    confidence: low
+    verifier_flags: [lorenz1963-ruelle1971-gollub1975-not-fetched-this-session]
+
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 2
+    mechanism_status: proposed
+    justification: >
+      Rescored 3 -> 2 at the v0.3 cross-entry audit (2026-07-16), which
+      correctly found the original 3 broke anchor ordering against
+      earthquake-fault-systems (score 2 with MEASURED Gutenberg-Richter
+      event statistics) on weaker evidence. The laminar-turbulent
+      transition in Couette flow (Lemoult et al. 2016, Nature Physics
+      12:254) and channel flow (Sano & Tamai 2016, Nature Physics 12:249)
+      is claimed in the primary literature to belong to the
+      directed-percolation (DP) universality class — a specific
+      critical-point mechanism with published measured critical exponents
+      and scale-invariant laminar-gap statistics at threshold. But this
+      project's evidence base for those claims is search-synthesis only:
+      no exact DP exponent values (beta, nu_parallel, nu_perpendicular)
+      were recovered (nature.com blocked full-text fetch), and the entry's
+      own extreme_event_statistics records a NEGATIVE heavy-tail result
+      for the adjacent puff-lifetime statistics (Poisson-like, Avila et
+      al. 2011). Per the anchor's level-2 text this is exactly "a specific
+      critical-point mechanism formally proposed in the primary
+      literature" whose event-statistics support is not yet verified at
+      CSN-grade/domain-standard level BY THIS PROJECT; level 3's "well
+      established" requires evidence this entry cannot yet cite.
+      mechanism_status recorded proposed rather than established for the
+      same read-status reason (the 2016 experimental demonstrations may
+      well justify established once primary-read — this is a read-status
+      ceiling, not a physics judgment). NOT capped at 1 by
+      mechanism-alone-caps-at-1 because published claims of scale-invariant
+      event statistics for the scoped transition DO exist (the DP papers'
+      own laminar-gap/cluster statistics); they are simply unverified here.
+      A primary read of either 2016 Nature Physics paper is the single
+      highest-value upgrade path for this column.
+    sources: [lemoult2016, sanotamai2016, avila2011]
+    evidence_status: measured-untested
+    confidence: low
+    verifier_flags: [dp-exponents-not-recovered-primary-read-debt, cross-audit-rescore-2026-07-16]
+
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: "puff lifetime/splitting times in transitional pipe flow are Poisson-like (memoryless), NOT power-law tailed — evidence AGAINST a heavy-tail claim here"
+    measurand: puff decay and splitting event times near Re_c~2040 in transitional pipe flow, as a function of Re
+    method: statistical characterization of puff lifetime/splitting-time distributions (Avila et al. 2011)
+    sources: [avila2011]
+    evidence_status: measured
+    confidence: medium
+    note: >
+      The K41 -5/3 inertial-range spectral scaling is deliberately NOT
+      recorded here per filling_rules.soc-two-claims-adjacent reasoning: it
+      is a structural/spectral scaling law, not an event-size/frequency
+      distribution, and belongs instead under the fractal_dimension/temporal_
+      correlation/emergent_phenomena registry. This column records the one
+      genuine event-statistics claim the sweep found, which is explicitly a
+      NEGATIVE power-law result (Poisson/exponential-family fit), recorded
+      honestly rather than omitted.
+
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    measurand: >
+      candidate — Taylor's frozen-turbulence hypothesis maps K41's spatial
+      E(k)~k^-5/3 to a temporal power spectrum ~f^-5/3 in the inertial range,
+      a well-established structural fact of the field, but no primary
+      citation with a specific numeric confirmation (e.g. Grant, Stewart &
+      Moilliet 1962) was pinned this session.
+    evidence_status: unknown
+    note: left unknown rather than stretched, per no-guessing; candidate source flagged for a verifier pass.
+
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      The subcritical laminar-turbulent transition in pipe/Couette flow shows
+      formally modeled bistability: puffs decay or split, with Avila et al.
+      2011's Re_c~2040 the literal balance point between net-decay and
+      net-growth regimes — a single, specifically modeled mechanism (matches
+      anchor level 2). An open framing tension is disclosed rather than
+      resolved: the DP-universality-class literature (Lemoult 2016, Sano &
+      Tamai 2016) describes the SAME transition as a continuous second-order
+      phase transition in the large-domain/long-time limit, which sits in
+      some tension with a naive discrete-bistability reading. Both
+      descriptions come from the same literature; this entry records the
+      tension as the field's own open question rather than silently
+      resolving it.
+    sources: [avila2011, lemoult2016, sanotamai2016]
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      Fully developed turbulent statistics are, to good approximation, a
+      function of current forcing/Re/boundary conditions; no structural trace
+      of a specific past perturbation persists once it has advected/decayed
+      through the cascade. The one documented exception is a genuine
+      multi-stability, not mere relaxation memory: subcritical transition
+      shows a finite basin of coexistence in which laminar and turbulent
+      states (puffs vs. no puffs) persist at the SAME Re depending on initial
+      conditions/history (Avila et al. 2011) — two different histories
+      reaching the same macro-forcing (fixed Re) produce measurably different
+      states, matching anchor level 2. Held at 2 rather than 3 because the
+      coexistence basin is narrow (bounded near Re_c~2040) and not
+      demonstrated as an arbitrarily persistent path-dependent branching
+      across the class's full operating range.
+    evidence_status: qualitative
+
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Pure physical transport: momentum diffusion, nonlinear advection, and
+      viscous dissipation, with no detection-transmission-response structure
+      anywhere in the cascade — the same canonical-0 reasoning as the stars
+      and tropical-cyclones anchors. The Re_c threshold is a bifurcation in
+      the flow's own dynamics, not a detection event.
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Fluid parcels obey fixed Navier-Stokes physics; no component modifies
+      its response function in light of history or environment. Together
+      with the high self-organization and nonlinearity scores, this is the
+      archetypal complex-physical (non-CAS) profile, the same reasoning as
+      the tropical-cyclones anchor.
+    evidence_status: qualitative
+
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among fluid parcels or eddies.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      K41's inertial-range spectrum, the Kolmogorov microscale, and the
+      DP-universality-class description of the transition are formalized,
+      predictive macro-vocabulary — genuinely new descriptive terms (epsilon,
+      the -5/3 exponent, DP critical exponents) not trivially reducible to
+      per-parcel bookkeeping, and load-bearing across the whole field.
+      Matches anchor level 3 (predominantly a new-vocabulary macro-theory),
+      one step above the tropical-cyclones anchor's 3-scoring reasoning in
+      that the theory here (K41) is closer to first-principles-derived than
+      empirically fitted, but held below 4 pending resolution of known
+      anomalies (intermittency — see robustness/uncertainties below).
+    sources: [lemoult2016, sanotamai2016]
+    evidence_status: qualitative
+
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      The entire cascade — coherent structures, the inertial-range spectrum,
+      the critical transition itself — assembles spontaneously from local
+      shear/advection physics; nothing specifies the eddy hierarchy or the
+      transition's critical exponents in advance. Canonical dissipative-
+      structure case, matching the tropical-cyclones anchor's top score.
+    evidence_status: qualitative
+
+  robustness_resilience:
+    type: rubric
+    level: class-general
+    score: 2
+    justification: >
+      Fully developed turbulence is robust to most perturbations within its
+      own operating envelope (the cascade re-establishes its statistics
+      after a transient disturbance), but the REGIME itself — turbulent vs.
+      laminar — is not robust to changes in Re: dropping below Re_c through
+      routine changes in flow rate or geometry destroys the turbulent state
+      outright (matches anchor level 2 — known event classes within the
+      normal environment can destroy it). Scored class-general rather than
+      against a named exemplar (this column's stated default per D14) because
+      the Re_c-crossing vulnerability is a structural property of the generic
+      regime itself, common to every named exemplar flow (pipe, Couette,
+      channel) rather than particular to one of them; transitional pipe flow
+      (Avila et al. 2011) is nonetheless the best-evidenced instance of this
+      exact vulnerability, and would be the exemplar of choice if this column
+      is later rescored against the D14 default.
+    evidence_status: qualitative
+
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      The energy cascade is a continuous spectral-flux process (large eddies
+      to small), not a discrete cascading-FAILURE event statistic in the
+      blackout/avalanche sense this column targets elsewhere in the catalog.
+      No component-to-component failure-propagation literature exists for
+      this class; recorded at the floor per the same reasoning as the stars
+      and tropical-cyclones anchors, with the cascade phenomenon itself
+      captured instead under fractal_dimension_spatial/temporal_correlation/
+      emergent_phenomena.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Energy cascade
+    order_parameter: dissipation rate epsilon / spectral energy flux
+    note: qualitative-difference test — a single fluid parcel has no cascade.
+  - name: Coherent structures (puffs, vortex tubes)
+    order_parameter: puff count/density and lifetime statistics (transitional pipe flow)
+  - name: Laminar-turbulent transition
+    order_parameter: Reynolds number relative to Re_c (~2040, pipe flow) — a formally cited control parameter
+  - name: Intermittency
+    order_parameter: >
+      anomalous scaling exponents of higher-order velocity structure
+      functions vs. K41's linear prediction (She-Leveque 1994 lineage)
+      [unverified — model knowledge]; the field's own acknowledged open
+      anomaly, disclosed here rather than smoothed over.
+
+sources:
+  reynolds1883:
+    citation: "Reynolds, O. (1883). An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous. Phil. Trans. R. Soc. 174, 935-982. [unverified — model knowledge, standard citation confirmed via search but not fetched this session]"
+  kolmogorov1941a:
+    citation: "Kolmogorov, A.N. (1941). The local structure of turbulence in incompressible viscous fluid for very large Reynolds numbers. Dokl. Akad. Nauk SSSR 30, 301-305. English translation: Proc. R. Soc. Lond. A 434, 9-13 (1991). [unverified — model knowledge, standard citation confirmed via search, not primary-read this session]"
+  kolmogorov1941b:
+    citation: "Kolmogorov, A.N. (1941). Dissipation of energy in locally isotropic turbulence. Dokl. Akad. Nauk SSSR 32, 16-18. [unverified — model knowledge, confirmed via ADS/reference-list search, not fetched this session]"
+  frisch1995:
+    citation: "Frisch, U. (1995). Turbulence: The Legacy of A.N. Kolmogorov. Cambridge University Press. [unverified — model knowledge, standard monograph, not fetched this session]"
+  avila2011:
+    citation: "Avila, K., Moxey, D., de Lozar, A., Avila, M., Barkley, D. & Hof, B. (2011). The onset of turbulence in pipe flow. Science 333, 192-196. [snippet-verified via PubMed/arXiv/IOP secondary sources this session; not primary-read]"
+  lemoult2016:
+    citation: "Lemoult, G., Shi, L., Avila, K., Jalikop, S.V., Avila, M. & Hof, B. (2016). Directed percolation phase transition to sustained turbulence in Couette flow. Nature Physics 12, 254-258. [snippet-verified via multiple independent secondary sources (ISTA repository record, Nature Physics abstract mirror, Semantic Scholar) this session; nature.com full-text fetch blocked behind an auth redirect — NOT primary-read; DP critical exponent values not recovered]"
+  sanotamai2016:
+    citation: "Sano, M. & Tamai, K. (2016). A universal transition to turbulence in channel flow. Nature Physics 12, 249-253. [snippet-verified via search synthesis + Nature Physics abstract mirror this session; not primary-read]"
+  barkley2016:
+    citation: "Barkley, D. (2016). Theoretical framework for the laminar-turbulent transition in shear flows. J. Fluid Mech. [unverified — model knowledge; named in the sweep brief but not independently searched/confirmed this session]"
+  dp-review-2022:
+    citation: "Directed percolation and the transition to turbulence. Nature Reviews Physics (2022), s42254-022-00539-y. [existence and on-topic relevance confirmed via a single search hit this session; full text not fetched — same nature.com auth-wall issue as lemoult2016/sanotamai2016]"
+  sreenivasan1986:
+    citation: "Sreenivasan, K.R. & Meneveau, C. (1986). The fractal facets of turbulence. J. Fluid Mech. 173, 357-386 (developing turbulent boundary layer TNTI/scalar-interface fractal dimension lineage, D~2.35+/-0.05). [snippet-verified via search aggregation this session; not primary-read; neither this nor the D~1.3-1.4 alternative-convention figure was disambiguated to a single primary source]"
+  lovejoy1982:
+    citation: "Lovejoy, S. (1982). Area-perimeter relation for rain and cloud areas. Science 216, 185-187. [primary-read in full at the v0.2 sweep for tropical-cyclones (research/v0.2-sweep/verification-debt/tropical-cyclones.md, Item 1), via McGill GANG group eprints — REUSED here per the class-specific brief's toehold for the D=4/3~1.35 turbulent-isobar comparison figure the paper itself quotes; the D=4/3 turbulence claim is Lovejoy-quoted, not independently primary-read for turbulence itself]"
+  chaisson2011:
+    citation: "Chaisson, E. (2011). Energy Rate Density as a Complexity Metric and Evolutionary Driver. Complexity 16(3), 27. [primary-read in Phase 1 (research/phase1/quantitative-backbone.md) and re-confirmed at the v0.2 sweep (research/v0.2-sweep/verification-debt/chaisson-and-bvalue.md); used here only as the Phi_m-framework benchmark citation, not for a turbulence-specific figure]"
+  lorenz1963:
+    citation: "Lorenz, E.N. (1963). Deterministic nonperiodic flow. J. Atmos. Sci. 20, 130-141. [unverified — model knowledge; a convection model, not literally pipe/shear turbulence, but the founding strange-attractor low-dimensional-chaos paper the field traces its chaos_sensitivity lineage to; not fetched this session]"
+  ruelletakens1971:
+    citation: "Ruelle, D. & Takens, F. (1971). On the nature of turbulence. Commun. Math. Phys. 20, 167-192. [unverified — model knowledge; proposed the strange-attractor 'route to turbulence'; not fetched this session]"
+  gollubswinney1975:
+    citation: "Gollub, J.P. & Swinney, H.L. (1975). Onset of turbulence in a rotating fluid. Phys. Rev. Lett. 35, 927-930. [unverified — model knowledge; reported experimental confirmation of chaotic onset in Taylor-Couette flow; not fetched this session]"
+  waleffe1997:
+    citation: "Waleffe, F. (1997). On a self-sustaining process in shear flows. Phys. Fluids 9, 883-900. [unverified — model knowledge; standard citation for the streak-instability-roll self-sustaining-process (SSP) mechanism underlying transitional-turbulence regeneration; not fetched this session, added by the flag-fixer to ground the feedback column's sole scored loop]"
+
+provenance:
+  drafted_by: workflow-agent (2026-07-16)
+  verification:
+    citation_check: pending
+    plausibility_check: pending
+    consistency_check: pending
+    coverage_check: pending
+  fix_log:
+    - by: "orchestrator (cross-entry audit triage), 2026-07-16"
+      entries:
+        - "[FIX\\cross-audit] criticality: rescored 3 -> 2 and mechanism_status established -> proposed. The cross-entry audit found the 3 broke anchor ordering against earthquake-fault-systems' 2 (measured G-R statistics) on search-synthesis-only evidence plus a NEGATIVE heavy-tail result in this entry's own extreme_event_statistics. Not capped at 1 (mechanism-alone-caps-at-1) because the DP papers publish claimed scale-invariant event statistics for the scoped transition — the cap rule targets mechanism proposals with NO claimed event statistics of any kind. Read-status ceiling, not a physics judgment; primary-reading Lemoult 2016 or Sano & Tamai 2016 is the named upgrade path."
+    - by: "workflow-agent (flag-fixer), 2026-07-16"
+      entries:
+        - "[FIX/plausibility] energy_rate_density: converted ABL and wind-tunnel-grid epsilon detail figures from unconverted SI (m^2/s^3) to the declared panel unit erg s^-1 g^-1 (x1e4): ABL 1e-6..1e-2 m^2/s^3 -> 1e-2..1e2 erg s^-1 g^-1; grid 4.4e-7..0.40 m^2/s^3 -> 4.4e-3..4.0e3 erg s^-1 g^-1. Method field now states the conversion explicitly."
+        - "[FIX/plausibility] spatial_extent, chaos_sensitivity, fractal_dimension_spatial, tipping_transitions: reverted evidence_status from measured-untested to qualitative — measured-untested is scoped by panel-spec to unassessed CSN-grade power-law tail-testing rigor, not general citation read-status debt (which these columns already carry via [unverified — model knowledge]/snippet-verified source annotations)."
+        - "[BLOCKER/consistency] memory_hysteresis: rescored 1 -> 2. The justification's own cited evidence (Avila et al. 2011's laminar/turbulent coexistence basin at fixed Re depending on initial conditions) is genuine multi-stability matching anchor level 2 ('two different histories reaching the same macro-forcing produce measurably different states'), not level 1's 'no multi-stability' floor. Justification rewritten to match the assigned level and to explain why 3 was not chosen (basin is narrow, bounded near Re_c~2040)."
+        - "[FIX/consistency] feedback: removed 'forward energy cascade' from the scored loops list (it is a directional cross-scale transfer with no return path, failing the anchor's does_not_count test) and moved it to a new background_context field. Added waleffe1997 (Waleffe 1997, Phys. Fluids 9:883-900, self-sustaining-process mechanism) as the citation grounding the sole remaining scored loop (puff self-sustenance vs. decay); score of 2 and sources updated accordingly."
+        - "[FIX/consistency] robustness_resilience: added a sentence justifying the class-general (non-exemplar) scoping choice for this column specifically, per this column's stated exemplar-level default (D14), naming transitional pipe flow (Avila et al. 2011) as the exemplar of choice if a future rescore is done against the default."
+        - "[FIX/coverage] energy_rate_density: added a disambiguation clause to the method field distinguishing epsilon (local per-mass dissipation rate, W/kg) from weather-systems.yaml's own energy_rate_density value (areal atmospheric Lorenz-energy-cycle KE-dissipation flux, ~2.0-2.6 erg s^-1 g^-1), so the two entries' figures are not conflated."
+        - "[NOTE] Recorded six note-severity verifier findings (fractal_dimension_spatial x2, energy_rate_density, criticality, modularity, chaos_sensitivity) into provenance.flags per fixer instructions; no entry content changed for these."
+  flags:
+    - column: criticality
+      note: >
+        Single biggest verification debt of this draft — nature.com blocked
+        WebFetch behind an auth redirect this session, so the load-bearing DP
+        critical-exponent values (beta, nu_parallel, nu_perpendicular) for
+        Lemoult et al. 2016 and Sano & Tamai 2016 were never recovered; only
+        search-synthesis-level abstract characterization exists. Score of 3
+        (rather than a locked 4) reflects this gap; a full-text primary-read
+        pass on either paper should be the first verifier priority.
+    - column: chaos_sensitivity
+      note: >
+        Kolmogorov 1941 (both companion papers), Frisch 1995, Reynolds 1883,
+        Lorenz 1963, Ruelle & Takens 1971, and Gollub & Swinney 1975 remain
+        entirely [unverified — model knowledge] this session — none were
+        fetched (search budget went to the DP/criticality and epsilon
+        literature). These are the spine citations for the class's founding
+        claims and energy_rate_density's theoretical grounding; still need
+        primary or snippet-level fetches.
+    - column: fractal_dimension_spatial
+      note: >
+        Two distinct published figures exist (D~2.35 for scalar/TNTI
+        interfaces vs. D~1.3-1.4 for the TNTI contour in other studies) with
+        different measurands/embeddings; this draft could not fully
+        disambiguate which convention each cited lineage uses and records
+        both rather than silently merging them. Flagged for a verifier pass.
+    - column: fractal_dimension_spatial
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: Lovejoy 1982's D=1.35
+        rain/cloud-perimeter headline figure is solidly confirmed, but the
+        internal sentence connecting it to "4/3 (turbulent isobars)" was not
+        independently re-verified this session (relies on a prior v0.2
+        primary read, already disclosed). No action required beyond existing
+        disclosure; a future verifier could re-pull Lovejoy's full text.
+    - column: energy_rate_density
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: ABL and wind-tunnel-grid
+        epsilon ranges remain plausible but not pinned to a primary paper
+        (already flagged via verifier_flags on this column). Future verifier
+        pass could pin Lv et al. 2023 (GRL) for the ABL figure.
+    - column: fractal_dimension_spatial
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: text stated "D=4/3~1.35";
+        4/3 = 1.333..., which rounds to 1.33, not 1.35 — a minor arithmetic
+        imprecision not corrected in this pass (note-severity, not acted on
+        per fixer instructions); a future editing pass should change "~1.35"
+        to "~1.33".
+    - column: criticality
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: the DP-transition mechanism
+        claim (score 3) sits adjacent to the negative power-law finding in
+        extreme_event_statistics (Poisson-like puff lifetimes, Avila et al.
+        2011) and the disclosed tension in tipping_transitions between the
+        bistable-puff and continuous-DP-transition pictures. The three
+        columns cross-reference this tension implicitly rather than via one
+        explicit cross-reference line; left as-is (note-severity), flagged
+        for a future editing pass.
+    - column: modularity
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: justification calls
+        tropical-cyclones "the anchor" for the convective-cells/rainbands
+        score of 1, but tropical-cyclones is not among modularity.yaml's
+        worked anchors (only stars, river-networks, cities, the-internet,
+        power-grids, languages). The score and comparison are sound; this is
+        a labeling-precision issue only ("the tropical-cyclones entry's
+        score" rather than "the anchor's score"), left uncorrected in this
+        pass (note-severity).
+    - column: chaos_sensitivity
+      note: >
+        [flag-fixer, 2026-07-16] Verifier note: chemical-oscillators.yaml's
+        Swinney-group BZ chaos material shares provenance with this entry's
+        Gollub & Swinney 1975 Taylor-Couette citation; the sweep report
+        recommends coordinating the two entries' chaos columns as deliberate
+        cross-references. No cross-reference added in this pass
+        (note-severity, inter-entry coherence only, not a defect in this
+        entry alone).

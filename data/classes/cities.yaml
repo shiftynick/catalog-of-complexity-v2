@@ -65,11 +65,11 @@ summary: >
   a real sense, organs of the metropolis housing them.
 
 relations:
-  part_of: [global-economy]                 # unresolved -> roster expansion queue
+  part_of: [global-economy]                 # RESOLVED (v0.2 expansion batch 1): global-economy.yaml exists; its relations.contains lists [cities], reciprocal
   contains: [power-grids, financial-markets, road-traffic-systems, social-networks]
   # power-grids: resolved, reciprocal (power-grids.yaml part_of updated in same cleanup pass)
   # financial-markets: resolved, reciprocal (financial-markets.yaml part_of updated in same cleanup pass)
-  # road-traffic-systems: unresolved -> roster expansion queue
+  # road-traffic-systems: RESOLVED, reciprocal (v0.3 expansion batch 2, 2026-07-16): road-traffic-systems.yaml exists; its relations.part_of lists [cities]
   # social-networks: unresolved -> roster expansion queue
 
 attributes:

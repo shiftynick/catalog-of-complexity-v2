@@ -66,6 +66,7 @@ phenomena:
     confidence: medium
 
   - id: global-economy--firm-size-distribution
+    lineage: firm-size-zipf   # 2026-07-16: same phenomenon as firms--firm-size-distribution (same Axtell 2001 evidence base, parent/child scope) — count as ONE lineage in motif analysis, mirroring the tropical-cyclone-vortex-complex handling
     name: Firm-size distribution
     order_parameter: "Pareto/Zipf tail exponent alpha ~1.0 (U.S. firms, Axtell 2001) — class-level regularity in how economic activity distributes across firm sizes"
     substrate:

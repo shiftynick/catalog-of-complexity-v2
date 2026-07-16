@@ -1,0 +1,202 @@
+system: turbulent-flows
+phenomena:
+  - id: turbulent-flows--energy-cascade
+    name: Energy cascade
+    order_parameter: dissipation rate epsilon / spectral energy flux
+    substrate:
+      part_type: fluid parcels
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [nonlinear inertial (advective) coupling, momentum / pressure-gradient exchange, viscous dissipation]
+    novelty_kind: new-dynamics
+    onset: crossover-gradual
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: >
+        K41 theory (kolmogorov1941a, kolmogorov1941b; frisch1995 — all
+        [unverified — model knowledge] per the host's annotations):
+        E(k)=C*epsilon^(2/3)*k^(-5/3), quantitatively predictive for
+        low-order statistics but with intermittency (anomalous higher-order
+        structure-function scaling) as "the field's own acknowledged open
+        anomaly," per the host's emergence block (held at 3 pending its
+        resolution)
+    qualitative_difference: >
+      A single fluid parcel has no cascade (the host entry's own
+      qualitative-difference note): it merely exchanges momentum locally
+      and dissipates viscously. The cascade is a collective cross-scale
+      transfer process — energy injected at the integral scale is handed
+      down through a hierarchy of eddies spanning L/eta ~ Re^(3/4) and
+      dissipated at the Kolmogorov microscale — a multi-scale organized
+      process with no single-parcel or single-scale analogue.
+    justification: >
+      novelty_kind new-dynamics, with new-statistics the genuine and
+      explicitly named runner-up: the phenomenon named is the CASCADE — a
+      sustained collective transfer PROCESS whose order parameter (epsilon,
+      spectral flux) is a rate of the ongoing dynamics — matching
+      new-dynamics' collective-temporal-behavior test; the runner-up
+      new-statistics reading rests on the -5/3 spectrum being an
+      ensemble-statistical law no single realization exhibits, but that
+      spectrum is the cascade's SIGNATURE, and the host's interaction_
+      ontology names advective coupling as "the mechanistic engine of the
+      energy cascade" — a process, not a distribution. onset
+      crossover-gradual: given a turbulent flow, the inertial range opens
+      smoothly as scale separation L/eta ~ Re^(3/4) grows (host
+      spatial_extent detail); the sharp Re_c threshold belongs to the
+      laminar-turbulent transition, registered separately below, and the
+      host cites no distinct threshold for the cascade itself. persistence
+      sustained-while-driven: host openness_dissipation — remove injection
+      and the cascade decays within roughly one eddy-turnover time.
+    confidence: medium
+
+  - id: turbulent-flows--coherent-structures
+    name: Coherent structures (puffs, vortex tubes)
+    order_parameter: puff count/density and lifetime statistics (transitional pipe flow)
+    substrate:
+      part_type: fluid parcels
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [nonlinear inertial (advective) coupling, momentum / pressure-gradient exchange, viscous dissipation]
+    novelty_kind: new-entity
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Reynolds number, critical value Re_c ~ 2040 in pipe flow — the
+      balance point between puff decay and puff splitting — Avila et al.
+      2011, Science 333:192-196 (avila2011) [snippet-verified via
+      PubMed/arXiv/IOP secondary sources; not primary-read, per the host's
+      annotation]. Carried by the host's characteristic_timescales
+      (measured, medium confidence), feedback, tipping_transitions, and
+      memory_hysteresis blocks.
+    persistence: transient
+    effective_theory:
+      status: quantitative-predictive
+      theory: >
+        puff decay/splitting-time statistics (super-exponential scaling
+        with Re near Re_c, Poisson/memoryless — avila2011,
+        evidence_status measured) plus the self-sustaining-process (SSP)
+        regeneration mechanism (waleffe1997, [unverified — model
+        knowledge])
+    qualitative_difference: >
+      A single fluid parcel is featureless and interchangeable; a puff is
+      a localized, individuable patch of turbulence in a laminar
+      background that can be pointed at, counted (puff count/density is
+      the host's own order parameter), and tracked from birth through
+      decay or splitting — with measured lifetime statistics — none of
+      which is a property of any parcel or of the laminar flow around it.
+    justification: >
+      novelty_kind new-entity: puffs are the registry's textbook
+      point/count/track case — the entire Avila et al. 2011 measurement
+      program consists of tracking individual puffs' decay and splitting
+      events; vortex tubes pass the same test qualitatively. onset
+      threshold-bifurcation: Re_c ~ 2040 is an entry-cited, named control
+      parameter with a published critical value (avila2011), satisfying
+      the spec's requirement directly. persistence transient: individual
+      puffs form and dissolve on eddy-turnover timescales (host
+      modularity) with memoryless finite lifetimes even above Re_c; the
+      puff POPULATION is sustained-while-driven above Re_c (splitting
+      outpaces decay while the pressure gradient drives the flow), but the
+      named entities themselves are transient — recorded per the
+      tropical-cyclones rainbands precedent, with the population reading
+      preserved here rather than blended.
+    confidence: high
+
+  - id: turbulent-flows--laminar-turbulent-transition
+    name: Laminar-turbulent transition
+    order_parameter: "Reynolds number relative to Re_c (~2040, pipe flow) — a formally cited control parameter"
+    substrate:
+      part_type: fluid parcels
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [nonlinear inertial (advective) coupling, momentum / pressure-gradient exchange, viscous dissipation]
+    novelty_kind: new-dynamics
+    onset: threshold-bifurcation
+    onset_control_parameter: >
+      Reynolds number, Re_c ~ 2040 for pipe flow (avila2011,
+      [snippet-verified via PubMed/arXiv/IOP secondary sources; not
+      primary-read]); the same transition is claimed in the primary
+      literature to be a continuous directed-percolation-class critical
+      transition in Couette flow (lemoult2016) and channel flow
+      (sanotamai2016), both [snippet-verified; nature.com full text
+      blocked — DP critical exponent values not recovered, the host's
+      single biggest disclosed verification debt].
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: >
+        directed-percolation universality-class framework (lemoult2016,
+        sanotamai2016; dp-review-2022) — quantitative critical-exponent
+        claims exist in the primary literature but are unverified by this
+        project (mechanism_status: proposed in the host's criticality
+        block), and the host's tipping_transitions discloses an unresolved
+        framing tension between the discrete bistable-puff picture and the
+        continuous DP-transition picture as "the field's own open question"
+    qualitative_difference: >
+      A single fluid parcel has no Reynolds number and no flow regime;
+      the laminar-turbulent transition is a change in the collective
+      dynamical REGIME of the entire flow — from ordered laminar sliding to
+      the disordered multi-scale turbulent state — a whole-system
+      qualitative reorganization ("a genuine phase transition whose
+      critical exponents belong to the same universality class as forest
+      fires and epidemics," host summary) that exists only at the level of
+      the coupled flow.
+    justification: >
+      novelty_kind new-dynamics (runner-up new-statistics, for the DP
+      laminar-gap/cluster scale-invariant statistics at threshold): the
+      order parameter is which dynamical REGIME the flow occupies —
+      the spec's regime test for new-dynamics — while the DP statistics
+      are the transition's critical signature, unverified at exponent
+      level in this project's evidence base. onset threshold-bifurcation:
+      the host's own emergent_phenomena line calls Re_c "a formally cited
+      control parameter," with the published value Re_c ~ 2040 (avila2011).
+      persistence sustained-while-driven: the turbulent state above Re_c
+      persists only while driving (pressure gradient/stirring) continues —
+      dropping below Re_c through routine flow changes "destroys the
+      turbulent state outright" (host robustness_resilience).
+    confidence: medium
+
+  - id: turbulent-flows--intermittency
+    name: Intermittency
+    order_parameter: >
+      anomalous scaling exponents of higher-order velocity structure
+      functions vs. K41's linear prediction (She-Leveque 1994 lineage)
+      [unverified — model knowledge]; the field's own acknowledged open
+      anomaly, disclosed here rather than smoothed over.
+    substrate:
+      part_type: fluid parcels
+      count_oom: unknown
+      interchangeable: yes
+    generating_interactions: [nonlinear inertial (advective) coupling, viscous dissipation]
+    novelty_kind: new-statistics
+    onset: always-present-at-scale
+    persistence: sustained-while-driven
+    effective_theory:
+      status: quantitative-contested
+      theory: >
+        anomalous-scaling / intermittency-correction models (She-Leveque
+        1994 lineage, [unverified — model knowledge] per the host's own
+        order-parameter annotation) — the host's emergence block holds the
+        class at 3 explicitly "pending resolution of known anomalies
+        (intermittency)"
+    qualitative_difference: >
+      No single fluid parcel — and no single flow realization — exhibits a
+      structure-function scaling exponent: the anomalous exponents are
+      ensemble-statistical properties of velocity-increment distributions
+      across the cascade, whose systematic deviation from K41's linear
+      prediction reflects the collective spatial burstiness of dissipation
+      that only the statistics of many eddies across many scales reveal.
+    justification: >
+      novelty_kind new-statistics: the order parameter is a set of
+      distribution-shape exponents that no single realization exhibits —
+      the spec's new-statistics test verbatim; no runner-up is close
+      (there is no object, regime, or capability here). onset
+      always-present-at-scale: intermittency is a statistical regularity
+      of the developed cascade wherever the inertial range is wide enough
+      to measure structure functions — the spec's own "many
+      new-statistics items" case; the host entry offers no separate onset
+      claim for it, and the only citation lineage is [unverified — model
+      knowledge], so confidence is held low rather than reaching for a
+      threshold framing the entry does not carry. persistence
+      sustained-while-driven: it is a statistic of the driven cascade and
+      vanishes with it. effective_theory quantitative-contested: this is
+      the field's named open anomaly per the host's own disclosure.
+    confidence: low

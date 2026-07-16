@@ -1,0 +1,689 @@
+# ============================================================
+# Catalog of Complexity — Class Entry: convection-cells
+# v0.3 expansion batch. Resolves the merge/split question deferred to this
+# entry by tropical-cyclones.yaml (line 42) and stars.yaml (contains_note,
+# lines 57-80).
+# ============================================================
+id: convection-cells
+name: Convection cells (Rayleigh-Bénard)
+category: physical-chemical
+status: verified
+
+exemplars:
+  - id: rayleigh-benard-lab
+    name: Laboratory Rayleigh-Bénard convection
+    note: >
+      primary (and only scored) exemplar — the controlled-experiment
+      paradigm: a fluid layer heated uniformly from below and cooled from
+      above, confined between fixed-temperature boundaries, in the Bénard
+      1900 / Rayleigh 1916 / Chandrasekhar 1961 lineage. Comparative,
+      NOT-scored boundary cases named in the scoping note below.
+
+scoping_note: >
+  RESOLUTION OF THE DEFERRED MERGE/SPLIT QUESTION (per tropical-cyclones.yaml
+  line 42 and stars.yaml's contains_note, lines 57-80, both of which punted
+  this decision here): this entry is scoped to the IDEALIZED LABORATORY
+  Rayleigh-Bénard (RB) paradigm only — an incompressible (Boussinesq or
+  weakly non-Boussinesq) fluid layer of fixed depth, heated from below and
+  cooled from above at FIXED-TEMPERATURE boundaries, confined in a
+  finite-aspect-ratio vessel. The distinguishing, citable principle is
+  boundary conditions plus the Boussinesq approximation: the RB class is
+  defined by fixed-temperature top/bottom plates and a density field treated
+  as constant except in the buoyancy term. Three mechanistically continuous
+  but non-idealized sibling phenomena are named here and deliberately
+  EXCLUDED, remaining separate, unresolved roster-expansion-queue ids, per
+  the existing non-merge precedent set by both entries above: (1)
+  moist-convection-cells (atmospheric mesoscale cellular convection —
+  compressible, moisture/phase-change-coupled, radiatively and
+  surface-flux-driven, no fixed-temperature ceiling — named in
+  tropical-cyclones.yaml's component_ontology); and (2)
+  photospheric-convection-cells (solar granulation — compressible,
+  strongly stratified, radiatively cooled at a free upper boundary rather
+  than a cold plate — named in stars.yaml's contains_note); and (3)
+  Bénard-Marangoni convection (surface-tension-driven cellular convection at
+  a free liquid surface — shares the "Bénard" name with this entry's own
+  paradigm but is mechanistically distinct: pattern formation is driven by
+  surface-tension gradients along a free surface, not the Boussinesq
+  buoyancy term this entry is scoped to; no fixed-temperature-driven
+  buoyancy mechanism is involved). All three violate
+  the Boussinesq-plus-fixed-boundary definition that makes lab RB tractable
+  and commensurable across apparatus; this entry AFFIRMS the existing
+  split as the permanent structure rather than merging these under one
+  id. No relation edges are added to moist-convection-cells,
+  photospheric-convection-cells, or Bénard-Marangoni convection here — they
+  are relatives-by-mechanism, not
+  parts or containers of lab RB, and adding part_of/contains edges would
+  misrepresent a family resemblance as compositional structure. tropical-
+  cyclones.yaml and stars.yaml are NOT edited this batch (per task
+  instruction); both entries' cross-references to "Rayleigh-Bénard
+  convection-cells" as the distinguishing comparator remain accurate under
+  this resolution but should be flagged for a future consistency pass to
+  confirm they now point at a real (drafted) entry rather than a queue
+  placeholder. Atomicity per filling_rules.atomicity-convention: fluid
+  parcels at the continuum-mechanics scale (mirrors the tropical-cyclones
+  and weather-systems atomicity convention) — NOT molecules; the
+  characteristic RB dynamics (buoyant overturning, roll/hexagon pattern
+  selection) operate at the parcel/fluid-element scale. Scoring is
+  class-general; laboratory RB is treated as an unboundedly replicable
+  experimental class rather than a population of natural instances (see
+  instance_population).
+
+summary: >
+  Convection cells are the textbook demonstration that order can crystallize
+  out of nothing but a temperature difference. Heat a shallow layer of fluid
+  from below past a sharp threshold and it stops merely conducting heat and
+  starts organizing itself: rolls or hexagons of rising and sinking fluid
+  appear spontaneously, their size and shape set by the fluid's depth, not
+  by anything imposed from outside. Push the heating further and the neat
+  pattern itself goes unstable, breaking into a shifting tangle of spirals
+  and defects. Because the whole system — the onset threshold, the pattern
+  wavelength, the transition to chaos — reduces to a handful of dimensionless
+  numbers first written down over a century ago, Rayleigh-Bénard convection
+  has served ever since as physics' cleanest laboratory model of
+  self-organization, the pattern-formation field's equivalent of a hydrogen
+  atom.
+
+relations:
+  part_of: []
+  contains: []
+
+attributes:
+
+  # ---------- GROUP A — IDENTITY & SCALE ----------
+  spatial_extent:
+    type: quantitative
+    level: class-general
+    value: 1e-2
+    unit: m
+    method: >
+      Order of magnitude of the fluid-layer gap (the characteristic RB
+      length scale, against which Ra and the wavelength are nondimensionalized).
+    detail:
+      layer_gap: "~1-4 cm typical laboratory apparatus (examples: 3 cm gap/28 cm diameter; 3 cm gap, aspect ratio 10; 19.9 cm diameter x 40 cm height slender cell; 74 mm-diameter small cell)"
+      full_apparatus: "~1e-1 m order of magnitude for the vessel diameter in typical benchtop rigs"
+      large_facility: "Barrel of Ilmenau reaches Ra ~1e12 in a meters-scale vessel"
+    sources: [convection-sweep-v03]
+    evidence_status: measured
+    confidence: medium
+    note: apparatus-dependent range, not a single universal figure; recorded as a range per the sweep.
+  characteristic_timescales:
+    type: quantitative
+    level: class-general
+    timescales:
+      - {name: vertical thermal diffusion time (tau = h^2/kappa), value: "~1e2-1e3 s (water, h~1 cm, kappa~1.4e-7 m^2/s)", evidence_status: derived, sources: [convection-sweep-v03]}
+      - {name: convective turnover / free-fall time (turbulent regime), value: "~1 s or less at lab scale (U_f = sqrt(g*beta*Delta-T*h))", evidence_status: derived, sources: [convection-sweep-v03]}
+      - {name: system lifetime, value: "no natural lifespan — apparatus runs indefinitely while externally driven", evidence_status: qualitative}
+    note: >
+      tau=h^2/kappa is a project-derived order-of-magnitude estimate, not a
+      single published figure; it is fluid- and apparatus-dependent.
+  numerosity:
+    type: quantitative
+    level: class-general
+    value: "not a citable discrete count; continuum approximation"
+    evidence_status: unknown
+    note: >
+      Fluid parcels are a continuum, not independently countable. The more
+      natural discrete count — number of convection rolls across an
+      apparatus — is set by the critical wavenumber k_c~3.117 (aspect ratio
+      Gamma~10 gives O(10-20) rolls) but this is derived from k_c, not an
+      independently published count for a specific apparatus; left unknown
+      rather than stretched.
+  instance_population:
+    type: quantitative
+    level: class-general
+    value: "unbounded / not applicable by framing — an unboundedly replicable laboratory class, not a fixed natural population"
+    evidence_status: unknown
+    note: >
+      Unlike tropical-cyclones (~85 storms/yr) or other natural-instance
+      classes, an RB "instance" is one experimental cell/run under one
+      choice of boundary conditions and working fluid; there is no natural
+      standing count or formation rate to report. This is the catalog's
+      first pure-laboratory class on this axis.
+  component_ontology:
+    type: structured
+    level: class-general
+    parts:
+      - name: fluid parcels
+        count_oom: "continuum; not independently countable (see numerosity)"
+        interchangeable: yes
+        itself_complex: no
+    confidence: medium
+  energy_rate_density:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: erg s^-1 g^-1
+    evidence_status: unknown
+    note: >
+      No published system-specific Phi_m found in Chaisson's table or
+      elsewhere. A derivation (heat flux through the cell / fluid mass) is
+      in-principle possible but strongly apparatus- and fluid-dependent
+      (plate Delta-T, fluid choice, cell geometry all vary experiment to
+      experiment) with no single canonical figure to derive against, unlike
+      tropical-cyclones' circulation-volume convention. Per the
+      the-internet precedent (data/classes/the-internet.yaml), recorded as
+      unknown rather than forcing an arbitrary one-off derivation. Nearest
+      in-repo proxy (geosphere Fm=75 erg/s/g) is explicitly for a different
+      system and not used here.
+
+  # ---------- GROUP B — STRUCTURE ----------
+  interaction_topology:
+    type: categorical
+    level: class-general
+    value: field/continuum
+  interaction_ontology:
+    type: structured
+    level: class-general
+    types:
+      - name: buoyancy coupling
+        mechanism: temperature-dependent density variation coupling to the gravitational body force (the Boussinesq term)
+        participants: fluid parcels
+        range: local
+      - name: viscous momentum exchange
+        mechanism: fluid shear stress between adjacent parcels
+        participants: fluid parcels
+        range: local
+      - name: thermal diffusion
+        mechanism: heat conduction between adjacent fluid parcels and at the boundary plates
+        participants: fluid parcels <-> fixed-temperature boundary plates
+        range: local
+    type_count: 3
+    alphabet_closure: closed
+    justification: >
+      A single closed physical family, fixed entirely by the Boussinesq
+      Navier-Stokes/heat equations — buoyancy, viscous stress, and thermal
+      diffusion are the system's entire alphabet; no new interaction type
+      can arise. Matches the tropical-cyclones anchor's reasoning for the
+      canonical closed-alphabet case, with one fewer type (no separate
+      surface-flux or radiative-exchange channel — the fixed-temperature
+      plate boundary condition removes both).
+  degree_distribution:
+    type: quantitative
+    level: class-general
+    value: not-applicable
+    note: continuum system; no meaningful node-degree representation.
+  modularity:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      Individual rolls/hexagons give weak, gradational lateral structure
+      near onset (cells are distinguishable but strongly coupled through
+      the shared fluid layer and boundary conditions, with no insulated
+      partition between them); at higher Ra, spiral-defect chaos further
+      erodes any stable cell-to-cell partition. Comparable to the
+      tropical-cyclones anchor's score of 1 for convective cells/rainbands
+      (fuzzy, gradational, no stable preferred partition), scored via the
+      same reasoning rather than a dedicated convection-cells anchor.
+    evidence_status: qualitative
+  hierarchy_depth:
+    type: quantitative
+    level: class-general
+    value: 2
+    unit: organizational levels
+    method: >
+      Convention (declared per panel-spec, mirrors tropical-cyclones):
+      count aggregation levels above the atomic parts up to and including
+      the whole — fluid parcels (atoms) -> individual rolls/hexagonal cells
+      (1) -> whole-layer pattern / spatiotemporal-chaos regime (2). Shallower
+      than tropical-cyclones (3) because lab RB lacks an intermediate
+      rainband/eyewall-complex level of organization.
+    evidence_status: qualitative
+  fractal_dimension_spatial:
+    type: quantitative
+    level: class-general
+    value: unknown
+    unit: dimensionless (D)
+    evidence_status: unknown
+    note: >
+      Near-onset roll/hexagon patterns are regular and periodic (D=2,
+      trivial, not a genuine fractal-dimension question). At higher Ra,
+      spiral-defect chaos produces a disordered but not established-fractal
+      pattern; no study quantifying D for RB cell-boundary geometry
+      (analogous to the San Andreas trace or cloud-field studies) was
+      located in the sweep. Recorded unknown rather than guessed.
+  decentralization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      No component steers the others; roll/cell organization arises
+      entirely from local buoyancy-viscosity-diffusion interactions under a
+      uniform applied temperature gradient. Same reasoning as the
+      tropical-cyclones and stars anchors: nothing in the fluid layer
+      constitutes a controller whose removal would be "loss of control."
+    evidence_status: qualitative
+
+  # ---------- GROUP C — DYNAMICS ----------
+  nonlinearity:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Full Boussinesq Navier-Stokes dynamics; pattern selection near onset
+      is governed by nonlinear amplitude (Ginzburg-Landau-type) equations,
+      and the secondary transition to spiral-defect chaos is a genuinely
+      nonlinear spatiotemporal phenomenon. Nonlinearity is definitional to
+      both pattern selection and the chaotic regime, matching the
+      tropical-cyclones anchor's ceiling reasoning for a system where
+      nonlinear dynamics are central throughout.
+    evidence_status: qualitative
+  feedback:
+    type: rubric
+    level: class-general
+    score: 2
+    loops:
+      - {name: buoyancy-viscosity balance, sign: balancing, mechanism: "buoyant acceleration of a warm parcel is opposed by viscous drag, setting the onset threshold (Ra_c) and the saturated roll amplitude above it"}
+      - {name: thermal-boundary-layer relaxation, sign: balancing, mechanism: "convective overturning removes heat from the boundary layer faster than conduction alone, relaxing the local temperature gradient toward (but not to) the adiabatic value"}
+    justification: >
+      Genuine but comparatively simple feedback structure — the amplitude
+      equation itself is a balancing (saturating) feedback that sets the
+      finite roll amplitude above Ra_c — but there is no WISHE-style
+      self-reinforcing intensification loop as in tropical cyclones (score
+      4) nor NYSE-style multi-loop market feedback; closer to the stars
+      anchor's convective heat-transport loop (scored 2, "explain
+      long-term stability but are not the primary driver of the system's
+      most dramatic dynamics").
+    sources: [convection-sweep-v03]
+    evidence_status: qualitative
+  openness_dissipation:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      A canonical open dissipative system: continuously driven by an
+      externally imposed temperature difference across the plates and
+      continuously dissipating via viscous friction and thermal diffusion;
+      removing the temperature difference collapses the pattern to pure
+      conduction essentially instantly (no fixed-boundary energy source is
+      autonomous). Matches the tropical-cyclones anchor's textbook-4
+      reasoning: a driven-dissipative structure whose organization exists
+      only because of, and only for as long as, the throughput persists.
+    sources: [convection-sweep-v03]
+    evidence_status: qualitative
+  chaos_sensitivity:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Spiral-defect chaos (Morris, Bodenschatz, Cannell & Ahlers, PRL 71:2026,
+      1993) is a well-documented secondary transition to genuine
+      spatiotemporal chaos at Ra well above onset (large aspect ratio,
+      Prandtl number ~1) — a real, established chaotic regime, not a
+      metaphorical one. Scored below the tropical-cyclones ceiling (4)
+      because no specific Lyapunov exponent or predictability-horizon
+      figure for RB convection was located in this sweep to anchor a
+      quantitative value the way the ~2-week atmospheric predictability
+      limit does; near-onset behavior below the secondary transition is not
+      chaotic at all (clean, predictable bifurcation).
+    sources: [convection-sweep-v03]
+    evidence_status: qualitative
+  criticality:
+    type: hybrid
+    level: class-general
+    score: 0
+    mechanism_status: none
+    justification: >
+      Onset of convection is a clean, well-characterized SUPERCRITICAL
+      BIFURCATION at Ra_c, not criticality in the scale-invariant-event
+      sense this column measures — no scale-invariant event statistics are
+      reported or sought for lab RB. Peters & Neelin 2006 (Nature Physics,
+      finite-size-scaling critical exponent beta=0.215+-0.02, primary-read
+      at the v0.2 sweep per research/v0.2-sweep/verification-debt/
+      tropical-cyclones.md) explicitly concerns GENERAL moist atmospheric
+      convection/precipitation, not idealized laboratory RB, and does not
+      transfer to this entry — it is the reason moist-convection-cells
+      remains a separate scoping choice (see scoping_note). Matches the
+      tropical-cyclones anchor's floor reasoning after its own 2026-07-02
+      rescoring (1->0) on the identical no-storm-internal-heavy-tail
+      pattern.
+    evidence_status: qualitative
+  extreme_event_statistics:
+    type: quantitative
+    level: class-general
+    measurand_type: temporal-event
+    value: unknown
+    measurand: "no established discrete-event analogue (e.g. storm/quake/blackout size) exists for lab RB convection"
+    evidence_status: unknown
+    note: >
+      No tail-exponent literature located for RB convection events — the
+      classical lab paradigm has no discrete "events" comparable to
+      storms or earthquakes. Moist atmospheric convection does have such a
+      literature (Peters & Neelin 2006) but that concerns a scoped-out
+      sibling phenomenon (see scoping_note and criticality above), not this
+      entry. Recorded unknown rather than borrowing an out-of-scope figure.
+  temporal_correlation:
+    type: quantitative
+    level: class-general
+    value: unknown
+    note: >
+      No established measurand or published figure located for RB
+      convection specifically (candidate: autocorrelation of local
+      temperature/velocity fluctuations in the spiral-defect-chaos regime);
+      left unknown rather than stretched, pending a targeted search of the
+      spiral-defect-chaos dynamical-systems literature.
+  tipping_transitions:
+    type: hybrid
+    level: class-general
+    score: 2
+    justification: >
+      One formally modeled, well-characterized regime-shift mechanism:
+      the conduction-to-convection onset itself, a bifurcation at Ra_c with
+      a published threshold and (for the classical Boussinesq case) a
+      continuous, non-hysteretic transition. Matches the tropical-cyclones
+      anchor's level-2 reasoning (specific mechanism published, no
+      systematic tipping-element inventory). Genuine bistability/hysteresis
+      is a documented feature of subcritical/non-Boussinesq RB variants
+      (noted in the pattern-formation literature) but no specific citable
+      hysteresis-width figure was located in this sweep — flagged as a gap
+      rather than scored higher.
+    evidence_status: qualitative
+
+  # ---------- GROUP D — INFORMATION & MEMORY ----------
+  memory_hysteresis:
+    type: hybrid
+    level: class-general
+    score: 1
+    justification: >
+      For the classical supercritical (Boussinesq) case, pattern state is
+      essentially a function of the current control parameter (Ra) with
+      short relaxation lags (a few multiples of tau=h^2/kappa) and no
+      documented bistability at fixed Ra; pattern SELECTION among
+      degenerate orientations (roll direction, defect placement) can retain
+      weak history-dependence but this is not a citable hysteresis loop in
+      the sweep's findings. Subcritical/non-Boussinesq variants are
+      documented to show genuine hysteresis but no specific figure was
+      located. Matches the stars anchor in schema/anchors/memory_hysteresis.yaml
+      (score 1: "relaxation lag... but no bistability, no hysteresis loop, and
+      no scenario where two different pasts converge to the same
+      [state]... yield different present structures"); tropical-cyclones.yaml
+      carries an equivalent score for the same class of reasoning but is a
+      sibling class entry, not itself a schema anchor for this column.
+    evidence_status: qualitative
+  information_processing:
+    type: rubric
+    level: class-general
+    score: 1
+    justification: >
+      The onset threshold (Ra_c) is a discrete physical trigger — the
+      system's output (conducting vs. convecting) changes discontinuously
+      once Ra crosses a fixed critical value — but there is no channel
+      carrying a signal distinguishable from the triggering physical
+      quantity itself, no storage-and-later-use of what was "detected," and
+      no combination of multiple inputs into a representation.
+      information_processing.yaml's own scale text names "a critical
+      Rayleigh number" as the canonical example of level-1 (threshold-
+      triggered response), not level 0; the earlier score-0 justification
+      inverted this. Modeled on the earthquake-fault-systems anchor (score
+      1: rate-and-state friction threshold, "a discrete trigger/comparison
+      against a reference value," structurally identical to Ra vs. Ra_c),
+      not the stars anchor (score 0: pure forced physical response with no
+      threshold structure at all — the Sun has no comparable bifurcation).
+    sources: []
+    evidence_status: qualitative
+
+  # ---------- GROUP E — ADAPTATION ----------
+  adaptive_capacity:
+    type: rubric
+    level: class-general
+    score: 0
+    justification: >
+      Fluid parcels obey fixed physics; no component modifies its response
+      function in light of history or environment. Together with high
+      self-organization and decentralization scores, this is the archetypal
+      complex-physical (non-CAS) profile, matching the Sun/tropical-cyclones
+      anchor precedent exactly.
+    evidence_status: qualitative
+  variation_selection:
+    type: categorical
+    level: class-general
+    value: absent
+    justification: no variation-selection-retention dynamics among fluid parcels.
+
+  # ---------- GROUP F — EMERGENCE & ROBUSTNESS ----------
+  emergence:
+    type: rubric
+    level: class-general
+    score: 3
+    justification: >
+      Per this class's own worked anchor (schema/anchors/emergence.yaml,
+      lines 105-126): Rayleigh-Bénard convection is a canonical, textbook
+      case of weak emergence with a well-defined order parameter (Ra
+      sets a sharp bifurcation at Ra_c~1708 for rigid-rigid boundaries
+      between conductive and convective regimes), described via
+      pattern-formation/amplitude-equation (Ginzburg-Landau-type) language
+      that is standard, predictive, and not a mere restatement of the
+      underlying Navier-Stokes/heat-equation micro-dynamics. Scored 3
+      rather than 4 because it is a single, well-characterized order
+      parameter for a comparatively simple, idealized system, per the
+      anchor's own reasoning.
+    sources: [chandrasekhar1961, rayleigh1916]
+    evidence_status: qualitative
+  self_organization:
+    type: rubric
+    level: class-general
+    score: 4
+    justification: >
+      Per the tropical-cyclones anchor in schema/anchors/self_organization.yaml
+      (lines 21-30, score 4: "assemble spontaneously from moist convection
+      under rotation and surface fluxes; nothing specifies the form in
+      advance. A canonical dissipative structure."): the roll/hexagon
+      pattern assembles spontaneously from a uniform applied temperature
+      gradient; nothing specifies the pattern's form in advance — the
+      thermal gradient is forcing, not templating. Canonical dissipative
+      structure, the textbook example the field is named after. (Corrected
+      2026-07-16: the earlier citation to a "stars entry" at these line
+      numbers was wrong — self_organization.yaml has no stars anchor at
+      all; lines 21-30 are the tropical-cyclones anchor.)
+    evidence_status: qualitative
+  robustness_resilience:
+    type: rubric
+    level: exemplar(rayleigh-benard-lab)
+    score: 1
+    justification: >
+      Organization is maintained only within a narrow control-parameter
+      envelope: reducing Ra below Ra_c collapses the pattern to pure
+      conduction (no macro-structure at all), and increasing Ra past the
+      spiral-defect-chaos transition destroys the ordered roll/hexagon
+      pattern in favor of spatiotemporal chaos. Comparable to the
+      tropical-cyclones anchor's score of 1 for Katrina (organization
+      maintained only within a narrow environmental envelope); class-level
+      persistence ("convection keeps reforming when reheated") is
+      deliberately not credited, per the same anchor's does_not_count
+      reasoning.
+    evidence_status: qualitative
+  cascade_susceptibility:
+    type: hybrid
+    level: class-general
+    score: 0
+    justification: >
+      No component-to-component failure propagation exists in a continuum
+      fluid layer: the transition to spiral-defect chaos is a
+      reorganization of a continuum flow, not a failure cascade through
+      coupled discrete components. Same floor-anchor reasoning as stars
+      and tropical-cyclones in cascade_susceptibility.yaml.
+    evidence_status: qualitative
+
+emergent_phenomena:
+  - name: Convection rolls / hexagonal cells
+    order_parameter: "pattern amplitude near onset (Ginzburg-Landau-type order parameter); roll/cell wavelength (2*pi/k_c)"
+  - name: Spiral-defect chaos
+    order_parameter: "defect density / correlation length in the spatiotemporal-chaos regime (no single scalar order parameter established)"
+  - name: Turbulent heat-transport regime (high Ra)
+    order_parameter: "Nusselt number Nu (dimensionless heat flux) as a function of Ra and Pr"
+
+sources:
+  chandrasekhar1961:
+    citation: >
+      Chandrasekhar, S. (1961). Hydrodynamic and Hydromagnetic Stability.
+      Oxford: Clarendon Press. Standard source for Ra_c = 1707.762
+      (rigid-rigid boundaries), Ra_c ~= 1100.65 (rigid-free), and critical
+      wavenumber k_c ~= 3.117. [unverified — model knowledge / multiply
+      snippet-corroborated (including a snippet explicitly stating
+      "Rc=1707.762" tied to Pellew & Southwell 1940); NOT primary-read this
+      sweep. Citation debt from the sweep report
+      (research/v0.3/expansion/convection-cells-sources.md) is corroborated
+      by independent secondary snippets but not fully discharged — a
+      genuine primary-read pass of Chandrasekhar 1961 SS II (or Pellew &
+      Southwell 1940 directly) is recommended as follow-up.]
+  pellew-southwell1940:
+    citation: >
+      Pellew, A. & Southwell, R.V. (1940). On maintained convective motion
+      in a fluid heated from below. Proc. R. Soc. Lond. A 176, 312-343.
+      [unverified — model knowledge / snippet-attributed as the original
+      rigorous solution underlying Chandrasekhar's Ra_c=1707.762 figure;
+      NOT primary-read.]
+  rayleigh1916:
+    citation: >
+      Rayleigh, Lord (J.W. Strutt) (1916). On convection currents in a
+      horizontal layer of fluid, when the higher temperature is on the
+      under side. Phil. Mag. 32, 529-546. Founding theoretical paper;
+      closed-form free-free Ra_c = 27*pi^4/4 ~= 657.51. [unverified — model
+      knowledge; NOT primary-read.]
+  cross-hohenberg1993:
+    citation: >
+      Cross, M.C. & Hohenberg, P.C. (1993). Pattern formation outside of
+      equilibrium. Rev. Mod. Phys. 65, 851-1112. doi:10.1103/RevModPhys.65.851.
+      Canonical pattern-formation review (amplitude equations, pattern
+      selection/Busse balloon, all three boundary-condition Ra_c values).
+      [unverified — model knowledge / title+one-value (free-free Ra_c)
+      snippet-verified via WebSearch; NOT primary-read.]
+  grossmann-lohse2000:
+    citation: >
+      Grossmann, S. & Lohse, D. (2000). Scaling in thermal convection: a
+      unifying theory. J. Fluid Mech. 407, 27-56. [unverified — model
+      knowledge, title/venue snippet-verified via WebSearch; NOT
+      primary-read.]
+  ahlers-grossmann-lohse2009:
+    citation: >
+      Ahlers, G., Grossmann, S. & Lohse, D. (2009). Heat transfer and large
+      scale dynamics in turbulent Rayleigh-Bénard convection. Rev. Mod.
+      Phys. 81, 503-538. [unverified — model knowledge, title/venue/DOI-page
+      snippet-verified via APS link; NOT primary-read.]
+  morris-bodenschatz-cannell-ahlers1993:
+    citation: >
+      Morris, S.W., Bodenschatz, E., Cannell, D.S. & Ahlers, G. (1993).
+      Spiral defect chaos in large aspect ratio Rayleigh-Bénard convection.
+      Phys. Rev. Lett. 71, 2026-2029. [unverified — model knowledge,
+      title/venue snippet-verified via WebSearch/Semantic Scholar/APS;
+      NOT primary-read.]
+  convection-sweep-v03:
+    citation: >
+      Project quantitative sweep, v0.3 expansion batch:
+      research/v0.3/expansion/convection-cells-sources.md (2026-07-16).
+      Aggregates the above snippet-verified secondary sources and this
+      project's own derived order-of-magnitude estimates (thermal diffusion
+      time, roll count from k_c). [project-internal working document, not
+      an independent citation.]
+
+provenance:
+  drafted_by: workflow-agent (2026-07-16)
+  verification:
+    citation_check: pending
+    plausibility_check: pending
+    consistency_check: pending
+    coverage_check: pending
+  fix_log:
+    - by: "workflow-agent (flag-fixer), 2026-07-16"
+      entries:
+        - "[FIX/citation] sources.ahlers-grossmann-lohse2009: corrected page range 503-537 -> 503-538 (every independent source found, incl. Twente research portal and APS's own RMP 81(2) issue page, gives 503-538; no source supports 537)."
+        - "[FIX/consistency] information_processing: rescored 0 -> 1. The prior score-0 justification quoted information_processing.yaml's own scale text (\"a critical Rayleigh number\") as evidence for a 0, but that exact language is the scale's canonical example of level 1 (threshold-triggered response), inverting the anchor's meaning. Rewritten to model the earthquake-fault-systems anchor (score 1, rate-and-state friction threshold — the correct structural analogue), not the stars anchor (score 0, no threshold structure at all)."
+        - "[FIX/consistency] self_organization: corrected the anchor citation from a nonexistent \"stars entry at self_organization.yaml lines ~27-29\" to the real anchor at those lines, which is tropical-cyclones (self_organization.yaml has no stars anchor at all). Score of 4 unchanged (independently well-supported)."
+        - "[FIX/plausibility] self_organization: same citation correction as above (the plausibility and consistency verifiers flagged the identical false citation)."
+        - "[FIX/consistency] memory_hysteresis: corrected the anchor citation from \"the tropical-cyclones anchor's level-1 reasoning\" (tropical-cyclones is not an anchor in memory_hysteresis.yaml) to the real anchor, stars (score 1, \"relaxation lag... but no bistability, no hysteresis loop\"); tropical-cyclones.yaml's matching score is now cited as corroborating sibling-entry evidence, not as the anchor. Score of 1 unchanged."
+        - "[FIX/consistency] robustness_resilience: retagged level from class-general to exemplar(rayleigh-benard-lab), per robustness_resilience.yaml's does_not_count block stating exemplar-level scoring is this column's default (D14) specifically so class-level persistence isn't credited as robustness — the entry's own justification already argued on exemplar-level grounds while the level tag said class-general. Score of 1 unchanged."
+        - "[FIX/coverage] scoping_note: added Bénard-Marangoni convection as a third named, excluded boundary case (surface-tension-driven, free-surface convection sharing the \"Bénard\" name but not the Boussinesq-buoyancy/fixed-temperature-boundary mechanism this entry is scoped to), correcting \"Two mechanistically continuous... sibling phenomena\" to \"Three\" and updating the subsequent relation-edge sentence to name all three excluded ids."
+  flags:
+    - column: sources (all)
+      note: >
+        Every quantitative-physics citation in this entry (Chandrasekhar
+        1961, Pellew & Southwell 1940, Rayleigh 1916, Cross & Hohenberg
+        1993, Grossmann & Lohse 2000, Ahlers/Grossmann/Lohse 2009, Morris
+        et al. 1993) is snippet-verified or model-knowledge at best — NONE
+        was primary-read this sweep. Ra_c=1707.762 (rigid-rigid) is the
+        highest-priority primary-read target (recommend fetching
+        Chandrasekhar 1961 SS II or Pellew & Southwell 1940 directly, or
+        Cross & Hohenberg 1993 SS II.B which restates all three
+        boundary-condition values together).
+    - column: extreme_event_statistics / fractal_dimension_spatial / energy_rate_density / temporal_correlation
+      note: >
+        All four recorded unknown after an active, documented search
+        (research/v0.3/expansion/convection-cells-sources.md sections 5-7)
+        rather than as unexamined gaps — no published figures were located
+        for lab RB convection specifically on any of these four columns.
+    - column: scoping_note (cross-reference staleness)
+      note: >
+        tropical-cyclones.yaml (line 42, "distinct from Rayleigh-Benard
+        convection-cells") and stars.yaml (contains_note, lines 57-80,
+        deferring this exact merge/split question) both reference this
+        entry by name; per task instruction neither was edited this batch.
+        Flagged for a future consistency pass to confirm both
+        cross-references now resolve to a real drafted entry rather than a
+        queue placeholder, and that no relation edges are expected back
+        (this entry intentionally adds none to either).
+    - column: tipping_transitions / memory_hysteresis
+      note: >
+        Genuine hysteresis/bistability in subcritical or non-Boussinesq RB
+        variants is mentioned in the pattern-formation literature but no
+        specific citable hysteresis-width figure was located in this
+        sweep; both columns record the gap explicitly rather than guessing
+        a value.
+    - column: Nu-Ra scaling (context, not a dedicated column)
+      note: >
+        The classical Nu~Ra^(1/3) "1/3 law" is real but the
+        Grossmann-Lohse unifying theory gives a regime-dependent, piecewise
+        exponent (~0.28-0.31 classically, trending toward ~1/2 in the
+        hypothesized ultimate regime at very high Ra) — not recorded as a
+        single column value anywhere in this entry to avoid overclaiming
+        one universal exponent; mentioned here for completeness since it
+        does not map cleanly onto any one panel column.
+    - column: sources (all, general) [note, flag-fixer 2026-07-16]
+      note: >
+        Cross-check confirmed no misattribution/fabrication in Cross &
+        Hohenberg 1993, Grossmann & Lohse 2000 (title-discrepancy false
+        alarm resolved via publisher page), Morris et al. 1993, Rayleigh
+        1916, and Pellew & Southwell 1940 (Royal Society DOI page). Existing
+        citation-debt flag recommending a primary read of Chandrasekhar 1961
+        / Pellew & Southwell 1940 for Ra_c=1707.762 remains the correct
+        highest-priority follow-up.
+    - column: criticality / extreme_event_statistics [note, flag-fixer 2026-07-16]
+      note: >
+        Confirmed correct: this entry rightly declines to apply Peters &
+        Neelin 2006 (moist atmospheric convection, not idealized lab RB) —
+        scoping decision not contradicted by anything found in this check.
+    - column: numerosity (illustrative roll-count derivation) [note, flag-fixer 2026-07-16]
+      note: >
+        The "O(10-20) rolls" illustration for Gamma~10 is ~2x generous
+        versus a direct re-derivation from k_c~3.117 (~10 rolls, not
+        10-20). Non-blocking since the underlying numerosity column value
+        is correctly left unknown; left as-is pending an optional future
+        tightening of the illustrative note text.
+    - column: "modularity / decentralization / tipping_transitions / memory_hysteresis / cascade_susceptibility / adaptive_capacity / cascade_susceptibility [note, flag-fixer 2026-07-16]"
+      note: >
+        Recurring terminology pattern, catalog-wide and pre-existing: these
+        columns (and others) say "matches the tropical-cyclones anchor"
+        informally, meaning tropical-cyclones.yaml's own scoring (a sibling
+        class entry), not a worked entry inside the actual
+        schema/anchors/*.yaml file (only "stars" is worked there in each of
+        these columns). Scores are not wrong — spot-checked against
+        tropical-cyclones.yaml directly and the reasoning matches — but the
+        anchor attribution overstates its authority. Recorded here as an
+        optional cross-entry consistency follow-up rather than fixed
+        line-by-line in this pass (would require touching many columns for
+        a wording-precision issue with no score impact; two columns where a
+        verifier flagged this as blocking self_organization and
+        memory_hysteresis were corrected directly above).
+    - column: chaos_sensitivity [note, flag-fixer 2026-07-16]
+      note: >
+        Score 3 is well-supported and correctly cites the real
+        tropical-cyclones ceiling anchor; rests in part on Morris et al.
+        1993 (snippet-verified/model-knowledge, not primary-read), already
+        tracked as a citation-debt item above. No consistency-check action
+        needed.
+    - column: component_ontology confidence field [note, flag-fixer 2026-07-16]
+      note: >
+        confidence: medium is present on component_ontology but on no other
+        structured/rubric/hybrid attribute in this entry. Not
+        panel-spec-mandated, so no action taken; worth a cross-entry
+        consistency check if other v0.3 entries populate confidence more
+        uniformly.
